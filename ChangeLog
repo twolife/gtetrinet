@@ -1,5 +1,9 @@
 2003-01-06  Jordi Mallach  <jordi@sindominio.net>
 
+	* configure.in (AC_OUTPUT): add gtetrient.desktop.
+
+2003-01-06  Jordi Mallach  <jordi@sindominio.net>
+
 	* Makefile.am: add intltool support.
 	* configure.in: likewise.
 	* gtetrinet.desktop.in: new, generated from gtetrinet.desktop.
