@@ -16,5 +16,7 @@ void preferences_command (void);
 void about_command (void);
 void show_start_button (void);
 void show_stop_button (void);
+void show_connect_button (void);
+void show_disconnect_button (void);
 
 void commands_checkstate (void);

@@ -187,6 +187,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         up_chan_list_source = g_timeout_add (30000, (GSourceFunc) partyline_update_channel_list, NULL);
         partyline_joining_channel ("");
         show_start_button ();
+        show_disconnect_button ();
         break;
     case IN_DISCONNECT:
         if (!connected) {
@@ -214,6 +215,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                        TETRI_TB_C_DARK_GREEN, TETRI_TB_BOLD);
         partyline_clear_list_channel ();
         partyline_joining_channel (NULL);
+        show_connect_button ();
         break;
     case IN_CONNECTERROR:
     connecterror:
@@ -231,6 +233,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             gtk_dialog_run (GTK_DIALOG(dialog));
             gtk_widget_destroy (dialog);
             g_free (data_utf8);
+            show_connect_button ();
         }
         break;
     case IN_PLAYERNUM:

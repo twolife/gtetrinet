@@ -114,6 +114,7 @@ void make_menus (GnomeApp *app)
 
   gnome_app_create_toolbar (app, toolbar);
   gtk_widget_hide (toolbar[4].widget);
+  gtk_widget_hide (toolbar[1].widget);
 }
 
 /* callbacks */
@@ -146,6 +147,18 @@ void start_command (void)
   
   g_snprintf (buf, sizeof(buf), "%i %i", 1, playernum);
   client_outmessage (OUT_STARTGAME, buf);
+}
+
+void show_connect_button (void)
+{
+  gtk_widget_hide (toolbar[1].widget);
+  gtk_widget_show (toolbar[0].widget);
+}
+
+void show_disconnect_button (void)
+{
+  gtk_widget_hide (toolbar[0].widget);
+  gtk_widget_show (toolbar[1].widget);
 }
 
 void show_stop_button (void)
