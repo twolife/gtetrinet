@@ -1,3 +1,7 @@
+2003-06-05  Dani Carbonell  <bocata@panete.net>
+
+	* src/partyline.c (textentry): Show the /msgs commands in the partyline.
+
 2003-06-05  Abel Cheung  <maddog@linux.org.hk>
 
 	* configure.in: Added "zh_TW" to ALL_LINGUAS.

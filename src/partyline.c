@@ -233,7 +233,7 @@ void partyline_status (char *status)
     gtk_label_set_text (GTK_LABEL(infolabel), status);
 }
 
-void partyline_text (char *text)
+void partyline_text (const gchar *text)
 {
     if (timestampsenable) {
         time_t now;
@@ -329,7 +329,7 @@ void textentry (GtkWidget *widget)
 
     if (strlen(text) == 0) return;
 
-    if (!strncmp("/list", text, strlen("/list")))
+    if (g_str_has_prefix(text, "/list"))
       stop_list(); /* Parsing can't be perfect,
                       so make sure they can do it by hand... */
     
@@ -337,8 +337,13 @@ void textentry (GtkWidget *widget)
     iso_text = g_locale_from_utf8 (text, -1, NULL, NULL, NULL);
 
 	/* FIXME : if there is an error while converting from UTF8 to current locale, we ignore the message */
-	if (iso_text == NULL) return;
+    if (iso_text == NULL)
+      return;
 
+    // Show the command if it's a /msg
+    if (g_str_has_prefix (text, "/msg"))
+      partyline_text (text);
+    
     tetrinet_playerline (iso_text);
     GTET_O_STRCPY (plhistory[plh_end], iso_text);
     gtk_entry_set_text (GTK_ENTRY(widget), "");
