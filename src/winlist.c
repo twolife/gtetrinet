@@ -41,6 +41,7 @@ GtkWidget *winlist_page_new (void)
 
     winlist = gtk_tree_view_new_with_model (GTK_TREE_MODEL (winlist_store));
 
+    /* "T" stands for "Team" here */
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("T"), renderer,
                                                  "text", 0, NULL);
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("Name"), renderer,

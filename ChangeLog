@@ -1,3 +1,7 @@
+2003-02-02  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/winlist.c: add a requested translation tip.
+
 2003-02-01  Jordi Mallach  <jordi@sindominio.net>
 
 	* configure.in: check for and export GCONFTOOL.
