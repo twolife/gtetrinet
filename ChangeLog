@@ -1,3 +1,7 @@
+2004-02-07  Robert Sedak  <robert.sedak@sk.htnet.hr>
+
+        * configure.in: Added "hr" (Croatian) to ALL_LINGUAS.
+
 2003-10-05  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS: Update for 0.7.5.
