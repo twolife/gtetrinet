@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtetrinet 0.7.2\n"
+"Project-Id-Version: gtetrinet 0.7.4\n"
 "POT-Creation-Date: 2003-06-06 13:05+0200\n"
-"PO-Revision-Date: 2003-06-06 13:10+0200\n"
+"PO-Revision-Date: 2003-08-26 18:24+0200\n"
 "Last-Translator: Jordi Mallach <jordi@sindominio.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -133,7 +133,7 @@ msgstr "Web de GTetrinet"
 
 #: src/config.c:134
 msgid "Warning: theme does not have a name, reverting to default."
-msgstr "Avís: el tema no te un nom, s'usarà el predeterminat."
+msgstr "Avís: el tema no té un nom, s'utilitzarà el predeterminat."
 
 #. make dialog that asks for address/nickname
 #: src/dialogs.c:85 src/dialogs.c:333 src/gtetrinet.c:77
@@ -179,7 +179,7 @@ msgstr "Co_ntrasenya:"
 
 #: src/dialogs.c:412
 msgid "Spectate game"
-msgstr "Espectar el joc"
+msgstr "Visualitza el joc"
 
 #: src/dialogs.c:421
 msgid "_Nick name:"
@@ -227,7 +227,7 @@ msgstr "Descarta especial"
 
 #: src/dialogs.c:551
 msgid "Send message"
-msgstr "Envia missatge"
+msgstr "Envia un missatge"
 
 #: src/dialogs.c:552
 msgid "Special to field 1"
