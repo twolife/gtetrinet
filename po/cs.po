@@ -1,14 +1,17 @@
 # Translation of gtetrinet to Czech
 # This file is distributed under the same license as the gtetrinet package.
 # Copyright (C) 2003 Free Software Foundation
+# Copyright (C) 2004 gtetrinet's COPYRIGHT HOLDER
+# Copyright (C) 2004 Miloslav Trmac <mitr@volny.cz>
 # Michal Bukovjan <bukm@centrum.cz>, 2003
+# Miloslav Trmac <mitr@volny.cz>, 2004
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-06-26 21:14+0200\n"
-"PO-Revision-Date: 2003-06-27 18:01+0200\n"
+"POT-Creation-Date: 2004-04-13 03:54+0200\n"
+"PO-Revision-Date: 2004-04-13 13:46+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -120,10 +123,6 @@ msgstr "Nepřipojen"
 msgid "translator_credits"
 msgstr "Michal Bukovjan <bukm@centrum.cz>"
 
-#: src/commands.c:292
-msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
-msgstr "©1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
-
 #: src/commands.c:293
 msgid "A Tetrinet client for GNOME.\n"
 msgstr "Klient hry Tetrinet pro GNOME.\n"
@@ -132,12 +131,12 @@ msgstr "Klient hry Tetrinet pro GNOME.\n"
 msgid "GTetrinet Home Page"
 msgstr "Domovská stránka GTetrinet"
 
-#: src/config.c:134
+#: src/config.c:140
 msgid "Warning: theme does not have a name, reverting to default."
 msgstr "Varování: téma nemá název, vracím se zpět k výchozímu."
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:85 src/dialogs.c:333 src/gtetrinet.c:77
+#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
 msgid "Connect to server"
 msgstr "Připojit se k serveru"
 
@@ -145,125 +144,125 @@ msgstr "Připojit se k serveru"
 msgid "Team name:"
 msgstr "Název týmu:"
 
-#: src/dialogs.c:213
+#: src/dialogs.c:215
 msgid "You must specify a server name."
 msgstr "Musíte zadat název serveru."
 
-#: src/dialogs.c:230
+#: src/dialogs.c:232
 msgid "Please specify a password to connect as spectator."
 msgstr "Zadejte prosím heslo pro připojení se jako divák."
 
-#: src/dialogs.c:256
+#: src/dialogs.c:258
 msgid "Please specify a valid nickname."
 msgstr "Zadejte prosím platnou přezdívku."
 
 #. game type radio buttons
-#: src/dialogs.c:360
+#: src/dialogs.c:364
 msgid "O_riginal"
 msgstr "_Původní"
 
-#: src/dialogs.c:362
+#: src/dialogs.c:366
 msgid "Tetri_Fast"
 msgstr "Tetri_Fast"
 
-#: src/dialogs.c:384
+#: src/dialogs.c:388
 msgid "Server address"
 msgstr "Adresa serveru"
 
-#: src/dialogs.c:393
+#: src/dialogs.c:397
 msgid "Connect as a _spectator"
 msgstr "Připojit se jako _divák"
 
-#: src/dialogs.c:397
+#: src/dialogs.c:401
 msgid "_Password:"
 msgstr "_Heslo:"
 
-#: src/dialogs.c:412
+#: src/dialogs.c:418
 msgid "Spectate game"
 msgstr "Dívat se na hru"
 
-#: src/dialogs.c:421
+#: src/dialogs.c:427
 msgid "_Nick name:"
 msgstr "_Přezdívka:"
 
-#: src/dialogs.c:434
+#: src/dialogs.c:442
 msgid "_Team name:"
 msgstr "Název _týmu:"
 
-#: src/dialogs.c:452
+#: src/dialogs.c:462
 msgid "Player information"
 msgstr "Informace o hráči"
 
-#: src/dialogs.c:493
+#: src/dialogs.c:503
 msgid "Change Key"
 msgstr "Změnit klávesu"
 
-#: src/dialogs.c:544
+#: src/dialogs.c:554
 msgid "Move right"
 msgstr "Posun doprava"
 
-#: src/dialogs.c:545
+#: src/dialogs.c:555
 msgid "Move left"
 msgstr "Posun doleva"
 
-#: src/dialogs.c:546
+#: src/dialogs.c:556
 msgid "Move down"
 msgstr "Posun dolů"
 
-#: src/dialogs.c:547
+#: src/dialogs.c:557
 msgid "Rotate right"
 msgstr "Rotace doprava"
 
-#: src/dialogs.c:548
+#: src/dialogs.c:558
 msgid "Rotate left"
 msgstr "Rotace doleva"
 
-#: src/dialogs.c:549
+#: src/dialogs.c:559
 msgid "Drop piece"
 msgstr "Položení kousku"
 
-#: src/dialogs.c:550
+#: src/dialogs.c:560
 msgid "Discard special"
 msgstr "Vyřazení speciální"
 
-#: src/dialogs.c:551
+#: src/dialogs.c:561
 msgid "Send message"
 msgstr "Poslání zprávy"
 
-#: src/dialogs.c:552
+#: src/dialogs.c:562
 msgid "Special to field 1"
 msgstr "Specialitu do pole 1"
 
-#: src/dialogs.c:553
+#: src/dialogs.c:563
 msgid "Special to field 2"
 msgstr "Specialitu do pole 2"
 
-#: src/dialogs.c:554
+#: src/dialogs.c:564
 msgid "Special to field 3"
 msgstr "Specialitu do pole 3"
 
-#: src/dialogs.c:555
+#: src/dialogs.c:565
 msgid "Special to field 4"
 msgstr "Specialitu do pole 4"
 
-#: src/dialogs.c:556
+#: src/dialogs.c:566
 msgid "Special to field 5"
 msgstr "Specialitu do pole 5"
 
-#: src/dialogs.c:557
+#: src/dialogs.c:567
 msgid "Special to field 6"
 msgstr "Specialitu do pole 6"
 
-#: src/dialogs.c:617
+#: src/dialogs.c:627
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Stiskněte novou klávesu pro \"%s\""
 
-#: src/dialogs.c:834
+#: src/dialogs.c:844
 msgid "GTetrinet Preferences"
 msgstr "Nastavení GTetrinet"
 
-#: src/dialogs.c:857
+#: src/dialogs.c:866
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -271,49 +270,53 @@ msgstr ""
 "Vyberte téma ze seznamu.\n"
 "Nová témata instalujte do ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:865
+#: src/dialogs.c:873
 msgid "Name:"
 msgstr "Název:"
 
-#: src/dialogs.c:869
+#: src/dialogs.c:876
 msgid "Author:"
 msgstr "Autor:"
 
-#: src/dialogs.c:873
+#: src/dialogs.c:879
 msgid "Description:"
 msgstr "Popis:"
 
-#: src/dialogs.c:891
+#: src/dialogs.c:892
 msgid "Selected Theme"
 msgstr "Vybrané téma"
 
-#: src/dialogs.c:910
+#: src/dialogs.c:908
+msgid "Download new themes"
+msgstr "Stáhnout nová témata"
+
+#: src/dialogs.c:913
 msgid "Themes"
 msgstr "Témata"
 
 #. partyline
-#: src/dialogs.c:915
+#: src/dialogs.c:918
 msgid "Enable _Timestamps"
 msgstr "Povolit _časové údaje"
 
-#: src/dialogs.c:917
+#: src/dialogs.c:920
 msgid "Enable Channel _List"
 msgstr "Povolit _seznam kanálů"
 
 #. FIXME
-#: src/dialogs.c:943 src/gtetrinet.c:281
+#: src/dialogs.c:946 src/gtetrinet.c:281
 msgid "Partyline"
 msgstr "Partyline"
 
-#: src/dialogs.c:954
+#: src/dialogs.c:957
 msgid "Action"
 msgstr "Akce"
 
-#: src/dialogs.c:956
+#: src/dialogs.c:959
 msgid "Key"
 msgstr "Klávesa"
 
-#: src/dialogs.c:962
+#: src/dialogs.c:965
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -321,32 +324,32 @@ msgstr ""
 "Vyberte akci ze seznamu a po stisknutí Změnit klávesu změňte klávesu "
 "přiřazenou této akci."
 
-#: src/dialogs.c:969
+#: src/dialogs.c:972
 msgid "Change _key..."
 msgstr "Změnit _klávesu..."
 
-#: src/dialogs.c:974 src/dialogs.c:1027
+#: src/dialogs.c:977 src/dialogs.c:1030
 msgid "_Restore defaults"
 msgstr "_Obnovit výchozí"
 
-#: src/dialogs.c:995
+#: src/dialogs.c:998
 msgid "Keyboard"
 msgstr "Klávesnice"
 
 #. sound
-#: src/dialogs.c:1000
+#: src/dialogs.c:1003
 msgid "Enable _Sound"
 msgstr "Povolit z_vuk"
 
-#: src/dialogs.c:1003
+#: src/dialogs.c:1006
 msgid "Enable _MIDI"
 msgstr "Povolit _MIDI"
 
-#: src/dialogs.c:1017
+#: src/dialogs.c:1020
 msgid "Enter command to play a midi file:"
 msgstr "Zadejte příkaz pro přehrávání souboru MIDI:"
 
-#: src/dialogs.c:1020
+#: src/dialogs.c:1023
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -354,11 +357,11 @@ msgstr ""
 "Příkaz zadaný výše je spuštěn, pokud se má přehrát soubor MIDI. Název MIDI "
 "souboru je umístěn do proměnné prostředí MIDIFILE."
 
-#: src/dialogs.c:1057
+#: src/dialogs.c:1060
 msgid "Sound"
 msgstr "Zvuk"
 
-#: src/fields.c:87
+#: src/fields.c:76
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
@@ -367,7 +370,8 @@ msgstr ""
 "Vracím se zpět k výchozímu"
 
 #. shouldnt happen
-#: src/fields.c:96
+#: src/fields.c:85
+#, c-format
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
@@ -375,31 +379,31 @@ msgstr ""
 "Chyba při načítání výchozího tématu: Končím...\n"
 "Zkontrolujte chyby v instalaci\n"
 
-#: src/fields.c:217
+#: src/fields.c:206
 msgid "Next piece:"
 msgstr "Další kousek:"
 
-#: src/fields.c:234
+#: src/fields.c:223
 msgid "Lines:"
 msgstr "Řádky:"
 
-#: src/fields.c:238
+#: src/fields.c:227
 msgid "Level:"
 msgstr "Úroveň:"
 
-#: src/fields.c:240
+#: src/fields.c:229
 msgid "Active level:"
 msgstr "Aktivní úroveň:"
 
-#: src/fields.c:288
+#: src/fields.c:277
 msgid "Attacks and defenses:"
 msgstr "Útoky a obrany:"
 
-#: src/fields.c:432
+#: src/fields.c:421
 msgid "Not playing"
 msgstr "Nehraje se"
 
-#: src/fields.c:463
+#: src/fields.c:452
 msgid "Specials:"
 msgstr "Speciální:"
 
@@ -441,7 +445,7 @@ msgid "Failed to init GConf: %s\n"
 msgstr "Selhala inicializace GConf: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:470
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
 msgid "Playing Fields"
 msgstr "Hrací pole"
 
