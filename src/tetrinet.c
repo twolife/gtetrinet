@@ -257,7 +257,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             /* check moderator status */
             checkmoderatorstatus ();
             /* send out our field */
-            if (!spectating) tetrinet_resendfield ();
+            /* if (!spectating) tetrinet_resendfield (); */
         }
         break;
     case IN_PLAYERLEAVE:
@@ -439,16 +439,23 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         }
         break;
     case IN_PAUSE:
-        if (atoi(data)) {
-            tetrinet_pausegame ();
-            partyline_text ("\024*** The game has \02paused");
-        }
-        else {
-            tetrinet_resumegame ();
-            partyline_text ("\024*** The game has \02resumed");
-        }
-        commands_checkstate ();
-        break;
+	{
+	    int newstate = atoi(data);
+            /* bail out if no state change */
+            if (! (newstate ^ paused)) break;
+	    if (newstate) {
+		tetrinet_pausegame ();
+		partyline_text ("\024*** The game has \02paused");
+                fields_attdefmsg ("The game has \02\014Paused");
+	    }
+	    else {
+		tetrinet_resumegame ();
+		partyline_text ("\024*** The game has \02resumed");
+                fields_attdefmsg ("The game has \02\014Resumed");
+	    }
+	    commands_checkstate ();
+	    break;
+	}
     case IN_ENDGAME:
         tetrinet_endgame ();
         commands_checkstate ();

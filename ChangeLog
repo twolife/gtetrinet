@@ -1,3 +1,11 @@
+2000-06-27
+	* Pause/resume now causes a message to be displayed on fields page.
+
+2000-06-26
+	* GTetrinet no longer resends field upon player join.
+	* Fixed spurious "The game has resumed" messages.
+	* Merged partyline patch for high chars.
+
 2000-06-08
 	* Changed website addresses.
 	* Made configure run properly under GNOME 1.2.

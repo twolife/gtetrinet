@@ -109,7 +109,7 @@ void textbox_setup (void)
     fonts[3] = gdk_fontset_load("-adobe-helvetica-bold-o-normal--*-120-*-*-*-*-*-*,*--12-*");
 }
 
-void textbox_addtext (GtkText *textbox, char *text)
+void textbox_addtext (GtkText *textbox, unsigned char *text)
 {
     GdkColor *color, *lastcolor;
     int attr; /* bits are used as flags: bold, italic */
@@ -129,15 +129,15 @@ void textbox_addtext (GtkText *textbox, char *text)
     if (gtk_text_get_length (textbox)) /* not first line */
         gtk_text_insert (textbox, fonts[attr], color, NULL, "\n", 1);
     for (i = 0; text[i]; i ++) {
-        if (text[i] < 32) {
+	if (text[i] == 0xFF) { /* reset */
+	    lastcolor = color = &GTK_WIDGET(textbox)->style->black;
+	    last = 0; attr = 0;
+	}
+        else if (text[i] < 32) {
             switch (text[i]) {
             case 0x02: attr = attr ^ 0x01; break; /* bold */
             case 0x16: attr = attr ^ 0x02; break; /* italics */
             case 0x1F: break; /* underline not available */
-            case -1: /* reset */
-                lastcolor = color = &GTK_WIDGET(textbox)->style->black;
-                last = 0; attr = 0;
-                break;
             default: /* it is a color... */
                 if (text[i] > 0x1A) goto next; /* bounds checking */
                 if (text[i] == last) {
