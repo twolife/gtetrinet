@@ -9,4 +9,6 @@ GTetrinet's TODO list
   + detaching and reattaching the Menu Bar causes two Bonobo-CRITICAL
   + if you use the C locale and input an 8bit character, gtetrinet segfaults
 - Make gtetrinet resizeable (at least the fields messages bit)
+- Hide mouse cursor when game is in progress
+- Don't lose partyline textentry focus so easily
 - Write a User Manual
