@@ -1,6 +1,12 @@
+2004-04-18  Jordi Mallach  <jordi@sindominio.net>
+
+	* automake.in: Back out automake-1.7 requirement.
+	* NEWS: Updated for 0.7.7.
+	* configure.in: Released gtetrinet 0.7.7.
+
 2004-04-16  Dani Carbonell  <bocata@panete.net>
 
-	* configure.in: Released GTetrinet 0.7.6
+	* configure.in: Released GTetrinet 0.7.6.
 
 2004-04-16  Dani Carbonell  <bocata@panete.net>
 

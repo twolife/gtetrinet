@@ -1,3 +1,7 @@
+GTetrinet 0.7.7 - 2004-04-18
+- Regenerated tarball using automake 1.4 to workaround
+  tar --posix problems.
+
 GTetrinet 0.7.6 - 2004-04-16
 - Added a button in the Preferences dialog that opens a browser window
   with the GTetrinet themes webpage. (Dani)
