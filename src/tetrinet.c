@@ -412,7 +412,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                   gchar *line = nocolor (token);
                   gchar *aux;
                       
-                  if (list_issued > 0)
+                  if (list_enabled && (list_issued > 0))
                   {
                     if (*line == '(')
                     {

@@ -43,7 +43,7 @@ extern GtkWidget *app;
 /*****************************************************/
 /* connecting dialog - a dialog with a cancel button */
 /*****************************************************/
-static GtkWidget *connectingdialog = 0;
+static GtkWidget *connectingdialog = 0, *connectdialog;
 static GtkWidget *progressbar;
 static gint timeouttag = 0;
 
@@ -83,10 +83,11 @@ void connectingdialog_new (void)
       return;
     }
     connectingdialog = gtk_dialog_new_with_buttons (_("Connect to server"),
-                                                    NULL,
-                                                    0,
+                                                    GTK_WINDOW (connectdialog),
+                                                    GTK_DIALOG_MODAL,
                                                     GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                                     NULL);
+    gtk_window_set_skip_taskbar_hint (GTK_WINDOW (connectingdialog), TRUE);
     progressbar = gtk_progress_bar_new ();
     gtk_widget_show (progressbar);
     gtk_box_pack_start (GTK_BOX (GTK_DIALOG(connectingdialog)->vbox),
@@ -158,6 +159,7 @@ void teamdialog_new (void)
                                                GTK_STOCK_CANCEL, GTK_RESPONSE_CLOSE,
                                                GTK_STOCK_OK, GTK_RESPONSE_OK,
                                                NULL);
+    gtk_window_set_skip_taskbar_hint (GTK_WINDOW (team_dialog), TRUE);
     gtk_dialog_set_default_response (GTK_DIALOG (team_dialog), GTK_RESPONSE_OK);    
     gtk_window_set_position (GTK_WINDOW (team_dialog), GTK_WIN_POS_MOUSE);
     gtk_window_set_resizable (GTK_WINDOW (team_dialog), FALSE);
@@ -187,7 +189,7 @@ void teamdialog_new (void)
 /**********************/
 static int connecting;
 static GtkWidget *serveraddressentry, *nicknameentry, *teamnameentry, *spectatorcheck, *passwordentry;
-static GtkWidget *connectdialog, *passwordlabel, *teamnamelabel;
+static GtkWidget *passwordlabel, *teamnamelabel;
 static GtkWidget *originalradio, *tetrifastradio;
 static GSList *gametypegroup;
 static int oldgamemode;
@@ -260,7 +262,8 @@ void connectdialog_button (GtkDialog *dialog, gint button)
         gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/server", server1, NULL);
         gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/nickname", nick, NULL);
         gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/team",
-                                 gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))), NULL);
+                                 gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))),
+                                 NULL);
         g_free (team_utf8);
         g_free (nick);
         break;

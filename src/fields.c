@@ -44,8 +44,8 @@ static GtkWidget *fieldwidgets[6], *nextpiecewidget, *fieldlabels[6][6],
 static GtkWidget *fields_page_contents (void);
 
 static gint fields_expose_event (GtkWidget *widget, GdkEventExpose *event, int field);
-static gint fields_nextpiece_expose (void);
-static gint fields_specials_expose (void);
+static gint fields_nextpiece_expose (GtkWidget *widget);
+static gint fields_specials_expose (GtkWidget *widget);
 
 static void fields_refreshfield (int field);
 static void fields_drawblock (int field, int x, int y, char block);
@@ -54,8 +54,23 @@ static void gmsginput_activate (void);
 
 static GdkPixmap *blockpix;
 
+static GdkColor black = {0, 0, 0, 0};
+static GdkBitmap *bitmap;
+static GdkCursor *invisible_cursor, *arrow_cursor;
+
 static FIELD displayfields[6]; /* what is actually displayed */
 static TETRISBLOCK displayblock;
+
+/*
+  GdkColor black = {0,0,0};
+  GdkBitmap *bitmap;
+  GdkCursor *invisible_cursor, *current_cursor;
+  
+  bitmap = gdk_bitmap_create_from_data (widget->window, "\0", 1, 1);
+  invisible_cursor = gdk_cursor_new_from_pixmap (bitmap, bitmap, &black, &black, 0, 0);
+
+  gdk_window_set_cursor (window, cursor);
+*/
 
 void fields_init (void)
 {
@@ -70,7 +85,7 @@ void fields_init (void)
                                      GTK_MESSAGE_ERROR,
                                      GTK_BUTTONS_OK,
                                      _("Error loading theme: cannot load graphics file\n"
-                                      "Falling back to default"));
+                                       "Falling back to default"));
         gtk_dialog_run (GTK_DIALOG (mb));
         gtk_widget_destroy (mb);
 	g_string_assign(currenttheme, DEFAULTTHEME);
@@ -104,6 +119,11 @@ GtkWidget *fields_page_new (void)
         gtk_container_set_border_width (GTK_CONTAINER(fieldspage), 2);
     }
     gtk_container_add (GTK_CONTAINER(fieldspage), pagecontents);
+
+    /* create the cursors */
+    bitmap = gdk_bitmap_create_from_data (GTK_WIDGET (fieldspage)->window, "\0", 1, 1);
+    invisible_cursor = gdk_cursor_new_from_pixmap (bitmap, bitmap, &black, &black, 0, 0);
+    arrow_cursor = gdk_cursor_new (GDK_ARROW);
 
     return fieldspage;
 }
@@ -169,6 +189,7 @@ GtkWidget *fields_page_contents (void)
             gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
             /* the field */
             fieldwidgets[i] = gtk_drawing_area_new ();
+            
             /* attach the signals */
             g_signal_connect (G_OBJECT(fieldwidgets[i]), "expose_event",
                                 GTK_SIGNAL_FUNC(fields_expose_event), (gpointer)i);
@@ -329,6 +350,11 @@ gint fields_expose_event (GtkWidget *widget, GdkEventExpose *event, int field)
     widget = widget;
     event = event;
     fields_refreshfield (field);
+    /* hide the cursor */
+    if (ingame)
+      gdk_window_set_cursor (widget->window, invisible_cursor);
+    else
+      gdk_window_set_cursor (widget->window, arrow_cursor);
 
     return FALSE;
 }
@@ -441,15 +467,23 @@ void fields_setspeciallabel (char *label)
     }
 }
 
-gint fields_nextpiece_expose (void)
+gint fields_nextpiece_expose (GtkWidget *widget)
 {
     fields_drawnextblock (NULL);
+    if (ingame)
+      gdk_window_set_cursor (widget->window, invisible_cursor);
+    else
+      gdk_window_set_cursor (widget->window, arrow_cursor);
     return FALSE;
 }
 
-gint fields_specials_expose (void)
+gint fields_specials_expose (GtkWidget *widget)
 {
     fields_drawspecials ();
+    if (ingame)
+      gdk_window_set_cursor (widget->window, invisible_cursor);
+    else
+      gdk_window_set_cursor (widget->window, arrow_cursor);
     return FALSE;
 }
 

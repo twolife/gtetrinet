@@ -1,3 +1,15 @@
+2003-06-02  Dani Carbonell  <bocata@panete.net>
+
+	* src/fields.c (fields_page_new): create here the cursors that
+	will be used later to hide/restore the main cursor.
+	(fields_expose_event, fields_nextpiece_expose) 
+	(fields_specials_expose): hide the cursor if the user is in a
+	game, show it otherwise.
+
+	* src/dialogs.c (connectingdialog_new): set a parent for this
+	window, set it modal, and don't show it in the windows list.
+	
+
 2003-05-28  Danilo Šegan  <dsegan@gmx.net>
 
 	* configure.in: Added "sr" and "sr@Latn" to ALL_LINGUAS.
