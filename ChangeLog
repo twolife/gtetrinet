@@ -1,3 +1,9 @@
+2003-07-06  Jordi Mallach  <jordi@sindominio.net>
+
+	* configure.in: For some reason, some people were getting
+	AM_GNU_GETTEXT calls due to our use of AM_GNU_GETTEXT_VERSION, which
+	broke as we have no intl/. Kick it.
+
 2003-06-23  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS: Update for 0.7.3.
