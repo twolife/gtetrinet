@@ -1,3 +1,11 @@
+GTetrinet 0.7.6 - Unreleased
+- Disable deprecated flags which broke the build with
+  GTK 2.4 (Kjartan Maraas).
+- New and updated translations: Norwegian (Kjartan Maraas),
+  Croatian (Robert Sedak), Irish (Alastair McKinstry),
+  Brazilian Portuguese (Steve Lacerda <stevelacerda@yahoo.com.br>,
+  British English (Gareth Owen), Canadian English (Adam Weinberger).
+
 GTetrinet 0.7.5 - 2003-10-04
 - HIGification improvements in several dialogs (Dagfinn Ilmari Mannsåker).
 - Make the default keys usable in azerty keyboards (Dani).
