@@ -1,3 +1,8 @@
+2003-01-08  Jordi Mallach  <jordi@sindominio.net>
+
+	* ca.po: Updated Catalan translation.
+	* de.po: Updated German translation from Gerfried Fuchs.
+
 2003-01-06  Jordi Mallach  <jordi@sindominio.net>
 
 	* Makefile.in.in: removed from CVS.
