@@ -84,10 +84,14 @@ void config_loadtheme (const gchar *themedir)
 
     p = gnome_config_get_string ("Theme/Name");
     if (p == 0) {
-        GtkWidget *mb;
-        mb = gnome_message_box_new (_("Warning: theme does not have a name"),
-                                    GNOME_MESSAGE_BOX_WARNING, GNOME_STOCK_BUTTON_OK, NULL);
-        gnome_dialog_run (GNOME_DIALOG(mb));
+      GtkWidget *mb;
+      mb = gtk_message_dialog_new (NULL,
+                                   0,
+                                   GTK_MESSAGE_WARNING,
+                                   GTK_BUTTONS_OK,
+                                   _("Warning: theme does not have a name"));
+      gtk_dialog_run (GTK_DIALOG (mb));
+      gtk_widget_destroy (mb);
     }
     else g_free (p);
 

@@ -24,6 +24,7 @@
 
 #include "misc.h"
 #include "gtetrinet.h"
+#include "string.h"
 
 
 /* a left aligned label */

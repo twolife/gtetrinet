@@ -42,6 +42,7 @@
 #include "misc.h"
 #include "commands.h"
 #include "sound.h"
+#include "string.h"
 
 #include "images/fields.xpm"
 #include "images/partyline.xpm"
@@ -162,7 +163,10 @@ int main (int argc, char *argv[])
 
     srand (time(NULL));
 
-    gnome_init_with_popt_table (APPID, APPVERSION, argc, argv, options, 0 , NULL);
+    //gnome_init_with_popt_table (APPID, APPVERSION, argc, argv, options, 0 , NULL);
+    gnome_program_init (APPID, APPVERSION, LIBGNOMEUI_MODULE,
+	                      argc, argv, GNOME_PARAM_POPT_TABLE, options,
+				                GNOME_PARAM_NONE);
 
     textbox_setup (); /* needs to be done before text boxes are created */
     

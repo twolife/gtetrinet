@@ -32,6 +32,7 @@
 #include "fields.h"
 #include "misc.h"
 #include "gtetrinet.h"
+#include "string.h"
 
 #define BLOCKSIZE bsize
 #define SMALLBLOCKSIZE (BLOCKSIZE/2)
@@ -65,10 +66,14 @@ void fields_init (void)
     GdkBitmap *mask = NULL;
     
     if (!(pb = gdk_pixbuf_new_from_file(blocksfile, &err))) {
-        mb = gnome_message_box_new (_("Error loading theme: cannot load graphics file\n"
-                                      "Falling back to default"),
-                                    GNOME_MESSAGE_BOX_ERROR, GNOME_STOCK_BUTTON_OK, NULL);
-        gnome_dialog_run (GNOME_DIALOG(mb));
+        mb = gtk_message_dialog_new (NULL,
+                                     GTK_DIALOG_MODAL,
+                                     GTK_MESSAGE_ERROR,
+                                     GTK_BUTTONS_OK,
+                                     _("Error loading theme: cannot load graphics file\n"
+                                      "Falling back to default"));
+        gtk_dialog_run (GTK_DIALOG (mb));
+        gtk_widget_destroy (mb);
         config_loadtheme (DEFAULTTHEME);
         err = NULL;
         if (!(pb = gdk_pixbuf_new_from_file(blocksfile, &err))) {
@@ -85,7 +90,7 @@ void fields_init (void)
 
 void fields_cleanup (void)
 {
-  gdk_pixmap_unref(blockpix);
+  g_object_unref(blockpix);
 }
 
 /* a mess of functions here for creating the fields page */
@@ -376,10 +381,10 @@ void fields_drawblock (int field, int x, int y, char block)
     destx = blocksize * x;
     desty = blocksize * y;
 
-    gdk_draw_pixmap (fieldwidgets[field]->window,
-                     fieldwidgets[field]->style->black_gc,
-                     blockpix, srcx, srcy, destx, desty,
-                     blocksize, blocksize);
+    gdk_draw_drawable (fieldwidgets[field]->window,
+                       fieldwidgets[field]->style->black_gc,
+                       blockpix, srcx, srcy, destx, desty,
+                       blocksize, blocksize);
 }
 
 void fields_setlabel (int field, char *name, char *team, int num)

@@ -34,6 +34,7 @@
 #include "fields.h"
 #include "misc.h"
 #include "sound.h"
+#include "string.h"
 
 extern GConfClient *gconf_client;
 extern GtkWidget *app;
@@ -47,11 +48,11 @@ static gint timeouttag = 0;
 
 GtkWidget *team_dialog;
 
-void connectingdialog_button (GnomeDialog *dialog, gint button)
+void connectingdialog_button (GtkWidget *dialog, gint button)
 {
     dialog = dialog;
     switch (button) {
-    case 0:
+    case GTK_RESPONSE_CANCEL:
         gtk_timeout_remove (timeouttag);
         timeouttag = 0;
         if (connectingdialog == 0) return;
@@ -80,17 +81,19 @@ void connectingdialog_new (void)
       gtk_window_present (GTK_WINDOW (connectingdialog));
       return;
     }
-    connectingdialog = gnome_dialog_new (_("Connect to server"),
-                                         GNOME_STOCK_BUTTON_CANCEL,
-                                         NULL);
+    connectingdialog = gtk_dialog_new_with_buttons (_("Connect to server"),
+                                                    NULL,
+                                                    0,
+                                                    GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                                    NULL);
     progressbar = gtk_progress_bar_new ();
     gtk_widget_show (progressbar);
-    gtk_box_pack_start (GTK_BOX(GNOME_DIALOG(connectingdialog)->vbox),
+    gtk_box_pack_start (GTK_BOX (GTK_DIALOG(connectingdialog)->vbox),
                         progressbar, TRUE, TRUE, 0);
 
     timeouttag = gtk_timeout_add (20, (GtkFunction)connectingdialog_timeout,
                                   NULL);
-    g_signal_connect (G_OBJECT(connectingdialog), "clicked",
+    g_signal_connect (G_OBJECT(connectingdialog), "response",
                         GTK_SIGNAL_FUNC(connectingdialog_button), NULL);
     g_signal_connect (G_OBJECT(connectingdialog), "delete_event",
                         GTK_SIGNAL_FUNC(connectingdialog_delete), NULL);
@@ -127,6 +130,8 @@ void teamdialog_button (GtkWidget *button, gint response, gpointer data)
       case GTK_RESPONSE_OK :
       {
         aux = g_locale_from_utf8 (gtk_entry_get_text (entry), -1, NULL, NULL, NULL);
+        gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/team",
+                                 gtk_entry_get_text (entry), NULL);
         tetrinet_changeteam (aux);
         g_free (aux);
       }; break;
@@ -186,47 +191,75 @@ static GtkWidget *originalradio, *tetrifastradio;
 static GSList *gametypegroup;
 static int oldgamemode;
 
-void connectdialog_button (GnomeDialog *dialog, gint button)
+void connectdialog_button (GtkDialog *dialog, gint button)
 {
-    gchar *team_utf8, *nick; /* intermediate buffer for recoding purposes */
+    gchar *team_utf8, *nick, *nick1; /* intermediate buffer for recoding purposes */
     const gchar *server1;
+    GtkWidget *dialog_error;
 
     switch (button) {
     case GTK_RESPONSE_OK:
         /* connect now */
         server1 = gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (serveraddressentry))));
-        if (strlen (server1) <= 0)
+        if (g_utf8_strlen (server1, -1) <= 0)
         {
-          gnome_error_dialog_parented (_("You must specify a server name."), GTK_WINDOW (dialog));
+          dialog_error = gtk_message_dialog_new (GTK_WINDOW (dialog),
+                                                 GTK_DIALOG_MODAL,
+                                                 GTK_MESSAGE_ERROR,
+                                                 GTK_BUTTONS_OK,
+                                                 _("You must specify a server name."));
+          gtk_dialog_run (GTK_DIALOG (dialog_error));
+          gtk_widget_destroy (dialog_error);
           return;
         }
     
         spectating = GTK_TOGGLE_BUTTON(spectatorcheck)->active ? TRUE : FALSE;
         if (spectating)
         {
-          GTET_O_STRCPY (specpassword, gtk_entry_get_text (GTK_ENTRY(passwordentry)));
-          if (strlen (specpassword) <= 0)
+          g_utf8_strncpy (specpassword, gtk_entry_get_text (GTK_ENTRY(passwordentry)),
+                          g_utf8_strlen (gtk_entry_get_text (GTK_ENTRY (passwordentry)), -1));
+          if (g_utf8_strlen (specpassword, -1) <= 0)
           {
-            gnome_error_dialog_parented (_("Please specify a password to connect as spectator."), GTK_WINDOW (dialog));
+            dialog_error = gtk_message_dialog_new (GTK_WINDOW (dialog),
+                                                   GTK_DIALOG_MODAL,
+                                                   GTK_MESSAGE_ERROR,
+                                                   GTK_BUTTONS_OK,
+                                                   _("Please specify a password to connect as spectator."));
+            gtk_dialog_run (GTK_DIALOG (dialog_error));
+            gtk_widget_destroy (dialog_error);
             return;
           }
         }
         
         team_utf8 = g_locale_from_utf8 (gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))),
                                         -1, NULL, NULL, NULL);
+        
         GTET_O_STRCPY (team, team_utf8);
         
-        nick =  g_locale_from_utf8 (gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (nicknameentry)))),
-                                     -1, NULL, NULL, NULL);
+        nick = g_strdup (gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (nicknameentry)))));
         g_strstrip (nick); /* we remove leading and trailing whitespaces */
-        if (strlen (nick) > 0)
-            client_init (server1, nick);
+        if (g_utf8_strlen (nick, -1) > 0)
+        {
+          nick1 = g_locale_from_utf8 (nick, -1, NULL, NULL, NULL);
+          client_init (server1, nick1);
+          g_free (nick1);
+        }
         else
-            gnome_error_dialog_parented (_("Please specify a valid nickname."), GTK_WINDOW (dialog));
+        {
+            dialog_error = gtk_message_dialog_new (GTK_WINDOW (dialog),
+                                                   GTK_DIALOG_MODAL,
+                                                   GTK_MESSAGE_ERROR,
+                                                   GTK_BUTTONS_OK,
+                                                   _("Please specify a valid nickname."));
+            gtk_dialog_run (GTK_DIALOG (dialog_error));
+            gtk_widget_destroy (dialog_error);
+            return;
+        }
         
         gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/server", server1, NULL);
         gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/nickname", nick, NULL);
-        gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/team", team_utf8, NULL);
+        gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/team",
+                                 gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))), NULL);
         g_free (team_utf8);
         g_free (nick);
         break;
@@ -673,15 +706,15 @@ void prefdialog_themelist ()
 {
     DIR *d;
     struct dirent *de;
-    char buf[1024], str[1024], dir[1024];
+    char str[1024], buf[1024];
+    gchar *dir;
     int i;
     char *basedir[2];
     GtkListStore *theme_store = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (themelist)));
     GtkTreeSelection *theme_selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (themelist));
     GtkTreeIter iter, iter_selected;
 
-    GTET_O_STRCPY (dir, getenv ("HOME"));
-    GTET_O_STRCAT (dir, "/.gtetrinet/themes");
+    dir = g_build_filename (getenv ("HOME"), ".gtetrinet", "themes", NULL);
 
     basedir[0] = dir; /* load users themes first ... in case we run out */
     basedir[1] = GTETRINET_THEMES;
@@ -712,6 +745,7 @@ void prefdialog_themelist ()
             closedir (d);
         }
     }
+    g_free (dir);
  too_many_themes:
     qsort (themes, themecount, sizeof(struct themelistentry), themelistcomp);
 
@@ -723,7 +757,7 @@ void prefdialog_themelist ()
         text[1] = 0;
         gtk_list_store_append (theme_store, &iter);
         gtk_list_store_set (theme_store, &iter, 0, themes[i].name, 1, i, -1);
-        if (strcmp(themes[i].dir, currenttheme) == 0)
+        if (strcmp (themes[i].dir, currenttheme) == 0)
         {
             iter_selected = iter;
             theme_select = i;

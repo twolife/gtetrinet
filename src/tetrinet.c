@@ -42,6 +42,7 @@
 #include "commands.h"
 #include "dialogs.h"
 #include "sound.h"
+#include "string.h"
 
 #define NEXTBLOCKDELAY (gamemode==TETRIFAST?0:1000)
 #define DOWNDELAY 100
@@ -209,9 +210,12 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             GTET_O_STRCPY (buf, _("Error connecting: "));
             data_utf8 = g_locale_to_utf8 (data, -1, NULL, NULL, NULL);
             GTET_O_STRCAT (buf, data_utf8);
-            dialog = gnome_message_box_new (buf, GNOME_MESSAGE_BOX_ERROR,
-                                            GNOME_STOCK_BUTTON_OK, NULL);
-            gtk_widget_show (dialog);
+            dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL,
+                                             GTK_MESSAGE_ERROR,
+                                             GTK_BUTTONS_OK,
+                                             buf);
+            gtk_dialog_run (GTK_DIALOG(dialog));
+            gtk_widget_destroy (dialog);
             g_free (data_utf8);
         }
         break;

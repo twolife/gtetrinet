@@ -1,3 +1,20 @@
+2003-02-04  Dani Carbonell  <bocata@panete.net
+
+	* src/config.c (config_loadtheme): ported to libgnomeui-2.
+
+	* src/dialogs.c: ported to libgnomeui-2.
+	(connectdialog_button): ported and a minor bugfix.
+	(teamdialog_button): bugfix, new team name was not being saved to
+	GConf.
+	
+	* src/fields.c: ported to libgnomeui-2.
+	(fields_cleanup): ported to GDK 2.x
+	(fields_drawblock): likewise.
+	
+	* src/gtetrinet.c: ported to libgnomeui-2.
+	
+	* src/tetrinet.c: ported to libgnomeui-2.
+
 2003-02-04  Jordi Mallach  <jordi@sindominio.net>
 
 	* gtetrinet.desktop.in: add Encoding and Categories fields.
