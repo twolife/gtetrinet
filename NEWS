@@ -1,3 +1,11 @@
+GTetrinet 0.7.3 - 2003-06-23
+- Fixed search path for gtetrinet.png broken in 0.7.2.
+- Merged Connect/Disconnect buttons.
+- Fixed annoying bug in keyboard handling code which could make
+  GTetrinet beep on each keypress.
+- New and updated translations: Traditional Chinese (Abel Cheung),
+  Dutch (Tino Meinen), Macedonian (Arangel Angov).
+
 GTetrinet 0.7.2 - 2003-06-07
 - Added new icons to several places.
 - Merged Start/Stop button.
