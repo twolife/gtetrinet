@@ -1,3 +1,8 @@
+2004-12-26  Jordi Mallach  <jordi@sindominio.net>
+
+	* NEWS: Update for 0.7.8.
+	* configure.in: Release gtetrinet 0.7.8.
+
 2004-12-25  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.in: Add «nb» to ALL_LINGUAS.

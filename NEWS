@@ -1,10 +1,11 @@
-GTetrinet 0.7.8 - 2004-11-xx
+GTetrinet 0.7.8 - 2004-12-26
 - Added minimal support for the Blocktrix protocol, now in use at
   tetrinet.org (Loren Abrams).
 - New and updated translations: Italian (Riccardo Bozzo),
   German (Gerfried Fuchs), Korean (Michael Kim),
   Canadian English (Adam Weinberger), Serbian (Danilo Šegan),
-  Punjabi (Amanpreet Singh Alam).
+  Punjabi (Amanpreet Singh Alam), Norwegian bokmål (Kjartan Maraas),
+  Simplified Chinese (Funda Wang).
 
 GTetrinet 0.7.7 - 2004-04-18
 - Regenerated tarball using automake 1.4 to workaround
