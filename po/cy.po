@@ -1,14 +1,14 @@
 # gtetrinet yn Gymraeg.
 # This file is distributed under the same license as the gtetrinet package.
-# Dafydd Harries <daf@parnassus.ath.cx>, 2003.
+# Dafydd Harries <daf@muse.19inch.net>, 2003 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-28 19:27+0100\n"
-"PO-Revision-Date: 2003-08-28 20:18+0100\n"
-"Last-Translator: Dafydd Harries <daf@parnassus.ath.cx>\n"
+"POT-Creation-Date: 2004-04-13 01:13+0100\n"
+"PO-Revision-Date: 2004-04-13 01:15+0100\n"
+"Last-Translator: Dafydd Harries <daf@muse.19inch.net>\n"
 "Language-Team: Cymraeg <gnome-cy@www.linux.org.uk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -117,7 +117,7 @@ msgstr "Heb gysylltu"
 #. Translators: translate as your names & emails
 #: src/commands.c:287
 msgid "translator_credits"
-msgstr "Dafydd Harries <daf@parnassus.ath.cx>"
+msgstr "Dafydd Harries <daf@muse.19inch.net>"
 
 #: src/commands.c:293
 msgid "A Tetrinet client for GNOME.\n"
@@ -258,7 +258,7 @@ msgstr "Gwaswch fysell newydd ar gyfer \"%s\""
 msgid "GTetrinet Preferences"
 msgstr "Hoffterau GTetrinet"
 
-#: src/dialogs.c:867
+#: src/dialogs.c:866
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -266,49 +266,53 @@ msgstr ""
 "Dewiswch thema o'r rhestr.\n"
 "Ymsefydlwch themau newydd yn ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:875
+#: src/dialogs.c:873
 msgid "Name:"
 msgstr "Enw:"
 
-#: src/dialogs.c:879
+#: src/dialogs.c:876
 msgid "Author:"
 msgstr "Awdur:"
 
-#: src/dialogs.c:883
+#: src/dialogs.c:879
 msgid "Description:"
 msgstr "Disgrifiad:"
 
-#: src/dialogs.c:901
+#: src/dialogs.c:892
 msgid "Selected Theme"
 msgstr "Thema Dewisol"
 
-#: src/dialogs.c:920
+#: src/dialogs.c:908
+msgid "Download new themes"
+msgstr "Lawrlwytho themâu newydd"
+
+#: src/dialogs.c:913
 msgid "Themes"
 msgstr "Themau"
 
 #. partyline
-#: src/dialogs.c:925
+#: src/dialogs.c:918
 msgid "Enable _Timestamps"
 msgstr "Galluogi Marciau _Amser"
 
-#: src/dialogs.c:927
+#: src/dialogs.c:920
 msgid "Enable Channel _List"
 msgstr "Galluogi _Rhestr Sianeli"
 
 #. FIXME
-#: src/dialogs.c:953 src/gtetrinet.c:281
+#: src/dialogs.c:946 src/gtetrinet.c:281
 msgid "Partyline"
 msgstr "Llinell Barti"
 
-#: src/dialogs.c:964
+#: src/dialogs.c:957
 msgid "Action"
 msgstr "Gweithred"
 
-#: src/dialogs.c:966
+#: src/dialogs.c:959
 msgid "Key"
 msgstr "Bysell"
 
-#: src/dialogs.c:972
+#: src/dialogs.c:965
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -316,40 +320,41 @@ msgstr ""
 "Dewiswch weithred o'r rhestr a gwasgwch Newid Bysell er mwyn newid y bysell "
 "sy'n gysylltiedig a'r weithred."
 
-#: src/dialogs.c:979
+#: src/dialogs.c:972
 msgid "Change _key..."
 msgstr "Newid _bysell..."
 
-#: src/dialogs.c:984 src/dialogs.c:1037
+#: src/dialogs.c:977 src/dialogs.c:1030
 msgid "_Restore defaults"
 msgstr "_Adfer rhagosodiadau"
 
-#: src/dialogs.c:1005
+#: src/dialogs.c:998
 msgid "Keyboard"
 msgstr "Bysellfwrdd"
 
 #. sound
-#: src/dialogs.c:1010
+#: src/dialogs.c:1003
 msgid "Enable _Sound"
 msgstr "Galluogi _Sain"
 
-#: src/dialogs.c:1013
+#: src/dialogs.c:1006
 msgid "Enable _MIDI"
 msgstr "Galluogi _MIDI"
 
-#: src/dialogs.c:1027
+#: src/dialogs.c:1020
 msgid "Enter command to play a midi file:"
 msgstr "Rhowch orchymyn er mwyn chwarae ffeil MIDI:"
 
 # TRWSIO
-#: src/dialogs.c:1030
+#: src/dialogs.c:1023
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
 msgstr ""
-"Caiff y gorchymyn uchod ei rhedeg pan mae ffeil MIDI i'w chwarae. Caiff "
-"enw y ffeil MIDI ei osod yn y newidyn amgylchol MIDIFILE."
-#: src/dialogs.c:1067
+"Caiff y gorchymyn uchod ei rhedeg pan mae ffeil MIDI i'w chwarae. Caiff enw "
+"y ffeil MIDI ei osod yn y newidyn amgylchol MIDIFILE."
+
+#: src/dialogs.c:1060
 msgid "Sound"
 msgstr "Sain"
 
@@ -436,7 +441,7 @@ msgid "Failed to init GConf: %s\n"
 msgstr "Methwyd ymgychwyn GConf: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:470
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
 msgid "Playing Fields"
 msgstr "Meysydd Chwarae"
 
@@ -692,13 +697,14 @@ msgid ""
 msgstr ""
 "Galluogi/analluogi sain. Cofiwch fod yn rhaid i'r thema rydych chi'n ei "
 "ddefnyddio ddarparu sain."
+
 #: gtetrinet.schemas.in.h:7
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
 msgstr ""
-"Galluogi/analluogi cerddoriaeth MIDI. Fe fydd yn rhaid i chi alluogi sain "
-"os ydych eisiau i'r cerddoriaeth weithio."
+"Galluogi/analluogi cerddoriaeth MIDI. Fe fydd yn rhaid i chi alluogi sain os "
+"ydych eisiau i'r cerddoriaeth weithio."
 
 #: gtetrinet.schemas.in.h:8
 msgid ""
@@ -777,8 +783,8 @@ msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
 msgstr ""
-"Y cyfeiriadur thema cyfredol. Fe ddylai gynnwys \"blocks.png\" a "
-"\"theme.cfg\" darllenadwy."
+"Y cyfeiriadur thema cyfredol. Fe ddylai gynnwys \"blocks.png\" a \"theme.cfg"
+"\" darllenadwy."
 
 #: gtetrinet.schemas.in.h:26
 msgid "Theme directory, should end with a '/'"
@@ -789,8 +795,8 @@ msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
 msgstr ""
-"Caiff y gorchymyn yma ei rhedeg pan mae ffeil MIDI i'w chwarae. Caiff enw "
-"y ffeil MIDI ei rhoi yn y newidyn amgylchol MIDIFILE."
+"Caiff y gorchymyn yma ei rhedeg pan mae ffeil MIDI i'w chwarae. Caiff enw y "
+"ffeil MIDI ei rhoi yn y newidyn amgylchol MIDIFILE."
 
 #: gtetrinet.schemas.in.h:28
 msgid "This is the server where GTetrinet will try to connect."
@@ -798,73 +804,82 @@ msgstr "Dyma'r gweinydd lle bydd GTetrinet yn ceisio cysylltu."
 
 #: gtetrinet.schemas.in.h:29
 msgid "This key discards the current special. This is case insensitive."
-msgstr "Mae'r bysell hwn yn gwaredu'r arbennigyn cyfredol. Nid yw "
-"priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn gwaredu'r arbennigyn cyfredol. Nid yw priflythrennedd o "
+"bwys."
 
 #: gtetrinet.schemas.in.h:30
 msgid "This key displays the fields' message dialog. This is case insensitive."
-msgstr "Mae'r bysell hwn yn dangos ymgom neges y meysydd. Nid yw "
-"priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn dangos ymgom neges y meysydd. Nid yw priflythrennedd o "
+"bwys."
 
 #: gtetrinet.schemas.in.h:31
 msgid "This key drops the block to the ground. This is case insensitive."
-msgstr "Mae'r bysell hwn yn gollwng y bloc i'r ddaear. "
-"Nid yw priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn gollwng y bloc i'r ddaear. Nid yw priflythrennedd o bwys."
 
 #: gtetrinet.schemas.in.h:32
 msgid "This key moves the block down. This is case insensitive."
-msgstr "Mae'r bysell hwn yn symud y bloc i lawr. "
-"Nid yw priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn symud y bloc i lawr. Nid yw priflythrennedd o bwys."
 
 #: gtetrinet.schemas.in.h:33
 msgid "This key moves the block to the left. This is case insensitive."
-msgstr "Mae'r bysell hwn yn symud y bloc i'r chwith. "
-"Nid yw priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn symud y bloc i'r chwith. Nid yw priflythrennedd o bwys."
 
 #: gtetrinet.schemas.in.h:34
 msgid "This key moves the block to the right. This is case insensitive."
-msgstr "Mae'r bysell hwn yn symud y bloc i'r dde. "
-"Nid yw priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn symud y bloc i'r dde. Nid yw priflythrennedd o bwys."
 
 #: gtetrinet.schemas.in.h:35
 msgid "This key rotates the block clockwise. This is case insensitive."
-msgstr "Mae'r bysell hwn yn cylchdroi'r bloc glocwedd. "
-"Nid yw priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn cylchdroi'r bloc glocwedd. Nid yw priflythrennedd o bwys."
 
 #: gtetrinet.schemas.in.h:36
 msgid "This key rotates the block counterclockwise. This is case insensitive."
-msgstr "Mae'r bysell hwn yn cylchdroi'r bloc gwrthglocwedd. "
-"Nid yw priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn cylchdroi'r bloc gwrthglocwedd. Nid yw priflythrennedd o "
+"bwys."
 
 #: gtetrinet.schemas.in.h:37
 msgid "This key uses the current special on Player 1's game field."
-msgstr "Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm "
-"Chwaraewr 1. Nid yw priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm Chwaraewr 1. "
+"Nid yw priflythrennedd o bwys."
 
 #: gtetrinet.schemas.in.h:38
 msgid "This key uses the current special on Player 2's game field."
-msgstr "Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm "
-"Chwaraewr 2. Nid yw priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm Chwaraewr 2. "
+"Nid yw priflythrennedd o bwys."
 
 #: gtetrinet.schemas.in.h:39
 msgid "This key uses the current special on Player 3's game field."
-msgstr "Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm "
-"Chwaraewr 3. Nid yw priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm Chwaraewr 3. "
+"Nid yw priflythrennedd o bwys."
 
 #: gtetrinet.schemas.in.h:40
 msgid "This key uses the current special on Player 4's game field."
-msgstr "Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm "
-"Chwaraewr 4. Nid yw priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm Chwaraewr 4. "
+"Nid yw priflythrennedd o bwys."
 
 #: gtetrinet.schemas.in.h:41
 msgid "This key uses the current special on Player 5's game field."
-msgstr "Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm "
-"Chwaraewr 5. Nid yw priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm Chwaraewr 5. "
+"Nid yw priflythrennedd o bwys."
 
 #: gtetrinet.schemas.in.h:42
 msgid "This key uses the current special on Player 6's game field."
-msgstr "Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm "
-"Chwaraewr 6. Nid yw priflythrennedd o bwys."
+msgstr ""
+"Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm Chwaraewr 6. "
+"Nid yw priflythrennedd o bwys."
 
 #: gtetrinet.schemas.in.h:43
 msgid "This will be the name of your team."
