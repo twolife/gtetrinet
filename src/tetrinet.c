@@ -1768,7 +1768,7 @@ notfieldkey:
 	tetrinet_specialkey(6);
     }
     tetris_drawcurrentblock ();
-    return TRUE;
+    return FALSE;
 }
 
 void tetrinet_upkey (int keyval)

@@ -154,7 +154,7 @@ void teamdialog_new (void)
     }
   
     team_dialog = gtk_dialog_new_with_buttons (_("Change team"),
-                                               0,
+                                               GTK_WINDOW (app),
                                                GTK_DIALOG_NO_SEPARATOR,
                                                GTK_STOCK_CANCEL, GTK_RESPONSE_CLOSE,
                                                GTK_STOCK_OK, GTK_RESPONSE_OK,

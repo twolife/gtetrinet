@@ -98,6 +98,20 @@ void make_menus (GnomeApp *app)
 {
   gnome_app_create_menus (app, menubar);
 
+  gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Start", gdk_keyval_from_name ("n"), GDK_CONTROL_MASK);
+  gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Pause", gdk_keyval_from_name ("p"), GDK_CONTROL_MASK);
+  gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Stop", gdk_keyval_from_name ("s"), GDK_CONTROL_MASK);
+  gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Connect", gdk_keyval_from_name ("c"), GDK_CONTROL_MASK);
+  gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Disconnect", gdk_keyval_from_name ("d"), GDK_CONTROL_MASK);
+  gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Change_Team", gdk_keyval_from_name ("t"), GDK_CONTROL_MASK);
+  
+  gtk_menu_item_set_accel_path (GTK_MENU_ITEM (gamemenu[0].widget), "<GTetrinet-Main>/Game/Connect");
+  gtk_menu_item_set_accel_path (GTK_MENU_ITEM (gamemenu[1].widget), "<GTetrinet-Main>/Game/Disconnect");
+  gtk_menu_item_set_accel_path (GTK_MENU_ITEM (gamemenu[3].widget), "<GTetrinet-Main>/Game/Change_Team");
+  gtk_menu_item_set_accel_path (GTK_MENU_ITEM (gamemenu[5].widget), "<GTetrinet-Main>/Game/Start");
+  gtk_menu_item_set_accel_path (GTK_MENU_ITEM (gamemenu[6].widget), "<GTetrinet-Main>/Game/Pause");
+  gtk_menu_item_set_accel_path (GTK_MENU_ITEM (gamemenu[7].widget), "<GTetrinet-Main>/Game/Stop");
+
   gnome_app_create_toolbar (app, toolbar);
   gtk_widget_hide (toolbar[4].widget);
 }

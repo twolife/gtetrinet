@@ -225,7 +225,7 @@ void client_process (void)
   while (resolved == 0)
   {
     if (gtk_events_pending ())
-	    gtk_main_iteration ();
+      gtk_main_iteration ();
   }
 
   if (resolved == -1) {

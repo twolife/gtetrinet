@@ -109,8 +109,8 @@ int main (int argc, char *argv[])
     srand (time(NULL));
 
     gnome_program_init (APPID, APPVERSION, LIBGNOMEUI_MODULE,
-	                      argc, argv, GNOME_PARAM_POPT_TABLE, options,
-				                GNOME_PARAM_NONE);
+                        argc, argv, GNOME_PARAM_POPT_TABLE, options,
+                        GNOME_PARAM_NONE);
 
     textbox_setup (); /* needs to be done before text boxes are created */
     
@@ -429,7 +429,7 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
       g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
       return TRUE;
     }
-    
+
     if (game_area && (gdk_keyval_to_lower (key->keyval) == keys[K_GAMEMSG]))
     {
       g_signal_handler_block (app, keypress_signal);
@@ -482,18 +482,18 @@ gint keyrelease (GtkWidget *widget, GdkEventKey *key)
  */
 static int gtetrinet_key (int keyval, int mod)
 {
-    if (mod != GDK_MOD1_MASK)
-      return (FALSE);
+  if (mod != GDK_MOD1_MASK)
+    return FALSE;
     
-    switch (keyval)
-    {
-    case GDK_1: gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 0); break;
-    case GDK_2: gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 1); break;
-    case GDK_3: gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 2); break;
-    default:
-        return FALSE;
-    }
-    return TRUE;
+  switch (keyval)
+  {
+  case GDK_1: gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 0); break;
+  case GDK_2: gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 1); break;
+  case GDK_3: gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 2); break;
+  default:
+    return FALSE;
+  }
+  return TRUE;
 }
 
 /* funky page detach stuff */

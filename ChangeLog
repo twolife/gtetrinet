@@ -1,3 +1,12 @@
+2003-06-07  Dani Carbonell  <bocata@panete.net>
+
+	* src/commands.c (make_menus): added keyboard shortcuts to Start,
+	Pause, Stop, Connect, Disconnect and Change Team menu items.
+
+	* src/tetrinet.c (tetrinet_key): change the default return value
+	from FALSE to TRUE. This was preventing ctrl+q from working when
+	the user was in the fields tab.
+
 2003-06-06  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/config.c (config_loadconfig): load values for new keys.
