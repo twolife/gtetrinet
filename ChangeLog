@@ -1,3 +1,7 @@
+2003-08-28  Dafydd Harries  <daf@parnassus.ath.cx>
+
+	* configure.in: Added "cy" (Welsh) to ALL_LINGUAS.
+
 2003-08-28  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/gtetrinet.c (keypress): Ignore K_GAMEMSG presses if the game

@@ -1,0 +1,883 @@
+# gtetrinet yn Gymraeg.
+# This file is distributed under the same license as the gtetrinet package.
+# Dafydd Harries <daf@parnassus.ath.cx>, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtetrinet\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-08-28 19:27+0100\n"
+"PO-Revision-Date: 2003-08-28 20:18+0100\n"
+"Last-Translator: Dafydd Harries <daf@parnassus.ath.cx>\n"
+"Language-Team: Cymraeg <gnome-cy@www.linux.org.uk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/client.c:237
+msgid "Couldn't resolve hostname."
+msgstr "Methwyd datrys yr enw gwesteiwr."
+
+#: src/commands.c:45
+msgid "_Connect to server..."
+msgstr "_Cysylltu ar weinydd..."
+
+#: src/commands.c:46
+msgid "_Disconnect from server"
+msgstr "_Datgysylltu o'r gweinydd"
+
+#: src/commands.c:48
+msgid "Change _team..."
+msgstr "Newid _tîm..."
+
+#: src/commands.c:50
+msgid "_Start game"
+msgstr "_Cychwyn gêm"
+
+#: src/commands.c:51
+msgid "_Pause game"
+msgstr "_Seibio'r gêm"
+
+#: src/commands.c:52
+msgid "_End game"
+msgstr "_Gorffen y gêm"
+
+#: src/commands.c:57
+msgid "Detac_h page..."
+msgstr "Dat_gysylltu tudalen..."
+
+#: src/commands.c:82
+msgid "Connect"
+msgstr "Cysylltu"
+
+#: src/commands.c:82
+msgid "Connect to a server"
+msgstr "Cysylltu at weinydd"
+
+#: src/commands.c:83
+msgid "Disconnect"
+msgstr "Datgysylltu"
+
+#: src/commands.c:83
+msgid "Disconnect from the current server"
+msgstr "Datgysylltu o'r gweinydd cyfredol"
+
+#: src/commands.c:85
+msgid "Start game"
+msgstr "Cychwyn gêm"
+
+#: src/commands.c:85
+msgid "Start a new game"
+msgstr "Cychwyn gêm newydd"
+
+#: src/commands.c:86
+msgid "End game"
+msgstr "Gorffen y gêm"
+
+#: src/commands.c:86
+msgid "End the current game"
+msgstr "Gorffen y gêm cyfredol"
+
+#: src/commands.c:87
+msgid "Pause game"
+msgstr "Seibio'r gêm"
+
+#: src/commands.c:87
+msgid "Pause the game"
+msgstr "Seibio'r gêm"
+
+#: src/commands.c:89 src/dialogs.c:156
+msgid "Change team"
+msgstr "Newid tîm"
+
+#: src/commands.c:89
+msgid "Change your current team name"
+msgstr "Newid enw eich tîm cyfredol"
+
+#: src/commands.c:92
+msgid "Detach page"
+msgstr "Datgysylltu tudalen"
+
+#: src/commands.c:92
+msgid "Detach the current notebook page"
+msgstr "Datgysylltu y tudalen llyfr nodiadau cyfredol"
+
+#: src/commands.c:258
+msgid "Game in progress"
+msgstr "Yng nghanol gêm"
+
+#: src/commands.c:261
+msgid "Connected to\n"
+msgstr "Wedi cysyllti i\n"
+
+#: src/commands.c:265
+msgid "Not connected"
+msgstr "Heb gysylltu"
+
+#. Translators: translate as your names & emails
+#: src/commands.c:287
+msgid "translator_credits"
+msgstr "Dafydd Harries <daf@parnassus.ath.cx>"
+
+#: src/commands.c:293
+msgid "A Tetrinet client for GNOME.\n"
+msgstr "Cleient Tetrinet ar gyfer GNOME.\n"
+
+#: src/commands.c:305
+msgid "GTetrinet Home Page"
+msgstr "Tudalen Gartref GTetrinet"
+
+#: src/config.c:140
+msgid "Warning: theme does not have a name, reverting to default."
+msgstr "Rhybudd: nid oes enw gan y thema, yn adfer y rhagosodiad."
+
+#. make dialog that asks for address/nickname
+#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
+msgid "Connect to server"
+msgstr "Wedi cysylltu i'r gweinydd"
+
+#: src/dialogs.c:169
+msgid "Team name:"
+msgstr "Enw tîm:"
+
+#: src/dialogs.c:215
+msgid "You must specify a server name."
+msgstr "Mae'n rhaid i chi benodi enw gweinydd."
+
+#: src/dialogs.c:232
+msgid "Please specify a password to connect as spectator."
+msgstr "Penodwch gyfrinair er mwyn cysylltu fel gwyliwr os gwelwch yn dda."
+
+#: src/dialogs.c:258
+msgid "Please specify a valid nickname."
+msgstr "Penodwch ffugenw dilys os gwelwch yn dda."
+
+#. game type radio buttons
+#: src/dialogs.c:364
+msgid "O_riginal"
+msgstr "_Gwreiddiol"
+
+#: src/dialogs.c:366
+msgid "Tetri_Fast"
+msgstr "Tetri_Fast"
+
+#: src/dialogs.c:388
+msgid "Server address"
+msgstr "Cyfeiriad gweinydd"
+
+#: src/dialogs.c:397
+msgid "Connect as a _spectator"
+msgstr "Cysylltu fel g_wyliwr"
+
+#: src/dialogs.c:401
+msgid "_Password:"
+msgstr "_Cyfrinair:"
+
+#: src/dialogs.c:418
+msgid "Spectate game"
+msgstr "Gwylio gêm"
+
+#: src/dialogs.c:427
+msgid "_Nick name:"
+msgstr "_Ffugenw:"
+
+#: src/dialogs.c:442
+msgid "_Team name:"
+msgstr "Enw _tîm:"
+
+#: src/dialogs.c:462
+msgid "Player information"
+msgstr "Manylion chwaraewr"
+
+#: src/dialogs.c:503
+msgid "Change Key"
+msgstr "Newid Bysell"
+
+#: src/dialogs.c:554
+msgid "Move right"
+msgstr "Symud i'r dde"
+
+#: src/dialogs.c:555
+msgid "Move left"
+msgstr "Symud i'r chwith"
+
+#: src/dialogs.c:556
+msgid "Move down"
+msgstr "Symud i lawr"
+
+#: src/dialogs.c:557
+msgid "Rotate right"
+msgstr "Cylchdroi i'r dde"
+
+#: src/dialogs.c:558
+msgid "Rotate left"
+msgstr "Cylchdroi i'r chwith"
+
+#: src/dialogs.c:559
+msgid "Drop piece"
+msgstr "Gollwng darn"
+
+#: src/dialogs.c:560
+msgid "Discard special"
+msgstr "Gwaredu arbennigion"
+
+#: src/dialogs.c:561
+msgid "Send message"
+msgstr "Danfon neges"
+
+#: src/dialogs.c:562
+msgid "Special to field 1"
+msgstr "Arbennigyn i faes 1"
+
+#: src/dialogs.c:563
+msgid "Special to field 2"
+msgstr "Arbennigyn i faes 2"
+
+#: src/dialogs.c:564
+msgid "Special to field 3"
+msgstr "Arbennigyn i faes 3"
+
+#: src/dialogs.c:565
+msgid "Special to field 4"
+msgstr "Arbennigyn i faes 4"
+
+#: src/dialogs.c:566
+msgid "Special to field 5"
+msgstr "Arbennigyn i faes 5"
+
+#: src/dialogs.c:567
+msgid "Special to field 6"
+msgstr "Arbennigyn i faes 6"
+
+#: src/dialogs.c:627
+#, c-format
+msgid "Press new key for \"%s\""
+msgstr "Gwaswch fysell newydd ar gyfer \"%s\""
+
+#: src/dialogs.c:844
+msgid "GTetrinet Preferences"
+msgstr "Hoffterau GTetrinet"
+
+#: src/dialogs.c:867
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr ""
+"Dewiswch thema o'r rhestr.\n"
+"Ymsefydlwch themau newydd yn ~/.gtetrinet/themes/"
+
+#: src/dialogs.c:875
+msgid "Name:"
+msgstr "Enw:"
+
+#: src/dialogs.c:879
+msgid "Author:"
+msgstr "Awdur:"
+
+#: src/dialogs.c:883
+msgid "Description:"
+msgstr "Disgrifiad:"
+
+#: src/dialogs.c:901
+msgid "Selected Theme"
+msgstr "Thema Dewisol"
+
+#: src/dialogs.c:920
+msgid "Themes"
+msgstr "Themau"
+
+#. partyline
+#: src/dialogs.c:925
+msgid "Enable _Timestamps"
+msgstr "Galluogi Marciau _Amser"
+
+#: src/dialogs.c:927
+msgid "Enable Channel _List"
+msgstr "Galluogi _Rhestr Sianeli"
+
+#. FIXME
+#: src/dialogs.c:953 src/gtetrinet.c:281
+msgid "Partyline"
+msgstr "Llinell Barti"
+
+#: src/dialogs.c:964
+msgid "Action"
+msgstr "Gweithred"
+
+#: src/dialogs.c:966
+msgid "Key"
+msgstr "Bysell"
+
+#: src/dialogs.c:972
+msgid ""
+"Select an action from the list and press Change Key to change the key "
+"associated with the action."
+msgstr ""
+"Dewiswch weithred o'r rhestr a gwasgwch Newid Bysell er mwyn newid y bysell "
+"sy'n gysylltiedig a'r weithred."
+
+#: src/dialogs.c:979
+msgid "Change _key..."
+msgstr "Newid _bysell..."
+
+#: src/dialogs.c:984 src/dialogs.c:1037
+msgid "_Restore defaults"
+msgstr "_Adfer rhagosodiadau"
+
+#: src/dialogs.c:1005
+msgid "Keyboard"
+msgstr "Bysellfwrdd"
+
+#. sound
+#: src/dialogs.c:1010
+msgid "Enable _Sound"
+msgstr "Galluogi _Sain"
+
+#: src/dialogs.c:1013
+msgid "Enable _MIDI"
+msgstr "Galluogi _MIDI"
+
+#: src/dialogs.c:1027
+msgid "Enter command to play a midi file:"
+msgstr "Rhowch orchymyn er mwyn chwarae ffeil MIDI:"
+
+# TRWSIO
+#: src/dialogs.c:1030
+msgid ""
+"The above command is run when a midi file is to be played.  The name of the "
+"midi file is placed in the environment variable MIDIFILE."
+msgstr ""
+"Caiff y gorchymyn uchod ei rhedeg pan mae ffeil MIDI i'w chwarae. Caiff "
+"enw y ffeil MIDI ei osod yn y newidyn amgylchol MIDIFILE."
+#: src/dialogs.c:1067
+msgid "Sound"
+msgstr "Sain"
+
+#: src/fields.c:76
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr ""
+"Gwall wrth lwytho thema: ni ellir lwytho ffeil graffigion\n"
+"Yn cwympo'n ôl i'r rhagosodiad"
+
+#. shouldnt happen
+#: src/fields.c:85
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr ""
+"Gwall wrth lwytho'r thema rhagosod: Terfynnu...\n"
+"Gwiriwch am wallau ymsefydliad\n"
+
+#: src/fields.c:206
+msgid "Next piece:"
+msgstr "Darn nesaf:"
+
+#: src/fields.c:223
+msgid "Lines:"
+msgstr "Llinellau:"
+
+#: src/fields.c:227
+msgid "Level:"
+msgstr "Lefel:"
+
+#: src/fields.c:229
+msgid "Active level:"
+msgstr "Lefel gweithredol:"
+
+#: src/fields.c:277
+msgid "Attacks and defenses:"
+msgstr "Ymosodiadau ac amddifyniadau:"
+
+#: src/fields.c:421
+msgid "Not playing"
+msgstr "Ddim yn chwarae"
+
+#: src/fields.c:452
+msgid "Specials:"
+msgstr "Arbennigion:"
+
+#: src/gtetrinet.c:77
+msgid "SERVER"
+msgstr "GWEINYDD"
+
+#: src/gtetrinet.c:78
+msgid "Set nickname to use"
+msgstr "Gosod y ffugenw i'w ddefnyddio"
+
+#: src/gtetrinet.c:78
+msgid "NICKNAME"
+msgstr "FFUGENW"
+
+#: src/gtetrinet.c:79
+msgid "Set team name"
+msgstr "Gosod enw tîm"
+
+#: src/gtetrinet.c:79
+msgid "TEAM"
+msgstr "TÎM"
+
+#: src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "Cysylltu fel gwyliwr"
+
+#: src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr "Cyfrinair gwyliwr"
+
+#: src/gtetrinet.c:81
+msgid "PASSWORD"
+msgstr "CYFRINAIR"
+
+#: src/gtetrinet.c:120
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "Methwyd ymgychwyn GConf: %s\n"
+
+#. FIXME
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:470
+msgid "Playing Fields"
+msgstr "Meysydd Chwarae"
+
+#. FIXME
+#: src/gtetrinet.c:292
+msgid "Winlist"
+msgstr "Rhestr ennillion"
+
+#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
+msgid "Name"
+msgstr "Enw"
+
+#: src/partyline.c:79
+msgid "Players"
+msgstr "Chwaraewyr"
+
+#: src/partyline.c:81
+msgid "State"
+msgstr "Cyflwr"
+
+#: src/partyline.c:83
+msgid "Description"
+msgstr "Disgrifiad"
+
+#: src/partyline.c:95
+msgid "Channel List"
+msgstr "Rhestr Sianeli"
+
+#: src/partyline.c:140
+msgid "Team"
+msgstr "Tîm"
+
+#: src/partyline.c:153
+msgid "Your name:"
+msgstr "Eich enw:"
+
+#: src/partyline.c:160
+msgid "Your team:"
+msgstr "Eich tîm:"
+
+#: src/partyline.c:665
+msgid "Talking in channel"
+msgstr "Yn siarad mewn sianel"
+
+#: src/partyline.c:667
+msgid "Disconnected"
+msgstr "Wedi Datgysylltu"
+
+#: src/tetrinet.c:194
+msgid "Server disconnected"
+msgstr "Datgysylltodd y gweinydd"
+
+#: src/tetrinet.c:214
+#, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c*** Wedi datgysylltu o'r gweinydd"
+
+#: src/tetrinet.c:226
+msgid "Error connecting: "
+msgstr "Gwall cysylltu: "
+
+#: src/tetrinet.c:259
+#, c-format
+msgid "%c%c*** Connected to server"
+msgstr "%c%c*** Wedi cysylltu i'r gweinydd"
+
+#: src/tetrinet.c:360
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr "%c%c*** Rydych wedi eich cicio o'r gêm"
+
+#: src/tetrinet.c:364
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr "%c*** Cafodd %c%s%c%c ei gicio o'r gêm"
+
+#: src/tetrinet.c:539
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr "%c*** Mae'r tîm %c%s%c%c wedi ennill y gêm"
+
+#: src/tetrinet.c:545
+#, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr "%c*** Mae %c%s%c%c wedi ennill y gêm"
+
+#: src/tetrinet.c:605
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr "%c*** Mae'r gêm wedi %ccychwyn"
+
+#: src/tetrinet.c:631
+#, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "%c*** Mae'r gêm ar ei %cganol"
+
+#: src/tetrinet.c:643
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr "%c*** Mae'r gêm wedi %cseibio"
+
+#: src/tetrinet.c:645
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr "Mae'r gêm wedi %c%cseibio"
+
+#: src/tetrinet.c:650
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr "%c*** Mae'r gêm wedi %cailgychwyn"
+
+#: src/tetrinet.c:652
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr "Mae'r gêm wedi %c%cailgychwyn"
+
+#: src/tetrinet.c:661
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr "%c*** Mae'r gêm wedi %cgorffen"
+
+#: src/tetrinet.c:772
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr "%c*** Rydych wedi ymuno a %c%s%c%c"
+
+#: src/tetrinet.c:789
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** Mae %c%s%c%c wedi ymuno a'r gwylwyr %c%c(%c%s%c%c%c)"
+
+#: src/tetrinet.c:810
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** Mae %c%s%c%c wedi gadael y gwylwyr %c%c(%c%s%c%c%c)"
+
+#: src/tetrinet.c:1048
+msgid "No special blocks"
+msgstr "Dim blociau arbennig"
+
+#: src/tetrinet.c:1207 src/tetrinet.c:1214
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr " ar %c%c%s%c%c"
+
+#: src/tetrinet.c:1224
+msgid " to All"
+msgstr " i Bawb"
+
+#: src/tetrinet.c:1230 src/tetrinet.c:1237
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr " gan %c%c%s%c%c"
+
+#: src/tetrinet.c:1865
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr "%c*** %c%s%c%c yw'r cymedrolwr"
+
+# TRWSIO
+#. remove ", " from end of string
+#: src/tetrinet.c:1914
+msgid " has left the game"
+msgstr " wedi gadael y gêm"
+
+#: src/tetrinet.c:1915
+msgid " have left the game"
+msgstr " wedi gadael y gêm"
+
+#: src/tetrinet.c:1928
+msgid " has joined the game"
+msgstr " wedi ymuno'r gêm"
+
+#: src/tetrinet.c:1929
+msgid " have joined the game"
+msgstr " wedi ymuno'r gêm"
+
+#: src/tetrinet.c:1952
+#, c-format
+msgid "%s is on team %c%s"
+msgstr "Mae %s ar dîm %c%s"
+
+#: src/tetrinet.c:1955
+#, c-format
+msgid "%s is alone"
+msgstr "Mae %s ar ei hun"
+
+#: src/tetrinet.c:1957
+#, c-format
+msgid "%s are on team %c%s"
+msgstr "Mae %s ar dîm %c%s"
+
+#: src/tetrinet.c:1960
+#, c-format
+msgid "%s are alone"
+msgstr "Mae %s ar eu hunain"
+
+#: src/tetrinet.c:2001
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr "%c*** Mae %c%s%c%c yn awr ar dîm %c%s"
+
+#: src/tetrinet.c:2008
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr "%c*** %c%s%c%c yn awr ar ei hun"
+
+#. "T" stands for "Team" here
+#: src/winlist.c:57
+msgid "T"
+msgstr "T"
+
+#: src/winlist.c:61
+msgid "Score"
+msgstr "Sgôr"
+
+#: gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr "GTetrinet"
+
+#: gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "Cleient Tetrinet"
+
+#: gtetrinet.desktop.in.h:3
+msgid "Tetrinet client for GNOME"
+msgstr "Cleient Tetrinet ar gyfer GNOME"
+
+#: gtetrinet.schemas.in.h:1
+msgid "Command to run to play midi files"
+msgstr "Y gorchymyn i'w rhedeg er mwyn chwarae ffeiliau MIDI"
+
+#: gtetrinet.schemas.in.h:2
+msgid "Enable/disable channel list."
+msgstr "Galluogi/analluogi rhestr sianeli."
+
+#: gtetrinet.schemas.in.h:3
+msgid "Enable/disable midi music"
+msgstr "Galluogi/analluogi cerddoriaeth MIDI"
+
+#: gtetrinet.schemas.in.h:4
+msgid "Enable/disable sound"
+msgstr "Galluogi/analluogi sain"
+
+#: gtetrinet.schemas.in.h:5
+msgid "Enable/disable timestamps."
+msgstr "Galluogi/analluogi marciau amser."
+
+#: gtetrinet.schemas.in.h:6
+msgid ""
+"Enables/Disables sound. Keep in mind that the theme that you're using must "
+"provide sounds."
+msgstr ""
+"Galluogi/analluogi sain. Cofiwch fod yn rhaid i'r thema rydych chi'n ei "
+"ddefnyddio ddarparu sain."
+#: gtetrinet.schemas.in.h:7
+msgid ""
+"Enables/disables midi music. You'll need to enable sound if you want music "
+"to work."
+msgstr ""
+"Galluogi/analluogi cerddoriaeth MIDI. Fe fydd yn rhaid i chi alluogi sain "
+"os ydych eisiau i'r cerddoriaeth weithio."
+
+#: gtetrinet.schemas.in.h:8
+msgid ""
+"Enables/disables the channel list. Disable it if you experience problems "
+"when connecting or while playing in your favorite tetrinet server."
+msgstr ""
+"Galluogi/analluogi y rhestr sianeli. Analluogwch ef os ydych chi'n cael "
+"problemau wrth gysylltu neu tra'n chwarae yn eich hoff weinydd Tetrinet."
+
+#: gtetrinet.schemas.in.h:9
+msgid "Enables/disables timestamps in the partyline."
+msgstr "Galluogi/analluogi mariau amser yn y llinell barti."
+
+#: gtetrinet.schemas.in.h:10
+msgid "Key to discard special"
+msgstr "Bysell er mwyn gwaredu arbennigion"
+
+#: gtetrinet.schemas.in.h:11
+msgid "Key to drop piece"
+msgstr "Bysell er mwyn gollwng darn"
+
+#: gtetrinet.schemas.in.h:12
+msgid "Key to move down"
+msgstr "Bysell er mwyn symud i lawr"
+
+#: gtetrinet.schemas.in.h:13
+msgid "Key to move left"
+msgstr "Bysell er mwyn symud i'r chwith"
+
+#: gtetrinet.schemas.in.h:14
+msgid "Key to move right"
+msgstr "Bysell er mwyn symud i'r dde"
+
+#: gtetrinet.schemas.in.h:15
+msgid "Key to open the fields' message dialog"
+msgstr "Bysell er mwyn agor ymgom negeseuon y meysydd"
+
+#: gtetrinet.schemas.in.h:16
+msgid "Key to rotate clockwise"
+msgstr "Bysell er mwyn troelli'n glocwedd"
+
+#: gtetrinet.schemas.in.h:17
+msgid "Key to rotate counterclockwise"
+msgstr "Bysell er mwyn troelli'n gwrthglocwedd"
+
+#: gtetrinet.schemas.in.h:18
+msgid "Key to use the current special on field 1"
+msgstr "Bysell er mwyn defnyddio'r arbennigyn cyfredol ar faes 1"
+
+#: gtetrinet.schemas.in.h:19
+msgid "Key to use the current special on field 2"
+msgstr "Bysell er mwyn defnyddio'r arbennigyn cyfredol ar faes 2"
+
+#: gtetrinet.schemas.in.h:20
+msgid "Key to use the current special on field 3"
+msgstr "Bysell er mwyn defnyddio'r arbennigyn cyfredol ar faes 3"
+
+#: gtetrinet.schemas.in.h:21
+msgid "Key to use the current special on field 4"
+msgstr "Bysell er mwyn defnyddio'r arbennigyn cyfredol ar faes 4"
+
+#: gtetrinet.schemas.in.h:22
+msgid "Key to use the current special on field 5"
+msgstr "Bysell er mwyn defnyddio'r arbennigyn cyfredol ar faes 5"
+
+#: gtetrinet.schemas.in.h:23
+msgid "Key to use the current special on field 6"
+msgstr "Bysell er mwyn defnyddio'r arbennigyn cyfredol ar faes 6"
+
+#: gtetrinet.schemas.in.h:24
+msgid "Server where you want to play"
+msgstr "Y gweinydd lle hoffech chwarae"
+
+#: gtetrinet.schemas.in.h:25
+msgid ""
+"The current theme directory. It should contain a readable \"blocks.png\" and "
+"a \"theme.cfg\"."
+msgstr ""
+"Y cyfeiriadur thema cyfredol. Fe ddylai gynnwys \"blocks.png\" a "
+"\"theme.cfg\" darllenadwy."
+
+#: gtetrinet.schemas.in.h:26
+msgid "Theme directory, should end with a '/'"
+msgstr "Cyfeiriadur thema, a ddylai orffen efo '/'"
+
+#: gtetrinet.schemas.in.h:27
+msgid ""
+"This command is run when a midi file is to be played. The name of the midi "
+"file is placed in the environment variable MIDIFILE."
+msgstr ""
+"Caiff y gorchymyn yma ei rhedeg pan mae ffeil MIDI i'w chwarae. Caiff enw "
+"y ffeil MIDI ei rhoi yn y newidyn amgylchol MIDIFILE."
+
+#: gtetrinet.schemas.in.h:28
+msgid "This is the server where GTetrinet will try to connect."
+msgstr "Dyma'r gweinydd lle bydd GTetrinet yn ceisio cysylltu."
+
+#: gtetrinet.schemas.in.h:29
+msgid "This key discards the current special. This is case insensitive."
+msgstr "Mae'r bysell hwn yn gwaredu'r arbennigyn cyfredol. Nid yw "
+"priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:30
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr "Mae'r bysell hwn yn dangos ymgom neges y meysydd. Nid yw "
+"priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:31
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr "Mae'r bysell hwn yn gollwng y bloc i'r ddaear. "
+"Nid yw priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:32
+msgid "This key moves the block down. This is case insensitive."
+msgstr "Mae'r bysell hwn yn symud y bloc i lawr. "
+"Nid yw priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:33
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr "Mae'r bysell hwn yn symud y bloc i'r chwith. "
+"Nid yw priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:34
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr "Mae'r bysell hwn yn symud y bloc i'r dde. "
+"Nid yw priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:35
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr "Mae'r bysell hwn yn cylchdroi'r bloc glocwedd. "
+"Nid yw priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:36
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr "Mae'r bysell hwn yn cylchdroi'r bloc gwrthglocwedd. "
+"Nid yw priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:37
+msgid "This key uses the current special on Player 1's game field."
+msgstr "Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm "
+"Chwaraewr 1. Nid yw priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:38
+msgid "This key uses the current special on Player 2's game field."
+msgstr "Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm "
+"Chwaraewr 2. Nid yw priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:39
+msgid "This key uses the current special on Player 3's game field."
+msgstr "Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm "
+"Chwaraewr 3. Nid yw priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:40
+msgid "This key uses the current special on Player 4's game field."
+msgstr "Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm "
+"Chwaraewr 4. Nid yw priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:41
+msgid "This key uses the current special on Player 5's game field."
+msgstr "Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm "
+"Chwaraewr 5. Nid yw priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:42
+msgid "This key uses the current special on Player 6's game field."
+msgstr "Mae'r bysell hwn yn defnyddio'r arbennigyn cyfredol ar faes gêm "
+"Chwaraewr 6. Nid yw priflythrennedd o bwys."
+
+#: gtetrinet.schemas.in.h:43
+msgid "This will be the name of your team."
+msgstr "Dyma fydd enw eich tîm."
+
+#: gtetrinet.schemas.in.h:44
+msgid "This will be your nickname in the game."
+msgstr "Dyma fydd eich ffugenw yn y gêm."
+
+#: gtetrinet.schemas.in.h:45
+msgid "Your nickname"
+msgstr "Eich ffugenw"
+
+#: gtetrinet.schemas.in.h:46
+msgid "Your team"
+msgstr "Eich tîm"
