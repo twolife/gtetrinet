@@ -2,6 +2,7 @@ Makefile.in
 Makefile
 POTFILES
 *.gmo
+*.mo
 gtetrinet.pot
 messages
 messages.in
