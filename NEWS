@@ -1,3 +1,15 @@
+GTetrinet 0.7.1 - 2003-04-14
+- Added an option to disable the channels list feature, so GTetrinet is
+  usable in non-supported (yet) servers.
+- Added channel list support for two new server types.
+- Fixed segfault in the partyline when entering Unicode control characters
+  in the history.
+- Now installs .desktop file in the GNOME2 location.
+- New and updated translations: Spanish (Francisco Javier Fernández),
+  Japanese (KAMAGASAKO Masatoshi), Catalan (Jordi Mallach), Swedish
+  (Christian Rose), German (Gerfried Fuchs), Portuguese (Duarte Loreto),
+  Czech (Miloslav Trmac).
+
 GTetrinet 0.7.0 - 2003-03-17
 - Added a list of available channels in partyline, and the ability to
   join them by double-clicking on them.
