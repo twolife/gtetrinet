@@ -1,3 +1,12 @@
+2003-01-06  Jordi Mallach  <jordi@sindominio.net>
+
+	* Makefile.am: add intltool support.
+	* configure.in: likewise.
+	* gtetrinet.desktop.in: new, generated from gtetrinet.desktop.
+
+	* ABOUT-NLS: upgraded to gettext 0.11.5.
+	* config.rpath: likewise.
+
 2003-01-06  Dani Carbonell  <bocata@panete.net>
 
 	* src/dialogs.c (prefdialog_ok): new function.

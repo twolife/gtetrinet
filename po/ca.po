@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.5.0\n"
-"POT-Creation-Date: 2003-01-05 22:19+0100\n"
+"POT-Creation-Date: 2003-01-06 18:43+0100\n"
 "PO-Revision-Date: 2003-01-05 22:21+0100\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <ca@dodds.net>\n"
@@ -82,7 +82,7 @@ msgstr "Finalitza"
 msgid "End the current game"
 msgstr "Finalitza el joc actual"
 
-#: src/commands.c:82 src/dialogs.c:141
+#: src/commands.c:82 src/dialogs.c:148
 msgid "Change team"
 msgstr "Equip"
 
@@ -148,93 +148,93 @@ msgid "Warning: theme does not have a name"
 msgstr "Avís: el tema no te un nom"
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:82 src/dialogs.c:255 src/gtetrinet.c:65
+#: src/dialogs.c:84 src/dialogs.c:266 src/gtetrinet.c:65
 msgid "Connect to server"
 msgstr "Connecta al servidor"
 
-#: src/dialogs.c:148 src/dialogs.c:351
+#: src/dialogs.c:156 src/dialogs.c:362
 msgid "Team name:"
 msgstr "Nom de l'equip:"
 
 #. game type radio buttons
-#: src/dialogs.c:279
+#: src/dialogs.c:290
 msgid "Original"
 msgstr "Original"
 
-#: src/dialogs.c:281
+#: src/dialogs.c:292
 msgid "TetriFast"
 msgstr "TetriFast"
 
-#: src/dialogs.c:303
+#: src/dialogs.c:314
 msgid "Server address"
 msgstr "Adreça del servidor"
 
-#: src/dialogs.c:312 src/gtetrinet.c:68
+#: src/dialogs.c:323 src/gtetrinet.c:68
 msgid "Connect as a spectator"
 msgstr "Connecta com espectador"
 
-#: src/dialogs.c:316
+#: src/dialogs.c:327
 msgid "Password:"
 msgstr "Contrasenya:"
 
-#: src/dialogs.c:330
+#: src/dialogs.c:341
 msgid "Spectate game"
 msgstr "Espectar el joc"
 
-#: src/dialogs.c:339
+#: src/dialogs.c:350
 msgid "Nick name:"
 msgstr "Nom d'usuari:"
 
-#: src/dialogs.c:368
+#: src/dialogs.c:379
 msgid "Player information"
 msgstr "Informació del jugador"
 
-#: src/dialogs.c:407
+#: src/dialogs.c:418
 msgid "Change Key"
 msgstr "Canvia la tecla"
 
-#: src/dialogs.c:463
+#: src/dialogs.c:476
 msgid "Move right"
 msgstr "Mou a la dreta"
 
-#: src/dialogs.c:464
+#: src/dialogs.c:477
 msgid "Move left"
 msgstr "Mou a l'esquerra"
 
-#: src/dialogs.c:465
+#: src/dialogs.c:478
 msgid "Move down"
 msgstr "Mou avall"
 
-#: src/dialogs.c:466
+#: src/dialogs.c:479
 msgid "Rotate right"
 msgstr "Rota a la dreta"
 
-#: src/dialogs.c:467
+#: src/dialogs.c:480
 msgid "Rotate left"
 msgstr "Rota a l'esquerra"
 
-#: src/dialogs.c:468
+#: src/dialogs.c:481
 msgid "Drop piece"
 msgstr "Solta la peça"
 
-#: src/dialogs.c:469
+#: src/dialogs.c:482
 msgid "Discard special"
 msgstr "Descarta especial"
 
-#: src/dialogs.c:470
+#: src/dialogs.c:483
 msgid "Send message"
 msgstr "Envia missatge"
 
-#: src/dialogs.c:520
+#: src/dialogs.c:533
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Premeu una nova tecla per a «%s»"
 
-#: src/dialogs.c:746
+#: src/dialogs.c:762
 msgid "GTetrinet Preferences"
 msgstr "Preferències de GTetrinet"
 
-#: src/dialogs.c:757
+#: src/dialogs.c:773
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -242,35 +242,35 @@ msgstr ""
 "Seleccioneu un tema de la llista.\n"
 "Instal·leu temes nous en ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:765
+#: src/dialogs.c:781
 msgid "Name:"
 msgstr "Nom:"
 
-#: src/dialogs.c:769
+#: src/dialogs.c:785
 msgid "Author:"
 msgstr "Autor:"
 
-#: src/dialogs.c:773
+#: src/dialogs.c:789
 msgid "Description:"
 msgstr "Descripció:"
 
-#: src/dialogs.c:791
+#: src/dialogs.c:807
 msgid "Selected Theme"
 msgstr "Tema seleccionat"
 
-#: src/dialogs.c:814
+#: src/dialogs.c:830
 msgid "Themes"
 msgstr "Temes"
 
-#: src/dialogs.c:821
+#: src/dialogs.c:837
 msgid "Action"
 msgstr "Acció"
 
-#: src/dialogs.c:823
+#: src/dialogs.c:839
 msgid "Key"
 msgstr "Tecla"
 
-#: src/dialogs.c:829
+#: src/dialogs.c:845
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -278,32 +278,32 @@ msgstr ""
 "Seleccioneu una acció de la llista i premeu «Canvia la tecla» per a canviar "
 "la tecla associada amb l'acció."
 
-#: src/dialogs.c:835
+#: src/dialogs.c:851
 msgid "Change key..."
 msgstr "Canvia la tecla..."
 
-#: src/dialogs.c:840 src/dialogs.c:898
+#: src/dialogs.c:856 src/dialogs.c:914
 msgid "Restore defaults"
 msgstr "Restaura els valors per defecte"
 
-#: src/dialogs.c:865
+#: src/dialogs.c:881
 msgid "Keyboard"
 msgstr "Teclat"
 
 #. sound
-#: src/dialogs.c:871
+#: src/dialogs.c:887
 msgid "Enable Sound"
 msgstr "Habilita el só"
 
-#: src/dialogs.c:874
+#: src/dialogs.c:890
 msgid "Enable MIDI"
 msgstr "Habilita el MIDI"
 
-#: src/dialogs.c:888
+#: src/dialogs.c:904
 msgid "Enter command to play a midi file:"
 msgstr "Introduïu l'ordre per a reproduir un fitxer de midi:"
 
-#: src/dialogs.c:891
+#: src/dialogs.c:907
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -311,7 +311,7 @@ msgstr ""
 "L'ordre de dalt s'executa quan s'ha de reproduir un fitxer de midi. El nom "
 "del fitxer de midi s'ha de ficar en la variable d'entorn «MIDIFILE»."
 
-#: src/dialogs.c:932
+#: src/dialogs.c:948
 msgid "Sound"
 msgstr "Só"
 
@@ -580,3 +580,11 @@ msgstr "E"
 #: src/winlist.c:48
 msgid "Score"
 msgstr "Puntuació"
+
+#: gtetrinet.desktop.in:3
+msgid "GTetrinet"
+msgstr "GTetrinet"
+
+#: gtetrinet.desktop.in:4
+msgid "Tetrinet client for GNOME"
+msgstr "Client de Tetrinet per al GNOME"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.5.0pre1\n"
-"POT-Creation-Date: 2002-11-18 16:56+0100\n"
+"POT-Creation-Date: 2003-01-06 18:43+0100\n"
 "PO-Revision-Date: 2002-11-18 17:05+0100\n"
 "Last-Translator: Gerfried Fuchs <alfie@ist.org>\n"
 "Language-Team: German <de@li.org>\n"
@@ -46,29 +46,61 @@ msgstr "Seite los_lösen..."
 msgid "Connect"
 msgstr "Verbinden"
 
+#: src/commands.c:75
+#, fuzzy
+msgid "Connect to a server"
+msgstr "Zum Server verbinden"
+
 #: src/commands.c:76
 msgid "Disconnect"
 msgstr "Verbindung trennen"
 
+#: src/commands.c:76
+#, fuzzy
+msgid "Disconnect from the current server"
+msgstr "Verbindung zum Server _trennen..."
+
 #: src/commands.c:78
 msgid "Start game"
+msgstr "Spiel starten"
+
+#: src/commands.c:78
+#, fuzzy
+msgid "Start a new game"
 msgstr "Spiel starten"
 
 #: src/commands.c:79
 msgid "Pause game"
 msgstr "Spiel unterbrechen"
 
+#: src/commands.c:79
+#, fuzzy
+msgid "Pause the game"
+msgstr "Spiel unterbrechen"
+
 #: src/commands.c:80
 msgid "End game"
 msgstr "Spiel beenden"
 
-#: src/commands.c:82 src/dialogs.c:126
+#: src/commands.c:80
+msgid "End the current game"
+msgstr ""
+
+#: src/commands.c:82 src/dialogs.c:148
 msgid "Change team"
 msgstr "Team wechseln"
+
+#: src/commands.c:82
+msgid "Change your current team name"
+msgstr ""
 
 #: src/commands.c:85
 msgid "Detach page"
 msgstr "Seite loslösen"
+
+#: src/commands.c:85
+msgid "Detach the current notebook page"
+msgstr ""
 
 #: src/commands.c:207
 msgid "Game in progress"
@@ -82,131 +114,132 @@ msgstr "Verbinden zu\n"
 msgid "Not connected"
 msgstr "Nicht vebunden"
 
-#: src/commands.c:225 src/commands.c:228
+#: src/commands.c:228
 msgid "Ka-shu Wong <kswong@zip.com.au>"
 msgstr "Ka-shu Wong <kswong@zip.com.au>"
 
-#: src/commands.c:226
+#: src/commands.c:229
 msgid "James Antill <james@and.org>"
 msgstr "James Antill <james@and.org>"
 
-#: src/commands.c:229
+#: src/commands.c:230 src/commands.c:233
 msgid "Jordi Mallach <jordi@sindominio.net>"
 msgstr "Jordi Mallach <jordi@sindominio.net>"
 
+#: src/commands.c:231
+msgid "Dani Carbonell <bocata@panete.net>"
+msgstr ""
+
 #. Translators: translate as your names & emails
-#: src/commands.c:232
+#: src/commands.c:236
 msgid "translator_credits"
 msgstr "Gerfried Fuchs <alfie@debian.org>"
 
-#: src/commands.c:237
-msgid "(C) 1999, 2000, 2001, 2002 Ka-shu Wong"
+#: src/commands.c:241
+#, fuzzy
+msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
 msgstr "(C) 1999, 2000, 2001, 2002 Ka-shu Wong"
 
-#: src/commands.c:238
+#: src/commands.c:242
 msgid "A Tetrinet client for GNOME.\n"
 msgstr "Ein Tetrinet-Client für GNOME.\n"
 
-#: src/commands.c:250
+#: src/commands.c:254
 msgid "GTetrinet Home Page"
 msgstr "GTetrinet-Homepage"
 
-#: src/config.c:82
+#: src/config.c:83
 msgid "Warning: theme does not have a name"
 msgstr "Warnung: Theme hat keinen Namen"
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:78 src/dialogs.c:229 src/gtetrinet.c:65
+#: src/dialogs.c:84 src/dialogs.c:266 src/gtetrinet.c:65
 msgid "Connect to server"
 msgstr "Zum Server verbinden"
 
-#: src/dialogs.c:133 src/dialogs.c:323
+#: src/dialogs.c:156 src/dialogs.c:362
 msgid "Team name:"
 msgstr "Team-Name:"
 
 #. game type radio buttons
-#: src/dialogs.c:253
+#: src/dialogs.c:290
 msgid "Original"
 msgstr "Original"
 
-#: src/dialogs.c:255
+#: src/dialogs.c:292
 msgid "TetriFast"
 msgstr "TetriFast"
 
-#: src/dialogs.c:277
+#: src/dialogs.c:314
 msgid "Server address"
 msgstr "Server-Adresse"
 
-#: src/dialogs.c:286 src/gtetrinet.c:68
+#: src/dialogs.c:323 src/gtetrinet.c:68
 msgid "Connect as a spectator"
 msgstr "Als Zuschauer verbinden"
 
-#: src/dialogs.c:290
+#: src/dialogs.c:327
 msgid "Password:"
 msgstr "Passwort:"
 
-#: src/dialogs.c:304
+#: src/dialogs.c:341
 msgid "Spectate game"
 msgstr "Spiel beobachten"
 
-#: src/dialogs.c:313
+#: src/dialogs.c:350
 msgid "Nick name:"
 msgstr "Spitzname:"
 
-#: src/dialogs.c:338
+#: src/dialogs.c:379
 msgid "Player information"
 msgstr "Spieler-Informationen"
 
-#: src/dialogs.c:377
+#: src/dialogs.c:418
 msgid "Change Key"
 msgstr "Taste ändern"
 
-#: src/dialogs.c:431
+#: src/dialogs.c:476
 msgid "Move right"
 msgstr "Nach links"
 
-#: src/dialogs.c:432
+#: src/dialogs.c:477
 msgid "Move left"
 msgstr "Nach rechts"
 
-#: src/dialogs.c:433
+#: src/dialogs.c:478
 msgid "Move down"
 msgstr "Nach unten"
 
-#: src/dialogs.c:434
+#: src/dialogs.c:479
 msgid "Rotate right"
 msgstr "Rechts drehen"
 
-#: src/dialogs.c:435
+#: src/dialogs.c:480
 msgid "Rotate left"
 msgstr "Links drehen"
 
-#: src/dialogs.c:436
+#: src/dialogs.c:481
 msgid "Drop piece"
 msgstr "Stein fallen lassen"
 
-#: src/dialogs.c:437
+#: src/dialogs.c:482
+msgid "Discard special"
+msgstr ""
+
+#: src/dialogs.c:483
 msgid "Send message"
 msgstr "Nachricht schicken"
 
-#: src/dialogs.c:479
+#: src/dialogs.c:533
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Drücken Sie die neue Taste für \"%s\""
 
-#: src/dialogs.c:678
-msgid "Action"
-msgstr "Aktion"
-
-#: src/dialogs.c:679
-msgid "Key"
-msgstr "Taste"
-
-#: src/dialogs.c:683
+#: src/dialogs.c:762
 msgid "GTetrinet Preferences"
 msgstr "GTetrinet-Einstellungen"
 
-#: src/dialogs.c:691
+#: src/dialogs.c:773
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -214,27 +247,35 @@ msgstr ""
 "Wählen Sie ein Theme aus der Liste.\n"
 "Installieren Sie neue Themes nach ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:699
+#: src/dialogs.c:781
 msgid "Name:"
 msgstr "Name:"
 
-#: src/dialogs.c:703
+#: src/dialogs.c:785
 msgid "Author:"
 msgstr "Autor:"
 
-#: src/dialogs.c:707
+#: src/dialogs.c:789
 msgid "Description:"
 msgstr "Beschreibung:"
 
-#: src/dialogs.c:725
+#: src/dialogs.c:807
 msgid "Selected Theme"
 msgstr "Gewähltes Theme"
 
-#: src/dialogs.c:748
+#: src/dialogs.c:830
 msgid "Themes"
 msgstr "Themes"
 
-#: src/dialogs.c:765
+#: src/dialogs.c:837
+msgid "Action"
+msgstr "Aktion"
+
+#: src/dialogs.c:839
+msgid "Key"
+msgstr "Taste"
+
+#: src/dialogs.c:845
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -242,32 +283,32 @@ msgstr ""
 "Wählen Sie eine Aktion aus der Liste und drücken Sie Taste ändern um die mit "
 "der Aktion verknüpfte Taste zu ändern."
 
-#: src/dialogs.c:771
+#: src/dialogs.c:851
 msgid "Change key..."
 msgstr "Taste ändern..."
 
-#: src/dialogs.c:776 src/dialogs.c:834
+#: src/dialogs.c:856 src/dialogs.c:914
 msgid "Restore defaults"
 msgstr "Vorgaben wiederherstellen"
 
-#: src/dialogs.c:801
+#: src/dialogs.c:881
 msgid "Keyboard"
 msgstr "Tastatur"
 
 #. sound
-#: src/dialogs.c:807
+#: src/dialogs.c:887
 msgid "Enable Sound"
 msgstr "Musik aktivieren"
 
-#: src/dialogs.c:810
+#: src/dialogs.c:890
 msgid "Enable MIDI"
 msgstr "MIDI aktivieren"
 
-#: src/dialogs.c:824
+#: src/dialogs.c:904
 msgid "Enter command to play a midi file:"
 msgstr "Geben Sie den Befehl zum Abzuspielen einer Midi-Datei ein:"
 
-#: src/dialogs.c:827
+#: src/dialogs.c:907
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -276,7 +317,7 @@ msgstr ""
 "wird. Der Name der Midi-Datei ist in der Umgebungsvariable MIDIFILE "
 "vorhanden."
 
-#: src/dialogs.c:868
+#: src/dialogs.c:948
 msgid "Sound"
 msgstr "Musik"
 
@@ -317,11 +358,11 @@ msgstr "Aktive Ebene:"
 msgid "Attacks and defenses:"
 msgstr "Angriffe und Verteidungungen:"
 
-#: src/fields.c:409
+#: src/fields.c:410
 msgid "Not playing"
 msgstr "Spielt nicht"
 
-#: src/fields.c:436
+#: src/fields.c:441
 msgid "Specials:"
 msgstr "Specials:"
 
@@ -354,66 +395,195 @@ msgid "PASSWORD"
 msgstr "PASSWORT"
 
 #. FIXME
-#: src/gtetrinet.c:182
+#: src/gtetrinet.c:192 src/gtetrinet.c:329 src/gtetrinet.c:373
 msgid "Playing Fields"
 msgstr "Spielfelder"
 
 #. FIXME
-#: src/gtetrinet.c:193
+#: src/gtetrinet.c:203
 msgid "Partyline"
 msgstr "Partyraum"
 
 #. FIXME
-#: src/gtetrinet.c:204
+#: src/gtetrinet.c:214
 msgid "Winlist"
 msgstr "Siegerliste"
 
-#: src/partyline.c:58 src/winlist.c:42
+#: src/partyline.c:89 src/winlist.c:46
 msgid "Name"
 msgstr "Name"
 
-#: src/partyline.c:59
+#: src/partyline.c:91
 msgid "Team"
 msgstr "Team"
 
-#: src/partyline.c:99
+#: src/partyline.c:105
 msgid "Your name:"
 msgstr "Ihr Name:"
 
-#: src/partyline.c:108
+#: src/partyline.c:114
 msgid "Your team:"
 msgstr "Ihr Team:"
 
-#: src/tetrinet.c:208
+#: src/tetrinet.c:201
+#, fuzzy, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "Verbindung zum Server _trennen..."
+
+#: src/tetrinet.c:210
 msgid "Error connecting: "
 msgstr "Fehler beim Verbinden: "
 
-#: src/tetrinet.c:834
+#: src/tetrinet.c:239
+#, fuzzy, c-format
+msgid "%c%c*** Connected to server"
+msgstr "Zum Server verbinden"
+
+#: src/tetrinet.c:336
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr ""
+
+#: src/tetrinet.c:340
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr ""
+
+#: src/tetrinet.c:431
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr ""
+
+#: src/tetrinet.c:437
+#, fuzzy, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr " ist dem Spiel beigetreten"
+
+#: src/tetrinet.c:497
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr ""
+
+#: src/tetrinet.c:522
+#, fuzzy, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "Spiel im Gange"
+
+#: src/tetrinet.c:533
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr ""
+
+#: src/tetrinet.c:535
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr ""
+
+#: src/tetrinet.c:540
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr ""
+
+#: src/tetrinet.c:542
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr ""
+
+#: src/tetrinet.c:551
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr ""
+
+#: src/tetrinet.c:661
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr ""
+
+#: src/tetrinet.c:678
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr ""
+
+#: src/tetrinet.c:699
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr ""
+
+#: src/tetrinet.c:856
 msgid "No special blocks"
 msgstr "Keine Spezial-Blöcke"
 
+#: src/tetrinet.c:1015 src/tetrinet.c:1022
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr ""
+
+#: src/tetrinet.c:1032
+msgid " to All"
+msgstr ""
+
+#: src/tetrinet.c:1038 src/tetrinet.c:1045
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr ""
+
+#: src/tetrinet.c:1678
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr ""
+
 #. remove ", " from end of string
-#: src/tetrinet.c:1699
+#: src/tetrinet.c:1727
 msgid " has left the game"
 msgstr " hat das Spiel verlassen"
 
-#: src/tetrinet.c:1700
+#: src/tetrinet.c:1728
 msgid " have left the game"
 msgstr " haben das Spiel verlassen"
 
-#: src/tetrinet.c:1713
+#: src/tetrinet.c:1741
 msgid " has joined the game"
 msgstr " ist dem Spiel beigetreten"
 
-#: src/tetrinet.c:1714
+#: src/tetrinet.c:1742
 msgid " have joined the game"
 msgstr " sind dem Spiel beigetreten"
 
-#: src/winlist.c:41
+#: src/tetrinet.c:1765
+#, c-format
+msgid "%s is on team %c%s"
+msgstr ""
+
+#: src/tetrinet.c:1768
+#, c-format
+msgid "%s is alone"
+msgstr ""
+
+#: src/tetrinet.c:1770
+#, c-format
+msgid "%s are on team %c%s"
+msgstr ""
+
+#: src/tetrinet.c:1773
+#, c-format
+msgid "%s are alone"
+msgstr ""
+
+#: src/tetrinet.c:1814
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr ""
+
+#: src/tetrinet.c:1821
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr ""
+
+#: src/winlist.c:44
 msgid "T"
 msgstr "T"
 
-#: src/winlist.c:43
+#: src/winlist.c:48
 msgid "Score"
 msgstr "Punkte"
 

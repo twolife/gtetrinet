@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=GTetrinet
-Name[ca]=GTetrinet
-Comment=Tetrinet client for GNOME
-Comment[ca]=Client de Tetrinet per a GNOME
-Exec=gtetrinet
-Icon=gtetrinet.png
-Terminal=0
-Type=Application
