@@ -499,7 +499,7 @@ void fields_drawnextblock (TETRISBLOCK block)
 void fields_attdefmsg (char *text)
 {
     textbox_addtext (GTK_TEXT_VIEW(attdefwidget), text);
-    adjust_bottom (GTK_TEXT_VIEW(attdefwidget)->vadjustment);
+    adjust_bottom_text_view (GTK_TEXT_VIEW(attdefwidget));
 }
 
 void fields_attdefclear (void)
@@ -541,7 +541,7 @@ void fields_setactivelevel (int l)
 void fields_gmsgadd (char *str)
 {
     textbox_addtext (GTK_TEXT_VIEW(gmsgtext), str);
-    adjust_bottom (GTK_TEXT_VIEW(gmsgtext)->vadjustment);
+    adjust_bottom_text_view (GTK_TEXT_VIEW(gmsgtext));
 }
 
 void fields_gmsgclear (void)

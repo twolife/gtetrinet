@@ -320,16 +320,16 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
     }
 
     if (game_area)
-    {
-        /* keys for the playing field - key releases needed - install timeout */
-        if (keytimeoutid && key->time == k.time)
-            gtk_timeout_remove (keytimeoutid);
-        if (tetrinet_key (key->keyval, key->string)) goto keyprocessed;
+    { /* keys for the playing field - key releases needed - install timeout */
+      if (keytimeoutid && key->time == k.time)
+        gtk_timeout_remove (keytimeoutid);
     }
     if (gtetrinet_key(key->keyval, key->state & (GDK_MOD1_MASK |
                                                  GDK_CONTROL_MASK |
                                                  GDK_SHIFT_MASK)))
-        goto keyprocessed;
+      goto keyprocessed;
+    if (game_area && tetrinet_key (key->keyval, key->string)) goto keyprocessed;
+
     return FALSE;
 keyprocessed:
     gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key_press_event");

@@ -1,3 +1,13 @@
+2002-12-02  James Antill  <james@and.org>
+
+	* src/misc.c (adjust_bottom_text_view): Change function API to work on
+	TextViews nativley ... use idle handler to stop syncronous updates.
+	(nocolor): Change static buffer with no bounds checking to dynamicly
+	sized buffer.
+
+	* src/gtetrinet.c (keypress): Search for notebook keys before game
+	keys (as 1, 2 and 3 are attack commands).
+
 2002-11-18  Jordi Mallach  <jordi@sindominio.net>
 
 	* AUTHORS: added Gerfried.

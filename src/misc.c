@@ -239,19 +239,69 @@ void textbox_addtext (GtkTextView *textbox, unsigned char *text)
     /* if (bottom) adjust_bottom (textboxadj); */
 }
 
-void adjust_bottom (GtkAdjustment *adj)
-{ /* FIXME: GtkTextView craps itself */
-    gtk_adjustment_set_value (adj, adj->upper);
+/* have to use an idle handler for the adjustment ... or the TextView goes
+ * syncronous ... and has bugs.
+ * There might be a better way to do a one shot idle handler.
+ * This works though */
+static GList *adj_list = NULL;
+
+static gboolean cb_adjust_bottom(gpointer data)
+{
+  GList *scan = adj_list;
+
+  while (scan)
+  {
+    GtkTextView *tv = scan->data;
+    GtkTextIter iter;
+
+    gtk_text_buffer_get_end_iter(tv->buffer, &iter);
+    /* Maybe want... scroll_to_iter(tv, &iter, 0.0, TRUE, 0.0, 1.0); ???? */
+    gtk_text_view_scroll_to_iter(tv, &iter, 0.0, FALSE, 0.0, 0.0);
+    
+    scan = scan->next;
+  }
+  
+  g_list_free(adj_list);
+  adj_list = NULL;
+  return FALSE;
+}
+
+void adjust_bottom_text_view (GtkTextView *tv)
+{
+  if (!g_list_find(adj_list, tv))
+  {
+    if (!adj_list)
+      gtk_idle_add(cb_adjust_bottom, adj_list);
+    
+    adj_list = g_list_append(adj_list, tv);
+  }
 }
 
 char *nocolor (char *str)
 {
-    static char buf[1024], *p;
-    for (p = buf; *str; str ++) {
-        if (*str > 0x1F) *p++ = *str;
-    }
-    *p = 0;
-    return buf;
+  static GString *ret = NULL;
+  size_t len = strlen(str);
+  char *scan = NULL;
+  char *p = NULL;
+  
+  if (!ret)
+    ret = g_string_new("");
+
+  g_string_assign(ret, str);
+
+  p = scan = ret->str;
+  while (*scan)
+  {
+    if ((signed char)*scan > 0x1F) /* high characters are ok,
+                                    * but only if it's UTF-8 --
+                                    * just kill them for now */
+      *p++ = *scan;
+    ++scan;
+  }
+  if (scan != p)
+    g_string_truncate(ret, len - (scan - p));
+  
+  return ret->str;
 }
 
 GtkWidget *pixmap_label (GdkPixmap *pm, GdkBitmap *mask, char *str)

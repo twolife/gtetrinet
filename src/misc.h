@@ -8,7 +8,7 @@ extern int randomnum (int n);
 extern void fdreadline (int fd, char *buf);
 extern void textbox_setup (void);
 extern void textbox_addtext (GtkTextView *textbox, unsigned char *text);
-extern void adjust_bottom (GtkAdjustment *adj);
+extern void adjust_bottom_text_view (GtkTextView *);
 extern char *nocolor (char *str);
 extern GtkWidget *pixmap_label (GdkPixmap *pm, GdkBitmap *mask, char *str);
 

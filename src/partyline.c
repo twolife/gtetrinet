@@ -170,7 +170,7 @@ void partyline_status (char *status)
 void partyline_text (char *text)
 {
     textbox_addtext (GTK_TEXT_VIEW(textbox), text);
-    adjust_bottom (GTK_TEXT_VIEW(textbox)->vadjustment);
+    adjust_bottom_text_view(GTK_TEXT_VIEW(textbox));
 }
 
 void partyline_playerlist (int *numbers, char **names, char **teams, int n, char **specs, int sn)
