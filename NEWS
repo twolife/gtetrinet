@@ -1,9 +1,15 @@
 GTetrinet 0.5.0 - Unreleased
 - Finally, GNOME2 port!
+- The configuration is now read from the ~/.gnome2/gtetrinet file. If you
+  want to keep your old config, moving ~/.gnome/gtetrinet to the new
+  location should be enough.
 - GTetrinet now remembers and restores the last used server in the
   connect dialog.
 - The "discard special" key can now be configured.
 - The toolbar now has icons, as well as the application window.
+- GTetrinet will switch to the apropriate notebook page when you connect
+  to a server, and when the game starts or ends.
+- Several other improvements.
 
 GTetrinet 0.4.4 - 2002-10-27
 - SECURITY FIX: multiple buffer overflows fixed all over the place.

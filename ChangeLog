@@ -1,5 +1,10 @@
 2003-01-05  Jordi Mallach  <jordi@sindominio.net>
 
+	* NEWS: updated for 0.5.0.
+	* TODO: updated.
+
+2003-01-05  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/commands.c (toolbar): assign an icon to the detach button,
 	and add useful tooltips to each button.
 
