@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.5.0\n"
-"POT-Creation-Date: 2002-12-18 12:55+0100\n"
-"PO-Revision-Date: 2002-12-18 12:55+0100\n"
+"POT-Creation-Date: 2003-01-05 01:24+0100\n"
+"PO-Revision-Date: 2003-01-05 01:25+0100\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <ca@dodds.net>\n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgstr "Pausa"
 msgid "End game"
 msgstr "Finalitza"
 
-#: src/commands.c:82 src/dialogs.c:126
+#: src/commands.c:82 src/dialogs.c:129
 msgid "Change team"
 msgstr "Equip"
 
@@ -82,7 +82,7 @@ msgstr "Connectat a\n"
 msgid "Not connected"
 msgstr "No connectat"
 
-#: src/commands.c:225 src/commands.c:228
+#: src/commands.c:225
 msgid "Ka-shu Wong <kswong@zip.com.au>"
 msgstr "Ka-shu Wong <jswong@zip.com.au>"
 
@@ -90,24 +90,28 @@ msgstr "Ka-shu Wong <jswong@zip.com.au>"
 msgid "James Antill <james@and.org>"
 msgstr "James Antill <james@and.org>"
 
-#: src/commands.c:229
+#: src/commands.c:227 src/commands.c:230
 msgid "Jordi Mallach <jordi@sindominio.net>"
 msgstr "Jordi Mallach <jordi@sindominio.net>"
 
+#: src/commands.c:228
+msgid "Dani Carbonell <bocata@panete.net>"
+msgstr "Dani Carbonell <bocata@panete.net>"
+
 #. Translators: translate as your names & emails
-#: src/commands.c:232
+#: src/commands.c:233
 msgid "translator_credits"
 msgstr "Jordi Mallach <jordi@sindominio.net>"
 
-#: src/commands.c:237
+#: src/commands.c:238
 msgid "(C) 1999, 2000, 2001, 2002 Ka-shu Wong"
 msgstr "© 1999, 2000, 2001, 2002 Ka-shu Wong"
 
-#: src/commands.c:238
+#: src/commands.c:239
 msgid "A Tetrinet client for GNOME.\n"
 msgstr "Un client de Tetrinet per al GNOME.\n"
 
-#: src/commands.c:250
+#: src/commands.c:251
 msgid "GTetrinet Home Page"
 msgstr "Web de GTetrinet"
 
@@ -116,101 +120,97 @@ msgid "Warning: theme does not have a name"
 msgstr "Avís: el tema no te un nom"
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:78 src/dialogs.c:229 src/gtetrinet.c:65
+#: src/dialogs.c:78 src/dialogs.c:239 src/gtetrinet.c:65
 msgid "Connect to server"
 msgstr "Connecta al servidor"
 
-#: src/dialogs.c:133 src/dialogs.c:323
+#: src/dialogs.c:136 src/dialogs.c:335
 msgid "Team name:"
 msgstr "Nom de l'equip:"
 
 #. game type radio buttons
-#: src/dialogs.c:253
+#: src/dialogs.c:263
 msgid "Original"
 msgstr "Original"
 
-#: src/dialogs.c:255
+#: src/dialogs.c:265
 msgid "TetriFast"
 msgstr "TetriFast"
 
-#: src/dialogs.c:277
+#: src/dialogs.c:287
 msgid "Server address"
 msgstr "Adreça del servidor"
 
-#: src/dialogs.c:286 src/gtetrinet.c:68
+#: src/dialogs.c:296 src/gtetrinet.c:68
 msgid "Connect as a spectator"
 msgstr "Connecta com espectador"
 
-#: src/dialogs.c:290
+#: src/dialogs.c:300
 msgid "Password:"
 msgstr "Contrasenya:"
 
-#: src/dialogs.c:304
+#: src/dialogs.c:314
 msgid "Spectate game"
 msgstr "Espectar el joc"
 
-#: src/dialogs.c:313
+#: src/dialogs.c:323
 msgid "Nick name:"
 msgstr "Nom d'usuari:"
 
-#: src/dialogs.c:338
+#: src/dialogs.c:352
 msgid "Player information"
 msgstr "Informació del jugador"
 
-#: src/dialogs.c:377
+#: src/dialogs.c:391
 msgid "Change Key"
 msgstr "Canvia la tecla"
 
-#: src/dialogs.c:432
+#: src/dialogs.c:447
 msgid "Move right"
 msgstr "Mou a la dreta"
 
-#: src/dialogs.c:433
+#: src/dialogs.c:448
 msgid "Move left"
 msgstr "Mou a l'esquerra"
 
-#: src/dialogs.c:434
+#: src/dialogs.c:449
 msgid "Move down"
 msgstr "Mou avall"
 
-#: src/dialogs.c:435
+#: src/dialogs.c:450
 msgid "Rotate right"
 msgstr "Rota a la dreta"
 
-#: src/dialogs.c:436
+#: src/dialogs.c:451
 msgid "Rotate left"
 msgstr "Rota a l'esquerra"
 
-#: src/dialogs.c:437
+#: src/dialogs.c:452
 msgid "Drop piece"
 msgstr "Solta la peça"
 
-#: src/dialogs.c:438
+#: src/dialogs.c:453
 msgid "Discard special"
 msgstr "Descarta especial"
 
-#: src/dialogs.c:439
+#: src/dialogs.c:454
 msgid "Send message"
 msgstr "Envia missatge"
 
-#: src/dialogs.c:481
+#: src/dialogs.c:504
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Premeu una nova tecla per a «%s»"
 
-#: src/dialogs.c:681
-msgid "Action"
-msgstr "Acció"
-
-#: src/dialogs.c:682
-msgid "Key"
-msgstr "Tecla"
-
-#: src/dialogs.c:686
+#: src/dialogs.c:724
 msgid "GTetrinet Preferences"
 msgstr "Preferències de GTetrinet"
 
-#: src/dialogs.c:694
+#: src/dialogs.c:731
+msgid "Theme"
+msgstr "Tema"
+
+#: src/dialogs.c:735
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -218,27 +218,35 @@ msgstr ""
 "Seleccioneu un tema de la llista.\n"
 "Instal·leu temes nous en ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:702
+#: src/dialogs.c:743
 msgid "Name:"
 msgstr "Nom:"
 
-#: src/dialogs.c:706
+#: src/dialogs.c:747
 msgid "Author:"
 msgstr "Autor:"
 
-#: src/dialogs.c:710
+#: src/dialogs.c:751
 msgid "Description:"
 msgstr "Descripció:"
 
-#: src/dialogs.c:728
+#: src/dialogs.c:769
 msgid "Selected Theme"
 msgstr "Tema seleccionat"
 
-#: src/dialogs.c:751
+#: src/dialogs.c:792
 msgid "Themes"
 msgstr "Temes"
 
-#: src/dialogs.c:768
+#: src/dialogs.c:799
+msgid "Action"
+msgstr "Acció"
+
+#: src/dialogs.c:801
+msgid "Key"
+msgstr "Tecla"
+
+#: src/dialogs.c:807
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -246,32 +254,32 @@ msgstr ""
 "Seleccioneu una acció de la llista i premeu «Canvia la tecla» per a canviar "
 "la tecla associada amb l'acció."
 
-#: src/dialogs.c:774
+#: src/dialogs.c:813
 msgid "Change key..."
 msgstr "Canvia la tecla..."
 
-#: src/dialogs.c:779 src/dialogs.c:837
+#: src/dialogs.c:818 src/dialogs.c:876
 msgid "Restore defaults"
 msgstr "Restaura els valors per defecte"
 
-#: src/dialogs.c:804
+#: src/dialogs.c:843
 msgid "Keyboard"
 msgstr "Teclat"
 
 #. sound
-#: src/dialogs.c:810
+#: src/dialogs.c:849
 msgid "Enable Sound"
 msgstr "Habilita el só"
 
-#: src/dialogs.c:813
+#: src/dialogs.c:852
 msgid "Enable MIDI"
 msgstr "Habilita el MIDI"
 
-#: src/dialogs.c:827
+#: src/dialogs.c:866
 msgid "Enter command to play a midi file:"
 msgstr "Introduïu l'ordre per a reproduir un fitxer de midi:"
 
-#: src/dialogs.c:830
+#: src/dialogs.c:869
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -279,7 +287,7 @@ msgstr ""
 "L'ordre de dalt s'executa quan s'ha de reproduir un fitxer de midi. El nom "
 "del fitxer de midi s'ha de ficar en la variable d'entorn «MIDIFILE»."
 
-#: src/dialogs.c:871
+#: src/dialogs.c:910
 msgid "Sound"
 msgstr "Só"
 
@@ -320,11 +328,11 @@ msgstr "Nivell actiu:"
 msgid "Attacks and defenses:"
 msgstr "Atacs i defenses:"
 
-#: src/fields.c:409
+#: src/fields.c:410
 msgid "Not playing"
 msgstr "No està jugant"
 
-#: src/fields.c:436
+#: src/fields.c:441
 msgid "Specials:"
 msgstr "Especials:"
 
@@ -357,40 +365,40 @@ msgid "PASSWORD"
 msgstr "CONTRASENYA"
 
 #. FIXME
-#: src/gtetrinet.c:182
+#: src/gtetrinet.c:192
 msgid "Playing Fields"
 msgstr "Camps de joc"
 
 #. FIXME
-#: src/gtetrinet.c:193
+#: src/gtetrinet.c:203
 msgid "Partyline"
 msgstr "Partyline"
 
 #. FIXME
-#: src/gtetrinet.c:204
+#: src/gtetrinet.c:214
 msgid "Winlist"
 msgstr "Marcadors"
 
-#: src/partyline.c:59 src/winlist.c:42
+#: src/partyline.c:89 src/winlist.c:46
 msgid "Name"
 msgstr "Nom"
 
-#: src/partyline.c:60
+#: src/partyline.c:91
 msgid "Team"
 msgstr "Equip"
 
-#: src/partyline.c:100
+#: src/partyline.c:99
 msgid "Your name:"
 msgstr "El vostre nom:"
 
-#: src/partyline.c:109
+#: src/partyline.c:108
 msgid "Your team:"
 msgstr "El vostre equip:"
 
 #: src/tetrinet.c:201
 #, c-format
-msgid "%c*** Disconnected from server"
-msgstr "%c*** S'ha desconnectat del servidor"
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c*** S'ha desconnectat del servidor"
 
 #: src/tetrinet.c:209
 msgid "Error connecting: "
@@ -458,93 +466,93 @@ msgstr "%c*** El joc ha %cacabat"
 
 #: src/tetrinet.c:652
 #, c-format
-msgid "%c*** You have joined %c%s"
-msgstr "%c*** Vos heu unit a %c%s"
+msgid "%c*** You have joined %c%s%c%c"
+msgstr "%c*** Vos heu unit a %c%s%c%c"
 
-#: src/tetrinet.c:668
+#: src/tetrinet.c:669
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c s'ha unit als espectadors %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:689
+#: src/tetrinet.c:690
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c ha abandonat els espectadors %c%c (%c%s%c%c%c)"
 
-#: src/tetrinet.c:846
+#: src/tetrinet.c:847
 msgid "No special blocks"
 msgstr "Cap bloc especial"
 
-#: src/tetrinet.c:1005 src/tetrinet.c:1012
+#: src/tetrinet.c:1006 src/tetrinet.c:1013
 #, c-format
 msgid " on %c%c%s%c%c"
 msgstr " en %c%c%s%c%c"
 
-#: src/tetrinet.c:1022
+#: src/tetrinet.c:1023
 msgid " to All"
 msgstr " a tots"
 
-#: src/tetrinet.c:1028 src/tetrinet.c:1035
+#: src/tetrinet.c:1029 src/tetrinet.c:1036
 #, c-format
 msgid " by %c%c%s%c%c"
 msgstr " per %c%c%s%c%c"
 
-#: src/tetrinet.c:1664
+#: src/tetrinet.c:1669
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
 msgstr "%c*** %c%s%c%c és el moderador"
 
 #. remove ", " from end of string
-#: src/tetrinet.c:1713
+#: src/tetrinet.c:1718
 msgid " has left the game"
 msgstr " ha abandonat el joc"
 
-#: src/tetrinet.c:1714
+#: src/tetrinet.c:1719
 msgid " have left the game"
 msgstr " han abandonat el joc"
 
-#: src/tetrinet.c:1727
+#: src/tetrinet.c:1732
 msgid " has joined the game"
 msgstr " s'ha unit al joc"
 
-#: src/tetrinet.c:1728
+#: src/tetrinet.c:1733
 msgid " have joined the game"
 msgstr " s'han unit al joc"
 
-#: src/tetrinet.c:1751
+#: src/tetrinet.c:1756
 #, c-format
 msgid "%s is on team %c%s"
 msgstr "%s està en l'equip %c%s"
 
-#: src/tetrinet.c:1754
+#: src/tetrinet.c:1759
 #, c-format
 msgid "%s is alone"
 msgstr "%s està sol"
 
-#: src/tetrinet.c:1756
+#: src/tetrinet.c:1761
 #, c-format
 msgid "%s are on team %c%s"
 msgstr "%s estan en l'equip %c%s"
 
-#: src/tetrinet.c:1759
+#: src/tetrinet.c:1764
 #, c-format
 msgid "%s are alone"
 msgstr "%s estan sols"
 
-#: src/tetrinet.c:1800
+#: src/tetrinet.c:1805
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
 msgstr "%c*** %c%s%c%c està ara en l'equip %c%s"
 
-#: src/tetrinet.c:1807
+#: src/tetrinet.c:1812
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
 msgstr "%c*** %c%s%c%c està ara sol"
 
-#: src/winlist.c:41
+#: src/winlist.c:44
 msgid "T"
 msgstr "E"
 
-#: src/winlist.c:43
+#: src/winlist.c:48
 msgid "Score"
 msgstr "Puntuació"
