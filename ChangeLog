@@ -1,5 +1,11 @@
 2002-06-28  Jordi Mallach  <jordi@sindominio.net>
 
+	* src/gtetrinet.c, partyline.c, partyline.h, tetrinet.c:
+	patch from Bastien Nocera which fixes focusing of the text entry
+	when switching to the partyline page.
+
+2002-06-28  Jordi Mallach  <jordi@sindominio.net>
+
 	* autogen.sh: added.
 
 	* gtetrinet.desktop: added Catalan translations.

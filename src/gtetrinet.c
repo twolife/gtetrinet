@@ -146,6 +146,11 @@ int main (int argc, char *argv[])
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pwinlist, label);
 
+    /* add signal to focus the text entry when switching to the partyline page*/
+    gtk_signal_connect (GTK_OBJECT (notebook), "switch_page",
+		    GTK_SIGNAL_FUNC (partyline_switch_entryfocus),
+		    NULL);
+
     gtk_widget_show (notebook);
     gtk_widget_show (app);
 

@@ -197,6 +197,11 @@ void partyline_entryfocus (void)
     if (connected) gtk_widget_grab_focus (entrybox);
 }
 
+void partyline_switch_entryfocus (void)
+{
+    if (connected) gtk_widget_grab_focus (entrybox);
+}
+
 void textentry (GtkWidget *widget, gpointer data)
 {
     char *text;

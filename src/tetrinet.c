@@ -118,7 +118,7 @@ struct sb sbinfo[] = {
 };
 
 static void tetrinet_updatelevels (void);
-static void tetrinet_setspeciallabel (signed char sb);
+static void tetrinet_setspeciallabel (int sb);
 static void tetrinet_dospecial (int from, int to, int type);
 static void tetrinet_specialkey (int pnum);
 static void tetrinet_shiftline (int l, int d, FIELD field);
@@ -730,7 +730,7 @@ void tetrinet_redrawfields (void)
         fields_drawfield (playerfield(i), fields[i]);
 }
 
-static void tetrinet_setspeciallabel (signed char sb)
+static void tetrinet_setspeciallabel (int sb)
 {
     int sbnum;
     if (sb == -1) {
