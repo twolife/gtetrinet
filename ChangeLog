@@ -1,3 +1,8 @@
+2003-02-09  Jordi Mallach  <jordi@sindominio.net>
+
+	* configure.in: add debug flags if compiling from CVS.
+	* src/Makefile.am: remove $(GTET_DEBUG).
+
 2003-02-09  Dani Carbonell  <bocata@panete.net>
 
 	* client.c: added gnome.h so some strings can be localized. Removed

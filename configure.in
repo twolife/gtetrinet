@@ -19,6 +19,12 @@ AM_GLIB_GNU_GETTEXT
 AC_PATH_PROG(GCONFTOOL, gconftool-2)
 AM_GCONF_SOURCE_2
 
+dnl Add debug flags if building from CVS.
+if test -d $srcdir/CVS; then
+	CFLAGS="-Wall -W -g3 -O0"
+	AC_SUBST(CFLAGS)
+fi
+
 dnl *****************************************
 dnl pkg-config check time
 dnl *****************************************
