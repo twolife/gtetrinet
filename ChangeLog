@@ -1,3 +1,9 @@
+2003-02-04  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/Makefile.am: compile with -DG_DISABLE_DEPRECATED,
+	-DGTK_DISABLE_DEPRECATED and GNOME_DISABLE_DEPRECATED. GDK still
+	broken.
+
 2003-02-04  Dani Carbonell  <bocata@panete.net>
 
 	* dialogs.c: code cleanup, removed actionid array, no longer needed.
