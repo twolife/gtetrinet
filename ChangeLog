@@ -1,5 +1,12 @@
 2002-10-28  Bastien Nocera  <hadess@hadess.net>
 
+	* Makefile.am: remove intl as a subdir
+	* configure.in: remove the evil AM_GNU_GETTEXT call, no need for
+	intl/
+	* intl/*: removed
+
+2002-10-28  Bastien Nocera  <hadess@hadess.net>
+
 	* Makefile.am: removed m4/ added intl/
 	* autogen.sh: use a gnome2 one
 	* configure.in: updated to gnome2
