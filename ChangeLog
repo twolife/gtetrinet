@@ -1,5 +1,9 @@
 2002-11-18  Jordi Mallach  <jordi@sindominio.net>
 
+	* AUTHORS: added Gerfried.
+
+2002-11-18  Jordi Mallach  <jordi@sindominio.net>
+
 	* configure.in: AM_GNU_GETTEXT was needed after all (generates
 	po/Makefile) (or I am missing something).
 	(ALL_LINGUAS): added German (de).
