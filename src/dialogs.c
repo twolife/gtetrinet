@@ -905,7 +905,7 @@ void prefdialog_new (void)
                       GTK_EXPAND | GTK_FILL, GTK_FILL, 0, 0);
     gtk_table_attach (GTK_TABLE(table), frame, 1, 2, 1, 2,
                       GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
-    url = gnome_href_new ("http://gtetrinet.sourceforge.net/themes.shtml", _("Download new themes"));
+    url = gnome_href_new ("http://gtetrinet.sourceforge.net/themes.html", _("Download new themes"));
     gtk_table_attach (GTK_TABLE(table), url, 1, 2, 2, 3,
                       GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_SHRINK, 0, 0);
     gtk_widget_show_all (table);
