@@ -1,5 +1,9 @@
 2003-01-08  Jordi Mallach  <jordi@sindominio.net>
 
+	* configure.in (AC_OUTPUT): sigh, I suck. Remove gtetrinet.desktop.
+
+2003-01-08  Jordi Mallach  <jordi@sindominio.net>
+
 	* NEWS: updated.
 	* src/dialogs.c (connectingdialog_timeout): apply patch from
 	Ian Zink <zforce@networkusa.net>, fixes a null pointer exception
