@@ -1,10 +1,29 @@
 GTetrinet's TODO list
 ~~~~~~~~~~~~~~~~~~~~~
 
-- Get server list from http://www.tetrinet.org/ip/
+- Get server list from http://www.tetrinet.org/ip/ (see #104323)
+
 - GNOME2 port issues:
   + detaching and reattaching the Menu Bar causes two Bonobo-CRITICAL
   + if you use the C locale and input an 8bit character, gtetrinet segfaults
+
 - Make gtetrinet resizeable (at least the fields messages bit)
+
 - Hide mouse cursor when game is in progress
-- Write a User Manual
+
+- Write a User Manual. (see #105308)
+
+- Remove all the GTET_O_* function calls. Do it in a safe way ;)
+
+- g_locale_to_utf8 every string that gets in GTetrinet, and
+  g_locale_from_utf8 every string that leaves GTetrinet.
+
+- Allow the user to rearrange the players in the player list by just
+  dragging them around.
+
+- Port GTetrinet to the Tetrinet2 protocol. (see #105305)
+
+- Substitute all those ugly T, E letters in the winlist and in the player
+  list with some cool icons.
+
+- Get better icons for the toolbar. (see #105061)
