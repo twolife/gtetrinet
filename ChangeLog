@@ -1,3 +1,7 @@
+2003-02-14  James Antill  <james@and.org>
+
+	* src/client.c (client_disconnect): Fix crash on exit, when connected.
+
 2003-02-14  Dani Carbonell  <bocata@panete.net>
 
 	* src/client.c: a few fixes in error handling.
