@@ -29,6 +29,7 @@
 
 /* for the player list */
 static char *listtitles[] = {
+    "",
     N_("Name"),
     N_("Team")
 };
@@ -81,10 +82,11 @@ GtkWidget *partyline_page_new (void)
     gtk_widget_show (leftbox);
 
     /* player list */
-    playerlist = gtk_clist_new_with_titles (2, listtitles);
-    gtk_clist_set_column_width (GTK_CLIST(playerlist), 0, 60);
+    playerlist = gtk_clist_new_with_titles (3, listtitles);
+    gtk_clist_set_column_width (GTK_CLIST(playerlist), 0, 10);
+    gtk_clist_set_column_width (GTK_CLIST(playerlist), 1, 60);
     gtk_clist_column_titles_passive (GTK_CLIST(playerlist));
-    gtk_widget_set_usize (playerlist, 130, 200);
+    gtk_widget_set_usize (playerlist, 150, 200);
     gtk_widget_show (playerlist);
 
     /* right box */
@@ -166,23 +168,25 @@ void partyline_text (char *text)
     textbox_addtext (GTK_TEXT(textbox), text);
 }
 
-void partyline_playerlist (char **names, char **teams, int n, char **specs, int sn)
+void partyline_playerlist (int *numbers, char **names, char **teams, int n, char **specs, int sn)
 {
     int i;
-    char buf1[128], buf2[128], *item[2] = {buf1, buf2};
+    char buf0[16], buf1[128], buf2[128], *item[3] = {buf0, buf1, buf2};
     /* update the playerlist so that it contains only the given names */
     gtk_clist_freeze (GTK_CLIST(playerlist));
     gtk_clist_clear (GTK_CLIST(playerlist));
     for (i = 0; i < n; i ++) {
-        strcpy (item[0], nocolor(names[i]));
-        strcpy (item[1], nocolor(teams[i]));
+        sprintf (item[0], "%d", numbers[i]);
+        strcpy (item[1], nocolor(names[i]));
+        strcpy (item[2], nocolor(teams[i]));
         gtk_clist_append (GTK_CLIST(playerlist), item);
     }
-    buf1[0] = buf2[0] = 0;
+    buf0[0] = buf1[0] = buf2[0] = 0;
     gtk_clist_append (GTK_CLIST(playerlist), item);
     for (i = 0; i < sn; i ++) {
-        strcpy (item[0], nocolor(specs[i]));
-        strcpy (item[1], "Spec");
+        strcpy (item[0], "S");
+        strcpy (item[1], nocolor(specs[i]));
+        strcpy (item[2], "");
         gtk_clist_append (GTK_CLIST(playerlist), item);
     }
     gtk_clist_thaw (GTK_CLIST(playerlist));

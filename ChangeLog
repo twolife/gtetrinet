@@ -4,6 +4,8 @@
 	  (tested compatible with Pihvi's Java Tetrinet Server)
 	* Added some fixes by Pihvi.
 	* Miscellaneous bug fixes.
+	* Game messages are no longer cleared when a game ends.
+	* Player listing in the partyline is now numbered.
 
 2001-01-13
 	* Merged page detach patch from Neil Bird <neil.bird@rdel.co.uk>.

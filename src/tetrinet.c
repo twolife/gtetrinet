@@ -169,7 +169,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         if (ingame) tetrinet_endgame ();
         connected = ingame = playing = paused = moderator = tetrix = FALSE;
         commands_checkstate ();
-        partyline_playerlist (NULL, NULL, 0, NULL, 0);
+        partyline_playerlist (NULL, NULL, NULL, 0, NULL, 0);
         partyline_namelabel (NULL, NULL);
         playernum = moderatornum = playercount = spectatorcount = 0;
         {
@@ -1022,6 +1022,8 @@ void tetrinet_startgame (void)
     tetrinet_setspeciallabel (-1);
     fields_gmsginput (FALSE);
     fields_gmsginputclear ();
+    fields_attdefclear ();
+    fields_gmsgclear ();
     paused = FALSE;
     specialblocknum = 0;
     ingame = TRUE;
@@ -1095,8 +1097,11 @@ void tetrinet_endgame (void)
     tetris_makeblock (-1, 0);
     fields_drawnextblock (blankblock);
     clearallfields ();
+    /* don't clear messages when game ends */
+    /*
     fields_attdefclear ();
     fields_gmsgclear ();
+    */
     specialblocknum = 0;
     fields_drawspecials ();
     fields_setlines (-1);
@@ -1568,15 +1573,17 @@ void playerlistupdate (void)
 {
     int i, sn, n = 0;
     char *pnames[6], *teams[6], *specs[128];
+    int pnums[6];
     for (i = 1; i <= 6; i ++) {
         if (playernames[i][0]) {
+            pnums[n] = i;
             pnames[n] = playernames[i];
             teams[n] = teamnames[i];
             n ++;
         }
     }
     for (sn = 0; sn < spectatorcount; sn++) specs[sn] = spectatorlist[sn];
-    partyline_playerlist (pnames, teams, n, specs, sn);
+    partyline_playerlist (pnums, pnames, teams, n, specs, sn);
 }
 
 void fieldslabelupdate (void)
