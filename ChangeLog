@@ -1,3 +1,9 @@
+2003-08-28  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/gtetrinet.c (keypress): Ignore K_GAMEMSG presses if the game
+	hasn't started, fixes Debian Bug#205658. Patch from
+	Benjamin Drieu <benj@debian.org>, thanks!
+
 2003-08-20  Dani Carbonell  <bocata@panete.net>
 
 	* src/fields.c (fields_page_new): Changed the cursor when the
