@@ -23,7 +23,6 @@
 
 #include <gtk/gtk.h>
 #include <gnome.h>
-#include <locale.h>
 #include <stdlib.h>
 #include <time.h>
 #include <sys/types.h>
