@@ -4,10 +4,8 @@ GTetrinet's TODO list
 - Get server list from http://www.tetrinet.org/ip/
 - GNOME2 port issues:
   + keybindings
-  + port deprecated widgets (-DGTK_DISABLE_DEPRECATED)
   + detaching and reattaching the Menu Bar causes two Bonobo-CRITICAL
   + if you use the C locale and input an 8bit character, gtetrinet segfaults
 - Make gtetrinet resizeable (at least the fields messages bit)
 - Hide mouse cursor when game is in progress
-- Don't lose partyline textentry focus so easily
 - Write a User Manual

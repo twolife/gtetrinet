@@ -272,7 +272,7 @@ int main (int argc, char *argv[])
     gtk_container_set_border_width (GTK_CONTAINER(pfields), 0);
     gtk_container_add (GTK_CONTAINER(pfields), fieldswidget);
     gtk_widget_show (pfields);
-    gtk_object_set_data( GTK_OBJECT(fieldswidget), "title", "Playing Fields"); // FIXME
+    g_object_set_data (G_OBJECT(fieldswidget), "title", "Playing Fields"); // FIXME
     label = pixmapdata_label (fields_xpm, _("Playing Fields"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pfields, label);
@@ -283,7 +283,7 @@ int main (int argc, char *argv[])
     gtk_container_set_border_width (GTK_CONTAINER(pparty), 0);
     gtk_container_add (GTK_CONTAINER(pparty), partywidget);
     gtk_widget_show (pparty);
-    gtk_object_set_data( GTK_OBJECT(partywidget), "title", "Partyline"); // FIXME
+    g_object_set_data (G_OBJECT(partywidget), "title", "Partyline"); // FIXME
     label = pixmapdata_label (partyline_xpm, _("Partyline"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pparty, label);
@@ -294,7 +294,7 @@ int main (int argc, char *argv[])
     gtk_container_set_border_width (GTK_CONTAINER(pwinlist), 0);
     gtk_container_add (GTK_CONTAINER(pwinlist), winlistwidget);
     gtk_widget_show (pwinlist);
-    gtk_object_set_data( GTK_OBJECT(winlistwidget), "title", "Winlist"); // FIXME
+    g_object_set_data (G_OBJECT(winlistwidget), "title", "Winlist"); // FIXME
     label = pixmapdata_label (winlist_xpm, _("Winlist"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pwinlist, label);
@@ -305,11 +305,11 @@ int main (int argc, char *argv[])
 		           NULL);
 
     gtk_widget_show (notebook);
-    gtk_widget_set (notebook, "can-focus", FALSE, NULL);
+    g_object_set (G_OBJECT (notebook), "can-focus", FALSE, NULL);
     gtk_widget_show (app);
 
-    gtk_widget_set_usize(partywidget, 480, 360);
-    gtk_widget_set_usize(winlistwidget, 480, 360);
+//    gtk_widget_set_size_request (partywidget, 480, 360);
+//    gtk_widget_set_size_request (winlistwidget, 480, 360);
 
     /* initialise some stuff */
     commands_checkstate ();
@@ -351,15 +351,20 @@ int main (int argc, char *argv[])
 GtkWidget *pixmapdata_label (char **d, char *str)
 {
     GdkPixbuf *pb;
-    GdkPixmap *pm;
-    GdkBitmap *mask;
+    GtkWidget *box, *widget;
+
+    box = gtk_hbox_new (FALSE, 0);
 
     pb = gdk_pixbuf_new_from_xpm_data ((const char **)d);
+    widget = gtk_image_new_from_pixbuf (pb);
+    gtk_widget_show (widget);
+    gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
+  
+    widget = gtk_label_new (str);
+    gtk_widget_show (widget);
+    gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
 
-    gdk_pixbuf_render_pixmap_and_mask(pb, &pm, &mask, 1);
-    gdk_pixbuf_unref(pb);
-
-    return pixmap_label (pm, mask, str);
+    return box;
 }
 
 /* called when the main window is destroyed */
@@ -426,7 +431,7 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
                                                  GDK_CONTROL_MASK |
                                                  GDK_SHIFT_MASK)))
     {
-      gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-press-event");
+      g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
       return TRUE;
     }
     
@@ -434,12 +439,12 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
     {
       g_signal_handler_block (app, keypress_signal);
       fields_gmsginputactivate (TRUE);
-      gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-press-event");
+      g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
     }
 
     if (game_area && tetrinet_key (key->keyval, key->string))
     {
-      gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-press-event");
+      g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
       return TRUE;
     }
     
@@ -471,7 +476,7 @@ gint keyrelease (GtkWidget *widget, GdkEventKey *key)
     {
         k = *key;
         keytimeoutid = gtk_timeout_add (10, keytimeout, 0);
-        gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-release-event");
+        g_signal_stop_emission_by_name (G_OBJECT(widget), "key-release-event");
         return TRUE;
     }
     return FALSE;
@@ -514,7 +519,7 @@ void destroy_page_window (GtkWidget *window, gpointer data)
     gtk_widget_reparent (pageData->widget, pageData->parent);
 
     /* Select it */
-    gtk_notebook_set_page (GTK_NOTEBOOK(notebook), pageData->pageNo);
+    gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), pageData->pageNo);
 
     /* Free return data */
     g_free (data);
@@ -531,7 +536,7 @@ void move_current_page_to_window (void)
     /* Extract current page's widget & it's parent from the notebook */
     pageNo = gtk_notebook_get_current_page (GTK_NOTEBOOK(notebook));
     page   = gtk_notebook_get_nth_page (GTK_NOTEBOOK(notebook), pageNo );
-    dlist  = gtk_container_children (GTK_CONTAINER(page));
+    dlist  = gtk_container_get_children (GTK_CONTAINER(page));
     if (!dlist ||  !(dlist->data))
     {
         /* Must already be a window */
@@ -544,7 +549,7 @@ void move_current_page_to_window (void)
 
     /* Create new window for widget, plus container, etc. */
     newWindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-    title = gtk_object_get_data(GTK_OBJECT(child), "title");
+    title = g_object_get_data (G_OBJECT(child), "title");
     if (!title)
         title = "GTetrinet";
     gtk_window_set_title (GTK_WINDOW (newWindow), title);
@@ -556,7 +561,7 @@ void move_current_page_to_window (void)
     g_signal_connect (G_OBJECT(newWindow), "key-release-event",
                         GTK_SIGNAL_FUNC(keyrelease), NULL);
     gtk_widget_set_events (newWindow, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
-    gtk_window_set_policy (GTK_WINDOW(newWindow), FALSE, TRUE, FALSE);
+    gtk_window_set_resizable (GTK_WINDOW(newWindow), TRUE);
 
     /* Create store to point us back to page for later */
     pageData = g_new( WidgetPageData, 1 );
@@ -585,13 +590,13 @@ void move_current_page_to_window (void)
 /* show the fields notebook tab */
 void show_fields_page (void)
 {
-    gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 0);
+    gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 0);
 }
 
 /* show the partyline notebook tab */
 void show_partyline_page (void)
 {
-    gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 1);
+    gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 1);
 }
 
 void unblock_keyboard_signal (void)

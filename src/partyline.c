@@ -73,7 +73,8 @@ GtkWidget *partyline_page_new (void)
     gtk_widget_show(textboxscroll);
     gtk_box_pack_start (GTK_BOX(leftbox), textboxscroll, TRUE, TRUE, 0);
     /* entry box */
-    entrybox = gtk_entry_new_with_max_length (200);
+    entrybox = gtk_entry_new ();
+    gtk_entry_set_max_length (GTK_ENTRY (entrybox), 200);
     g_signal_connect (G_OBJECT(entrybox), "activate",
                       GTK_SIGNAL_FUNC(textentry), NULL);
     g_signal_connect (G_OBJECT(entrybox), "key-press-event",
@@ -96,7 +97,7 @@ GtkWidget *partyline_page_new (void)
                                    GTK_POLICY_AUTOMATIC,
                                    GTK_POLICY_NEVER);
     gtk_container_add (GTK_CONTAINER(playerlist_scroll), playerlist);
-    gtk_widget_set_usize (playerlist_scroll, 150, 200);
+    gtk_widget_set_size_request (playerlist_scroll, 150, 200);
     gtk_widget_show (playerlist_scroll);
     
     /* right box */
@@ -122,7 +123,7 @@ GtkWidget *partyline_page_new (void)
     gtk_widget_show (infolabel);
     gtk_box_pack_start (GTK_BOX(box), infolabel, TRUE, FALSE, 0);
 
-    gtk_container_border_width (GTK_CONTAINER(box), 4);
+    gtk_container_set_border_width (GTK_CONTAINER(box), 4);
     gtk_widget_show (box);
     rightbox = gtk_frame_new (NULL);
     gtk_frame_set_shadow_type (GTK_FRAME(rightbox), GTK_SHADOW_IN);
@@ -133,7 +134,7 @@ GtkWidget *partyline_page_new (void)
     table = gtk_table_new (2, 2, FALSE);
     gtk_table_set_row_spacings (GTK_TABLE(table), 4);
     gtk_table_set_col_spacings (GTK_TABLE(table), 4);
-    gtk_container_border_width (GTK_CONTAINER(table), 4);
+    gtk_container_set_border_width (GTK_CONTAINER(table), 4);
     gtk_table_attach (GTK_TABLE(table), leftbox, 0, 1, 0, 2,
                       GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
                       0, 0);
@@ -173,22 +174,22 @@ void partyline_namelabel (char *nick, char *team)
     if (nick)
     {
       nick_utf8 = g_locale_to_utf8 (nocolor (nick), -1, NULL, NULL, NULL);
-      gtk_label_set (GTK_LABEL(namelabel), nick_utf8);
+      gtk_label_set_text (GTK_LABEL(namelabel), nick_utf8);
       g_free (nick_utf8);
     }
-    else gtk_label_set (GTK_LABEL(namelabel), "");
+    else gtk_label_set_text (GTK_LABEL(namelabel), "");
     if (team)
     {
       team_utf8 = g_locale_to_utf8 (nocolor (team), -1, NULL, NULL, NULL);
-      gtk_label_set (GTK_LABEL(teamlabel), team_utf8);
+      gtk_label_set_text (GTK_LABEL(teamlabel), team_utf8);
       g_free (team_utf8);
     }
-    else gtk_label_set (GTK_LABEL(teamlabel), "");
+    else gtk_label_set_text (GTK_LABEL(teamlabel), "");
 }
 
 void partyline_status (char *status)
 {
-    gtk_label_set (GTK_LABEL(infolabel), status);
+    gtk_label_set_text (GTK_LABEL(infolabel), status);
 }
 
 void partyline_text (char *text)
@@ -258,8 +259,8 @@ void partyline_entryfocus (void)
 {
     if (connected)
     {
-      gtk_entry_set_text (GTK_ENTRY(entrybox), "");
-      gtk_entry_set_position (GTK_ENTRY(entrybox), 0);
+      gtk_entry_set_text (GTK_ENTRY (entrybox), "");
+      gtk_editable_set_position (GTK_EDITABLE (entrybox), 0);
       gtk_widget_grab_focus (entrybox);
     }
 }
@@ -320,7 +321,7 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key)
         printf ("history: %d %d %d %s\n", plh_start, plh_end, plh_cur,
                 plhistory[plh_cur]);
 #endif
-        gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-press-event");
+        g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
         return TRUE;
     }
     else if (keyval == GDK_Left || keyval == GDK_Right) {

@@ -49,12 +49,12 @@ GtkWidget *winlist_page_new (void)
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("Score"), renderer,
                                                  "text", 2, NULL);
 
-    gtk_widget_set_usize (winlist, 240, 0);
+    gtk_widget_set_size_request (winlist, 240, 0);
 
     gtk_widget_show (winlist);
     align = gtk_alignment_new (0.5, 0.5, 0.0, 0.8);
     gtk_container_add (GTK_CONTAINER(align), winlist);
-    gtk_container_border_width (GTK_CONTAINER(align), 2);
+    gtk_container_set_border_width (GTK_CONTAINER(align), 2);
 
     return align;
 }

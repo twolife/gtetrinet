@@ -96,7 +96,7 @@ GtkWidget *fields_page_new (void)
 
     if (fieldspage == NULL) {
         fieldspage = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
-        gtk_container_border_width (GTK_CONTAINER(fieldspage), 2);
+        gtk_container_set_border_width (GTK_CONTAINER(fieldspage), 2);
     }
     gtk_container_add (GTK_CONTAINER(fieldspage), pagecontents);
 
@@ -113,8 +113,9 @@ void fields_page_destroy_contents (void)
 
 GtkWidget *fields_page_contents (void)
 {
-    GtkWidget *table, *widget, *align, *border, *box, *table2, *hbox, *scroll;
+    GtkWidget *vbox, *table, *widget, *align, *border, *box, *table2, *hbox, *scroll;
     table = gtk_table_new (4, 5, FALSE);
+    vbox = gtk_vbox_new (FALSE, 0);
 
     gtk_table_set_row_spacings (GTK_TABLE(table), 2);
     gtk_table_set_col_spacings (GTK_TABLE(table), 2);
@@ -154,15 +155,13 @@ GtkWidget *fields_page_contents (void)
             gtk_box_pack_start (GTK_BOX(hbox), fieldlabels[i][3], TRUE, TRUE, 0);
             gtk_box_pack_start (GTK_BOX(hbox), fieldlabels[i][4], FALSE, FALSE, 2);
             gtk_box_pack_start (GTK_BOX(hbox), fieldlabels[i][5], FALSE, FALSE, 0);
-            gtk_widget_show (hbox);
 
             fields_setlabel (i, NULL, NULL, 0);
 
             widget = gtk_event_box_new ();
             gtk_container_add (GTK_CONTAINER(widget), hbox);
-            gtk_widget_set_usize (widget, blocksize * FIELDWIDTH, 0);
-            gtk_widget_show (widget);
-            gtk_box_pack_start (GTK_BOX(box), widget, FALSE, FALSE, 0);
+            gtk_widget_set_size_request (widget, blocksize * FIELDWIDTH, -1);
+            gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
             /* the field */
             fieldwidgets[i] = gtk_drawing_area_new ();
             /* attach the signals */
@@ -170,29 +169,26 @@ GtkWidget *fields_page_contents (void)
                                 GTK_SIGNAL_FUNC(fields_expose_event), (gpointer)i);
             gtk_widget_set_events (fieldwidgets[i], GDK_EXPOSURE_MASK);
             /* set the size */
-            gtk_drawing_area_size (GTK_DRAWING_AREA(fieldwidgets[i]),
-                                   blocksize * FIELDWIDTH,
-                                   blocksize * FIELDHEIGHT);
-            gtk_widget_show (fieldwidgets[i]);
-            gtk_box_pack_start (GTK_BOX(box), fieldwidgets[i], FALSE, FALSE, 0);
-            gtk_widget_show (box);
+            gtk_widget_set_size_request (fieldwidgets[i],
+                                         blocksize * FIELDWIDTH,
+                                         blocksize * FIELDHEIGHT);
+            gtk_box_pack_start (GTK_BOX(box), fieldwidgets[i], TRUE, TRUE, 0);
             border = gtk_frame_new (NULL);
             gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
             gtk_container_add (GTK_CONTAINER(border), box);
-            gtk_widget_show (border);
             /* align it */
             align = gtk_alignment_new (0.5, valign, 0.0, 0.0);
             gtk_container_add (GTK_CONTAINER(align), border);
-            gtk_widget_show (align);
-            gtk_table_attach_defaults (GTK_TABLE(table), align,
-                                       p[i][0], p[i][1], p[i][2], p[i][3]);
+            gtk_table_attach (GTK_TABLE(table), align,
+                              p[i][0], p[i][1], p[i][2], p[i][3],
+                              GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
+                              0, 0);
         }
     }
     /* next block thingy */
     box = gtk_vbox_new (FALSE, 2);
 
     widget = leftlabel_new (_("Next piece:"));
-    gtk_widget_show (widget);
     gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
     /* box that displays the next block */
     border = gtk_frame_new (NULL);
@@ -201,51 +197,39 @@ GtkWidget *fields_page_contents (void)
     g_signal_connect (G_OBJECT(nextpiecewidget), "expose_event",
                         GTK_SIGNAL_FUNC(fields_nextpiece_expose), NULL);
     gtk_widget_set_events (nextpiecewidget, GDK_EXPOSURE_MASK);
-    gtk_drawing_area_size (GTK_DRAWING_AREA(nextpiecewidget), BLOCKSIZE*9/2, BLOCKSIZE*9/2);
-    gtk_widget_show (nextpiecewidget);
+    gtk_widget_set_size_request (nextpiecewidget, BLOCKSIZE*9/2, BLOCKSIZE*9/2);
     gtk_container_add (GTK_CONTAINER(border), nextpiecewidget);
-    gtk_widget_show (border);
     align = gtk_alignment_new (0.5, 0.5, 0, 0);
     gtk_container_add (GTK_CONTAINER(align), border);
-    gtk_widget_show (align);
-    gtk_box_pack_start (GTK_BOX(box), align, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(box), align, TRUE, TRUE, 0);
     /* lines, levels and stuff */
     table2 = gtk_table_new (4, 2, FALSE);
     gtk_table_set_col_spacings (GTK_TABLE(table2), 5);
     widget = leftlabel_new (_("Lines:"));
-    gtk_widget_show (widget);
     gtk_table_attach_defaults (GTK_TABLE(table2), widget, 0, 1, 0, 1);
     widget = gtk_label_new ("");
-    gtk_widget_show (widget);
     gtk_table_attach_defaults (GTK_TABLE(table2), widget, 0, 1, 1, 2);
     widget = leftlabel_new (_("Level:"));
-    gtk_widget_show (widget);
     gtk_table_attach_defaults (GTK_TABLE(table2), widget, 0, 1, 2, 3);
     activelabel = leftlabel_new (_("Active level:"));
-    gtk_widget_show (activelabel);
     gtk_table_attach_defaults (GTK_TABLE(table2), activelabel, 0, 1, 3, 4);
     lineswidget = leftlabel_new ("");
-    gtk_widget_show (lineswidget);
     gtk_table_attach_defaults (GTK_TABLE(table2), lineswidget, 1, 2, 0, 1);
     widget = gtk_label_new ("");
-    gtk_widget_show (widget);
     gtk_table_attach_defaults (GTK_TABLE(table2), widget, 1, 2, 1, 2);
     levelwidget = leftlabel_new ("");
-    gtk_widget_show (levelwidget);
     gtk_table_attach_defaults (GTK_TABLE(table2), levelwidget, 1, 2, 2, 3);
     activewidget = leftlabel_new ("");
-    gtk_widget_show (activewidget);
     gtk_table_attach_defaults (GTK_TABLE(table2), activewidget, 1, 2, 3, 4);
-    gtk_widget_show (table2);
     gtk_box_pack_start (GTK_BOX(box), table2, TRUE, TRUE, 0);
 
-    gtk_widget_show (box);
     /* align it */
     align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
-    gtk_widget_set_usize (align, BLOCKSIZE*6, BLOCKSIZE*11);
+    gtk_widget_set_size_request (align, BLOCKSIZE*6, BLOCKSIZE*11);
     gtk_container_add (GTK_CONTAINER(align), box);
-    gtk_widget_show (align);
-    gtk_table_attach_defaults (GTK_TABLE(table), align, 1, 2, 0, 1);
+    gtk_table_attach (GTK_TABLE(table), align, 1, 2, 0, 1,
+                      GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
+                      0, 0);
 
     /* the specials thingy */
     box = gtk_hbox_new (FALSE, 0);
@@ -258,77 +242,73 @@ GtkWidget *fields_page_contents (void)
     specialwidget = gtk_drawing_area_new ();
     g_signal_connect (G_OBJECT(specialwidget), "expose_event",
                         GTK_SIGNAL_FUNC(fields_specials_expose), NULL);
-    gtk_drawing_area_size (GTK_DRAWING_AREA(specialwidget), BLOCKSIZE*18, BLOCKSIZE);
+    gtk_widget_set_size_request (specialwidget, BLOCKSIZE*18, BLOCKSIZE);
     gtk_widget_show (specialwidget);
     gtk_container_add (GTK_CONTAINER(border), specialwidget);
-    gtk_widget_show (border);
-    gtk_box_pack_end (GTK_BOX(box), border, FALSE, FALSE, 0);
-    gtk_widget_show (box);
-    gtk_widget_set_usize (box, BLOCKSIZE*24, 0);
+    gtk_box_pack_end (GTK_BOX(box), border, TRUE, TRUE, 0);
+    gtk_widget_set_size_request (box, BLOCKSIZE*24, -1);
     /* align it */
     align = gtk_alignment_new (0.5, 1.0, 0.7, 0.0);
     gtk_container_add (GTK_CONTAINER(align), box);
-    gtk_widget_show (align);
-    gtk_table_attach_defaults (GTK_TABLE (table), align, 0, 3, 2, 3);
+    gtk_table_attach (GTK_TABLE (table), align, 0, 3, 2, 3,
+                      GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
+                      0, 0);
 
     /* attacks and defenses */
 
     box = gtk_vbox_new (FALSE, 0);
     widget = gtk_label_new (_("Attacks and defenses:"));
-    gtk_widget_show (widget);
     gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
     attdefwidget = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
-    gtk_widget_set_usize (attdefwidget, MAX(22*12, BLOCKSIZE*12), BLOCKSIZE*10);
+    gtk_widget_set_size_request (attdefwidget, MAX(22*12, BLOCKSIZE*12), BLOCKSIZE*10);
     gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(attdefwidget), GTK_WRAP_WORD);
     GTK_WIDGET_UNSET_FLAGS (attdefwidget, GTK_CAN_FOCUS);
-    gtk_widget_show (attdefwidget);
     scroll = gtk_scrolled_window_new (NULL, NULL);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll),
                                     GTK_POLICY_AUTOMATIC,
                                     GTK_POLICY_AUTOMATIC);
     gtk_container_add (GTK_CONTAINER(scroll), attdefwidget);
-    gtk_widget_show (scroll);
     gtk_box_pack_start (GTK_BOX(box), scroll, TRUE, TRUE, 0);
-    gtk_widget_show (box);
     align = gtk_alignment_new (0.5, 0.5, 0.5, 0.0);
     gtk_container_add (GTK_CONTAINER(align), box);
-    gtk_widget_show (align);
-    gtk_table_attach_defaults (GTK_TABLE(table), align, 1, 3, 1, 2);
+    gtk_table_attach (GTK_TABLE(table), align, 1, 3, 1, 2,
+                      GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
+                      0, 0);
 
     /* game messages */
     table2 = gtk_table_new (1, 2, FALSE);
     gmsgtext = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
-    gtk_widget_set_usize (gmsgtext, 0, 48);
-    gtk_widget_show (gmsgtext);
+    gtk_widget_set_size_request (gmsgtext, -1, 48);
     GTK_WIDGET_UNSET_FLAGS (gmsgtext, GTK_CAN_FOCUS);
     scroll = gtk_scrolled_window_new (NULL, NULL);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll),
                                     GTK_POLICY_AUTOMATIC,
                                     GTK_POLICY_AUTOMATIC);
     gtk_container_add (GTK_CONTAINER(scroll), gmsgtext);
-    gtk_widget_show (scroll);
     gtk_table_attach (GTK_TABLE(table2), scroll, 0, 1, 0, 1,
                       GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_SHRINK,
                       0, 0);
-    gmsginput = gtk_entry_new_with_max_length (128);
-    gtk_widget_show (gmsginput);
+    gmsginput = gtk_entry_new ();
+    gtk_entry_set_max_length (GTK_ENTRY (gmsginput), 128);
     /* eat up key messages */
     g_signal_connect (G_OBJECT(gmsginput), "activate",
                         GTK_SIGNAL_FUNC(gmsginput_activate), NULL);
     gtk_table_attach (GTK_TABLE(table2), gmsginput, 0, 1, 1, 2,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
-    gtk_widget_show (table2);
-    gtk_widget_set_usize (table2, 0, 48);
-    gtk_table_attach_defaults (GTK_TABLE(table), table2, 0, 5, 3, 4);
+    gtk_widget_set_size_request (table2, -1, 48);
+    gtk_box_pack_start (GTK_BOX (vbox), table, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), table2, TRUE, TRUE, 0);
+/*    gtk_table_attach (GTK_TABLE(table), table2, 0, 5, 3, 4,
+                      GTK_FILL | GTK_EXPAND, 0, 0, 0);*/
 
-    gtk_widget_show (table);
+    gtk_widget_show_all (vbox);
 
     fields_setlines (-1);
     fields_setlevel (-1);
     fields_setactivelevel (-1);
     fields_gmsginput (FALSE);
 
-    return table;
+    return vbox;
 }
 
 
@@ -409,10 +389,10 @@ void fields_setlabel (int field, char *name, char *team, int num)
         gtk_widget_show (fieldlabels[field][3]);
         gtk_widget_hide (fieldlabels[field][4]);
         gtk_widget_hide (fieldlabels[field][5]);
-        gtk_label_set (GTK_LABEL(fieldlabels[field][0]), "");
-        gtk_label_set (GTK_LABEL(fieldlabels[field][2]), "");
-        gtk_label_set (GTK_LABEL(fieldlabels[field][3]), _("Not playing"));
-        gtk_label_set (GTK_LABEL(fieldlabels[field][5]), "");
+        gtk_label_set_text (GTK_LABEL(fieldlabels[field][0]), "");
+        gtk_label_set_text (GTK_LABEL(fieldlabels[field][2]), "");
+        gtk_label_set_text (GTK_LABEL(fieldlabels[field][3]), _("Not playing"));
+        gtk_label_set_text (GTK_LABEL(fieldlabels[field][5]), "");
     }
     else {
         name_utf8 = g_locale_to_utf8 (nocolor (name), -1, NULL, NULL, NULL);
@@ -420,19 +400,19 @@ void fields_setlabel (int field, char *name, char *team, int num)
         gtk_widget_show (fieldlabels[field][1]);
         gtk_widget_show (fieldlabels[field][2]);
         gtk_widget_hide (fieldlabels[field][3]);
-        gtk_label_set (GTK_LABEL(fieldlabels[field][0]), buf);
-        gtk_label_set (GTK_LABEL(fieldlabels[field][2]), name_utf8);
-        gtk_label_set (GTK_LABEL(fieldlabels[field][3]), "");
+        gtk_label_set_text (GTK_LABEL(fieldlabels[field][0]), buf);
+        gtk_label_set_text (GTK_LABEL(fieldlabels[field][2]), name_utf8);
+        gtk_label_set_text (GTK_LABEL(fieldlabels[field][3]), "");
         if (team == NULL || team[0] == 0) {
             gtk_widget_hide (fieldlabels[field][4]);
             gtk_widget_hide (fieldlabels[field][5]);
-            gtk_label_set (GTK_LABEL(fieldlabels[field][5]), "");
+            gtk_label_set_text (GTK_LABEL(fieldlabels[field][5]), "");
         }
         else {
             team_utf8 = g_locale_to_utf8 (nocolor (team), -1, NULL, NULL, NULL);
             gtk_widget_show (fieldlabels[field][4]);
             gtk_widget_show (fieldlabels[field][5]);
-            gtk_label_set (GTK_LABEL(fieldlabels[field][5]), team_utf8);
+            gtk_label_set_text (GTK_LABEL(fieldlabels[field][5]), team_utf8);
             g_free (team_utf8);
         }
         g_free (name_utf8);
@@ -442,10 +422,10 @@ void fields_setlabel (int field, char *name, char *team, int num)
 void fields_setspeciallabel (char *label)
 {
     if (label == NULL) {
-        gtk_label_set (GTK_LABEL(speciallabel), _("Specials:"));
+        gtk_label_set_text (GTK_LABEL(speciallabel), _("Specials:"));
     }
     else {
-        gtk_label_set (GTK_LABEL(speciallabel), label);
+        gtk_label_set_text (GTK_LABEL(speciallabel), label);
     }
 }
 
@@ -581,8 +561,8 @@ void fields_gmsginput (gboolean i)
 
 void fields_gmsginputclear (void)
 {
-    gtk_entry_set_text (GTK_ENTRY(gmsginput), "");
-    gtk_entry_set_position (GTK_ENTRY(gmsginput), 0);
+    gtk_entry_set_text (GTK_ENTRY (gmsginput), "");
+    gtk_editable_set_position (GTK_EDITABLE (gmsginput), 0);
 }
 
 void fields_gmsginputactivate (int t)
@@ -636,6 +616,6 @@ const char *fields_gmsginputtext (void)
 
 gint fields_eatkey (GtkWidget *widget)
 {
-    gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-press-event");
+    g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
     return TRUE;
 }

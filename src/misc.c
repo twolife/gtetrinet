@@ -44,7 +44,7 @@ void leftlabel_set (GtkWidget *align, char *str)
     gchar *aux;
   
     aux = g_locale_to_utf8 (str, -1, NULL, NULL, NULL);
-    gtk_label_set (GTK_LABEL(GTK_BIN(align)->child), aux);
+    gtk_label_set_text (GTK_LABEL(GTK_BIN(align)->child), aux);
     g_free (aux);
 }
 
@@ -302,17 +302,4 @@ char *nocolor (char *str)
     g_string_truncate(ret, len - (scan - p));
   
   return ret->str;
-}
-
-GtkWidget *pixmap_label (GdkPixmap *pm, GdkBitmap *mask, char *str)
-{
-    GtkWidget *box, *widget;
-    box = gtk_hbox_new (FALSE, 0);
-    widget = gtk_pixmap_new (pm, mask);
-    gtk_widget_show (widget);
-    gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
-    widget = gtk_label_new (str);
-    gtk_widget_show (widget);
-    gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
-    return box;
 }

@@ -10,7 +10,6 @@ extern void textbox_setup (void);
 extern void textbox_addtext (GtkTextView *textbox, const unsigned char *text);
 extern void adjust_bottom_text_view (GtkTextView *);
 extern char *nocolor (char *str);
-extern GtkWidget *pixmap_label (GdkPixmap *pm, GdkBitmap *mask, char *str);
 
 /* Better versions of the std. string functions */
 #define GTET_STRCPY(x, y, sz) G_STMT_START { \

@@ -1,3 +1,28 @@
+2003-02-02  Dani Carbonell  <bocata@panete.net>
+
+	* Makefile.am: added -DGTK_DISABLE_DEPRECATED to the compilation
+	options.
+	
+	* TODO: updated (we shouldn't be using this)
+	
+	* dialogs.c: removed obsolete functions, minor bugfixes.
+	(connectdialog_new): made unresizable.
+	(keydialog_new): fixed a bug when hitting the Cancel button.
+	(prefdialog_new): added scrollbars for the theme list and the keys
+	list.
+	
+	* fields.c: removed obsolete functions, minor bugfixes.
+	(fields_page_contents): first approach to allow fields resizing.
+	Nothing yet. Cleaned up a bit.
+	
+	* gtetrinet.c: removed obsolete functions, minor bugfixes.
+	
+	* partyline.c: likewise.
+	
+	* winlist.c: likewise.
+	
+	* misc.c (pixmap_label): nuked, no longer needed.
+
 2003-02-02  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/winlist.c: add a requested translation tip.

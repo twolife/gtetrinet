@@ -300,6 +300,7 @@ void connectdialog_new (void)
                                                  GTK_STOCK_OK, GTK_RESPONSE_OK,
                                                  NULL);
     gtk_dialog_set_default_response (GTK_DIALOG (connectdialog), GTK_RESPONSE_OK);
+    gtk_window_set_resizable (GTK_WINDOW (connectdialog), FALSE);
     g_signal_connect (G_OBJECT(connectdialog), "response",
                         GTK_SIGNAL_FUNC(connectdialog_button), NULL);
 
@@ -320,7 +321,7 @@ void connectdialog_new (void)
                       GTK_FILL | GTK_EXPAND, 0, 0);
     /* game type radio buttons */
     originalradio = gtk_radio_button_new_with_label (NULL, _("Original"));
-    gametypegroup = gtk_radio_button_group (GTK_RADIO_BUTTON(originalradio));
+    gametypegroup = gtk_radio_button_get_group (GTK_RADIO_BUTTON(originalradio));
     tetrifastradio = gtk_radio_button_new_with_label (gametypegroup, _("TetriFast"));
     switch (gamemode) {
     case ORIGINAL:
@@ -420,7 +421,7 @@ void connectdialog_new (void)
     gtk_box_pack_start (GTK_BOX (GTK_DIALOG(connectdialog)->vbox),
                         table1, TRUE, TRUE, 0);
 
-    gtk_toggle_button_set_state (GTK_TOGGLE_BUTTON(spectatorcheck), spectating);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(spectatorcheck), spectating);
     connectdialog_spectoggle (spectatorcheck);
     g_signal_connect (G_OBJECT(connectdialog), "destroy",
                         GTK_SIGNAL_FUNC(connectdialog_destroy), NULL);
@@ -449,7 +450,7 @@ gint key_dialog (char *msg)
     GtkWidget *dialog, *label;
     gint keydialog_key;
 
-    dialog = gtk_dialog_new_with_buttons (_("Change Key"), NULL,
+    dialog = gtk_dialog_new_with_buttons (_("Change Key"), GTK_WINDOW (prefdialog),
                                           GTK_DIALOG_MODAL | GTK_DIALOG_NO_SEPARATOR,
                                           GTK_STOCK_CANCEL, GTK_RESPONSE_CLOSE,
                                           NULL);
@@ -463,7 +464,10 @@ gint key_dialog (char *msg)
     keydialog_key = gtk_dialog_run (GTK_DIALOG (dialog));
     gtk_widget_hide (dialog);
     gtk_widget_destroy (dialog);
-    return keydialog_key;
+    if (keydialog_key != GTK_RESPONSE_CLOSE )
+      return keydialog_key;
+    else
+      return 0;
 }
 
 /**************************/
@@ -768,6 +772,7 @@ void prefdialog_response (GtkDialog *dialog,
 void prefdialog_new (void)
 {
     GtkWidget *label, *table, *frame, *button, *button1, *widget, *table1, *divider, *notebook;
+    GtkWidget *themelist_scroll, *key_scroll;
     GtkListStore *theme_store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_INT);
     GtkListStore *keys_store = gtk_list_store_new (4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_STRING);
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
@@ -788,15 +793,20 @@ void prefdialog_new (void)
                                               NULL);
     gtk_dialog_set_default_response (GTK_DIALOG (prefdialog), GTK_RESPONSE_CLOSE);
     notebook = gtk_notebook_new ();
+    gtk_window_set_resizable (GTK_WINDOW (prefdialog), FALSE);
 
     /* themes */
     themelist = gtk_tree_view_new_with_model (GTK_TREE_MODEL (theme_store));
+    themelist_scroll = gtk_scrolled_window_new (NULL, NULL);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW (themelist_scroll),
+                                   GTK_POLICY_NEVER,
+                                   GTK_POLICY_AUTOMATIC);
+    gtk_container_add (GTK_CONTAINER(themelist_scroll), themelist);
     theme_selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (themelist));
     gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (themelist), FALSE);
-    gtk_widget_set_usize (themelist, 160, 0);
+    gtk_widget_set_size_request (themelist, 160, 200);
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (themelist), -1, "theme", renderer,
                                                  "text", 0, NULL);
-    gtk_widget_show (themelist);
 
     label = leftlabel_new (_("Select a theme from the list.\n"
                              "Install new themes in ~/.gtetrinet/themes/"));
@@ -835,7 +845,7 @@ void prefdialog_new (void)
     frame = gtk_frame_new (_("Selected Theme"));
     gtk_frame_set_shadow_type (GTK_FRAME(frame), GTK_SHADOW_IN);
     gtk_container_set_border_width (GTK_CONTAINER(frame), GNOME_PAD_SMALL);
-    gtk_widget_set_usize (frame, 240, 100);
+    gtk_widget_set_size_request (frame, 240, 100);
     gtk_widget_show (frame);
     gtk_container_add (GTK_CONTAINER(frame), table1);
 
@@ -843,7 +853,7 @@ void prefdialog_new (void)
     gtk_container_set_border_width (GTK_CONTAINER(table), GNOME_PAD);
     gtk_table_set_row_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
     gtk_table_set_col_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
-    gtk_table_attach (GTK_TABLE(table), themelist, 0, 1, 0, 2,
+    gtk_table_attach (GTK_TABLE(table), themelist_scroll, 0, 1, 0, 2,
                       GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
     gtk_table_attach (GTK_TABLE(table), label, 1, 2, 0, 1,
                       GTK_EXPAND | GTK_FILL, GTK_FILL, 0, 0);
@@ -857,13 +867,18 @@ void prefdialog_new (void)
 
     /* keyboard */
     keyclist = GTK_WIDGET (gtk_tree_view_new_with_model (GTK_TREE_MODEL(keys_store)));
+    key_scroll = gtk_scrolled_window_new (NULL, NULL);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW (key_scroll),
+                                   GTK_POLICY_NEVER,
+                                   GTK_POLICY_AUTOMATIC);
+    gtk_container_add (GTK_CONTAINER(key_scroll), keyclist);
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (keyclist), -1, _("Action"), renderer,
                                                  "text", 0, NULL);
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (keyclist), -1, _("Key"), renderer,
                                                  "text", 1, NULL);
 
-    gtk_widget_set_usize (keyclist, 180, 0);
-    gtk_widget_show (keyclist);
+    gtk_widget_set_size_request (key_scroll, 180, 200);
+    gtk_widget_show (key_scroll);
 
     label = gtk_label_new (_("Select an action from the list and press Change "
                              "Key to change the key associated with the action."));
@@ -885,7 +900,7 @@ void prefdialog_new (void)
     gtk_container_set_border_width (GTK_CONTAINER(table), GNOME_PAD);
     gtk_table_set_row_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
     gtk_table_set_col_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
-    gtk_table_attach (GTK_TABLE(table), keyclist, 0, 1, 0, 2,
+    gtk_table_attach (GTK_TABLE(table), key_scroll, 0, 1, 0, 2,
                       GTK_FILL, GTK_FILL, 0, 0);
     gtk_table_attach (GTK_TABLE(table), label, 1, 2, 0, 1,
                       GTK_FILL, 0, 0, 0);
@@ -970,8 +985,8 @@ void prefdialog_new (void)
 
     prefdialog_drawkeys ();
 
-    gtk_toggle_button_set_state (GTK_TOGGLE_BUTTON(soundcheck), soundenable);
-    gtk_toggle_button_set_state (GTK_TOGGLE_BUTTON(midicheck), midienable);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(soundcheck), soundenable);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(midicheck), midienable);
 
 #ifdef HAVE_ESD
     if (midienable) prefdialog_midion ();
