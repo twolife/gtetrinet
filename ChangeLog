@@ -1,5 +1,10 @@
 2003-02-02  Dani Carbonell  <bocata@panete.net>
 
+	* fields.c (fields_page_contents): fixed a small issue with the
+	specials thingy.
+
+2003-02-02  Dani Carbonell  <bocata@panete.net>
+
 	* Makefile.am: added -DGTK_DISABLE_DEPRECATED to the compilation
 	options.
 	

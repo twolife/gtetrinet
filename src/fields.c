@@ -236,7 +236,9 @@ GtkWidget *fields_page_contents (void)
     speciallabel = gtk_label_new ("");
     gtk_widget_show (speciallabel);
     fields_setspeciallabel (NULL);
-    gtk_box_pack_start (GTK_BOX(box), speciallabel, TRUE, TRUE, 0);
+    align = gtk_alignment_new (1.0, 0.0, 1.0, 1.0);
+    gtk_container_add (GTK_CONTAINER (align), speciallabel);
+    gtk_box_pack_start (GTK_BOX(box), align, TRUE, TRUE, 0);
     border = gtk_frame_new (NULL);
     gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
     specialwidget = gtk_drawing_area_new ();
@@ -245,7 +247,7 @@ GtkWidget *fields_page_contents (void)
     gtk_widget_set_size_request (specialwidget, BLOCKSIZE*18, BLOCKSIZE);
     gtk_widget_show (specialwidget);
     gtk_container_add (GTK_CONTAINER(border), specialwidget);
-    gtk_box_pack_end (GTK_BOX(box), border, TRUE, TRUE, 0);
+    gtk_box_pack_end (GTK_BOX(box), border, FALSE, FALSE, 0);
     gtk_widget_set_size_request (box, BLOCKSIZE*24, -1);
     /* align it */
     align = gtk_alignment_new (0.5, 1.0, 0.7, 0.0);
@@ -296,8 +298,13 @@ GtkWidget *fields_page_contents (void)
     gtk_table_attach (GTK_TABLE(table2), gmsginput, 0, 1, 1, 2,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
     gtk_widget_set_size_request (table2, -1, 48);
-    gtk_box_pack_start (GTK_BOX (vbox), table, TRUE, TRUE, 0);
-    gtk_box_pack_start (GTK_BOX (vbox), table2, TRUE, TRUE, 0);
+    
+    align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
+    gtk_container_add (GTK_CONTAINER (align), table);
+    gtk_box_pack_start (GTK_BOX (vbox), align, TRUE, TRUE, 0);
+    align = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
+    gtk_container_add (GTK_CONTAINER (align), table2);
+    gtk_box_pack_start (GTK_BOX (vbox), align, TRUE, TRUE, 0);
 /*    gtk_table_attach (GTK_TABLE(table), table2, 0, 5, 3, 4,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);*/
 
