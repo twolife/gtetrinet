@@ -1,3 +1,7 @@
+2003-06-05  Abel Cheung  <maddog@linux.org.hk>
+
+	* configure.in: Added "zh_TW" to ALL_LINGUAS.
+
 2003-06-04  Dani Carbonell  <bocata@panete.net>
 
 	* src/partyline.c (is_nick): new function, it will compare the
