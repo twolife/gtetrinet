@@ -289,7 +289,7 @@ void about_command (void)
       logo = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
     
       about = gnome_about_new (APPNAME, APPVERSION,
-                               _("(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"),
+                               "\xc2\xa9 1999, 2000, 2001, 2002, 2003 Ka-shu Wong",
                                _("A Tetrinet client for GNOME.\n"),
                                authors,
                                documenters,

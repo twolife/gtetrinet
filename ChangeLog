@@ -1,3 +1,8 @@
+2003-07-15  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/command.c (about_command): Remove gettext calls from copyright
+	statement and replace (C) with the UTF-8 copyright symbol.
+
 2003-07-06  Jordi Mallach  <jordi@sindominio.net>
 
 	* configure.in: For some reason, some people were getting
