@@ -1,3 +1,15 @@
+2003-06-06  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/config.c (config_loadconfig): load values for new keys.
+	Add notify functions for new gconf keys.
+	* src/config.h: Add new declarations and key defines.
+	* src/dialogs.c (prefdialog_drawkeys): Add new actions to treeview.
+	* src/gtetrinet (main): Notify gconf of changes to new keys.
+	* src/tetrinet.c (tetrinet_key): Handle new special keys. Closes
+	Bugzilla Bug#105117.
+
+	* gtetrinet.schemas.in: Add schemas for new configurable game keys.
+
 2003-06-05  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS: Update for 0.7.2.

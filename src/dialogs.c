@@ -549,6 +549,12 @@ void prefdialog_drawkeys (void)
     actions[K_DROP]     = _("Drop piece");
     actions[K_DISCARD]  = _("Discard special");
     actions[K_GAMEMSG]  = _("Send message");
+    actions[K_SPECIAL1] = _("Special to field 1");
+    actions[K_SPECIAL2] = _("Special to field 2");
+    actions[K_SPECIAL3] = _("Special to field 3");
+    actions[K_SPECIAL4] = _("Special to field 4");
+    actions[K_SPECIAL5] = _("Special to field 5");
+    actions[K_SPECIAL6] = _("Special to field 6");
   
     gconf_keys[K_RIGHT]    = g_strdup ("/apps/gtetrinet/keys/right");
     gconf_keys[K_LEFT]     = g_strdup ("/apps/gtetrinet/keys/left");
@@ -558,6 +564,12 @@ void prefdialog_drawkeys (void)
     gconf_keys[K_DROP]     = g_strdup ("/apps/gtetrinet/keys/drop");
     gconf_keys[K_DISCARD]  = g_strdup ("/apps/gtetrinet/keys/discard");
     gconf_keys[K_GAMEMSG]  = g_strdup ("/apps/gtetrinet/keys/message");
+    gconf_keys[K_SPECIAL1] = g_strdup ("/apps/gtetrinet/keys/special1");
+    gconf_keys[K_SPECIAL2] = g_strdup ("/apps/gtetrinet/keys/special2");
+    gconf_keys[K_SPECIAL3] = g_strdup ("/apps/gtetrinet/keys/special3");
+    gconf_keys[K_SPECIAL4] = g_strdup ("/apps/gtetrinet/keys/special4");
+    gconf_keys[K_SPECIAL5] = g_strdup ("/apps/gtetrinet/keys/special5");
+    gconf_keys[K_SPECIAL6] = g_strdup ("/apps/gtetrinet/keys/special6");
 
     for (i = 0; i < K_NUM; i ++) {
         gtk_list_store_append (keys_store, &iter);

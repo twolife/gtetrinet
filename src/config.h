@@ -72,6 +72,36 @@ keys_discard_changed (GConfClient *client,
                    GConfEntry *entry);
 
 void
+keys_special1_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry);
+
+void
+keys_special2_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry);
+
+void
+keys_special3_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry);
+
+void
+keys_special4_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry);
+
+void
+keys_special5_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry);
+
+void
+keys_special6_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry);
+
+void
 partyline_enable_timestamps_changed (GConfClient *client,
                                      guint cnxn_id,
                                      GConfEntry *entry);
@@ -93,5 +123,11 @@ partyline_enable_channel_list_changed (GConfClient *client,
 #define K_DROP 5
 #define K_DISCARD 6
 #define K_GAMEMSG 7
+#define K_SPECIAL1 8
+#define K_SPECIAL2 9
+#define K_SPECIAL3 10 
+#define K_SPECIAL4 11
+#define K_SPECIAL5 12
+#define K_SPECIAL6 13
 /* not a key but the number of configurable keys */
-#define K_NUM 8
+#define K_NUM 14

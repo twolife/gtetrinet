@@ -1749,15 +1749,23 @@ notfieldkey:
     else if (gdk_keyval_to_lower (keyval) == keys[K_DISCARD]) {
         tetrinet_specialkey(-1);
     }
-    else switch (keyval) {
-    case GDK_1: tetrinet_specialkey(1); break;
-    case GDK_2: tetrinet_specialkey(2); break;
-    case GDK_3: tetrinet_specialkey(3); break;
-    case GDK_4: tetrinet_specialkey(4); break;
-    case GDK_5: tetrinet_specialkey(5); break;
-    case GDK_6: tetrinet_specialkey(6); break;
-    default:
-        return FALSE;
+    else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL1]) {
+	tetrinet_specialkey(1);
+    }
+    else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL2]) {
+	tetrinet_specialkey(2);
+    }
+    else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL3]) {
+	tetrinet_specialkey(3);
+    }
+    else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL4]) {
+	tetrinet_specialkey(4);
+    }
+    else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL5]) {
+	tetrinet_specialkey(5);
+    }
+    else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL6]) {
+	tetrinet_specialkey(6);
     }
     tetris_drawcurrentblock ();
     return TRUE;

@@ -305,6 +305,61 @@ void config_loadconfig (void)
     else
       keys[K_GAMEMSG] = defaultkeys[K_GAMEMSG];
 
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special1", NULL);
+    if (p)
+    {
+      keys[K_SPECIAL1] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_SPECIAL1] = defaultkeys[K_SPECIAL1];
+
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special2", NULL);
+    if (p)
+    {
+      keys[K_SPECIAL2] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_SPECIAL2] = defaultkeys[K_SPECIAL2];
+
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special3", NULL);
+    if (p)
+    {
+      keys[K_SPECIAL3] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_SPECIAL3] = defaultkeys[K_SPECIAL3];
+
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special4", NULL);
+    if (p)
+    {
+      keys[K_SPECIAL4] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_SPECIAL4] = defaultkeys[K_SPECIAL4];
+
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special5", NULL);
+    if (p)
+    {
+      keys[K_SPECIAL5] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_SPECIAL5] = defaultkeys[K_SPECIAL5];
+
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special6", NULL);
+    if (p)
+    {
+      keys[K_SPECIAL6] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_SPECIAL6] = defaultkeys[K_SPECIAL6];
+
+
     /* Get the timestamp option. */
     timestampsenable = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps", NULL);
 
@@ -487,6 +542,78 @@ keys_discard_changed (GConfClient *client,
   cnxn_id = cnxn_id;	/* Suppress compile warnings */
 
   keys[K_DISCARD] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_special1_changed (GConfClient *client,
+                       guint cnxn_id,
+                       GConfEntry *entry)
+{
+
+  client = client;
+  cnxn_id = cnxn_id;
+
+  keys[K_SPECIAL1] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_special2_changed (GConfClient *client,
+                       guint cnxn_id,
+                       GConfEntry *entry)
+{
+
+  client = client;
+  cnxn_id = cnxn_id;
+
+  keys[K_SPECIAL2] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_special3_changed (GConfClient *client,
+                       guint cnxn_id,
+                       GConfEntry *entry)
+{
+
+  client = client;
+  cnxn_id = cnxn_id;
+
+  keys[K_SPECIAL3] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_special4_changed (GConfClient *client,
+                       guint cnxn_id,
+                       GConfEntry *entry)
+{
+
+  client = client;
+  cnxn_id = cnxn_id;
+
+  keys[K_SPECIAL4] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_special5_changed (GConfClient *client,
+                       guint cnxn_id,
+                       GConfEntry *entry)
+{
+
+  client = client;
+  cnxn_id = cnxn_id;
+
+  keys[K_SPECIAL5] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_special6_changed (GConfClient *client,
+                       guint cnxn_id,
+                       GConfEntry *entry)
+{
+
+  client = client;
+  cnxn_id = cnxn_id;
+
+  keys[K_SPECIAL6] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
 }
 
 void

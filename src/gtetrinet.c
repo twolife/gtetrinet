@@ -178,12 +178,36 @@ int main (int argc, char *argv[])
                              (GConfClientNotifyFunc) keys_drop_changed, NULL,
 			     NULL, NULL);
 
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/discard",
-                             (GConfClientNotifyFunc) keys_discard_changed,
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/message",
+			     (GConfClientNotifyFunc) keys_message_changed,
 			     NULL, NULL, NULL);
 
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/message",
-                             (GConfClientNotifyFunc) keys_message_changed,
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/discard",
+			     (GConfClientNotifyFunc) keys_discard_changed,
+			     NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special1",
+                             (GConfClientNotifyFunc) keys_special1_changed,
+			     NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special2",
+                             (GConfClientNotifyFunc) keys_special2_changed,
+			     NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special3",
+                             (GConfClientNotifyFunc) keys_special3_changed,
+			     NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special4",
+                             (GConfClientNotifyFunc) keys_special4_changed,
+			     NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special5",
+                             (GConfClientNotifyFunc) keys_special5_changed,
+			     NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special6",
+                             (GConfClientNotifyFunc) keys_special6_changed,
 			     NULL, NULL, NULL);
 
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps",

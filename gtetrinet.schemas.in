@@ -9,7 +9,7 @@
       <default></default>
 
       <locale name="C">
-        <short>Theme directory, should end with a '/'.</short>
+        <short>Theme directory, should end with a '/'</short>
         <long>The current theme directory. It should contain a readable
         "blocks.png" and a "theme.cfg".</long>
       </locale>
@@ -24,7 +24,7 @@
       <default>while true; do playmidi $MIDIFILE; done</default>
 
       <locale name="C">
-        <short>Command to run to play midi files.</short>
+        <short>Command to run to play midi files</short>
         <long>This command is run when a midi file is to be played. The name of
         the midi file is placed in the environment variable MIDIFILE.</long>
       </locale>
@@ -39,7 +39,7 @@
       <default>0</default>
 
       <locale name="C">
-        <short>Enable/disable sound.</short>
+        <short>Enable/disable sound</short>
         <long>Enables/Disables sound. Keep in mind that the theme
         that you're using must provide sounds.</long>
       </locale>
@@ -54,7 +54,7 @@
       <default>0</default>
 
       <locale name="C">
-        <short>Enable/disable midi music.</short>
+        <short>Enable/disable midi music</short>
         <long>Enables/disables midi music. You'll need to enable
         sound if you want music to work.</long>
       </locale>
@@ -69,7 +69,7 @@
       <default></default>
 
       <locale name="C">
-        <short>Your nickname.</short>
+        <short>Your nickname</short>
         <long>This will be your nickname in the game.</long>
       </locale>
     </schema>
@@ -83,7 +83,7 @@
       <default>tetrinet.org</default>
 
       <locale name="C">
-        <short>Server where you want to play.</short>
+        <short>Server where you want to play</short>
         <long>This is the server where GTetrinet will try to connect.</long>
       </locale>
     </schema>
@@ -97,7 +97,7 @@
       <default></default>
       
       <locale name="C">
-        <short>Your team.</short>
+        <short>Your team</short>
         <long>This will be the name of your team.</long>
       </locale>
     </schema>
@@ -111,7 +111,7 @@
       <default>Right</default>
 
       <locale name="C">
-        <short>Key to move right.</short>
+        <short>Key to move right</short>
         <long>This key moves the block to the right. This is case insensitive.</long>
       </locale>
     </schema>
@@ -125,7 +125,7 @@
       <default>Left</default>
 
       <locale name="C">
-        <short>Key to move left.</short>
+        <short>Key to move left</short>
         <long>This key moves the block to the left. This is case insensitive.</long>
       </locale>
     </schema>
@@ -139,7 +139,7 @@
       <default>Up</default>
       
       <locale name="C">
-        <short>Key to rotate clockwise.</short>
+        <short>Key to rotate clockwise</short>
         <long>This key rotates the block clockwise. This is case insensitive.</long>
       </locale>
     </schema>
@@ -153,7 +153,7 @@
       <default>Control_R</default>
       
       <locale name="C">
-        <short>Key to rotate counterclockwise.</short>
+        <short>Key to rotate counterclockwise</short>
         <long>This key rotates the block counterclockwise. This is case insensitive.</long>
       </locale>
     </schema>
@@ -167,7 +167,7 @@
       <default>Down</default>
       
       <locale name="C">
-        <short>Key to move down.</short>
+        <short>Key to move down</short>
         <long>This key moves the block down. This is case insensitive.</long>
       </locale>
     </schema>
@@ -181,22 +181,8 @@
       <default>space</default>
       
       <locale name="C">
-        <short>Key to drop piece.</short>
+        <short>Key to drop piece</short>
         <long>This key drops the block to the ground. This is case insensitive.</long>
-      </locale>
-    </schema>
-    
-    
-    <schema>
-      <key>/schemas/apps/gtetrinet/keys/discard</key>
-      <applyto>/apps/gtetrinet/keys/discard</applyto>
-      <owner>gtetrinet</owner>
-      <type>string</type>
-      <default>d</default>
-      
-      <locale name="C">
-        <short>Key to discard special.</short>
-        <long>This key discards the current special. This is case insensitive.</long>
       </locale>
     </schema>
     
@@ -209,8 +195,106 @@
       <default>t</default>
       
       <locale name="C">
-        <short>Key to open the fields' message dialog.</short>
+        <short>Key to open the fields' message dialog</short>
         <long>This key displays the fields' message dialog. This is case insensitive.</long>
+      </locale>
+    </schema>
+    
+
+    <schema>
+      <key>/schemas/apps/gtetrinet/keys/discard</key>
+      <applyto>/apps/gtetrinet/keys/discard</applyto>
+      <owner>gtetrinet</owner>
+      <type>string</type>
+      <default>d</default>
+      
+      <locale name="C">
+        <short>Key to discard special</short>
+        <long>This key discards the current special. This is case insensitive.</long>
+      </locale>
+    </schema>
+    
+    
+    <schema>
+      <key>/schemas/apps/gtetrinet/keys/special1</key>
+      <applyto>/apps/gtetrinet/keys/special1</applyto>
+      <owner>gtetrinet</owner>
+      <type>string</type>
+      <default>1</default>
+      
+      <locale name="C">
+        <short>Key to use the current special on field 1</short>
+        <long>This key uses the current special on Player 1's game field.</long>
+      </locale>
+    </schema>
+    
+
+    <schema>
+      <key>/schemas/apps/gtetrinet/keys/special2</key>
+      <applyto>/apps/gtetrinet/keys/special2</applyto>
+      <owner>gtetrinet</owner>
+      <type>string</type>
+      <default>2</default>
+      
+      <locale name="C">
+        <short>Key to use the current special on field 2</short>
+        <long>This key uses the current special on Player 2's game field.</long>
+      </locale>
+    </schema>
+    
+
+    <schema>
+      <key>/schemas/apps/gtetrinet/keys/special3</key>
+      <applyto>/apps/gtetrinet/keys/special3</applyto>
+      <owner>gtetrinet</owner>
+      <type>string</type>
+      <default>3</default>
+      
+      <locale name="C">
+        <short>Key to use the current special on field 3</short>
+        <long>This key uses the current special on Player 3's game field.</long>
+      </locale>
+    </schema>
+    
+
+    <schema>
+      <key>/schemas/apps/gtetrinet/keys/special4</key>
+      <applyto>/apps/gtetrinet/keys/special4</applyto>
+      <owner>gtetrinet</owner>
+      <type>string</type>
+      <default>4</default>
+      
+      <locale name="C">
+        <short>Key to use the current special on field 4</short>
+        <long>This key uses the current special on Player 4's game field.</long>
+      </locale>
+    </schema>
+    
+
+    <schema>
+      <key>/schemas/apps/gtetrinet/keys/special5</key>
+      <applyto>/apps/gtetrinet/keys/special5</applyto>
+      <owner>gtetrinet</owner>
+      <type>string</type>
+      <default>5</default>
+      
+      <locale name="C">
+        <short>Key to use the current special on field 5</short>
+        <long>This key uses the current special on Player 5's game field.</long>
+      </locale>
+    </schema>
+    
+
+    <schema>
+      <key>/schemas/apps/gtetrinet/keys/special6</key>
+      <applyto>/apps/gtetrinet/keys/special6</applyto>
+      <owner>gtetrinet</owner>
+      <type>string</type>
+      <default>6</default>
+      
+      <locale name="C">
+        <short>Key to use the current special on field 6</short>
+        <long>This key uses the current special on Player 6's game field.</long>
       </locale>
     </schema>
     
