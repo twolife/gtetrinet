@@ -1,5 +1,15 @@
 2003-03-17  Jordi Mallach  <jordi@sindominio.net>
 
+	* src/fields.c (gmsginput_activate): Patch from Robert Cheramy, to
+	workaround segfaults when trying to input characters not supported
+	by the current locale.
+	* src/partyline.c (textentry): Likewise.
+
+	* AUTHORS, TODO: Updated.
+	* README: Changed contact address.
+
+2003-03-17  Jordi Mallach  <jordi@sindominio.net>
+
 	* configure.in (ALL_LINGUAS): Added "ru" (Russian).
 
 2003-03-16  Christophe Merlet  <redfox@redfoxcenter.org>

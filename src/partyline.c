@@ -331,6 +331,9 @@ void textentry (GtkWidget *widget)
     /* convert from UTF-8 to the current locale, will work with ISO8859-1 locales */    
     iso_text = g_locale_from_utf8 (text, -1, NULL, NULL, NULL);
 
+	/* FIXME : if there is an error while converting from UTF8 to current locale, we ignore the message */
+	if (iso_text == NULL) return;
+
     tetrinet_playerline (iso_text);
     GTET_O_STRCPY (plhistory[plh_end], iso_text);
     gtk_entry_set_text (GTK_ENTRY(widget), "");

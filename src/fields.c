@@ -604,6 +604,8 @@ void gmsginput_activate (void)
             /* post /me thingy */
             g_snprintf (buf, sizeof(buf), "* %s %s", nick, s+4);
             locale_s = g_locale_from_utf8 (buf, -1, NULL, NULL, NULL);
+			/* FIXME : if there is an error while converting from UTF8 to current locale, we ignore the message */
+			if (locale_s == NULL) return;
             client_outmessage (OUT_GMSG, locale_s);
             g_free (locale_s);
         }
@@ -611,6 +613,8 @@ void gmsginput_activate (void)
             /* post message */
             g_snprintf (buf, sizeof(buf), "<%s> %s", nick, s);
             locale_s = g_locale_from_utf8 (buf, -1, NULL, NULL, NULL);
+			/* FIXME : if there is an error while converting from UTF8 to current locale, we ignore the message */
+			if (locale_s == NULL) return;
             client_outmessage (OUT_GMSG, locale_s);
             g_free (locale_s);
         }
