@@ -1,3 +1,10 @@
+2005-03-26  Pedro Villavicencio Garrido  <pvillavi@gnome.org> 
+
+	* src/commands.c (about_command): use GtkAboutDialog instead 
+	of deprecated GnomeAbout.
+	(handle_links): added for handle the links in the about dialog.
+	* src/commands.h (handle_links): added to the function list.
+
 2005-03-29  Alexander Shopov  <ash@contact.bg>
 
 	* configure.in: Added "bg" (Bulgarian) to ALL_LINGUAS

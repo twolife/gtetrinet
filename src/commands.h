@@ -20,3 +20,4 @@ void show_connect_button (void);
 void show_disconnect_button (void);
 
 void commands_checkstate (void);
+void handle_links (GtkAboutDialog *about G_GNUC_UNUSED, const gchar *link, gpointer data);

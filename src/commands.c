@@ -265,56 +265,70 @@ void commands_checkstate ()
     else partyline_status (_("Not connected"));
 }
 
+enum {
+	LINK_TYPE_EMAIL,
+	LINK_TYPE_URL
+};
+/* handle the links */
 
+void handle_links (GtkAboutDialog *about G_GNUC_UNUSED, const gchar *link, gpointer data)
+{
+    gchar *new_link;
+
+    switch (GPOINTER_TO_INT (data)) {
+    case LINK_TYPE_EMAIL:
+	    new_link = g_strdup_printf ("mailto: %s", link);
+	    break;
+    case LINK_TYPE_URL:
+	    new_link = g_strdup (link);
+	    break;
+    default:
+	    g_assert_not_reached ();
+    }
+
+    if (!gnome_url_show (new_link, NULL)){
+	    g_warning ("Unable to follow link %s\n", link);
+    }
+    
+    g_free (new_link);
+}
 /* about... */
 
 void about_command (void)
 {
-    GtkWidget *hbox;
     GdkPixbuf *logo;
-    static GtkWidget *about = NULL;
+  
+    const char *authors[] = {"Ka-shu Wong <kswong@zip.com.au>",
+			     "James Antill <james@and.org>",
+			     "Jordi Mallach <jordi@sindominio.net>",
+			     "Dani Carbonell <bocata@panete.net>",
+			     NULL};
+    const char *documenters[] = {"Jordi Mallach <jordi@sindominio.net>",
+				 NULL};
+    /* Translators: translate as your names & emails */
+    const char *translators = _("translator_credits");
 
-    if (!GTK_IS_WINDOW (about))
-    {
-      const char *authors[] = {"Ka-shu Wong <kswong@zip.com.au>",
-                               "James Antill <james@and.org>",
-			       "Jordi Mallach <jordi@sindominio.net>",
-			       "Dani Carbonell <bocata@panete.net>",
-                               NULL};
-      const char *documenters[] = {"Jordi Mallach <jordi@sindominio.net>",
-                                   NULL};
-      /* Translators: translate as your names & emails */
-      const char *translators = _("translator_credits");
-
-      logo = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
+    logo = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
     
-      about = gnome_about_new (APPNAME, APPVERSION,
-                               "\xc2\xa9 1999, 2000, 2001, 2002, 2003 Ka-shu Wong",
-                               _("A Tetrinet client for GNOME.\n"),
-                               authors,
-                               documenters,
-			      strcmp (translators, "translator_credits") != 0 ?
-				       translators : NULL,
-			      logo);
-
-      if (logo != NULL)
-		  g_object_unref (logo);
-
-      hbox = gtk_hbox_new (TRUE, 0);
-      gtk_box_pack_start (GTK_BOX (hbox),
-		  gnome_href_new ("http://gtetrinet.sourceforge.net/", _("GTetrinet Home Page")),
-		  FALSE, FALSE, 0);
-      gtk_box_pack_start (GTK_BOX (GTK_DIALOG (about)->vbox),
-		          hbox, TRUE, FALSE, 0);
-      gtk_widget_show_all (hbox);
-
-      g_signal_connect(G_OBJECT(about), "destroy",
-		       G_CALLBACK(gtk_widget_destroyed), &about);
-
-      gtk_widget_show (about);
-    }
-    else
-    {
-      gtk_window_present (GTK_WINDOW (about));
-    }
+    gtk_about_dialog_set_email_hook ((GtkAboutDialogActivateLinkFunc) handle_links,
+				     GINT_TO_POINTER (LINK_TYPE_EMAIL), NULL);
+    
+    gtk_about_dialog_set_url_hook ((GtkAboutDialogActivateLinkFunc) handle_links,
+				   GINT_TO_POINTER (LINK_TYPE_URL), NULL);
+  
+    gtk_show_about_dialog (NULL,
+			   "name", APPNAME, 
+			   "version", APPVERSION,
+			   "copyright", "Copyright \xc2\xa9 2004, 2005 Jordi Mallach, Dani Carbonell\nCopyright \xc2\xa9 1999, 2000, 2001, 2002, 2003 Ka-shu Wong",
+			   "comments", _("A Tetrinet client for GNOME.\n"),
+			   "authors", authors,
+			   "documenters", documenters,
+			   "translator-credits", strcmp (translators, "translator_credits") != 0 ? translators : NULL,
+			   "logo", logo,
+			   "website", "http://gtetrinet.sf.net",
+			   "website-label", "GTetrinet Home Page",
+			   NULL);
+    
+    if (logo != NULL)
+	    g_object_unref (logo);
 }
