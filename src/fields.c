@@ -101,7 +101,7 @@ void fields_page_destroy_contents (void)
 
 GtkWidget *fields_page_contents (void)
 {
-    GtkWidget *table, *widget, *align, *border, *box, *table2, *hbox;
+    GtkWidget *table, *widget, *align, *border, *box, *table2, *hbox, *scroll;
     table = gtk_table_new (4, 5, FALSE);
 
     gtk_table_set_row_spacings (GTK_TABLE(table), 2);
@@ -270,7 +270,13 @@ GtkWidget *fields_page_contents (void)
     gtk_text_set_word_wrap (GTK_TEXT(attdefwidget), TRUE);
     GTK_WIDGET_UNSET_FLAGS (attdefwidget, GTK_CAN_FOCUS);
     gtk_widget_show (attdefwidget);
-    gtk_box_pack_start (GTK_BOX(box), attdefwidget, FALSE, FALSE, 0);
+    scroll = gtk_scrolled_window_new (NULL, NULL);
+    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll),
+                                    GTK_POLICY_AUTOMATIC,
+                                    GTK_POLICY_AUTOMATIC);
+    gtk_container_add (GTK_CONTAINER(scroll), attdefwidget);
+    gtk_widget_show (scroll);
+    gtk_box_pack_start (GTK_BOX(box), scroll, FALSE, FALSE, 0);
     gtk_widget_show (box);
     align = gtk_alignment_new (0.5, 0.5, 0.5, 0.0);
     gtk_container_add (GTK_CONTAINER(align), box);
@@ -283,7 +289,13 @@ GtkWidget *fields_page_contents (void)
     gtk_widget_set_usize (gmsgtext, 0, 46);
     gtk_widget_show (gmsgtext);
     GTK_WIDGET_UNSET_FLAGS (gmsgtext, GTK_CAN_FOCUS);
-    gtk_table_attach (GTK_TABLE(table2), gmsgtext, 0, 1, 0, 1,
+    scroll = gtk_scrolled_window_new (NULL, NULL);
+    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll),
+                                    GTK_POLICY_AUTOMATIC,
+                                    GTK_POLICY_AUTOMATIC);
+    gtk_container_add (GTK_CONTAINER(scroll), gmsgtext);
+    gtk_widget_show (scroll);
+    gtk_table_attach (GTK_TABLE(table2), scroll, 0, 1, 0, 1,
                       GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_SHRINK,
                       0, 0);
     gmsginput = gtk_entry_new_with_max_length (128);

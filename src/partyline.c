@@ -36,7 +36,7 @@ static char *listtitles[] = {
 
 /* widgets that we have to do stuff with */
 static GtkWidget *playerlist, *textbox, *entrybox,
-    *namelabel, *teamlabel, *infolabel;
+    *namelabel, *teamlabel, *infolabel, *textboxscroll;
 
 /* some more widgets for layout */
 static GtkWidget *table, *leftbox, *rightbox;
@@ -58,19 +58,19 @@ GtkWidget *partyline_page_new (void)
     leftbox = gtk_vbox_new (FALSE, 4);
     /* chat thingy */
     /* textbox with scrollbars */
-    box = gtk_hbox_new (FALSE, 0);
     textbox = gtk_text_new (NULL, NULL);
     gtk_text_set_word_wrap (GTK_TEXT(textbox), TRUE);
     GTK_WIDGET_UNSET_FLAGS(textbox, GTK_CAN_FOCUS);
     gtk_signal_connect (GTK_OBJECT(textbox), "button_press_event",
                         GTK_SIGNAL_FUNC(partyline_entryfocus), NULL);
     gtk_widget_show (textbox);
-    gtk_box_pack_start (GTK_BOX(box), textbox, TRUE, TRUE, 0);
-    widget = gtk_vscrollbar_new (GTK_TEXT(textbox)->vadj);
-    gtk_widget_show (widget);
-    gtk_box_pack_start (GTK_BOX(box), widget, FALSE, FALSE, 0);
-    gtk_widget_show (box);
-    gtk_box_pack_start (GTK_BOX(leftbox), box, TRUE, TRUE, 0);
+    textboxscroll = gtk_scrolled_window_new (NULL, NULL);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(textboxscroll),
+                                   GTK_POLICY_AUTOMATIC,
+                                   GTK_POLICY_ALWAYS);
+    gtk_container_add (GTK_CONTAINER(textboxscroll), textbox);
+    gtk_widget_show(textboxscroll);
+    gtk_box_pack_start (GTK_BOX(leftbox), textboxscroll, TRUE, TRUE, 0);
     /* entry box */
     entrybox = gtk_entry_new_with_max_length (200);
     gtk_signal_connect (GTK_OBJECT(entrybox), "activate",
