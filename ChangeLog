@@ -1,3 +1,9 @@
+2003-01-29  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/client.c (client_connect): change deprecated g_string_sprintf
+	and g_stringsprintfa to g_string_printf and g_string_append_printf.
+	* src/gtetrinet.c: include <sys/poll.h>.
+
 2003-01-28  James Antill  <james@and.org>
 
 	* src/gtetrinet.c (gtetrinet_poll_func): Added fast poll() function.

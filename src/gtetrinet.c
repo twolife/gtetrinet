@@ -26,6 +26,7 @@
 #include <gnome.h>
 #include <stdlib.h>
 #include <time.h>
+#include <sys/poll.h>
 #include <sys/types.h>
 #include <signal.h>
 

@@ -417,13 +417,13 @@ int client_connect (void)
         
         /* construct message */
         if (gamemode == TETRIFAST)
-          g_string_sprintf (s1, "tetrifaster %s 1.13", nick);
+          g_string_printf (s1, "tetrifaster %s 1.13", nick);
         else
-          g_string_sprintf (s1, "tetrisstart %s 1.13", nick);
+          g_string_printf (s1, "tetrisstart %s 1.13", nick);
 
         /* do that encoding thingy */
         server_ip (ip);
-        g_string_sprintf (iphashbuf, "%d",
+        g_string_printf (iphashbuf, "%d",
                           ip[0]*54 + ip[1]*41 + ip[2]*29 + ip[3]*17);
         l = iphashbuf->len;
 
@@ -438,7 +438,7 @@ int client_connect (void)
 
         g_string_truncate(s1, 0);
         for (i = 0; i < len; i ++)
-          g_string_sprintfa(s1, "%02X", s2->str[i] & 0xFF);
+          g_string_append_printf(s1, "%02X", s2->str[i] & 0xFF);
 
         /* now send to server */
         client_sendmsg (s1->str);
