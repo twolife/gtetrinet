@@ -13,7 +13,7 @@ msgstr ""
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/commands.c:38
@@ -22,7 +22,7 @@ msgstr "_Anslut till server..."
 
 #: src/commands.c:39
 msgid "_Disconnect from server"
-msgstr "_Koppla från server"
+msgstr "_Koppla frÃ¥n server"
 
 #: src/commands.c:41
 msgid "Change _team..."
@@ -34,7 +34,7 @@ msgstr "_Starta spel"
 
 #: src/commands.c:44
 msgid "_Pause game"
-msgstr "_Gör paus i spel"
+msgstr "_GÃ¶r paus i spel"
 
 #: src/commands.c:45
 msgid "_End game"
@@ -54,11 +54,11 @@ msgstr "Anslut till en server"
 
 #: src/commands.c:76
 msgid "Disconnect"
-msgstr "Koppla från"
+msgstr "Koppla frÃ¥n"
 
 #: src/commands.c:76
 msgid "Disconnect from the current server"
-msgstr "Koppla från den aktuella servern"
+msgstr "Koppla frÃ¥n den aktuella servern"
 
 #: src/commands.c:78
 msgid "Start game"
@@ -70,11 +70,11 @@ msgstr "Starta ett nytt spel"
 
 #: src/commands.c:79
 msgid "Pause game"
-msgstr "Gör paus i spel"
+msgstr "GÃ¶r paus i spel"
 
 #: src/commands.c:79
 msgid "Pause the game"
-msgstr "Gör paus i spelet"
+msgstr "GÃ¶r paus i spelet"
 
 #: src/commands.c:80
 msgid "End game"
@@ -90,7 +90,7 @@ msgstr "Byt lag"
 
 #: src/commands.c:82
 msgid "Change your current team name"
-msgstr "Byt namn på ditt aktuella lag"
+msgstr "Byt namn pÃ¥ ditt aktuella lag"
 
 #: src/commands.c:85
 msgid "Detach page"
@@ -98,11 +98,11 @@ msgstr "Koppla loss sida"
 
 #: src/commands.c:85
 msgid "Detach the current notebook page"
-msgstr "Koppla loss den aktuella flikhäftessidan"
+msgstr "Koppla loss den aktuella flikhÃ¤ftessidan"
 
 #: src/commands.c:207
 msgid "Game in progress"
-msgstr "Spel pågår"
+msgstr "Spel pÃ¥gÃ¥r"
 
 #: src/commands.c:210
 msgid "Connected to\n"
@@ -117,15 +117,15 @@ msgstr "Inte ansluten"
 msgid "translator_credits"
 msgstr ""
 "Christian Rose\n"
-"Skicka synpunkter på översättningen till sv@li.org"
+"Skicka synpunkter pÃ¥ Ã¶versÃ¤ttningen till sv@li.org"
 
 #: src/commands.c:241
 msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
-msgstr "© 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
+msgstr "Â© 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
 
 #: src/commands.c:242
 msgid "A Tetrinet client for GNOME.\n"
-msgstr "En Tetrinet-klient för GNOME.\n"
+msgstr "En Tetrinet-klient fÃ¶r GNOME.\n"
 
 #: src/commands.c:254
 msgid "GTetrinet Home Page"
@@ -146,11 +146,11 @@ msgstr "Lagnamn:"
 
 #: src/dialogs.c:209
 msgid "You must specify a server name."
-msgstr "Du måste ange ett servernamn."
+msgstr "Du mÃ¥ste ange ett servernamn."
 
 #: src/dialogs.c:219
 msgid "Please specify a password to connect as spectator."
-msgstr "Ange ett lösenord för att ansluta som åskådare."
+msgstr "Ange ett lÃ¶senord fÃ¶r att ansluta som Ã¥skÃ¥dare."
 
 #: src/dialogs.c:234
 msgid "Please specify a valid nickname."
@@ -171,15 +171,15 @@ msgstr "Serveradress"
 
 #: src/dialogs.c:359 src/gtetrinet.c:74
 msgid "Connect as a spectator"
-msgstr "Anslut som åskådare"
+msgstr "Anslut som Ã¥skÃ¥dare"
 
 #: src/dialogs.c:363
 msgid "Password:"
-msgstr "Lösenord:"
+msgstr "LÃ¶senord:"
 
 #: src/dialogs.c:377
 msgid "Spectate game"
-msgstr "Beskåda spel"
+msgstr "BeskÃ¥da spel"
 
 #: src/dialogs.c:386
 msgid "Nick name:"
@@ -191,35 +191,35 @@ msgstr "Spelarinformation"
 
 #: src/dialogs.c:455
 msgid "Change Key"
-msgstr "Ändra tangent"
+msgstr "Ã„ndra tangent"
 
 #: src/dialogs.c:513
 msgid "Move right"
-msgstr "Flytta åt höger"
+msgstr "Flytta Ã¥t hÃ¶ger"
 
 #: src/dialogs.c:514
 msgid "Move left"
-msgstr "Flytta åt vänster"
+msgstr "Flytta Ã¥t vÃ¤nster"
 
 #: src/dialogs.c:515
 msgid "Move down"
-msgstr "Flytta nedåt"
+msgstr "Flytta nedÃ¥t"
 
 #: src/dialogs.c:516
 msgid "Rotate right"
-msgstr "Rotera höger"
+msgstr "Rotera hÃ¶ger"
 
 #: src/dialogs.c:517
 msgid "Rotate left"
-msgstr "Rotera vänster"
+msgstr "Rotera vÃ¤nster"
 
 #: src/dialogs.c:518
 msgid "Drop piece"
-msgstr "Släpp pjäs"
+msgstr "SlÃ¤pp pjÃ¤s"
 
 #: src/dialogs.c:519
 msgid "Discard special"
-msgstr "Förkasta special"
+msgstr "FÃ¶rkasta special"
 
 #: src/dialogs.c:520
 msgid "Send message"
@@ -228,18 +228,18 @@ msgstr "Skicka meddelande"
 #: src/dialogs.c:570
 #, c-format
 msgid "Press new key for \"%s\""
-msgstr "Tryck ny tangent för \"%s\""
+msgstr "Tryck ny tangent fÃ¶r \"%s\""
 
 #: src/dialogs.c:808
 msgid "GTetrinet Preferences"
-msgstr "Inställningar för GTetrinet"
+msgstr "InstÃ¤llningar fÃ¶r GTetrinet"
 
 #: src/dialogs.c:819
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
 msgstr ""
-"Välj ett tema från listan.\n"
+"VÃ¤lj ett tema frÃ¥n listan.\n"
 "Installera nya teman i ~/.gtetrinet/themes/"
 
 #: src/dialogs.c:827
@@ -248,7 +248,7 @@ msgstr "Namn:"
 
 #: src/dialogs.c:831
 msgid "Author:"
-msgstr "Författare:"
+msgstr "FÃ¶rfattare:"
 
 #: src/dialogs.c:835
 msgid "Description:"
@@ -264,7 +264,7 @@ msgstr "Teman"
 
 #: src/dialogs.c:883
 msgid "Action"
-msgstr "Åtgärd"
+msgstr "Ã…tgÃ¤rd"
 
 #: src/dialogs.c:885
 msgid "Key"
@@ -275,16 +275,16 @@ msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
 msgstr ""
-"Välj en åtgärd från listan och tryck Ändra tangent för att ändra den tangent "
-"som är associerad med åtgärden."
+"VÃ¤lj en Ã¥tgÃ¤rd frÃ¥n listan och tryck Ã„ndra tangent fÃ¶r att Ã¤ndra den tangent "
+"som Ã¤r associerad med Ã¥tgÃ¤rden."
 
 #: src/dialogs.c:897
 msgid "Change key..."
-msgstr "Ändra tangent..."
+msgstr "Ã„ndra tangent..."
 
 #: src/dialogs.c:902 src/dialogs.c:960
 msgid "Restore defaults"
-msgstr "Återställ standardalternativ"
+msgstr "Ã…terstÃ¤ll standardalternativ"
 
 #: src/dialogs.c:927
 msgid "Keyboard"
@@ -301,15 +301,15 @@ msgstr "Aktivera MIDI"
 
 #: src/dialogs.c:950
 msgid "Enter command to play a midi file:"
-msgstr "Ange kommando för att spela en midifil:"
+msgstr "Ange kommando fÃ¶r att spela en midifil:"
 
 #: src/dialogs.c:953
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
 msgstr ""
-"Det ovanstående kommandot körs då en midifil ska spelas. Namnet på midifilen "
-"hamnar i miljövariabeln MIDIFILE."
+"Det ovanstÃ¥ende kommandot kÃ¶rs dÃ¥ en midifil ska spelas. Namnet pÃ¥ midifilen "
+"hamnar i miljÃ¶variabeln MIDIFILE."
 
 #: src/dialogs.c:994
 msgid "Sound"
@@ -320,8 +320,8 @@ msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
 msgstr ""
-"Fel vid inläsning av tema: kan inte läsa in grafikfil\n"
-"Återgår till standardalternativ"
+"Fel vid inlÃ¤sning av tema: kan inte lÃ¤sa in grafikfil\n"
+"Ã…tergÃ¥r till standardalternativ"
 
 #. shouldnt happen
 #: src/fields.c:76
@@ -329,12 +329,12 @@ msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
 msgstr ""
-"Fel vid insläning av standardtema: Avbryter...\n"
-"Undersök om det finns installationsfel\n"
+"Fel vid inslÃ¤ning av standardtema: Avbryter...\n"
+"UndersÃ¶k om det finns installationsfel\n"
 
 #: src/fields.c:194
 msgid "Next piece:"
-msgstr "Nästa pjäs:"
+msgstr "NÃ¤sta pjÃ¤s:"
 
 #: src/fields.c:215
 msgid "Lines:"
@@ -342,15 +342,15 @@ msgstr "Rader:"
 
 #: src/fields.c:221
 msgid "Level:"
-msgstr "Nivå:"
+msgstr "NivÃ¥:"
 
 #: src/fields.c:224
 msgid "Active level:"
-msgstr "Aktiv nivå:"
+msgstr "Aktiv nivÃ¥:"
 
 #: src/fields.c:277
 msgid "Attacks and defenses:"
-msgstr "Attacker och försvar:"
+msgstr "Attacker och fÃ¶rsvar:"
 
 #: src/fields.c:414
 msgid "Not playing"
@@ -366,7 +366,7 @@ msgstr "SERVER"
 
 #: src/gtetrinet.c:72
 msgid "Set nickname to use"
-msgstr "Ställ in smeknamnet som ska användas"
+msgstr "StÃ¤ll in smeknamnet som ska anvÃ¤ndas"
 
 #: src/gtetrinet.c:72
 msgid "NICKNAME"
@@ -374,7 +374,7 @@ msgstr "SMEKNAMN"
 
 #: src/gtetrinet.c:73
 msgid "Set team name"
-msgstr "Ställ in lagnamn"
+msgstr "StÃ¤ll in lagnamn"
 
 #: src/gtetrinet.c:73
 msgid "TEAM"
@@ -382,18 +382,18 @@ msgstr "LAG"
 
 #: src/gtetrinet.c:75
 msgid "Spectator password"
-msgstr "Åskådarlösenord"
+msgstr "Ã…skÃ¥darlÃ¶senord"
 
 #: src/gtetrinet.c:75
 msgid "PASSWORD"
-msgstr "LÖSENORD"
+msgstr "LÃ–SENORD"
 
 #. FIXME
 #: src/gtetrinet.c:198 src/gtetrinet.c:336 src/gtetrinet.c:387
 msgid "Playing Fields"
-msgstr "Spelarfält"
+msgstr "SpelarfÃ¤lt"
 
-# Osäker
+# OsÃ¤ker
 #. FIXME
 #: src/gtetrinet.c:209
 msgid "Partyline"
@@ -423,7 +423,7 @@ msgstr "Ditt lag:"
 #: src/tetrinet.c:201
 #, c-format
 msgid "%c%c*** Disconnected from server"
-msgstr "%c%c*** Frånkopplad från servern"
+msgstr "%c%c*** FrÃ¥nkopplad frÃ¥n servern"
 
 #: src/tetrinet.c:210
 msgid "Error connecting: "
@@ -437,12 +437,12 @@ msgstr "%c%c*** Ansluten till server"
 #: src/tetrinet.c:337
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
-msgstr "%c%c*** Du har sparkats ut från spelet"
+msgstr "%c%c*** Du har sparkats ut frÃ¥n spelet"
 
 #: src/tetrinet.c:341
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
-msgstr "%c*** %c%s%c%c har sparkats ut från spelet"
+msgstr "%c*** %c%s%c%c har sparkats ut frÃ¥n spelet"
 
 #: src/tetrinet.c:433
 #, c-format
@@ -457,32 +457,32 @@ msgstr "%c*** %c%s%c%c har vunnit spelet"
 #: src/tetrinet.c:499
 #, c-format
 msgid "%c*** The game has %cstarted"
-msgstr "%c*** Spelet har %cbörjat"
+msgstr "%c*** Spelet har %cbÃ¶rjat"
 
 #: src/tetrinet.c:524
 #, c-format
 msgid "%c*** The game is %cin progress"
-msgstr "%c*** Spelet %cpågår"
+msgstr "%c*** Spelet %cpÃ¥gÃ¥r"
 
 #: src/tetrinet.c:535
 #, c-format
 msgid "%c*** The game has %cpaused"
-msgstr "%c*** Spelet gör %cpaus"
+msgstr "%c*** Spelet gÃ¶r %cpaus"
 
 #: src/tetrinet.c:537
 #, c-format
 msgid "The game has %c%cpaused"
-msgstr "Spelet gör %c%cpaus"
+msgstr "Spelet gÃ¶r %c%cpaus"
 
 #: src/tetrinet.c:542
 #, c-format
 msgid "%c*** The game has %cresumed"
-msgstr "%c*** Spelet har %cåterupptagits"
+msgstr "%c*** Spelet har %cÃ¥terupptagits"
 
 #: src/tetrinet.c:544
 #, c-format
 msgid "The game has %c%cresumed"
-msgstr "Spelet har %c%cåterupptagits"
+msgstr "Spelet har %c%cÃ¥terupptagits"
 
 #: src/tetrinet.c:553
 #, c-format
@@ -492,17 +492,17 @@ msgstr "%c*** Spelet har %cavslutats"
 #: src/tetrinet.c:663
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
-msgstr "%c*** Du har gått in i %c%s%c%c"
+msgstr "%c*** Du har gÃ¥tt in i %c%s%c%c"
 
 #: src/tetrinet.c:680
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
-msgstr "%c*** %c%s%c%c har anslutit sig till åskådarna %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c har anslutit sig till Ã¥skÃ¥darna %c%c(%c%s%c%c%c)"
 
 #: src/tetrinet.c:701
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
-msgstr "%c*** %c%s%c%c har lämnat åskådarna %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c har lÃ¤mnat Ã¥skÃ¥darna %c%c(%c%s%c%c%c)"
 
 #: src/tetrinet.c:858
 msgid "No special blocks"
@@ -511,7 +511,7 @@ msgstr "Inga specialblock"
 #: src/tetrinet.c:1017 src/tetrinet.c:1024
 #, c-format
 msgid " on %c%c%s%c%c"
-msgstr " på %c%c%s%c%c"
+msgstr " pÃ¥ %c%c%s%c%c"
 
 #: src/tetrinet.c:1034
 msgid " to All"
@@ -525,54 +525,54 @@ msgstr " av %c%c%s%c%c"
 #: src/tetrinet.c:1681
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
-msgstr "%c*** %c%s%c%c är spelledare"
+msgstr "%c*** %c%s%c%c Ã¤r spelledare"
 
 #. remove ", " from end of string
 #: src/tetrinet.c:1730
 msgid " has left the game"
-msgstr " har lämnat spelet"
+msgstr " har lÃ¤mnat spelet"
 
 #: src/tetrinet.c:1731
 msgid " have left the game"
-msgstr " har lämnat spelet"
+msgstr " har lÃ¤mnat spelet"
 
 #: src/tetrinet.c:1744
 msgid " has joined the game"
-msgstr " har gått in i spelet"
+msgstr " har gÃ¥tt in i spelet"
 
 #: src/tetrinet.c:1745
 msgid " have joined the game"
-msgstr " har gått in i spelet"
+msgstr " har gÃ¥tt in i spelet"
 
 #: src/tetrinet.c:1768
 #, c-format
 msgid "%s is on team %c%s"
-msgstr "%s är med i lag %c%s"
+msgstr "%s Ã¤r med i lag %c%s"
 
 #: src/tetrinet.c:1771
 #, c-format
 msgid "%s is alone"
-msgstr "%s är ensam"
+msgstr "%s Ã¤r ensam"
 
 #: src/tetrinet.c:1773
 #, c-format
 msgid "%s are on team %c%s"
-msgstr "%s är med i lag %c%s"
+msgstr "%s Ã¤r med i lag %c%s"
 
 #: src/tetrinet.c:1776
 #, c-format
 msgid "%s are alone"
-msgstr "%s är ensamma"
+msgstr "%s Ã¤r ensamma"
 
 #: src/tetrinet.c:1817
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
-msgstr "%c*** %c%s%c%c är nu med i lag %c%s"
+msgstr "%c*** %c%s%c%c Ã¤r nu med i lag %c%s"
 
 #: src/tetrinet.c:1824
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
-msgstr "%c*** %c%s%c%c är nu ensam"
+msgstr "%c*** %c%s%c%c Ã¤r nu ensam"
 
 #: src/winlist.c:44
 msgid "T"
@@ -580,7 +580,7 @@ msgstr "T"
 
 #: src/winlist.c:48
 msgid "Score"
-msgstr "Poäng"
+msgstr "PoÃ¤ng"
 
 #: gtetrinet.desktop.in.h:1
 msgid "GTetrinet"
@@ -588,7 +588,7 @@ msgstr "GTetrinet"
 
 #: gtetrinet.desktop.in.h:2
 msgid "Tetrinet client for GNOME"
-msgstr "Tetrinet-klient för GNOME"
+msgstr "Tetrinet-klient fÃ¶r GNOME"
 
 #~ msgid "Chat"
 #~ msgstr "Chatt"
