@@ -4,7 +4,7 @@ localedir = $(datadir)/locale
 
 GTET_DEBUG = -Wall -W -Wno-unused -g3 -O0
 
-INCLUDES = -DLOCALEDIR=\"$(localedir)\" -DPIXMAPSDIR=\""$(datadir)/pixmaps"\" -DGTK_DISABLE_DEPRECATED $(GTET_CFLAGS) $(GTET_DEBUG)
+INCLUDES = -DLOCALEDIR=\"$(localedir)\" -DPIXMAPSDIR=\""$(datadir)/pixmaps"\" $(GTET_CFLAGS) $(GTET_DEBUG)
 LDADD = $(GTET_LIBS)
 AM_CPPFLAGS = -DGTETRINET_DATA=\"$(pkgdatadir)\"
 
