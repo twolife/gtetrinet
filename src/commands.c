@@ -225,12 +225,12 @@ void about_command (void)
 
     if (!GTK_IS_WINDOW (about))
     {
-      const char *authors[] = {N_("Ka-shu Wong <kswong@zip.com.au>"),
-                               N_("James Antill <james@and.org>"),
-			       N_("Jordi Mallach <jordi@sindominio.net>"),
-			       N_("Dani Carbonell <bocata@panete.net>"),
+      const char *authors[] = {"Ka-shu Wong <kswong@zip.com.au>",
+                               "James Antill <james@and.org>",
+			       "Jordi Mallach <jordi@sindominio.net>",
+			       "Dani Carbonell <bocata@panete.net>",
                                NULL};
-      const char *documenters[] = {N_("Jordi Mallach <jordi@sindominio.net>"),
+      const char *documenters[] = {"Jordi Mallach <jordi@sindominio.net>",
                                    NULL};
       /* Translators: translate as your names & emails */
       const char *translators = _("translator_credits");
