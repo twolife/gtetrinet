@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.5.2\n"
 "POT-Creation-Date: 2003-01-08 15:18+0100\n"
-"PO-Revision-Date: 2003-01-08 16:14+0100\n"
+"PO-Revision-Date: 2003-01-08 15:29+0100\n"
 "Last-Translator: Gerfried Fuchs <alfie@ist.org>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -104,7 +104,7 @@ msgstr "Spiel im Gange"
 
 #: src/commands.c:210
 msgid "Connected to\n"
-msgstr "Verbinden zu\n"
+msgstr "Verbunden mit\n"
 
 #: src/commands.c:214
 msgid "Not connected"
@@ -162,7 +162,7 @@ msgstr "Sie müssen einen Server-Namen angeben."
 
 #: src/dialogs.c:218
 msgid "Please specify a password to connect as spectator."
-msgstr "Geben Sie bitte ein Passwort an, um als Zuseher zu verbinden."
+msgstr "Geben Sie bitte ein Passwort an, um als Zuschauer zu verbinden."
 
 #: src/dialogs.c:233
 msgid "Please specify a valid nickname."
@@ -183,7 +183,7 @@ msgstr "Server-Adresse"
 
 #: src/dialogs.c:358 src/gtetrinet.c:68
 msgid "Connect as a spectator"
-msgstr "Als Zuseher verbinden"
+msgstr "Als Zuschauer verbinden"
 
 #: src/dialogs.c:362
 msgid "Password:"
@@ -207,11 +207,11 @@ msgstr "Taste ändern"
 
 #: src/dialogs.c:512
 msgid "Move right"
-msgstr "Nach links"
+msgstr "Nach rechts"
 
 #: src/dialogs.c:513
 msgid "Move left"
-msgstr "Nach rechts"
+msgstr "Nach links"
 
 #: src/dialogs.c:514
 msgid "Move down"
@@ -395,7 +395,7 @@ msgstr "TEAM"
 
 #: src/gtetrinet.c:69
 msgid "Spectator password"
-msgstr "Zuseherpasswort"
+msgstr "Zuschauer-Passwort"
 
 #: src/gtetrinet.c:69
 msgid "PASSWORD"
@@ -509,12 +509,12 @@ msgstr "%c*** Sie sind %c%s%c%c beigetreten"
 #: src/tetrinet.c:678
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
-msgstr "%c*** %c%s%c%c ist den Zusehern %c%c(%c%s%c%c%c) beigetreten"
+msgstr "%c*** %c%s%c%c ist den Zuschauern %c%c(%c%s%c%c%c) beigetreten"
 
 #: src/tetrinet.c:699
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
-msgstr "%c*** %c%s%c%c hat die Zuseher %c%c(%c%s%c%c%c) verlassen"
+msgstr "%c*** %c%s%c%c hat die Zuschauer %c%c(%c%s%c%c%c) verlassen"
 
 #: src/tetrinet.c:856
 msgid "No special blocks"
