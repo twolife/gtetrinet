@@ -1,3 +1,7 @@
+2001-01-13
+	* Merged page detach patch from Neil Bird <neil.bird@rdel.co.uk>.
+	* Fixed stupid bug in tetrinet_specialkey().
+
 2000-07-03 - version 0.4.1
 
 2000-06-27

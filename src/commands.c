@@ -39,6 +39,8 @@ GnomeUIInfo gamemenu[] = {
     GNOMEUIINFO_ITEM(N_("_Pause game"), NULL, pause_command, NULL),
     GNOMEUIINFO_ITEM(N_("_End game"), NULL, end_command, NULL),
     GNOMEUIINFO_SEPARATOR,
+    GNOMEUIINFO_ITEM(N_("Detac_h Page..."), NULL, detach_command, NULL),
+    GNOMEUIINFO_SEPARATOR,
     GNOMEUIINFO_MENU_EXIT_ITEM(destroymain, NULL),
     GNOMEUIINFO_END
 };
@@ -68,7 +70,9 @@ GnomeUIInfo toolbar[] = {
     GNOMEUIINFO_ITEM(N_("Pause game"), NULL, pause_command, NULL),
     GNOMEUIINFO_ITEM(N_("End game"), NULL, end_command, NULL),
     GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM(N_("Change team"), NULL, team_command, NULL),
+    GNOMEUIINFO_ITEM(N_("Change team"), NULL, team_command, NULL),\
+    GNOMEUIINFO_SEPARATOR,
+    GNOMEUIINFO_ITEM(N_("Detach Page"), NULL, detach_command, NULL),
     GNOMEUIINFO_END
 };
 
@@ -93,6 +97,11 @@ void disconnect_command (GtkWidget *widget, gpointer data)
 void team_command (GtkWidget *widget, gpointer data)
 {
     teamdialog_new ();
+}
+
+void detach_command (GtkWidget *widget, gpointer data)
+{
+    move_current_page_to_window ();
 }
 
 void start_command (GtkWidget *widget, gpointer data)

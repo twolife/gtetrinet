@@ -1387,7 +1387,7 @@ void tetrinet_specialkey (int pnum)
 
     if (specialblocknum == 0) return;
 
-    if (!playerplaying[pnum]) return;
+    if (pnum != -1 && !playerplaying[pnum]) return;
 
     /* find which block it is */
     for (sbnum = 0; sbinfo[sbnum].id; sbnum ++)
@@ -1403,7 +1403,7 @@ void tetrinet_specialkey (int pnum)
     else
         tetrinet_setspeciallabel (-1);
 
-    /* just discarding a block */
+    /* just discarding a block, no need to say anything */
     if (pnum == -1) return;
 
     /* send it out */

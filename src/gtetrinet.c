@@ -41,11 +41,12 @@
 #include "images/winlist.xpm"
 
 static GtkWidget *pixmapdata_label (char **d, char *str);
-static gint keypress (GtkWidget *widget, GdkEventKey *key);
-static gint keyrelease (GtkWidget *widget, GdkEventKey *key);
 static int gtetrinet_key (int keyval);
+gint keypress (GtkWidget *widget, GdkEventKey *key);
+gint keyrelease (GtkWidget *widget, GdkEventKey *key);
 
-static GtkWidget *app, *notebook, *pfields;
+static GtkWidget *app, *pfields;
+GtkWidget *notebook;
 
 char *option_connect = 0, *option_nick = 0, *option_team = 0, *option_pass = 0;
 int option_spec = 0;
@@ -61,9 +62,9 @@ static const struct poptOption options[] = {
 
 int main (int argc, char *argv[])
 {
-    GtkWidget *page, *label;
+    GtkWidget *page, *label, *box;
 
-    srandom (time(NULL));
+    srand (time(NULL));
 
     gnome_init_with_popt_table (APPID, APPVERSION, argc, argv, options, 0 , NULL);
     gdk_imlib_init ();
@@ -101,24 +102,39 @@ int main (int argc, char *argv[])
     make_menus (GNOME_APP(app));
 
     /* create the pages in the notebook */
-    pfields = fields_page_new ();
-    gtk_widget_set_sensitive (pfields, TRUE);
+    page = fields_page_new ();
+    gtk_widget_set_sensitive (page, TRUE);
+    gtk_widget_show (page);
+    pfields = gtk_hbox_new (FALSE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER(pfields), 0);
+    gtk_container_add (GTK_CONTAINER(pfields), page);
     gtk_widget_show (pfields);
+    gtk_object_set_data( GTK_OBJECT(page), "title", "Playing Fields");
     label = pixmapdata_label (fields_xpm, "Playing Fields");
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pfields, label);
 
     page = partyline_page_new ();
     gtk_widget_show (page);
+    box = gtk_hbox_new (FALSE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER(box), 0);
+    gtk_container_add (GTK_CONTAINER(box), page);
+    gtk_widget_show (box);
+    gtk_object_set_data( GTK_OBJECT(page), "title", "Partyline");
     label = pixmapdata_label (partyline_xpm, "Partyline");
     gtk_widget_show (label);
-    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), page, label);
+    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), box, label);
 
     page = winlist_page_new ();
     gtk_widget_show (page);
+    box = gtk_hbox_new (FALSE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER(box), 0);
+    gtk_container_add (GTK_CONTAINER(box), page);
+    gtk_widget_show (box);
+    gtk_object_set_data( GTK_OBJECT(page), "title", "Winlist");
     label = pixmapdata_label (winlist_xpm, "Winlist");
     gtk_widget_show (label);
-    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), page, label);
+    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), box, label);
 
     gtk_widget_show (notebook);
     gtk_widget_show (app);
@@ -204,7 +220,25 @@ gint keytimeout (gpointer data)
 
 gint keypress (GtkWidget *widget, GdkEventKey *key)
 {
-    if (GTK_NOTEBOOK(notebook)->cur_page->child == pfields)
+    int game_area;
+
+    if (widget == app)
+    {
+        /* Main window - check the notebook */
+        game_area = (GTK_NOTEBOOK(notebook)->cur_page->child == pfields);
+    }
+    else
+    {
+        /* Sub-window - find out which */
+        GtkArg arg;
+
+        arg.name = "title";
+        gtk_object_getv( GTK_OBJECT(widget), 1, &arg );
+        game_area =  !strcmp( GTK_VALUE_STRING(arg), "Playing Fields" );
+        g_free( GTK_VALUE_STRING(arg) );
+    }
+
+    if (game_area)
     {
         /* keys for the playing field - key releases needed - install timeout */
         if (keytimeoutid && key->time == k.time)
@@ -220,7 +254,25 @@ keyprocessed:
 
 gint keyrelease (GtkWidget *widget, GdkEventKey *key)
 {
-    if (GTK_NOTEBOOK(notebook)->cur_page->child == pfields)
+    int game_area;
+
+    if (widget == app)
+    {
+        /* Main window - check the notebook */
+        game_area = (GTK_NOTEBOOK(notebook)->cur_page->child == pfields);
+    }
+    else
+    {
+        /* Sub-window - find out which */
+        GtkArg arg;
+
+        arg.name = "title";
+        gtk_object_getv( GTK_OBJECT(widget), 1, &arg );
+        game_area =  !strcmp( GTK_VALUE_STRING(arg), "Playing Fields" );
+        g_free( GTK_VALUE_STRING(arg) );
+    }
+
+    if (game_area)
     {
         k = *key;
         keytimeoutid = gtk_timeout_add (10, keytimeout, 0);

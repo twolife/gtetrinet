@@ -6,6 +6,7 @@ void make_menus (GnomeApp *app);
 void connect_command (GtkWidget *widget, gpointer data);
 void disconnect_command (GtkWidget *widget, gpointer data);
 void team_command (GtkWidget *widget, gpointer data);
+void detach_command (GtkWidget *widget, gpointer data);
 void start_command (GtkWidget *widget, gpointer data);
 void end_command (GtkWidget *widget, gpointer data);
 void pause_command (GtkWidget *widget, gpointer data);
