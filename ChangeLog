@@ -1,3 +1,7 @@
+2002-11-08  Jordi Mallach  <jordi@sindominio.net>
+
+	* configure.in: define GETTEXT_PACKAGE.
+
 2002-10-30  Jordi Mallach  <jordi@sindominio.net>
 
 	* TODO: added a list of issues to tackle.
