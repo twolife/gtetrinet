@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet\n"
-"POT-Creation-Date: 2003-02-25 19:36+0100\n"
-"PO-Revision-Date: 2003-02-25 19:37+0100\n"
+"POT-Creation-Date: 2003-04-10 11:16+0200\n"
+"PO-Revision-Date: 2003-04-10 11:16+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -234,11 +234,11 @@ msgstr "Skicka meddelande"
 msgid "Press new key for \"%s\""
 msgstr "Tryck ny tangent för \"%s\""
 
-#: src/dialogs.c:809
+#: src/dialogs.c:816
 msgid "GTetrinet Preferences"
 msgstr "Inställningar för GTetrinet"
 
-#: src/dialogs.c:832
+#: src/dialogs.c:839
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -246,46 +246,50 @@ msgstr ""
 "Välj ett tema från listan.\n"
 "Installera nya teman i ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:840
+#: src/dialogs.c:847
 msgid "Name:"
 msgstr "Namn:"
 
-#: src/dialogs.c:844
+#: src/dialogs.c:851
 msgid "Author:"
 msgstr "Författare:"
 
-#: src/dialogs.c:848
+#: src/dialogs.c:855
 msgid "Description:"
 msgstr "Beskrivning:"
 
-#: src/dialogs.c:866
+#: src/dialogs.c:873
 msgid "Selected Theme"
 msgstr "Valt tema"
 
-#: src/dialogs.c:885
+#: src/dialogs.c:892
 msgid "Themes"
 msgstr "Teman"
 
 #. partyline
-#: src/dialogs.c:890
+#: src/dialogs.c:897
 msgid "Enable Timestamps"
 msgstr "Aktivera tidsstämplar"
 
+#: src/dialogs.c:899
+msgid "Enable Channel List"
+msgstr "Aktivera kanallista"
+
 # Osäker
 #. FIXME
-#: src/dialogs.c:911 src/gtetrinet.c:253
+#: src/dialogs.c:925 src/gtetrinet.c:257
 msgid "Partyline"
 msgstr "Partledning"
 
-#: src/dialogs.c:922
+#: src/dialogs.c:936
 msgid "Action"
 msgstr "Åtgärd"
 
-#: src/dialogs.c:924
+#: src/dialogs.c:938
 msgid "Key"
 msgstr "Tangent"
 
-#: src/dialogs.c:930
+#: src/dialogs.c:944
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -293,32 +297,32 @@ msgstr ""
 "Välj en åtgärd från listan och tryck Ändra tangent för att ändra den tangent "
 "som är associerad med åtgärden."
 
-#: src/dialogs.c:936
+#: src/dialogs.c:950
 msgid "Change key..."
 msgstr "Ändra tangent..."
 
-#: src/dialogs.c:941 src/dialogs.c:994
+#: src/dialogs.c:955 src/dialogs.c:1008
 msgid "Restore defaults"
 msgstr "Återställ standardalternativ"
 
-#: src/dialogs.c:962
+#: src/dialogs.c:976
 msgid "Keyboard"
 msgstr "Tangentbord"
 
 #. sound
-#: src/dialogs.c:967
+#: src/dialogs.c:981
 msgid "Enable Sound"
 msgstr "Aktivera ljud"
 
-#: src/dialogs.c:970
+#: src/dialogs.c:984
 msgid "Enable MIDI"
 msgstr "Aktivera MIDI"
 
-#: src/dialogs.c:984
+#: src/dialogs.c:998
 msgid "Enter command to play a midi file:"
 msgstr "Ange kommando för att spela en midifil:"
 
-#: src/dialogs.c:987
+#: src/dialogs.c:1001
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -326,7 +330,7 @@ msgstr ""
 "Det ovanstående kommandot körs då en midifil ska spelas. Namnet på midifilen "
 "hamnar i miljövariabeln MIDIFILE."
 
-#: src/dialogs.c:1024
+#: src/dialogs.c:1038
 msgid "Sound"
 msgstr "Ljud"
 
@@ -409,205 +413,209 @@ msgid "Failed to init GConf: %s\n"
 msgstr "Misslyckades med att initiera GConf: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:242 src/gtetrinet.c:386 src/gtetrinet.c:437
+#: src/gtetrinet.c:246 src/gtetrinet.c:392 src/gtetrinet.c:443
 msgid "Playing Fields"
 msgstr "Spelarfält"
 
 #. FIXME
-#: src/gtetrinet.c:264
+#: src/gtetrinet.c:268
 msgid "Winlist"
 msgstr "Vinstlista"
 
-#: src/partyline.c:75 src/partyline.c:133 src/winlist.c:47
+#: src/partyline.c:76 src/partyline.c:134 src/winlist.c:47
 msgid "Name"
 msgstr "Namn"
 
-#: src/partyline.c:77
+#: src/partyline.c:78
 msgid "Players"
 msgstr "Spelare"
 
-#: src/partyline.c:79
+#: src/partyline.c:80
 msgid "State"
 msgstr "Tillstånd"
 
-#: src/partyline.c:81
+#: src/partyline.c:82
 msgid "Description"
 msgstr "Beskrivning"
 
-#: src/partyline.c:135
+#: src/partyline.c:93
+msgid "<b>Channel List</b>"
+msgstr "<b>Kanallista</b>"
+
+#: src/partyline.c:136
 msgid "Team"
 msgstr "Lag"
 
-#: src/partyline.c:148
+#: src/partyline.c:149
 msgid "Your name:"
 msgstr "Ditt namn:"
 
-#: src/partyline.c:155
+#: src/partyline.c:156
 msgid "Your team:"
 msgstr "Ditt lag:"
 
-#: src/partyline.c:565
+#: src/partyline.c:608
 msgid "Talking in channel"
 msgstr "Pratar i kanal"
 
-#: src/partyline.c:567
+#: src/partyline.c:610
 msgid "Disconnected"
 msgstr "Frånkopplad"
 
-#: src/tetrinet.c:191
+#: src/tetrinet.c:192
 msgid "Server disconnected"
 msgstr "Servern frånkopplad"
 
-#: src/tetrinet.c:211
+#: src/tetrinet.c:212
 #, c-format
 msgid "%c%c*** Disconnected from server"
 msgstr "%c%c*** Frånkopplad från servern"
 
-#: src/tetrinet.c:222
+#: src/tetrinet.c:223
 msgid "Error connecting: "
 msgstr "Fel vid anslutning: "
 
-#: src/tetrinet.c:254
+#: src/tetrinet.c:255
 #, c-format
 msgid "%c%c*** Connected to server"
 msgstr "%c%c*** Ansluten till server"
 
-#: src/tetrinet.c:354
+#: src/tetrinet.c:356
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
 msgstr "%c%c*** Du har sparkats ut från spelet"
 
-#: src/tetrinet.c:358
+#: src/tetrinet.c:360
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
 msgstr "%c*** %c%s%c%c har sparkats ut från spelet"
 
-#: src/tetrinet.c:510
+#: src/tetrinet.c:535
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
 msgstr "%c*** Lag %c%s%c%c har vunnit spelet"
 
-#: src/tetrinet.c:516
+#: src/tetrinet.c:541
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
 msgstr "%c*** %c%s%c%c har vunnit spelet"
 
-#: src/tetrinet.c:576
+#: src/tetrinet.c:601
 #, c-format
 msgid "%c*** The game has %cstarted"
 msgstr "%c*** Spelet har %cbörjat"
 
-#: src/tetrinet.c:601
+#: src/tetrinet.c:626
 #, c-format
 msgid "%c*** The game is %cin progress"
 msgstr "%c*** Spelet %cpågår"
 
-#: src/tetrinet.c:612
+#: src/tetrinet.c:637
 #, c-format
 msgid "%c*** The game has %cpaused"
 msgstr "%c*** Spelet gör %cpaus"
 
-#: src/tetrinet.c:614
+#: src/tetrinet.c:639
 #, c-format
 msgid "The game has %c%cpaused"
 msgstr "Spelet gör %c%cpaus"
 
-#: src/tetrinet.c:619
+#: src/tetrinet.c:644
 #, c-format
 msgid "%c*** The game has %cresumed"
 msgstr "%c*** Spelet har %cåterupptagits"
 
-#: src/tetrinet.c:621
+#: src/tetrinet.c:646
 #, c-format
 msgid "The game has %c%cresumed"
 msgstr "Spelet har %c%cåterupptagits"
 
-#: src/tetrinet.c:630
+#: src/tetrinet.c:655
 #, c-format
 msgid "%c*** The game has %cended"
 msgstr "%c*** Spelet har %cavslutats"
 
-#: src/tetrinet.c:740
+#: src/tetrinet.c:765
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
 msgstr "%c*** Du har gått in i %c%s%c%c"
 
-#: src/tetrinet.c:757
+#: src/tetrinet.c:782
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c har anslutit sig till åskådarna %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:778
+#: src/tetrinet.c:803
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c har lämnat åskådarna %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:947
+#: src/tetrinet.c:1041
 msgid "No special blocks"
 msgstr "Inga specialblock"
 
-#: src/tetrinet.c:1106 src/tetrinet.c:1113
+#: src/tetrinet.c:1200 src/tetrinet.c:1207
 #, c-format
 msgid " on %c%c%s%c%c"
 msgstr " på %c%c%s%c%c"
 
-#: src/tetrinet.c:1123
+#: src/tetrinet.c:1217
 msgid " to All"
 msgstr " till ALLA"
 
-#: src/tetrinet.c:1129 src/tetrinet.c:1136
+#: src/tetrinet.c:1223 src/tetrinet.c:1230
 #, c-format
 msgid " by %c%c%s%c%c"
 msgstr " av %c%c%s%c%c"
 
-#: src/tetrinet.c:1729
+#: src/tetrinet.c:1823
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
 msgstr "%c*** %c%s%c%c är spelledare"
 
 #. remove ", " from end of string
-#: src/tetrinet.c:1778
+#: src/tetrinet.c:1872
 msgid " has left the game"
 msgstr " har lämnat spelet"
 
-#: src/tetrinet.c:1779
+#: src/tetrinet.c:1873
 msgid " have left the game"
 msgstr " har lämnat spelet"
 
-#: src/tetrinet.c:1792
+#: src/tetrinet.c:1886
 msgid " has joined the game"
 msgstr " har gått in i spelet"
 
-#: src/tetrinet.c:1793
+#: src/tetrinet.c:1887
 msgid " have joined the game"
 msgstr " har gått in i spelet"
 
-#: src/tetrinet.c:1816
+#: src/tetrinet.c:1910
 #, c-format
 msgid "%s is on team %c%s"
 msgstr "%s är med i lag %c%s"
 
-#: src/tetrinet.c:1819
+#: src/tetrinet.c:1913
 #, c-format
 msgid "%s is alone"
 msgstr "%s är ensam"
 
-#: src/tetrinet.c:1821
+#: src/tetrinet.c:1915
 #, c-format
 msgid "%s are on team %c%s"
 msgstr "%s är med i lag %c%s"
 
-#: src/tetrinet.c:1824
+#: src/tetrinet.c:1918
 #, c-format
 msgid "%s are alone"
 msgstr "%s är ensamma"
 
-#: src/tetrinet.c:1865
+#: src/tetrinet.c:1959
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
 msgstr "%c*** %c%s%c%c är nu med i lag %c%s"
 
-#: src/tetrinet.c:1872
+#: src/tetrinet.c:1966
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
 msgstr "%c*** %c%s%c%c är nu ensam"
@@ -638,18 +646,22 @@ msgid "Command to run to play midi files."
 msgstr "Kommando att köra för att spela midifiler."
 
 #: gtetrinet.schemas.in.h:2
+msgid "Enable/disable channel list."
+msgstr "Aktivera/inaktivera kanallista."
+
+#: gtetrinet.schemas.in.h:3
 msgid "Enable/disable midi music."
 msgstr "Aktivera/inaktivera midimusik."
 
-#: gtetrinet.schemas.in.h:3
+#: gtetrinet.schemas.in.h:4
 msgid "Enable/disable sound."
 msgstr "Aktivera/inaktivera ljud."
 
-#: gtetrinet.schemas.in.h:4
+#: gtetrinet.schemas.in.h:5
 msgid "Enable/disable timestamps."
 msgstr "Aktivera/inaktivera tidsstämplar."
 
-#: gtetrinet.schemas.in.h:5
+#: gtetrinet.schemas.in.h:6
 msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
@@ -657,7 +669,7 @@ msgstr ""
 "Aktiverar/Inaktiverar ljud. Kom ihåg att det tema du använder måste stöda "
 "ljud."
 
-#: gtetrinet.schemas.in.h:6
+#: gtetrinet.schemas.in.h:7
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
@@ -665,47 +677,55 @@ msgstr ""
 "Aktiverar/inaktiverar midimusik. Då måste aktivera ljud om du vill att "
 "musiken ska fungera."
 
-#: gtetrinet.schemas.in.h:7
+#: gtetrinet.schemas.in.h:8
+msgid ""
+"Enables/disables the channel list. Disable it if you experience problems "
+"when connecting or while playing in your favorite tetrinet server."
+msgstr ""
+"Aktiverar/inaktiverar kanallistan. Inaktivera detta om du upplever problem "
+"när du ansluter till eller spelar på din favoritserver för tetrinet."
+
+#: gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
 msgstr "Aktiverar/inaktiverar tidsstämplar i partlinjen."
 
-#: gtetrinet.schemas.in.h:8
+#: gtetrinet.schemas.in.h:10
 msgid "Key to discard special."
 msgstr "Tangent att förkasta special."
 
-#: gtetrinet.schemas.in.h:9
+#: gtetrinet.schemas.in.h:11
 msgid "Key to drop piece."
 msgstr "Tangent för att släppa pjäs."
 
-#: gtetrinet.schemas.in.h:10
+#: gtetrinet.schemas.in.h:12
 msgid "Key to move down."
 msgstr "Tangent för att flytta nedåt."
 
-#: gtetrinet.schemas.in.h:11
+#: gtetrinet.schemas.in.h:13
 msgid "Key to move left."
 msgstr "Tangent för att flytta åt vänster."
 
-#: gtetrinet.schemas.in.h:12
+#: gtetrinet.schemas.in.h:14
 msgid "Key to move right."
 msgstr "Tangent för att flytta åt höger."
 
-#: gtetrinet.schemas.in.h:13
+#: gtetrinet.schemas.in.h:15
 msgid "Key to open the fields' message dialog."
 msgstr "Tangent för att öppna fältets meddelandedialog."
 
-#: gtetrinet.schemas.in.h:14
+#: gtetrinet.schemas.in.h:16
 msgid "Key to rotate clockwise."
 msgstr "Tangent för att rotera medurs."
 
-#: gtetrinet.schemas.in.h:15
+#: gtetrinet.schemas.in.h:17
 msgid "Key to rotate counterclockwise."
 msgstr "Tangent för att rotera moturs."
 
-#: gtetrinet.schemas.in.h:16
+#: gtetrinet.schemas.in.h:18
 msgid "Server where you want to play."
 msgstr "Server där du vill spela."
 
-#: gtetrinet.schemas.in.h:17
+#: gtetrinet.schemas.in.h:19
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
@@ -713,11 +733,11 @@ msgstr ""
 "Den aktuella temakatalogen. Den måste innehålla en läsbar \"blocks.png\" och "
 "en \"theme.cfg\"."
 
-#: gtetrinet.schemas.in.h:18
+#: gtetrinet.schemas.in.h:20
 msgid "Theme directory, should end with a '/'."
 msgstr "Temekatalogen, måste sluta med ett \"/\"."
 
-#: gtetrinet.schemas.in.h:19
+#: gtetrinet.schemas.in.h:21
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
@@ -725,73 +745,82 @@ msgstr ""
 "Detta kommando körs då en midifil ska spelas. Namnet på midifilen hamnar i "
 "miljövariabeln MIDIFILE."
 
-#: gtetrinet.schemas.in.h:20
+#: gtetrinet.schemas.in.h:22
 msgid "This is the server where GTetrinet will try to connect."
 msgstr "Detta är den server där GTetrinet kommer att försöka ansluta."
 
-#: gtetrinet.schemas.in.h:21
+#: gtetrinet.schemas.in.h:23
 msgid "This key discards the current special. This is case insensitive."
 msgstr ""
 "Denna tangent förkastar den aktuella specialen. Detta är okänsligt för stora "
 "och små bokstäver."
 
-#: gtetrinet.schemas.in.h:22
+#: gtetrinet.schemas.in.h:24
 msgid "This key displays the fields' message dialog. This is case insensitive."
 msgstr ""
 "Denna tangent visar fältets meddelandedialog. Detta är okänsligt för stora "
 "och små bokstäver."
 
-#: gtetrinet.schemas.in.h:23
+#: gtetrinet.schemas.in.h:25
 msgid "This key drops the block to the ground. This is case insensitive."
 msgstr ""
 "Denna tangent släpper blocket i marken. Detta är okänsligt för stora och små "
 "bokstäver."
 
-#: gtetrinet.schemas.in.h:24
+#: gtetrinet.schemas.in.h:26
 msgid "This key moves the block down. This is case insensitive."
 msgstr ""
 "Denna tangent flyttar ned blocket. Detta är okänsligt för stora och små "
 "bokstäver."
 
-#: gtetrinet.schemas.in.h:25
+#: gtetrinet.schemas.in.h:27
 msgid "This key moves the block to the left. This is case insensitive."
 msgstr ""
 "Denna tangent flyttar blocket åt vänster. Detta är okänsligt för stora och "
 "små bokstäver."
 
-#: gtetrinet.schemas.in.h:26
+#: gtetrinet.schemas.in.h:28
 msgid "This key moves the block to the right. This is case insensitive."
 msgstr ""
 "Denna tangent flyttar blocket åt höger. Detta är okänsligt för stora och små "
 "bokstäver."
 
-#: gtetrinet.schemas.in.h:27
+#: gtetrinet.schemas.in.h:29
 msgid "This key rotates the block clockwise. This is case insensitive."
 msgstr ""
 "Denna tangent roterar blocket medurs. Detta är okänsligt för stora och små "
 "bokstäver."
 
-#: gtetrinet.schemas.in.h:28
+#: gtetrinet.schemas.in.h:30
 msgid "This key rotates the block counterclockwise. This is case insensitive."
 msgstr ""
 "Denna tangent roterar blocket moturs. Detta är okänsligt för stora och små "
 "bokstäver."
 
-#: gtetrinet.schemas.in.h:29
+#: gtetrinet.schemas.in.h:31
 msgid "This will be the name of your team."
 msgstr "Detta kommer att vara namnet på ditt lag."
 
-#: gtetrinet.schemas.in.h:30
+#: gtetrinet.schemas.in.h:32
 msgid "This will be your nickname in the game."
 msgstr "Detta kommer att vara ditt smeknamn i spelet."
 
-#: gtetrinet.schemas.in.h:31
+#: gtetrinet.schemas.in.h:33
 msgid "Your nickname."
 msgstr "Ditt smeknamn."
 
-#: gtetrinet.schemas.in.h:32
+#: gtetrinet.schemas.in.h:34
 msgid "Your team."
 msgstr "Ditt lag."
+
+#~ msgid "Enable channel list"
+#~ msgstr "Aktivera kanallista"
+
+#~ msgid "Channel List"
+#~ msgstr "Kanallista"
+
+#~ msgid "Channel list"
+#~ msgstr "Kanallista"
 
 #~ msgid "Enable timestamps"
 #~ msgstr "Aktivera tidsstämplar"
