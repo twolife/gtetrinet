@@ -180,6 +180,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             fieldslabelupdate ();
         }
         winlist_clear ();
+        fields_attdefclear ();
+        fields_gmsgclear ();
         partyline_text ("\014\02*** Disconnected from server");
         break;
     case IN_CONNECTERROR:
@@ -1292,9 +1294,16 @@ notfieldkey:
                 char buf[256], *s;
                 s = fields_gmsginputtext ();
                 if (strlen(s) > 0) {
-                    /* post message */
-                    sprintf (buf, "<%s> %s", nick, s);
-                    client_outmessage (OUT_GMSG, buf);
+                    if (strncmp("/me ", s, 4) == 0) {
+                        /* post /me thingy */
+                        sprintf (buf, "* %s %s", nick, s+4);
+                        client_outmessage (OUT_GMSG, buf);
+                    }
+                    else {
+                        /* post message */
+                        sprintf (buf, "<%s> %s", nick, s);
+                        client_outmessage (OUT_GMSG, buf);
+                    }
                 }
                 /* hide input area */
                 fields_gmsginput (FALSE);

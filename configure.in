@@ -31,4 +31,6 @@ AC_OUTPUT(
 Makefile
 src/Makefile
 themes/Makefile
-themes/default/Makefile) 
+themes/default/Makefile
+themes/small/Makefile
+)
