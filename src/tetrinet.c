@@ -277,7 +277,6 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                 checkmoderatorstatus ();
                 partylineupdate_join (nick);
                 partylineupdate_team (nick, team);
-                partyline_update_channel_list ();
             }
         }
         /* show partyline on successful connect */
@@ -305,6 +304,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             partylineupdate_join (playernames[pnum]);
             /* check moderator status */
             checkmoderatorstatus ();
+            /* update channel list */
+            partyline_update_channel_list ();
             /* send out our field */
             /* if (!spectating) tetrinet_resendfield (); */
         }
@@ -406,7 +407,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                 else if (tetrix) {
                     gchar *line = nocolor (token);
                       
-                    if (list_issued)
+                    if (list_issued > 0)
                     {
                       if (*line == '(')
                       {
@@ -426,7 +427,9 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                       if (!strncmp ("You", line, 3))
                       {
                         /* we will use the error message as list stopper */
-                        stop_list();
+                        list_issued--;
+                        if (list_issued <= 0)
+                          stop_list();
                         break;
                       }
                       

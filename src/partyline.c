@@ -495,7 +495,7 @@ gboolean copy_item (GtkTreeModel *model,
 
 void stop_list (void)
 {
-  list_issued = FALSE;
+  list_issued = 0;
   
   /* update the channel list widget, with some sort of "double buffering" */
   gtk_tree_view_set_model (GTK_TREE_VIEW (channel_box), GTK_TREE_MODEL (work_model));
@@ -508,13 +508,17 @@ gboolean partyline_update_channel_list (void)
 {
   gchar cad[1024];
   
-  list_issued++;
-  gtk_list_store_clear (work_model);
-  tetrinet_playerline ("/list");
+  /* if there is another update in progress, just go away silently */
+  if (list_issued == 0)
+  {
+    list_issued++;
+    gtk_list_store_clear (work_model);
+    tetrinet_playerline ("/list");
   
-  /* send the mark */
-  g_snprintf (cad, 1024, "/msg %d --- MARK ---", playernum);
-  tetrinet_playerline (cad);
+    /* send the mark */
+    g_snprintf (cad, 1024, "/msg %d --- MARK ---", playernum);
+    tetrinet_playerline (cad);
+  }
   
   return TRUE;
 }

@@ -1,3 +1,14 @@
+2003-02-24  Dani Carbonell  <bocata@panete.net>
+
+	* src/partyline.c (stop_list): list_issued is a integer, changed
+	accordingly.
+	(partyline_update_channel_list): if there is another channel list
+	update in progress, do nothing. This will prevent us from being
+	kicked from the server because of flood.
+	
+	* src/tetrinet.c (tetrinet_inmessage): fixed the stupid bug that 
+	prevented the channel list from working in tetrinet.org.
+
 2003-02-22  ChipX86 <chipx86@chipx86.com>
 
 	* gtetrinet.schemas.in: Add schema info. for timestamp pref.
