@@ -1,5 +1,6 @@
 2003-02-22  ChipX86 <chipx86@chipx86.com>
 
+	* gtetrinet.schemas.in: Add schema info. for timestamp pref.
 	* src/config.c: Add config for timestamping partyline text.
 	* src/config.h: Add config for timestamping partyline text.
 	* src/dialogs.c: Add config for timestamping partyline text.

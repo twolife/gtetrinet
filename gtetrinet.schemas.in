@@ -214,5 +214,18 @@
       </locale>
     </schema>
     
+
+    <schema>
+      <key>/schemas/apps/gtetrinet/partyline/enable_timestamps</key>
+      <applyto>/apps/gtetrinet/partyline/enable_timestamps</applyto>
+      <owner>gtetrinet</owner>
+      <type>bool</type>
+      <default>0</default>
+
+      <locale name="C">
+        <short>Enable/disable timestamps.</short>
+        <long>Enables/disables timestamps in the partyline.</long>
+      </locale>
+	</schema>
   </schemalist>
 </gconfschemafile>
