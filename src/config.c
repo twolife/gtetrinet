@@ -17,7 +17,9 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include "../config.h"
+#ifdef HAVE_CONFIG_H
+# include "../config.h"
+#endif
 
 #include <gtk/gtk.h>
 #include <gnome.h>
@@ -25,7 +27,6 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "../config.h"
 #include "config.h"
 #include "gtetrinet.h"
 #include "client.h"

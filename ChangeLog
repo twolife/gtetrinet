@@ -1,3 +1,15 @@
+2002-10-21  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/client.c: add missing include "../config.h".
+	* src/commands.c: ifdef around include "../config.h".
+	* src/config.c: likewise.
+	* src/dialogs.c: likewise.
+	* src/fields.c: likewise.
+	* src/gtetrinet.c: likewise.
+	* src/partyline.c: likewise.
+	* src/tetrinet.c: likewise.
+	* src/winlist.c.: likewise.
+
 2002-10-20  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS: update for 0.4.3.
