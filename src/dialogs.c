@@ -16,6 +16,9 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
+
+#include "../config.h"
+
 #include <gtk/gtk.h>
 #include <gnome.h>
 #include <sys/types.h>
@@ -392,21 +395,7 @@ GtkWidget *namelabel, *authlabel, *desclabel;
 
 int themechanged, midichanged;
 
-char *keytitles[] = {
-    N_("Action"),
-    N_("Key")
-};
-
-char *actions[K_NUM] = {
-    N_("Move right"),
-    N_("Move left"),
-    N_("Move down"),
-    N_("Rotate right"),
-    N_("Rotate left"),
-    N_("Drop piece"),
-    N_("Send Message")
-};
-
+char *actions[K_NUM];
 int actionid[K_NUM] = {
     K_RIGHT,
     K_LEFT,
@@ -436,6 +425,14 @@ void prefdialog_drawkeys (void)
 {
     char *array[2];
     int i;
+
+    actions[0] = _("Move right");
+    actions[1] = _("Move left");
+    actions[2] = _("Move down");
+    actions[3] = _("Rotate right");
+    actions[4] = _("Rotate left");
+    actions[5] = _("Drop piece");
+    actions[6] = _("Send message");
 
     for (i = 0; i < K_NUM; i ++) {
         array[0] = actions[i];
@@ -477,7 +474,7 @@ void prefdialog_changekey (GtkWidget *widget, gpointer data)
 
     if (pk_row == -1) return;
 
-    sprintf (buf, _("Press new key for %s"), actions[pk_row]);
+    sprintf (buf, _("Press new key for \"%s\""), actions[pk_row]);
     k = key_dialog (buf);
     if (k) {
         newkeys[actionid[pk_row]] = k;
@@ -667,7 +664,11 @@ void prefdialog_apply (GnomePropertyBox *dialog, gint pagenum)
 void prefdialog_new (void)
 {
     GtkWidget *label, *table, *frame, *button, *button1, *widget, *table1, *divider;
+    char *keytitles[2];
     int i;
+
+    keytitles[0] = _("Action");
+    keytitles[1] = _("Key");
 
     prefdialog = gnome_property_box_new();
 

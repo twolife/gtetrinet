@@ -1,5 +1,3 @@
-#include "../config.h"
-
 extern GnomeUIInfo menubar[];
 extern GnomeUIInfo toolbar[];
 

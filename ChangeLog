@@ -1,3 +1,21 @@
+2002-10-18  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/client.c: tidy spacing between copyright header and code.
+	* src/keys.c: likewise.
+	* src/misc.c: likewise.
+	* src/sound.c: likewise.
+	* src/tetris.c: likewise.
+
+	* src/commands.c: include "../config.h".
+	* src/commands.h: remove include.
+	* src/config.c: include "../config.h".
+	* src/dialogs.c: include "../config.h". CList header i18n fixes.
+	* src/fields.c: include "../config.h".
+	* src/gtetrinet.c: likewise.
+	* src/partyline.c: likewise.
+	* src/tetrinet.c: likewise.
+	* src/winlist.c: likewise.
+
 2002-10-17  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS, configure.in: released gtetrinet 0.4.2.
