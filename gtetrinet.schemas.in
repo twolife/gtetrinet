@@ -107,8 +107,8 @@
       <key>/schemas/apps/gtetrinet/keys/right</key>
       <applyto>/apps/gtetrinet/keys/right</applyto>
       <owner>gtetrinet</owner>
-      <type>int</type>
-      <default>65363</default>
+      <type>string</type>
+      <default>Right</default>
 
       <locale name="C">
         <short>Key to move right.</short>
@@ -121,8 +121,8 @@
       <key>/schemas/apps/gtetrinet/keys/left</key>
       <applyto>/apps/gtetrinet/keys/left</applyto>
       <owner>gtetrinet</owner>
-      <type>int</type>
-      <default>65361</default>
+      <type>string</type>
+      <default>Left</default>
 
       <locale name="C">
         <short>Key to move left.</short>
@@ -135,8 +135,8 @@
       <key>/schemas/apps/gtetrinet/keys/rotate_right</key>
       <applyto>/apps/gtetrinet/keys/rotate_right</applyto>
       <owner>gtetrinet</owner>
-      <type>int</type>
-      <default>65362</default>
+      <type>string</type>
+      <default>Up</default>
       
       <locale name="C">
         <short>Key to rotate clockwise.</short>
@@ -149,8 +149,8 @@
       <key>/schemas/apps/gtetrinet/keys/rotate_left</key>
       <applyto>/apps/gtetrinet/keys/rotate_left</applyto>
       <owner>gtetrinet</owner>
-      <type>int</type>
-      <default>65508</default>
+      <type>string</type>
+      <default>Control_R</default>
       
       <locale name="C">
         <short>Key to rotate counterclockwise.</short>
@@ -163,8 +163,8 @@
       <key>/schemas/apps/gtetrinet/keys/down</key>
       <applyto>/apps/gtetrinet/keys/down</applyto>
       <owner>gtetrinet</owner>
-      <type>int</type>
-      <default>65364</default>
+      <type>string</type>
+      <default>Down</default>
       
       <locale name="C">
         <short>Key to move down.</short>
@@ -177,8 +177,8 @@
       <key>/schemas/apps/gtetrinet/keys/drop</key>
       <applyto>/apps/gtetrinet/keys/drop</applyto>
       <owner>gtetrinet</owner>
-      <type>int</type>
-      <default>32</default>
+      <type>string</type>
+      <default>space</default>
       
       <locale name="C">
         <short>Key to drop piece.</short>
@@ -191,8 +191,8 @@
       <key>/schemas/apps/gtetrinet/keys/discard</key>
       <applyto>/apps/gtetrinet/keys/discard</applyto>
       <owner>gtetrinet</owner>
-      <type>int</type>
-      <default>100</default>
+      <type>string</type>
+      <default>d</default>
       
       <locale name="C">
         <short>Key to discard special.</short>
@@ -205,8 +205,8 @@
       <key>/schemas/apps/gtetrinet/keys/message</key>
       <applyto>/apps/gtetrinet/keys/message</applyto>
       <owner>gtetrinet</owner>
-      <type>int</type>
-      <default>116</default>
+      <type>string</type>
+      <default>t</default>
       
       <locale name="C">
         <short>Key to open the fields' message dialog.</short>

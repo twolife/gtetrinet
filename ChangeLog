@@ -1,3 +1,43 @@
+2003-02-01  Dani Carbonell  <bocata@panete.net>
+
+	* gtetrinet.schemas.in: changed the type of the keys values to
+	String, they are now human readable.
+	
+	* src/Makefile.am: keys.c, keys.h and keytable.h no longer needed,
+	nuked.
+	
+	* src/config.c: updated so now it stores the keys in GConf as
+	strings.
+	(config_loadconfig): now it loads the keys as strings, instead of
+	integers.
+	(keys_down_changed): new function, it's a GConf notification handler
+	(keys_right_changed): likewise.
+	(keys_left_changed): likewise.
+	(keys_rotate_right_changed): likewise.
+	(keys_rotate_left_changed): likewise.
+	(keys_drop_changed): likewise.
+	(keys_message_changed): likewise.
+	
+	* src/config.h: added new function prototypes.
+	
+	* src/dialogs.c: fixed the gtk_progress_bar, changed it to read
+	strings instead of integers from GConf.
+	(connectingdialog_timeout): changed to work with gtk_progress_bar.
+	(connectdialog_new): changed parent, so the connecting window shows.
+	(prefdialog_drawkeys): changed to read strings instead of integers.
+	(prefdialog_clistupdate): likewise.
+	(prefdialog_new): changed parent, to be sure that the key_dialog
+	shows.
+	
+	* src/gtetrinet.c (main): added new GConf notifications, also removed
+	the possibility of focusing the main notebook.
+	
+	* src/gtetrinet.h: we need the main application widget outside of
+	this .c file.
+	
+	* src/partyline.c (partyline_page_new): changed the focus chain so it
+	now focus the entrybox by default.
+
 2003-02-01  Jordi Mallach  <jordi@sindominio.net>
 
 	* Makefile.am: add rules for schemas install.

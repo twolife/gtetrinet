@@ -211,22 +211,77 @@ void config_loadconfig (void)
     }
 
     /* get the keys */
-    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/right", NULL);
-    keys[K_RIGHT] = gdk_keyval_to_lower (k ? k : defaultkeys[K_RIGHT]);
-    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/left", NULL);
-    keys[K_LEFT] = gdk_keyval_to_lower (k ? k : defaultkeys[K_LEFT]);
-    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/rotate_right", NULL);
-    keys[K_ROTRIGHT] = gdk_keyval_to_lower (k ? k : defaultkeys[K_ROTRIGHT]);
-    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/rotate_left", NULL);
-    keys[K_ROTLEFT] = gdk_keyval_to_lower (k ? k : defaultkeys[K_ROTLEFT]);
-    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/down", NULL);
-    keys[K_DOWN] = gdk_keyval_to_lower (k ? k : defaultkeys[K_DOWN]);
-    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/drop", NULL);
-    keys[K_DROP] = gdk_keyval_to_lower (k ? k : defaultkeys[K_DROP]);
-    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/discard", NULL);
-    keys[K_DISCARD] = gdk_keyval_to_lower (k ? k : defaultkeys[K_DISCARD]);
-    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/message", NULL);
-    keys[K_GAMEMSG] = gdk_keyval_to_lower (k ? k : defaultkeys[K_GAMEMSG]);
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/right", NULL);
+    if (p)
+    {
+      keys[K_RIGHT] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_RIGHT] = defaultkeys[K_RIGHT];
+    
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/left", NULL);
+    if (p)
+    {
+      keys[K_LEFT] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_LEFT] = defaultkeys[K_LEFT];
+
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/rotate_right", NULL);
+    if (p)
+    {
+      keys[K_ROTRIGHT] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_ROTRIGHT] = defaultkeys[K_ROTRIGHT];
+
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/rotate_left", NULL);
+    if (p)
+    {
+      keys[K_ROTLEFT] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_ROTLEFT] = defaultkeys[K_ROTLEFT];
+
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/down", NULL);
+    if (p)
+    {
+      keys[K_DOWN] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_DOWN] = defaultkeys[K_DOWN];
+
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/drop", NULL);
+    if (p)
+    {
+      keys[K_DROP] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_DROP] = defaultkeys[K_DROP];
+
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/discard", NULL);
+    if (p)
+    {
+      keys[K_DISCARD] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_DISCARD] = defaultkeys[K_DISCARD];
+
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/message", NULL);
+    if (p)
+    {
+      keys[K_GAMEMSG] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_GAMEMSG] = defaultkeys[K_GAMEMSG];
 
     config_loadtheme (currenttheme);
 }
@@ -295,3 +350,76 @@ themes_theme_dir_changed (GConfClient *client,
 {
   load_theme (gconf_value_get_string (gconf_entry_get_value (entry)));
 }
+
+void
+keys_down_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry,
+                   gpointer user_data)
+{
+  keys[K_DOWN] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_left_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry,
+                   gpointer user_data)
+{
+  keys[K_LEFT] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_right_changed (GConfClient *client,
+                    guint cnxn_id,
+                    GConfEntry *entry,
+                    gpointer user_data)
+{
+  keys[K_RIGHT] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_drop_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry,
+                   gpointer user_data)
+{
+  keys[K_DROP] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_rotate_left_changed (GConfClient *client,
+                          guint cnxn_id,
+                          GConfEntry *entry,
+                          gpointer user_data)
+{
+  keys[K_ROTLEFT] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_rotate_right_changed (GConfClient *client,
+                           guint cnxn_id,
+                           GConfEntry *entry,
+                           gpointer user_data)
+{
+  keys[K_ROTRIGHT] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_message_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry,
+                   gpointer user_data)
+{
+  keys[K_GAMEMSG] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_discard_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry,
+                   gpointer user_data)
+{
+  keys[K_DISCARD] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+

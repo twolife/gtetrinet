@@ -56,9 +56,11 @@ void switch_focus (GtkNotebook *notebook,
                    guint page_num,
                    gpointer user_data);
 
-static GtkWidget *app, *pfields, *pparty, *pwinlist;
+static GtkWidget *pfields, *pparty, *pwinlist;
 static GtkWidget *winlistwidget, *partywidget, *fieldswidget;
-GtkWidget *notebook;
+static GtkWidget *notebook;
+
+GtkWidget *app;
 
 char *option_connect = 0, *option_nick = 0, *option_team = 0, *option_pass = 0;
 int option_spec = 0;
@@ -182,6 +184,9 @@ int main (int argc, char *argv[])
     gconf_client_add_dir (gconf_client, "/apps/gtetrinet/themes",
                           GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
   
+    gconf_client_add_dir (gconf_client, "/apps/gtetrinet/keys",
+                          GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
+
     /* Request notification of change for these gconf keys */
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/sound/midi_player",
                              sound_midi_player_changed, NULL, NULL, NULL);
@@ -194,6 +199,30 @@ int main (int argc, char *argv[])
                              
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/themes/theme_dir",
                              themes_theme_dir_changed, NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/down",
+                             keys_down_changed, NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/left",
+                             keys_left_changed, NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/right",
+                             keys_right_changed, NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/rotate_left",
+                             keys_left_changed, NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/rotate_right",
+                             keys_rotate_right_changed, NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/drop",
+                             keys_drop_changed, NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/discard",
+                             keys_discard_changed, NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/message",
+                             keys_message_changed, NULL, NULL, NULL);
 
     /* load settings */
     config_loadconfig ();
@@ -276,6 +305,7 @@ int main (int argc, char *argv[])
 		           NULL);
 
     gtk_widget_show (notebook);
+    gtk_widget_set (notebook, "can-focus", FALSE, NULL);
     gtk_widget_show (app);
 
     gtk_widget_set_usize(partywidget, 480, 360);

@@ -54,6 +54,7 @@ GtkWidget *partyline_page_new (void)
     GtkWidget *widget, *box; /* generic temp variables */
     GtkListStore *playerlist_model = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
+    GList *focus_list = NULL;
 
     /* left box */
     leftbox = gtk_vbox_new (FALSE, 4);
@@ -144,6 +145,12 @@ GtkWidget *partyline_page_new (void)
     /* set a few things */
     partyline_connectstatus (FALSE);
     plhistory[0][0] = 0;
+    
+    focus_list = g_list_append (focus_list, entrybox);
+    focus_list = g_list_append (focus_list, textbox);
+    focus_list = g_list_append (focus_list, playerlist);
+    
+    gtk_container_set_focus_chain (GTK_CONTAINER (table), focus_list);
 
     /* show after we return */
     return table;

@@ -33,10 +33,10 @@
 #include "tetris.h"
 #include "fields.h"
 #include "misc.h"
-#include "keys.h"
 #include "sound.h"
 
 extern GConfClient *gconf_client;
+extern GtkWidget *app;
 
 /*****************************************************/
 /* connecting dialog - a dialog with a cancel button */
@@ -69,12 +69,7 @@ gint connectingdialog_delete (void)
 
 gint connectingdialog_timeout (void)
 {
-    GtkAdjustment *adj;
-    adj = GTK_PROGRESS(progressbar)->adjustment;
-    if (adj != NULL)
-      gtk_progress_set_value (GTK_PROGRESS(progressbar),
-                              (adj->value+1)>adj->upper ?
-                              adj->lower : adj->value+1);
+    gtk_progress_bar_pulse (GTK_PROGRESS_BAR (progressbar));
     return TRUE;
 }
 
@@ -89,8 +84,6 @@ void connectingdialog_new (void)
                                          GNOME_STOCK_BUTTON_CANCEL,
                                          NULL);
     progressbar = gtk_progress_bar_new ();
-    gtk_progress_set_activity_mode (GTK_PROGRESS(progressbar),
-                                    TRUE);
     gtk_widget_show (progressbar);
     gtk_box_pack_start (GTK_BOX(GNOME_DIALOG(connectingdialog)->vbox),
                         progressbar, TRUE, TRUE, 0);
@@ -301,7 +294,7 @@ void connectdialog_new (void)
 
     /* make dialog that asks for address/nickname */
     connectdialog = gtk_dialog_new_with_buttons (_("Connect to server"),
-                                                 NULL,
+                                                 GTK_WINDOW (app),
                                                  GTK_DIALOG_NO_SEPARATOR,
                                                  GTK_STOCK_CANCEL, GTK_RESPONSE_CLOSE,
                                                  GTK_STOCK_OK, GTK_RESPONSE_OK,
@@ -536,11 +529,11 @@ void prefdialog_drawkeys (void)
 
     for (i = 0; i < K_NUM; i ++) {
         array[0] = actions[i];
-        array[1] = keystr (keys[actionid[i]]);
+        array[1] = gdk_keyval_name (keys[actionid[i]]);
         gtk_list_store_append (keys_store, &iter);
         gtk_list_store_set (keys_store, &iter,
                             0, actions[i],
-                            1, keystr (keys[actionid[i]]),
+                            1, gdk_keyval_name (keys[actionid[i]]),
                             2, i,
                             3, gconf_keys[i], -1);
     }
@@ -560,8 +553,8 @@ void prefdialog_clistupdate ()
     while (valid)
     {
         gtk_tree_model_get (GTK_TREE_MODEL (keys_store), &iter, 3, &key, -1);
-        gtk_list_store_set (keys_store, &iter, 1, keystr (keys[actionid[row]]), -1);
-        gconf_client_set_int (gconf_client, key, keys[actionid[row]], NULL);
+        gtk_list_store_set (keys_store, &iter, 1, gdk_keyval_name (keys[actionid[row]]), -1);
+        gconf_client_set_string (gconf_client, key, gdk_keyval_name (keys[actionid[row]]), NULL);
         valid = gtk_tree_model_iter_next (GTK_TREE_MODEL (keys_store), &iter);
         row ++;
     }
@@ -788,7 +781,7 @@ void prefdialog_new (void)
     }
 
     prefdialog = gtk_dialog_new_with_buttons (_("GTetrinet Preferences"),
-                                              NULL,
+                                              GTK_WINDOW (app),
                                               GTK_DIALOG_NO_SEPARATOR | GTK_DIALOG_DESTROY_WITH_PARENT,
                                               GTK_STOCK_HELP, GTK_RESPONSE_HELP,
                                               GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE,

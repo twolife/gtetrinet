@@ -34,6 +34,54 @@ themes_theme_dir_changed (GConfClient *client,
                           guint cnxn_id,
                           GConfEntry *entry,
                           gpointer user_data);
+                          
+void
+keys_down_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry,
+                   gpointer user_data);
+
+void
+keys_left_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry,
+                   gpointer user_data);
+
+void
+keys_right_changed (GConfClient *client,
+                    guint cnxn_id,
+                    GConfEntry *entry,
+                    gpointer user_data);
+
+void
+keys_drop_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry,
+                   gpointer user_data);
+
+void
+keys_rotate_left_changed (GConfClient *client,
+                          guint cnxn_id,
+                          GConfEntry *entry,
+                          gpointer user_data);
+
+void
+keys_rotate_right_changed (GConfClient *client,
+                           guint cnxn_id,
+                           GConfEntry *entry,
+                           gpointer user_data);
+
+void
+keys_message_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry,
+                   gpointer user_data);
+
+void
+keys_discard_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry,
+                   gpointer user_data);
 
 #define GTETRINET_THEMES GTETRINET_DATA"/themes"
 #define DEFAULTTHEME GTETRINET_THEMES"/default/"
