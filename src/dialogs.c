@@ -156,7 +156,7 @@ void teamdialog_new (void)
     team_dialog = gtk_dialog_new_with_buttons (_("Change team"),
                                                GTK_WINDOW (app),
                                                GTK_DIALOG_NO_SEPARATOR,
-                                               GTK_STOCK_CANCEL, GTK_RESPONSE_CLOSE,
+                                               GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                                GTK_STOCK_OK, GTK_RESPONSE_OK,
                                                NULL);
     gtk_window_set_skip_taskbar_hint (GTK_WINDOW (team_dialog), TRUE);
@@ -269,7 +269,7 @@ void connectdialog_button (GtkDialog *dialog, gint button)
         g_free (team_utf8);
         g_free (nick);
         break;
-    case GTK_RESPONSE_CLOSE:
+    case GTK_RESPONSE_CANCEL:
         gamemode = oldgamemode;
         gtk_widget_destroy (connectdialog);
         break;
@@ -335,7 +335,7 @@ void connectdialog_new (void)
     connectdialog = gtk_dialog_new_with_buttons (_("Connect to server"),
                                                  GTK_WINDOW (app),
                                                  GTK_DIALOG_NO_SEPARATOR,
-                                                 GTK_STOCK_CANCEL, GTK_RESPONSE_CLOSE,
+                                                 GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                                  GTK_STOCK_OK, GTK_RESPONSE_OK,
                                                  NULL);
     gtk_dialog_set_default_response (GTK_DIALOG (connectdialog), GTK_RESPONSE_OK);
@@ -847,7 +847,6 @@ void prefdialog_new (void)
                                               GTK_STOCK_HELP, GTK_RESPONSE_HELP,
                                               GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE,
                                               NULL);
-    gtk_dialog_set_default_response (GTK_DIALOG (prefdialog), GTK_RESPONSE_CLOSE);
     notebook = gtk_notebook_new ();
     gtk_window_set_resizable (GTK_WINDOW (prefdialog), FALSE);
 

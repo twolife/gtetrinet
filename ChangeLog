@@ -1,3 +1,12 @@
+2003-08-30  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/dialogs.c (teamdialog_new): Activate the Cancel button when
+	Esc is pressed.
+	(connectdialog_button): Likewise.
+	(connectdialog_new): Likewise.
+	(prefdialog_new): Don't make the Close button the default action.
+	Patches from Dagfinn Ilmari Mannsåker. Thanks!
+
 2003-08-29  Dani Carbonell  <bocata@panete.net>
 
 	* src/gtetrinet.c (keypress): fixing the key press signal handling
