@@ -2,7 +2,7 @@ Makefile.in
 Makefile
 POTFILES
 *.gmo
-gtetriet.pot
+gtetrinet.pot
 messages
 messages.in
 remove-potcdate.sed
