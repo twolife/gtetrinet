@@ -410,6 +410,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                 else
                 {
                   gchar *line = nocolor (token);
+                  gchar *aux;
                       
                   if (list_issued > 0)
                   {
@@ -436,6 +437,9 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                         stop_list();
                       break;
                     }
+                    
+                    if (!strncmp ("Use", line, 3))
+                      break;
                       
                     //if (line != NULL) g_free (line);
                   }
@@ -455,6 +459,15 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                   else if (!strncmp ("You have joined", line, 15))
                   {
                     partyline_joining_channel (&line[16]);
+                  }
+                  
+                  aux = g_strconcat ("You tell ", playernames[playernum], ": --- MARK ---", NULL);
+                  if (!strcmp (aux, line))
+                  {
+                    list_issued--;
+                    if (list_issued <= 0)
+                      stop_list ();
+                    break;
                   }
                     
                   if (tetrix) {
@@ -477,6 +490,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                   if (list_issued <= 0)
                     stop_list();
                 }
+                else
+                  plinemsg (playernames[pnum], token);
                 //g_free (line);
               }
               else

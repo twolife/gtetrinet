@@ -1,3 +1,40 @@
+2003-04-09  Dani Carbonell  <bocata@panete.net>
+
+	* gtetrinet.schemas.in: added a new schema for the Enable Channel List
+	option.
+
+	* src/client.c (client_readmsg): clarified the error message.
+
+	* src/config.c: added support for the new option.
+	(partyline_enable_channel_list_changed): handler for the gconf key.
+	(config_loadconfig): added code to get the configuration of the new
+	option.
+
+	* src/config.h: added the prototype for the new handler.
+
+	* src/dialogs.c: added the UI for the new option.
+	(prefdialog_channeltoggle): new handler.
+	(prefdialog_new): added code for the new option. Also, modified the
+	policy of the keys scrolled window, so you can now horizontally scroll
+	it.
+
+	* src/gtetrinet.c (main): added a GConf notification for the new option.
+
+	* src/partyline.c: Added a convenience function for the Enable Channel
+	List option changed handler. Also, added code to parse the channel list
+	of one more server.
+	(partyline_page_new): slightly modified so we can now easily hide the
+	channel list.
+	(partyline_add_channel): added code to support a new server.
+	(partyline_show_channel_list): new convenience function, it will show
+	or hide the channel list as requested by the user.
+
+	* src/partyline.h: two new declarations, the convenience function and
+	the variable that is used to cache the GConf setting.
+
+	* src/tetrinet.c (tetrinet_inmessage): added code to support one more
+	server.
+
 2003-04-04  Jordi Mallach  <jordi@sindominio.net>
 
 	* Makefile.am: fix the install path for desktop files.

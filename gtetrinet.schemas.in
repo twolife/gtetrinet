@@ -226,6 +226,21 @@
         <short>Enable/disable timestamps.</short>
         <long>Enables/disables timestamps in the partyline.</long>
       </locale>
-	</schema>
+    </schema>
+
+
+    <schema>
+      <key>/schemas/apps/gtetrinet/partyline/enable_channel_list</key>
+      <applyto>/apps/gtetrinet/partyline/enable_channel_list</applyto>
+      <owner>gtetrinet</owner>
+      <type>bool</type>
+      <default>1</default>
+
+      <locale name="C">
+        <short>Enable/disable channel list.</short>
+        <long>Enables/disables the channel list. Disable it if you experience problems when connecting or while playing
+        in your favorite tetrinet server.</long>
+      </locale>
+    </schema>
   </schemalist>
 </gconfschemafile>

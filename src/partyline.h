@@ -1,6 +1,7 @@
 #include <gtk/gtk.h>
 
 extern int timestampsenable;
+extern gboolean list_enabled;
 
 extern GtkWidget *partyline_page_new (void);
 extern void partyline_connectstatus (int status);
@@ -17,3 +18,4 @@ extern void partyline_switch_entryfocus (void);
 extern void partyline_clear_list_channel (void);
 extern void partyline_joining_channel (const gchar *channel);
 extern void stop_list (void);
+extern void partyline_show_channel_list (gboolean);

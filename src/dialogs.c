@@ -642,6 +642,12 @@ void prefdialog_soundtoggle (GtkWidget *widget)
                            GTK_TOGGLE_BUTTON (widget)->active, NULL);
 }
 
+void prefdialog_channeltoggle (GtkWidget *widget)
+{
+  gconf_client_set_bool (gconf_client, "/apps/gtetrinet/partyline/enable_channel_list",
+			 GTK_TOGGLE_BUTTON (widget)->active, NULL);
+}
+
 void prefdialog_miditoggle (GtkWidget *widget)
 {
     if (GTK_TOGGLE_BUTTON(widget)->active) {
@@ -795,6 +801,7 @@ void prefdialog_new (void)
 {
     GtkWidget *label, *table, *frame, *button, *button1, *widget, *table1, *divider, *notebook;
     GtkWidget *themelist_scroll, *key_scroll;
+    GtkWidget *channel_list_check;
     GtkListStore *theme_store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_INT);
     GtkListStore *keys_store = gtk_list_store_new (4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_STRING);
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
@@ -889,16 +896,23 @@ void prefdialog_new (void)
     /* partyline */
     timestampcheck = gtk_check_button_new_with_label (_("Enable Timestamps"));
     gtk_widget_show(timestampcheck);
+    channel_list_check = gtk_check_button_new_with_label (_("Enable Channel List"));
+    gtk_widget_show (channel_list_check);
 
-    frame = gtk_hbox_new (FALSE, 0);
+    frame = gtk_vbox_new (FALSE, 0);
     gtk_box_pack_start (GTK_BOX(frame), timestampcheck, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(frame), channel_list_check, FALSE, FALSE, 0);
     gtk_widget_show (frame);
 
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(timestampcheck),
                                   timestampsenable);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (channel_list_check),
+				  list_enabled);
 
     g_signal_connect (G_OBJECT(timestampcheck), "toggled",
                       G_CALLBACK(prefdialog_timestampstoggle), NULL);
+    g_signal_connect (G_OBJECT (channel_list_check), "toggled",
+		      G_CALLBACK (prefdialog_channeltoggle), NULL);
 
     table = gtk_table_new (3, 1, FALSE);
     gtk_container_set_border_width (GTK_CONTAINER(table), GNOME_PAD);
@@ -916,7 +930,7 @@ void prefdialog_new (void)
     keyclist = GTK_WIDGET (gtk_tree_view_new_with_model (GTK_TREE_MODEL(keys_store)));
     key_scroll = gtk_scrolled_window_new (NULL, NULL);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW (key_scroll),
-                                   GTK_POLICY_NEVER,
+                                   GTK_POLICY_AUTOMATIC,
                                    GTK_POLICY_AUTOMATIC);
     gtk_container_add (GTK_CONTAINER(key_scroll), keyclist);
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (keyclist), -1, _("Action"), renderer,

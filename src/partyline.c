@@ -34,12 +34,13 @@
 #include "commands.h"
 
 int timestampsenable;
+gboolean list_enabled;
 
 /* widgets that we have to do stuff with */
 static GtkWidget *playerlist, *textbox, *entrybox,
     *namelabel, *teamlabel, *infolabel, *textboxscroll, 
     *playerlist_scroll, *playerlist_vpaned, *channel_box,
-    *playerlist_channel_scroll, *label;
+    *playerlist_channel_scroll, *label, *channel_list;
 
 /* some more widgets for layout */
 static GtkWidget *table, *leftbox, *rightbox;
@@ -70,7 +71,7 @@ GtkWidget *partyline_page_new (void)
     leftbox = gtk_vbox_new (FALSE, 4);
     /* chat thingy */
     /* channel list */
-    box1 = gtk_vbox_new (FALSE, 0);
+    channel_list = gtk_vbox_new (FALSE, 0);
     channel_box = GTK_WIDGET (gtk_tree_view_new_with_model (GTK_TREE_MODEL (playerlist_channels)));
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (channel_box), -1, _("Name"), renderer,
                                                  "text", 1, NULL);
@@ -89,9 +90,9 @@ GtkWidget *partyline_page_new (void)
     gtk_container_add (GTK_CONTAINER(playerlist_channel_scroll), channel_box);
     gtk_widget_set_size_request (playerlist_channel_scroll, -1, 100);
     label = gtk_label_new (NULL);
-    gtk_label_set_markup (GTK_LABEL (label), "<b>Channel List</b>");
-    gtk_box_pack_start (GTK_BOX (box1), label, FALSE, FALSE, 0);
-    gtk_box_pack_start (GTK_BOX (box1), playerlist_channel_scroll, TRUE, TRUE, 0);
+    gtk_label_set_markup (GTK_LABEL (label), _("<b>Channel List</b>"));
+    gtk_box_pack_start (GTK_BOX (channel_list), label, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (channel_list), playerlist_channel_scroll, TRUE, TRUE, 0);
 
     /* textbox with scrollbars */
     box2 = gtk_vbox_new (FALSE, 0);
@@ -112,7 +113,7 @@ GtkWidget *partyline_page_new (void)
     /* vpaned widget */
     playerlist_vpaned = gtk_vpaned_new ();
     
-    gtk_paned_add1 (GTK_PANED (playerlist_vpaned), box1);
+    gtk_paned_add1 (GTK_PANED (playerlist_vpaned), channel_list);
     gtk_paned_add2 (GTK_PANED (playerlist_vpaned), box2);
     gtk_box_pack_start (GTK_BOX(leftbox), playerlist_vpaned, TRUE, TRUE, 0);
     
@@ -448,18 +449,23 @@ void partyline_add_channel (gchar *line)
     while ((g_scanner_get_next_token (scan) != G_TOKEN_IDENTIFIER) && !g_scanner_eof (scan));
     players = g_strdup (scan->value.v_identifier);
 
-    if (strncmp (players, "FULL", 4))
+    if (players != NULL)
     {
-      while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
-      actual = scan->value.v_int;
+      if (strncmp (players, "FULL", 4))
+      {
+        while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
+        actual = scan->value.v_int;
 
-      while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
-      max = scan->value.v_int;
+        while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
+        max = scan->value.v_int;
 
-      g_snprintf (final, 1024, "%d/%d %s", actual, max, players);
+        g_snprintf (final, 1024, "%d/%d %s", actual, max, players);
+      }
+      else
+        g_snprintf (final, 1024, "%s", players);
     }
     else
-      g_snprintf (final, 1024, "6/6 %s", players);
+      g_snprintf (final, 1024, "UNK");
   
     g_scanner_get_next_token (scan); /* dump the ')' */
   
@@ -546,7 +552,7 @@ gboolean partyline_update_channel_list (void)
   gchar cad[1024];
   
   /* if there is another update in progress, just go away silently */
-  if (list_issued == 0)
+  if (list_enabled && (list_issued == 0))
   {
     list_issued++;
     gtk_list_store_clear (work_model);
@@ -606,4 +612,17 @@ void partyline_joining_channel (const gchar *channel)
   gtk_label_set_markup (GTK_LABEL (label), final);
   
   g_free (final);
+}
+
+void partyline_show_channel_list (gboolean show)
+{
+  /*
+   * If this function is called with TRUE, it will show the channel list, otherwise
+   * it'll hide it.
+   */
+  list_enabled = show;
+  if (list_enabled)
+    gtk_widget_show (channel_list);
+  else
+    gtk_widget_hide (channel_list);
 }

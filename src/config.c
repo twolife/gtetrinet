@@ -308,6 +308,9 @@ void config_loadconfig (void)
     /* Get the timestamp option. */
     timestampsenable = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps", NULL);
 
+    /* Get the channel list option */
+    list_enabled = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/partyline/enable_channel_list", NULL);
+    
     config_loadtheme (currenttheme->str);
 }
 
@@ -499,3 +502,16 @@ partyline_enable_timestamps_changed (GConfClient *client,
   if (!timestampsenable)
     gconf_client_set_bool (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps", FALSE, NULL);
 }
+
+void
+partyline_enable_channel_list_changed (GConfClient *client,
+                                       guint cnxn_id,
+                                       GConfEntry *entry)
+{
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
+  partyline_show_channel_list (gconf_value_get_bool (gconf_entry_get_value (entry)));
+}
+

@@ -73,8 +73,14 @@ keys_discard_changed (GConfClient *client,
 
 void
 partyline_enable_timestamps_changed (GConfClient *client,
-									 guint cnxn_id,
-									 GConfEntry *entry);
+                                     guint cnxn_id,
+                                     GConfEntry *entry);
+
+void
+partyline_enable_channel_list_changed (GConfClient *client,
+                                       guint cnxn_id,
+                                       GConfEntry *entry);
+
 
 #define GTETRINET_THEMES GTETRINET_DATA"/themes"
 #define DEFAULTTHEME GTETRINET_THEMES"/default/"

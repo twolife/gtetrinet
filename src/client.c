@@ -448,7 +448,7 @@ int client_readmsg (gchar **str)
       switch (g_io_channel_read_chars (io_channel, &buf[i], 1, &bytes, &error))
       {
         case G_IO_STATUS_EOF :
-          g_warning ("End of file.");
+          g_warning ("End of file (server closed connection).");
           return -1;
           break;
         

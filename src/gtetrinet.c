@@ -189,6 +189,10 @@ int main (int argc, char *argv[])
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps",
                              (GConfClientNotifyFunc) partyline_enable_timestamps_changed,
 			     NULL, NULL, NULL);
+    
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/partyline/enable_channel_list",
+                             (GConfClientNotifyFunc) partyline_enable_channel_list_changed,
+			     NULL, NULL, NULL);
 
     /* load settings */
     config_loadconfig ();
@@ -272,6 +276,8 @@ int main (int argc, char *argv[])
 
     gtk_widget_show (notebook);
     g_object_set (G_OBJECT (notebook), "can-focus", FALSE, NULL);
+
+    partyline_show_channel_list (list_enabled);
     gtk_widget_show (app);
 
 //    gtk_widget_set_size_request (partywidget, 480, 360);
