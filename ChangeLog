@@ -1,3 +1,7 @@
+2004-03-08 Alastair McKinstry <mckinstry@computer.org>
+
+	* configure.in: Added "ga" to ALL_LINGUAS.
+
 2004-02-07  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* src/Makefile.am: Remove deprecated flags. Broke the build.
