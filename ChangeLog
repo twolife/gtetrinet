@@ -1,3 +1,7 @@
+2003-07-25  Artur Flinta  <aflinta@cvs.gnome.org>
+
+	* configure.in: Added "pl" to ALL_LINGUAS.
+
 2003-07-15  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/command.c (about_command): Remove gettext calls from copyright

@@ -12,7 +12,7 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_PROG_CC
 
 AC_PROG_INTLTOOL([0.25])
-ALL_LINGUAS="am ca cs de es eu fr ja mk nl no pt pt_BR ru sr sr@Latn sv uk zh_TW"
+ALL_LINGUAS="am ca cs de es eu fr ja mk nl no pl pt pt_BR ru sr sr@Latn sv uk zh_TW"
 AM_GLIB_GNU_GETTEXT
 
 AC_PATH_PROG(GCONFTOOL, gconftool-2)
