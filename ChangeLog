@@ -1,3 +1,26 @@
+2002-12-18  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/fields.[ch] (fields_attdeffmt): new function, based on
+	partyline_fmt().
+	* src/tetrinet.c (tetrinet_inmessage): replace fields_attdefmsg()
+	uses that need i18n with fields_attdeffmt().
+
+2002-12-16  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/config.c: make the "discard special" key configurable.
+	(config_loadconfig): add "Keys/Discard" to the key list.
+	(config_saveconfig): save "Keys/Discard".
+	* src/config.h: define K_DISCARD, bump K_NUM to 8.
+	* src/dialogs.c (prefdialog_drawkeys): add "Discard Special" action.
+
+	* src/partyline.[ch] (partyline_fmt): new function, api to wrap around
+	partyline_text() that is gettext friendly. Patch by James Antill.
+	* src/tetrinet.c: gettextize missing partyline messages, using
+	partyline_fmt() when needed.
+	(partylineupdate_timeout): change logic for a message that assumed
+	that "alone" is both singular and plural for all languages. Patch by
+	James Antill.
+
 2002-12-05  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/dialogs.c (prefdialog_themelist): fix memleak, spotted by

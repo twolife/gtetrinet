@@ -10,6 +10,7 @@ extern void fields_setspeciallabel (char *label);
 extern void fields_drawspecials (void);
 extern void fields_drawnextblock (TETRISBLOCK block);
 extern void fields_attdefmsg (char *text);
+extern void fields_attdeffmt (const char *fmt, ...) G_GNUC_PRINTF (1, 2);
 extern void fields_attdefclear (void);
 extern void fields_setlines (int l);
 extern void fields_setlevel (int l);

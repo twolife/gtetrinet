@@ -198,7 +198,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         winlist_clear ();
         fields_attdefclear ();
         fields_gmsgclear ();
-        partyline_text ("\014\02*** Disconnected from server");
+        partyline_fmt (_("%c*** Disconnected from server"),
+                       TETRI_TB_C_BRIGHT_RED);
         break;
     case IN_CONNECTERROR:
     connecterror:
@@ -232,7 +233,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             connected = TRUE;
             ingame = playing = paused = FALSE;
             playercount = 0;
-            partyline_text ("\014\02*** Connected to server");
+            partyline_fmt (_("%c%c*** Connected to server"),
+                           TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
             commands_checkstate ();
             connectingdialog_destroy ();
             connectdialog_connected ();
@@ -326,11 +328,11 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
               break;
             if ((pnum == playernum) && !spectating)
                 g_snprintf (buf, sizeof(buf),
-                            "%c%c*** You have been kicked from the game",
+                            _("%c%c*** You have been kicked from the game"),
                             TETRI_TB_C_DARK_GREEN, TETRI_TB_BOLD);
             else
                 g_snprintf (buf, sizeof(buf),
-                            "%c*** %c%s%c%c has been kicked from the game",
+                            _("%c*** %c%s%c%c has been kicked from the game"),
                             TETRI_TB_C_DARK_GREEN, TETRI_TB_BOLD,
                             playernames[pnum],
                             TETRI_TB_RESET, TETRI_TB_C_DARK_GREEN);
@@ -421,13 +423,13 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
               break;
             if (teamnames[pnum][0])
                 g_snprintf (buf, sizeof(buf),
-                            "%c*** Team %c%s%c%c has won the game",
+                            _("%c*** Team %c%s%c%c has won the game"),
                             TETRI_TB_C_DARK_RED, TETRI_TB_BOLD,
                             teamnames[pnum],
                             TETRI_TB_RESET, TETRI_TB_C_DARK_RED);
             else
                 g_snprintf (buf, sizeof(buf),
-                            "%c*** %c%s%c%c has won the game",
+                            _("%c*** %c%s%c%c has won the game"),
                             TETRI_TB_C_DARK_RED, TETRI_TB_BOLD,
                             playernames[pnum],
                             TETRI_TB_RESET, TETRI_TB_C_DARK_RED);
@@ -487,7 +489,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             if (specialfreq[8] < 100) specialfreq[8] = 100;
             tetrinet_startgame ();
             commands_checkstate ();
-            partyline_text ("\024*** The game has \02started");
+            partyline_fmt (_("%c*** The game has %cstarted"),
+                           TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
         }
         break;
     case IN_INGAME:
@@ -509,7 +512,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             fields_gmsginput (FALSE);
             fields_gmsginputclear ();
             commands_checkstate ();
-            partyline_text ("\024*** The game is \02in progress");
+            partyline_fmt(_("%c*** The game is %cin progress"),
+                          TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);;
         }
         break;
     case IN_PAUSE:
@@ -519,13 +523,17 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             if (! (newstate ^ paused)) break;
 	    if (newstate) {
 		tetrinet_pausegame ();
-		partyline_text ("\024*** The game has \02paused");
-                fields_attdefmsg ("The game has \02\014Paused");
+		partyline_fmt (_("%c*** The game has %cpaused"),
+                               TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
+                fields_attdeffmt (_("The game has %c%cpaused"),
+                                  TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
 	    }
 	    else {
 		tetrinet_resumegame ();
-		partyline_text ("\024*** The game has \02resumed");
-                fields_attdefmsg ("The game has \02\014Resumed");
+		partyline_fmt (_("%c*** The game has %cresumed"),
+                               TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
+                fields_attdeffmt (_("The game has %c%cresumed"),
+                                  TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
 	    }
 	    commands_checkstate ();
 	    break;
@@ -533,7 +541,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
     case IN_ENDGAME:
         tetrinet_endgame ();
         commands_checkstate ();
-        partyline_text ("\024*** The game has \02ended");
+        partyline_fmt (_("%c*** The game has %cended"),
+                       TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
         break;
     case IN_F:
         {
@@ -640,7 +649,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             g_snprintf (buf, sizeof(buf),
-                        "%c*** You have joined %c%s",
+                        _("%c*** You have joined %c%s"),
                         TETRI_TB_C_DARK_BLUE, TETRI_TB_BOLD, token);
             partyline_text (buf);
             while ((token = strtok (NULL, " ")) != NULL) speclist_add (token);
@@ -656,8 +665,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             info = strtok (NULL, "");
             if (info == NULL) info = "";
             g_snprintf (buf, sizeof(buf),
-                        "%c*** %c%s%c%c has joined the spectators"
-                        " %c%c(%c%s%c%c%c)",
+                        _("%c*** %c%s%c%c has joined the spectators"
+                        " %c%c(%c%s%c%c%c)"),
                         TETRI_TB_C_DARK_BLUE, TETRI_TB_BOLD,
                         name,
                         TETRI_TB_RESET, TETRI_TB_C_DARK_BLUE,
@@ -677,8 +686,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             info = strtok (NULL, "");
             if (info == NULL) info = "";
             g_snprintf (buf, sizeof(buf),
-                        "%c*** %c%s%c%c has left the spectators"
-                        " %c%c(%c%s%c%c%c)",
+                        _("%c*** %c%s%c%c has left the spectators"
+                        " %c%c(%c%s%c%c%c)"),
                         TETRI_TB_C_DARK_BLUE, TETRI_TB_BOLD,
                         name,
                         TETRI_TB_RESET, TETRI_TB_C_DARK_BLUE,
@@ -993,14 +1002,14 @@ void tetrinet_dospecial (int from, int to, int type)
       
     if (to) {
       if (to == playernum)
-        g_snprintf (buf2, sizeof(buf2), " on %c%c%s%c%c",
+        g_snprintf (buf2, sizeof(buf2), _(" on %c%c%s%c%c"),
                     TETRI_TB_BOLD,
                     TETRI_TB_C_BRIGHT_BLUE,
                     playernames[to],
                     TETRI_TB_C_BRIGHT_BLUE,
                     TETRI_TB_BOLD);
       else
-        g_snprintf (buf2, sizeof(buf2), " on %c%c%s%c%c",
+        g_snprintf (buf2, sizeof(buf2), _(" on %c%c%s%c%c"),
                     TETRI_TB_BOLD,
                     TETRI_TB_C_DARK_BLUE,
                     playernames[to],
@@ -1010,20 +1019,20 @@ void tetrinet_dospecial (int from, int to, int type)
     }
     else
     {
-      g_snprintf (buf2, sizeof(buf2), " to All");
+      g_snprintf (buf2, sizeof(buf2), _(" to All"));
       GTET_O_STRCAT (buf, buf2);
     }
     
     if (from) {
       if (from == playernum)
-        g_snprintf (buf2, sizeof(buf2), " by %c%c%s%c%c",
+        g_snprintf (buf2, sizeof(buf2), _(" by %c%c%s%c%c"),
                     TETRI_TB_BOLD,
                     TETRI_TB_C_BRIGHT_BLUE,
                     playernames[from],
                     TETRI_TB_C_BRIGHT_BLUE,
                     TETRI_TB_BOLD);
       else
-        g_snprintf (buf2, sizeof(buf2), " by %c%c%s%c%c",
+        g_snprintf (buf2, sizeof(buf2), _(" by %c%c%s%c%c"),
                     TETRI_TB_BOLD,
                     TETRI_TB_C_DARK_BLUE,
                     playernames[from],
@@ -1574,6 +1583,9 @@ notfieldkey:
             tetrinet_sendfield (0);
         }
     }
+    else if (keyval == keys[K_DISCARD]) {
+        tetrinet_specialkey(-1);
+    }
     else switch (keyval) {
     case GDK_1: tetrinet_specialkey(1); break;
     case GDK_2: tetrinet_specialkey(2); break;
@@ -1581,7 +1593,6 @@ notfieldkey:
     case GDK_4: tetrinet_specialkey(4); break;
     case GDK_5: tetrinet_specialkey(5); break;
     case GDK_6: tetrinet_specialkey(6); break;
-    case GDK_d: tetrinet_specialkey(-1); break;
     default:
         return FALSE;
     }
@@ -1650,7 +1661,7 @@ int moderatorupdate_timeout (void)
     if (moderatornum) {
         char buf[256];
         g_snprintf (buf, sizeof(buf),
-                    "%c*** %c%s%c%c is the moderator",
+                    _("%c*** %c%s%c%c is the moderator"),
                     TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD,
                     playernames[moderatornum],
                     TETRI_TB_RESET, TETRI_TB_C_BRIGHT_RED);
@@ -1735,13 +1746,17 @@ int partylineupdate_timeout (void)
                     c ++;
                 }
             }
-            if (c == 1) GTET_O_STRCAT (buf, " is ");
-            else GTET_O_STRCAT (buf, " are ");
-            if (team[0]) g_snprintf (buf2, sizeof(buf2), "on team %c%s",
-                                     TETRI_TB_BOLD, team);
-            else g_snprintf (buf2, sizeof(buf2), "alone");
-            GTET_O_STRCAT (buf, buf2);
-            partyline_text (buf);
+            if (0) {}
+            else if ((c == 1) &&  team[0])
+              partyline_fmt(_("%s is on team %c%s"),
+                            buf, TETRI_TB_BOLD, team);
+            else if ((c == 1) && !team[0])
+              partyline_fmt(_("%s is alone"), buf);
+            else if ((c != 1) &&  team[0])
+              partyline_fmt(_("%s are on team %c%s"),
+                            buf, TETRI_TB_BOLD, team);
+            else if ((c != 1) && !team[0])
+              partyline_fmt(_("%s are alone"), buf);
         }
         pcount = 0;
     }
@@ -1782,14 +1797,14 @@ void partylineupdate_team (char *name, char *team)
         /* player did not just join - display normally */
         if (team[0])
             g_snprintf (buf, sizeof(buf),
-                        "%c*** %c%s%c%c is now on team %c%s",
+                        _("%c*** %c%s%c%c is now on team %c%s"),
                         TETRI_TB_C_DARK_RED, TETRI_TB_BOLD,
                         name,
                         TETRI_TB_RESET, TETRI_TB_C_DARK_RED,
                         TETRI_TB_BOLD, team);
         else
             g_snprintf (buf, sizeof(buf),
-                        "%c*** %c%s%c%c is now alone",
+                        _("%c*** %c%s%c%c is now alone"),
                         TETRI_TB_C_DARK_RED, TETRI_TB_BOLD,
                         name,
                         TETRI_TB_RESET, TETRI_TB_C_DARK_RED);

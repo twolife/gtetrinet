@@ -59,6 +59,7 @@ gint defaultkeys[K_NUM] = {
     GDK_Control_R,
     GDK_Down,
     GDK_space,
+    GDK_d,
     GDK_t
 };
 
@@ -205,6 +206,8 @@ void config_loadconfig (void)
     keys[K_DOWN] = k ? k : defaultkeys[K_DOWN];
     k = gnome_config_get_int ("Keys/Drop");
     keys[K_DROP] = k ? k : defaultkeys[K_DROP];
+    k = gnome_config_get_int ("Keys/Discard");
+    keys[K_DISCARD] = k ? k : defaultkeys[K_DISCARD];
     k = gnome_config_get_int ("Keys/Message");
     keys[K_GAMEMSG] = k ? k : defaultkeys[K_GAMEMSG];
 
@@ -233,6 +236,7 @@ void config_saveconfig (void)
     gnome_config_set_int ("Keys/RotateLeft", keys[K_ROTLEFT]);
     gnome_config_set_int ("Keys/Down", keys[K_DOWN]);
     gnome_config_set_int ("Keys/Drop", keys[K_DROP]);
+    gnome_config_set_int ("Keys/Discard", keys[K_DISCARD]);
     gnome_config_set_int ("Keys/Message", keys[K_GAMEMSG]);
 
     gnome_config_pop_prefix ();

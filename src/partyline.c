@@ -25,6 +25,7 @@
 #include <gnome.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdarg.h>
 
 #include "client.h"
 #include "tetrinet.h"
@@ -171,6 +172,18 @@ void partyline_text (char *text)
 {
     textbox_addtext (GTK_TEXT_VIEW(textbox), text);
     adjust_bottom_text_view(GTK_TEXT_VIEW(textbox));
+}
+
+void partyline_fmt (const char *fmt, ...)
+{
+  va_list ap;
+  char *text = NULL;
+
+  va_start(ap, fmt);
+  text = g_strdup_vprintf(fmt, ap);
+  va_end(ap);
+
+  partyline_text(text); g_free(text);
 }
 
 void partyline_playerlist (int *numbers, char **names, char **teams, int n, char **specs, int sn)

@@ -405,6 +405,7 @@ int actionid[K_NUM] = {
     K_ROTRIGHT,
     K_ROTLEFT,
     K_DROP,
+    K_DISCARD,
     K_GAMEMSG
 };
 
@@ -434,7 +435,8 @@ void prefdialog_drawkeys (void)
     actions[3] = _("Rotate right");
     actions[4] = _("Rotate left");
     actions[5] = _("Drop piece");
-    actions[6] = _("Send message");
+    actions[6] = _("Discard special");
+    actions[7] = _("Send message");
 
     for (i = 0; i < K_NUM; i ++) {
         array[0] = actions[i];

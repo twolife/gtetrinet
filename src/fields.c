@@ -502,6 +502,18 @@ void fields_attdefmsg (char *text)
     adjust_bottom_text_view (GTK_TEXT_VIEW(attdefwidget));
 }
 
+void fields_attdeffmt (const char *fmt, ...)
+{
+    va_list ap;
+    char *text = NULL;
+
+    va_start(ap, fmt);
+    text = g_strdup_vprintf(fmt,ap);
+    va_end(ap);
+
+    fields_attdefmsg (text); g_free(text);
+}
+
 void fields_attdefclear (void)
 {
   gtk_text_buffer_set_text(GTK_TEXT_VIEW(attdefwidget)->buffer, "", 0);

@@ -18,6 +18,7 @@ extern void config_saveconfig (void);
 #define K_ROTLEFT 3
 #define K_DOWN 4
 #define K_DROP 5
-#define K_GAMEMSG 6
+#define K_DISCARD 6
+#define K_GAMEMSG 7
 /* not a key but the number of configurable keys */
-#define K_NUM 7
+#define K_NUM 8
