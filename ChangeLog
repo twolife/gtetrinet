@@ -1,6 +1,7 @@
 2003-08-10  Hasbullah Bin Pit <sebol@ikhlas.com>
 	
-	* configure.in: Added 'ms' (Malay) to AlL_LINGUAS.                       	* po/ms.po: Added Malay translation.
+	* configure.in: Added 'ms' (Malay) to AlL_LINGUAS.
+   	* po/ms.po: Added Malay translation.
 
 2003-08-07  Dani Carbonell  <bocata@panete.net>
 
