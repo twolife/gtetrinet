@@ -198,8 +198,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         winlist_clear ();
         fields_attdefclear ();
         fields_gmsgclear ();
-        partyline_fmt (_("%c*** Disconnected from server"),
-                       TETRI_TB_C_BRIGHT_RED);
+        partyline_fmt (_("%c%c*** Disconnected from server"),
+                       TETRI_TB_C_DARK_GREEN, TETRI_TB_BOLD);
         break;
     case IN_CONNECTERROR:
     connecterror:
@@ -234,7 +234,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             ingame = playing = paused = FALSE;
             playercount = 0;
             partyline_fmt (_("%c%c*** Connected to server"),
-                           TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
+                           TETRI_TB_C_DARK_GREEN, TETRI_TB_BOLD);
             commands_checkstate ();
             connectingdialog_destroy ();
             connectdialog_connected ();
@@ -526,14 +526,14 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
 		partyline_fmt (_("%c*** The game has %cpaused"),
                                TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
                 fields_attdeffmt (_("The game has %c%cpaused"),
-                                  TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
+                                  TETRI_TB_BOLD, TETRI_TB_C_DARK_GREEN);
 	    }
 	    else {
 		tetrinet_resumegame ();
 		partyline_fmt (_("%c*** The game has %cresumed"),
                                TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
                 fields_attdeffmt (_("The game has %c%cresumed"),
-                                  TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
+                                  TETRI_TB_BOLD, TETRI_TB_C_DARK_GREEN);
 	    }
 	    commands_checkstate ();
 	    break;

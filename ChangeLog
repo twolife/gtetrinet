@@ -1,3 +1,7 @@
+2003-01-04  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/tetrinet.c: correct colours for several messages.
+
 2002-12-18  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/fields.[ch] (fields_attdeffmt): new function, based on
