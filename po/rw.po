@@ -1,0 +1,1039 @@
+# translation of gtetrinet to Kinyarwanda.
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gtetrinet package.
+# Steve Murphy <murf@e-tools.com>, 2005
+# Steve performed initial rough translation from compendium built from translations provided by the following translators:
+# Philibert Ndandali  <ndandali@yahoo.fr>, 2005.
+# Viateur MUGENZI <muvia1@yahoo.fr>, 2005.
+# Noëlla Mupole <s24211045@tuks.co.za>, 2005.
+# Carole Karema <karemacarole@hotmail.com>, 2005.
+# JEAN BAPTISTE NGENDAHAYO <ngenda_denis@yahoo.co.uk>, 2005.
+# Augustin KIBERWA  <akiberwa@yahoo.co.uk>, 2005.
+# Donatien NSENGIYUMVA <ndonatienuk@yahoo.co.uk>, 2005..
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtetrinet HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-04-01 20:48-0700\n"
+"PO-Revision-Date: 2005-03-31 20:55-0700\n"
+"Last-Translator: Steve Murphy <murf@e-tools.com>\n"
+"Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"ULL NAME <EMAIL@ADDRESS>\n"
+
+#: src/client.c:243
+#, fuzzy
+msgid "Couldn't resolve hostname."
+msgstr "Izina ry'inturo:"
+
+#: src/commands.c:45
+#, fuzzy
+msgid "_Connect to server..."
+msgstr "Kuri Seriveri"
+
+#: src/commands.c:46
+#, fuzzy
+msgid "_Disconnect from server"
+msgstr "Bivuye Seriveri"
+
+#: src/commands.c:48
+msgid "Change _team..."
+msgstr ""
+
+#: src/commands.c:50
+#, fuzzy
+msgid "_Start game"
+msgstr "Gutangira"
+
+#: src/commands.c:51
+msgid "_Pause game"
+msgstr ""
+
+#: src/commands.c:52
+#, fuzzy
+msgid "_End game"
+msgstr "Impera"
+
+#: src/commands.c:57
+#, fuzzy
+msgid "Detac_h page..."
+msgstr "Ipaji"
+
+#: src/commands.c:82
+msgid "Connect"
+msgstr "Kwihuza"
+
+#: src/commands.c:82
+#, fuzzy
+msgid "Connect to a server"
+msgstr "Kuri a Seriveri"
+
+#: src/commands.c:83
+#, fuzzy
+msgid "Disconnect"
+msgstr "Gucomora"
+
+#: src/commands.c:83
+#, fuzzy
+msgid "Disconnect from the current server"
+msgstr "Bivuye i KIGEZWEHO Seriveri"
+
+#: src/commands.c:85
+#, fuzzy
+msgid "Start game"
+msgstr "Gutangira"
+
+#: src/commands.c:85
+#, fuzzy
+msgid "Start a new game"
+msgstr "Gutangira a Gishya"
+
+#: src/commands.c:86
+#, fuzzy
+msgid "End game"
+msgstr "Impera"
+
+#: src/commands.c:86
+#, fuzzy
+msgid "End the current game"
+msgstr "Impera i KIGEZWEHO"
+
+#: src/commands.c:87
+msgid "Pause game"
+msgstr ""
+
+#: src/commands.c:87
+#, fuzzy
+msgid "Pause the game"
+msgstr "i"
+
+#: src/commands.c:89 src/dialogs.c:152
+msgid "Change team"
+msgstr ""
+
+#: src/commands.c:89
+#, fuzzy
+msgid "Change your current team name"
+msgstr "KIGEZWEHO Izina:"
+
+#: src/commands.c:92
+#, fuzzy
+msgid "Detach page"
+msgstr "Ipaji"
+
+#: src/commands.c:92
+#, fuzzy
+msgid "Detach the current notebook page"
+msgstr "i KIGEZWEHO Ipaji"
+
+#: src/commands.c:258
+#, fuzzy
+msgid "Game in progress"
+msgstr "in Aho bigeze"
+
+#: src/commands.c:261
+msgid "Connected to\n"
+msgstr ""
+
+#: src/commands.c:265
+msgid "Not connected"
+msgstr ""
+
+#. Translators: translate as your names & emails
+#: src/commands.c:309
+msgid "translator_credits"
+msgstr ""
+
+#: src/commands.c:323
+#, fuzzy
+msgid "A Tetrinet client for GNOME.\n"
+msgstr "A Umukiriya kugirango"
+
+#: src/config.c:140
+#, fuzzy
+msgid "Warning: theme does not have a name, reverting to default."
+msgstr "OYA a Izina: Kuri Mburabuzi"
+
+#. make dialog that asks for address/nickname
+#: src/dialogs.c:85 src/dialogs.c:324 src/gtetrinet.c:77
+#, fuzzy
+msgid "Connect to server"
+msgstr "Kuri Seriveri"
+
+#: src/dialogs.c:165
+#, fuzzy
+msgid "Team name:"
+msgstr "Izina:"
+
+#: src/dialogs.c:210
+#, fuzzy
+msgid "You must specify a server name."
+msgstr "a Seriveri Izina:"
+
+#: src/dialogs.c:227
+#, fuzzy
+msgid "Please specify a password to connect as spectator."
+msgstr "a Ijambobanga... Kuri Kwihuza Nka"
+
+#: src/dialogs.c:248
+#, fuzzy
+msgid "Please specify a valid nickname."
+msgstr "a Byemewe Irihimbano"
+
+# #-#-#-#-#  goodies.pot (PACKAGE VERSION)  #-#-#-#-#
+# goodies/source\filter.vcl\eos2met\dlgeos2.src:DLG_EXPORT_EMET.RB_ORIGINAL.text
+# #-#-#-#-#  goodies.pot (PACKAGE VERSION)  #-#-#-#-#
+# goodies/source\filter.vcl\epict\dlgepct.src:DLG_EXPORT_EPCT.RB_ORIGINAL.text
+#. game type radio buttons
+#: src/dialogs.c:353
+#, fuzzy
+msgid "O_riginal"
+msgstr "Umwimerere"
+
+#: src/dialogs.c:355
+msgid "Tetri_Fast"
+msgstr ""
+
+#: src/dialogs.c:377
+#, fuzzy
+msgid "Server address"
+msgstr "Aderesi"
+
+#: src/dialogs.c:386
+#, fuzzy
+msgid "Connect as a _spectator"
+msgstr "Nka a"
+
+# basctl/source\basicide\moduldlg.src:RID_TP_LIBS.RID_PB_PASSWORD.text
+#: src/dialogs.c:390
+#, fuzzy
+msgid "_Password:"
+msgstr "Ijambobanga..."
+
+#: src/dialogs.c:407
+msgid "Spectate game"
+msgstr ""
+
+#: src/dialogs.c:416
+#, fuzzy
+msgid "_Nick name:"
+msgstr "Izina:"
+
+#: src/dialogs.c:430
+#, fuzzy
+msgid "_Team name:"
+msgstr "Izina:"
+
+#: src/dialogs.c:449
+#, fuzzy
+msgid "Player information"
+msgstr "Ibisobanuro"
+
+#: src/dialogs.c:490
+msgid "Change Key"
+msgstr ""
+
+# officecfg/registry\schema\org\openoffice\Office\Calc.xcs:....Input.MoveSelectionDirection..1.text
+#: src/dialogs.c:541
+msgid "Move right"
+msgstr "Kwimura Iburyo"
+
+# officecfg/registry\schema\org\openoffice\Office\Calc.xcs:....Input.MoveSelectionDirection..3.text
+#: src/dialogs.c:542
+msgid "Move left"
+msgstr "Kwimura ibumoso"
+
+# officecfg/registry\schema\org\openoffice\Office\Calc.xcs:....Input.MoveSelectionDirection..0.text
+#: src/dialogs.c:543
+msgid "Move down"
+msgstr "Kwimura Hasi"
+
+#: src/dialogs.c:544
+#, fuzzy
+msgid "Rotate right"
+msgstr "Iburyo:"
+
+#: src/dialogs.c:545
+#, fuzzy
+msgid "Rotate left"
+msgstr "Ibumoso:"
+
+#: src/dialogs.c:546
+msgid "Drop piece"
+msgstr ""
+
+#: src/dialogs.c:547
+#, fuzzy
+msgid "Discard special"
+msgstr "Bidasanzwe"
+
+# offmgr/sdi\ofaslots.src:SID_MAIL_SEND.text
+#: src/dialogs.c:548
+#, fuzzy
+msgid "Send message"
+msgstr "Kohereza Ubutumwa"
+
+#: src/dialogs.c:549
+#, fuzzy
+msgid "Special to field 1"
+msgstr "Kuri Umwanya 1."
+
+#: src/dialogs.c:550
+#, fuzzy
+msgid "Special to field 2"
+msgstr "Kuri Umwanya 2."
+
+#: src/dialogs.c:551
+#, fuzzy
+msgid "Special to field 3"
+msgstr "Kuri Umwanya 3."
+
+#: src/dialogs.c:552
+#, fuzzy
+msgid "Special to field 4"
+msgstr "Kuri Umwanya 4."
+
+#: src/dialogs.c:553
+#, fuzzy
+msgid "Special to field 5"
+msgstr "Kuri Umwanya 5"
+
+#: src/dialogs.c:554
+#, fuzzy
+msgid "Special to field 6"
+msgstr "Kuri Umwanya 6"
+
+#: src/dialogs.c:614
+#, fuzzy, c-format
+msgid "Press new key for \"%s\""
+msgstr "Gishya Urufunguzo kugirango"
+
+#: src/dialogs.c:831
+msgid "GTetrinet Preferences"
+msgstr ""
+
+#: src/dialogs.c:853
+#, fuzzy
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr "a Bivuye i Urutonde Gishya Insanganyamatsiko in Insanganyamatsiko"
+
+# sc/source\ui\dbgui\pvfundlg.src:RID_SCDLG_PIVOTSUBT.FT_NAMELABEL.text
+#: src/dialogs.c:860
+msgid "Name:"
+msgstr "Izina:"
+
+# shell/source\win32\shlxthandler\shlxthdl.lng:%AUTHOR_COLON%.text
+#: src/dialogs.c:863
+msgid "Author:"
+msgstr "Umwanditsi:"
+
+#: src/dialogs.c:866
+msgid "Description:"
+msgstr "Umwirondoro"
+
+#: src/dialogs.c:879
+msgid "Selected Theme"
+msgstr ""
+
+#: src/dialogs.c:895
+#, fuzzy
+msgid "Download new themes"
+msgstr "Gishya Insanganyamatsiko"
+
+# LOCALIZATION NOTE : FILE Theme management prefs
+#: src/dialogs.c:900
+msgid "Themes"
+msgstr "Insanganyamatsiko"
+
+#. partyline
+#: src/dialogs.c:905
+msgid "Enable _Timestamps"
+msgstr ""
+
+#: src/dialogs.c:907
+msgid "Enable Channel _List"
+msgstr ""
+
+#. FIXME
+#: src/dialogs.c:933 src/gtetrinet.c:281
+msgid "Partyline"
+msgstr ""
+
+# sc/source\ui\miscdlgs\acredlin.src:RID_POPUP_CHANGES.SC_SUB_SORT.SC_SORT_ACTION.text
+#: src/dialogs.c:944
+msgid "Action"
+msgstr "Igikorwa"
+
+# 3348
+#: src/dialogs.c:946
+msgid "Key"
+msgstr "Urufunguzo"
+
+#: src/dialogs.c:952
+#, fuzzy
+msgid ""
+"Select an action from the list and press Change Key to change the key "
+"associated with the action."
+msgstr ""
+"Igikorwa Bivuye i Urutonde Na Kanda Kuri Guhindura>> i Urufunguzo Na: i "
+"Igikorwa"
+
+#: src/dialogs.c:959
+#, fuzzy
+msgid "Change _key..."
+msgstr "Urufunguzo"
+
+#: src/dialogs.c:964 src/dialogs.c:1017
+#, fuzzy
+msgid "_Restore defaults"
+msgstr "Ongera ushyireho mburabuzi"
+
+# #-#-#-#-#  sfx2.pot (PACKAGE VERSION)  #-#-#-#-#
+# sfx2/source\accel\accel.src:STR_ACCEL_CFGITEM.text
+# #-#-#-#-#  sfx2.pot (PACKAGE VERSION)  #-#-#-#-#
+# sfx2/source\dialog\cfg.src:DLG_CONFIG.1.TP_CONFIG_ACCEL.text
+#: src/dialogs.c:985
+msgid "Keyboard"
+msgstr "Mwandikisho"
+
+#. sound
+#: src/dialogs.c:990
+msgid "Enable _Sound"
+msgstr ""
+
+#: src/dialogs.c:993
+msgid "Enable _MIDI"
+msgstr ""
+
+#: src/dialogs.c:1007
+#, fuzzy
+msgid "Enter command to play a midi file:"
+msgstr "Komandi: Kuri Gukina a MIDI IDOSIYE"
+
+#: src/dialogs.c:1010
+#, fuzzy
+msgid ""
+"The above command is run when a midi file is to be played.  The name of the "
+"midi file is placed in the environment variable MIDIFILE."
+msgstr ""
+"hejuru Komandi: ni Gukoresha Ryari: a MIDI IDOSIYE ni Kuri Izina: Bya i MIDI "
+"IDOSIYE ni in i IMPINDURAGACIRO"
+
+#: src/dialogs.c:1047
+msgid "Sound"
+msgstr "Ijwi"
+
+#: src/fields.c:76
+#, fuzzy
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr "Itangira... Ibirimo Ibishushanyo Inyuma Kuri Mburabuzi"
+
+#. shouldnt happen
+#: src/fields.c:85
+#, fuzzy, c-format
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr "Itangira... Mburabuzi kugirango iyinjizaporogaramu"
+
+#: src/fields.c:206
+msgid "Next piece:"
+msgstr ""
+
+#: src/fields.c:223
+#, fuzzy
+msgid "Lines:"
+msgstr "Imirongo."
+
+# #-#-#-#-#  officecfg.pot (PACKAGE VERSION)  #-#-#-#-#
+# officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Insert.Caption.WriterObject.Table.Settings.Level.text
+# #-#-#-#-#  officecfg.pot (PACKAGE VERSION)  #-#-#-#-#
+# officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Insert.Caption.WriterObject.Frame.Settings.Level.text
+# #-#-#-#-#  officecfg.pot (PACKAGE VERSION)  #-#-#-#-#
+# officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Insert.Caption.WriterObject.Graphic.Settings.Level.text
+# #-#-#-#-#  officecfg.pot (PACKAGE VERSION)  #-#-#-#-#
+# officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Insert.Caption.OfficeObject.Calc.Settings.Level.text
+# #-#-#-#-#  officecfg.pot (PACKAGE VERSION)  #-#-#-#-#
+# officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Insert.Caption.OfficeObject.Draw.Settings.Level.text
+# #-#-#-#-#  officecfg.pot (PACKAGE VERSION)  #-#-#-#-#
+# officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Insert.Caption.OfficeObject.Chart.Settings.Level.text
+# #-#-#-#-#  officecfg.pot (PACKAGE VERSION)  #-#-#-#-#
+# officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Insert.Caption.OfficeObject.Image.Settings.Level.text
+# #-#-#-#-#  officecfg.pot (PACKAGE VERSION)  #-#-#-#-#
+# officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Insert.Caption.OfficeObject.Formula.Settings.Level.text
+# #-#-#-#-#  officecfg.pot (PACKAGE VERSION)  #-#-#-#-#
+# officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Insert.Caption.OfficeObject.Impress.Settings.Level.text
+# #-#-#-#-#  officecfg.pot (PACKAGE VERSION)  #-#-#-#-#
+# officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Insert.Caption.OfficeObject.OLEMisc.Settings.Level.text
+#: src/fields.c:227
+#, fuzzy
+msgid "Level:"
+msgstr "urwego"
+
+#: src/fields.c:229
+#, fuzzy
+msgid "Active level:"
+msgstr "urwego"
+
+#: src/fields.c:277
+#, fuzzy
+msgid "Attacks and defenses:"
+msgstr "Na"
+
+#: src/fields.c:420
+msgid "Not playing"
+msgstr ""
+
+# svx/source\dialog\charmap.src:RID_SUBSETMAP.RID_SUBSETSTR_SPECIALS.text
+#: src/fields.c:447
+#, fuzzy
+msgid "Specials:"
+msgstr "Bidasanzwe"
+
+# framework/source\services\logindialog.src:RID_DLG_LOGIN.RID_FT_SERVER.text
+#: src/gtetrinet.c:77
+#, fuzzy
+msgid "SERVER"
+msgstr "Seriveri"
+
+#: src/gtetrinet.c:78
+#, fuzzy
+msgid "Set nickname to use"
+msgstr "Irihimbano Kuri Gukoresha"
+
+# officecfg/registry\data\org\openoffice\Office\DataAccess.xcu:..DataAccess.DriverSettings.com.sun.star.comp.sdbc.MozabDriver.ColumnAliases.NickName.text
+#: src/gtetrinet.c:78
+#, fuzzy
+msgid "NICKNAME"
+msgstr "Irihimbano"
+
+#: src/gtetrinet.c:79
+#, fuzzy
+msgid "Set team name"
+msgstr "Izina:"
+
+#: src/gtetrinet.c:79
+msgid "TEAM"
+msgstr ""
+
+#: src/gtetrinet.c:80
+#, fuzzy
+msgid "Connect as a spectator"
+msgstr "Nka a"
+
+#: src/gtetrinet.c:81
+#, fuzzy
+msgid "Spectator password"
+msgstr "Ijambobanga..."
+
+#: src/gtetrinet.c:81
+#, fuzzy
+msgid "PASSWORD"
+msgstr "ijambobanga"
+
+#: src/gtetrinet.c:120
+#, fuzzy, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "Kuri"
+
+#. FIXME
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
+msgid "Playing Fields"
+msgstr ""
+
+#. FIXME
+#: src/gtetrinet.c:292
+msgid "Winlist"
+msgstr ""
+
+#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
+msgid "Name"
+msgstr "Izina"
+
+#: src/partyline.c:79
+msgid "Players"
+msgstr ""
+
+#: src/partyline.c:81
+msgid "State"
+msgstr "Leta"
+
+# #-#-#-#-#  basctl.pot (PACKAGE VERSION)  #-#-#-#-#
+# basctl/source\basicide\moptions.src:RID_MACROOPTIONS.RID_FT_DESCR.text
+# #-#-#-#-#  basctl.pot (PACKAGE VERSION)  #-#-#-#-#
+# basctl/source\basicide\moptions.src:RID_MACROOPTIONS.text
+#: src/partyline.c:83
+msgid "Description"
+msgstr "Isobanuramiterere"
+
+#: src/partyline.c:95
+msgid "Channel List"
+msgstr ""
+
+#: src/partyline.c:140
+msgid "Team"
+msgstr ""
+
+#: src/partyline.c:153
+#, fuzzy
+msgid "Your name:"
+msgstr "Izina ryawe:"
+
+#: src/partyline.c:160
+msgid "Your team:"
+msgstr ""
+
+#: src/partyline.c:638
+#, fuzzy
+msgid "Talking in channel"
+msgstr "in"
+
+# #-#-#-#-#  sfx2.pot (PACKAGE VERSION)  #-#-#-#-#
+# sfx2/source\bastyp\bastyp.src:RID_DLSTATUS2.SVBINDSTATUS_ENDDOWNLOADDATA.text
+# #-#-#-#-#  sfx2.pot (PACKAGE VERSION)  #-#-#-#-#
+# sfx2/source\doc\doc.src:RID_DLSTATUS.INET_CONNECTION_CLOSED.text
+#: src/partyline.c:640
+msgid "Disconnected"
+msgstr "Byatandukanye"
+
+#: src/tetrinet.c:197
+#, fuzzy
+msgid "Server disconnected"
+msgstr "Byatandukanye"
+
+#: src/tetrinet.c:217
+#, fuzzy, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c***Bivuye Seriveri"
+
+#: src/tetrinet.c:229
+#, fuzzy
+msgid "Error connecting: "
+msgstr "Kwihuza..."
+
+#: src/tetrinet.c:263
+#, fuzzy, c-format
+msgid "%c%c*** Connected to server"
+msgstr "%c%c***Kuri Seriveri"
+
+#: src/tetrinet.c:364
+#, fuzzy, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr "%c%c***Bivuye i"
+
+#: src/tetrinet.c:368
+#, fuzzy, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr "%c***%c%s%c%cBivuye i"
+
+#: src/tetrinet.c:543
+#, fuzzy, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr "%c***i"
+
+#: src/tetrinet.c:549
+#, fuzzy, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr "%c***%c%s%c%ci"
+
+#: src/tetrinet.c:612
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr ""
+
+#: src/tetrinet.c:638
+#, fuzzy, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "%c***ni Aho bigeze"
+
+#: src/tetrinet.c:650
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr ""
+
+#: src/tetrinet.c:652
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr ""
+
+#: src/tetrinet.c:657
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr ""
+
+#: src/tetrinet.c:659
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr ""
+
+#: src/tetrinet.c:668
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr ""
+
+#: src/tetrinet.c:786
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr ""
+
+#: src/tetrinet.c:803
+#, fuzzy, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c***%c%s%c%ci"
+
+#: src/tetrinet.c:824
+#, fuzzy, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c***%c%s%c%cIbumoso: i"
+
+#: src/tetrinet.c:1062
+#, fuzzy
+msgid "No special blocks"
+msgstr "Bidasanzwe"
+
+# #-#-#-#-#  sc.pot (PACKAGE VERSION)  #-#-#-#-#
+# sc/source\ui\dbgui\scendlg.src:RID_SCDLG_NEWSCENARIO.STR_ON.text
+# #-#-#-#-#  sc.pot (PACKAGE VERSION)  #-#-#-#-#
+# sc/source\ui\src\globstr.src:RID_GLOBSTR.STR_ON.text
+#: src/tetrinet.c:1221 src/tetrinet.c:1228
+#, fuzzy, c-format
+msgid " on %c%c%s%c%c"
+msgstr "ku"
+
+#: src/tetrinet.c:1238
+#, fuzzy
+msgid " to All"
+msgstr "Kuri"
+
+# sc/source\ui\src\globstr.src:RID_GLOBSTR.STR_BY.text
+#: src/tetrinet.c:1244 src/tetrinet.c:1251
+#, fuzzy, c-format
+msgid " by %c%c%s%c%c"
+msgstr "ku"
+
+#: src/tetrinet.c:1879
+#, fuzzy, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr "%c***%c%s%c%cni i Utanga ijambo"
+
+#. remove ", " from end of string
+#: src/tetrinet.c:1928
+#, fuzzy
+msgid " has left the game"
+msgstr "Ibumoso: i"
+
+#: src/tetrinet.c:1929
+#, fuzzy
+msgid " have left the game"
+msgstr "Ibumoso: i"
+
+#: src/tetrinet.c:1942
+#, fuzzy
+msgid " has joined the game"
+msgstr "i"
+
+#: src/tetrinet.c:1943
+#, fuzzy
+msgid " have joined the game"
+msgstr "i"
+
+#: src/tetrinet.c:1966
+#, fuzzy, c-format
+msgid "%s is on team %c%s"
+msgstr "%sni ku"
+
+#: src/tetrinet.c:1969
+#, fuzzy, c-format
+msgid "%s is alone"
+msgstr "%sni"
+
+#: src/tetrinet.c:1971
+#, fuzzy, c-format
+msgid "%s are on team %c%s"
+msgstr "%sku"
+
+#: src/tetrinet.c:1974
+#, c-format
+msgid "%s are alone"
+msgstr ""
+
+#: src/tetrinet.c:2015
+#, fuzzy, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr "%c***%c%s%c%cni NONEAHA ku"
+
+#: src/tetrinet.c:2022
+#, fuzzy, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr "%c***%c%s%c%cni NONEAHA"
+
+# sc/source\core\src\compiler.src:RID_SC_FUNCTION_NAMES.SC_OPCODE_T.text
+#. "T" stands for "Team" here
+#: src/winlist.c:57
+msgid "T"
+msgstr "T"
+
+#: src/winlist.c:61
+msgid "Score"
+msgstr ""
+
+#: gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr ""
+
+#: gtetrinet.desktop.in.h:2
+#, fuzzy
+msgid "Tetrinet client"
+msgstr "Umukiriya"
+
+#: gtetrinet.desktop.in.h:3
+#, fuzzy
+msgid "Tetrinet client for GNOME"
+msgstr "Umukiriya kugirango"
+
+#: gtetrinet.schemas.in.h:1
+#, fuzzy
+msgid "Command to run to play midi files"
+msgstr "Kuri Gukoresha Kuri Gukina MIDI Idosiye"
+
+#: gtetrinet.schemas.in.h:2
+#, fuzzy
+msgid "Enable/disable channel list."
+msgstr "Urutonde"
+
+#: gtetrinet.schemas.in.h:3
+#, fuzzy
+msgid "Enable/disable midi music"
+msgstr "MIDI"
+
+#: gtetrinet.schemas.in.h:4
+#, fuzzy
+msgid "Enable/disable sound"
+msgstr "Ijwi"
+
+#: gtetrinet.schemas.in.h:5
+msgid "Enable/disable timestamps."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:6
+#, fuzzy
+msgid ""
+"Enables/Disables sound. Keep in mind that the theme that you're using must "
+"provide sounds."
+msgstr "Ijwi in i ikoresha Amajwi"
+
+#: gtetrinet.schemas.in.h:7
+#, fuzzy
+msgid ""
+"Enables/disables midi music. You'll need to enable sound if you want music "
+"to work."
+msgstr "MIDI Kuri Gushoboza Ijwi NIBA Kuri Akazi"
+
+#: gtetrinet.schemas.in.h:8
+#, fuzzy
+msgid ""
+"Enables/disables the channel list. Disable it if you experience problems "
+"when connecting or while playing in your favorite tetrinet server."
+msgstr "i Urutonde NIBA Ryari: Kwihuza... Cyangwa in Icyatoranijwe Seriveri"
+
+#: gtetrinet.schemas.in.h:9
+#, fuzzy
+msgid "Enables/disables timestamps in the partyline."
+msgstr "in i"
+
+#: gtetrinet.schemas.in.h:10
+#, fuzzy
+msgid "Key to discard special"
+msgstr "Kuri Kwanga Bidasanzwe"
+
+#: gtetrinet.schemas.in.h:11
+#, fuzzy
+msgid "Key to drop piece"
+msgstr "Kuri"
+
+#: gtetrinet.schemas.in.h:12
+#, fuzzy
+msgid "Key to move down"
+msgstr "Kuri Kwimura Hasi"
+
+#: gtetrinet.schemas.in.h:13
+#, fuzzy
+msgid "Key to move left"
+msgstr "Kuri Kwimura Ibumoso:"
+
+#: gtetrinet.schemas.in.h:14
+#, fuzzy
+msgid "Key to move right"
+msgstr "Kuri Kwimura Iburyo:"
+
+#: gtetrinet.schemas.in.h:15
+#, fuzzy
+msgid "Key to open the fields' message dialog"
+msgstr "Kuri Gufungura i Ubutumwa Ikiganiro"
+
+#: gtetrinet.schemas.in.h:16
+#, fuzzy
+msgid "Key to rotate clockwise"
+msgstr "Kuri Kuzerutsa Mu cyerekezo cy'isaha"
+
+#: gtetrinet.schemas.in.h:17
+#, fuzzy
+msgid "Key to rotate counterclockwise"
+msgstr "Kuri Kuzerutsa"
+
+#: gtetrinet.schemas.in.h:18
+#, fuzzy
+msgid "Key to use the current special on field 1"
+msgstr "Kuri Gukoresha i KIGEZWEHO Bidasanzwe ku Umwanya 1."
+
+#: gtetrinet.schemas.in.h:19
+#, fuzzy
+msgid "Key to use the current special on field 2"
+msgstr "Kuri Gukoresha i KIGEZWEHO Bidasanzwe ku Umwanya 2."
+
+#: gtetrinet.schemas.in.h:20
+#, fuzzy
+msgid "Key to use the current special on field 3"
+msgstr "Kuri Gukoresha i KIGEZWEHO Bidasanzwe ku Umwanya 3."
+
+#: gtetrinet.schemas.in.h:21
+#, fuzzy
+msgid "Key to use the current special on field 4"
+msgstr "Kuri Gukoresha i KIGEZWEHO Bidasanzwe ku Umwanya 4."
+
+#: gtetrinet.schemas.in.h:22
+#, fuzzy
+msgid "Key to use the current special on field 5"
+msgstr "Kuri Gukoresha i KIGEZWEHO Bidasanzwe ku Umwanya 5"
+
+#: gtetrinet.schemas.in.h:23
+#, fuzzy
+msgid "Key to use the current special on field 6"
+msgstr "Kuri Gukoresha i KIGEZWEHO Bidasanzwe ku Umwanya 6"
+
+#: gtetrinet.schemas.in.h:24
+#, fuzzy
+msgid "Server where you want to play"
+msgstr "Kuri Gukina"
+
+#: gtetrinet.schemas.in.h:25
+#, fuzzy
+msgid ""
+"The current theme directory. It should contain a readable \"blocks.png\" and "
+"a \"theme.cfg\"."
+msgstr "KIGEZWEHO bushyinguro a png Na a"
+
+#: gtetrinet.schemas.in.h:26
+#, fuzzy
+msgid "Theme directory, should end with a '/'"
+msgstr "bushyinguro Impera Na: a"
+
+#: gtetrinet.schemas.in.h:27
+#, fuzzy
+msgid ""
+"This command is run when a midi file is to be played. The name of the midi "
+"file is placed in the environment variable MIDIFILE."
+msgstr ""
+"Komandi: ni Gukoresha Ryari: a MIDI IDOSIYE ni Kuri Izina: Bya i MIDI "
+"IDOSIYE ni in i IMPINDURAGACIRO"
+
+#: gtetrinet.schemas.in.h:28
+#, fuzzy
+msgid "This is the server where GTetrinet will try to connect."
+msgstr "ni i Seriveri Kuri Kwihuza"
+
+#: gtetrinet.schemas.in.h:29
+#, fuzzy
+msgid "This key discards the current special. This is case insensitive."
+msgstr "Urufunguzo i KIGEZWEHO Bidasanzwe ni"
+
+#: gtetrinet.schemas.in.h:30
+#, fuzzy
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr "Urufunguzo i Ubutumwa Ikiganiro ni"
+
+#: gtetrinet.schemas.in.h:31
+#, fuzzy
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr "Urufunguzo i Funga Kuri i ni"
+
+#: gtetrinet.schemas.in.h:32
+#, fuzzy
+msgid "This key moves the block down. This is case insensitive."
+msgstr "Urufunguzo i Funga Hasi ni"
+
+#: gtetrinet.schemas.in.h:33
+#, fuzzy
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr "Urufunguzo i Funga Kuri i Ibumoso: ni"
+
+#: gtetrinet.schemas.in.h:34
+#, fuzzy
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr "Urufunguzo i Funga Kuri i Iburyo: ni"
+
+#: gtetrinet.schemas.in.h:35
+#, fuzzy
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr "Urufunguzo i Funga Mu cyerekezo cy'isaha ni"
+
+#: gtetrinet.schemas.in.h:36
+#, fuzzy
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr "Urufunguzo i Funga ni"
+
+#: gtetrinet.schemas.in.h:37
+#, fuzzy
+msgid "This key uses the current special on Player 1's game field."
+msgstr "Urufunguzo i KIGEZWEHO Bidasanzwe ku Umwanya"
+
+#: gtetrinet.schemas.in.h:38
+#, fuzzy
+msgid "This key uses the current special on Player 2's game field."
+msgstr "Urufunguzo i KIGEZWEHO Bidasanzwe ku Umwanya"
+
+#: gtetrinet.schemas.in.h:39
+#, fuzzy
+msgid "This key uses the current special on Player 3's game field."
+msgstr "Urufunguzo i KIGEZWEHO Bidasanzwe ku Umwanya"
+
+#: gtetrinet.schemas.in.h:40
+#, fuzzy
+msgid "This key uses the current special on Player 4's game field."
+msgstr "Urufunguzo i KIGEZWEHO Bidasanzwe ku Umwanya"
+
+#: gtetrinet.schemas.in.h:41
+#, fuzzy
+msgid "This key uses the current special on Player 5's game field."
+msgstr "Urufunguzo i KIGEZWEHO Bidasanzwe ku Umwanya"
+
+#: gtetrinet.schemas.in.h:42
+#, fuzzy
+msgid "This key uses the current special on Player 6's game field."
+msgstr "Urufunguzo i KIGEZWEHO Bidasanzwe ku Umwanya"
+
+#: gtetrinet.schemas.in.h:43
+#, fuzzy
+msgid "This will be the name of your team."
+msgstr "i Izina: Bya"
+
+#: gtetrinet.schemas.in.h:44
+#, fuzzy
+msgid "This will be your nickname in the game."
+msgstr "Irihimbano in i"
+
+#: gtetrinet.schemas.in.h:45
+#, fuzzy
+msgid "Your nickname"
+msgstr "Irihimbano"
+
+#: gtetrinet.schemas.in.h:46
+msgid "Your team"
+msgstr ""
