@@ -1558,37 +1558,37 @@ notfieldkey:
         }
         return TRUE;
     }*/
-    if (gdk_keyval_to_upper (keyval) == keys[K_GAMEMSG]) {
+    if (gdk_keyval_to_lower (keyval) == keys[K_GAMEMSG]) {
         fields_gmsginput (TRUE);
         gmsgstate = 1;
         return TRUE;
     }
     if (paused || !playing) return FALSE;
     /* game keys */
-    if (gdk_keyval_to_upper (keyval) == keys[K_ROTRIGHT]) {
+    if (gdk_keyval_to_lower (keyval) == keys[K_ROTRIGHT]) {
         if (!nextblocktimeout)
             sound_playsound (S_ROTATE);
         tetris_blockrotate (1);
     }
-    else if (gdk_keyval_to_upper (keyval) == keys[K_ROTLEFT]) {
+    else if (gdk_keyval_to_lower (keyval) == keys[K_ROTLEFT]) {
         if (!nextblocktimeout)
             sound_playsound (S_ROTATE);
         tetris_blockrotate (-1);
     }
-    else if (gdk_keyval_to_upper (keyval) == keys[K_RIGHT]) {
+    else if (gdk_keyval_to_lower (keyval) == keys[K_RIGHT]) {
         tetris_blockmove (1);
     }
-    else if (gdk_keyval_to_upper (keyval) == keys[K_LEFT]) {
+    else if (gdk_keyval_to_lower (keyval) == keys[K_LEFT]) {
         tetris_blockmove (-1);
     }
-    else if (gdk_keyval_to_upper (keyval) == keys[K_DOWN]) {
+    else if (gdk_keyval_to_lower (keyval) == keys[K_DOWN]) {
         if (!downpressed) {
             tetrinet_timeout ();
             downpressed = 1;
             tetrinet_settimeout (DOWNDELAY);
         }
     }
-    else if (gdk_keyval_to_upper (keyval) == keys[K_DROP]) {
+    else if (gdk_keyval_to_lower (keyval) == keys[K_DROP]) {
         int sound;
         if (!nextblocktimeout) {
             tetris_blockdrop ();
@@ -1600,7 +1600,7 @@ notfieldkey:
             tetrinet_sendfield (0);
         }
     }
-    else if (gdk_keyval_to_upper (keyval) == keys[K_DISCARD]) {
+    else if (gdk_keyval_to_lower (keyval) == keys[K_DISCARD]) {
         tetrinet_specialkey(-1);
     }
     else switch (keyval) {
@@ -1620,7 +1620,7 @@ notfieldkey:
 void tetrinet_upkey (int keyval)
 {
     if (!playing) return;
-    if (gdk_keyval_to_upper (keyval) == keys[K_DOWN]) {
+    if (gdk_keyval_to_lower (keyval) == keys[K_DOWN]) {
          /* if it is a quick press, nudge it down one more step */
         if (downpressed == 1) tetrinet_timeout ();
         downpressed = 0;

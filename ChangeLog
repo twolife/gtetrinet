@@ -1,3 +1,12 @@
+2003-01-10  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/config.c (config_loadconfig): use gdk_keyval_to_lower instead of
+	gdk_keyval_to_upper, so gtetrinet 0.5.2 configurations are usable with
+	older versions.
+	* src/dialogs.c (key_dialog_callback): likewise.
+	* src/gtetrinet.c (keypress): likewise.
+	* src/tetrinet.c (tetrinet_key): likewise.
+
 2003-01-10  Dani Carbonell  <bocata@panete.net>
 
 	* src/dialogs.c (connectdialog_connected): hide the window only if

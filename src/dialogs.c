@@ -444,7 +444,7 @@ gint keydialog_key;
 
 void key_dialog_callback (GtkWidget *widget, GdkEventKey *key)
 {
-    keydialog_key = gdk_keyval_to_upper (key->keyval);
+    keydialog_key = gdk_keyval_to_lower(key->keyval);
     gnome_dialog_close (GNOME_DIALOG(widget));
 }
 

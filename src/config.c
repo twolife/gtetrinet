@@ -197,21 +197,21 @@ void config_loadconfig (void)
     }
 
     k = gnome_config_get_int ("Keys/Right");
-    keys[K_RIGHT] = gdk_keyval_to_upper (k ? k : defaultkeys[K_RIGHT]);
+    keys[K_RIGHT] = gdk_keyval_to_lower (k ? k : defaultkeys[K_RIGHT]);
     k = gnome_config_get_int ("Keys/Left");
-    keys[K_LEFT] = gdk_keyval_to_upper (k ? k : defaultkeys[K_LEFT]);
+    keys[K_LEFT] = gdk_keyval_to_lower (k ? k : defaultkeys[K_LEFT]);
     k = gnome_config_get_int ("Keys/RotateRight");
-    keys[K_ROTRIGHT] = gdk_keyval_to_upper (k ? k : defaultkeys[K_ROTRIGHT]);
+    keys[K_ROTRIGHT] = gdk_keyval_to_lower (k ? k : defaultkeys[K_ROTRIGHT]);
     k = gnome_config_get_int ("Keys/RotateLeft");
-    keys[K_ROTLEFT] = gdk_keyval_to_upper (k ? k : defaultkeys[K_ROTLEFT]);
+    keys[K_ROTLEFT] = gdk_keyval_to_lower (k ? k : defaultkeys[K_ROTLEFT]);
     k = gnome_config_get_int ("Keys/Down");
-    keys[K_DOWN] = gdk_keyval_to_upper (k ? k : defaultkeys[K_DOWN]);
+    keys[K_DOWN] = gdk_keyval_to_lower (k ? k : defaultkeys[K_DOWN]);
     k = gnome_config_get_int ("Keys/Drop");
-    keys[K_DROP] = gdk_keyval_to_upper (k ? k : defaultkeys[K_DROP]);
+    keys[K_DROP] = gdk_keyval_to_lower (k ? k : defaultkeys[K_DROP]);
     k = gnome_config_get_int ("Keys/Discard");
-    keys[K_DISCARD] = gdk_keyval_to_upper (k ? k : defaultkeys[K_DISCARD]);
+    keys[K_DISCARD] = gdk_keyval_to_lower (k ? k : defaultkeys[K_DISCARD]);
     k = gnome_config_get_int ("Keys/Message");
-    keys[K_GAMEMSG] = gdk_keyval_to_upper (k ? k : defaultkeys[K_GAMEMSG]);
+    keys[K_GAMEMSG] = gdk_keyval_to_lower (k ? k : defaultkeys[K_GAMEMSG]);
 
     gnome_config_pop_prefix ();
 

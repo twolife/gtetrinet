@@ -350,7 +350,7 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
       return TRUE;
     }
     
-    if (game_area && (gdk_keyval_to_upper (key->keyval) == keys[K_GAMEMSG]))
+    if (game_area && (gdk_keyval_to_lower (key->keyval) == keys[K_GAMEMSG]))
     {
       g_signal_handler_block (app, keypress_signal);
       fields_gmsginputactivate (TRUE);
