@@ -3,7 +3,7 @@ SUBDIRS = images
 localedir = $(datadir)/locale
 INCLUDES = -DLOCALEDIR=\"$(localedir)\" $(GTK_CFLAGS) $(GNOME_INCLUDEDIR)
 LDADD = $(GNOME_LIBDIR) $(GNOMEUI_LIBS) $(GTK_LIBS)
-CPPFLAGS = -DGTETRINET_DATA=\"$(pkgdatadir)\"
+AM_CPPFLAGS = -DGTETRINET_DATA=\"$(pkgdatadir)\"
 
 gamesdir = $(prefix)/games
 games_PROGRAMS = gtetrinet

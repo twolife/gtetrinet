@@ -1,5 +1,13 @@
 2002-10-20  Jordi Mallach  <jordi@sindominio.net>
 
+	* NEWS: update for 0.4.3.
+
+	* doc/gtetrinet.6: document the keybind changes.
+
+	* src/Makefile.am: use AM_CPPFLAGS, not CPPFLAGS.
+
+2002-10-20  Jordi Mallach  <jordi@sindominio.net>
+
 	* Patches from James Antill with the following fixes.
 	* src/fields.c (fields_page_contents): change the attack/defense
 	box's minimum size, to avoid message wraps as much as possible.

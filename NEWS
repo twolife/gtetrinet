@@ -1,3 +1,13 @@
+GTetrinet 0.4.3 - Unreleased
+- IPv6 support!
+- Add missing includes so i18n works correctly.
+- Minimize the space used by attacks/defenses.
+- Add different colours to attacks/defenses, depending on their type
+  and who they affect.
+- Fix the random ordering of special blocks.
+- Change keybindings for page switching to Alt-1, Alt-2 and Alt-3.
+  See the manpage.
+
 GTetrinet 0.4.2 - 2002-10-17
 - Pages can now be detached (configure with --enable-detach).
 - TetriFast support.
