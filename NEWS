@@ -1,3 +1,11 @@
+GTetrinet 0.6.2 - 2003-02-07
+- If anyone hasn't noticed yet, we just kick ass.
+- | testing
+  |      n 1: the act of subjecting to experimental test in order to
+  |           determine how well something works; "they agreed to end
+  |           the testing of atomic weapons"
+- Fixed parse error. This version even compiles.
+
 GTetrinet 0.6.1 - 2003-02-07
 - Fixed some startup crashes on some situations where GConf values didn't
   exist.

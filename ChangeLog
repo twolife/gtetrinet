@@ -1,5 +1,9 @@
 2003-02-07  Jordi Mallach  <jordi@sindominio.net>
 
+	* NEWS, configure.in: release 0.6.2. It compiles, promise.
+
+2003-02-07  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/config.c (config_loadtheme): oops... add missing ";" to solve
 	a parse error... we really suck.
 
