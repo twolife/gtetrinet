@@ -1,5 +1,9 @@
 2004-04-16  Dani Carbonell  <bocata@panete.net>
 
+	* configure.in: Released GTetrinet 0.7.6
+
+2004-04-16  Dani Carbonell  <bocata@panete.net>
+
 	* src/dialogs.c (prefdialog_new): fixed the gnome_url button, the
 	webpage name has changed.
 
