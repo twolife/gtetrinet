@@ -1,6 +1,8 @@
 [Desktop Entry]
 Name=GTetrinet
-Comment=Tetrinet clone
+Name[ca]=GTetrinet
+Comment=Tetrinet client for GNOME
+Comment[ca]=Client de Tetrinet per a GNOME
 Exec=gtetrinet
 Icon=gtetrinet.png
 Terminal=0

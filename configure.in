@@ -36,6 +36,7 @@ Makefile
 m4/Makefile 
 po/Makefile.in
 src/Makefile
+src/images/Makefile
 themes/Makefile
 themes/default/Makefile
 themes/small/Makefile

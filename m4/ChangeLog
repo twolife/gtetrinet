@@ -1,3 +1,19 @@
+2002-06-28  Jordi Mallach  <jordi@sindominio.net>
+
+	* Makefile.am: removed gnome-macros.dep from EXTRA_DIST.
+	* gnome.m4: New file, from gnome-common 1.2.4.
+	* gnome-common.m4: Likewise.
+	* gnome-fileutils.m4: Likewise.
+	* gnome-ghttp-check.m4: Likewise.
+	* gnome-gnorba-check.m4: Likewise.
+	* gnome-libgtop-check.m4: Likewise.
+	* gnome-objc-checks.m4: Likewise.
+	* gnome-orbit-check.m4: Likewise.
+	* gnome-pthread-check.m4: Likewise.
+	* gnome-support.m4: Likewise.
+	* gnome-undelfs.m4: Likewise.
+	* gnome-x-checks.m4: Likewise.
+
 2002-06-28  gettextize  <bug-gnu-gettext@gnu.org>
 
 	* codeset.m4: New file, from gettext-0.11.2.

@@ -1,5 +1,15 @@
 2002-06-28  Jordi Mallach  <jordi@sindominio.net>
 
+	* autogen.sh: added.
+
+	* gtetrinet.desktop: added Catalan translations.
+
+	* configure.in: added src/images/Makefile to AC_OUTPUT.
+	* src/Makefile.am: added images to SUBDIRS.
+	* src/images/Makefile.am: added, EXTRA_DIST the images.
+
+2002-06-28  Jordi Mallach  <jordi@sindominio.net>
+
 	* Added internationalization support.
 
 	* Makefile,am: added missing stuff to EXTRA_DIST.
