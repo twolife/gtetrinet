@@ -1,0 +1,893 @@
+# Duit PPRT siapa yang kebas????      
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Hasbullah Bin Pit (sebol) <sebol@ikhlas.com>, 200R31.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ms-longgok\n"
+"POT-Creation-Date: 2003-08-10 17:47+0800\n"
+"PO-Revision-Date: 2003-08-10 21:30+0800\n"
+"Last-Translator: Hasbullah Bin Pit <sebol@ikhlas.com>\n"
+"Language-Team: Projek Gabai <gabai-penyumbang@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/client.c:237
+msgid "Couldn't resolve hostname."
+msgstr "Tak dapat lookup namahos."
+
+#: src/commands.c:45
+msgid "_Connect to server..."
+msgstr "_Sambung ke pelayan..."
+
+#: src/commands.c:46
+msgid "_Disconnect from server"
+msgstr "_Putuskan daripada pelayan"
+
+#: src/commands.c:48
+msgid "Change _team..."
+msgstr "Tukar _pasukan..."
+
+# libgnomeui/gnome-app-helper.c:271
+#: src/commands.c:50
+msgid "_Start game"
+msgstr "_Mula permainan"
+
+# libgnomeui/gnome-app-helper.c:266
+#: src/commands.c:51
+msgid "_Pause game"
+msgstr "_kaku permainan"
+
+# libgnomeui/gnome-app-helper.c:297
+#: src/commands.c:52
+msgid "_End game"
+msgstr "_Tamat permainan"
+
+#: src/commands.c:57
+msgid "Detac_h page..."
+msgstr "_Lerai halaman..."
+
+#: src/commands.c:82
+msgid "Connect"
+msgstr "Sambung"
+
+#: src/commands.c:82
+msgid "Connect to a server"
+msgstr "Sambung ke pelayan"
+
+#: src/commands.c:83
+msgid "Disconnect"
+msgstr "Putus"
+
+#: src/commands.c:83
+msgid "Disconnect from the current server"
+msgstr "Diputuskan daripada pelayan semasa"
+
+#: src/commands.c:85
+msgid "Start game"
+msgstr "Mula permainan"
+
+#: src/commands.c:85
+msgid "Start a new game"
+msgstr "Mula permainan baru"
+
+# libgnomeui/gnome-app-helper.c:297
+#: src/commands.c:86
+msgid "End game"
+msgstr "Tamat permainan"
+
+# libgnomeui/gnome-app-helper.c:298
+#: src/commands.c:86
+msgid "End the current game"
+msgstr "Tamatkan permainan ini"
+
+#: src/commands.c:87
+msgid "Pause game"
+msgstr "Berhenti sejenak"
+
+# libgnomeui/gnome-app-helper.c:267
+#: src/commands.c:87
+msgid "Pause the game"
+msgstr "Kaku permainan"
+
+#: src/commands.c:89
+#: src/dialogs.c:156
+msgid "Change team"
+msgstr "Tukar pasukan"
+
+#: src/commands.c:89
+msgid "Change your current team name"
+msgstr "Tukar nama pasukan semasa anda"
+
+#: src/commands.c:92
+msgid "Detach page"
+msgstr "Lerai halaman"
+
+#: src/commands.c:92
+msgid "Detach the current notebook page"
+msgstr "Lerai halaman bukunota semasa"
+
+#: src/commands.c:258
+msgid "Game in progress"
+msgstr "Permainan dalam progres"
+
+#: src/commands.c:261
+msgid ""
+"Connected to\n"
+""
+msgstr ""
+"Tersambung ke\n"
+""
+
+#: src/commands.c:265
+msgid "Not connected"
+msgstr "Tidak disambung"
+
+#. Translators: translate as your names & emails
+#: src/commands.c:287
+msgid "translator_credits"
+msgstr "translator_credits"
+
+#: src/commands.c:293
+msgid ""
+"A Tetrinet client for GNOME.\n"
+""
+msgstr ""
+"Klien Tetrinet bagi GNOME.\n"
+""
+
+#: src/commands.c:305
+msgid "GTetrinet Home Page"
+msgstr "Laman GTetrinet"
+
+#: src/config.c:134
+msgid "Warning: theme does not have a name, reverting to default."
+msgstr "Amaran: tema tak mempunyai nama, berbalik ke default."
+
+#. make dialog that asks for address/nickname
+#: src/dialogs.c:85
+#: src/dialogs.c:335
+#: src/gtetrinet.c:77
+msgid "Connect to server"
+msgstr "Sambung ke pelayan"
+
+#: src/dialogs.c:169
+msgid "Team name:"
+msgstr "Nama pasukan:"
+
+#: src/dialogs.c:215
+msgid "You must specify a server name."
+msgstr "Anda mesti nyatakan nama pelayan."
+
+#: src/dialogs.c:232
+msgid "Please specify a password to connect as spectator."
+msgstr "Sila nyatakan katalaluan untuk menyambung sebagai pemerhati."
+
+#: src/dialogs.c:258
+msgid "Please specify a valid nickname."
+msgstr "Sila nyatakan namagelaran yang sah."
+
+#. game type radio buttons
+#: src/dialogs.c:364
+msgid "O_riginal"
+msgstr "O_riginal"
+
+#: src/dialogs.c:366
+msgid "Tetri_Fast"
+msgstr "Tetri_Fast"
+
+#: src/dialogs.c:388
+msgid "Server address"
+msgstr "Alamat pelayan"
+
+#: src/dialogs.c:397
+msgid "Connect as a _spectator"
+msgstr "Sambung sebagai pe_merhati"
+
+#: src/dialogs.c:401
+msgid "_Password:"
+msgstr "_Katalaluan:"
+
+#: src/dialogs.c:418
+msgid "Spectate game"
+msgstr "Perhati permainan"
+
+#: src/dialogs.c:427
+msgid "_Nick name:"
+msgstr "Nama _Gelaran:"
+
+#: src/dialogs.c:442
+msgid "_Team name:"
+msgstr "Nama _Pasukan:"
+
+#: src/dialogs.c:462
+msgid "Player information"
+msgstr "Maklumat pemain"
+
+#: src/dialogs.c:503
+msgid "Change Key"
+msgstr "Tukar Kekunci"
+
+#: src/dialogs.c:554
+msgid "Move right"
+msgstr "Gerakan ke kanan"
+
+#: src/dialogs.c:555
+msgid "Move left"
+msgstr "Gerakan kekiri"
+
+#: src/dialogs.c:556
+msgid "Move down"
+msgstr "Turun bawah"
+
+#: src/dialogs.c:557
+msgid "Rotate right"
+msgstr "Kilas ke kanan"
+
+#: src/dialogs.c:558
+msgid "Rotate left"
+msgstr "Kilas ke kiri"
+
+#: src/dialogs.c:559
+msgid "Drop piece"
+msgstr "Jatuhkan cebisan"
+
+#: src/dialogs.c:560
+msgid "Discard special"
+msgstr "Buang IstimewaTepek istimewa"
+
+#: src/dialogs.c:561
+msgid "Send message"
+msgstr "Kirim mesej"
+
+#: src/dialogs.c:562
+msgid "Special to field 1"
+msgstr "Istimewa ke medan 1"
+
+#: src/dialogs.c:563
+msgid "Special to field 2"
+msgstr "Istimewa ke medan 2"
+
+#: src/dialogs.c:564
+msgid "Special to field 3"
+msgstr "Istimewa ke medan 3"
+
+#: src/dialogs.c:565
+msgid "Special to field 4"
+msgstr "Istimewa ke medan 4"
+
+#: src/dialogs.c:566
+msgid "Special to field 5"
+msgstr "Istimewa ke medan 5"
+
+#: src/dialogs.c:567
+msgid "Special to field 6"
+msgstr "Istimewa ke medan 6"
+
+#: src/dialogs.c:627
+#, c-format
+msgid "Press new key for \"%s\""
+msgstr "Tekan kekunci baru \"%s\""
+
+#: src/dialogs.c:844
+msgid "GTetrinet Preferences"
+msgstr "Keutamaan GTetrinet"
+
+#: src/dialogs.c:867
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr ""
+"Pilih tema drpd senarai.\n"
+"Pasang tema baru di ~/.gtetrinet/themes/"
+
+#: src/dialogs.c:875
+msgid "Name:"
+msgstr "Nama:"
+
+#: src/dialogs.c:879
+msgid "Author:"
+msgstr "Penulis:"
+
+#: src/dialogs.c:883
+msgid "Description:"
+msgstr "Huraian:"
+
+#: src/dialogs.c:901
+msgid "Selected Theme"
+msgstr "Tema Dipilih"
+
+# Duit PPRT siapa yang kebas????      
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Hasbullah Bin Pit (sebol) <sebol@ikhlas.com>, 2001.
+#
+#: src/dialogs.c:920
+msgid "Themes"
+msgstr "Tema"
+
+#. partyline
+#: src/dialogs.c:925
+msgid "Enable _Timestamps"
+msgstr "Hidupkan _Setem masa"
+
+#: src/dialogs.c:927
+msgid "Enable Channel _List"
+msgstr "Hidupkan Senarai _Saluran"
+
+#. FIXME
+#: src/dialogs.c:953
+#: src/gtetrinet.c:281
+msgid "Partyline"
+msgstr "Partyline"
+
+#: src/dialogs.c:964
+msgid "Action"
+msgstr "Aksi"
+
+#: src/dialogs.c:966
+msgid "Key"
+msgstr "Kekunci"
+
+#: src/dialogs.c:972
+msgid "Select an action from the list and press Change Key to change the key associated with the action."
+msgstr "Pilih aksi drpd senarai dan tekan Tukar Kekunci untuk menukar kekunci yang dikaitkan dengan aksi."
+
+#: src/dialogs.c:979
+msgid "Change _key..."
+msgstr "Tukar _kekunci..."
+
+#: src/dialogs.c:984
+#: src/dialogs.c:1037
+msgid "_Restore defaults"
+msgstr "_Pulihkan default"
+
+#: src/dialogs.c:1005
+msgid "Keyboard"
+msgstr "Papan Kekunci"
+
+#. sound
+#: src/dialogs.c:1010
+msgid "Enable _Sound"
+msgstr "Hidupkan _Bunyi"
+
+#: src/dialogs.c:1013
+msgid "Enable _MIDI"
+msgstr "Hidupkan _Midi"
+
+#: src/dialogs.c:1027
+msgid "Enter command to play a midi file:"
+msgstr "Masukkan arahan untuk memain fail midi:"
+
+#: src/dialogs.c:1030
+msgid "The above command is run when a midi file is to be played.  The name of the midi file is placed in the environment variable MIDIFILE."
+msgstr "Arahan di atas dilaksanakan bila fail midi dimainkan. Nama bagi fail midi diletak pada pembolehubah persekitaran MIDIFILE."
+
+#: src/dialogs.c:1067
+msgid "Sound"
+msgstr "Bunyi"
+
+#: src/fields.c:87
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr ""
+"Ralat memuatkan tema: tak dapat memuatkan fail grafik\n"
+"Berbalik ke default"
+
+#. shouldnt happen
+#: src/fields.c:96
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+""
+msgstr ""
+"Ralat memuatkan tema default: Membatal...\n"
+"Periksa ralat pemasangan\n"
+""
+
+#: src/fields.c:217
+msgid "Next piece:"
+msgstr "Cebisan berikutnya:"
+
+#: src/fields.c:234
+msgid "Lines:"
+msgstr "Baris:"
+
+#: src/fields.c:238
+msgid "Level:"
+msgstr "Peringkat:"
+
+#: src/fields.c:240
+msgid "Active level:"
+msgstr "Peringkat aktif:"
+
+#: src/fields.c:288
+msgid "Attacks and defenses:"
+msgstr "Serang akan pertahan:"
+
+#: src/fields.c:432
+msgid "Not playing"
+msgstr "Tak bermain"
+
+#: src/fields.c:463
+msgid "Specials:"
+msgstr "Istimewa:"
+
+#: src/gtetrinet.c:77
+msgid "SERVER"
+msgstr "PELAYAN"
+
+#: src/gtetrinet.c:78
+msgid "Set nickname to use"
+msgstr "Tetapkan namagelaran untuk digunakan"
+
+#: src/gtetrinet.c:78
+msgid "NICKNAME"
+msgstr "NAMAGELARAN"
+
+#: src/gtetrinet.c:79
+msgid "Set team name"
+msgstr "Tetapkan nama pasukan"
+
+#: src/gtetrinet.c:79
+msgid "TEAM"
+msgstr "PASUKAN"
+
+#: src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "Sambung ke pemerhati"
+
+#: src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr "Katalaluan pemerhati"
+
+#: src/gtetrinet.c:81
+msgid "PASSWORD"
+msgstr "KATALALUAN"
+
+#: src/gtetrinet.c:120
+#, c-format
+msgid ""
+"Failed to init GConf: %s\n"
+""
+msgstr ""
+"Gagal menginit GConf: %s\n"
+""
+
+#. FIXME
+#: src/gtetrinet.c:270
+#: src/gtetrinet.c:416
+#: src/gtetrinet.c:470
+msgid "Playing Fields"
+msgstr "Bermain Medan"
+
+#  FIXME
+#: src/gtetrinet.c:292
+msgid "Winlist"
+msgstr "Winlist"
+
+#: src/partyline.c:77
+#: src/partyline.c:138
+#: src/winlist.c:59
+msgid "Name"
+msgstr "Nama"
+
+#: src/partyline.c:79
+msgid "Players"
+msgstr "Pemain"
+
+#: src/partyline.c:81
+msgid "State"
+msgstr "Keadaan"
+
+#: src/partyline.c:83
+msgid "Description"
+msgstr "Huraian"
+
+#: src/partyline.c:95
+msgid "Channel List"
+msgstr "Senarai Saluran"
+
+# #########################################################################
+# Ini bukan istilah rasmi yang diiktiraf oleh DBP.
+# Ini hanyalah piawai istilah sementara yang digunakan untuk lokalisasi
+# Perisian-perisian  Bahasa Melayu. 
+# kalau nak tunggu DBP, sampai GNOME 10.0 pun belum tentu ada Istilah UI.
+# Sila baca, perhati dan komen jika perlu     
+# terdapat banyak lagi istilah yang tidak pasti oleh itu, 
+# sila cadangkan apa yang patut ditukar.
+# #############################################
+# Copyright (C) 2001,2002 Free Software Foundation, Inc.
+# Hasbullah Bin Pit <sebol@ikhlas.com>, 2001,2002.
+#
+#: src/partyline.c:140
+msgid "Team"
+msgstr "Pasukan"
+
+#: src/partyline.c:153
+msgid "Your name:"
+msgstr "Nama anda:"
+
+#: src/partyline.c:160
+msgid "Your team:"
+msgstr "Pasukan anda:"
+
+#: src/partyline.c:665
+msgid "Talking in channel"
+msgstr "Bercakap di saluran"
+
+#: src/partyline.c:667
+msgid "Disconnected"
+msgstr "Terputus"
+
+#: src/tetrinet.c:194
+msgid "Server disconnected"
+msgstr "Pelayan terputus"
+
+#: src/tetrinet.c:214
+#, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c*** Diputuskan daripada pelayan"
+
+#: src/tetrinet.c:226
+msgid "Error connecting: "
+msgstr "Ralat menyambung: "
+
+#: src/tetrinet.c:259
+#, c-format
+msgid "%c%c*** Connected to server"
+msgstr "%c%c*** Tersambung ke pelayan"
+
+#: src/tetrinet.c:360
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr "%c%c*** Anda telah ditendang dari permainan"
+
+#: src/tetrinet.c:364
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr "%c*** %c%s%c%c telah ditendang daripada permainan"
+
+#: src/tetrinet.c:539
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr "%c*** Pasukan %c%s%c%c telah memenangi permainan"
+
+#: src/tetrinet.c:545
+#, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr "%c*** %c%s%c%c telah memenangi permainan"
+
+#: src/tetrinet.c:605
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr "%c*** Permainan telah %cbermula"
+
+#: src/tetrinet.c:631
+#, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "%c*** Permainan %cdalam progres"
+
+#: src/tetrinet.c:643
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr "%c*** Permainan %cdikakukan"
+
+#: src/tetrinet.c:645
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr "Permainan telah %c%cdikaku"
+
+#: src/tetrinet.c:650
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr "%c*** Permainan %cdisambung"
+
+#: src/tetrinet.c:652
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr "Permainan %c%cdisambung"
+
+#: src/tetrinet.c:661
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr "%c*** Permainan %ctamat"
+
+#: src/tetrinet.c:772
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr "%c*** Anda telah menyertai %c%s%c%c"
+
+#: src/tetrinet.c:789
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c menyertai sebagai pemerhati %c%c(%c%s%c%c%c)"
+
+#: src/tetrinet.c:810
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c telah keluar drpd pemerhati %c%c(%c%s%c%c%c)"
+
+#: src/tetrinet.c:1048
+msgid "No special blocks"
+msgstr "Tiada blok istimewa"
+
+#: src/tetrinet.c:1207
+#: src/tetrinet.c:1214
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr " pada %c%c%s%c%c"
+
+#: src/tetrinet.c:1224
+msgid " to All"
+msgstr " kepada Semua"
+
+#: src/tetrinet.c:1230
+#: src/tetrinet.c:1237
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr " oleh %c%c%s%c%c"
+
+#: src/tetrinet.c:1865
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr "%c*** %c%s%c%c adalah moderator"
+
+# libgnomeui/gnome-app-helper.c:267
+#. remove ", " from end of string
+#: src/tetrinet.c:1914
+msgid " has left the game"
+msgstr " telah keluar permainan"
+
+# libgnomeui/gnome-app-helper.c:267
+#: src/tetrinet.c:1915
+msgid " have left the game"
+msgstr " telah keluar permainan"
+
+# libgnomeui/gnome-app-helper.c:267
+#: src/tetrinet.c:1928
+msgid " has joined the game"
+msgstr " telah menyertai permainan"
+
+#: src/tetrinet.c:1929
+msgid " have joined the game"
+msgstr " telah menyertai permainan"
+
+#: src/tetrinet.c:1952
+#, c-format
+msgid "%s is on team %c%s"
+msgstr "%s adalah dalam pasukan %c%s"
+
+#: src/tetrinet.c:1955
+#, c-format
+msgid "%s is alone"
+msgstr "%s bersendirian"
+
+#: src/tetrinet.c:1957
+#, c-format
+msgid "%s are on team %c%s"
+msgstr "%s adalah dlm pasukan %c%s"
+
+#: src/tetrinet.c:1960
+#, c-format
+msgid "%s are alone"
+msgstr "%s bersendirian"
+
+#: src/tetrinet.c:2001
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr "%c*** %c%s%c%c kini dalam pasukan %c%s"
+
+#: src/tetrinet.c:2008
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr "%c*** %c%s%c%c kini bersendirian"
+
+#. "T" stands for "Team" here
+#: src/winlist.c:57
+msgid "T"
+msgstr "P"
+
+# #-#-#-#-#  longgok.edited (longokan)  #-#-#-#-#
+# libgnomeui/gnome-scores.c:102
+#: src/winlist.c:61
+msgid "Score"
+msgstr "Mata"
+
+#: gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr "GTetrinet"
+
+#: gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "Klien Tetrinet"
+
+#: gtetrinet.desktop.in.h:3
+msgid "Tetrinet client for GNOME"
+msgstr "Klien Tetrinet bagi GNOME"
+
+#: gtetrinet.schemas.in.h:1
+msgid "Command to run to play midi files"
+msgstr "Arahan untuk dilaksanakan memain fail midi"
+
+#: gtetrinet.schemas.in.h:2
+msgid "Enable/disable channel list."
+msgstr "Hidupkan/matikan senarai saluran."
+
+#: gtetrinet.schemas.in.h:3
+msgid "Enable/disable midi music"
+msgstr "Hidupkan/matikan muzik midi"
+
+#: gtetrinet.schemas.in.h:4
+msgid "Enable/disable sound"
+msgstr "Hidupkan/matikan bunyi"
+
+#: gtetrinet.schemas.in.h:5
+msgid "Enable/disable timestamps."
+msgstr "Hidupkan/matikan setem masa."
+
+#: gtetrinet.schemas.in.h:6
+msgid "Enables/Disables sound. Keep in mind that the theme that you're using must provide sounds."
+msgstr "Hidupkan/Maszikan bunyi. Diingatkan bahawa tema yang anda guna mesti membekalkan bunyi."
+
+#: gtetrinet.schemas.in.h:7
+msgid "Enables/disables midi music. You'll need to enable sound if you want music to work."
+msgstr "Hidupkan/Maszikan muzik midi. Anda akan perlu menghidupkan bunyi jika anda ingin muzik bekerja."
+
+#: gtetrinet.schemas.in.h:8
+msgid "Enables/disables the channel list. Disable it if you experience problems when connecting or while playing in your favorite tetrinet server."
+msgstr "Hidupkan/matikan senarai saluran. matikan ia jika anda mengalami masalah bila menyambung akan ketika bermain pada pelayan tetrinet kegemaran anda."
+
+#: gtetrinet.schemas.in.h:9
+msgid "Enables/disables timestamps in the partyline."
+msgstr "Hidupkan/matikan setemmasa pada partyline."
+
+#: gtetrinet.schemas.in.h:10
+msgid "Key to discard special"
+msgstr "Kekunci untuk "
+
+#: gtetrinet.schemas.in.h:11
+msgid "Key to drop piece"
+msgstr "Kekunci untuk menjatuhkan cebisan"
+
+#: gtetrinet.schemas.in.h:12
+msgid "Key to move down"
+msgstr "Kekunci untuk turun bawah"
+
+#: gtetrinet.schemas.in.h:13
+msgid "Key to move left"
+msgstr "Kekunci untuk bergerak ke kiri"
+
+#: gtetrinet.schemas.in.h:14
+msgid "Key to move right"
+msgstr "Kekunci untuk bergerak ke kanan"
+
+#: gtetrinet.schemas.in.h:15
+msgid "Key to open the fields' message dialog"
+msgstr "keekunci untuk membuka mesej dialog medan"
+
+#: gtetrinet.schemas.in.h:16
+msgid "Key to rotate clockwise"
+msgstr "Kekunci untuk kilas ikut jam"
+
+#: gtetrinet.schemas.in.h:17
+msgid "Key to rotate counterclockwise"
+msgstr "Kekunci untuk kilas berlawanan jam"
+
+#: gtetrinet.schemas.in.h:18
+msgid "Key to use the current special on field 1"
+msgstr "Kekunci digunakan pada istemewa semasa pada medan 1"
+
+#: gtetrinet.schemas.in.h:19
+msgid "Key to use the current special on field 2"
+msgstr "Kekunci digunakan pada istemewa semasa pada medan 2"
+
+#: gtetrinet.schemas.in.h:20
+msgid "Key to use the current special on field 3"
+msgstr "Kekunci digunakan pada istemewa semasa pada medan 3"
+
+#: gtetrinet.schemas.in.h:21
+msgid "Key to use the current special on field 4"
+msgstr "Kekunci digunakan pada istemewa semasa pada medan 4"
+
+#: gtetrinet.schemas.in.h:22
+msgid "Key to use the current special on field 5"
+msgstr "Kekunci digunakan pada istemewa semasa pada medan 5"
+
+#: gtetrinet.schemas.in.h:23
+msgid "Key to use the current special on field 6"
+msgstr "Kekunci digunakan pada istemewa semasa pada medan 6"
+
+#: gtetrinet.schemas.in.h:24
+msgid "Server where you want to play"
+msgstr "Pelayan dimana anda ingin bermain"
+
+#: gtetrinet.schemas.in.h:25
+msgid "The current theme directory. It should contain a readable \"blocks.png\" and a \"theme.cfg\"."
+msgstr "Direktori tema semasa. Ia patut mengandungi  \"blocks.png\" dan \"theme.cfg\" yg boleh dibaca."
+
+#: gtetrinet.schemas.in.h:26
+msgid "Theme directory, should end with a '/'"
+msgstr "Direktori tema, patut berakhir dengan '/'"
+
+#: gtetrinet.schemas.in.h:27
+msgid "This command is run when a midi file is to be played. The name of the midi file is placed in the environment variable MIDIFILE."
+msgstr "Arahan ini dilaksanakan bila fail midi dimainkan. Nama bagi fail midi diletak pada pembolehubah persekitaran MIDIFILE."
+
+#: gtetrinet.schemas.in.h:28
+msgid "This is the server where GTetrinet will try to connect."
+msgstr "Ini adalah pelayan dimana Gtetrinet cuba sambung."
+
+#: gtetrinet.schemas.in.h:29
+msgid "This key discards the current special. This is case insensitive."
+msgstr "kekunci ini membuang istimewa semasa. Ianya sensitif huruf besar/kecil."
+
+#: gtetrinet.schemas.in.h:30
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr "Kekunci ini memapar kekotak dialog medan. ianya sensitif huruf kecil/besar."
+
+#: gtetrinet.schemas.in.h:31
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr "Kekunci ini menjatuhkan blok ke tanah. Ianya sensitif huruf kecil/besar."
+
+#: gtetrinet.schemas.in.h:32
+msgid "This key moves the block down. This is case insensitive."
+msgstr "Kekunci ini menggerakkan blok ke bawah. Ia sensitif huruf kecil/besar."
+
+#: gtetrinet.schemas.in.h:33
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr "Kekunci ini menjatuhkan blok ke kiri. Ianya sensitif huruf kecil/besar."
+
+#: gtetrinet.schemas.in.h:34
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr "Kekunci ini menggerakkan blok ke kanan. Ianya sensitif huruf kecil/besar."
+
+#: gtetrinet.schemas.in.h:35
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr "Kekunci ini mengkilaskan blok ikut jam. Ia sensitif huruf kecil/besar."
+
+#: gtetrinet.schemas.in.h:36
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr "Kekunci ini mengkilaskan blok berlawanan jam. Ia sensitif huruf kecil/besar."
+
+#: gtetrinet.schemas.in.h:37
+msgid "This key uses the current special on Player 1's game field."
+msgstr "Kekunci ini digunakan istimewa semasa pada medan permainan Pemain 1"
+
+#: gtetrinet.schemas.in.h:38
+msgid "This key uses the current special on Player 2's game field."
+msgstr "Kekunci ini digunakan istimewa semasa pada medan permainan Pemain 2"
+
+#: gtetrinet.schemas.in.h:39
+msgid "This key uses the current special on Player 3's game field."
+msgstr "Kekunci ini digunakan istimewa semasa pada medan permainan Pemain 3"
+
+#: gtetrinet.schemas.in.h:40
+msgid "This key uses the current special on Player 4's game field."
+msgstr "Kekunci ini digunakan istimewa semasa pada medan permainan Pemain 4"
+
+#: gtetrinet.schemas.in.h:41
+msgid "This key uses the current special on Player 5's game field."
+msgstr "Kekunci ini digunakan istimewa semasa pada medan permainan Pemain 5"
+
+#: gtetrinet.schemas.in.h:42
+msgid "This key uses the current special on Player 6's game field."
+msgstr "Kekunci ini digunakan istimewa semasa pada medan permainan Pemain 6"
+
+#: gtetrinet.schemas.in.h:43
+msgid "This will be the name of your team."
+msgstr "Ini akan menjadi nama bagi pasukan anda"
+
+#: gtetrinet.schemas.in.h:44
+msgid "This will be your nickname in the game."
+msgstr "Ini akan menjadi nama gelaran anda dalam permainan."
+
+#: gtetrinet.schemas.in.h:45
+msgid "Your nickname"
+msgstr "Gelaran anda"
+
+#: gtetrinet.schemas.in.h:46
+msgid "Your team"
+msgstr "Pasukan anda"
+
