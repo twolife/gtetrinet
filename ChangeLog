@@ -1,5 +1,10 @@
 2002-10-14  Jordi Mallach  <jordi@sindominio.net>
 
+	* Makefile.am: add a "changelog" target, generates a CVS-based
+	changelog. Requires cvs2cl.
+
+2002-10-14  Jordi Mallach  <jordi@sindominio.net>
+
 	* NEWS: update for 0.4.2.
 
 2002-10-14  Jordi Mallach  <jordi@sindominio.net>
