@@ -1,3 +1,7 @@
+2003-02-18  Jordi Mallach  <jordi@sindominio.net>
+
+	* Makefile.am (INCLUDES): removed, not needed here.
+
 2003-02-17  Dani Carbonell  <bocata@panete.net>
 
 	* src/partyline.c: slightly modified the partyline UI. Added the

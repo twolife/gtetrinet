@@ -13,8 +13,6 @@ util_in_files = gtetrinet.desktop.in
 util_DATA = $(util_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-INCLUDES = -DGTK_DISABLE_DEPRECATED
-
 EXTRA_DIST = ABOUT-NLS AUTHORS COPYING ChangeLog INSTALL NEWS README	\
 	     TODO config.guess config.sub config.rpath install-sh	\
 	     intltool-extract.in intltool-merge.in intltool-update.in \
