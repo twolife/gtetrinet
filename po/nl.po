@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet gnome2\n"
-"POT-Creation-Date: 2003-02-02 19:23+0100\n"
-"PO-Revision-Date: 2003-02-03 02:06+0100\n"
+"POT-Creation-Date: 2003-02-12 04:10+0100\n"
+"PO-Revision-Date: 2003-02-12 08:53+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -84,7 +84,7 @@ msgstr "Spel beëindigen"
 msgid "End the current game"
 msgstr "Het huidige spel beëindigen"
 
-#: src/commands.c:82 src/dialogs.c:149
+#: src/commands.c:82 src/dialogs.c:154
 msgid "Change team"
 msgstr "Team veranderen"
 
@@ -129,111 +129,117 @@ msgstr "Een Tetrinet-cliënt voor GNOME.\n"
 msgid "GTetrinet Home Page"
 msgstr "GTetrinets internetpagina"
 
-#: src/config.c:88
+# misschien: traceren ipv oplossen, of
+# Kon het adres dat bij hostnaam hoort niet vinden
+#: src/client.c:237
+msgid "Couldn't resolve hostname."
+msgstr "Kon de hostnaam niet oplossen."
+
+#: src/config.c:133
 msgid "Warning: theme does not have a name"
 msgstr "Waarschuwing: thema heeft geen naam"
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:83 src/dialogs.c:296 src/gtetrinet.c:77
+#: src/dialogs.c:84 src/dialogs.c:329 src/gtetrinet.c:77
 msgid "Connect to server"
 msgstr "Verbinden met server"
 
-#: src/dialogs.c:161 src/dialogs.c:394
+#: src/dialogs.c:166 src/dialogs.c:428
 msgid "Team name:"
 msgstr "Teamnaam:"
 
-#: src/dialogs.c:200
+#: src/dialogs.c:210
 msgid "You must specify a server name."
 msgstr "U moet een servernaam opgeven."
 
-#: src/dialogs.c:210
+#: src/dialogs.c:227
 msgid "Please specify a password to connect as spectator."
 msgstr "Geef een wachtwoord om in te kunnen loggen als toeschouwer."
 
-#: src/dialogs.c:225
+#: src/dialogs.c:253
 msgid "Please specify a valid nickname."
 msgstr "Geef een geldige bijnaam."
 
 #. game type radio buttons
-#: src/dialogs.c:322
+#: src/dialogs.c:356
 msgid "Original"
 msgstr "Origineel"
 
-#: src/dialogs.c:324
+#: src/dialogs.c:358
 msgid "TetriFast"
 msgstr "TetriFast"
 
-#: src/dialogs.c:346
+#: src/dialogs.c:380
 msgid "Server address"
 msgstr "Server-adres"
 
-#: src/dialogs.c:355 src/gtetrinet.c:80
+#: src/dialogs.c:389 src/gtetrinet.c:80
 msgid "Connect as a spectator"
 msgstr "Aanmelden als toeschouwer"
 
-#: src/dialogs.c:359
+#: src/dialogs.c:393
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#: src/dialogs.c:373
+#: src/dialogs.c:407
 msgid "Spectate game"
 msgstr "Spel bekijken"
 
-#: src/dialogs.c:382
+#: src/dialogs.c:416
 msgid "Nick name:"
 msgstr "Bijnaam:"
 
-#: src/dialogs.c:411
+#: src/dialogs.c:445
 msgid "Player information"
 msgstr "Spelerinformatie"
 
-#: src/dialogs.c:452
+#: src/dialogs.c:486
 msgid "Change Key"
 msgstr "Toets veranderen"
 
-#: src/dialogs.c:512
+#: src/dialogs.c:536
 msgid "Move right"
 msgstr "Naar rechts"
 
-#: src/dialogs.c:513
+#: src/dialogs.c:537
 msgid "Move left"
 msgstr "Naar links"
 
-#: src/dialogs.c:514
+#: src/dialogs.c:538
 msgid "Move down"
 msgstr "Naar beneden"
 
-#: src/dialogs.c:515
+#: src/dialogs.c:539
 msgid "Rotate right"
 msgstr "Rechts draaien"
 
-#: src/dialogs.c:516
+#: src/dialogs.c:540
 msgid "Rotate left"
 msgstr "Links draaien"
 
 # hier vrij vertaald, de bedoeling is duidelijk
-#: src/dialogs.c:517
+#: src/dialogs.c:541
 msgid "Drop piece"
 msgstr "Laten vallen"
 
-#: src/dialogs.c:518
+#: src/dialogs.c:542
 msgid "Discard special"
 msgstr "Speciaale verwerpen"
 
-#: src/dialogs.c:519
+#: src/dialogs.c:543
 msgid "Send message"
 msgstr "Stuur bericht"
 
-#: src/dialogs.c:583
+#: src/dialogs.c:597
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Geef nieuwe toets voor \"%s\""
 
-#: src/dialogs.c:783
+#: src/dialogs.c:801
 msgid "GTetrinet Preferences"
 msgstr "GTetrinet Voorkeuren"
 
-#: src/dialogs.c:801
+#: src/dialogs.c:824
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -241,35 +247,35 @@ msgstr ""
 "Selecteer een thema uit de lijst.\n"
 "Installeer nieuwe thema's in ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:809
+#: src/dialogs.c:832
 msgid "Name:"
 msgstr "Naam:"
 
-#: src/dialogs.c:813
+#: src/dialogs.c:836
 msgid "Author:"
 msgstr "Auteur:"
 
-#: src/dialogs.c:817
+#: src/dialogs.c:840
 msgid "Description:"
 msgstr "Beschrijving:"
 
-#: src/dialogs.c:835
+#: src/dialogs.c:858
 msgid "Selected Theme"
 msgstr "Geselecteerd thema"
 
-#: src/dialogs.c:854
+#: src/dialogs.c:877
 msgid "Themes"
 msgstr "Themas"
 
-#: src/dialogs.c:860
+#: src/dialogs.c:888
 msgid "Action"
 msgstr "Aktie"
 
-#: src/dialogs.c:862
+#: src/dialogs.c:890
 msgid "Key"
 msgstr "Toets"
 
-#: src/dialogs.c:868
+#: src/dialogs.c:896
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -277,32 +283,32 @@ msgstr ""
 "Selecteer een aktie uit de lijst en druk op 'Toets veranderen' om een andere "
 "toets te koppelen aan de aktie."
 
-#: src/dialogs.c:874
+#: src/dialogs.c:902
 msgid "Change key..."
 msgstr "Toets veranderen..."
 
-#: src/dialogs.c:879 src/dialogs.c:932
+#: src/dialogs.c:907 src/dialogs.c:960
 msgid "Restore defaults"
 msgstr "Standaarden terugzetten"
 
-#: src/dialogs.c:900
+#: src/dialogs.c:928
 msgid "Keyboard"
 msgstr "Toetsenbord"
 
 #. sound
-#: src/dialogs.c:905
+#: src/dialogs.c:933
 msgid "Enable Sound"
 msgstr "Geluid aanzetten"
 
-#: src/dialogs.c:908
+#: src/dialogs.c:936
 msgid "Enable MIDI"
 msgstr "MIDI aanzetten"
 
-#: src/dialogs.c:922
+#: src/dialogs.c:950
 msgid "Enter command to play a midi file:"
 msgstr "Opdracht om een midi-bestand af te spelen:"
 
-#: src/dialogs.c:925
+#: src/dialogs.c:953
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -311,11 +317,11 @@ msgstr ""
 "afgespeeld.  De naam van het midi-bestand wordt opgeslagen in de "
 "omgevingsvariabele MIDIFILE."
 
-#: src/dialogs.c:962
+#: src/dialogs.c:990
 msgid "Sound"
 msgstr "Geluid"
 
-#: src/fields.c:68
+#: src/fields.c:72
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
@@ -324,7 +330,7 @@ msgstr ""
 "Terugvallen naar de standaard"
 
 #. shouldnt happen
-#: src/fields.c:76
+#: src/fields.c:80
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
@@ -332,31 +338,31 @@ msgstr ""
 "Fout bij laden standaard-thema: Afbreken...\n"
 "Controleer op installatiefouten\n"
 
-#: src/fields.c:194
+#: src/fields.c:195
 msgid "Next piece:"
 msgstr "Volgende stuk:"
 
-#: src/fields.c:215
+#: src/fields.c:212
 msgid "Lines:"
 msgstr "Regels:"
 
-#: src/fields.c:221
+#: src/fields.c:216
 msgid "Level:"
 msgstr "Niveau:"
 
-#: src/fields.c:224
+#: src/fields.c:218
 msgid "Active level:"
 msgstr "Huidige niveau:"
 
-#: src/fields.c:277
+#: src/fields.c:266
 msgid "Attacks and defenses:"
 msgstr "Aanval en verdediging:"
 
-#: src/fields.c:414
+#: src/fields.c:405
 msgid "Not playing"
 msgstr "Niet spelend"
 
-#: src/fields.c:445
+#: src/fields.c:436
 msgid "Specials:"
 msgstr "Speciale:"
 
@@ -389,192 +395,196 @@ msgstr "Toeschouwer-wachtwoord"
 msgid "PASSWORD"
 msgstr "PASSWORD"
 
-#: src/gtetrinet.c:172
+#: src/gtetrinet.c:120
 #, c-format
 msgid "Failed to init GConf: %s\n"
 msgstr "Initialiseren GConf muslukt: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:276 src/gtetrinet.c:416 src/gtetrinet.c:467
+#: src/gtetrinet.c:235 src/gtetrinet.c:379 src/gtetrinet.c:430
 msgid "Playing Fields"
 msgstr "Speelvelden"
 
 #. FIXME
-#: src/gtetrinet.c:287
+#: src/gtetrinet.c:246
 msgid "Partyline"
 msgstr "Party-lijn"
 
 #. FIXME
-#: src/gtetrinet.c:298
+#: src/gtetrinet.c:257
 msgid "Winlist"
 msgstr "Winlist"
 
-#: src/partyline.c:89 src/winlist.c:47
+#: src/partyline.c:90 src/winlist.c:47
 msgid "Name"
 msgstr "Naam"
 
-#: src/partyline.c:91
+#: src/partyline.c:92
 msgid "Team"
 msgstr "Team"
 
-#: src/partyline.c:105
+#: src/partyline.c:106
 msgid "Your name:"
 msgstr "Uw naam:"
 
-#: src/partyline.c:114
+#: src/partyline.c:115
 msgid "Your team:"
 msgstr "Uw team:"
 
-#: src/tetrinet.c:200
+#: src/tetrinet.c:182
+msgid "Server disconnected"
+msgstr "Server niet verbonden"
+
+#: src/tetrinet.c:201
 #, c-format
 msgid "%c%c*** Disconnected from server"
 msgstr "%c%c*** Verbinding met server verbroken"
 
-#: src/tetrinet.c:209
+#: src/tetrinet.c:210
 msgid "Error connecting: "
 msgstr "Fout bij verbinding maken: "
 
-#: src/tetrinet.c:238
+#: src/tetrinet.c:242
 #, c-format
 msgid "%c%c*** Connected to server"
 msgstr "%c%c*** Verbonden met server"
 
-#: src/tetrinet.c:336
+#: src/tetrinet.c:340
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
 msgstr "%c%c*** U bent uit het spel gehaald"
 
-#: src/tetrinet.c:340
+#: src/tetrinet.c:344
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
 msgstr "%c*** %c%s%c%c is uit het spel gehaald"
 
-#: src/tetrinet.c:432
+#: src/tetrinet.c:436
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
 msgstr "%c*** Team %c%s%c%c heeft het spel gewonnen"
 
-#: src/tetrinet.c:438
+#: src/tetrinet.c:442
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
 msgstr "%c*** %c%s%c%c heeft het spel gewonnen<"
 
-#: src/tetrinet.c:498
+#: src/tetrinet.c:502
 #, c-format
 msgid "%c*** The game has %cstarted"
 msgstr "%c*** Het spel is %cbegonnen"
 
-#: src/tetrinet.c:523
+#: src/tetrinet.c:527
 #, c-format
 msgid "%c*** The game is %cin progress"
 msgstr "%c*** Het spel is %cin voortgang"
 
-#: src/tetrinet.c:534
+#: src/tetrinet.c:538
 #, c-format
 msgid "%c*** The game has %cpaused"
 msgstr "%c*** Het spel is %cgepauzeerd"
 
-#: src/tetrinet.c:536
+#: src/tetrinet.c:540
 #, c-format
 msgid "The game has %c%cpaused"
 msgstr "Het spel is %c%cgepauzeerd"
 
-#: src/tetrinet.c:541
+#: src/tetrinet.c:545
 #, c-format
 msgid "%c*** The game has %cresumed"
 msgstr "%c*** Het spel is %chervat"
 
-#: src/tetrinet.c:543
+#: src/tetrinet.c:547
 #, c-format
 msgid "The game has %c%cresumed"
 msgstr "Het spel is %c%chervat"
 
-#: src/tetrinet.c:552
+#: src/tetrinet.c:556
 #, c-format
 msgid "%c*** The game has %cended"
 msgstr "%c*** Het spel is %cbeëindigd"
 
-#: src/tetrinet.c:662
+#: src/tetrinet.c:666
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
 msgstr "%c*** U doet mee met %c%s%c%c"
 
-#: src/tetrinet.c:679
+#: src/tetrinet.c:683
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c doet met met de toeschouwers %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:700
+#: src/tetrinet.c:704
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c heeft de toeschouwers %c%c(%c%s%c%c%c) verlaten"
 
-#: src/tetrinet.c:857
+#: src/tetrinet.c:861
 msgid "No special blocks"
 msgstr "Geen speciale blokken"
 
-#: src/tetrinet.c:1016 src/tetrinet.c:1023
+#: src/tetrinet.c:1020 src/tetrinet.c:1027
 #, c-format
 msgid " on %c%c%s%c%c"
 msgstr " op %c%c%s%c%c"
 
-#: src/tetrinet.c:1033
+#: src/tetrinet.c:1037
 msgid " to All"
 msgstr " naar Alle"
 
-#: src/tetrinet.c:1039 src/tetrinet.c:1046
+#: src/tetrinet.c:1043 src/tetrinet.c:1050
 #, c-format
 msgid " by %c%c%s%c%c"
 msgstr " door %c%c%s%c%c"
 
-#: src/tetrinet.c:1680
+#: src/tetrinet.c:1643
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
 msgstr "%c*** %c%s%c%c is de moderator"
 
 #. remove ", " from end of string
-#: src/tetrinet.c:1729
+#: src/tetrinet.c:1692
 msgid " has left the game"
 msgstr " heeft het spel verlaten"
 
-#: src/tetrinet.c:1730
+#: src/tetrinet.c:1693
 msgid " have left the game"
 msgstr " hebben het spel verlaten"
 
-#: src/tetrinet.c:1743
+#: src/tetrinet.c:1706
 msgid " has joined the game"
 msgstr " doet mee met het spel"
 
-#: src/tetrinet.c:1744
+#: src/tetrinet.c:1707
 msgid " have joined the game"
 msgstr " doen mee met het spel"
 
-#: src/tetrinet.c:1767
+#: src/tetrinet.c:1730
 #, c-format
 msgid "%s is on team %c%s"
 msgstr "%s zit bij team %c%s"
 
-#: src/tetrinet.c:1770
+#: src/tetrinet.c:1733
 #, c-format
 msgid "%s is alone"
 msgstr "%s is alleen"
 
-#: src/tetrinet.c:1772
+#: src/tetrinet.c:1735
 #, c-format
 msgid "%s are on team %c%s"
 msgstr "%s zitten bij team %c%s"
 
-#: src/tetrinet.c:1775
+#: src/tetrinet.c:1738
 #, c-format
 msgid "%s are alone"
 msgstr "%s zijn alleen"
 
-#: src/tetrinet.c:1816
+#: src/tetrinet.c:1779
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
 msgstr "%c*** %c%s%c%c zit nu bij team %c%s"
 
-#: src/tetrinet.c:1823
+#: src/tetrinet.c:1786
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
 msgstr "%c*** %c%s%c%c is nu alleen"
