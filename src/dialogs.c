@@ -142,7 +142,7 @@ void teamdialog_button (GtkWidget *button, gint response, gpointer data)
 
 void teamdialog_new (void)
 {
-    GtkWidget *hbox, *buttonbox, *widget, *entry;
+    GtkWidget *hbox, *widget, *entry;
     gchar *team_utf8 = g_locale_to_utf8 (team, -1, NULL, NULL, NULL);
   
     if (team_dialog != NULL)
@@ -773,6 +773,9 @@ void prefdialog_themelist ()
 void prefdialog_response (GtkDialog *dialog,
                           gint arg1)
 {
+
+  dialog = dialog;	/* Supress compile warning */
+
   switch (arg1)
   {
     case GTK_RESPONSE_CLOSE: prefdialog_destroy (); break;
@@ -788,7 +791,6 @@ void prefdialog_new (void)
     GtkListStore *keys_store = gtk_list_store_new (4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_STRING);
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
     GtkTreeSelection *theme_selection;
-    int i;
   
     if (prefdialog != NULL)
     {

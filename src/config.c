@@ -164,7 +164,6 @@ int config_getthemeinfo (char *themedir, char *name, char *author, char *desc)
 
 void config_loadconfig (void)
 {
-    unsigned int k;
     int l;
     gchar *p;
     
@@ -314,9 +313,12 @@ void load_theme (const gchar *theme_dir)
 void
 sound_midi_player_changed (GConfClient *client,
                            guint cnxn_id,
-                           GConfEntry *entry,
-                           gpointer user_data)
+                           GConfEntry *entry)
 {
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
   GTET_O_STRCPY (midicmd, gconf_value_get_string (gconf_entry_get_value (entry)));
   if (ingame)
   {
@@ -328,9 +330,12 @@ sound_midi_player_changed (GConfClient *client,
 void
 sound_enable_sound_changed (GConfClient *client,
                             guint cnxn_id,
-                            GConfEntry *entry,
-                            gpointer user_data)
+                            GConfEntry *entry)
 {
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
   soundenable = gconf_value_get_bool (gconf_entry_get_value (entry));
   if (!soundenable)
     gconf_client_set_bool (gconf_client, "/apps/gtetrinet/sound/enable_midi", FALSE, NULL);
@@ -339,9 +344,12 @@ sound_enable_sound_changed (GConfClient *client,
 void
 sound_enable_midi_changed (GConfClient *client,
                            guint cnxn_id,
-                           GConfEntry *entry,
-                           gpointer user_data)
+                           GConfEntry *entry)
 {
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
   midienable = gconf_value_get_bool (gconf_entry_get_value (entry));
   if (!midienable)
     sound_stopmidi ();
@@ -350,81 +358,108 @@ sound_enable_midi_changed (GConfClient *client,
 void
 themes_theme_dir_changed (GConfClient *client,
                           guint cnxn_id,
-                          GConfEntry *entry,
-                          gpointer user_data)
+                          GConfEntry *entry)
 {
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
   load_theme (gconf_value_get_string (gconf_entry_get_value (entry)));
 }
 
 void
 keys_down_changed (GConfClient *client,
                    guint cnxn_id,
-                   GConfEntry *entry,
-                   gpointer user_data)
+                   GConfEntry *entry)
 {
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
   keys[K_DOWN] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
 }
 
 void
 keys_left_changed (GConfClient *client,
                    guint cnxn_id,
-                   GConfEntry *entry,
-                   gpointer user_data)
+                   GConfEntry *entry)
 {
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
   keys[K_LEFT] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
 }
 
 void
 keys_right_changed (GConfClient *client,
                     guint cnxn_id,
-                    GConfEntry *entry,
-                    gpointer user_data)
+                    GConfEntry *entry)
 {
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
   keys[K_RIGHT] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
 }
 
 void
 keys_drop_changed (GConfClient *client,
                    guint cnxn_id,
-                   GConfEntry *entry,
-                   gpointer user_data)
+                   GConfEntry *entry)
 {
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
   keys[K_DROP] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
 }
 
 void
 keys_rotate_left_changed (GConfClient *client,
                           guint cnxn_id,
-                          GConfEntry *entry,
-                          gpointer user_data)
+                          GConfEntry *entry)
 {
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
   keys[K_ROTLEFT] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
 }
 
 void
 keys_rotate_right_changed (GConfClient *client,
                            guint cnxn_id,
-                           GConfEntry *entry,
-                           gpointer user_data)
+                           GConfEntry *entry)
 {
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
   keys[K_ROTRIGHT] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
 }
 
 void
 keys_message_changed (GConfClient *client,
                    guint cnxn_id,
-                   GConfEntry *entry,
-                   gpointer user_data)
+                   GConfEntry *entry)
 {
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
   keys[K_GAMEMSG] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
 }
 
 void
 keys_discard_changed (GConfClient *client,
                    guint cnxn_id,
-                   GConfEntry *entry,
-                   gpointer user_data)
+                   GConfEntry *entry)
 {
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
   keys[K_DISCARD] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
 }
 

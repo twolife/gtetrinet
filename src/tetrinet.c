@@ -1501,7 +1501,7 @@ gint tetrinet_removelinestimeout (void)
 }
 
 /* return TRUE if key is processed, FALSE if not */
-int tetrinet_key (int keyval, char *str)
+int tetrinet_key (int keyval)
 {
     if (spectating) {
         /* spectator keys */

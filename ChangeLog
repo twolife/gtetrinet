@@ -1,3 +1,28 @@
+2003-02-06  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/config.c (config_loadconfig): remove unused variable.
+	(sound_midi_player_changed): remove unused parameter warnings.
+	(sound_enable_sound_changed): likewise.
+	(sound_enable_midi_changed): likewise.
+	(themes_theme_dir_changed): likewise.
+	(keys_down_changed): likewise.
+	(keys_left_changed): likewise.
+	(keys_right_changed): likewise.
+	(keys_drop_changed): likewise.
+	(keys_rotate_left_changed): likewise.
+	(keys_rotate_right_changed): likewise.
+	(keys_message_changed): likewise.
+	(keys_discard_changed): likewise.
+	* src/dialogs.c (teamdialog_new): remove unused variable.
+	(prefdialog_response): remove unused variable and parameter warnings.
+	* src/fields.c (gmsginput_activate): remove parameters.
+	(fields_eatkey): remove unused function.
+	* src/gtetrinet (switch_focus): remove unused parameter warning.
+	(main): add a cast to gcofn_client_notify_add.
+	(keypress): remove obsolete parameter to tetrinet_key().
+	(switch_focus): remove unused paramater warnings.
+	* src/tetrinet.c (tetrinet_key): remove unused parameter.
+
 2003-02-04  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS, configure.in: released gtetrinet 0.6.0.

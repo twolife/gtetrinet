@@ -14,74 +14,62 @@ extern void config_saveconfig (void);
 void
 sound_midi_player_changed (GConfClient *client,
                            guint cnxn_id,
-                           GConfEntry *entry,
-                           gpointer user_data);
+                           GConfEntry *entry);
 
 void
 sound_enable_sound_changed (GConfClient *client,
                             guint cnxn_id,
-                            GConfEntry *entry,
-                            gpointer user_data);
+                            GConfEntry *entry);
 
 void
 sound_enable_midi_changed (GConfClient *client,
                            guint cnxn_id,
-                           GConfEntry *entry,
-                           gpointer user_data);
+                           GConfEntry *entry);
 
 void
 themes_theme_dir_changed (GConfClient *client,
                           guint cnxn_id,
-                          GConfEntry *entry,
-                          gpointer user_data);
+                          GConfEntry *entry);
                           
 void
 keys_down_changed (GConfClient *client,
                    guint cnxn_id,
-                   GConfEntry *entry,
-                   gpointer user_data);
+                   GConfEntry *entry);
 
 void
 keys_left_changed (GConfClient *client,
                    guint cnxn_id,
-                   GConfEntry *entry,
-                   gpointer user_data);
+                   GConfEntry *entry);
 
 void
 keys_right_changed (GConfClient *client,
                     guint cnxn_id,
-                    GConfEntry *entry,
-                    gpointer user_data);
+                    GConfEntry *entry);
 
 void
 keys_drop_changed (GConfClient *client,
                    guint cnxn_id,
-                   GConfEntry *entry,
-                   gpointer user_data);
+                   GConfEntry *entry);
 
 void
 keys_rotate_left_changed (GConfClient *client,
                           guint cnxn_id,
-                          GConfEntry *entry,
-                          gpointer user_data);
+                          GConfEntry *entry);
 
 void
 keys_rotate_right_changed (GConfClient *client,
                            guint cnxn_id,
-                           GConfEntry *entry,
-                           gpointer user_data);
+                           GConfEntry *entry);
 
 void
 keys_message_changed (GConfClient *client,
                    guint cnxn_id,
-                   GConfEntry *entry,
-                   gpointer user_data);
+                   GConfEntry *entry);
 
 void
 keys_discard_changed (GConfClient *client,
                    guint cnxn_id,
-                   GConfEntry *entry,
-                   gpointer user_data);
+                   GConfEntry *entry);
 
 #define GTETRINET_THEMES GTETRINET_DATA"/themes"
 #define DEFAULTTHEME GTETRINET_THEMES"/default/"

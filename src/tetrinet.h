@@ -21,7 +21,7 @@ extern void tetrinet_updatefield (FIELD field);
 extern void tetrinet_sendfield (int reset);
 extern void tetrinet_resendfield (void);
 extern void tetrinet_redrawfields (void);
-extern int tetrinet_key (int keyval, char *str);
+extern int tetrinet_key (int keyval);
 extern void tetrinet_upkey (int keyval);
 
 extern void tetrinet_startgame (void);

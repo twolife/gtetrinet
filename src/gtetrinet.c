@@ -54,8 +54,7 @@ gint keypress (GtkWidget *widget, GdkEventKey *key);
 gint keyrelease (GtkWidget *widget, GdkEventKey *key);
 void switch_focus (GtkNotebook *notebook,
                    GtkNotebookPage *page,
-                   guint page_num,
-                   gpointer user_data);
+                   guint page_num);
 
 static GtkWidget *pfields, *pparty, *pwinlist;
 static GtkWidget *winlistwidget, *partywidget, *fieldswidget;
@@ -193,40 +192,51 @@ int main (int argc, char *argv[])
 
     /* Request notification of change for these gconf keys */
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/sound/midi_player",
-                             sound_midi_player_changed, NULL, NULL, NULL);
+                             (GConfClientNotifyFunc) sound_midi_player_changed,
+			     NULL, NULL, NULL);
                              
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/sound/enable_sound",
-                             sound_enable_sound_changed, NULL, NULL, NULL);
+                             (GConfClientNotifyFunc) sound_enable_sound_changed,
+			     NULL, NULL, NULL);
                              
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/sound/enable_midi",
-                             sound_enable_midi_changed, NULL, NULL, NULL);
+                             (GConfClientNotifyFunc) sound_enable_midi_changed,
+			     NULL, NULL, NULL);
                              
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/themes/theme_dir",
-                             themes_theme_dir_changed, NULL, NULL, NULL);
+                             (GConfClientNotifyFunc) themes_theme_dir_changed,
+			     NULL, NULL, NULL);
 
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/down",
-                             keys_down_changed, NULL, NULL, NULL);
+                             (GConfClientNotifyFunc) keys_down_changed, NULL, NULL, NULL);
 
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/left",
-                             keys_left_changed, NULL, NULL, NULL);
+                             (GConfClientNotifyFunc) keys_left_changed,
+			     NULL, NULL, NULL);
 
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/right",
-                             keys_right_changed, NULL, NULL, NULL);
+                             (GConfClientNotifyFunc) keys_right_changed,
+			     NULL, NULL, NULL);
 
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/rotate_left",
-                             keys_rotate_left_changed, NULL, NULL, NULL);
+                             (GConfClientNotifyFunc) keys_rotate_left_changed,
+			     NULL, NULL, NULL);
 
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/rotate_right",
-                             keys_rotate_right_changed, NULL, NULL, NULL);
+                             (GConfClientNotifyFunc) keys_rotate_right_changed,
+			     NULL, NULL, NULL);
 
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/drop",
-                             keys_drop_changed, NULL, NULL, NULL);
+                             (GConfClientNotifyFunc) keys_drop_changed, NULL,
+			     NULL, NULL);
 
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/discard",
-                             keys_discard_changed, NULL, NULL, NULL);
+                             (GConfClientNotifyFunc) keys_discard_changed,
+			     NULL, NULL, NULL);
 
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/message",
-                             keys_message_changed, NULL, NULL, NULL);
+                             (GConfClientNotifyFunc) keys_message_changed,
+			     NULL, NULL, NULL);
 
     /* load settings */
     config_loadconfig ();
@@ -446,7 +456,7 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
       g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
     }
 
-    if (game_area && tetrinet_key (key->keyval, key->string))
+    if (game_area && tetrinet_key (key->keyval))
     {
       g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
       return TRUE;
@@ -610,9 +620,12 @@ void unblock_keyboard_signal (void)
 
 void switch_focus (GtkNotebook *notebook,
                    GtkNotebookPage *page,
-                   guint page_num,
-                   gpointer user_data)
+                   guint page_num)
 {
+
+    notebook = notebook;	/* Suppress compile warnings */
+    page = page;		/* Suppress compile warnings */
+
     if (connected)
       switch (page_num)
       {

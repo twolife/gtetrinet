@@ -50,8 +50,7 @@ static gint fields_specials_expose (void);
 static void fields_refreshfield (int field);
 static void fields_drawblock (int field, int x, int y, char block);
 
-static gint fields_eatkey (GtkWidget *widget);
-static void gmsginput_activate (GtkEntry *entry, gpointer data);
+static void gmsginput_activate (void);
 
 static GdkPixmap *blockpix;
 
@@ -588,7 +587,7 @@ void fields_gmsginputactivate (int t)
         { /* do nothing */; }
 }
 
-void gmsginput_activate (GtkEntry *entry, gpointer data)
+void gmsginput_activate (void)
 {
     gchar *locale_s, buf[256];
     const gchar *s;
@@ -624,10 +623,4 @@ void gmsginput_activate (GtkEntry *entry, gpointer data)
 const char *fields_gmsginputtext (void)
 {
     return gtk_entry_get_text (GTK_ENTRY(gmsginput));
-}
-
-gint fields_eatkey (GtkWidget *widget)
-{
-    g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
-    return TRUE;
 }
