@@ -1,7 +1,7 @@
 # Dutch translation of gtetrinet.
 # Copyright (C) 2003 The Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtetrinet package.
-# Tino Meinen <a.t.meinen@chello.nl>, 2003.
+# Tino Meinen <a.t.meinen@chello.nl>, 2003, 2004.
 # Er wordt zowel "piece" als "block" gebruikt. Beiden hier vertaald met "stuk"
 # misschien is "blok" wel beter.
 # vertaling Timestamps?
@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet gnome2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-26 12:52+0200\n"
-"PO-Revision-Date: 2003-06-08 19:40+0200\n"
+"POT-Creation-Date: 2004-04-13 19:58+0200\n"
+"PO-Revision-Date: 2004-04-13 20:33+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -265,7 +265,7 @@ msgstr "Geef nieuwe toets voor \"%s\""
 msgid "GTetrinet Preferences"
 msgstr "GTetrinet Voorkeuren"
 
-#: src/dialogs.c:867
+#: src/dialogs.c:866
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -273,49 +273,54 @@ msgstr ""
 "Selecteer een thema uit de lijst.\n"
 "Installeer nieuwe thema's in ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:875
+#: src/dialogs.c:873
 msgid "Name:"
 msgstr "Naam:"
 
-#: src/dialogs.c:879
+#: src/dialogs.c:876
 msgid "Author:"
 msgstr "Auteur:"
 
-#: src/dialogs.c:883
+#: src/dialogs.c:879
 msgid "Description:"
 msgstr "Beschrijving:"
 
-#: src/dialogs.c:901
+#: src/dialogs.c:892
 msgid "Selected Theme"
 msgstr "Geselecteerd thema"
 
-#: src/dialogs.c:920
+# binnenhalen ipv downloaden
+#: src/dialogs.c:908
+msgid "Download new themes"
+msgstr "Nieuwe thema's downloaden"
+
+#: src/dialogs.c:913
 msgid "Themes"
 msgstr "Thema's"
 
 #. partyline
-#: src/dialogs.c:925
+#: src/dialogs.c:918
 msgid "Enable _Timestamps"
 msgstr "_Timestamps aanzetten"
 
-#: src/dialogs.c:927
+#: src/dialogs.c:920
 msgid "Enable Channel _List"
 msgstr "Kanaal_lijst aanzetten"
 
 #. FIXME
-#: src/dialogs.c:953 src/gtetrinet.c:281
+#: src/dialogs.c:946 src/gtetrinet.c:281
 msgid "Partyline"
 msgstr "Party-lijn"
 
-#: src/dialogs.c:964
+#: src/dialogs.c:957
 msgid "Action"
 msgstr "Actie"
 
-#: src/dialogs.c:966
+#: src/dialogs.c:959
 msgid "Key"
 msgstr "Toets"
 
-#: src/dialogs.c:972
+#: src/dialogs.c:965
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -323,32 +328,32 @@ msgstr ""
 "Selecteer een aktie uit de lijst en druk op 'Toets veranderen' om een andere "
 "toets te koppelen aan de aktie."
 
-#: src/dialogs.c:979
+#: src/dialogs.c:972
 msgid "Change _key..."
 msgstr "Toets _veranderen..."
 
-#: src/dialogs.c:984 src/dialogs.c:1037
+#: src/dialogs.c:977 src/dialogs.c:1030
 msgid "_Restore defaults"
 msgstr "Standaarden _terugzetten"
 
-#: src/dialogs.c:1005
+#: src/dialogs.c:998
 msgid "Keyboard"
 msgstr "Toetsenbord"
 
 #. sound
-#: src/dialogs.c:1010
+#: src/dialogs.c:1003
 msgid "Enable _Sound"
 msgstr "_Geluid aanzetten"
 
-#: src/dialogs.c:1013
+#: src/dialogs.c:1006
 msgid "Enable _MIDI"
 msgstr "_MIDI aanzetten"
 
-#: src/dialogs.c:1027
+#: src/dialogs.c:1020
 msgid "Enter command to play a midi file:"
 msgstr "Opdracht om een midi-bestand af te spelen:"
 
-#: src/dialogs.c:1030
+#: src/dialogs.c:1023
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -357,7 +362,7 @@ msgstr ""
 "afgespeeld.  De naam van het midi-bestand wordt opgeslagen in de "
 "omgevingsvariabele MIDIFILE."
 
-#: src/dialogs.c:1067
+#: src/dialogs.c:1060
 msgid "Sound"
 msgstr "Geluid"
 
@@ -371,6 +376,7 @@ msgstr ""
 
 #. shouldnt happen
 #: src/fields.c:85
+#, c-format
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
@@ -445,7 +451,7 @@ msgid "Failed to init GConf: %s\n"
 msgstr "Initialiseren GConf muslukt: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:470
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
 msgid "Playing Fields"
 msgstr "Speelvelden"
 
