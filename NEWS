@@ -1,4 +1,4 @@
-GTetrinet 0.5.2 - Unreleased
+GTetrinet 0.5.2 - 2003-01-11
 - Fixed segfault on connect dialog many people were seeing. Really.
 - Fixed behaviour of "Ok" button in preferences. It actually works now.
 - Take in account players that have left during a game in progress, so

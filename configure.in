@@ -3,7 +3,7 @@ AC_INIT
 AC_PREREQ(2.52)
 AC_CONFIG_SRCDIR([src/gtetrinet.c])
 AM_CONFIG_HEADER(config.h:config.h.in)
-AM_INIT_AUTOMAKE(gtetrinet, 0.5.1)
+AM_INIT_AUTOMAKE(gtetrinet, 0.5.2)
 
 AC_DEFINE(GETTEXT_PACKAGE, "gtetrinet", [Gettext domain name])
 GETTEXT_PACKAGE=gtetrinet
