@@ -757,7 +757,7 @@ void prefdialog_themelist ()
         text[1] = 0;
         gtk_list_store_append (theme_store, &iter);
         gtk_list_store_set (theme_store, &iter, 0, themes[i].name, 1, i, -1);
-        if (strcmp (themes[i].dir, currenttheme) == 0)
+        if (strcmp (themes[i].dir, currenttheme->str) == 0)
         {
             iter_selected = iter;
             theme_select = i;

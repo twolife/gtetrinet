@@ -1,3 +1,14 @@
+2003-02-07  James Antill  <james@and.org>
+
+	* src/config.c (config_loadtheme): If blocks config. entry doesn't
+	exist in theme error out, instead of crashing.
+	(config_getthemeinfo): Use empty values, if author and/or
+	description doesn't exist.
+	(config_loadconfig): Don't crash if current_theme or midicmd don't
+	exist.
+	(config_loadconfig): Change currenttheme to a GString to fix overflow
+	truncate problems.
+
 2003-02-06  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/config.c (config_loadconfig): remove unused variable.

@@ -40,7 +40,7 @@
 char blocksfile[1024];
 int bsize;
 
-char currenttheme[1024];
+GString *currenttheme = NULL;
 
 extern GConfClient *gconf_client;
 
@@ -83,32 +83,28 @@ void config_loadtheme (const gchar *themedir)
     gnome_config_push_prefix (buf);
 
     p = gnome_config_get_string ("Theme/Name");
-    if (p == 0) {
-      GtkWidget *mb;
-      mb = gtk_message_dialog_new (NULL,
-                                   0,
-                                   GTK_MESSAGE_WARNING,
-                                   GTK_BUTTONS_OK,
-                                   _("Warning: theme does not have a name"));
-      gtk_dialog_run (GTK_DIALOG (mb));
-      gtk_widget_destroy (mb);
-    }
-    else g_free (p);
+    if (!p)
+      goto bad_theme;
+    g_free (p);
 
-    p = gnome_config_get_string ("Graphics/Blocks=blocks.png");
+    p = gnome_config_get_string ("Graphics/Blocks=blocks.png")
+    if (!p)
+      goto bad_theme;
+    
     GTET_O_STRCPY(blocksfile, themedir);
     GTET_O_STRCAT(blocksfile, p);
     g_free (p);
     bsize = gnome_config_get_int ("Graphics/BlockSize=16");
 
     p = gnome_config_get_string ("Sounds/MidiFile");
-    if (p) {
+    if (!p)
+        midifile[0] = 0;
+    else
+    {
         GTET_O_STRCPY(midifile, themedir);
         GTET_O_STRCAT(midifile, p);
         g_free (p);
     }
-    else
-        midifile[0] = 0;
 
     for (i = 0; i < S_NUM; i ++) {
         p = gnome_config_get_string (soundkeys[i]);
@@ -124,12 +120,27 @@ void config_loadtheme (const gchar *themedir)
     sound_cache ();
 
     gnome_config_pop_prefix ();
+
+    return;
+
+ bad_theme:
+    {
+      GtkWidget *mb;
+      mb = gtk_message_dialog_new (NULL,
+                                   0,
+                                   GTK_MESSAGE_WARNING,
+                                   GTK_BUTTONS_OK,
+                                   _("Warning: theme does not have a name"));
+      gtk_dialog_run (GTK_DIALOG (mb));
+      gtk_widget_destroy (mb);
+    }
 }
 
 /* Arrggh... all these params are sizeof() == 1024 ... this needs a real fix */
 int config_getthemeinfo (char *themedir, char *name, char *author, char *desc)
 {
-    char buf[1024], *p;
+    char buf[1024];
+    const char *p = NULL;
 
     GTET_O_STRCPY (buf, "=");
     GTET_O_STRCAT (buf, themedir);
@@ -146,13 +157,11 @@ int config_getthemeinfo (char *themedir, char *name, char *author, char *desc)
         if (name) GTET_STRCPY(name, p, 1024);
         g_free (p);
     }
-    if (author) {
-        p = gnome_config_get_string ("Theme/Author=");
+    if (author && (p = gnome_config_get_string ("Theme/Author="))) {
         GTET_STRCPY(author, p, 1024);
         g_free (p);
     }
-    if (desc) {
-        p = gnome_config_get_string ("Theme/Description=");
+    if (desc && (p = gnome_config_get_string ("Theme/Description="))) {
         GTET_STRCPY(desc, p, 1024);
         g_free (p);
     }
@@ -166,29 +175,34 @@ void config_loadconfig (void)
 {
     int l;
     gchar *p;
+
+    currenttheme = g_string_sized_new(100);
     
     /* get the current theme */
     p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/themes/theme_dir", NULL);
     /* if there is no theme configured, then we fallback to DEFAULTTHEME */
-    if (strlen (p) == 0) 
+    if (!p || !p[0])
     {
       g_free (p);
-      p = g_strdup (DEFAULTTHEME);
-      gconf_client_set_string (gconf_client, "/apps/gtetrinet/themes/theme_dir", p, NULL);
+      g_string_assign(currenttheme, DEFAULTTHEME);
+      gconf_client_set_string (gconf_client, "/apps/gtetrinet/themes/theme_dir", currenttheme->str, NULL);
     }
-    GTET_O_STRCPY(currenttheme, p);
+    else
+      g_string_assign(currenttheme, p);
     g_free (p);
+    
     /* add trailing slash if none exists */
-    l = strlen(currenttheme);
-    if (currenttheme[l-1] != '/') {
-      GTET_O_STRCAT(currenttheme, "/");
-    }
+    if (currenttheme->str[currenttheme->len - 1] != '/')
+      g_string_append_c(currenttheme, '/');
 
     /* get the midi player */
     p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/sound/midi_player", NULL);
-    GTET_O_STRCPY(midicmd, p);
-    g_free (p);
-
+    if (p)
+    {
+      GTET_O_STRCPY(midicmd, p);
+      g_free (p);
+    }
+    
     /* get the other sound options */
     soundenable = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/sound/enable_sound", NULL);
     midienable  = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/sound/enable_midi",  NULL);
@@ -287,13 +301,13 @@ void config_loadconfig (void)
     else
       keys[K_GAMEMSG] = defaultkeys[K_GAMEMSG];
 
-    config_loadtheme (currenttheme);
+    config_loadtheme (currenttheme->str);
 }
 
 void load_theme (const gchar *theme_dir)
 {
   /* load the theme */
-  GTET_O_STRCPY (currenttheme, theme_dir);
+  g_string_assign(currenttheme, theme_dir);
   config_loadtheme (theme_dir);
 
   /* update the fields */

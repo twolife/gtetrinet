@@ -2,7 +2,7 @@
 
 extern char blocksfile[1024];
 extern int bsize;
-extern gchar currenttheme[1024];
+extern GString *currenttheme;
 extern guint keys[];
 extern guint defaultkeys[];
 
