@@ -303,7 +303,7 @@ GtkWidget *fields_page_contents (void)
                                     GTK_POLICY_AUTOMATIC);
     gtk_container_add (GTK_CONTAINER(scroll), gmsgtext);
     gtk_table_attach (GTK_TABLE(table2), scroll, 0, 1, 0, 1,
-                      GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_SHRINK,
+                      GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
                       0, 0);
     gmsginput = gtk_entry_new ();
     gtk_entry_set_max_length (GTK_ENTRY (gmsginput), 128);
@@ -312,7 +312,7 @@ GtkWidget *fields_page_contents (void)
                         GTK_SIGNAL_FUNC(gmsginput_activate), NULL);
     gtk_table_attach (GTK_TABLE(table2), gmsginput, 0, 1, 1, 2,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
-    gtk_widget_set_size_request (table2, -1, 48);
+    gtk_widget_set_size_request (table2, -1, 70);
     
     align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
     gtk_container_add (GTK_CONTAINER (align), table);

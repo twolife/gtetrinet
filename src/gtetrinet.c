@@ -238,7 +238,7 @@ int main (int argc, char *argv[])
                         GTK_SIGNAL_FUNC(keyrelease), NULL);
     gtk_widget_set_events (app, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
 
-    gtk_window_set_resizable (GTK_WINDOW (app), FALSE);
+    gtk_window_set_resizable (GTK_WINDOW (app), TRUE);
     
     /* create and set the window icon */
     icon_pixbuf = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
@@ -422,16 +422,15 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
         gtk_timeout_remove (keytimeoutid);
     }
 
-    if (gtetrinet_key(key->keyval, key->state & (GDK_MOD1_MASK |
-                                                 GDK_CONTROL_MASK |
-                                                 GDK_SHIFT_MASK)))
+    /* Check if it's a GTetrinet key */
+    if (gtetrinet_key (key->keyval, key->state & (GDK_MOD1_MASK)))
     {
       g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
       return TRUE;
     }
 
-    if ((key->state & (GDK_MOD1_MASK | GDK_CONTROL_MASK)) > 0)
-      return FALSE;
+/*    if ((key->state & (GDK_MOD1_MASK | GDK_CONTROL_MASK)) > 0)
+    return FALSE;*/
     
     if (game_area && ingame && (gdk_keyval_to_lower (key->keyval) == keys[K_GAMEMSG]))
     {

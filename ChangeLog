@@ -1,3 +1,15 @@
+2004-04-12  Dani Carbonell  <bocata@panete.net>
+
+	* src/gtetrinet.c (keypress): Return only when Alt+1, +2 or +3 is
+	pressed. This fixes the bug reported by Christian Kröner :)
+
+	* src/fields.c (fields_page_contents): Changed the game's messages
+	widget to expand instead of shrink. Enlarged its height up to 70
+	pixels.
+
+	* src/gtetrinet.c (main): Made the GTetrinet main window
+	resizable. This doesn't mean that the fields will resize ;)
+
 2004-03-30  Adam Weinberger  <adamw@gnome.org>
 
 	* configure.in: Added en_CA to ALL_LINGUAS.
