@@ -1,5 +1,9 @@
 2003-06-05  Abel Cheung  <maddog@linux.org.hk>
 
+	* ru.po: Fix header (msgfmt check failed).
+
+2003-06-05  Abel Cheung  <maddog@linux.org.hk>
+
 	* zh_TW.po: New traditional Chinese translation.
 
 2003-06-02  Jordi Mallach  <jordi@sindominio.net>
