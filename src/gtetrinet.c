@@ -210,7 +210,7 @@ int main (int argc, char *argv[])
                              keys_right_changed, NULL, NULL, NULL);
 
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/rotate_left",
-                             keys_left_changed, NULL, NULL, NULL);
+                             keys_rotate_left_changed, NULL, NULL, NULL);
 
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/rotate_right",
                              keys_rotate_right_changed, NULL, NULL, NULL);
