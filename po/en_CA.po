@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-11 17:09-0400\n"
-"PO-Revision-Date: 2004-09-11 21:54-0400\n"
+"POT-Creation-Date: 2004-09-26 12:56-0400\n"
+"PO-Revision-Date: 2004-09-26 21:54-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canada <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -740,7 +740,7 @@ msgstr "Key to move right"
 
 #: gtetrinet.schemas.in.h:15
 msgid "Key to open the fields' message dialog"
-msgstr "Key to open the fields' message dialog"
+msgstr "Key to open the fields' message dialogue"
 
 #: gtetrinet.schemas.in.h:16
 msgid "Key to rotate clockwise"
@@ -809,7 +809,7 @@ msgstr "This key discards the current special. This is case insensitive."
 #: gtetrinet.schemas.in.h:30
 msgid "This key displays the fields' message dialog. This is case insensitive."
 msgstr ""
-"This key displays the fields' message dialog. This is case insensitive."
+"This key displays the fields' message dialogue. This is case insensitive."
 
 #: gtetrinet.schemas.in.h:31
 msgid "This key drops the block to the ground. This is case insensitive."
