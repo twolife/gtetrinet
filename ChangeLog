@@ -1,3 +1,8 @@
+2003-06-03  Jordi Mallach  <jordi@sindominio.net>
+
+	* gtetrinet.desktop.in: change value of Terminal from 0 to false to
+	placate desktop-file-validate.
+
 2003-06-02  Dani Carbonell  <bocata@panete.net>
 
 	* src/dialogs.c (prefdialog_new): changed the size of some widgets
