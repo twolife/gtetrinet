@@ -1,0 +1,891 @@
+# Italian translation of gtetrinet.
+# Copyright (C) 2004 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Riccardo Bozzo <riccardoNOSPAM@upweb.it>, 2004.
+# , fuzzy
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: gtetrinet\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-07-14 12:40+0200\n"
+"PO-Revision-Date: 2004-07-17 17:33+0200\n"
+"Last-Translator: Riccardo Bozzo <riccardo@upweb.it>\n"
+"Language-Team: Italian <tp@lists.linux.it>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#: src/client.c:237
+msgid "Couldn't resolve hostname."
+msgstr "Impossibile risolvere il nome host."
+
+#: src/commands.c:45
+msgid "_Connect to server..."
+msgstr "_Connetti al server..."
+
+#: src/commands.c:46
+msgid "_Disconnect from server"
+msgstr "_Disconnetti dal server"
+
+#: src/commands.c:48
+msgid "Change _team..."
+msgstr "Cambia _squadra..."
+
+#: src/commands.c:50
+msgid "_Start game"
+msgstr "Avvia _partita"
+
+#: src/commands.c:51
+msgid "_Pause game"
+msgstr "_Pausa"
+
+#: src/commands.c:52
+msgid "_End game"
+msgstr "_Fine partita"
+
+#: src/commands.c:57
+msgid "Detac_h page..."
+msgstr "Distacca sc_heda..."
+
+#: src/commands.c:82
+msgid "Connect"
+msgstr "Connetti"
+
+#: src/commands.c:82
+msgid "Connect to a server"
+msgstr "Connetti ad un server"
+
+#: src/commands.c:83
+msgid "Disconnect"
+msgstr "Disconnetti"
+
+#: src/commands.c:83
+msgid "Disconnect from the current server"
+msgstr "Disconnetti dal server attuale"
+
+#: src/commands.c:85
+msgid "Start game"
+msgstr "Inizio partita"
+
+#: src/commands.c:85
+msgid "Start a new game"
+msgstr "Inizia una nuova partita"
+
+#: src/commands.c:86
+msgid "End game"
+msgstr "Fine partita"
+
+#: src/commands.c:86
+msgid "End the current game"
+msgstr "Termina la partita corrente"
+
+#: src/commands.c:87
+msgid "Pause game"
+msgstr "Pausa"
+
+#: src/commands.c:87
+msgid "Pause the game"
+msgstr "Metti in pausa la partita"
+
+#: src/commands.c:89 src/dialogs.c:156
+msgid "Change team"
+msgstr "Cambia squadra"
+
+#: src/commands.c:89
+msgid "Change your current team name"
+msgstr "Cambia l'attuale nome della squadra"
+
+#: src/commands.c:92
+msgid "Detach page"
+msgstr "Distacca scheda"
+
+#: src/commands.c:92
+msgid "Detach the current notebook page"
+msgstr "Distacca la scheda dell'attuale blocco note"
+
+#: src/commands.c:258
+msgid "Game in progress"
+msgstr "Partita in corso"
+
+#: src/commands.c:261
+msgid "Connected to\n"
+msgstr "Connesso a\n"
+
+#: src/commands.c:265
+msgid "Not connected"
+msgstr "Non connesso"
+
+#. Translators: translate as your names & emails
+#: src/commands.c:287
+msgid "translator_credits"
+msgstr "Riccardo Bozzo riccardo@upweb.it"
+
+#: src/commands.c:293
+msgid "A Tetrinet client for GNOME.\n"
+msgstr "Un client tetrinet per GNOME.\n"
+
+#: src/commands.c:305
+msgid "GTetrinet Home Page"
+msgstr "Home Page di GTetrinet"
+
+#: src/config.c:140
+msgid "Warning: theme does not have a name, reverting to default."
+msgstr "Attenzione: il tema non ha un nome, si ripristina al predefinito."
+
+#. make dialog that asks for address/nickname
+#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
+msgid "Connect to server"
+msgstr "Connetti al server"
+
+#: src/dialogs.c:169
+msgid "Team name:"
+msgstr "Nome squadra"
+
+#: src/dialogs.c:215
+msgid "You must specify a server name."
+msgstr "È necessario specificare il nome di un server."
+
+#: src/dialogs.c:232
+msgid "Please specify a password to connect as spectator."
+msgstr "Specificare una password per connettersi come spettatore."
+
+#: src/dialogs.c:258
+msgid "Please specify a valid nickname."
+msgstr "Specificare un nickname valido."
+
+#. game type radio buttons
+#: src/dialogs.c:364
+msgid "O_riginal"
+msgstr "O_riginale"
+
+#: src/dialogs.c:366
+msgid "Tetri_Fast"
+msgstr "Tetri_Fast"
+
+#: src/dialogs.c:388
+msgid "Server address"
+msgstr "Indirizzo del server"
+
+#: src/dialogs.c:397
+msgid "Connect as a _spectator"
+msgstr "Connetti come spettatore"
+
+#: src/dialogs.c:401
+msgid "_Password:"
+msgstr "_Password:"
+
+#: src/dialogs.c:418
+msgid "Spectate game"
+msgstr "Osserva partita"
+
+#: src/dialogs.c:427
+msgid "_Nick name:"
+msgstr "_Nick name:"
+
+#: src/dialogs.c:442
+msgid "_Team name:"
+msgstr "_Nome squadra"
+
+#: src/dialogs.c:462
+msgid "Player information"
+msgstr "Informazioni sul giocatore"
+
+#: src/dialogs.c:503
+msgid "Change Key"
+msgstr "Cambia tasti"
+
+#: src/dialogs.c:554
+msgid "Move right"
+msgstr "Muovi a destra"
+
+#: src/dialogs.c:555
+msgid "Move left"
+msgstr "Muovi a sinistra"
+
+#: src/dialogs.c:556
+msgid "Move down"
+msgstr "Muovi in basso"
+
+#: src/dialogs.c:557
+msgid "Rotate right"
+msgstr "Ruota a destra"
+
+#: src/dialogs.c:558
+msgid "Rotate left"
+msgstr "Ruota a sinistra"
+
+#: src/dialogs.c:559
+msgid "Drop piece"
+msgstr "Rilascia il pezzo"
+
+#: src/dialogs.c:560
+msgid "Discard special"
+msgstr "Scarta speciale"
+
+#: src/dialogs.c:561
+msgid "Send message"
+msgstr "Invia un messaggio"
+
+#: src/dialogs.c:562
+msgid "Special to field 1"
+msgstr "Speciale al campo 1"
+
+#: src/dialogs.c:563
+msgid "Special to field 2"
+msgstr "Speciale al campo 2"
+
+#: src/dialogs.c:564
+msgid "Special to field 3"
+msgstr "Speciale al campo 3"
+
+#: src/dialogs.c:565
+msgid "Special to field 4"
+msgstr "Speciale al campo 4"
+
+#: src/dialogs.c:566
+msgid "Special to field 5"
+msgstr "Speciale al campo 5"
+
+#: src/dialogs.c:567
+msgid "Special to field 6"
+msgstr "Speciale al campo 6"
+
+#: src/dialogs.c:627
+#, c-format
+msgid "Press new key for \"%s\""
+msgstr "Premi il nuovo tasto per \"%s\""
+
+#: src/dialogs.c:844
+msgid "GTetrinet Preferences"
+msgstr "Preferenze di GTetrinet"
+
+#: src/dialogs.c:866
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr ""
+"Seleziona un tema dalla lista \n"
+"Installa il nuovo tema in ~/.gtetrinet/themes/"
+
+#: src/dialogs.c:873
+msgid "Name:"
+msgstr "Nome:"
+
+#: src/dialogs.c:876
+msgid "Author:"
+msgstr "Autore:"
+
+#: src/dialogs.c:879
+msgid "Description:"
+msgstr "Descrizione:"
+
+#: src/dialogs.c:892
+msgid "Selected Theme"
+msgstr "Tema selezionato"
+
+#: src/dialogs.c:908
+msgid "Download new themes"
+msgstr "Scarica nuovi temi"
+
+#: src/dialogs.c:913
+msgid "Themes"
+msgstr "Temi"
+
+#. partyline
+#: src/dialogs.c:918
+msgid "Enable _Timestamps"
+msgstr "Abilita _Orari"
+
+#: src/dialogs.c:920
+msgid "Enable Channel _List"
+msgstr "Abilita la _lista canale"
+
+#. FIXME
+#: src/dialogs.c:946 src/gtetrinet.c:281
+msgid "Partyline"
+msgstr "Partyline"
+
+#: src/dialogs.c:957
+msgid "Action"
+msgstr "Azione"
+
+#: src/dialogs.c:959
+msgid "Key"
+msgstr "Tasto"
+
+#: src/dialogs.c:965
+msgid ""
+"Select an action from the list and press Change Key to change the key "
+"associated with the action."
+msgstr ""
+"Seleziona un azione dalla lista e premi \"Cambia tasto\" per cambiare il "
+"tasto associato con l'azione."
+
+#: src/dialogs.c:972
+msgid "Change _key..."
+msgstr "Cambia _tasto..."
+
+#: src/dialogs.c:977 src/dialogs.c:1030
+msgid "_Restore defaults"
+msgstr "_Ripristina predefinito"
+
+#: src/dialogs.c:998
+msgid "Keyboard"
+msgstr "Tastiera"
+
+#. sound
+#: src/dialogs.c:1003
+msgid "Enable _Sound"
+msgstr "Abilita l' _Audio"
+
+#: src/dialogs.c:1006
+msgid "Enable _MIDI"
+msgstr "Abilita _MIDI"
+
+#: src/dialogs.c:1020
+msgid "Enter command to play a midi file:"
+msgstr "Inserisci il comando per riprodurre un file midi:"
+
+#: src/dialogs.c:1023
+msgid ""
+"The above command is run when a midi file is to be played.  The name of the "
+"midi file is placed in the environment variable MIDIFILE."
+msgstr ""
+"Il comando sopra viene avviato quando un file midi sta per essere "
+"riprodotto.  Il nome delfile midi è posto nella variabile d'ambiente "
+"MIDIFILE."
+
+#: src/dialogs.c:1060
+msgid "Sound"
+msgstr "Audio"
+
+#: src/fields.c:76
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr ""
+"Errore nel caricare il tema: impossibile caricare il file grafico\n"
+"Torno indietro al predefinito."
+
+#. shouldnt happen
+#: src/fields.c:85
+#, c-format
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr ""
+"Errore nel caricamento del tema predefenito: Annullo...\n"
+"Controllare eventuali errori in installazione\n"
+
+#: src/fields.c:206
+msgid "Next piece:"
+msgstr "Prossimo pezzo:"
+
+#: src/fields.c:223
+msgid "Lines:"
+msgstr "Linee:"
+
+#: src/fields.c:227
+msgid "Level:"
+msgstr "Livello:"
+
+#: src/fields.c:229
+msgid "Active level:"
+msgstr "Livello attivo:"
+
+#: src/fields.c:277
+msgid "Attacks and defenses:"
+msgstr "Attacchi e difese:"
+
+#: src/fields.c:421
+msgid "Not playing"
+msgstr "Non in gioco"
+
+#: src/fields.c:452
+msgid "Specials:"
+msgstr "Speciali:"
+
+#: src/gtetrinet.c:77
+msgid "SERVER"
+msgstr "SERVER"
+
+#: src/gtetrinet.c:78
+msgid "Set nickname to use"
+msgstr "Imposta il nickname da usare"
+
+#: src/gtetrinet.c:78
+msgid "NICKNAME"
+msgstr "NICKNAME"
+
+#: src/gtetrinet.c:79
+msgid "Set team name"
+msgstr "Imposta il nome della squadra"
+
+#: src/gtetrinet.c:79
+msgid "TEAM"
+msgstr "TEAM"
+
+#: src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "Connetti come spettatore"
+
+#: src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr "Password spettatore"
+
+#: src/gtetrinet.c:81
+msgid "PASSWORD"
+msgstr "PASSWORD"
+
+#: src/gtetrinet.c:120
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "Inizializzazione GConf fallita: %s\n"
+
+#. FIXME
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
+msgid "Playing Fields"
+msgstr "Campi in gioco"
+
+#. FIXME
+#: src/gtetrinet.c:292
+msgid "Winlist"
+msgstr "Lista vincitori"
+
+#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
+msgid "Name"
+msgstr "Nome"
+
+#: src/partyline.c:79
+msgid "Players"
+msgstr "Giocatori"
+
+#: src/partyline.c:81
+msgid "State"
+msgstr "Stato"
+
+#: src/partyline.c:83
+msgid "Description"
+msgstr "Descrizione"
+
+#: src/partyline.c:95
+msgid "Channel List"
+msgstr "Lista canale"
+
+#: src/partyline.c:140
+msgid "Team"
+msgstr "Squadra"
+
+#: src/partyline.c:153
+msgid "Your name:"
+msgstr "Il tuo nome:"
+
+#: src/partyline.c:160
+msgid "Your team:"
+msgstr "La tua squadra:"
+
+#: src/partyline.c:665
+msgid "Talking in channel"
+msgstr "Chiacchierando nel canale"
+
+#: src/partyline.c:667
+msgid "Disconnected"
+msgstr "Disconnesso"
+
+#: src/tetrinet.c:194
+msgid "Server disconnected"
+msgstr "Server disconnesso"
+
+#: src/tetrinet.c:214
+#, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c*** Disconnesso dal server"
+
+#: src/tetrinet.c:226
+msgid "Error connecting: "
+msgstr "Errore nella connessione: "
+
+#: src/tetrinet.c:259
+#, c-format
+msgid "%c%c*** Connected to server"
+msgstr "%c%c*** Connesso al server"
+
+#: src/tetrinet.c:360
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr "%c%c*** Sei stato scacciato dalla partita"
+
+#: src/tetrinet.c:364
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr "%c*** %c%s%c%c è stato scacciato dalla partita"
+
+#: src/tetrinet.c:539
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr "%c*** La squadra %c%s%c%c ha vinto la partita"
+
+#: src/tetrinet.c:545
+#, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr "%c*** %c%s%c%c ha vinto la partita"
+
+#: src/tetrinet.c:605
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr "%c*** La partita è %ciniziata"
+
+#: src/tetrinet.c:631
+#, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "%c*** La partita è %cin corso"
+
+#: src/tetrinet.c:643
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr "%c*** La partita è in %cpausa"
+
+#: src/tetrinet.c:645
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr "La partita è in %c%cpausa"
+
+#: src/tetrinet.c:650
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr "%c*** La partita è stata %cripresa"
+
+#: src/tetrinet.c:652
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr "La partita è stata %c%cripresa"
+
+#: src/tetrinet.c:661
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr "%c*** La partita è %cfinita"
+
+#: src/tetrinet.c:772
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr "%c*** Ti sei unito %c%s%c%c"
+
+#: src/tetrinet.c:789
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c si è unito come spettatore %c%c(%c%s%c%c%c)"
+
+#: src/tetrinet.c:810
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c ha lasciato lo spettatore %c%c(%c%s%c%c%c)"
+
+#: src/tetrinet.c:1048
+msgid "No special blocks"
+msgstr "Nessun blocco speciale"
+
+#: src/tetrinet.c:1207 src/tetrinet.c:1214
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr " su %c%c%s%c%c"
+
+#: src/tetrinet.c:1224
+msgid " to All"
+msgstr " a tutti"
+
+#: src/tetrinet.c:1230 src/tetrinet.c:1237
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr " da %c%c%s%c%c"
+
+#: src/tetrinet.c:1865
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr "%c*** %c%s%c%c è il moderatore"
+
+#. remove ", " from end of string
+#: src/tetrinet.c:1914
+msgid " has left the game"
+msgstr " ha lasciato la partita"
+
+#: src/tetrinet.c:1915
+msgid " have left the game"
+msgstr "lascia la partita"
+
+#: src/tetrinet.c:1928
+msgid " has joined the game"
+msgstr "si è unito alla partita"
+
+#: src/tetrinet.c:1929
+msgid " have joined the game"
+msgstr "si unisce alla partita"
+
+#: src/tetrinet.c:1952
+#, c-format
+msgid "%s is on team %c%s"
+msgstr "%s è nella squadra %c%s"
+
+#: src/tetrinet.c:1955
+#, c-format
+msgid "%s is alone"
+msgstr "%s è da solo"
+
+#: src/tetrinet.c:1957
+#, c-format
+msgid "%s are on team %c%s"
+msgstr "%s sono nella squadra %c%s"
+
+#: src/tetrinet.c:1960
+#, c-format
+msgid "%s are alone"
+msgstr "%s sono da soli"
+
+#: src/tetrinet.c:2001
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr "%c*** %c%s%c%c adesso sono nella squadra %c%s"
+
+#: src/tetrinet.c:2008
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr "%c*** %c%s%c%c adesso è da solo"
+
+#. "T" stands for "Team" here
+#: src/winlist.c:57
+msgid "T"
+msgstr "S"
+
+#: src/winlist.c:61
+msgid "Score"
+msgstr "Punteggio"
+
+#: gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr "GTetrinet"
+
+#: gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "Client Tetrinet"
+
+#: gtetrinet.desktop.in.h:3
+msgid "Tetrinet client for GNOME"
+msgstr "Client Tetrinet per GNOME"
+
+#: gtetrinet.schemas.in.h:1
+msgid "Command to run to play midi files"
+msgstr "Comando da avviare per riprodurre un file midi"
+
+#: gtetrinet.schemas.in.h:2
+msgid "Enable/disable channel list."
+msgstr "Abilita/disabilita lista canale."
+
+#: gtetrinet.schemas.in.h:3
+msgid "Enable/disable midi music"
+msgstr "Abilita/disabilita musica midi"
+
+#: gtetrinet.schemas.in.h:4
+msgid "Enable/disable sound"
+msgstr "Abilita/disabilita audio"
+
+#: gtetrinet.schemas.in.h:5
+msgid "Enable/disable timestamps."
+msgstr "Abilita/disabilita orario."
+
+#: gtetrinet.schemas.in.h:6
+msgid ""
+"Enables/Disables sound. Keep in mind that the theme that you're using must "
+"provide sounds."
+msgstr ""
+"Abilita/disabilita suono. Considerare che il tema chs si sta usando "
+"devefornire i suoni."
+
+#: gtetrinet.schemas.in.h:7
+msgid ""
+"Enables/disables midi music. You'll need to enable sound if you want music "
+"to work."
+msgstr ""
+"Abilita/disabilita musica midi. È necessario abilitare l'audio se si vuole "
+"che la musica funzioni."
+
+#: gtetrinet.schemas.in.h:8
+msgid ""
+"Enables/disables the channel list. Disable it if you experience problems "
+"when connecting or while playing in your favorite tetrinet server."
+msgstr ""
+"Abilita/disabilita la lista canale. Disabilitare se si riscontrano "
+"problemidurante la connessione o mentre si gioca nel server tetrinet "
+"preferito."
+
+#: gtetrinet.schemas.in.h:9
+msgid "Enables/disables timestamps in the partyline."
+msgstr "Abilita/disabilita orario nella partyline."
+
+#: gtetrinet.schemas.in.h:10
+msgid "Key to discard special"
+msgstr "Tasto per scartare lo speciale"
+
+#: gtetrinet.schemas.in.h:11
+msgid "Key to drop piece"
+msgstr "Tasto per scaricare il pezzo"
+
+#: gtetrinet.schemas.in.h:12
+msgid "Key to move down"
+msgstr "Tasto per muovere in basso"
+
+#: gtetrinet.schemas.in.h:13
+msgid "Key to move left"
+msgstr "Tasto per muovere a sinistra"
+
+#: gtetrinet.schemas.in.h:14
+msgid "Key to move right"
+msgstr "Tasto per muovere a destra"
+
+#: gtetrinet.schemas.in.h:15
+msgid "Key to open the fields' message dialog"
+msgstr "Tasto per aprire la finestra dei messaggi del campo"
+
+#: gtetrinet.schemas.in.h:16
+msgid "Key to rotate clockwise"
+msgstr "Tasto per ruotare in senso orario"
+
+#: gtetrinet.schemas.in.h:17
+msgid "Key to rotate counterclockwise"
+msgstr "Tasto per ruotare in senso antiorario"
+
+#: gtetrinet.schemas.in.h:18
+msgid "Key to use the current special on field 1"
+msgstr "Tasto per usare l'attuale speciale nel campo 1"
+
+#: gtetrinet.schemas.in.h:19
+msgid "Key to use the current special on field 2"
+msgstr "Tasto per usare l'attuale speciale nel campo 2"
+
+#: gtetrinet.schemas.in.h:20
+msgid "Key to use the current special on field 3"
+msgstr "Tasto per usare l'attuale speciale nel campo 3"
+
+#: gtetrinet.schemas.in.h:21
+msgid "Key to use the current special on field 4"
+msgstr "Tasto per usare l'attuale speciale nel campo 4"
+
+#: gtetrinet.schemas.in.h:22
+msgid "Key to use the current special on field 5"
+msgstr "Tasto per usare l'attuale speciale nel campo 5"
+
+#: gtetrinet.schemas.in.h:23
+msgid "Key to use the current special on field 6"
+msgstr "Tasto per usare l'attuale speciale nel campo 6"
+
+#: gtetrinet.schemas.in.h:24
+msgid "Server where you want to play"
+msgstr "Server nel quale vuoi giocare"
+
+#: gtetrinet.schemas.in.h:25
+msgid ""
+"The current theme directory. It should contain a readable \"blocks.png\" and "
+"a \"theme.cfg\"."
+msgstr ""
+"La directory del tema corrente. Dovrebbe contenere un \"blocks.png\" "
+"leggibile eun \"theme.cfg\"."
+
+#: gtetrinet.schemas.in.h:26
+msgid "Theme directory, should end with a '/'"
+msgstr "Directory del tema, dovrebbe finire con un '/'"
+
+#: gtetrinet.schemas.in.h:27
+msgid ""
+"This command is run when a midi file is to be played. The name of the midi "
+"file is placed in the environment variable MIDIFILE."
+msgstr ""
+"Questo comando viene avviato quando un file midi sta per essere rirpodotto.  "
+"Il nome del file midi è posto nella variabile di sistema MIDIFILE."
+
+#: gtetrinet.schemas.in.h:28
+msgid "This is the server where GTetrinet will try to connect."
+msgstr "Questo è il server al quale GTetrinet proverà a connettersi."
+
+#: gtetrinet.schemas.in.h:29
+msgid "This key discards the current special. This is case insensitive."
+msgstr "Questo tasto scarta l'attuale speciale. Sia maiuscolo che minuscolo."
+
+#: gtetrinet.schemas.in.h:30
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr ""
+"Questo tasto mostra la finestra dei messaggi di campo. Sia maiuscolo che "
+"minuscolo."
+
+#: gtetrinet.schemas.in.h:31
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr "Questo tasto rilascia il blocco in basso. Sia maiuscolo che minuscolo."
+
+#: gtetrinet.schemas.in.h:32
+msgid "This key moves the block down. This is case insensitive."
+msgstr "Questo tasto rilascia il blocco in basso. Sia maiuscolo che minuscolo."
+
+#: gtetrinet.schemas.in.h:33
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr "Questo tasto muove il blocco a sinistra. Sia maiuscolo che minuscolo."
+
+#: gtetrinet.schemas.in.h:34
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr "Questo tasto muove il blocco a destra. Sia maiuscolo che minuscolo."
+
+#: gtetrinet.schemas.in.h:35
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr ""
+"Questo tasto ruota il blocco in senso orario. Sia maiuscolo che minuscolo."
+
+#: gtetrinet.schemas.in.h:36
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr ""
+"Questo tasto ruota il blocco in senso antiorario. Sia maiuscolo che "
+"minuscolo."
+
+#: gtetrinet.schemas.in.h:37
+msgid "This key uses the current special on Player 1's game field."
+msgstr ""
+"Questo tasto usa l'attuale speciale nel campo di gioco del giocatore 1."
+
+#: gtetrinet.schemas.in.h:38
+msgid "This key uses the current special on Player 2's game field."
+msgstr ""
+"Questo tasto usa l'attuale speciale nel campo di gioco del giocatore 2."
+
+#: gtetrinet.schemas.in.h:39
+msgid "This key uses the current special on Player 3's game field."
+msgstr ""
+"Questo tasto usa l'attuale speciale nel campo di gioco del giocatore 3."
+
+#: gtetrinet.schemas.in.h:40
+msgid "This key uses the current special on Player 4's game field."
+msgstr ""
+"Questo tasto usa l'attuale speciale nel campo di gioco del giocatore 4."
+
+#: gtetrinet.schemas.in.h:41
+msgid "This key uses the current special on Player 5's game field."
+msgstr ""
+"Questo tasto usa l'attuale speciale nel campo di gioco del giocatore 5."
+
+#: gtetrinet.schemas.in.h:42
+msgid "This key uses the current special on Player 6's game field."
+msgstr ""
+"Questo tasto usa l'attuale speciale nel campo di gioco del giocatore 6."
+
+#: gtetrinet.schemas.in.h:43
+msgid "This will be the name of your team."
+msgstr "Questo sarà il nome della tua squadra."
+
+#: gtetrinet.schemas.in.h:44
+msgid "This will be your nickname in the game."
+msgstr "Questo sarà il tuo nickname nel gioco."
+
+#: gtetrinet.schemas.in.h:45
+msgid "Your nickname"
+msgstr "Il tuo nickname"
+
+#: gtetrinet.schemas.in.h:46
+msgid "Your team"
+msgstr "La tua squadra"
+

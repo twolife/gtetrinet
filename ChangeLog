@@ -1,3 +1,7 @@
+2004-07-17  Alessio Frusciante  <algol@firenze.linux.it>
+
+	* configure.in: Added "it" (Italian) to ALL_LINGUAS.
+
 2004-04-18  Jordi Mallach  <jordi@sindominio.net>
 
 	* automake.in: Back out automake-1.7 requirement.
