@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.7.1\n"
-"POT-Creation-Date: 2003-04-10 10:48+0200\n"
-"PO-Revision-Date: 2003-04-10 10:51+0200\n"
+"POT-Creation-Date: 2003-04-10 23:31+0200\n"
+"PO-Revision-Date: 2003-04-10 23:32+0200\n"
 "Last-Translator: Jordi Mallach <jordi@sindominio.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -417,43 +417,43 @@ msgstr "Camps de joc"
 msgid "Winlist"
 msgstr "Marcadors"
 
-#: src/partyline.c:76 src/partyline.c:134 src/winlist.c:47
+#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:47
 msgid "Name"
 msgstr "Nom"
 
-#: src/partyline.c:78
+#: src/partyline.c:79
 msgid "Players"
 msgstr "Jugadors"
 
-#: src/partyline.c:80
+#: src/partyline.c:81
 msgid "State"
 msgstr "Estat"
 
-#: src/partyline.c:82
+#: src/partyline.c:83
 msgid "Description"
 msgstr "Descripció"
 
-#: src/partyline.c:93
-msgid "<b>Channel List</b>"
-msgstr "<b>Llista de canals</b>"
+#: src/partyline.c:95
+msgid "Channel List"
+msgstr "Llista de canals"
 
-#: src/partyline.c:136
+#: src/partyline.c:140
 msgid "Team"
 msgstr "Equip"
 
-#: src/partyline.c:149
+#: src/partyline.c:153
 msgid "Your name:"
 msgstr "El vostre nom:"
 
-#: src/partyline.c:156
+#: src/partyline.c:160
 msgid "Your team:"
 msgstr "El vostre equip:"
 
-#: src/partyline.c:608
+#: src/partyline.c:612
 msgid "Talking in channel"
 msgstr "S'està parlant en el canal"
 
-#: src/partyline.c:610
+#: src/partyline.c:614
 msgid "Disconnected"
 msgstr "Desconnectat"
 
@@ -676,7 +676,9 @@ msgstr ""
 msgid ""
 "Enables/disables the channel list. Disable it if you experience problems "
 "when connecting or while playing in your favorite tetrinet server."
-msgstr "Habilita/inhabilita la llista de canals. Inhabiliteu-la si teniu problemes en connectar o en jugar a el vostre canal de tetrinet favorit."
+msgstr ""
+"Habilita/inhabilita la llista de canals. Inhabiliteu-la si teniu problemes "
+"en connectar o en jugar a el vostre canal de tetrinet favorit."
 
 #: gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
