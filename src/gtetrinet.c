@@ -216,9 +216,9 @@ int main (int argc, char *argv[])
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pwinlist, label);
 
     /* add signal to focus the text entry when switching to the partyline page*/
-    g_signal_connect (G_OBJECT (notebook), "switch_page",
-		    GTK_SIGNAL_FUNC (partyline_switch_entryfocus),
-		    NULL);
+    g_signal_connect_after(G_OBJECT (notebook), "switch_page",
+		           GTK_SIGNAL_FUNC (partyline_switch_entryfocus),
+		           NULL);
 
     gtk_widget_show (notebook);
     gtk_widget_show (app);
@@ -396,7 +396,7 @@ static int gtetrinet_key (int keyval, int mod)
     case GDK_1: gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 0); break;
     case GDK_2:
         gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 1);
-        partyline_entryfocus();
+        /* partyline_entryfocus(); */
         break;
     case GDK_3: gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 2); break;
     default:

@@ -255,7 +255,7 @@ void partyline_entryfocus (void)
 }
 
 void partyline_switch_entryfocus (void)
-{
+{ /* FIXME: should only grab when in right notebook */
     if (connected) gtk_widget_grab_focus (entrybox);
 }
 

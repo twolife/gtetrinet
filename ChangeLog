@@ -1,4 +1,12 @@
-2003-01-05  Dani Carbonell <bocata@panete.net>
+2003-01-05  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/commands.c (about_command): fix segfault when calling two about
+	dialogs. Patch from James Antill.
+
+	* src/gtetrinet.c (main): autofocus the text box when switching from
+	some notetab to partyline. Patch from James Antill.
+
+2003-01-05  Dani Carbonell  <bocata@panete.net>
 
 	* TODO: updated.
 

@@ -7,8 +7,6 @@
 
 extern int gamemode;
 
-GtkWidget *about;
-
 extern void destroymain (GtkWidget *widget, gpointer data);
 extern gint keypress (GtkWidget *widget, GdkEventKey *key);
 extern gint keyrelease (GtkWidget *widget, GdkEventKey *key);

@@ -34,8 +34,6 @@
 #include "commands.h"
 #include "dialogs.h"
 
-extern GtkWidget *about;
-
 GnomeUIInfo gamemenu[] = {
     GNOMEUIINFO_ITEM(N_("_Connect to server..."), NULL, connect_command, NULL),
     GNOMEUIINFO_ITEM(N_("_Disconnect from server"), NULL, disconnect_command, NULL),
@@ -223,6 +221,7 @@ void about_command (GtkWidget *widget, gpointer data)
 {
     GtkWidget *hbox;
     GdkPixbuf *logo;
+    static GtkWidget *about = NULL;
 
     if (!GTK_IS_WINDOW (about))
     {
@@ -257,6 +256,9 @@ void about_command (GtkWidget *widget, gpointer data)
       gtk_box_pack_start (GTK_BOX (GTK_DIALOG (about)->vbox),
 		          hbox, TRUE, FALSE, 0);
       gtk_widget_show_all (hbox);
+
+      g_signal_connect(G_OBJECT(about), "destroy",
+		       G_CALLBACK(gtk_widget_destroyed), &about);
 
       gtk_widget_show (about);
     }
