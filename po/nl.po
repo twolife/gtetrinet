@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet gnome2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-07 13:07+0200\n"
+"POT-Creation-Date: 2003-07-16 15:40+0200\n"
 "PO-Revision-Date: 2003-06-08 19:40+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
@@ -124,10 +124,6 @@ msgstr "Niet verbonden"
 #: src/commands.c:287
 msgid "translator_credits"
 msgstr "Tino Meinen <a.t.meinen@chello.nl>"
-
-#: src/commands.c:292
-msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
-msgstr "© 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
 
 #: src/commands.c:293
 msgid "A Tetrinet client for GNOME.\n"
@@ -295,7 +291,7 @@ msgstr "Geselecteerd thema"
 
 #: src/dialogs.c:910
 msgid "Themes"
-msgstr "Themas"
+msgstr "Thema's"
 
 #. partyline
 #: src/dialogs.c:915
@@ -899,3 +895,6 @@ msgstr "Uw bijnaam"
 #: gtetrinet.schemas.in.h:46
 msgid "Your team"
 msgstr "Uw team"
+
+#~ msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
+#~ msgstr "© 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
