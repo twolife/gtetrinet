@@ -1,3 +1,8 @@
+2002-10-12  Jordi Mallach  <jordi@sindominio.net>
+
+	* doc/gtetrinet.6: replace notes about tetrinetx's licensing problems
+	with the url of the SourceForge project.
+
 2002-10-03  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/tetrinet.c: patch from Niko Böhm which fixes a missbehaviour
