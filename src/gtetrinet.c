@@ -65,7 +65,7 @@ static const struct poptOption options[] = {
     {"connect", 'c', POPT_ARG_STRING, &option_connect, 0, N_("Connect to server"), N_("SERVER")},
     {"nickname", 'n', POPT_ARG_STRING, &option_nick, 0, N_("Set nickname to use"), N_("NICKNAME")},
     {"team", 't', POPT_ARG_STRING, &option_team, 0, N_("Set team name"), N_("TEAM")},
-    {"spectate", 's', POPT_ARG_NONE, &option_spec, 0, N_("Connect as spectator"), NULL},
+    {"spectate", 's', POPT_ARG_NONE, &option_spec, 0, N_("Connect as a spectator"), NULL},
     {"password", 'p', POPT_ARG_STRING, &option_pass, 0, N_("Spectator password"), N_("PASSWORD")},
     {NULL, 0, 0, NULL, 0, NULL, NULL}
 };

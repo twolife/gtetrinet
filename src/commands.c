@@ -35,10 +35,10 @@
 #include "dialogs.h"
 
 GnomeUIInfo gamemenu[] = {
-    GNOMEUIINFO_ITEM(N_("_Connect to Server..."), NULL, connect_command, NULL),
-    GNOMEUIINFO_ITEM(N_("_Disconnect from Server"), NULL, disconnect_command, NULL),
+    GNOMEUIINFO_ITEM(N_("_Connect to server..."), NULL, connect_command, NULL),
+    GNOMEUIINFO_ITEM(N_("_Disconnect from server"), NULL, disconnect_command, NULL),
     GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM(N_("Change _Team..."), NULL, team_command, NULL),
+    GNOMEUIINFO_ITEM(N_("Change _team..."), NULL, team_command, NULL),
     GNOMEUIINFO_SEPARATOR,
     GNOMEUIINFO_ITEM(N_("_Start game"), NULL, start_command, NULL),
     GNOMEUIINFO_ITEM(N_("_Pause game"), NULL, pause_command, NULL),
@@ -47,7 +47,7 @@ GnomeUIInfo gamemenu[] = {
      * compile time for now. */
 #ifdef ENABLE_DETACH
     GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM(N_("Detac_h Page..."), NULL, detach_command, NULL),
+    GNOMEUIINFO_ITEM(N_("Detac_h page..."), NULL, detach_command, NULL),
 #endif /* ENABLE_DETACH */
     GNOMEUIINFO_SEPARATOR,
     GNOMEUIINFO_MENU_EXIT_ITEM(destroymain, NULL),
@@ -82,7 +82,7 @@ GnomeUIInfo toolbar[] = {
     GNOMEUIINFO_ITEM(N_("Change team"), NULL, team_command, NULL),
 #ifdef ENABLE_DETACH
     GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM(N_("Detach Page"), NULL, detach_command, NULL),
+    GNOMEUIINFO_ITEM(N_("Detach page"), NULL, detach_command, NULL),
 #endif
     GNOMEUIINFO_END
 };

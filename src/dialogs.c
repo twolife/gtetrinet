@@ -75,7 +75,7 @@ gint connectingdialog_timeout (gpointer data)
 void connectingdialog_new (void)
 {
     if (connectingdialog) return;
-    connectingdialog = gnome_dialog_new (_("Connect to Server"),
+    connectingdialog = gnome_dialog_new (_("Connect to server"),
                                          GNOME_STOCK_BUTTON_CANCEL,
                                          NULL);
     progressbar = gtk_progress_bar_new ();
@@ -226,7 +226,7 @@ void connectdialog_new (void)
     oldgamemode = gamemode;
 
     /* make dialog that asks for address/nickname */
-    connectdialog = gnome_dialog_new (_("Connect to Server"),
+    connectdialog = gnome_dialog_new (_("Connect to server"),
                                       GNOME_STOCK_BUTTON_OK,
                                       GNOME_STOCK_BUTTON_CANCEL,
                                       NULL);
