@@ -1,11 +1,11 @@
 # Translation of gtetrinet to Croatiann
 # Copyright (C) Croatiann team
-# Translators: Antun Krasic <butch@gawab.com>,Automatski Prijevod <>,Boris Tudan <boris.tudan@ka.htnet.hr>,pr pr <delacko@192.168.0.1>,
+# Translators: Antun Krasic <butch@gawab.com>,Automatski Prijevod <>,Boris Tudan <boris.tudan@ka.htnet.hr>,Denis Lackovic <delacko@fly.srk.fer.hr>,pr pr <delacko@192.168.0.1>,Robert Sedak <robert.sedak@sk.tel.hr>,
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0\n"
-"POT-Creation-Date: 2004-02-01 17:08+0100\n"
-"PO-Revision-Date: 2004-02-05 23:50+CET\n"
+"POT-Creation-Date: 2004-03-18 00:06+0100\n"
+"PO-Revision-Date: 2004-03-18 00:06+CET\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
@@ -14,43 +14,36 @@ msgstr ""
 "X-Generator: TransDict server\n"
 
 #: src/client.c:237
-#, fuzzy
 msgid "Couldn't resolve hostname."
-msgstr "Ne mogu da razrešim ime domaćina."
+msgstr "Nisam mogao otkriti ime računala."
 
 #: src/commands.c:45
-#, fuzzy
 msgid "_Connect to server..."
-msgstr "_Poveži se na poslužitelj..."
+msgstr "_Spojite se na poslužitelj..."
 
 #: src/commands.c:46
-#, fuzzy
 msgid "_Disconnect from server"
-msgstr "Is_ključi se sa poslužitelja"
+msgstr "_Prekini vezu s poslužiteljem"
 
 #: src/commands.c:48
-#, fuzzy
 msgid "Change _team..."
 msgstr "Promijeni _tim..."
 
 #: src/commands.c:50
-#, fuzzy
 msgid "_Start game"
-msgstr "Počni _igru"
+msgstr "_Pokreni igru"
 
 #: src/commands.c:51
 msgid "_Pause game"
 msgstr "_Pauziraj igru"
 
 #: src/commands.c:52
-#, fuzzy
 msgid "_End game"
 msgstr "_Završi igru"
 
 #: src/commands.c:57
-#, fuzzy
 msgid "Detac_h page..."
-msgstr "_Odvoji stranu..."
+msgstr "_Odvoji stranicu..."
 
 #: src/commands.c:82
 msgid "Connect"
@@ -65,26 +58,22 @@ msgid "Disconnect"
 msgstr "Prekini vezu"
 
 #: src/commands.c:83
-#, fuzzy
 msgid "Disconnect from the current server"
 msgstr "Isključi se sa trenutnog poslužitelja"
 
 #: src/commands.c:85
-#, fuzzy
 msgid "Start game"
-msgstr "Počni igru"
+msgstr "Pokreni igru"
 
 #: src/commands.c:85
 msgid "Start a new game"
 msgstr "Pokreni novu igru"
 
 #: src/commands.c:86
-#, fuzzy
 msgid "End game"
-msgstr "Završi igru"
+msgstr "Kraj igre"
 
 #: src/commands.c:86
-#, fuzzy
 msgid "End the current game"
 msgstr "Završi trenutnu igru"
 
@@ -93,39 +82,32 @@ msgid "Pause game"
 msgstr "Pauziraj igru"
 
 #: src/commands.c:87
-#, fuzzy
 msgid "Pause the game"
 msgstr "Pauziraj igru"
 
 #: src/commands.c:89 src/dialogs.c:156
-#, fuzzy
 msgid "Change team"
 msgstr "Promijeni tim"
 
 #: src/commands.c:89
-#, fuzzy
 msgid "Change your current team name"
-msgstr "Promijeni ime trenutnog tima"
+msgstr "Promijenite ime vašeg trenutnog tima"
 
 #: src/commands.c:92
-#, fuzzy
 msgid "Detach page"
-msgstr "Odvoji stranu"
+msgstr "Odvoji stranicu"
 
 #: src/commands.c:92
-#, fuzzy
 msgid "Detach the current notebook page"
-msgstr "Odvoji trenutnu stranicu beležnice"
+msgstr "Odvoji trenutnu stranicu bilježnice"
 
 #: src/commands.c:258
-#, fuzzy
 msgid "Game in progress"
-msgstr "Igra u toku"
+msgstr "Igra je u toku"
 
 #: src/commands.c:261
-#, fuzzy
 msgid "Connected to\n"
-msgstr "Povezan na\n"
+msgstr "Spojen na\n"
 
 #: src/commands.c:265
 msgid "Not connected"
@@ -137,45 +119,37 @@ msgid "translator_credits"
 msgstr "lokalizacija@linux.hr"
 
 #: src/commands.c:293
-#, fuzzy
 msgid "A Tetrinet client for GNOME.\n"
-msgstr "Tetrinet klijent za Gnom.\n"
+msgstr "Tetrinet klijent za GNOME.\n"
 
 #: src/commands.c:305
-#, fuzzy
 msgid "GTetrinet Home Page"
 msgstr "GTetrinet internet stranica"
 
 #: src/config.c:140
-#, fuzzy
 msgid "Warning: theme does not have a name, reverting to default."
-msgstr "PaÅ¾nja: tema nema ime, vraÄam na uobičajeno"
+msgstr "Pažnja: tema nema ime, vraćam na uobičajeno."
 
 #. make dialog that asks for address/nickname
 #: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
-#, fuzzy
 msgid "Connect to server"
-msgstr "Poveži se na poslužitelj"
+msgstr "Spoji se s poslužiteljem"
 
 #: src/dialogs.c:169
-#, fuzzy
 msgid "Team name:"
 msgstr "Ime tima:"
 
 #: src/dialogs.c:215
-#, fuzzy
 msgid "You must specify a server name."
-msgstr "Morate naznačiti ime poslužitelja."
+msgstr "Morate odrediti ime poslužitelja."
 
 #: src/dialogs.c:232
-#, fuzzy
 msgid "Please specify a password to connect as spectator."
-msgstr "Upišite lozinku da se priključite kao gledač."
+msgstr "Molim, upišite lozinku, kako biste se priključili kao gledatelj."
 
 #: src/dialogs.c:258
-#, fuzzy
 msgid "Please specify a valid nickname."
-msgstr "Molim upišite ispravan nadimak."
+msgstr "Molim, upišite ispravan nadimak."
 
 #. game type radio buttons
 #: src/dialogs.c:364
@@ -183,7 +157,6 @@ msgid "O_riginal"
 msgstr "_Original"
 
 #: src/dialogs.c:366
-#, fuzzy
 msgid "Tetri_Fast"
 msgstr "Tetri_Fast"
 
@@ -192,37 +165,32 @@ msgid "Server address"
 msgstr "Adresa poslužitelja"
 
 #: src/dialogs.c:397
-#, fuzzy
 msgid "Connect as a _spectator"
-msgstr "Poveži se kao gledalac"
+msgstr "Spojite se kao _gledatelj"
 
 #: src/dialogs.c:401
 msgid "_Password:"
 msgstr "_Lozinka:"
 
 #: src/dialogs.c:418
-#, fuzzy
 msgid "Spectate game"
-msgstr "Gledaj igru"
+msgstr "Gledajte igru"
 
 #: src/dialogs.c:427
 msgid "_Nick name:"
 msgstr "_Nadima&k:"
 
 #: src/dialogs.c:442
-#, fuzzy
 msgid "_Team name:"
-msgstr "Ime tima:"
+msgstr "_Ime tima:"
 
 #: src/dialogs.c:462
-#, fuzzy
 msgid "Player information"
 msgstr "Informacije o igraču"
 
 #: src/dialogs.c:503
-#, fuzzy
 msgid "Change Key"
-msgstr "Promijeni tipka"
+msgstr "Promijeni tipku"
 
 #: src/dialogs.c:554
 msgid "Move right"
@@ -245,67 +213,56 @@ msgid "Rotate left"
 msgstr "Zakreni lijevo"
 
 #: src/dialogs.c:559
-#, fuzzy
 msgid "Drop piece"
-msgstr "Spusti deo"
+msgstr "Ispusti dio"
 
 #: src/dialogs.c:560
-#, fuzzy
 msgid "Discard special"
-msgstr "Odbaci posebne"
+msgstr "Odbaci posebno"
 
 #: src/dialogs.c:561
 msgid "Send message"
 msgstr "Pošalji poruku"
 
 #: src/dialogs.c:562
-#, fuzzy
 msgid "Special to field 1"
-msgstr "Posebne u polje 1"
+msgstr "Posebno u polje 1"
 
 #: src/dialogs.c:563
-#, fuzzy
 msgid "Special to field 2"
-msgstr "Posebne u polje 2"
+msgstr "Posebno u polje 2"
 
 #: src/dialogs.c:564
-#, fuzzy
 msgid "Special to field 3"
-msgstr "Posebne u polje 3"
+msgstr "Posebno u polje 3"
 
 #: src/dialogs.c:565
-#, fuzzy
 msgid "Special to field 4"
-msgstr "Posebne u polje 4"
+msgstr "Posebno u polje 4"
 
 #: src/dialogs.c:566
-#, fuzzy
 msgid "Special to field 5"
-msgstr "Posebne u polje 5"
+msgstr "Posebno u polje 5"
 
 #: src/dialogs.c:567
-#, fuzzy
 msgid "Special to field 6"
-msgstr "Posebne u polje 6"
+msgstr "Posebno u polje 6"
 
 #: src/dialogs.c:627
-#, fuzzy
 msgid "Press new key for \"%s\""
-msgstr "Pritisni novi tipka za \"%s\""
+msgstr "Pritisni novu tipku za \"%s\""
 
 #: src/dialogs.c:844
-#, fuzzy
 msgid "GTetrinet Preferences"
-msgstr "GTetrinet podešavanja"
+msgstr "Postavke GTetrinet -a"
 
 #: src/dialogs.c:866
-#, fuzzy
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
 msgstr ""
-"Odaberi postavku sa liste.\n"
-"Instaliraj nove postavke u ~/.gtetrinet/themes/"
+"Odaberi teme sa popisa.\n"
+"Instaliraj nove teme u ~/.gtetrinet/themes/"
 
 #: src/dialogs.c:874
 msgid "Name:"
@@ -320,9 +277,8 @@ msgid "Description:"
 msgstr "Opis:"
 
 #: src/dialogs.c:900
-#, fuzzy
 msgid "Selected Theme"
-msgstr "Odabrana postavka"
+msgstr "Odabrana tema"
 
 #: src/dialogs.c:919
 msgid "Themes"
@@ -330,20 +286,17 @@ msgstr "Teme"
 
 #. partyline
 #: src/dialogs.c:924
-#, fuzzy
 msgid "Enable _Timestamps"
 msgstr "Uključi vremenske oznake"
 
 #: src/dialogs.c:926
-#, fuzzy
 msgid "Enable Channel _List"
-msgstr "Uključi _liste kanala"
+msgstr "Uključi _popis kanala"
 
 #. FIXME
 #: src/dialogs.c:952 src/gtetrinet.c:281
-#, fuzzy
 msgid "Partyline"
-msgstr "Čavrljanje"
+msgstr "Razgovor"
 
 #: src/dialogs.c:963
 msgid "Action"
@@ -354,22 +307,18 @@ msgid "Key"
 msgstr "Ključ"
 
 #: src/dialogs.c:971
-#, fuzzy
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
-msgstr ""
-"Odaberi radnju sa liste i pritisni 'Promijeni tipka' za promijenu tipkaa "
-"pridruženog toj radnji."
+msgstr "Odaberi radnju sa popisa i pritisni 'Promijeni tipku' za promjenu tipke pridružene toj radnji."
 
 #: src/dialogs.c:978
-#, fuzzy
 msgid "Change _key..."
-msgstr "Promijeni tipka..."
+msgstr "Promijeni _tipku..."
 
 #: src/dialogs.c:983 src/dialogs.c:1036
 msgid "_Restore defaults"
-msgstr "_Povrati predefinirano"
+msgstr "_Povrati uobičajene postavke"
 
 #: src/dialogs.c:1004
 msgid "Keyboard"
@@ -377,56 +326,46 @@ msgstr "Tipkovnica"
 
 #. sound
 #: src/dialogs.c:1009
-#, fuzzy
 msgid "Enable _Sound"
-msgstr "Uključi zvuk"
+msgstr "_Omogući zvuk"
 
 #: src/dialogs.c:1012
-#, fuzzy
 msgid "Enable _MIDI"
 msgstr "Uključi _MIDI"
 
 #: src/dialogs.c:1026
-#, fuzzy
 msgid "Enter command to play a midi file:"
-msgstr "Unesi naredbu za pokretanje midi datotekaa:"
+msgstr "Upišite naredbu za pokretanje midi datoteke:"
 
 #: src/dialogs.c:1029
-#, fuzzy
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
-msgstr ""
-"Navedena naredba se pokreće kada treba odsvirati midi datoteka.  Ime midi datotekaa "
-"je postavljeno u promjenjivu MIDIFILE."
+msgstr "Navedena naredba se pokreće kada treba odsvirati midi datoteku.  Ime midi datoteke je postavljeno u varijablu okruženja MIDIFILE."
 
 #: src/dialogs.c:1066
 msgid "Sound"
 msgstr "Zvuk"
 
 #: src/fields.c:76
-#, fuzzy
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
 msgstr ""
-"GreÅ¡ka pri uÄitavanju postavke: ne mogu otvoriti sliku\n"
-"VraÄam na uobičajeno"
+"Greška pri učitavanju postavke: ne mogu otvoriti grafičku datoteku\n"
+"Vraćam na uobičajeno"
 
-#. shouldnt happen
 #: src/fields.c:85
-#, fuzzy
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
 msgstr ""
-"GreÅ¡ka pri uÄitavanju uobičajene postavke: Prekidam... \n"
-"Provjerite da nema greÅ¡aka pri instalaciji\n"
+"Greška pri učitavanju uobičajene teme: Prekidam... \n"
+"Provjerite da li ima grešaka pri instalaciji\n"
 
 #: src/fields.c:206
-#, fuzzy
 msgid "Next piece:"
-msgstr "Sljedeći:"
+msgstr "Sljedeći dio:"
 
 #: src/fields.c:223
 msgid "Lines:"
@@ -437,12 +376,10 @@ msgid "Level:"
 msgstr "Razina:"
 
 #: src/fields.c:229
-#, fuzzy
 msgid "Active level:"
-msgstr "Aktivni razina:"
+msgstr "Aktivna razina:"
 
 #: src/fields.c:277
-#, fuzzy
 msgid "Attacks and defenses:"
 msgstr "Napadi i odbrane:"
 
@@ -451,47 +388,38 @@ msgid "Not playing"
 msgstr "Ne svira"
 
 #: src/fields.c:452
-#, fuzzy
 msgid "Specials:"
 msgstr "Posebni:"
 
 #: src/gtetrinet.c:77
-#, fuzzy
 msgid "SERVER"
-msgstr "POSLUžITELJ"
+msgstr "Poslužitelj"
 
 #: src/gtetrinet.c:78
-#, fuzzy
 msgid "Set nickname to use"
-msgstr "Podesi nadimak"
+msgstr "Postavi nadimak"
 
 #: src/gtetrinet.c:78
-#, fuzzy
 msgid "NICKNAME"
 msgstr "NADIMAK"
 
 #: src/gtetrinet.c:79
-#, fuzzy
 msgid "Set team name"
-msgstr "Podesi ime tima"
+msgstr "Postavi ime tima"
 
 #: src/gtetrinet.c:79
-#, fuzzy
 msgid "TEAM"
 msgstr "TIM"
 
 #: src/gtetrinet.c:80
-#, fuzzy
 msgid "Connect as a spectator"
-msgstr "Poveži se kao gledalac"
+msgstr "Spojite se kao gledatelj"
 
 #: src/gtetrinet.c:81
-#, fuzzy
 msgid "Spectator password"
-msgstr "Lozinka gledalaca"
+msgstr "Gledatelja lozinka"
 
 #: src/gtetrinet.c:81
-#, fuzzy
 msgid "PASSWORD"
 msgstr "LOZINKA"
 
@@ -501,15 +429,13 @@ msgstr "Nisam uspio pokrenuti GConf: %s\n"
 
 #. FIXME
 #: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:470
-#, fuzzy
 msgid "Playing Fields"
 msgstr "Polja za igranje"
 
 #. FIXME
 #: src/gtetrinet.c:292
-#, fuzzy
 msgid "Winlist"
-msgstr "Lista prozora"
+msgstr "Popis pobjednika"
 
 #: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
 msgid "Name"
@@ -532,7 +458,6 @@ msgid "Channel List"
 msgstr "Kanali"
 
 #: src/partyline.c:140
-#, fuzzy
 msgid "Team"
 msgstr "Tim"
 
@@ -541,12 +466,10 @@ msgid "Your name:"
 msgstr "Vaše ime:"
 
 #: src/partyline.c:160
-#, fuzzy
 msgid "Your team:"
 msgstr "Vaš tim:"
 
 #: src/partyline.c:665
-#, fuzzy
 msgid "Talking in channel"
 msgstr "Razgovor na kanalu"
 
@@ -555,9 +478,8 @@ msgid "Disconnected"
 msgstr "Veza prekinuta"
 
 #: src/tetrinet.c:194
-#, fuzzy
 msgid "Server disconnected"
-msgstr "Poslužitelj isključen"
+msgstr "Isključen poslužitelj"
 
 #: src/tetrinet.c:214
 #, c-format
@@ -586,12 +508,12 @@ msgstr "%c*** %c%s%c%c je izbačen iz igre"
 #: src/tetrinet.c:539
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
-msgstr "%c*** Team %c%s%c%c je pobjedio"
+msgstr "%c*** Ekipa %c%s%c%c je pobijedila"
 
 #: src/tetrinet.c:545
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
-msgstr "%c*** %c%s%c%c je pobjedio!"
+msgstr "%c*** %c%s%c%c je pobijedio!"
 
 #: src/tetrinet.c:605
 #, c-format
@@ -606,12 +528,11 @@ msgstr "%c*** igra je %cu toku"
 #: src/tetrinet.c:643
 #, c-format
 msgid "%c*** The game has %cpaused"
-msgstr "%c*** igra je %cprivremeno yaustavljena"
+msgstr "%c*** igra je %cprivremeno zaustavljena"
 
 #: src/tetrinet.c:645
-#, fuzzy
 msgid "The game has %c%cpaused"
-msgstr "Igra je %c%cpauzirana"
+msgstr "Igra je %c%c u stanci"
 
 #: src/tetrinet.c:650
 #, c-format
@@ -619,9 +540,8 @@ msgid "%c*** The game has %cresumed"
 msgstr "%c*** igra se %cnastavila"
 
 #: src/tetrinet.c:652
-#, fuzzy
 msgid "The game has %c%cresumed"
-msgstr "Igra je %c%cnastavljena"
+msgstr "Igra je %c%c nastavljena"
 
 #: src/tetrinet.c:661
 #, c-format
@@ -644,7 +564,6 @@ msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c je napustio promatrače %c%c(%c%s%c%c%c)"
 
 #: src/tetrinet.c:1048
-#, fuzzy
 msgid "No special blocks"
 msgstr "Bez posebnih blokova"
 
@@ -724,267 +643,208 @@ msgid "Score"
 msgstr "Rezultat"
 
 #: gtetrinet.desktop.in.h:1
-#, fuzzy
 msgid "GTetrinet"
 msgstr "GTetrinet"
 
 #: gtetrinet.desktop.in.h:2
-#, fuzzy
 msgid "Tetrinet client"
-msgstr "Tetrinet klijent"
+msgstr "Klijent Tetrinet -a"
 
 #: gtetrinet.desktop.in.h:3
-#, fuzzy
 msgid "Tetrinet client for GNOME"
-msgstr "Tetrinet klijent za Gnom"
+msgstr "Klijent Tetrinet-a za GNOME"
 
 #: gtetrinet.schemas.in.h:1
-#, fuzzy
 msgid "Command to run to play midi files"
-msgstr "Naredba za puštanje MIDI datotekaova."
+msgstr "Naredba za sviranje MIDI datoteka."
 
 #: gtetrinet.schemas.in.h:2
-#, fuzzy
 msgid "Enable/disable channel list."
-msgstr "Uključi/isključi liste kanala."
+msgstr "Uključi/isključi popis kanala."
 
 #: gtetrinet.schemas.in.h:3
-#, fuzzy
 msgid "Enable/disable midi music"
-msgstr "Uključi/isključi MIDI glazeu."
+msgstr "Uključi/isključi MIDI glazbu."
 
 #: gtetrinet.schemas.in.h:4
-#, fuzzy
 msgid "Enable/disable sound"
 msgstr "Uključi/isključi zvuk."
 
 #: gtetrinet.schemas.in.h:5
-#, fuzzy
 msgid "Enable/disable timestamps."
 msgstr "Uključi/isključi oznake vremena."
 
 #: gtetrinet.schemas.in.h:6
-#, fuzzy
 msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
-msgstr ""
-"Uključi/isključi zvuk. Imajte na umu da postavka koju koristite mora "
-"sadržati zvuk."
+msgstr "Uključi/isključi zvuk. Imajte na umu da postavka, koju koristite, mora omogućavati zvuk."
 
 #: gtetrinet.schemas.in.h:7
-#, fuzzy
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
-msgstr ""
-"Uključi/isključi midi glazeu. Morate uključiti zvuk ako želite da glazea "
-"radi."
+msgstr "Uključi/isključi midi glazbu. Morate uključiti zvuk, ukoliko želite čuti glazbu."
 
 #: gtetrinet.schemas.in.h:8
-#, fuzzy
 msgid ""
 "Enables/disables the channel list. Disable it if you experience problems "
 "when connecting or while playing in your favorite tetrinet server."
-msgstr ""
-"Uključi/isključi liste kanala. Isključite ih ako imate problema kad se "
-"povezujete ili dok igrate na Vašem omiljenom Tetrinet poslužitelju."
+msgstr "Uključi/isključi popise kanala. Isključite ih ako imate problema kad se povezujete ili dok se igrate na Vašem omiljenom poslužitelju Tetrinet-a ."
 
 #: gtetrinet.schemas.in.h:9
-#, fuzzy
 msgid "Enables/disables timestamps in the partyline."
-msgstr "Uključi/isključi oznaku vremena dok čavrljate."
+msgstr "Uključi/isključi oznaku vremena dok pričate."
 
 #: gtetrinet.schemas.in.h:10
-#, fuzzy
 msgid "Key to discard special"
 msgstr "Tipka za odbacivanje posebnih blokova."
 
 #: gtetrinet.schemas.in.h:11
-#, fuzzy
 msgid "Key to drop piece"
-msgstr "Tipka sa spuštanje delića"
+msgstr "Tipka za ispuštanje dijela"
 
 #: gtetrinet.schemas.in.h:12
-#, fuzzy
 msgid "Key to move down"
-msgstr "Tipka za pomicanje dole"
+msgstr "Tipka za pomicanje dolje"
 
 #: gtetrinet.schemas.in.h:13
-#, fuzzy
 msgid "Key to move left"
-msgstr "Tipka za pomicanje levo"
+msgstr "Tipka za pomicanje lijevo"
 
 #: gtetrinet.schemas.in.h:14
-#, fuzzy
 msgid "Key to move right"
 msgstr "Tipka za pomicanje desno"
 
 #: gtetrinet.schemas.in.h:15
-#, fuzzy
 msgid "Key to open the fields' message dialog"
-msgstr "Tipka za otvaranje poruka u poljima."
+msgstr "Tipka za otvaranje poruka o poljima."
 
 #: gtetrinet.schemas.in.h:16
-#, fuzzy
 msgid "Key to rotate clockwise"
-msgstr "Tipka za rotaciju u smeru sata."
+msgstr "Tipka za okretanje u smjeru kazaljke sata."
 
 #: gtetrinet.schemas.in.h:17
-#, fuzzy
 msgid "Key to rotate counterclockwise"
-msgstr "Tipka za rotaciju u smeru suprotno od sata."
+msgstr "Tipka za okretanje u smjeru suprotno od kazaljke sata."
 
 #: gtetrinet.schemas.in.h:18
-#, fuzzy
 msgid "Key to use the current special on field 1"
-msgstr "Tipka kojim se u polju 1 koristi trenutni posebni blok"
+msgstr "Tipka s kojim se koristi trenutni posebni blok u polju 1"
 
 #: gtetrinet.schemas.in.h:19
-#, fuzzy
 msgid "Key to use the current special on field 2"
-msgstr "Tipka kojim se u polju 2 koristi trenutni posebni blok"
+msgstr "Tipka s kojim se koristi trenutni posebni blok u polju 2"
 
 #: gtetrinet.schemas.in.h:20
-#, fuzzy
 msgid "Key to use the current special on field 3"
-msgstr "Tipka kojim se u polju 3 koristi trenutni posebni blok"
+msgstr "Tipka s kojim se koristi trenutni posebni blok u polju 3"
 
 #: gtetrinet.schemas.in.h:21
-#, fuzzy
 msgid "Key to use the current special on field 4"
-msgstr "Tipka kojim se u polju 4 koristi trenutni posebni blok"
+msgstr "Tipka s kojim se 4 koristi trenutni posebni blok u polju"
 
 #: gtetrinet.schemas.in.h:22
-#, fuzzy
 msgid "Key to use the current special on field 5"
-msgstr "Tipka kojim se u polju 5 koristi trenutni posebni blok"
+msgstr "Tipka s kojim se koristi trenutni posebni blok u polju 5"
 
 #: gtetrinet.schemas.in.h:23
-#, fuzzy
 msgid "Key to use the current special on field 6"
-msgstr "Tipka kojim se u polju 6 koristi trenutni posebni blok"
+msgstr "Tipka s kojim se koristi trenutni posebni blok u polju 6"
 
 #: gtetrinet.schemas.in.h:24
-#, fuzzy
 msgid "Server where you want to play"
-msgstr "Poslužitelj na kom želite da igrate."
+msgstr "Poslužitelj gdje se želite igrati."
 
 #: gtetrinet.schemas.in.h:25
-#, fuzzy
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
-msgstr ""
-"Trenutni direktorij sa postavkama.Mora da sadrži čitljiv \"blocks.png\" i "
-"\"theme.cfg\"."
+msgstr "Trenutni direktorij sa postavkama. Mora sadržati čitljive \"blocks.png\" i i \"theme.cfg\"."
 
 #: gtetrinet.schemas.in.h:26
-#, fuzzy
 msgid "Theme directory, should end with a '/'"
-msgstr "Direktorij postavki, treba da se završava sa '/'."
+msgstr "Direktorij tema, treba završiti s '/'."
 
 #: gtetrinet.schemas.in.h:27
-#, fuzzy
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
-msgstr ""
-"Navedena naredba se pokreće kada treba odsvirati midi datoteka.  Ime midi datotekaa "
-"je postavljeno u promjenjivu MIDIFILE."
+msgstr "Ova naredba se pokreće kada treba odsvirati midi datoteku.  Ime midi datoteke je postavljeno u varijablu okruženja MIDIFILE."
 
 #: gtetrinet.schemas.in.h:28
-#, fuzzy
 msgid "This is the server where GTetrinet will try to connect."
-msgstr "Ovo je poslužitelj gdje će GTetrinet pokušati da se priključi."
+msgstr "Ovo je poslužitelj gdje će se GTetrinet pokušati priključiti."
 
 #: gtetrinet.schemas.in.h:29
-#, fuzzy
 msgid "This key discards the current special. This is case insensitive."
-msgstr "Ovaj tipka odbacuje trenutni poseban delić. Velika/mala slova su nebitna."
+msgstr "Ovaj tipka odbacuje trenutni poseban dio. Nisu bitna velika/mala slova."
 
 #: gtetrinet.schemas.in.h:30
-#, fuzzy
 msgid "This key displays the fields' message dialog. This is case insensitive."
-msgstr "Ovaj tipka prikazuje za poruke za polja. Velika/mala slova su nebitna."
+msgstr "Ovaj tipka prikazuje za poruke polja. Nisu bitna velika/mala slova."
 
 #: gtetrinet.schemas.in.h:31
-#, fuzzy
 msgid "This key drops the block to the ground. This is case insensitive."
-msgstr "Ovaj tipka spušta blok na dno. Velika/mala slova su nebitna."
+msgstr "Ovaj tipka spušta blok na dno. Nisu bitna velika/mala slova."
 
 #: gtetrinet.schemas.in.h:32
-#, fuzzy
 msgid "This key moves the block down. This is case insensitive."
-msgstr "Ovaj tipka pomera blok dole. Velika/mala slova su nebitna."
+msgstr "Ovaj tipka pomiče blok prema dolje. Nisu bitna velika/mala slova."
 
 #: gtetrinet.schemas.in.h:33
-#, fuzzy
 msgid "This key moves the block to the left. This is case insensitive."
-msgstr "Ovaj tipka pomera blok levo. Velika/mala slova su nebitna."
+msgstr "Ovaj tipka pomiče blok u lijevo. Nisu bitna velika/mala slova."
 
 #: gtetrinet.schemas.in.h:34
-#, fuzzy
 msgid "This key moves the block to the right. This is case insensitive."
-msgstr "Ovaj tipka pomera blok desno. Velika/mala slova su nebitna."
+msgstr "Ovaj tipka pomiče blok u desno. Nisu bitna velika/mala slova."
 
 #: gtetrinet.schemas.in.h:35
-#, fuzzy
 msgid "This key rotates the block clockwise. This is case insensitive."
-msgstr "Ovaj tipka rotira blok u smeru kretanja sata. Velika/mala slova su nebitna."
+msgstr "Ovaj tipka okreće  blok u smjeru kretanja kazaljke sata. Nisu bitna velika/mala slova."
 
 #: gtetrinet.schemas.in.h:36
-#, fuzzy
 msgid "This key rotates the block counterclockwise. This is case insensitive."
-msgstr "Ovaj tipka rotira blok suprotno kretanju sata. Velika/mala slova su nebitna."
+msgstr "Ovaj tipka okreće blok suprotno kretanju kazaljke sata. Nisu bitna velika/mala slova."
 
 #: gtetrinet.schemas.in.h:37
-#, fuzzy
 msgid "This key uses the current special on Player 1's game field."
-msgstr "Tipka kojim se u polju igrača 1 koristi trenutni posebni blok"
+msgstr "Tipka s kojim se koristi trenutni posebni blok u polju igrača 1."
 
 #: gtetrinet.schemas.in.h:38
-#, fuzzy
 msgid "This key uses the current special on Player 2's game field."
-msgstr "Tipka kojim se u polju igrača 2 koristi trenutni posebni blok"
+msgstr "Tipka s kojim se koristi trenutni posebni blok u polju igrača 2."
 
 #: gtetrinet.schemas.in.h:39
-#, fuzzy
 msgid "This key uses the current special on Player 3's game field."
-msgstr "Tipka kojim se u polju igrača 3 koristi trenutni posebni blok"
+msgstr "Tipka s kojim se koristi trenutni posebni blok u polju igrača 3."
 
 #: gtetrinet.schemas.in.h:40
-#, fuzzy
 msgid "This key uses the current special on Player 4's game field."
-msgstr "Tipka kojim se u polju igrača 4 koristi trenutni posebni blok"
+msgstr "Tipka s kojim se koristi trenutni posebni blok u polju igrača 4."
 
 #: gtetrinet.schemas.in.h:41
-#, fuzzy
 msgid "This key uses the current special on Player 5's game field."
-msgstr "Tipka kojim se u polju igrača 5 koristi trenutni posebni blok"
+msgstr "Tipka s kojim se koristi trenutni posebni blok u polju igrača 5."
 
 #: gtetrinet.schemas.in.h:42
-#, fuzzy
 msgid "This key uses the current special on Player 6's game field."
-msgstr "Tipka kojim se u polju igrača 6 koristi trenutni posebni blok"
+msgstr "Tipka s kojim se koristi trenutni posebni blok u polju igrača 6."
 
 #: gtetrinet.schemas.in.h:43
-#, fuzzy
 msgid "This will be the name of your team."
-msgstr "Ovo će biti ime Vašeg tima"
+msgstr "Ovo će biti ime Vašeg tima."
 
 #: gtetrinet.schemas.in.h:44
-#, fuzzy
 msgid "This will be your nickname in the game."
 msgstr "Ovo će biti Vaš nadimak u igri."
 
 #: gtetrinet.schemas.in.h:45
-#, fuzzy
 msgid "Your nickname"
 msgstr "Vaš nadimak"
 
 #: gtetrinet.schemas.in.h:46
-#, fuzzy
 msgid "Your team"
 msgstr "Vaš tim"
 
