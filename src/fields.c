@@ -411,13 +411,13 @@ void fields_setlabel (int field, char *name, char *team, int num)
         gtk_label_set (GTK_LABEL(fieldlabels[field][5]), "");
     }
     else {
-        name_utf8 = g_locale_to_utf8 (name, -1, NULL, NULL, NULL);
+        name_utf8 = g_locale_to_utf8 (nocolor (name), -1, NULL, NULL, NULL);
         gtk_widget_show (fieldlabels[field][0]);
         gtk_widget_show (fieldlabels[field][1]);
         gtk_widget_show (fieldlabels[field][2]);
         gtk_widget_hide (fieldlabels[field][3]);
         gtk_label_set (GTK_LABEL(fieldlabels[field][0]), buf);
-        gtk_label_set (GTK_LABEL(fieldlabels[field][2]), nocolor(name_utf8));
+        gtk_label_set (GTK_LABEL(fieldlabels[field][2]), name_utf8);
         gtk_label_set (GTK_LABEL(fieldlabels[field][3]), "");
         if (team == NULL || team[0] == 0) {
             gtk_widget_hide (fieldlabels[field][4]);
@@ -425,10 +425,10 @@ void fields_setlabel (int field, char *name, char *team, int num)
             gtk_label_set (GTK_LABEL(fieldlabels[field][5]), "");
         }
         else {
-            team_utf8 = g_locale_to_utf8 (team, -1, NULL, NULL, NULL);
+            team_utf8 = g_locale_to_utf8 (nocolor (team), -1, NULL, NULL, NULL);
             gtk_widget_show (fieldlabels[field][4]);
             gtk_widget_show (fieldlabels[field][5]);
-            gtk_label_set (GTK_LABEL(fieldlabels[field][5]), nocolor(team_utf8));
+            gtk_label_set (GTK_LABEL(fieldlabels[field][5]), team_utf8);
             g_free (team_utf8);
         }
         g_free (name_utf8);

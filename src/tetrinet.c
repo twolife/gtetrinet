@@ -205,12 +205,15 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
     connecterror:
         {
             GtkWidget *dialog;
+            gchar *data_utf8;
             connectingdialog_destroy ();
             GTET_O_STRCPY (buf, _("Error connecting: "));
-            GTET_O_STRCAT (buf, data);
+            data_utf8 = g_locale_to_utf8 (data, -1, NULL, NULL, NULL);
+            GTET_O_STRCAT (buf, data_utf8);
             dialog = gnome_message_box_new (buf, GNOME_MESSAGE_BOX_ERROR,
                                             GNOME_STOCK_BUTTON_OK, NULL);
             gtk_widget_show (dialog);
+            g_free (data_utf8);
         }
         break;
     case IN_PLAYERNUM:

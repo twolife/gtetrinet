@@ -325,8 +325,8 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
         /* Sub-window - find out which */
         char *title = NULL;
 
-        title = gtk_object_get_data(GTK_OBJECT(widget), "title");
-        game_area =  title && !strcmp( title, "Playing Fields" );
+        title = g_object_get_data(G_OBJECT(widget), "title");
+        game_area =  title && !strcmp( title, _("Playing Fields"));
     }
 
     if (game_area)
@@ -334,16 +334,22 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
       if (keytimeoutid && key->time == k.time)
         gtk_timeout_remove (keytimeoutid);
     }
+
     if (gtetrinet_key(key->keyval, key->state & (GDK_MOD1_MASK |
                                                  GDK_CONTROL_MASK |
                                                  GDK_SHIFT_MASK)))
-      goto keyprocessed;
-    if (game_area && tetrinet_key (key->keyval, key->string)) goto keyprocessed;
+    {
+      gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key_press_event");
+      return TRUE;
+    }
 
+    if (game_area && tetrinet_key (key->keyval, key->string))
+    {
+      gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key_press_event");
+      return TRUE;
+    }
+    
     return FALSE;
-keyprocessed:
-    gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key_press_event");
-    return TRUE;
 }
 
 gint keyrelease (GtkWidget *widget, GdkEventKey *key)
@@ -363,8 +369,8 @@ gint keyrelease (GtkWidget *widget, GdkEventKey *key)
         /* Sub-window - find out which */
         char *title = NULL;
 
-        title = gtk_object_get_data(GTK_OBJECT(widget), "title");
-        game_area =  title && !strcmp( title, "Playing Fields" );
+        title = g_object_get_data(G_OBJECT(widget), "title");
+        game_area =  title && !strcmp( title, _("Playing Fields"));
     }
 
     if (game_area)

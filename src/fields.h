@@ -1,4 +1,5 @@
 #include <gtk/gtk.h>
+
 extern GtkWidget *fields_page_new (void);
 extern void fields_page_destroy_contents (void);
 extern void fields_init (void);

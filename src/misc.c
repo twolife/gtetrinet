@@ -119,8 +119,6 @@ void textbox_setup (void)
         gtet_text_tags[n].t_c = gtk_text_buffer_create_tag (buffer, NULL,
                                                             "foreground-gdk",
                                                             &gtet_text_tags[n].c,
-//                                                            "background",
-//                                                            "white",
                                                             NULL);
 
     t_bold = gtk_text_buffer_create_tag (buffer, NULL,
@@ -295,6 +293,11 @@ char *nocolor (char *str)
   g_string_assign(ret, str);
 
   p = scan = ret->str;
+  while (*scan != 0)
+  {
+    if ((*scan > 0x1F) || (*scan < 0x0)) *p++ = *scan;
+    scan++;
+  }
   if (scan != p)
     g_string_truncate(ret, len - (scan - p));
   

@@ -85,4 +85,5 @@ void winlist_additem (int team, char *name, int score)
                         1, name_utf8,
                         2, item[2],
                         -1);
+    g_free (name_utf8);
 }

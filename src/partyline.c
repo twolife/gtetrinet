@@ -35,7 +35,7 @@
 
 /* widgets that we have to do stuff with */
 static GtkWidget *playerlist, *textbox, *entrybox,
-    *namelabel, *teamlabel, *infolabel, *textboxscroll;
+    *namelabel, *teamlabel, *infolabel, *textboxscroll, *playerlist_scroll;
 
 /* some more widgets for layout */
 static GtkWidget *table, *leftbox, *rightbox;
@@ -82,7 +82,7 @@ GtkWidget *partyline_page_new (void)
     gtk_box_pack_start (GTK_BOX(leftbox), entrybox, FALSE, FALSE, 0);
     gtk_widget_show (leftbox);
 
-    /* player list */
+    /* player list with scrollbar */
     playerlist = GTK_WIDGET (gtk_tree_view_new_with_model (GTK_TREE_MODEL (playerlist_model)));
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (playerlist), -1, "", renderer,
                                                  "text", 0, NULL);
@@ -90,9 +90,15 @@ GtkWidget *partyline_page_new (void)
                                                  "text", 1, NULL);
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (playerlist), -1, _("Team"), renderer,
                                                  "text", 2, NULL);
-    gtk_widget_set_usize (playerlist, 150, 200);
     gtk_widget_show (playerlist);
-
+    playerlist_scroll = gtk_scrolled_window_new (NULL, NULL);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW (playerlist_scroll),
+                                   GTK_POLICY_AUTOMATIC,
+                                   GTK_POLICY_NEVER);
+    gtk_container_add (GTK_CONTAINER(playerlist_scroll), playerlist);
+    gtk_widget_set_usize (playerlist_scroll, 150, 200);
+    gtk_widget_show (playerlist_scroll);
+    
     /* right box */
     box = gtk_vbox_new (FALSE, 2);
 
@@ -131,7 +137,7 @@ GtkWidget *partyline_page_new (void)
     gtk_table_attach (GTK_TABLE(table), leftbox, 0, 1, 0, 2,
                       GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
                       0, 0);
-    gtk_table_attach (GTK_TABLE(table), playerlist, 1, 2, 0, 1,
+    gtk_table_attach (GTK_TABLE(table), playerlist_scroll, 1, 2, 0, 1,
                       GTK_FILL, GTK_FILL | GTK_EXPAND, 0, 0);
     gtk_table_attach (GTK_TABLE(table), rightbox, 1, 2, 1, 2,
                       GTK_FILL, GTK_FILL | GTK_EXPAND, 0, 0);
@@ -160,15 +166,15 @@ void partyline_namelabel (char *nick, char *team)
   
     if (nick)
     {
-      nick_utf8 = g_locale_to_utf8 (nick, -1, NULL, NULL, NULL);
-      gtk_label_set (GTK_LABEL(namelabel), nocolor(nick_utf8));
+      nick_utf8 = g_locale_to_utf8 (nocolor (nick), -1, NULL, NULL, NULL);
+      gtk_label_set (GTK_LABEL(namelabel), nick_utf8);
       g_free (nick_utf8);
     }
     else gtk_label_set (GTK_LABEL(namelabel), "");
     if (team)
     {
-      team_utf8 = g_locale_to_utf8 (team, -1, NULL, NULL, NULL);
-      gtk_label_set (GTK_LABEL(teamlabel), nocolor(team_utf8));
+      team_utf8 = g_locale_to_utf8 (nocolor (team), -1, NULL, NULL, NULL);
+      gtk_label_set (GTK_LABEL(teamlabel), team_utf8);
       g_free (team_utf8);
     }
     else gtk_label_set (GTK_LABEL(teamlabel), "");

@@ -1,3 +1,26 @@
+2003-01-05  Dani Carbonell <bocata@panete.net>
+
+	* TODO: updated.
+
+	* src/tetrinet.c (tetrinet_inmessage): converted reason to disconnect
+	to UTF-8 so it can be displayed properly.
+
+	* src/winlist.c (winlist_additem): fixed memory leak.
+
+	* src/misc.c (nocolor): it wasn't doing anything, reverted to its
+	previous behaviour, but now it doesn't cut accented characters ( < 0 ).
+
+	* src/fields.c (fields_setlabel): now displays correctly all the UTF-8
+	characters, applying the nocolor () function to the ASCII strings
+	before recoding them to UTF-8.
+
+	* src/partyline.c (partyline_namelabel): likewise.
+	(partyline_page_new): added a horizontal scrollbar to the playerlist.
+
+	* src/gtetrinet.c (keypress): string "Playing Fields" wasn't been
+	translated, and gtk_object_get_data ported to g_object_get_data.
+	(keyreleased): likewise.
+
 2003-01-05  Jordi Mallach  <jordi@sindominio.net>
 
 	* TODO: updated.
