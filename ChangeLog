@@ -1,5 +1,9 @@
 2003-01-06  Jordi Mallach  <jordi@sindominio.net>
 
+	* NEWS, configure.in: released gtetrinet 0.5.1.
+
+2003-01-06  Jordi Mallach  <jordi@sindominio.net>
+
 	* TODO: updated.
 	* NEWS: document the C locale crash, for now.
 
