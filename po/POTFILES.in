@@ -6,5 +6,5 @@ src/gtetrinet.c
 src/partyline.c
 src/tetrinet.c
 src/winlist.c
-# files added by intltool-prepare
 gtetrinet.desktop.in
+gtetrinet.schemas.in
