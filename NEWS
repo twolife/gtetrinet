@@ -1,4 +1,4 @@
-GTetrinet 0.6.0 - Unreleased
+GTetrinet 0.6.0 - 2003-02-04
 - GTetrinet is now hosted on cvs.gnome.org and uses the GNOME Bugzilla.
 - Configuration ported to GConf.
 - Speed improvements, which should help TetriFAST.

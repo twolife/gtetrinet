@@ -1,5 +1,9 @@
 2003-02-04  Jordi Mallach  <jordi@sindominio.net>
 
+	* NEWS, configure.in: released gtetrinet 0.6.0.
+
+2003-02-04  Jordi Mallach  <jordi@sindominio.net>
+
 	* NEWS: updated for 0.6.0.
 	* TODO: updated.
 
