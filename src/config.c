@@ -156,7 +156,9 @@ int config_getthemeinfo (char *themedir, char *name, char *author, char *desc)
 void config_loadconfig (void)
 {
     char *p;
-    int k, l;
+    unsigned int k;
+    int l;
+    
 
     gnome_config_push_prefix ("/"APPID"/");
 
