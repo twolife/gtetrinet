@@ -927,7 +927,7 @@ void tetrinet_sendfield (int reset)
   char diff_buf[15][(FIELDWIDTH + 1)* FIELDHEIGHT * 2] = {0};
 
   int row_count[15] = {1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1};
-
+  
   g_snprintf (buf, sizeof(buf), "%d ", playernum);
 
   if(!reset) {
@@ -950,10 +950,14 @@ void tetrinet_sendfield (int reset)
 	}
       }
     }
-    if (d == 0) return; // no differences
-  }
+    if (d == 0) return; /* no differences */
 
-  if (reset || d >= FIELDHEIGHT*FIELDWIDTH) {
+    for (i = 0; i < 15; ++i)
+      if (row_count[i] > 1)
+        ++d; /* add an extra value for the '!'+i at the start */
+  }
+  
+  if (reset || d >= (FIELDHEIGHT*FIELDWIDTH)) {
     /* sending entire field is more efficient */
     p = buf + 2;
     for (y = 0; y < FIELDHEIGHT; y ++)
