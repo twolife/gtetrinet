@@ -1,5 +1,9 @@
 2002-11-08  Jordi Mallach  <jordi@sindominio.net>
 
+	* Makefile.am: remove ACLOCAL_AMFLAGS definition.
+
+2002-11-08  Jordi Mallach  <jordi@sindominio.net>
+
 	* configure.in: er, AC_SUBST GETTEXT_PACKAGE too.
 
 2002-11-08  Jordi Mallach  <jordi@sindominio.net>
