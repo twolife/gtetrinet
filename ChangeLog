@@ -1,5 +1,9 @@
 2002-10-17  Jordi Mallach  <jordi@sindominio.net>
 
+	* po/Makevars (COPYRIGHT_HOLDER): set to Ka-shu Wong.
+
+2002-10-17  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/sound.c (sound_playsound): patch from Ryan Underwood which
 	fixes sound support.
 
