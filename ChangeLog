@@ -1,3 +1,12 @@
+2003-06-13  Dani Carbonell  <bocata@panete.net>
+
+	* src/tetrinet.c (tetrinet_key): fixed this keypress signal
+	handling stage, it was returning FALSE when a key was processed,
+	instead of TRUE.
+
+	* src/gtetrinet.c (keypress): slightly changed the keypress signal
+	handling logic.
+
 2003-06-08  Jordi Mallach  <jordi@sindominio.net>
 
 	* TODO: Updated.

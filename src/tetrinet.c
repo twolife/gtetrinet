@@ -1707,6 +1707,7 @@ notfieldkey:
     if (gdk_keyval_to_lower (keyval) == keys[K_GAMEMSG]) {
         fields_gmsginput (TRUE);
         gmsgstate = 1;
+        tetris_drawcurrentblock ();
         return TRUE;
     }
     if (paused || !playing) return FALSE;
@@ -1715,17 +1716,25 @@ notfieldkey:
         if (!nextblocktimeout)
             sound_playsound (S_ROTATE);
         tetris_blockrotate (1);
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     else if (gdk_keyval_to_lower (keyval) == keys[K_ROTLEFT]) {
         if (!nextblocktimeout)
             sound_playsound (S_ROTATE);
         tetris_blockrotate (-1);
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     else if (gdk_keyval_to_lower (keyval) == keys[K_RIGHT]) {
         tetris_blockmove (1);
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     else if (gdk_keyval_to_lower (keyval) == keys[K_LEFT]) {
         tetris_blockmove (-1);
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     else if (gdk_keyval_to_lower (keyval) == keys[K_DOWN]) {
         if (!downpressed) {
@@ -1733,6 +1742,8 @@ notfieldkey:
             downpressed = 1;
             tetrinet_settimeout (DOWNDELAY);
         }
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     else if (gdk_keyval_to_lower (keyval) == keys[K_DROP]) {
         int sound;
@@ -1745,27 +1756,43 @@ notfieldkey:
             else sound_playsound (S_DROP);
             tetrinet_sendfield (0);
         }
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     else if (gdk_keyval_to_lower (keyval) == keys[K_DISCARD]) {
         tetrinet_specialkey(-1);
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL1]) {
 	tetrinet_specialkey(1);
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL2]) {
 	tetrinet_specialkey(2);
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL3]) {
 	tetrinet_specialkey(3);
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL4]) {
 	tetrinet_specialkey(4);
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL5]) {
 	tetrinet_specialkey(5);
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL6]) {
 	tetrinet_specialkey(6);
+        tetris_drawcurrentblock ();
+        return TRUE;
     }
     tetris_drawcurrentblock ();
     return FALSE;
