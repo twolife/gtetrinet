@@ -1,3 +1,27 @@
+2003-04-14  Dani Carbonell  <bocata@panete.net>
+
+	* icons/ added to CVS
+	
+	* Makefile.am: added "icons" to SUBDIRS
+	* configure.in: added the "icons" directory
+
+	* src/Makefile.am: changed PIXMAPSDIR constant
+
+	* src/commands.c: changed the toolbar icons
+
+	* src/partyline.c (partyline_update_channel_list): update the channel
+	list only if we're connected.
+	(partyline_show_channel_list): update the list when it's enabled.
+
+	* src/winlist.c: use pretty icons instead of that ugly 'T'.
+
+	* src/images/Makefile.am: added new icons to EXTRA_DIST
+
+2003-04-14  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/dialogs.c (connectdialog_new):
+	(prefdialog_new): added mnemonics to the labels
+
 2003-04-14  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS: Updated.

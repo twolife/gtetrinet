@@ -32,18 +32,30 @@
 #include "misc.h"
 
 static GtkWidget *winlist;
+static GdkPixbuf *team_icon, *alone_icon;
 
 GtkWidget *winlist_page_new (void)
 {
     GtkWidget *align;
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
-    GtkListStore *winlist_store = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
+    GtkCellRenderer *pixbuf_renderer = gtk_cell_renderer_pixbuf_new ();
+    GtkListStore *winlist_store = gtk_list_store_new (3, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING);
+    GdkPixbuf *pixbuf;
+
+    /* Load the icons and scale them */
+    pixbuf = gdk_pixbuf_new_from_file (PIXMAPSDIR "/team.png",  NULL);
+    team_icon = gdk_pixbuf_scale_simple (pixbuf, 24, 24, GDK_INTERP_BILINEAR);
+    gdk_pixbuf_unref (pixbuf);
+    
+    pixbuf = gdk_pixbuf_new_from_file (PIXMAPSDIR "/alone.png", NULL);
+    alone_icon = gdk_pixbuf_scale_simple (pixbuf, 24, 24, GDK_INTERP_BILINEAR);
+    gdk_pixbuf_unref (pixbuf);
 
     winlist = gtk_tree_view_new_with_model (GTK_TREE_MODEL (winlist_store));
 
     /* "T" stands for "Team" here */
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("T"), renderer,
-                                                 "text", 0, NULL);
+    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("T"), pixbuf_renderer,
+                                                 "pixbuf", 0, NULL);
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("Name"), renderer,
                                                  "text", 1, NULL);
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("Score"), renderer,
@@ -70,21 +82,22 @@ void winlist_additem (int team, char *name, int score)
 {
     GtkListStore *winlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (winlist)));
     GtkTreeIter iter;
-    char buf[16], *item[3];
+    char buf[16], *item[2];
     gchar *name_utf8;
+    GdkPixbuf *pixbuf;
 
-    if (team) item[0] = "T";
-    else item[0] = "";
-    item[1] = nocolor (name);
-    name_utf8 = g_locale_to_utf8 (item[1], -1, NULL, NULL, NULL);
+    if (team) pixbuf = team_icon;
+    else pixbuf = alone_icon;
+    item[0] = nocolor (name);
+    name_utf8 = g_locale_to_utf8 (item[0], -1, NULL, NULL, NULL);
     g_snprintf (buf, sizeof(buf), "%d", score);
-    item[2] = buf;
+    item[1] = buf;
 
     gtk_list_store_append (winlist_model, &iter);
     gtk_list_store_set (winlist_model, &iter,
-                        0, item[0],
+                        0, pixbuf,
                         1, name_utf8,
-                        2, item[2],
+                        2, item[1],
                         -1);
     g_free (name_utf8);
 }

@@ -81,4 +81,5 @@ src/images/Makefile
 themes/Makefile
 themes/default/Makefile
 themes/small/Makefile
+icons/Makefile
 ])

@@ -354,9 +354,9 @@ void connectdialog_new (void)
                       0, 1, 0, 1, GTK_FILL | GTK_EXPAND,
                       GTK_FILL | GTK_EXPAND, 0, 0);
     /* game type radio buttons */
-    originalradio = gtk_radio_button_new_with_label (NULL, _("Original"));
+    originalradio = gtk_radio_button_new_with_mnemonic (NULL, _("O_riginal"));
     gametypegroup = gtk_radio_button_get_group (GTK_RADIO_BUTTON(originalradio));
-    tetrifastradio = gtk_radio_button_new_with_label (gametypegroup, _("TetriFast"));
+    tetrifastradio = gtk_radio_button_new_with_mnemonic (gametypegroup, _("Tetri_Fast"));
     switch (gamemode) {
     case ORIGINAL:
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(originalradio), TRUE);
@@ -387,15 +387,16 @@ void connectdialog_new (void)
     /* spectator checkbox + password */
     table2 = gtk_table_new (1, 1, FALSE);
 
-    spectatorcheck = gtk_check_button_new_with_label (_("Connect as a spectator"));
+    spectatorcheck = gtk_check_button_new_with_mnemonic (_("Connect as a _spectator"));
     gtk_widget_show (spectatorcheck);
     gtk_table_attach (GTK_TABLE(table2), spectatorcheck, 0, 2, 0, 1,
                       GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND, 0, 0);
-    passwordlabel = gtk_label_new (_("Password:"));
+    passwordlabel = gtk_label_new_with_mnemonic (_("_Password:"));
     gtk_widget_show (passwordlabel);
     gtk_table_attach (GTK_TABLE(table2), passwordlabel, 0, 1, 1, 2,
                       GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND, 0, 0);
     passwordentry = gtk_entry_new ();
+    gtk_label_set_mnemonic_widget (GTK_LABEL (passwordlabel), passwordentry);
     gtk_entry_set_visibility (GTK_ENTRY(passwordentry), FALSE);
     gtk_widget_show (passwordentry);
     gtk_table_attach (GTK_TABLE(table2), passwordentry, 1, 2, 1, 2,
@@ -414,11 +415,12 @@ void connectdialog_new (void)
     /* nickname and teamname entries */
     table2 = gtk_table_new (1, 1, FALSE);
 
-    widget = gtk_label_new (_("Nick name:"));
+    widget = gtk_label_new_with_mnemonic (_("_Nick name:"));
     gtk_widget_show (widget);
     gtk_table_attach (GTK_TABLE(table2), widget, 0, 1, 0, 1,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
     nicknameentry = gnome_entry_new ("Nickname");
+    gtk_label_set_mnemonic_widget (GTK_LABEL (widget), nicknameentry);
     aux = g_locale_to_utf8 (nick, -1, NULL, NULL, NULL);
     gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(nicknameentry))),
                         aux);
@@ -426,11 +428,12 @@ void connectdialog_new (void)
     gtk_widget_show (nicknameentry);
     gtk_table_attach (GTK_TABLE(table2), nicknameentry, 1, 2, 0, 1,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
-    teamnamelabel = gtk_label_new (_("Team name:"));
+    teamnamelabel = gtk_label_new_with_mnemonic (_("_Team name:"));
     gtk_widget_show (teamnamelabel);
     gtk_table_attach (GTK_TABLE(table2), teamnamelabel, 0, 1, 1, 2,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
     teamnameentry = gnome_entry_new ("Teamname");
+    gtk_label_set_mnemonic_widget (GTK_LABEL (teamnamelabel), teamnameentry);
     aux = g_locale_to_utf8 (team, -1, NULL, NULL, NULL);
     gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry))),
                         aux);
@@ -894,9 +897,9 @@ void prefdialog_new (void)
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);
 
     /* partyline */
-    timestampcheck = gtk_check_button_new_with_label (_("Enable Timestamps"));
+    timestampcheck = gtk_check_button_new_with_mnemonic (_("Enable _Timestamps"));
     gtk_widget_show(timestampcheck);
-    channel_list_check = gtk_check_button_new_with_label (_("Enable Channel List"));
+    channel_list_check = gtk_check_button_new_with_mnemonic (_("Enable Channel _List"));
     gtk_widget_show (channel_list_check);
 
     frame = gtk_vbox_new (FALSE, 0);
@@ -947,12 +950,12 @@ void prefdialog_new (void)
     gtk_label_set_line_wrap (GTK_LABEL(label), TRUE);
     gtk_widget_show (label);
 
-    button = gtk_button_new_with_label (_("Change key..."));
+    button = gtk_button_new_with_mnemonic (_("Change _key..."));
     g_signal_connect (G_OBJECT(button), "clicked",
                         GTK_SIGNAL_FUNC (prefdialog_changekey), NULL);
     gtk_widget_show (button);
 
-    button1 = gtk_button_new_with_label (_("Restore defaults"));
+    button1 = gtk_button_new_with_mnemonic (_("_Restore defaults"));
     g_signal_connect (G_OBJECT(button1), "clicked",
                         GTK_SIGNAL_FUNC (prefdialog_restorekeys), NULL);
     gtk_widget_show (button1);
@@ -978,10 +981,10 @@ void prefdialog_new (void)
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);
 
     /* sound */
-    soundcheck = gtk_check_button_new_with_label (_("Enable Sound"));
+    soundcheck = gtk_check_button_new_with_mnemonic (_("Enable _Sound"));
     gtk_widget_show (soundcheck);
 
-    midicheck = gtk_check_button_new_with_label (_("Enable MIDI"));
+    midicheck = gtk_check_button_new_with_mnemonic (_("Enable _MIDI"));
     gtk_widget_show (midicheck);
 
     frame = gtk_hbox_new (FALSE, 0);
@@ -1005,7 +1008,7 @@ void prefdialog_new (void)
     gtk_label_set_line_wrap (GTK_LABEL(label), TRUE);
     gtk_widget_show (label);
 
-    button = gtk_button_new_with_label (_("Restore defaults"));
+    button = gtk_button_new_with_mnemonic (_("_Restore defaults"));
     g_signal_connect (G_OBJECT(button), "clicked",
                         GTK_SIGNAL_FUNC (prefdialog_restoremidi), NULL);
     gtk_widget_show (button);

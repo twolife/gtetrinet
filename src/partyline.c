@@ -556,7 +556,7 @@ gboolean partyline_update_channel_list (void)
   gchar cad[1024];
   
   /* if there is another update in progress, just go away silently */
-  if (list_enabled && (list_issued == 0))
+  if (connected && list_enabled && (list_issued == 0))
   {
     list_issued++;
     gtk_list_store_clear (work_model);
@@ -626,7 +626,10 @@ void partyline_show_channel_list (gboolean show)
    */
   list_enabled = show;
   if (list_enabled)
+  {
     gtk_widget_show (channel_list);
+    partyline_update_channel_list ();
+  }
   else
     gtk_widget_hide (channel_list);
 }
