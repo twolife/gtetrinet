@@ -5,6 +5,8 @@
 
 typedef char FIELD[FIELDHEIGHT][FIELDWIDTH];
 
+extern char pnumrec;
+
 extern int playernum;
 extern char team[128], nick[128], specpassword[128];
 extern FIELD fields[7];

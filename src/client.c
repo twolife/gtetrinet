@@ -96,6 +96,9 @@ struct inmsgt inmsgtable[] = {
     {IN_SPECLIST, "speclist"},
     {IN_SMSG, "smsg"},
     {IN_SACT, "sact"},
+
+    {IN_BTRIXNEWGAME, "btrixnewgame"},
+
     {0, 0}
 };
 
@@ -136,6 +139,9 @@ struct outmsgt outmsgtable[] = {
     {OUT_GMSG, "gmsg"},
 
     {OUT_VERSION, "version"},
+
+    {OUT_CLIENTINFO, "clientinfo"},
+
     {0, 0}
 };
 
@@ -380,6 +386,9 @@ void client_disconnect (void)
       shutdown (sock, 2);
       close (sock);
       connected = 0;
+
+      // Allow for sending the blocktrix init on reconnect.
+      pnumrec = 0;
     }
 }
 

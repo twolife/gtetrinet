@@ -1,6 +1,21 @@
-2004-10-5 Amanpreet Singh Alam <amanpreetaalm@yahoo.com>
+2004-10-26  Jordi Mallach  <jordi@sindominio.net>
+
+	* NEWS: Update for new translations.
+
+2004-10-21  Loren Abrams  <durnew@pacbell.net>
+
+	* NEWS: GTetrinet is now minimally compliant with tetrinet.org's new
+	scoring requirements.
+	* src/tetrinet.c (tetrinet_inmessage): Added support for btrixnewgame.
+	Added support for clientinfo identification.  Both features of the
+	Blocktrix protocol.
+	(tetrinet_nextblock): Added support for a no block delay btrixnewgame.
+	* src/client.c: Added support for transfer of IN_BTRIXNEWGAME and
+	OUT_CLIENTINFO protocol messages.
+
+2004-10-05 Amanpreet Singh Alam <amanpreetaalm@yahoo.com>
 	
-	* configure.in (ALL_LINGUAS) -> add "pa" Punjabi Language
+	* configure.in (ALL_LINGUAS): Add "pa" Punjabi language.
 
 2004-08-31  Jordi Mallach  <jordi@sindominio.net>
 

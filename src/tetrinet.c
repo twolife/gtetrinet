@@ -57,6 +57,9 @@ char team[128], nick[128], specpassword[128];
 
 #define MAX_PLAYERS 7
 
+char pnumrec = 0;
+char btrixgame = 0;
+
 char playernames[MAX_PLAYERS][128];
 char teamnames[MAX_PLAYERS][128];
 int playerlevels[MAX_PLAYERS];
@@ -237,6 +240,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         }
         break;
     case IN_PLAYERNUM:
+        pnumrec = 1;
         tmp_pnum = atoi (data);
         if (tmp_pnum >= MAX_PLAYERS)
           break;
@@ -549,6 +553,9 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             partyline_text (buf);
         }
         break;
+    case IN_BTRIXNEWGAME:
+        btrixgame = 1;
+        // Leak through to NEWGAME.
     case IN_NEWGAME:
         {
             int i, j;
@@ -663,6 +670,9 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         show_start_button ();
         /* go back to partyline when game ends */
         show_partyline_page ();
+
+        // Return delay to normal.
+        btrixgame = 0;
         break;
     case IN_F:
         {
@@ -732,6 +742,10 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (NULL, "");
             if (token == NULL) break;
             playerlevels[pnum] = atoi (token);
+            if (!pnum && !playerlevels[pnum] && !pnumrec) {
+                client_outmessage(OUT_CLIENTINFO, APPNAME" "APPVERSION);
+                pnumrec = 1;
+            }
             if (ingame) tetrinet_updatelevels ();
         }
         break;
@@ -1601,8 +1615,8 @@ void tetrinet_nextblock (void)
     if (nextblocktimeout) return;
     tetrinet_removetimeout ();
     nextblocktimeout =
-        gtk_timeout_add (NEXTBLOCKDELAY, (GtkFunction)tetrinet_nextblocktimeout,
-                         NULL);
+        gtk_timeout_add ( (btrixgame ? 0 : NEXTBLOCKDELAY),
+                (GtkFunction)tetrinet_nextblocktimeout, NULL);
 }
 
 gint tetrinet_nextblocktimeout (void)

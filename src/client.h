@@ -13,7 +13,8 @@ enum inmsg_type {
     IN_NEWGAME, IN_INGAME, IN_PAUSE, IN_ENDGAME,
     IN_F, IN_SB, IN_LVL, IN_GMSG,
     IN_WINLIST,
-    IN_SPECJOIN, IN_SPECLEAVE, IN_SPECLIST, IN_SMSG, IN_SACT
+    IN_SPECJOIN, IN_SPECLEAVE, IN_SPECLIST, IN_SMSG, IN_SACT,
+    IN_BTRIXNEWGAME
 };
 
 /* outmsgs are messages going out to the server */
@@ -25,7 +26,8 @@ enum outmsg_type {
     OUT_PLAYERLOST,
     OUT_F, OUT_SB, OUT_LVL, OUT_GMSG,
     OUT_STARTGAME, OUT_PAUSE,
-    OUT_VERSION
+    OUT_VERSION,
+    OUT_CLIENTINFO
 };
 
 /* functions for connecting and disconnecting */
