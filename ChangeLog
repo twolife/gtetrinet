@@ -1,3 +1,8 @@
+2002-10-03  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/tetrinet.c: patch from Niko Böhm which fixes a missbehaviour
+	of blockbomb.
+
 2002-07-06  Jordi Mallach  <jordi@sindominio.net>
 
 	* themes/default/Makefile.am (EXTRA_DIST): added $(defaulttheme_DATA).

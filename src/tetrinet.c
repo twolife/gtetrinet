@@ -947,6 +947,7 @@ void tetrinet_dospecial (int from, int to, int type)
                                 x+ax[i] >= FIELDWIDTH || x+ax[i] < 0) continue;
                             block = field[y+ay[i]][x+ax[i]];
                             if (block == 14) block = 0;
+                            else field[y+ay[i]][x+ax[i]] = 0;
                             buf[c] = block;
                             c ++;
                         }
