@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GTetrinet 0.5\n"
-"POT-Creation-Date: 2003-01-24 23:02+0100\n"
-"PO-Revision-Date: 2003-01-24 23:11+0100\n"
+"POT-Creation-Date: 2003-01-24 23:12+0100\n"
+"PO-Revision-Date: 2003-01-24 23:12+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -571,5 +571,9 @@ msgid "GTetrinet"
 msgstr "GTetrinet"
 
 #: gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "Tetrinet-klient"
+
+#: gtetrinet.desktop.in.h:3
 msgid "Tetrinet client for GNOME"
 msgstr "Tetrinet-klient for GNOME"
