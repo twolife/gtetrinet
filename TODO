@@ -1,0 +1,11 @@
+GTetrinet's TODO list
+~~~~~~~~~~~~~~~~~~~~~
+
+- Get server list from http://www.tetrinet.org/ip/
+- GNOME2 port issues:
+  + preferences dialog
+  + keybindings
+  + toolbar icons/labels
+  + replace GTK_CLIST
+  + text widgets slowness
+- Make gtetrinet resizeable.

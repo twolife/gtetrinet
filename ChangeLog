@@ -1,3 +1,7 @@
+2002-10-28  Jordi Mallach  <jordi@sindominio.net>
+
+	* TODO: added a list of issues to tackle.
+
 2002-10-28  Bastien Nocera  <hadess@hadess.net>
 
 	* Makefile.am: remove intl as a subdir
