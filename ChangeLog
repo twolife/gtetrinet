@@ -1,0 +1,144 @@
+2000-06-08
+	* Changed website addresses.
+	* Made configure run properly under GNOME 1.2.
+	* Changed icons to be friendlier to dark-coloured backgrounds.
+
+2000-01-12
+	* Merged patch for Solaris support from Lars Christensen.
+	* Made some modifications to the README file.
+
+1999-12-30
+	* Added a couple of checks for null pointers.
+
+1999-12-21 - version 0.4
+
+1999-12-20
+	* Fixed bug where the random filled field is not sent after player
+	  loses.
+
+1999-12-13
+	* Changed layout of connection dialog, added teamname entry.
+
+1999-12-06
+	* It is now possible to change teams while not connected.
+	* Fixed a stupid spectator list bug.
+
+1999-12-05
+	* Fixed a nasty messed-up field bug. (Thanks drslum!)
+
+1999-11-29
+	* Added command line options support.
+	* Miscellaneous bug fixes.
+
+1999-11-28
+	* Added tetrix server detection.
+
+1999-11-27
+	* Added history to the partyline input box.
+
+1999-11-26
+	* Fixed bugs with gamemsg input box.
+
+1999-11-25
+	* Fixed level displays when in spectator mode.
+	* Fixed a case when a F line is sent as a spectator.
+
+1999-11-17
+	* Tweaked display of player join, leave, and team lessages.
+	* Fixed bug where multiple error dialogs are displayed.
+
+1999-11-16
+	* Display of moderator change messages are now delayed, to prevent
+	  multiple messages being displayed on connection to server.
+
+1999-11-14
+	* kick and playerwon messages from the server are now handled.
+	  (appropriate messages are displayed in the partyline screen)
+
+1999-11-09
+	* Most of spectator support done.
+
+1999-11-08
+	* Miscellaneous bug fixes + stuff for spectator support.
+
+1999-11-06
+	* Reduced the number of field updates sent to server.
+	* Miscellaneous bug fixes.
+
+1999-08-21
+	* Added checkboxes in preferences dialog to enable/disable sound.
+
+1999-07-27
+	* Added debian/ directory.
+
+1999-07-14
+	* Opponent's fields are now correctly displayed when connected while
+	  in game.
+	* Added a couple of lines of code for debugging.
+
+1999-07-13
+	* Pressing F2 to switch to partyline page now also activates the
+	  entry box.
+
+1999-07-10
+	* GTetrinet no longer requires EsounD to compile.
+	* Fixed bug where the MIDI is started when theme settings are changed
+	  but game is not in progress.
+
+1999-07-07 - version 0.3
+	* Added icon + GNOME desktop file.
+
+1999-07-05
+	* Player field is now properly cleared when player leaves.
+	* Improved theme selection page.
+	* Changed entries in connection and team dialogs to gnome_entrys.
+
+1999-06-23
+	* MIDI player no longer runs if there is no MIDI for the current theme.
+
+1999-06-08
+	* Changed theme file key "Theme/ThemeName" to "Theme/Name".
+	* Added theme file keys "Theme/Author" and "Theme/Description".
+
+1999-05-31
+	* Found and removed an annoying printf() statement.
+        * Added keys (F1, F2, F3) to switch between notebook pages.
+        * Added MIDI support through an external player.
+        * Changed e-mail addresses. (so many!)
+
+1999-05-27
+	* Updated sound support to use esd's sample caching for faster sound.
+
+1999-05-16
+	* Added sound support through gnome-sound.
+	* There is now a longer delay between the block hitting something and
+	  the time it solidifies.  (should now be the same as Windows Tetrinet)
+        * Added full stops on every sentence in the ChangeLog.
+
+1999-04-09
+	* Players now immediately lose if there is no space for the next
+	  block.
+
+1999-04-01 - version 0.2
+	* Added preferences dialog.
+        * Miscellaneous UI changes.
+        * Updated URLs.
+
+1999-03-28
+	* Changed fields page player name & team display.
+        * A short description is now displayed for the current special block.
+        * Miscellaneous bug fixes.  (Thanks to drslum for pointing them out)
+
+1999-03-25
+	* Fixed block bomb behaviour - blocks are not scattered to top 6 lines,
+	  and empty squares blown up by other blocks are scattered.
+
+1999-03-24
+	* Classic mode added lines and A-block added lines are now different,
+	  like in original Tetrinet.  (Thanks to drslum for info)
+	* Fixed switch field so that it removes lines at the bottom if there
+	  are < 6 free lines at the top, instead of simply clearing the top 6
+	  lines.
+
+1999-03-22 - version 0.1
+	* ChangeLog started.

@@ -1,0 +1,2 @@
+?package(gtetrinet):needs=X11 section=Games/Tetris-like title="GTetrinet" \
+  command="/usr/bin/gtetrinet"
