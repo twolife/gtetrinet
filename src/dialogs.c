@@ -74,7 +74,11 @@ gint connectingdialog_timeout (gpointer data)
 
 void connectingdialog_new (void)
 {
-    if (connectingdialog) return;
+    if (connectingdialog)
+    {
+      gtk_window_present (GTK_WINDOW (connectingdialog));
+      return;
+    }
     connectingdialog = gnome_dialog_new (_("Connect to server"),
                                          GNOME_STOCK_BUTTON_CANCEL,
                                          NULL);
@@ -125,7 +129,15 @@ void teamdialog_button (GnomeDialog *dialog, gint button, gpointer data)
 
 void teamdialog_new (void)
 {
-    GtkWidget *dialog, *table, *widget, *entry;
+    static GtkWidget *dialog;
+    GtkWidget *table, *widget, *entry;
+  
+    if (dialog)
+    {
+      gtk_window_present (GTK_WINDOW (dialog));
+      return;
+    }
+  
     dialog = gnome_dialog_new (_("Change team"),
                                GNOME_STOCK_BUTTON_OK,
                                GNOME_STOCK_BUTTON_CANCEL,
@@ -229,7 +241,11 @@ void connectdialog_new (void)
     GtkWidget *widget, *table1, *table2, *frame;
     gchar *aux;
     /* check if dialog is already displayed */
-    if (connecting) return;
+    if (connectdialog) 
+    {
+      gtk_window_present (GTK_WINDOW (connectdialog));
+      return;
+    }
     connecting = TRUE;
 
     /* save some stuff */
@@ -394,7 +410,7 @@ gint key_dialog (char *msg)
     gtk_box_pack_start (GTK_BOX(GNOME_DIALOG(dialog)->vbox),
                         label, TRUE, TRUE, GNOME_PAD_SMALL);
     gnome_dialog_set_close (GNOME_DIALOG(dialog), TRUE);
-    g_signal_connect (G_OBJECT(dialog), "key_press_event",
+    g_signal_connect (G_OBJECT(dialog), "key-press-event",
                         GTK_SIGNAL_FUNC(key_dialog_callback), NULL);
     gtk_widget_set_events (dialog, GDK_KEY_PRESS_MASK);
     keydialog_key = 0;
@@ -718,6 +734,12 @@ void prefdialog_new (void)
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
     GtkTreeSelection *theme_selection, *keys_selection;
     int i;
+  
+    if (prefdialog)
+    {
+      gtk_window_present (GTK_WINDOW (prefdialog));
+      return;
+    }
 
     prefdialog = gnome_property_box_new();
 

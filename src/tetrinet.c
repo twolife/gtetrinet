@@ -1511,9 +1511,9 @@ int tetrinet_key (int keyval, char *str)
     }
 notfieldkey:
     if (!ingame) return FALSE;
-    fields_gmsginputactivate (TRUE);
     /* gmsg keys */
     if (gmsgstate == 1) {
+        fields_gmsginputactivate (TRUE);
         switch (keyval) {
         case GDK_Return:
             {

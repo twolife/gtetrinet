@@ -311,7 +311,7 @@ GtkWidget *fields_page_contents (void)
     gmsginput = gtk_entry_new_with_max_length (128);
     gtk_widget_show (gmsginput);
     /* eat up key messages */
-    g_signal_connect (G_OBJECT(gmsginput), "key_press_event",
+    g_signal_connect (G_OBJECT(gmsginput), "key-press-event",
                         GTK_SIGNAL_FUNC(fields_eatkey), NULL);
     gtk_table_attach (GTK_TABLE(table2), gmsginput, 0, 1, 1, 2,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
@@ -618,6 +618,6 @@ const char *fields_gmsginputtext (void)
 
 gint fields_eatkey (GtkWidget *widget, GdkEventKey *key)
 {
-    gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key_press_event");
+    gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-press-event");
     return TRUE;
 }

@@ -1,3 +1,19 @@
+2003-01-05  Dani Carbonell  <bocata@panete.net>
+
+	* TODO: updated.
+
+	* src/dialogs.c (connectingdialog_new): fixed behaviour when opening
+	more than one window, now it presents the existing one.
+	(teamdialog_new):likewise.
+	(prefdialog_new):likewise.
+
+	* src/tetrinet.c (tetrinet_key): we were giving focus to the gmsginput
+	even if there was no such input visible, now we only give focus if
+	gmsgstate == 1 (while writing message).
+
+	* src/gtetrinet.c (main): gtk_window_set_policy is deprecated,
+	changed to gtk_window_set_resizable.
+
 2003-01-05  Jordi Mallach  <jordi@sindominio.net>
 
 	* Adapt patch from Jan Bretschneider with some UI improvements that

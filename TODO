@@ -9,8 +9,6 @@ GTetrinet's TODO list
   + problem when typing composed letters (á) in fields messages
   + add real tooltips
   + port deprecated widgets (-DGTK_DISABLE_DEPRECATED)
-  + pressing a key when a game is in progress, but you are not playing it, 
-    causes a Gtk-CRITICAL
   + detaching and reattaching the Menu Bar causes two Bonobo-CRITICAL
 - Make gtetrinet resizeable (at least the fields messages bit)
 - Write a User Manual

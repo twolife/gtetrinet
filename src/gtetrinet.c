@@ -47,8 +47,8 @@
 
 static GtkWidget *pixmapdata_label (char **d, char *str);
 static int gtetrinet_key (int keyval, int mod);
-gint keypress (GtkWidget *widget, GdkEventKey *key);
-gint keyrelease (GtkWidget *widget, GdkEventKey *key);
+gint keypress (GtkWidget *widget, GdkEventKey *key, gpointer data);
+gint keyrelease (GtkWidget *widget, GdkEventKey *key, gpointer data);
 
 static GtkWidget *app, *pfields, *pparty, *pwinlist;
 static GtkWidget *winlistwidget, *partywidget, *fieldswidget;
@@ -154,13 +154,13 @@ int main (int argc, char *argv[])
 
     g_signal_connect (G_OBJECT(app), "destroy",
                         GTK_SIGNAL_FUNC(destroymain), NULL);
-    g_signal_connect (G_OBJECT(app), "key_press_event",
+    g_signal_connect (G_OBJECT(app), "key-press-event",
                         GTK_SIGNAL_FUNC(keypress), NULL);
-    g_signal_connect (G_OBJECT(app), "key_release_event",
+    g_signal_connect (G_OBJECT(app), "key-release-event",
                         GTK_SIGNAL_FUNC(keyrelease), NULL);
     gtk_widget_set_events (app, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
 
-    gtk_window_set_policy (GTK_WINDOW(app), FALSE, FALSE, TRUE);
+    gtk_window_set_resizable (GTK_WINDOW (app), FALSE);
     
     /* create and set the window icon */
     icon_pixbuf = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
@@ -308,7 +308,7 @@ gint keytimeout (gpointer data)
     return FALSE;
 }
 
-gint keypress (GtkWidget *widget, GdkEventKey *key)
+gint keypress (GtkWidget *widget, GdkEventKey *key, gpointer data)
 {
     int game_area;
 
@@ -352,7 +352,7 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
     return FALSE;
 }
 
-gint keyrelease (GtkWidget *widget, GdkEventKey *key)
+gint keyrelease (GtkWidget *widget, GdkEventKey *key, gpointer data)
 {
     int game_area;
 
@@ -377,7 +377,7 @@ gint keyrelease (GtkWidget *widget, GdkEventKey *key)
     {
         k = *key;
         keytimeoutid = gtk_timeout_add (10, keytimeout, 0);
-        gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key_release_event");
+        gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-release-event");
         return TRUE;
     }
     return FALSE;
@@ -459,9 +459,9 @@ void move_current_page_to_window (void)
     gtk_container_set_border_width (GTK_CONTAINER (newWindow), 0);
 
     /* Attach key events to window */
-    g_signal_connect (G_OBJECT(newWindow), "key_press_event",
+    g_signal_connect (G_OBJECT(newWindow), "key-press-event",
                         GTK_SIGNAL_FUNC(keypress), NULL);
-    g_signal_connect (G_OBJECT(newWindow), "key_release_event",
+    g_signal_connect (G_OBJECT(newWindow), "key-release-event",
                         GTK_SIGNAL_FUNC(keyrelease), NULL);
     gtk_widget_set_events (newWindow, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
     gtk_window_set_policy (GTK_WINDOW(newWindow), FALSE, TRUE, FALSE);

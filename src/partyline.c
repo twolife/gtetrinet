@@ -76,7 +76,7 @@ GtkWidget *partyline_page_new (void)
     entrybox = gtk_entry_new_with_max_length (200);
     g_signal_connect (G_OBJECT(entrybox), "activate",
                       GTK_SIGNAL_FUNC(textentry), NULL);
-    g_signal_connect (G_OBJECT(entrybox), "key_press_event",
+    g_signal_connect (G_OBJECT(entrybox), "key-press-event",
                       GTK_SIGNAL_FUNC(entrykey), NULL);
     gtk_widget_show (entrybox);
     gtk_box_pack_start (GTK_BOX(leftbox), entrybox, FALSE, FALSE, 0);
@@ -315,7 +315,7 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key)
         printf ("history: %d %d %d %s\n", plh_start, plh_end, plh_cur,
                 plhistory[plh_cur]);
 #endif
-        gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key_press_event");
+        gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-press-event");
         return TRUE;
     }
     else if (keyval == GDK_Left || keyval == GDK_Right) {
