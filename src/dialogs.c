@@ -43,6 +43,8 @@ static GtkWidget *connectingdialog = 0;
 static GtkWidget *progressbar;
 static gint timeouttag = 0;
 
+GtkWidget *team_dialog;
+
 void connectingdialog_button (GnomeDialog *dialog, gint button, gpointer data)
 {
     switch (button) {
@@ -74,7 +76,7 @@ gint connectingdialog_timeout (gpointer data)
 
 void connectingdialog_new (void)
 {
-    if (connectingdialog)
+    if (connectingdialog != NULL)
     {
       gtk_window_present (GTK_WINDOW (connectingdialog));
       return;
@@ -110,39 +112,44 @@ void connectingdialog_destroy (void)
 /*******************/
 /* the team dialog */
 /*******************/
+void teamdialog_destroy (GtkWidget *widget, gpointer data)
+{
+    gtk_widget_destroy (team_dialog);
+    team_dialog = NULL;
+}
 void teamdialog_button (GnomeDialog *dialog, gint button, gpointer data)
 {
     GtkWidget *entry = GTK_WIDGET(data);
     gchar *aux;
     switch (button) {
-    case 0:
+    case 1:
         aux = g_locale_from_utf8 (gtk_entry_get_text(GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(entry)))), -1, NULL, NULL, NULL);
         tetrinet_changeteam (aux);
-        gtk_widget_destroy (GTK_WIDGET(dialog));
+        teamdialog_destroy (NULL, NULL);
         g_free (aux);
         break;
-    case 1:
-        gtk_widget_destroy (GTK_WIDGET(dialog));
+    case 0:
+        teamdialog_destroy (NULL, NULL);
         break;
     }
 }
 
 void teamdialog_new (void)
 {
-    static GtkWidget *dialog;
     GtkWidget *table, *widget, *entry;
   
-    if (dialog)
+    if (team_dialog != NULL)
     {
-      gtk_window_present (GTK_WINDOW (dialog));
+      gtk_window_present (GTK_WINDOW (team_dialog));
       return;
     }
   
-    dialog = gnome_dialog_new (_("Change team"),
-                               GNOME_STOCK_BUTTON_OK,
+    team_dialog = gnome_dialog_new (_("Change team"),
                                GNOME_STOCK_BUTTON_CANCEL,
+                               GNOME_STOCK_BUTTON_OK,
                                NULL);
-    gnome_dialog_set_default (GNOME_DIALOG(dialog), 0);
+    gnome_dialog_set_default (GNOME_DIALOG(team_dialog), 1);
+    gtk_window_set_position (GTK_WINDOW (team_dialog), GTK_WIN_POS_MOUSE);
     table = gtk_table_new (1, 2, FALSE);
     gtk_table_set_col_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
     widget = gtk_label_new (_("Team name:"));
@@ -154,12 +161,14 @@ void teamdialog_new (void)
     gtk_widget_show (entry);
     gtk_table_attach_defaults (GTK_TABLE(table), entry, 1, 2, 0, 1);
     gtk_widget_show (table);
-    gtk_box_pack_start (GTK_BOX(GNOME_DIALOG(dialog)->vbox),
+    gtk_box_pack_start (GTK_BOX(GNOME_DIALOG(team_dialog)->vbox),
                         table, TRUE, TRUE, 0);
     /* pass the entry in the data pointer */
-    g_signal_connect (G_OBJECT(dialog), "clicked",
+    g_signal_connect (G_OBJECT(team_dialog), "clicked",
                         GTK_SIGNAL_FUNC(teamdialog_button), (gpointer)entry);
-    gtk_widget_show (dialog);
+    g_signal_connect (G_OBJECT(team_dialog), "destroy",
+                        GTK_SIGNAL_FUNC(teamdialog_destroy), NULL);
+    gtk_widget_show (team_dialog);
 }
 
 /**********************/
@@ -176,7 +185,7 @@ void connectdialog_button (GnomeDialog *dialog, gint button, gpointer data)
 {
     gchar *team_utf8, *nick; /* intermediate buffer for recoding purposes */
     switch (button) {
-    case 0:
+    case 1:
         /* connect now */
         spectating = GTK_TOGGLE_BUTTON(spectatorcheck)->active ? TRUE : FALSE;
         GTET_O_STRCPY (specpassword, gtk_entry_get_text (GTK_ENTRY(passwordentry)));
@@ -189,7 +198,7 @@ void connectdialog_button (GnomeDialog *dialog, gint button, gpointer data)
         g_free (team_utf8);
         g_free (nick);
         break;
-    case 1:
+    case 0:
         gamemode = oldgamemode;
         gtk_widget_destroy (connectdialog);
         break;
@@ -241,7 +250,7 @@ void connectdialog_new (void)
     GtkWidget *widget, *table1, *table2, *frame;
     gchar *aux;
     /* check if dialog is already displayed */
-    if (connectdialog) 
+    if (connecting) 
     {
       gtk_window_present (GTK_WINDOW (connectdialog));
       return;
@@ -253,10 +262,10 @@ void connectdialog_new (void)
 
     /* make dialog that asks for address/nickname */
     connectdialog = gnome_dialog_new (_("Connect to server"),
-                                      GNOME_STOCK_BUTTON_OK,
                                       GNOME_STOCK_BUTTON_CANCEL,
+                                      GNOME_STOCK_BUTTON_OK,
                                       NULL);
-    gnome_dialog_set_default (GNOME_DIALOG(connectdialog), 0);
+    gnome_dialog_set_default (GNOME_DIALOG(connectdialog), 1);
     g_signal_connect (G_OBJECT(connectdialog), "clicked",
                         GTK_SIGNAL_FUNC(connectdialog_button), NULL);
 
@@ -449,8 +458,10 @@ struct themelistentry {
 int themecount;
 int theme_select;
 
-void prefdialog_check (GtkWidget *widget, gpointer data)
+void prefdialog_destroy (GtkWidget *widget, gpointer data)
 {
+    gtk_widget_destroy (prefdialog);
+    prefdialog = NULL;
 }
 
 void prefdialog_drawkeys (void)
@@ -735,7 +746,7 @@ void prefdialog_new (void)
     GtkTreeSelection *theme_selection, *keys_selection;
     int i;
   
-    if (prefdialog)
+    if (prefdialog != NULL)
     {
       gtk_window_present (GTK_WINDOW (prefdialog));
       return;
@@ -967,9 +978,11 @@ void prefdialog_new (void)
                       GTK_SIGNAL_FUNC (prefdialog_themeselect), NULL);
     g_signal_connect (G_OBJECT(prefdialog), "apply",
                       GTK_SIGNAL_FUNC(prefdialog_apply), NULL);
+    g_signal_connect (G_OBJECT(prefdialog), "destroy",
+                      GTK_SIGNAL_FUNC(prefdialog_destroy), NULL);
     g_signal_connect (G_OBJECT(GNOME_PROPERTY_BOX(prefdialog)->ok_button), "clicked",
-                      GTK_SIGNAL_FUNC(prefdialog_check), NULL);
-    g_signal_connect (G_OBJECT(GNOME_PROPERTY_BOX(prefdialog)->apply_button), "clicked",
-                      GTK_SIGNAL_FUNC(prefdialog_check), NULL);
+                      GTK_SIGNAL_FUNC(prefdialog_destroy), NULL);
+    g_signal_connect (G_OBJECT(GNOME_PROPERTY_BOX(prefdialog)->cancel_button), "clicked",
+                      GTK_SIGNAL_FUNC(prefdialog_destroy), NULL);
     gtk_widget_show (prefdialog);
 }
