@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.5.2\n"
-"POT-Creation-Date: 2003-01-10 19:33+0100\n"
-"PO-Revision-Date: 2003-01-08 16:15+0100\n"
+"POT-Creation-Date: 2003-01-24 15:29+0100\n"
+"PO-Revision-Date: 2003-01-24 15:30+0100\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
-"Language-Team: Catalan <ca@dodds.net>\n"
+"Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -110,22 +110,6 @@ msgstr "Connectat a\n"
 msgid "Not connected"
 msgstr "No connectat"
 
-#: src/commands.c:228
-msgid "Ka-shu Wong <kswong@zip.com.au>"
-msgstr "Ka-shu Wong <jswong@zip.com.au>"
-
-#: src/commands.c:229
-msgid "James Antill <james@and.org>"
-msgstr "James Antill <james@and.org>"
-
-#: src/commands.c:230 src/commands.c:233
-msgid "Jordi Mallach <jordi@sindominio.net>"
-msgstr "Jordi Mallach <jordi@sindominio.net>"
-
-#: src/commands.c:231
-msgid "Dani Carbonell <bocata@panete.net>"
-msgstr "Dani Carbonell <bocata@panete.net>"
-
 #. Translators: translate as your names & emails
 #: src/commands.c:236
 msgid "translator_credits"
@@ -148,7 +132,7 @@ msgid "Warning: theme does not have a name"
 msgstr "Avís: el tema no te un nom"
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:86 src/dialogs.c:302 src/gtetrinet.c:71
+#: src/dialogs.c:86 src/dialogs.c:302 src/gtetrinet.c:70
 msgid "Connect to server"
 msgstr "Connecta al servidor"
 
@@ -181,7 +165,7 @@ msgstr "TetriFast"
 msgid "Server address"
 msgstr "Adreça del servidor"
 
-#: src/dialogs.c:359 src/gtetrinet.c:74
+#: src/dialogs.c:359 src/gtetrinet.c:73
 msgid "Connect as a spectator"
 msgstr "Connecta com espectador"
 
@@ -372,46 +356,46 @@ msgstr "No està jugant"
 msgid "Specials:"
 msgstr "Especials:"
 
-#: src/gtetrinet.c:71
+#: src/gtetrinet.c:70
 msgid "SERVER"
 msgstr "SERVIDOR"
 
-#: src/gtetrinet.c:72
+#: src/gtetrinet.c:71
 msgid "Set nickname to use"
 msgstr "Estableix el nom d'usuari a utilitzar"
 
-#: src/gtetrinet.c:72
+#: src/gtetrinet.c:71
 msgid "NICKNAME"
 msgstr "NOM D'USUARI"
 
-#: src/gtetrinet.c:73
+#: src/gtetrinet.c:72
 msgid "Set team name"
 msgstr "Estableix el nom de l'equip"
 
-#: src/gtetrinet.c:73
+#: src/gtetrinet.c:72
 msgid "TEAM"
 msgstr "EQUIP"
 
-#: src/gtetrinet.c:75
+#: src/gtetrinet.c:74
 msgid "Spectator password"
 msgstr "Contrasenya d'espectador"
 
-#: src/gtetrinet.c:75
+#: src/gtetrinet.c:74
 msgid "PASSWORD"
 msgstr "CONTRASENYA"
 
 #. FIXME
-#: src/gtetrinet.c:198 src/gtetrinet.c:336 src/gtetrinet.c:387
+#: src/gtetrinet.c:197 src/gtetrinet.c:335 src/gtetrinet.c:386
 msgid "Playing Fields"
 msgstr "Camps de joc"
 
 #. FIXME
-#: src/gtetrinet.c:209
+#: src/gtetrinet.c:208
 msgid "Partyline"
 msgstr "Partyline"
 
 #. FIXME
-#: src/gtetrinet.c:220
+#: src/gtetrinet.c:219
 msgid "Winlist"
 msgstr "Marcadors"
 
@@ -598,5 +582,9 @@ msgid "GTetrinet"
 msgstr "GTetrinet"
 
 #: gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "Client de Tetrinet"
+
+#: gtetrinet.desktop.in.h:3
 msgid "Tetrinet client for GNOME"
 msgstr "Client de Tetrinet per al GNOME"
