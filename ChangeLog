@@ -1,5 +1,10 @@
 2003-03-17  Jordi Mallach  <jordi@sindominio.net>
 
+	* TODO: Updated for 0.7.0.
+	* configure.in: released gtetrinet 0.7.0.
+
+2003-03-17  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/fields.c (gmsginput_activate): Patch from Robert Cheramy, to
 	workaround segfaults when trying to input characters not supported
 	by the current locale.

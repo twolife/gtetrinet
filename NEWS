@@ -1,3 +1,13 @@
+GTetrinet 0.7.0 - 2003-03-17
+- Added a list of available channels in partyline, and the ability to
+  join them by double-clicking on them.
+- Added timestamps to partyline messages.
+- Optimizations and bugfixes.
+- New and updated translations: Swedish (Christian Rose), Catalan
+  (Jordi Mallach), Dutch (Tino Meinen), Portuguese (Duarte Loreto),
+  Brazilian Portuguese (Alexandre Folle de Menezes), Ukrainian (Yuriy Syrota),
+  Czech (Michal Bukovjan) and French (Gael Chamoulaud).
+
 GTetrinet 0.6.2 - 2003-02-07
 - If anyone hasn't noticed yet, we just kick ass.
 - | testing
