@@ -6,6 +6,8 @@ AM_CONFIG_HEADER(config.h:config.h.in)
 AM_INIT_AUTOMAKE(gtetrinet, 0.5.0pre1)
 
 AC_DEFINE(GETTEXT_PACKAGE, "gtetrinet", [Gettext domain name])
+GETTEXT_PACKAGE=gtetrinet
+AC_SUBST(GETTEXT_PACKAGE)
 
 AC_PROG_CC
 
