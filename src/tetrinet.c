@@ -649,8 +649,9 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             g_snprintf (buf, sizeof(buf),
-                        _("%c*** You have joined %c%s"),
-                        TETRI_TB_C_DARK_BLUE, TETRI_TB_BOLD, token);
+                        _("%c*** You have joined %c%s%c%c"),
+                        TETRI_TB_C_DARK_BLUE, TETRI_TB_BOLD, token,
+			TETRI_TB_RESET, TETRI_TB_C_DARK_BLUE);
             partyline_text (buf);
             while ((token = strtok (NULL, " ")) != NULL) speclist_add (token);
             playerlistupdate ();

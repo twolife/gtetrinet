@@ -96,7 +96,7 @@ void connectingdialog_new (void)
 
 void connectingdialog_destroy (void)
 {
-    gtk_timeout_remove (timeouttag);
+    if (timeouttag != 0) gtk_timeout_remove (timeouttag);
     timeouttag = 0;
     if (connectingdialog == 0) return;
     gtk_widget_destroy (connectingdialog);
@@ -728,7 +728,7 @@ void prefdialog_new (void)
     theme_selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (themelist));
     gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (themelist), FALSE);
     gtk_widget_set_usize (themelist, 160, 0);
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (themelist), -1, _("Theme"), renderer,
+    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (themelist), -1, "theme", renderer,
                                                  "text", 0, NULL);
     gtk_widget_show (themelist);
 

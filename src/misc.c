@@ -41,7 +41,11 @@ GtkWidget *leftlabel_new (char *str)
 
 void leftlabel_set (GtkWidget *align, char *str)
 {
-    gtk_label_set (GTK_LABEL(GTK_BIN(align)->child), str);
+    gchar *aux;
+  
+    aux = g_locale_to_utf8 (str, -1, NULL, NULL, NULL);
+    gtk_label_set (GTK_LABEL(GTK_BIN(align)->child), aux);
+    g_free (aux);
 }
 
 /* returns a random number in the range 0 to n-1 --

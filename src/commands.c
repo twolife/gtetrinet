@@ -34,6 +34,8 @@
 #include "commands.h"
 #include "dialogs.h"
 
+extern GtkWidget *about;
+
 GnomeUIInfo gamemenu[] = {
     GNOMEUIINFO_ITEM(N_("_Connect to server..."), NULL, connect_command, NULL),
     GNOMEUIINFO_ITEM(N_("_Disconnect from server"), NULL, disconnect_command, NULL),
@@ -219,40 +221,47 @@ void commands_checkstate ()
 
 void about_command (GtkWidget *widget, gpointer data)
 {
-    GtkWidget *about, *hbox;
+    GtkWidget *hbox;
     GdkPixbuf *logo;
 
-    const char *authors[] = {N_("Ka-shu Wong <kswong@zip.com.au>"),
-                             N_("James Antill <james@and.org>"),
-			     N_("Jordi Mallach <jordi@sindominio.net>"),
-			     N_("Dani Carbonell <bocata@panete.net>"),
-                             NULL};
-    const char *documenters[] = {N_("Jordi Mallach <jordi@sindominio.net>"),
-                                 NULL};
-    /* Translators: translate as your names & emails */
-    const char *translators = _("translator_credits");
+    if (!GTK_IS_WINDOW (about))
+    {
+      const char *authors[] = {N_("Ka-shu Wong <kswong@zip.com.au>"),
+                               N_("James Antill <james@and.org>"),
+			       N_("Jordi Mallach <jordi@sindominio.net>"),
+			       N_("Dani Carbonell <bocata@panete.net>"),
+                               NULL};
+      const char *documenters[] = {N_("Jordi Mallach <jordi@sindominio.net>"),
+                                   NULL};
+      /* Translators: translate as your names & emails */
+      const char *translators = _("translator_credits");
 
-    logo = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
+      logo = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
     
-    about = gnome_about_new (APPNAME, APPVERSION,
-                             _("(C) 1999, 2000, 2001, 2002 Ka-shu Wong"),
-                             _("A Tetrinet client for GNOME.\n"),
-                             authors,
-                             documenters,
-			     strcmp (translators, "translator_credits") != 0 ?
-				     translators : NULL,
-			     logo);
+      about = gnome_about_new (APPNAME, APPVERSION,
+                               _("(C) 1999, 2000, 2001, 2002 Ka-shu Wong"),
+                               _("A Tetrinet client for GNOME.\n"),
+                               authors,
+                               documenters,
+			      strcmp (translators, "translator_credits") != 0 ?
+				       translators : NULL,
+			      logo);
 
-    if (logo != NULL)
-		g_object_unref (logo);
+      if (logo != NULL)
+		  g_object_unref (logo);
 
-    hbox = gtk_hbox_new (TRUE, 0);
-    gtk_box_pack_start (GTK_BOX (hbox),
-		gnome_href_new ("http://gtetrinet.sourceforge.net/", _("GTetrinet Home Page")),
-		FALSE, FALSE, 0);
-    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (about)->vbox),
-		        hbox, TRUE, FALSE, 0);
-    gtk_widget_show_all (hbox);
+      hbox = gtk_hbox_new (TRUE, 0);
+      gtk_box_pack_start (GTK_BOX (hbox),
+		  gnome_href_new ("http://gtetrinet.sourceforge.net/", _("GTetrinet Home Page")),
+		  FALSE, FALSE, 0);
+      gtk_box_pack_start (GTK_BOX (GTK_DIALOG (about)->vbox),
+		          hbox, TRUE, FALSE, 0);
+      gtk_widget_show_all (hbox);
 
-    gtk_widget_show (about);
+      gtk_widget_show (about);
+    }
+    else
+    {
+      gtk_window_present (GTK_WINDOW (about));
+    }
 }

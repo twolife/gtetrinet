@@ -70,17 +70,19 @@ void winlist_additem (int team, char *name, int score)
     GtkListStore *winlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (winlist)));
     GtkTreeIter iter;
     char buf[16], *item[3];
+    gchar *name_utf8;
 
     if (team) item[0] = "T";
     else item[0] = "";
     item[1] = nocolor (name);
+    name_utf8 = g_locale_to_utf8 (item[1], -1, NULL, NULL, NULL);
     g_snprintf (buf, sizeof(buf), "%d", score);
     item[2] = buf;
 
     gtk_list_store_append (winlist_model, &iter);
     gtk_list_store_set (winlist_model, &iter,
                         0, item[0],
-                        1, item[1],
+                        1, name_utf8,
                         2, item[2],
                         -1);
 }

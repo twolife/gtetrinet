@@ -7,4 +7,5 @@ GTetrinet's TODO list
   + keybindings
   + multiple about windows (raise already open window)
   + playfields messages cleared when games start
+  + problem when typing composed letters (á) in fields messages.
 - Make gtetrinet resizeable (at least the fields messages bit).
