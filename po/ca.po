@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.6.2\n"
-"POT-Creation-Date: 2003-02-12 13:48+0100\n"
-"PO-Revision-Date: 2003-02-12 13:49+0100\n"
+"POT-Creation-Date: 2003-02-18 17:21+0100\n"
+"PO-Revision-Date: 2003-02-18 17:23+0100\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -408,176 +408,196 @@ msgstr "Partyline"
 msgid "Winlist"
 msgstr "Marcadors"
 
-#: src/partyline.c:90 src/winlist.c:47
+#: src/partyline.c:73 src/partyline.c:131 src/winlist.c:47
 msgid "Name"
 msgstr "Nom"
 
-#: src/partyline.c:92
+#: src/partyline.c:75
+msgid "Players"
+msgstr "Jugadors"
+
+#: src/partyline.c:77
+msgid "State"
+msgstr "Estat"
+
+#: src/partyline.c:79
+msgid "Description"
+msgstr "Descripció"
+
+#: src/partyline.c:133
 msgid "Team"
 msgstr "Equip"
 
-#: src/partyline.c:106
+#: src/partyline.c:146
 msgid "Your name:"
 msgstr "El vostre nom:"
 
-#: src/partyline.c:115
+#: src/partyline.c:153
 msgid "Your team:"
 msgstr "El vostre equip:"
 
-#: src/tetrinet.c:182
+#: src/partyline.c:540
+msgid "Talking in channel"
+msgstr "S'està parlant en el canal"
+
+#: src/partyline.c:542
+msgid "Disconnected"
+msgstr "Desconnectat"
+
+#: src/tetrinet.c:190
 msgid "Server disconnected"
 msgstr "El servidor ha desconnectat"
 
-#: src/tetrinet.c:201
+#: src/tetrinet.c:210
 #, c-format
 msgid "%c%c*** Disconnected from server"
 msgstr "%c%c*** S'ha desconnectat del servidor"
 
-#: src/tetrinet.c:210
+#: src/tetrinet.c:221
 msgid "Error connecting: "
 msgstr "Error al connectar: "
 
-#: src/tetrinet.c:242
+#: src/tetrinet.c:253
 #, c-format
 msgid "%c%c*** Connected to server"
 msgstr "%c%c*** S'ha connectat al servidor"
 
-#: src/tetrinet.c:340
+#: src/tetrinet.c:352
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
 msgstr "%c%c*** Heu sigut expulsats del joc"
 
-#: src/tetrinet.c:344
+#: src/tetrinet.c:356
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
 msgstr "%c*** %c%s%c%c ha sigut expulsat del joc"
 
-#: src/tetrinet.c:436
+#: src/tetrinet.c:508
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
 msgstr "%c*** L'equip %c%s%c%c ha guanyat el joc"
 
-#: src/tetrinet.c:442
+#: src/tetrinet.c:514
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
 msgstr "%c*** %c%s%c%c ha guanyat el joc"
 
-#: src/tetrinet.c:502
+#: src/tetrinet.c:574
 #, c-format
 msgid "%c*** The game has %cstarted"
 msgstr "%c*** El joc ha %ccomençat"
 
-#: src/tetrinet.c:527
+#: src/tetrinet.c:599
 #, c-format
 msgid "%c*** The game is %cin progress"
 msgstr "%c*** El joc està %cen progrés"
 
-#: src/tetrinet.c:538
+#: src/tetrinet.c:610
 #, c-format
 msgid "%c*** The game has %cpaused"
 msgstr "%c*** El joc s'ha %cpausat"
 
-#: src/tetrinet.c:540
+#: src/tetrinet.c:612
 #, c-format
 msgid "The game has %c%cpaused"
 msgstr "El joc s'ha %c%cpausat"
 
-#: src/tetrinet.c:545
+#: src/tetrinet.c:617
 #, c-format
 msgid "%c*** The game has %cresumed"
 msgstr "%c*** El joc s'ha %creanudat"
 
-#: src/tetrinet.c:547
+#: src/tetrinet.c:619
 #, c-format
 msgid "The game has %c%cresumed"
 msgstr "El joc s'ha %c%creanudat"
 
-#: src/tetrinet.c:556
+#: src/tetrinet.c:628
 #, c-format
 msgid "%c*** The game has %cended"
 msgstr "%c*** El joc ha %cacabat"
 
-#: src/tetrinet.c:666
+#: src/tetrinet.c:738
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
 msgstr "%c*** Vos heu unit a %c%s%c%c"
 
-#: src/tetrinet.c:683
+#: src/tetrinet.c:755
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c s'ha unit als espectadors %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:704
+#: src/tetrinet.c:776
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c ha abandonat els espectadors %c%c (%c%s%c%c%c)"
 
-#: src/tetrinet.c:861
+#: src/tetrinet.c:937
 msgid "No special blocks"
 msgstr "Cap bloc especial"
 
-#: src/tetrinet.c:1020 src/tetrinet.c:1027
+#: src/tetrinet.c:1096 src/tetrinet.c:1103
 #, c-format
 msgid " on %c%c%s%c%c"
 msgstr " en %c%c%s%c%c"
 
-#: src/tetrinet.c:1037
+#: src/tetrinet.c:1113
 msgid " to All"
 msgstr " a tots"
 
-#: src/tetrinet.c:1043 src/tetrinet.c:1050
+#: src/tetrinet.c:1119 src/tetrinet.c:1126
 #, c-format
 msgid " by %c%c%s%c%c"
 msgstr " per %c%c%s%c%c"
 
-#: src/tetrinet.c:1643
+#: src/tetrinet.c:1719
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
 msgstr "%c*** %c%s%c%c és el moderador"
 
 #. remove ", " from end of string
-#: src/tetrinet.c:1692
+#: src/tetrinet.c:1768
 msgid " has left the game"
 msgstr " ha abandonat el joc"
 
-#: src/tetrinet.c:1693
+#: src/tetrinet.c:1769
 msgid " have left the game"
 msgstr " han abandonat el joc"
 
-#: src/tetrinet.c:1706
+#: src/tetrinet.c:1782
 msgid " has joined the game"
 msgstr " s'ha unit al joc"
 
-#: src/tetrinet.c:1707
+#: src/tetrinet.c:1783
 msgid " have joined the game"
 msgstr " s'han unit al joc"
 
-#: src/tetrinet.c:1730
+#: src/tetrinet.c:1806
 #, c-format
 msgid "%s is on team %c%s"
 msgstr "%s està en l'equip %c%s"
 
-#: src/tetrinet.c:1733
+#: src/tetrinet.c:1809
 #, c-format
 msgid "%s is alone"
 msgstr "%s està sol"
 
-#: src/tetrinet.c:1735
+#: src/tetrinet.c:1811
 #, c-format
 msgid "%s are on team %c%s"
 msgstr "%s estan en l'equip %c%s"
 
-#: src/tetrinet.c:1738
+#: src/tetrinet.c:1814
 #, c-format
 msgid "%s are alone"
 msgstr "%s estan sols"
 
-#: src/tetrinet.c:1779
+#: src/tetrinet.c:1855
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
 msgstr "%c*** %c%s%c%c està ara en l'equip %c%s"
 
-#: src/tetrinet.c:1786
+#: src/tetrinet.c:1862
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
 msgstr "%c*** %c%s%c%c està ara sol"
