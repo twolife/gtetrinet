@@ -152,11 +152,11 @@ int main (int argc, char *argv[])
     /* create the main window */
     app = gnome_app_new (APPID, APPNAME);
 
-    gtk_signal_connect (GTK_OBJECT(app), "destroy",
+    g_signal_connect (G_OBJECT(app), "destroy",
                         GTK_SIGNAL_FUNC(destroymain), NULL);
-    gtk_signal_connect (GTK_OBJECT(app), "key_press_event",
+    g_signal_connect (G_OBJECT(app), "key_press_event",
                         GTK_SIGNAL_FUNC(keypress), NULL);
-    gtk_signal_connect (GTK_OBJECT(app), "key_release_event",
+    g_signal_connect (G_OBJECT(app), "key_release_event",
                         GTK_SIGNAL_FUNC(keyrelease), NULL);
     gtk_widget_set_events (app, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
 
@@ -216,7 +216,7 @@ int main (int argc, char *argv[])
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pwinlist, label);
 
     /* add signal to focus the text entry when switching to the partyline page*/
-    gtk_signal_connect (GTK_OBJECT (notebook), "switch_page",
+    g_signal_connect (G_OBJECT (notebook), "switch_page",
 		    GTK_SIGNAL_FUNC (partyline_switch_entryfocus),
 		    NULL);
 
@@ -453,9 +453,9 @@ void move_current_page_to_window (void)
     gtk_container_set_border_width (GTK_CONTAINER (newWindow), 0);
 
     /* Attach key events to window */
-    gtk_signal_connect (GTK_OBJECT(newWindow), "key_press_event",
+    g_signal_connect (G_OBJECT(newWindow), "key_press_event",
                         GTK_SIGNAL_FUNC(keypress), NULL);
-    gtk_signal_connect (GTK_OBJECT(newWindow), "key_release_event",
+    g_signal_connect (G_OBJECT(newWindow), "key_release_event",
                         GTK_SIGNAL_FUNC(keyrelease), NULL);
     gtk_widget_set_events (newWindow, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
     gtk_window_set_policy (GTK_WINDOW(newWindow), FALSE, TRUE, FALSE);
@@ -470,7 +470,7 @@ void move_current_page_to_window (void)
     gtk_widget_reparent (child, newWindow);
 
     /* Pass ID of parent (to put widget back) to window's destroy */
-    gtk_signal_connect (GTK_OBJECT(newWindow), "destroy",
+    g_signal_connect (G_OBJECT(newWindow), "destroy",
                         GTK_SIGNAL_FUNC(destroy_page_window),
                         (gpointer)(pageData));
 

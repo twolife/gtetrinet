@@ -87,9 +87,9 @@ void connectingdialog_new (void)
 
     timeouttag = gtk_timeout_add (20, (GtkFunction)connectingdialog_timeout,
                                   NULL);
-    gtk_signal_connect (GTK_OBJECT(connectingdialog), "clicked",
+    g_signal_connect (G_OBJECT(connectingdialog), "clicked",
                         GTK_SIGNAL_FUNC(connectingdialog_button), NULL);
-    gtk_signal_connect (GTK_OBJECT(connectingdialog), "delete_event",
+    g_signal_connect (G_OBJECT(connectingdialog), "delete_event",
                         GTK_SIGNAL_FUNC(connectingdialog_delete), NULL);
     gtk_widget_show (connectingdialog);
 }
@@ -145,7 +145,7 @@ void teamdialog_new (void)
     gtk_box_pack_start (GTK_BOX(GNOME_DIALOG(dialog)->vbox),
                         table, TRUE, TRUE, 0);
     /* pass the entry in the data pointer */
-    gtk_signal_connect (GTK_OBJECT(dialog), "clicked",
+    g_signal_connect (G_OBJECT(dialog), "clicked",
                         GTK_SIGNAL_FUNC(teamdialog_button), (gpointer)entry);
     gtk_widget_show (dialog);
 }
@@ -241,7 +241,7 @@ void connectdialog_new (void)
                                       GNOME_STOCK_BUTTON_CANCEL,
                                       NULL);
     gnome_dialog_set_default (GNOME_DIALOG(connectdialog), 0);
-    gtk_signal_connect (GTK_OBJECT(connectdialog), "clicked",
+    g_signal_connect (G_OBJECT(connectdialog), "clicked",
                         GTK_SIGNAL_FUNC(connectdialog_button), NULL);
 
     /* main table */
@@ -362,13 +362,13 @@ void connectdialog_new (void)
 
     gtk_toggle_button_set_state (GTK_TOGGLE_BUTTON(spectatorcheck), spectating);
     connectdialog_spectoggle (spectatorcheck, NULL);
-    gtk_signal_connect (GTK_OBJECT(connectdialog), "destroy",
+    g_signal_connect (G_OBJECT(connectdialog), "destroy",
                         GTK_SIGNAL_FUNC(connectdialog_destroy), NULL);
-    gtk_signal_connect (GTK_OBJECT(spectatorcheck), "toggled",
+    g_signal_connect (G_OBJECT(spectatorcheck), "toggled",
                         GTK_SIGNAL_FUNC(connectdialog_spectoggle), NULL);
-    gtk_signal_connect (GTK_OBJECT(originalradio), "toggled",
+    g_signal_connect (G_OBJECT(originalradio), "toggled",
                         GTK_SIGNAL_FUNC(connectdialog_originaltoggle), NULL);
-    gtk_signal_connect (GTK_OBJECT(tetrifastradio), "toggled",
+    g_signal_connect (G_OBJECT(tetrifastradio), "toggled",
                         GTK_SIGNAL_FUNC(connectdialog_tetrifasttoggle), NULL);
     gtk_widget_show (connectdialog);
 }
@@ -394,7 +394,7 @@ gint key_dialog (char *msg)
     gtk_box_pack_start (GTK_BOX(GNOME_DIALOG(dialog)->vbox),
                         label, TRUE, TRUE, GNOME_PAD_SMALL);
     gnome_dialog_set_close (GNOME_DIALOG(dialog), TRUE);
-    gtk_signal_connect (GTK_OBJECT(dialog), "key_press_event",
+    g_signal_connect (G_OBJECT(dialog), "key_press_event",
                         GTK_SIGNAL_FUNC(key_dialog_callback), NULL);
     gtk_widget_set_events (dialog, GDK_KEY_PRESS_MASK);
     keydialog_key = 0;
@@ -811,12 +811,12 @@ void prefdialog_new (void)
     gtk_widget_show (label);
 
     button = gtk_button_new_with_label (_("Change key..."));
-    gtk_signal_connect (GTK_OBJECT(button), "clicked",
+    g_signal_connect (G_OBJECT(button), "clicked",
                         GTK_SIGNAL_FUNC (prefdialog_changekey), NULL);
     gtk_widget_show (button);
 
     button1 = gtk_button_new_with_label (_("Restore defaults"));
-    gtk_signal_connect (GTK_OBJECT(button1), "clicked",
+    g_signal_connect (G_OBJECT(button1), "clicked",
                         GTK_SIGNAL_FUNC (prefdialog_restorekeys), NULL);
     gtk_widget_show (button1);
 
@@ -874,7 +874,7 @@ void prefdialog_new (void)
     gtk_widget_show (label);
 
     button = gtk_button_new_with_label (_("Restore defaults"));
-    gtk_signal_connect (GTK_OBJECT(button), "clicked",
+    g_signal_connect (G_OBJECT(button), "clicked",
                         GTK_SIGNAL_FUNC (prefdialog_restoremidi), NULL);
     gtk_widget_show (button);
 

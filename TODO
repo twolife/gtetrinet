@@ -5,7 +5,9 @@ GTetrinet's TODO list
 - GNOME2 port issues:
   + preferences dialog (gconf)
   + keybindings
-  + multiple about windows (raise already open window)
   + playfields messages cleared when games start
-  + problem when typing composed letters (á) in fields messages.
-- Make gtetrinet resizeable (at least the fields messages bit).
+  + problem when typing composed letters (á) in fields messages
+  + add real tooltips
+  + port deprecated widgets (-DGTK_DISABLE_DEPRECATED)
+- Make gtetrinet resizeable (at least the fields messages bit)
+- Write a User Manual

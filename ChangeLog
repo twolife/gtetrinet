@@ -1,5 +1,13 @@
 2003-01-05  Jordi Mallach  <jordi@sindominio.net>
 
+	* TODO: updated.
+
+	* src/dialog.c: port gtk_signal_connect instances to g_signal_connect.
+	* src/fields.c: likewise.
+	* src/gtetrinet: likewise.
+
+2003-01-05  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/commands.c: update copyright notices... happy new year.
 
 2003-01-05  Jordi Mallach  <jordi@sindominio.net>

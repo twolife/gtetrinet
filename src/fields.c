@@ -164,7 +164,7 @@ GtkWidget *fields_page_contents (void)
             /* the field */
             fieldwidgets[i] = gtk_drawing_area_new ();
             /* attach the signals */
-            gtk_signal_connect (GTK_OBJECT(fieldwidgets[i]), "expose_event",
+            g_signal_connect (G_OBJECT(fieldwidgets[i]), "expose_event",
                                 GTK_SIGNAL_FUNC(fields_expose_event), (gpointer)i);
             gtk_widget_set_events (fieldwidgets[i], GDK_EXPOSURE_MASK);
             /* set the size */
@@ -196,7 +196,7 @@ GtkWidget *fields_page_contents (void)
     border = gtk_frame_new (NULL);
     gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
     nextpiecewidget = gtk_drawing_area_new ();
-    gtk_signal_connect (GTK_OBJECT(nextpiecewidget), "expose_event",
+    g_signal_connect (G_OBJECT(nextpiecewidget), "expose_event",
                         GTK_SIGNAL_FUNC(fields_nextpiece_expose), NULL);
     gtk_widget_set_events (nextpiecewidget, GDK_EXPOSURE_MASK);
     gtk_drawing_area_size (GTK_DRAWING_AREA(nextpiecewidget), BLOCKSIZE*9/2, BLOCKSIZE*9/2);
@@ -254,7 +254,7 @@ GtkWidget *fields_page_contents (void)
     border = gtk_frame_new (NULL);
     gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
     specialwidget = gtk_drawing_area_new ();
-    gtk_signal_connect (GTK_OBJECT(specialwidget), "expose_event",
+    g_signal_connect (G_OBJECT(specialwidget), "expose_event",
                         GTK_SIGNAL_FUNC(fields_specials_expose), NULL);
     gtk_drawing_area_size (GTK_DRAWING_AREA(specialwidget), BLOCKSIZE*18, BLOCKSIZE);
     gtk_widget_show (specialwidget);
@@ -311,7 +311,7 @@ GtkWidget *fields_page_contents (void)
     gmsginput = gtk_entry_new_with_max_length (128);
     gtk_widget_show (gmsginput);
     /* eat up key messages */
-    gtk_signal_connect (GTK_OBJECT(gmsginput), "key_press_event",
+    g_signal_connect (G_OBJECT(gmsginput), "key_press_event",
                         GTK_SIGNAL_FUNC(fields_eatkey), NULL);
     gtk_table_attach (GTK_TABLE(table2), gmsginput, 0, 1, 1, 2,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
