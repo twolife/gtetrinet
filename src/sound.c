@@ -55,8 +55,8 @@ void sound_cache (void)
 void sound_playsound (int id)
 {
     if (!soundenable) return;
-    if (soundsamples[id])
-        esd_sample_play (gnome_sound_connection, soundsamples[id]);
+    if (soundfiles[id][0])
+        esd_play_file ("gtetrinet", soundfiles[id], -1);
 }
 
 void sound_playmidi (char *file)
