@@ -864,7 +864,7 @@ void tetrinet_changeteam (const char *newteam)
 
 void tetrinet_sendfield (int reset)
 {
-  int x, y, i, d = FALSE; /* d is the number of differences */
+  int x, y, i, d = 0; /* d is the number of differences */
   char buf[1024], *p;
 
   char diff_buf[15][(FIELDWIDTH + 1)* FIELDHEIGHT * 2] = {0};
@@ -880,6 +880,12 @@ void tetrinet_sendfield (int reset)
 
 	const int block = fields[playernum][y][x];
 
+        if ((block < 0) || (block >= 15))
+        {
+          g_warning("sendfield shouldn't reach here, block=%d\n", block);
+          continue;
+        }
+        
 	if (block != sentfield[y][x]) {
 	  diff_buf[block][row_count[block]++] = x + '3';
 	  diff_buf[block][row_count[block]++] = y + '3';

@@ -1,3 +1,8 @@
+2003-03-03  James Antill  <james@and.org>
+
+	* src/tetrinet.c (tetrinet_sendfield): Put a warning in if blocks are
+	out of range.
+
 2003-02-24  Dani Carbonell  <bocata@panete.net>
 
 	* src/partyline.c (stop_list): list_issued is a integer, changed
