@@ -1,3 +1,7 @@
+2002-10-27  Jordi Mallach  <jordi@sindominio.net>
+
+	* NEWS, configure.in: released gtetrinet 0.4.4.
+
 2002-10-22  James Antill  <james@and.org>
 
 	* src/tetrinet.c (tetrinet_inmessage): Check all values from atoi()
