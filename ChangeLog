@@ -1,3 +1,17 @@
+2003-02-17  Dani Carbonell  <bocata@panete.net>
+
+	* src/partyline.c: slightly modified the partyline UI. Added the
+	ability to join channels by just double-clicking in the channel list.
+	(partyline_page_new): added two informative labels.
+	(channel_activated): new callback for the "row-activated" signal in
+	the channel list.
+	(partyline_joining_channel): new function to update the label that
+	shows your current channel.
+	
+	* src/partyline.h: added the new function declaration.
+	
+	* src/tetrinet.c (tetrinet_inmessage): update the new channel label.
+
 2003-02-15  Dani Carbonell  <bocata@panete.net>
 
 	* TODO: updated.

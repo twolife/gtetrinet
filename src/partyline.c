@@ -37,7 +37,7 @@
 static GtkWidget *playerlist, *textbox, *entrybox,
     *namelabel, *teamlabel, *infolabel, *textboxscroll, 
     *playerlist_scroll, *playerlist_vpaned, *channel_box,
-    *playerlist_channel_scroll;
+    *playerlist_channel_scroll, *label;
 
 /* some more widgets for layout */
 static GtkWidget *table, *leftbox, *rightbox;
@@ -52,10 +52,11 @@ int plh_start = 0, plh_end = 0, plh_cur = 0;
 /* function prototypes for callbacks */
 static void textentry (GtkWidget *widget);
 static gint entrykey (GtkWidget *widget, GdkEventKey *key);
+void channel_activated (GtkTreeView *treeview);
 
 GtkWidget *partyline_page_new (void)
 {
-    GtkWidget *widget, *box; /* generic temp variables */
+    GtkWidget *widget, *box, *box1, *box2; /* generic temp variables */
     GtkListStore *playerlist_model = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
     GList *focus_list = NULL;
@@ -66,18 +67,8 @@ GtkWidget *partyline_page_new (void)
     /* left box */
     leftbox = gtk_vbox_new (FALSE, 4);
     /* chat thingy */
-    /* textbox with scrollbars */
-    textbox = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
-    gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW(textbox), GTK_WRAP_WORD);
-    gtk_text_view_set_editable (GTK_TEXT_VIEW (textbox), FALSE);
-    gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (textbox), FALSE);
-    textboxscroll = gtk_scrolled_window_new (NULL, NULL);
-    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(textboxscroll),
-                                   GTK_POLICY_AUTOMATIC,
-                                   GTK_POLICY_ALWAYS);
-    gtk_container_add (GTK_CONTAINER(textboxscroll), textbox);
-    
     /* channel list */
+    box1 = gtk_vbox_new (FALSE, 0);
     channel_box = GTK_WIDGET (gtk_tree_view_new_with_model (GTK_TREE_MODEL (playerlist_channels)));
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (channel_box), -1, _("Name"), renderer,
                                                  "text", 1, NULL);
@@ -87,18 +78,40 @@ GtkWidget *partyline_page_new (void)
                                                  "text", 3, NULL);
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (channel_box), -1, _("Description"), renderer,
                                                  "text", 4, NULL);
+    g_signal_connect (G_OBJECT (channel_box), "row-activated",
+                      G_CALLBACK (channel_activated), NULL);
     playerlist_channel_scroll = gtk_scrolled_window_new (NULL, NULL);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW (playerlist_channel_scroll),
                                    GTK_POLICY_AUTOMATIC,
                                    GTK_POLICY_AUTOMATIC);
     gtk_container_add (GTK_CONTAINER(playerlist_channel_scroll), channel_box);
     gtk_widget_set_size_request (playerlist_channel_scroll, -1, 100);
+    label = gtk_label_new (NULL);
+    gtk_label_set_markup (GTK_LABEL (label), "<b>Channel List</b>");
+    gtk_box_pack_start (GTK_BOX (box1), label, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (box1), playerlist_channel_scroll, TRUE, TRUE, 0);
 
+    /* textbox with scrollbars */
+    box2 = gtk_vbox_new (FALSE, 0);
+    textbox = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
+    gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW(textbox), GTK_WRAP_WORD);
+    gtk_text_view_set_editable (GTK_TEXT_VIEW (textbox), FALSE);
+    gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (textbox), FALSE);
+    textboxscroll = gtk_scrolled_window_new (NULL, NULL);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(textboxscroll),
+                                   GTK_POLICY_AUTOMATIC,
+                                   GTK_POLICY_ALWAYS);
+    gtk_container_add (GTK_CONTAINER(textboxscroll), textbox);
+    label = gtk_label_new (NULL);
+    partyline_joining_channel (NULL);
+    gtk_box_pack_start (GTK_BOX (box2), label, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (box2), textboxscroll, TRUE, TRUE, 0);
+    
     /* vpaned widget */
     playerlist_vpaned = gtk_vpaned_new ();
     
-    gtk_paned_add1 (GTK_PANED (playerlist_vpaned), playerlist_channel_scroll);
-    gtk_paned_add2 (GTK_PANED (playerlist_vpaned), textboxscroll);
+    gtk_paned_add1 (GTK_PANED (playerlist_vpaned), box1);
+    gtk_paned_add2 (GTK_PANED (playerlist_vpaned), box2);
     gtk_box_pack_start (GTK_BOX(leftbox), playerlist_vpaned, TRUE, TRUE, 0);
     
     /* entry box */
@@ -499,4 +512,36 @@ void partyline_clear_list_channel (void)
 {
   gtk_list_store_clear (playerlist_channels);
   gtk_list_store_clear (work_model);
+}
+
+void channel_activated (GtkTreeView *treeview)
+{
+  GtkTreeSelection *selection = gtk_tree_view_get_selection (treeview);
+  GtkTreeIter iter;
+  gchar *name, *cad;
+  
+  gtk_tree_selection_get_selected (selection, NULL, &iter);
+  gtk_tree_model_get (GTK_TREE_MODEL (playerlist_channels),
+                      &iter,
+                      1, &name, -1);
+  
+  cad = g_strconcat ("/join ", name, NULL);
+  tetrinet_playerline (cad);
+  
+  g_free (name);
+  g_free (cad);
+}
+
+void partyline_joining_channel (const gchar *channel)
+{
+  gchar *final;
+  
+  if (channel != NULL)
+    final = g_strconcat ("<b>", _("Talking in channel"), " ", channel, "</b>", NULL);
+  else
+    final = g_strconcat ("<b>", _("Disconnected"), "</b>", NULL);
+
+  gtk_label_set_markup (GTK_LABEL (label), final);
+  
+  g_free (final);
 }

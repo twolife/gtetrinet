@@ -210,6 +210,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         partyline_fmt (_("%c%c*** Disconnected from server"),
                        TETRI_TB_C_DARK_GREEN, TETRI_TB_BOLD);
         partyline_clear_list_channel ();
+        partyline_joining_channel (NULL);
         break;
     case IN_CONNECTERROR:
     connecterror:
@@ -402,10 +403,10 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                     tetrix = TRUE;
                 }
                 else if (tetrix) {
+                    gchar *line = nocolor (token);
+                      
                     if (list_issued)
                     {
-                      gchar *line = nocolor (token);
-                      
                       if (*line == '(')
                       {
                         partyline_add_channel (line);
@@ -432,7 +433,20 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                       
                       //if (line != NULL) g_free (line);
                     }
-
+                    /* detect whenever we have joined a channel */
+                    if (!strncmp ("has joined", &line[strlen (playernames[playernum])+1], 10))
+                    {
+                      partyline_joining_channel (&line[strlen (playernames[playernum])+20]);
+                    }
+                    else if (!strncmp ("Joined existing Channel", line, 23))
+                    {
+                      partyline_joining_channel (&line[26]);
+                    }
+                    else if (!strncmp ("Created new Channel", line, 19))
+                    {
+                      partyline_joining_channel (&line[22]);
+                    }
+                    
                     g_snprintf (buf, sizeof(buf), "*** %s", token);
                     partyline_text (buf);
                     break;
@@ -819,6 +833,10 @@ void tetrinet_playerline (const char *text)
             client_outmessage (OUT_PLINE, buf);
             return;
         }
+        /* send the message without showing it in the partyline */
+        g_snprintf (buf, sizeof(buf), "%d %s", playernum, text);
+        client_outmessage (OUT_PLINE, buf);
+        return;
     }
     g_snprintf (buf, sizeof(buf), "%d %s", playernum, text);
     client_outmessage (OUT_PLINE, buf);

@@ -12,4 +12,5 @@ extern gboolean partyline_update_channel_list (void);
 extern void partyline_more_channel_lines (void);
 extern void partyline_switch_entryfocus (void);
 extern void partyline_clear_list_channel (void);
+extern void partyline_joining_channel (const gchar *channel);
 extern void stop_list (void);
