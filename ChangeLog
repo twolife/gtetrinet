@@ -1,5 +1,11 @@
 2002-11-18  Jordi Mallach  <jordi@sindominio.net>
 
+	* configure.in: AM_GNU_GETTEXT was needed after all (generates
+	po/Makefile) (or I am missing something).
+	(ALL_LINGUAS): added German (de).
+
+2002-11-18  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/commands.c, src/dialogs.c, src/gtetrinet.c: unify a few strings,
 	to ease translator work (thanks, Gerfried Fuchs).
 
