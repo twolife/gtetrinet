@@ -1,3 +1,4 @@
+
 /*
  *  GTetrinet
  *  Copyright (C) 1999, 2000, 2001, 2002, 2003  Ka-shu Wong (kswong@zip.com.au)
@@ -425,9 +426,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                       if (!strncmp ("You", line, 3))
                       {
                         /* we will use the error message as list stopper */
-                        list_issued--;
-                        if (list_issued <= 0)
-                          stop_list();
+                        stop_list();
                         break;
                       }
                       

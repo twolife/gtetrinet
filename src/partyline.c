@@ -306,6 +306,10 @@ void textentry (GtkWidget *widget)
     text = gtk_entry_get_text (GTK_ENTRY(widget));
 
     if (strlen(text) == 0) return;
+
+    if (!strncmp("/list", text, strlen("/list")))
+      stop_list(); /* Parsing can't be perfect,
+                      so make sure they can do it by hand... */
     
     /* convert from UTF-8 to the current locale, will work with ISO8859-1 locales */    
     iso_text = g_locale_from_utf8 (text, -1, NULL, NULL, NULL);

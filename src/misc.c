@@ -173,9 +173,9 @@ void textbox_addtext (GtkTextView *textbox, const unsigned char *text)
             g_assert(TETRI_TB_C_END_OFFSET <= TETRI_TB_END_OFFSET);
           
             switch (text[i]) {
-            case TETRI_TB_BOLD:      attr_bold      = !!attr_bold; break;
-            case TETRI_TB_ITALIC:    attr_italic    = !!attr_italic; break;
-            case TETRI_TB_UNDERLINE: attr_underline = !!attr_underline; break;
+            case TETRI_TB_BOLD:      attr_bold      = !attr_bold; break;
+            case TETRI_TB_ITALIC:    attr_italic    = !attr_italic; break;
+            case TETRI_TB_UNDERLINE: attr_underline = !attr_underline; break;
             default: /* it is a color... */
                 if (text[i] > TETRI_TB_C_END_OFFSET) break;
                 if (text[i] == last) {
@@ -225,9 +225,11 @@ void textbox_addtext (GtkTextView *textbox, const unsigned char *text)
               gtk_text_buffer_insert_with_tags (textbox->buffer, &iter, out, -1,
                                                 t_a, color, NULL);
             }
-            else
+            else if (color != lastcolor)
               gtk_text_buffer_insert_with_tags (textbox->buffer, &iter, out, -1,
                                                 color, NULL);
+            else
+              gtk_text_buffer_insert (textbox->buffer, &iter, out, -1);
             
           }
           

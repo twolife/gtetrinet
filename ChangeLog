@@ -1,3 +1,14 @@
+2003-02-19  James Antill  <james@and.org>
+
+	* src/partyline.c (textentry): Add ESC for "/list" parser when user
+	types "/list".
+	
+	* src/misc.c (textbox_addtext): Fix attributes (bold, italic etc.
+	were never being set).
+	(textbox_addtext): Don't insert using tags if nothing changed, this
+	seems to work around a bug when using LANG=en_US.UTF-8 gtetrinet. Don't
+	ask me why.
+
 2003-02-18  Jordi Mallach  <jordi@sindominio.net>
 
 	* Makefile.am (INCLUDES): removed, not needed here.
