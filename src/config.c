@@ -181,6 +181,12 @@ void config_loadconfig (void)
         g_free(p);
     }
 
+    p = gnome_config_get_string ("Player/Server");
+    if (p) {
+        GTET_O_STRCPY(server, p);
+        g_free(p);
+    }
+
     p = gnome_config_get_string ("Player/Team");
     if (p) {
         GTET_O_STRCPY(team, p);
@@ -218,6 +224,7 @@ void config_saveconfig (void)
     gnome_config_set_int ("Sound/EnableMidi", midienable);
 
     gnome_config_set_string ("Player/Nickname", nick);
+    gnome_config_set_string ("Player/Server", server);
     gnome_config_set_string ("Player/Team", team);
 
     gnome_config_set_int ("Keys/Right", keys[K_RIGHT]);

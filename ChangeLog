@@ -1,3 +1,8 @@
+2002-10-28  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/config.c (config_loadconfig): patch from James Antill. Save
+	and restore the server, as well as the server history.
+
 2002-10-27  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS, configure.in: released gtetrinet 0.4.4.
