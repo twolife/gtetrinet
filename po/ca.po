@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.4.2\n"
-"POT-Creation-Date: 2002-06-28 18:02+0200\n"
+"POT-Creation-Date: 2002-07-06 02:44+0200\n"
 "PO-Revision-Date: 2002-06-28 18:04+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <ca@dodds.net>\n"
@@ -355,19 +355,19 @@ msgstr "Partyline"
 msgid "Winlist"
 msgstr "Marcadors"
 
-#: src/partyline.c:33 src/winlist.c:31
+#: src/partyline.c:53 src/winlist.c:38
 msgid "Name"
 msgstr "Nom"
 
-#: src/partyline.c:34
+#: src/partyline.c:54
 msgid "Team"
 msgstr "Equip"
 
-#: src/partyline.c:95
+#: src/partyline.c:94
 msgid "Your name:"
 msgstr "El vostre nom:"
 
-#: src/partyline.c:104
+#: src/partyline.c:103
 msgid "Your team:"
 msgstr "El vostre equip:"
 
@@ -395,10 +395,10 @@ msgstr " s'ha unit al joc"
 msgid " have joined the game"
 msgstr " s'han unit al joc"
 
-#: src/winlist.c:30
+#: src/winlist.c:37
 msgid "T"
 msgstr "E"
 
-#: src/winlist.c:32
+#: src/winlist.c:39
 msgid "Score"
 msgstr "Puntuació"
