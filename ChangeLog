@@ -1,3 +1,14 @@
+2003-02-11  Dani Carbonell  <bocata@panete.net>
+
+	* src/gtetrinet.c (main): fixed a bug when quitting GTetrinet when
+	there were blocks drew.
+	
+	* src/tetrinet.c (tetrinet_key): removed a lot of commented and
+	useless code.
+	(tetrinet_inmessage): marked a string for translating.
+	
+	* po/POTFILES.in: added src/client.c.
+
 2003-02-10  Dani Carbonell  <bocata@panete.net>
 
 	* src/Makefile.am: added -DGDK_DISABLE_DEPRECATED to the compilation

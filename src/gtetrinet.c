@@ -298,9 +298,9 @@ int main (int argc, char *argv[])
     /* gtk_main() */
     gtk_main ();
 
+    client_disconnect ();
     /* cleanup */
     fields_cleanup ();
-    client_disconnect (); /* kills the client process */
     sound_stopmidi ();
 
     return 0;

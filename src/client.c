@@ -234,7 +234,7 @@ void client_process (void)
     GTET_O_STRCPY(errmsg, "noconnecting ");
 
     if (errno)        GTET_O_STRCAT(errmsg, strerror (errno));
-    else if (h_errno) GTET_O_STRCAT(errmsg, _("Could not resolve host."));
+    else if (h_errno) GTET_O_STRCAT(errmsg, _("Couldn't resolve hostname."));
 
     client_inmessage (errmsg);
     

@@ -179,7 +179,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         break;
     case IN_DISCONNECT:
         if (!connected) {
-            data = "Server disconnected";
+            data = _("Server disconnected");
             goto connecterror;
         }
         if (ingame) tetrinet_endgame ();
@@ -1520,47 +1520,6 @@ int tetrinet_key (int keyval)
     }
 notfieldkey:
     if (!ingame) return FALSE;
-    /* gmsg keys */
-/*    if (gmsgstate == 1) {
-        fields_gmsginputactivate (TRUE);
-        switch (keyval) {
-        case GDK_Return:
-            {
-                char buf[256];
-                const char *s;
-                gchar *locale_s;
-                s = fields_gmsginputtext ();
-                if (strlen(s) > 0) {
-                    if (strncmp("/me ", s, 4) == 0) {
-                        g_snprintf (buf, sizeof(buf), "* %s %s", nick, s+4);
-                        locale_s = g_locale_from_utf8 (buf, -1, NULL, NULL, NULL);
-                        client_outmessage (OUT_GMSG, locale_s);
-                    }
-                    else {
-                        g_snprintf (buf, sizeof(buf), "<%s> %s", nick, s);
-                        locale_s = g_locale_from_utf8 (buf, -1, NULL, NULL, NULL);
-                        client_outmessage (OUT_GMSG, locale_s);
-                    }
-                    g_free (locale_s);
-                }
-                fields_gmsginput (FALSE);
-                fields_gmsginputclear ();
-                gmsgstate = 0;
-            }
-            break;
-        case GDK_Escape:
-            gmsgstate = 2;
-            fields_gmsginput (FALSE);
-            break;
-        case GDK_BackSpace:
-            fields_gmsginputback ();
-            break;
-        default:
-            fields_gmsginputadd (str);
-            break;
-        }
-        return TRUE;
-    }*/
     if (gdk_keyval_to_lower (keyval) == keys[K_GAMEMSG]) {
         fields_gmsginput (TRUE);
         gmsgstate = 1;
