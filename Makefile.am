@@ -15,5 +15,3 @@ EXTRA_DIST = ABOUT-NLS AUTHORS COPYING ChangeLog INSTALL NEWS README	\
 
 changelog:
 	cvs2cl -b --utc -S --no-wrap -f ChangeLog.CVS
-
-ACLOCAL_AMFLAGS = -I m4
