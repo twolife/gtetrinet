@@ -1,0 +1,757 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtetrinet\n"
+"POT-Creation-Date: 2003-03-14 15:05+0200\n"
+"PO-Revision-Date: 2003-03-14 12:12--500\n"
+"Last-Translator: Yuriy Syrota <yuri@renome.rovno.ua>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/client.c:237
+msgid "Couldn't resolve hostname."
+msgstr "Не вдалось розв'язати назву машини."
+
+#: src/commands.c:38
+msgid "_Connect to server..."
+msgstr "З'єднатись з _сервером..."
+
+#: src/commands.c:39
+msgid "_Disconnect from server"
+msgstr "_Від'єднатись від сервера"
+
+#: src/commands.c:41
+msgid "Change _team..."
+msgstr "Змінити _команду..."
+
+#: src/commands.c:43
+msgid "_Start game"
+msgstr "Роз_почати гру"
+
+#: src/commands.c:44
+msgid "_Pause game"
+msgstr "При_зупинити гру"
+
+#: src/commands.c:45
+msgid "_End game"
+msgstr "За_вершити гру"
+
+#: src/commands.c:50
+msgid "Detac_h page..."
+msgstr "Від'єднати с_торінку..."
+
+#: src/commands.c:75
+msgid "Connect"
+msgstr "З'єднатись"
+
+#: src/commands.c:75
+msgid "Connect to a server"
+msgstr "Встановити з'єднання з сервером"
+
+#: src/commands.c:76
+msgid "Disconnect"
+msgstr "Від'єднатись"
+
+#: src/commands.c:76
+msgid "Disconnect from the current server"
+msgstr "Від'єднатись від поточного сервера"
+
+#: src/commands.c:78
+msgid "Start game"
+msgstr "Розпочати гру"
+
+#: src/commands.c:78
+msgid "Start a new game"
+msgstr "Розпочати нову гру"
+
+#: src/commands.c:79
+msgid "Pause game"
+msgstr "Призупинити гру"
+
+#: src/commands.c:79
+msgid "Pause the game"
+msgstr "Призупинити гру"
+
+#: src/commands.c:80
+msgid "End game"
+msgstr "Завершити гру"
+
+#: src/commands.c:80
+msgid "End the current game"
+msgstr "Завершити поточну гру"
+
+#: src/commands.c:82
+#: src/dialogs.c:155
+msgid "Change team"
+msgstr "Змінити команду"
+
+#: src/commands.c:82
+msgid "Change your current team name"
+msgstr "Змінити назву вашої поточної команди"
+
+#: src/commands.c:85
+msgid "Detach page"
+msgstr "Від'єднати сторінку"
+
+#: src/commands.c:85
+msgid "Detach the current notebook page"
+msgstr "Від'єднати сторінку блокнота"
+
+#: src/commands.c:207
+msgid "Game in progress"
+msgstr "Гра триває"
+
+#: src/commands.c:210
+msgid "Connected to\n"
+msgstr "Встановлено з'єднання з\n"
+
+#: src/commands.c:214
+msgid "Not connected"
+msgstr "Немає з'єднання"
+
+#. Translators: translate as your names & emails
+#: src/commands.c:236
+msgid "translator_credits"
+msgstr "Юрій Сирота <yuriy@beer.com>"
+
+#: src/commands.c:241
+msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
+msgstr "© Ка-Шу Вонґ, 1999, 2000, 2001, 2002, 2003"
+
+#: src/commands.c:242
+msgid "A Tetrinet client for GNOME.\n"
+msgstr "Клієнт Tetrinet для середовища GNOME.\n"
+
+#: src/commands.c:254
+msgid "GTetrinet Home Page"
+msgstr "Домашня сторінка GTetrinet"
+
+#: src/config.c:134
+msgid "Warning: theme does not have a name, reverting to default."
+msgstr "Увага, тема не має назви, повернення по початкової."
+
+#. make dialog that asks for address/nickname
+#: src/dialogs.c:85
+#: src/dialogs.c:330
+#: src/gtetrinet.c:77
+msgid "Connect to server"
+msgstr "З'єднатись з сервером"
+
+#: src/dialogs.c:167
+#: src/dialogs.c:429
+msgid "Team name:"
+msgstr "Назва команди:"
+
+#: src/dialogs.c:211
+msgid "You must specify a server name."
+msgstr "Необхідно вказати назву сервера."
+
+#: src/dialogs.c:228
+msgid "Please specify a password to connect as spectator."
+msgstr "Будь ласка, вкажіть пароль для з'єднання глядачем."
+
+#: src/dialogs.c:254
+msgid "Please specify a valid nickname."
+msgstr "Будь ласка, вкажіть прізвисько."
+
+#. game type radio buttons
+#: src/dialogs.c:357
+msgid "Original"
+msgstr "Оригінальна"
+
+#: src/dialogs.c:359
+msgid "TetriFast"
+msgstr "TetriFast"
+
+#: src/dialogs.c:381
+msgid "Server address"
+msgstr "Адреса сервера"
+
+#: src/dialogs.c:390
+#: src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "З'єднатись як глядач"
+
+#: src/dialogs.c:394
+msgid "Password:"
+msgstr "Пароль:"
+
+#: src/dialogs.c:408
+msgid "Spectate game"
+msgstr "Спостерігати гру"
+
+#: src/dialogs.c:417
+msgid "Nick name:"
+msgstr "Прізвисько:"
+
+#: src/dialogs.c:446
+msgid "Player information"
+msgstr "Інформація про гравця"
+
+#: src/dialogs.c:487
+msgid "Change Key"
+msgstr "Змінити клавішу"
+
+#: src/dialogs.c:538
+msgid "Move right"
+msgstr "Переміщення праворуч"
+
+#: src/dialogs.c:539
+msgid "Move left"
+msgstr "Переміщення ліворуч"
+
+#: src/dialogs.c:540
+msgid "Move down"
+msgstr "Переміщення вниз"
+
+#: src/dialogs.c:541
+msgid "Rotate right"
+msgstr "Обертання праворуч"
+
+#: src/dialogs.c:542
+msgid "Rotate left"
+msgstr "Обертання ліворуч"
+
+#: src/dialogs.c:543
+msgid "Drop piece"
+msgstr "Скинути фігуру"
+
+#: src/dialogs.c:544
+msgid "Discard special"
+msgstr ""
+
+#: src/dialogs.c:545
+msgid "Send message"
+msgstr "Відіслати повідомлення"
+
+#: src/dialogs.c:599
+#, c-format
+msgid "Press new key for \"%s\""
+msgstr "Натисніть нову клавішу для \"%s\""
+
+#: src/dialogs.c:809
+msgid "GTetrinet Preferences"
+msgstr "Властивості GTetrinet"
+
+#: src/dialogs.c:832
+msgid "Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr "Виберіть тему із списку.\n"
+"Встановлюйте нові теми в ~/.gtetrinet/themes/"
+
+#: src/dialogs.c:840
+msgid "Name:"
+msgstr "Назва:"
+
+#: src/dialogs.c:844
+msgid "Author:"
+msgstr "Автор:"
+
+#: src/dialogs.c:848
+msgid "Description:"
+msgstr "Опис:"
+
+#: src/dialogs.c:866
+msgid "Selected Theme"
+msgstr "Вибрана тема"
+
+#: src/dialogs.c:885
+msgid "Themes"
+msgstr "Теми"
+
+#. partyline
+#: src/dialogs.c:890
+msgid "Enable Timestamps"
+msgstr "Увімкнути позначки часу"
+
+#. FIXME
+#: src/dialogs.c:911
+#: src/gtetrinet.c:253
+msgid "Partyline"
+msgstr ""
+
+#: src/dialogs.c:922
+msgid "Action"
+msgstr "Дія"
+
+#: src/dialogs.c:924
+msgid "Key"
+msgstr "Клавіша"
+
+#: src/dialogs.c:930
+msgid "Select an action from the list and press Change Key to change the key associated with the action."
+msgstr "Виберіть дію з списку і натисніть \"Змінити клавішу\" для того, щоб змінити клавішу призначену для вибраної дії."
+
+#: src/dialogs.c:936
+msgid "Change key..."
+msgstr "Змінити клавішу..."
+
+#: src/dialogs.c:941
+#: src/dialogs.c:994
+msgid "Restore defaults"
+msgstr "Початкові параметри"
+
+#: src/dialogs.c:962
+msgid "Keyboard"
+msgstr "Клавіатура"
+
+#. sound
+#: src/dialogs.c:967
+msgid "Enable Sound"
+msgstr "Увімкнути звук"
+
+#: src/dialogs.c:970
+msgid "Enable MIDI"
+msgstr "Увімкнути MIDI"
+
+#: src/dialogs.c:984
+msgid "Enter command to play a midi file:"
+msgstr "Введіть команду для відтворення файла у форматі MIDI:"
+
+#: src/dialogs.c:987
+msgid "The above command is run when a midi file is to be played.  The name of the midi file is placed in the environment variable MIDIFILE."
+msgstr "Ця команда виконуватиметься під час відтворення файла у форматі MIDI. Назва файла формату MIDI знаходить у змінній середовища MIDIFILE."
+
+#: src/dialogs.c:1024
+msgid "Sound"
+msgstr "Звук"
+
+#: src/fields.c:72
+msgid "Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr "Помилка завантаження теми: не вдалось завантажити графічний файл\n"
+"Повернення до початкової теми."
+
+#. shouldnt happen
+#: src/fields.c:81
+msgid "Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr "Помилка завантаження початкової теми. Припинення роботи...\n"
+"Подивіться помилки, що сталися під час встановлення.\n"
+
+#: src/fields.c:196
+msgid "Next piece:"
+msgstr "Наступна фігура:"
+
+#: src/fields.c:213
+msgid "Lines:"
+msgstr "Рядків:"
+
+#: src/fields.c:217
+msgid "Level:"
+msgstr "Рівень:"
+
+#: src/fields.c:219
+msgid "Active level:"
+msgstr ""
+
+#: src/fields.c:267
+msgid "Attacks and defenses:"
+msgstr ""
+
+#: src/fields.c:406
+msgid "Not playing"
+msgstr ""
+
+#: src/fields.c:437
+msgid "Specials:"
+msgstr ""
+
+#: src/gtetrinet.c:77
+msgid "SERVER"
+msgstr "СЕРВЕР"
+
+#: src/gtetrinet.c:78
+msgid "Set nickname to use"
+msgstr "Встановити прізвисько"
+
+#: src/gtetrinet.c:78
+msgid "NICKNAME"
+msgstr "ПРІЗВИСЬКО"
+
+#: src/gtetrinet.c:79
+msgid "Set team name"
+msgstr "Вказати назву команди"
+
+#: src/gtetrinet.c:79
+msgid "TEAM"
+msgstr "КОМАНДА"
+
+#: src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr "Пароль глядача"
+
+#: src/gtetrinet.c:81
+msgid "PASSWORD"
+msgstr "ПАРОЛЬ"
+
+#: src/gtetrinet.c:120
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "Не вдалось ініціалізувати GConf: %s\n"
+
+#. FIXME
+#: src/gtetrinet.c:242
+#: src/gtetrinet.c:386
+#: src/gtetrinet.c:437
+msgid "Playing Fields"
+msgstr ""
+
+#. FIXME
+#: src/gtetrinet.c:264
+msgid "Winlist"
+msgstr ""
+
+#: src/partyline.c:75
+#: src/partyline.c:133
+#: src/winlist.c:47
+msgid "Name"
+msgstr ""
+
+#: src/partyline.c:77
+msgid "Players"
+msgstr "Гравці"
+
+#: src/partyline.c:79
+msgid "State"
+msgstr ""
+
+#: src/partyline.c:81
+msgid "Description"
+msgstr "Опис"
+
+#: src/partyline.c:135
+msgid "Team"
+msgstr "Команда"
+
+#: src/partyline.c:148
+msgid "Your name:"
+msgstr "Ваше прізвисько:"
+
+#: src/partyline.c:155
+msgid "Your team:"
+msgstr "Ваша команда:"
+
+#: src/partyline.c:565
+msgid "Talking in channel"
+msgstr ""
+
+#: src/partyline.c:567
+msgid "Disconnected"
+msgstr "Від'єднано"
+
+#: src/tetrinet.c:191
+msgid "Server disconnected"
+msgstr "Завершено з'єднання з сервером"
+
+#: src/tetrinet.c:211
+#, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c*** Від'єднано від сервера"
+
+#: src/tetrinet.c:222
+msgid "Error connecting: "
+msgstr "Помилка з'єднання:"
+
+#: src/tetrinet.c:254
+#, c-format
+msgid "%c%c*** Connected to server"
+msgstr "%c%c*** З'єднано з сервером"
+
+#: src/tetrinet.c:354
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr "%c%c*** Вас було викинуто з гри"
+
+#: src/tetrinet.c:358
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr "%c*** %c%s%c%c було викинуто з гри"
+
+#: src/tetrinet.c:510
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr "%c*** Команда %c%s%c%c виграла гру"
+
+#: src/tetrinet.c:516
+#, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr "%c*** %c%s%c%c виграв гру"
+
+#: src/tetrinet.c:576
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr "%c*** Гру %cрозпочато"
+
+#: src/tetrinet.c:601
+#, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "%c*** Гра %cтриває"
+
+#: src/tetrinet.c:612
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr "%c*** Гру %cпризупинено"
+
+#: src/tetrinet.c:614
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr "Гру %c%cпризупинено"
+
+#: src/tetrinet.c:619
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr "%c*** Гру %cпродовжено"
+
+#: src/tetrinet.c:621
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr "Гру %c%cпродовжено"
+
+#: src/tetrinet.c:630
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr "%c*** Гру %cзавершено"
+
+#: src/tetrinet.c:740
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr "%c*** You have joined %c%s%c%c"
+
+#: src/tetrinet.c:757
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr ""
+
+#: src/tetrinet.c:778
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr ""
+
+#: src/tetrinet.c:1016
+msgid "No special blocks"
+msgstr ""
+
+#: src/tetrinet.c:1175
+#: src/tetrinet.c:1182
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr ""
+
+#: src/tetrinet.c:1192
+msgid " to All"
+msgstr ""
+
+#: src/tetrinet.c:1198
+#: src/tetrinet.c:1205
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr ""
+
+#: src/tetrinet.c:1798
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr "%c*** %c%s%c%c — арбітр"
+
+#. remove ", " from end of string
+#: src/tetrinet.c:1847
+msgid " has left the game"
+msgstr " залишив гру"
+
+#: src/tetrinet.c:1848
+msgid " have left the game"
+msgstr " залишили гру"
+
+#: src/tetrinet.c:1861
+msgid " has joined the game"
+msgstr " приєднався до гри"
+
+#: src/tetrinet.c:1862
+msgid " have joined the game"
+msgstr " приєднались до гри"
+
+#: src/tetrinet.c:1885
+#, c-format
+msgid "%s is on team %c%s"
+msgstr "%s в команді %c%s"
+
+#: src/tetrinet.c:1888
+#, c-format
+msgid "%s is alone"
+msgstr "%s сам"
+
+#: src/tetrinet.c:1890
+#, c-format
+msgid "%s are on team %c%s"
+msgstr "%s в команді %c%s"
+
+#: src/tetrinet.c:1893
+#, c-format
+msgid "%s are alone"
+msgstr "%s самі"
+
+#: src/tetrinet.c:1934
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr "%c*** %c%s%c%c тепер в команді %c%s"
+
+#: src/tetrinet.c:1941
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr "%c*** %c%s%c%c тепер сам"
+
+#. "T" stands for "Team" here
+#: src/winlist.c:45
+msgid "T"
+msgstr "К"
+
+#: src/winlist.c:49
+msgid "Score"
+msgstr ""
+
+#: gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr "GTetrinet"
+
+#: gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "Клієнт Tetrinet"
+
+#: gtetrinet.desktop.in.h:3
+msgid "Tetrinet client for GNOME"
+msgstr "Клієнт Tetrinet для середовища GNOME"
+
+#: gtetrinet.schemas.in.h:1
+msgid "Command to run to play midi files."
+msgstr "Команда для відтворення файлів у форматі MIDI."
+
+#: gtetrinet.schemas.in.h:2
+msgid "Enable/disable midi music."
+msgstr "Увімкнути чи вимкнути музику MIDI."
+
+#: gtetrinet.schemas.in.h:3
+msgid "Enable/disable sound."
+msgstr "Увімкнути чи вимкнути звук."
+
+#: gtetrinet.schemas.in.h:4
+msgid "Enable/disable timestamps."
+msgstr "Увімкнути чи вимкнути позначки часу."
+
+#: gtetrinet.schemas.in.h:5
+msgid "Enables/Disables sound. Keep in mind that the theme that you're using must provide sounds."
+msgstr "Увімкнути чи вимкнути звук. Тема, яку ви використовуєте має надавати звуки."
+
+#: gtetrinet.schemas.in.h:6
+msgid "Enables/disables midi music. You'll need to enable sound if you want music to work."
+msgstr "Увімкнути чи вимкнути музику MIDI. Вам необхідно увімкнути звук, якщо ви хочете чути музику."
+
+#: gtetrinet.schemas.in.h:7
+msgid "Enables/disables timestamps in the partyline."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:8
+msgid "Key to discard special."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:9
+msgid "Key to drop piece."
+msgstr "Клавіша для скидання фігури."
+
+#: gtetrinet.schemas.in.h:10
+msgid "Key to move down."
+msgstr "Клавіша для переміщення вниз."
+
+#: gtetrinet.schemas.in.h:11
+msgid "Key to move left."
+msgstr "Клавіша для переміщення ліворуч."
+
+#: gtetrinet.schemas.in.h:12
+msgid "Key to move right."
+msgstr "Клавіша для переміщення праворуч."
+
+#: gtetrinet.schemas.in.h:13
+msgid "Key to open the fields' message dialog."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:14
+msgid "Key to rotate clockwise."
+msgstr "Клавіша для обертання за годинниковою стрілкою."
+
+#: gtetrinet.schemas.in.h:15
+msgid "Key to rotate counterclockwise."
+msgstr "Клавіша для обертання проти годинникової стрілки."
+
+#: gtetrinet.schemas.in.h:16
+msgid "Server where you want to play."
+msgstr "Сервер, на якому ви бажаєте грати."
+
+#: gtetrinet.schemas.in.h:17
+msgid "The current theme directory. It should contain a readable \"blocks.png\" and a \"theme.cfg\"."
+msgstr "Каталог поточної теми. Він має містити файли \"blocks.png\" і \"theme.cfg\"."
+
+#: gtetrinet.schemas.in.h:18
+msgid "Theme directory, should end with a '/'."
+msgstr "Каталог тем має завершуватись на \"/\"."
+
+#: gtetrinet.schemas.in.h:19
+msgid "This command is run when a midi file is to be played. The name of the midi file is placed in the environment variable MIDIFILE."
+msgstr "Ця команда виконуватиметься під час відтворення файла у форматі MIDI. Назва файла формату MIDI знаходить у змінній середовища MIDIFILE."
+
+#: gtetrinet.schemas.in.h:20
+msgid "This is the server where GTetrinet will try to connect."
+msgstr "Сервер, з яким намагатиметься встановити з'єднання GTetrinet"
+
+#: gtetrinet.schemas.in.h:21
+msgid "This key discards the current special. This is case insensitive."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:22
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:23
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr "Клавіша скидання блоку додолу. Ця клавіша чутлива до регістру."
+
+#: gtetrinet.schemas.in.h:24
+msgid "This key moves the block down. This is case insensitive."
+msgstr "Клавіша переміщення фігури вниз. Ця клавіша чутлива до регістру."
+
+#: gtetrinet.schemas.in.h:25
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr "Клавіша переміщення фігури ліворуч. Ця клавіша чутлива до регістру."
+
+#: gtetrinet.schemas.in.h:26
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr "Клавіша переміщення фігури праворуч. Ця клавіша чутлива до регістру."
+
+#: gtetrinet.schemas.in.h:27
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr "Клавіша обертання фігури за годинниковою стрілкою. Ця клавіша чутлива до регістру."
+
+#: gtetrinet.schemas.in.h:28
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr "Клавіша обертання фігури проти годинникової стрілки. Ця клавіша чутлива до регістру."
+
+#: gtetrinet.schemas.in.h:29
+msgid "This will be the name of your team."
+msgstr "Це буде назвою вашої команди."
+
+#: gtetrinet.schemas.in.h:30
+msgid "This will be your nickname in the game."
+msgstr "Це буде вашим прізвиськом в грі."
+
+#: gtetrinet.schemas.in.h:31
+msgid "Your nickname."
+msgstr "Ваше прізвисько."
+
+#: gtetrinet.schemas.in.h:32
+msgid "Your team."
+msgstr "Ваша команда."
+
