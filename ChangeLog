@@ -1,3 +1,9 @@
+2004-02-16  Jordi Mallach  <jordi@sindominio.net>
+
+	* NEWS: Updated for 0.7.6.
+	
+	* autogen.sh: Require automake 1.7 or newer.
+
 2004-02-12  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS: Updated.

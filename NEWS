@@ -1,4 +1,4 @@
-GTetrinet 0.7.6 - 2004-04-12
+GTetrinet 0.7.6 - 2004-04-16
 - Added a button in the Preferences dialog that opens a browser window
   with the GTetrinet themes webpage. (Dani)
 - Made the main window resizable. It doesn't mean that the fields will
@@ -9,8 +9,12 @@ GTetrinet 0.7.6 - 2004-04-12
   GTK 2.4 (Kjartan Maraas).
 - New and updated translations: Norwegian (Kjartan Maraas),
   Croatian (Robert Sedak), Irish (Alastair McKinstry),
-  Brazilian Portuguese (Steve Lacerda <stevelacerda@yahoo.com.br>,
-  British English (Gareth Owen), Canadian English (Adam Weinberger).
+  Brazilian Portuguese (Steve Lacerda and Estêvão Samuel Procópio),
+  British English (Gareth Owen), Canadian English (Adam Weinberger),
+  Welsh (Dafydd Harries), Catalan (Jordi Mallach), Swedish (Christian Rose),
+  Czech (Miloslav Trmac), Portuguese (Duarte Loreto),
+  Dutch (Vincent van Adrighem), Polish (Artur Flinta),
+  French (Christophe Merlet), Spanish (Dani Carbonell).
 
 GTetrinet 0.7.5 - 2003-10-04
 - HIGification improvements in several dialogs (Dagfinn Ilmari Mannsåker).
