@@ -1,5 +1,16 @@
 2003-01-05  Jordi Mallach  <jordi@sindominio.net>
 
+	* Adapt patch from Jan Bretschneider with some UI improvements that
+	mimic windows tetrinet's behaviour.
+	* src/gtetrinet.c (show_fields_page): new function, switches to fields
+	notebook tab.
+	(show_partyline_page): new funtion, switches to partyline notebook
+	tab.
+	* src/tetrinet.c (tetrinet_inmessage): switch to partyline on
+	successful connect and on game end, and to fields on game start.
+
+2003-01-05  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/commands.c (about_command): fix segfault when calling two about
 	dialogs. Patch from James Antill.
 

@@ -489,3 +489,15 @@ void move_current_page_to_window (void)
         fields_gmsginput(FALSE);
 
 }
+
+/* show the fields notebook tab */
+void show_fields_page (void)
+{
+    gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 0);
+}
+
+/* show the partyline notebook tab */
+void show_partyline_page (void)
+{
+    gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 1);
+}

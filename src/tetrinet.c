@@ -264,6 +264,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                 partylineupdate_team (nick, team);
             }
         }
+        /* show partyline on successful connect */
+        show_partyline_page ();
         break;
     case IN_PLAYERJOIN:
         {
@@ -494,6 +496,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             commands_checkstate ();
             partyline_fmt (_("%c*** The game has %cstarted"),
                            TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
+            /* switch to playerfields when game starts */
+            show_fields_page ();
         }
         break;
     case IN_INGAME:
@@ -546,6 +550,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         commands_checkstate ();
         partyline_fmt (_("%c*** The game has %cended"),
                        TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
+        /* go back to partyline when game ends */
+        show_partyline_page ();
         break;
     case IN_F:
         {
