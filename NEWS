@@ -1,3 +1,17 @@
+GTetrinet 0.7.4 - 2003-08-29
+- Fix configure.in so nobody needs intl/ dir. (Jordi)
+- Connect and Team dialogs now have "OK" as default action (Dagfinn Ilmari
+  Mannsåker).
+- Fix a crash when restoring the default keys (Dani).
+- Cursor fixes for the game fields (Dani).
+- Fix bug where keyboard would become unusable on game start (Benjamin Drieu).
+- Disable channel list by default to avoid problems with weird servers (Dani).
+- New and updated translations: Spanish (Francisco Javier F. Serrador),
+  Czech (Miloslav Trmac), Dutch (Kees van den Broek), Polish (Artur Flinta),
+  Serbian (Danilo Segan), Malay (Hasbullah Bin Pit), Catalan (Jordi Mallach),
+  Welsh (Dafydd Harries), Traditional Chinese (Abel Cheung),
+  German (Gerfried Fuchs).
+
 GTetrinet 0.7.3 - 2003-06-23
 - Fixed search path for gtetrinet.png broken in 0.7.2.
 - Merged Connect/Disconnect buttons.

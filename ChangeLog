@@ -1,3 +1,9 @@
+2003-08-29  Jordi Mallach  <jordi@sindominio.net>
+
+	* NEWS: Add 0.7.4 items.
+
+	* configure.in: Release gtetrinet 0.7.4.
+
 2003-08-28  Dani Carbonell  <bocata@panete.net>
 
 	* gtetrinet.schemas.in: disabled the channel list by default
