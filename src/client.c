@@ -372,7 +372,8 @@ void client_disconnect (void)
 {
     if (connected)
     {
-      client_inmessage ("disconnect");
+      if (gtk_main_level())
+        client_inmessage ("disconnect");
       g_source_destroy (g_main_context_find_source_by_id (NULL, source));
       g_io_channel_shutdown (io_channel, TRUE, NULL);
       g_io_channel_unref (io_channel);
