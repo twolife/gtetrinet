@@ -1,3 +1,7 @@
+2003-01-08  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/misc.c (nocolor): fix previous change.
+
 2003-01-07  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/misc.c (nocolor): don't assume signedness of char.

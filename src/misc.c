@@ -285,8 +285,7 @@ char *nocolor (char *str)
 {
   static GString *ret = NULL;
   size_t len = strlen(str);
-  signed char *scan = NULL;
-  char *p = NULL;
+  signed char *scan, *p = NULL;
   
   if (!ret)
     ret = g_string_new("");
