@@ -9,6 +9,7 @@ GTetrinet 0.4.2 - Unreleased
 - GTetrinet now installs in $(prefix)/games, not $(prefix)/bin.
 - Focus fixes in partyline.
 - Blockbomb behaviour fix.
+- Fix sound support.
 
 GTetrinet 0.4.1 - 2000-07-03
 - Solaris support.
