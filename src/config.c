@@ -87,7 +87,7 @@ void config_loadtheme (const gchar *themedir)
       goto bad_theme;
     g_free (p);
 
-    p = gnome_config_get_string ("Graphics/Blocks=blocks.png")
+    p = gnome_config_get_string ("Graphics/Blocks=blocks.png");
     if (!p)
       goto bad_theme;
     
@@ -140,7 +140,7 @@ void config_loadtheme (const gchar *themedir)
 int config_getthemeinfo (char *themedir, char *name, char *author, char *desc)
 {
     char buf[1024];
-    const char *p = NULL;
+    char *p = NULL;
 
     GTET_O_STRCPY (buf, "=");
     GTET_O_STRCAT (buf, themedir);
