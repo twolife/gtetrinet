@@ -1,3 +1,4 @@
+ChangeLog.CVS
 Makefile.in
 Makefile
 aclocal.m4
@@ -15,3 +16,4 @@ depcomp
 install-sh
 missing
 mkinstalldirs
+stamp-h1
