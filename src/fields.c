@@ -596,15 +596,6 @@ void fields_gmsginputactivate (int t)
         { /* do nothing */; }
 }
 
-void fields_gmsginputadd (char *c)
-{
-    gchar *utf8_c = g_locale_to_utf8 (c, -1, NULL, NULL, NULL);
-    gtk_entry_append_text (GTK_ENTRY(gmsginput), utf8_c);
-    gtk_entry_set_position (GTK_ENTRY(gmsginput),
-                            strlen(gtk_entry_get_text(GTK_ENTRY(gmsginput))));
-    g_free (utf8_c);
-}
-
 void gmsginput_activate (GtkEntry *entry, gpointer data)
 {
     gchar *locale_s, buf[256];
@@ -636,19 +627,6 @@ void gmsginput_activate (GtkEntry *entry, gpointer data)
     fields_gmsginput (FALSE);
     unblock_keyboard_signal ();
     gmsgstate = 0;
-}
-
-void fields_gmsginputback (void)
-{
-    char buf[256];
-    gchar *prev;
-  
-    GTET_O_STRCPY (buf, gtk_entry_get_text(GTK_ENTRY(gmsginput)));
-    if (strlen(buf) == 0) return;
-    prev = g_utf8_prev_char (&buf[strlen(buf)]);
-    *prev = 0;
-    gtk_entry_set_text (GTK_ENTRY(gmsginput), buf);
-    gtk_entry_set_position (GTK_ENTRY(gmsginput), strlen(buf));
 }
 
 const char *fields_gmsginputtext (void)

@@ -275,7 +275,7 @@ void connectdialog_tetrifasttoggle (GtkWidget *widget)
 
 void connectdialog_connected (void)
 {
-    gtk_widget_destroy (connectdialog);
+    if (connectdialog != NULL) gtk_widget_destroy (connectdialog);
 }
 
 void connectdialog_destroy (void)

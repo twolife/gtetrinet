@@ -249,12 +249,12 @@ void partyline_playerlist (int *numbers, char **names, char **teams, int n, char
 
 void partyline_entryfocus (void)
 {
-    if (connected) gtk_widget_grab_focus (entrybox);
-}
-
-void partyline_switch_entryfocus (void)
-{ /* FIXME: should only grab when in right notebook */
-    if (connected) gtk_widget_grab_focus (entrybox);
+    if (connected)
+    {
+      gtk_entry_set_text (GTK_ENTRY(entrybox), "");
+      gtk_entry_set_position (GTK_ENTRY(entrybox), 0);
+      gtk_widget_grab_focus (entrybox);
+    }
 }
 
 void textentry (GtkWidget *widget)

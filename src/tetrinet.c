@@ -313,6 +313,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             /* update playerlist */
             playernames[pnum][0] = 0;
             teamnames[pnum][0] = 0;
+            playerplaying[pnum] = 0;
             playerlistupdate ();
             /* update fields display */
             fieldslabelupdate ();
@@ -347,6 +348,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
              message is received (see above)
              */
             playernames[pnum][0] = 0;
+            playerplaying[pnum] = 0;
         }
         break;
     case IN_TEAM:
@@ -1333,9 +1335,13 @@ void tetrinet_endgame (void)
     fields_setlevel (-1);
     fields_setactivelevel (-1);
     fields_setspeciallabel (NULL);
-    gmsgstate = 0;
-    fields_gmsginput (FALSE);
-    fields_gmsginputclear ();
+    if (gmsgstate)
+    {
+      gmsgstate = 0;
+      fields_gmsginput (FALSE);
+      fields_gmsginputclear ();
+      unblock_keyboard_signal ();
+    }
 }
 
 void tetrinet_updatelevels (void)

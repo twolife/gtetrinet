@@ -14,3 +14,4 @@ extern void move_current_page_to_window (void);
 extern void show_fields_page (void);
 extern void show_partyline_page (void);
 void unblock_keyboard_signal (void);
+gint get_current_notebook_page (void);

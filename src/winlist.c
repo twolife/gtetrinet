@@ -87,3 +87,8 @@ void winlist_additem (int team, char *name, int score)
                         -1);
     g_free (name_utf8);
 }
+
+void winlist_focus (void)
+{
+  gtk_widget_grab_focus (winlist);
+}

@@ -1,3 +1,33 @@
+2003-01-10  Dani Carbonell  <bocata@panete.net>
+
+	* src/dialogs.c (connectdialog_connected): hide the window only if
+	it really existed (fixes the -c bug).
+
+	* src/fields.c (fields_gmsginputadd): this function was useless,
+	removed.
+	(fields_gmsginputback): likewise
+
+	* src/fields.h: removed those two function's declarations.
+
+	* src/gtetrinet.c (switch_focus): new function, will handle the
+	notebook's tab switching, sending focus where it should be.
+	(gtetrinet_key): function cleaned.
+
+	* src/gtetrinet.h: added the function declaration.
+
+	* src/partyline.c (partyline_entryfocus): now it clears all the text
+	in the partyline's gtk_entry.
+
+	* src/tetrinet.c (tetrinet_endgame): now it properly closes the field's
+	gtk_entry, if it's open when the game ends.
+	(tetrinet_inmessage): now it properly takes into account that a
+	player has left the game, so no one can attack him after he's gone.
+
+	* src/winlist.c (winlist_focus): new function that will focus the
+	winlist when the user switches to that tab.
+
+	* src/winlist.h: added the function declaration.
+
 2003-01-08  Jordi Mallach  <jordi@sindominio.net>
 
 	* configure.in (AC_OUTPUT): sigh, I suck. Remove gtetrinet.desktop.
