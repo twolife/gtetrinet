@@ -1,3 +1,7 @@
+2003-06-02  Jordi Mallach  <jordi@dindominio.net>
+
+	* configure.in (ALL_LINGUAS): Added "eu" (Basque).
+
 2003-06-02  Dani Carbonell  <bocata@panete.net>
 
 	* src/fields.c (fields_page_new): create here the cursors that
