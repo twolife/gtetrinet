@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet gnome2\n"
-"POT-Creation-Date: 2003-01-22 03:49+0100\n"
-"PO-Revision-Date: 2003-01-22 14:01+0100\n"
+"POT-Creation-Date: 2003-01-25 03:46+0100\n"
+"PO-Revision-Date: 2003-01-25 08:48+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -584,5 +584,9 @@ msgid "GTetrinet"
 msgstr "GTetrinet"
 
 #: gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "Tetrinet-cliënt"
+
+#: gtetrinet.desktop.in.h:3
 msgid "Tetrinet client for GNOME"
 msgstr "Tetrinet-cliënt voor GNOME"
