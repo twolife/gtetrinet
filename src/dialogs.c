@@ -56,7 +56,7 @@ void connectingdialog_button (GtkWidget *dialog, gint button)
         gtk_timeout_remove (timeouttag);
         timeouttag = 0;
         if (connectingdialog == 0) return;
-        client_connectcancel ();
+        client_disconnect ();
         gtk_widget_destroy (connectingdialog);
         connectingdialog = 0;
         break;

@@ -99,7 +99,7 @@ GtkWidget *fields_page_new (void)
     pagecontents = fields_page_contents ();
 
     if (fieldspage == NULL) {
-        fieldspage = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
+        fieldspage = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
         gtk_container_set_border_width (GTK_CONTAINER(fieldspage), 2);
     }
     gtk_container_add (GTK_CONTAINER(fieldspage), pagecontents);
@@ -305,7 +305,7 @@ GtkWidget *fields_page_contents (void)
     
     align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
     gtk_container_add (GTK_CONTAINER (align), table);
-    gtk_box_pack_start (GTK_BOX (vbox), align, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), align, FALSE, FALSE, 0);
     align = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
     gtk_container_add (GTK_CONTAINER (align), table2);
     gtk_box_pack_start (GTK_BOX (vbox), align, TRUE, TRUE, 0);

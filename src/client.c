@@ -33,6 +33,7 @@
 #include <errno.h>
 #include <signal.h>
 #include <ctype.h>
+#include <gnome.h>
 
 #include "client.h"
 #include "tetrinet.h"
@@ -44,15 +45,12 @@
 #define PORT 31457
 #define SPECPORT 31458
 
-int fdin[2], fdout[2]; /* two pipes, in and out */
-
-int inputcbid;
-
 int connected;
 char server[128];
-int clientpid;
 
-static int sock, connecterror;
+static int sock;
+static GIOChannel *io_channel;
+static guint source;
 
 /* structures and arrays for message translation */
 
@@ -140,36 +138,20 @@ struct outmsgt outmsgtable[] = {
     {0, 0}
 };
 
-static void client_inputfunc (void);
-
 /* functions which set up the connection */
 static void client_process (void);
-static void client_cleanpipe (void);
-static int client_mainloop (void);
 static int client_connect (void);
 static void client_connected (void);
-static int client_disconnect (void);
 
 /* some other useful functions */
+static gboolean
+io_channel_cb (GIOChannel *source, GIOCondition condition, gpointer data);
 static int client_sendmsg (char *str);
-static int client_readmsg (char *str, int len);
+static int client_readmsg (gchar **str);
 static void server_ip (unsigned char buf[4]);
 
 enum inmsg_type inmsg_translate (char *str);
 char *outmsg_translate (enum outmsg_type);
-
-void client_initpipes (void)
-{
-    pipe (fdin);
-    pipe (fdout);
-
-    inputcbid = gdk_input_add (fdin[0], GDK_INPUT_READ,
-                               (GdkInputFunction)client_inputfunc, NULL);
-}
-
-void client_destroypipes (void)
-{
-}
 
 void client_init (const char *s, const char *n)
 {
@@ -181,54 +163,12 @@ void client_init (const char *s, const char *n)
     for (i = 0; nick[i]; i ++)
         if (isspace (nick[i])) nick[i] = 0;
 
-    if (clientpid) {
-        if (connected) client_destroy ();
-        else client_connectcancel ();
-    }
-
     connectingdialog_new ();
 
     /* set the game mode */
     inmsg_change();
 
-    if ((clientpid = fork()) == 0) {
-        client_process ();
-        _exit (0);
-    }
-}
-
-void client_connectcancel (void)
-{
-    /* just kill the process */
-    if (clientpid) kill (clientpid, SIGTERM);
-    clientpid = 0;
-}
-
-void client_destroy (void)
-{
-    /* tell it to disconnect, then wait for it to die */
-    client_outmessage (OUT_DISCONNECT, NULL);
-    waitpid (clientpid, NULL, 0);
-    clientpid = 0;
-}
-
-/* a function that reads stuff from the pipe */
-static void client_inputfunc (void)
-{
-    char buf[1024];
-    char *token;
-    enum inmsg_type msgtype;
-
-    fdreadline (fdin[0], buf);
-
-    /* split the message */
-    token = strtok (buf, " ");
-    if (token == NULL) return;
-    msgtype = inmsg_translate (token);
-    token = strtok (NULL, "");
-
-    /* process it */
-    tetrinet_inmessage (msgtype, token);
+    client_process ();
 }
 
 void client_outmessage (enum outmsg_type msgtype, char *str)
@@ -239,14 +179,28 @@ void client_outmessage (enum outmsg_type msgtype, char *str)
         GTET_O_STRCAT(buf, " ");
         GTET_O_STRCAT(buf, str);
     }
-    write (fdout[1], buf, strlen(buf));
-    write (fdout[1], "\n", 1);
+    switch (msgtype)
+    {
+      case OUT_DISCONNECT : client_disconnect (); break;
+      case OUT_CONNECTED : client_connected (); break;
+      default : client_sendmsg (buf);
+    }
 }
 
 void client_inmessage (char *str)
 {
-    write (fdin[1], str, strlen(str));
-    write (fdin[1], "\n", 1);
+    enum inmsg_type msgtype;
+    gchar **tokens, *final;
+
+    /* split the message */
+    tokens = g_strsplit (str, " ", 256);
+    msgtype = inmsg_translate (tokens[0]);
+
+    /* process it */
+    final = g_strjoinv (" ", &tokens[1]);
+    tetrinet_inmessage (msgtype, final);
+    g_strfreev (tokens);
+    g_free (final);
 }
 
 /* these functions set up the connection */
@@ -260,83 +214,10 @@ void client_process (void)
         GTET_O_STRCPY(errmsg, "noconnecting ");
 
         if (errno)        GTET_O_STRCAT(errmsg, strerror (errno));
-        else if (h_errno) GTET_O_STRCAT(errmsg, "Unknown host");
+        else if (h_errno) GTET_O_STRCAT(errmsg, _("Could not resolve host."));
 
         client_inmessage (errmsg);
-
-        return;
     }
-    connecterror = 0;
-    client_cleanpipe ();
-    client_mainloop ();
-    client_disconnect ();
-    return;
-}
-
-void client_cleanpipe ()
-{
-    fd_set rfds;
-    struct timeval tv;
-    char buf[1024];
-
-    while (1) {
-        FD_ZERO (&rfds);
-        FD_SET (fdout[0], &rfds);
-        tv.tv_sec = 0; tv.tv_usec = 0;
-        if (select (fdout[0]+1, &rfds, NULL, NULL, &tv)) fdreadline (fdout[0], buf);
-        else return;
-    }
-}
-
-int client_mainloop (void)
-{
-    fd_set rfds;
-    struct timeval tv;
-    int m;
-
-    /* read in stuff from the socket and the pipe */
-    while (1) {
-        FD_ZERO (&rfds);
-        FD_SET (sock, &rfds);
-        FD_SET (fdout[0], &rfds);
-        m = sock > fdout[0] ? sock : fdout[0];
-        tv.tv_sec = 0;
-        tv.tv_usec = 50000; /* wait a little while */
-        if (select (m+1, &rfds, NULL, NULL, &tv))
-        {
-            char buf[1024]; /* a big buffer */
-
-            /* we have something to read */
-
-            /* is it the socket?? */
-            FD_ZERO (&rfds); FD_SET (sock, &rfds);
-            tv.tv_sec = 0; tv.tv_usec = 0;
-            if (select (sock+1, &rfds, NULL, NULL, &tv)) {
-                if (client_readmsg (buf, sizeof(buf)) < 0)
-                    return -1;
-                client_inmessage (buf); /* send to parent process */
-                if (strncmp ("noconnecting", buf, 12) == 0) {
-                    connecterror = 1;
-                    goto clientend;
-                }
-            }
-
-            /* or it the pipe?? */
-            FD_ZERO (&rfds); FD_SET (fdout[0], &rfds);
-            tv.tv_sec = 0; tv.tv_usec = 0;
-            if (select (fdout[0]+1, &rfds, NULL, NULL, &tv)) {
-                fdreadline (fdout[0], buf);
-                if (strcmp (buf, outmsg_translate(OUT_DISCONNECT)) == 0)
-                    goto clientend;
-                else if (strcmp (buf, outmsg_translate(OUT_CONNECTED)) == 0)
-                    client_connected ();
-                else
-                    client_sendmsg (buf);
-            }
-        }
-    }
-clientend:
-    return 0;
 }
 
 int client_connect (void)
@@ -406,6 +287,14 @@ int client_connect (void)
         return -1;
 #endif
 
+    /**
+     * Set up the g_io_channel
+     * We should set it with no encoding and no buffering, just to simplify things */
+    io_channel = g_io_channel_unix_new (sock);
+    g_io_channel_set_encoding (io_channel, NULL, NULL);
+    g_io_channel_set_buffered (io_channel, FALSE);
+    source = g_io_add_watch (io_channel, G_IO_IN, io_channel_cb, NULL);
+    
     /* say hello to the server */
     {
         GString *s1 = g_string_sized_new(80);
@@ -456,50 +345,108 @@ void client_connected (void)
     client_inmessage ("connect");
 }
 
-int client_disconnect (void)
+void client_disconnect (void)
 {
-    shutdown (sock, 2);
-    close (sock);
-
-    if (!connecterror || connected) client_inmessage ("disconnect");
-
-    return 0;
+    if (connected)
+    {
+      client_inmessage ("disconnect");
+      g_source_destroy (g_main_context_find_source_by_id (NULL, source));
+      g_io_channel_shutdown (io_channel, TRUE, NULL);
+      g_io_channel_unref (io_channel);
+      shutdown (sock, 2);
+      close (sock);
+      connected = 0;
+    }
 }
 
 
 /* some other useful functions */
 
+static gboolean
+io_channel_cb (GIOChannel *source, GIOCondition condition, gpointer data)
+{
+  gchar *buf;
+  gint i = 0;
+  
+  switch (condition)
+  {
+    case G_IO_IN :
+    {
+      if (client_readmsg (&buf) < 0)
+        g_warning ("client_readmsg returned -1\n");
+      
+      if (strlen (buf)) client_inmessage (buf);
+        
+      if (strncmp ("noconnecting", buf, 12) == 0)
+      {
+        connected = 1; /* so we can disconnect :) */
+        client_disconnect ();
+      }
+      
+      g_free (buf);
+    }; break;
+    default : break;
+  }
+  
+  return TRUE;
+}
+
 int client_sendmsg (char *str)
 {
     char c = 0xFF;
+    GError *error = NULL;
     
+    g_io_channel_write_chars (io_channel, str, -1, NULL, &error);
+    g_io_channel_write_chars (io_channel, &c, 1, NULL, &error);
+    g_io_channel_flush (io_channel, &error);
+
 #ifdef DEBUG
     printf ("> %s\n", str);
 #endif
 
-    if (write (sock, str, strlen (str))==-1) return -1;
-    if (write (sock, &c, 1)==-1) return -1;
-
     return 0;
 }
 
-int client_readmsg (char *str, int len)
+int client_readmsg (gchar **str)
 {
-    int i = 0;
-    /* read it in one char at a time */
-    for (;i < len-1; i++) {
-        if (read (sock, &str[i], 1) != 1)
-            /* we have an error */
+    gint bytes = 0;
+    gchar buf[1024];
+    GError *error = NULL;
+    GIOStatus status;
+    gint i = 0;
+  
+    do
+    {
+      switch (g_io_channel_read_chars (io_channel, &buf[i], 1, &bytes, &error))
+      {
+        case G_IO_STATUS_EOF :
+          g_warning ("End of file."); break;
+        
+        case G_IO_STATUS_AGAIN :
+          g_warning ("Resource temporarily unavailable."); break;
+        
+        case G_IO_STATUS_ERROR :
+          g_warning ("Error"); break;
+        
+        case G_IO_STATUS_NORMAL :
+          if (error != NULL)
+          {
+            g_warning ("ERROR READING: %s\n", error->message);
+            g_error_free (error);
             return -1;
-        if (str[i]==(char)0xFF) break;
-    }
-    str[i] = 0;
+          }; break;
+      }
+      i++;
+    } while ((bytes == 1) && (buf[i-1] != (gchar)0xFF) && (i<1024));
+    buf[i-1] = 0;
 
 #ifdef DEBUG
-    printf ("< %s\n", str);
+    printf ("< %s\n", buf);
 #endif
+    
+    *str = g_strdup (buf);
 
-    return i;
+    return 0;
 }
 
 void server_ip (unsigned char buf[4])

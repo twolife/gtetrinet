@@ -1,3 +1,43 @@
+2003-02-09  Dani Carbonell  <bocata@panete.net>
+
+	* client.c: added gnome.h so some strings can be localized. Removed
+	most of the cruft, now gtetrinet works with only one process.
+	(client_inputfunc): removed.
+	(client_cleanpipe): removed.
+	(client_mainloop): removed.
+	(client_initpipes): removed.
+	(client_destroypipes): removed.
+	(client_init): it's no longer needed to check for the child.
+	(client_connectcancel): removed.
+	(client_destroy): removed.
+	(client_outmessage): directly send it to the socket.
+	(client_inmessage): directly parse it in tetrinet.c.
+	(client_process): string marked for translating. Now, the client
+	process just sets up the connection and connects.
+	(client_connect): sets up the g_io_channel.
+	(client_disconnect): shutdowns the g_io_channel, closing the GSource
+	event and shutting down also the socket.
+	(io_channel_cb): callback to handle the event of new data coming
+	into the socket.
+	(client_sendmsg): sends the data using g_io_channel_write functions.
+	(client_readmsg): reads the data using g_io_channel_read functions.
+	
+	* client.h: removed functions.
+	
+	* commands.c (disconnect_command): call client_disconnect instead of
+	client_destroy.
+	
+	* config.c (sound_enable_sound_changed): re-cache the sounds if the
+	sound option is enabled, fixes #105651.
+	
+	* dialogs.c (connectingdialog_button): call client_disconnect
+	instead of client_connectcancel.
+	
+	* fields.c (fields_page_contents): few improvements to the gui.
+	
+	* gtetrinet.c (main): removed some useless assertions. Also, removed
+	some useless function calls.
+
 2003-02-07  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS, configure.in: release 0.6.2. It compiles, promise.

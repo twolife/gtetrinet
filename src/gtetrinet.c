@@ -102,59 +102,6 @@ int main (int argc, char *argv[])
     char buf[1024];
     GdkPixbuf *icon_pixbuf;
     GError *err = NULL;
-
-    GTET_STRCPY(buf, "", 4);
-    g_assert(strlen(buf) == 0);
-    g_assert(buf[0] == 0);
-    
-    GTET_STRCAT(buf, "", 4);
-    g_assert(strlen(buf) == 0);
-    g_assert(buf[0] == 0);
-    
-    GTET_STRCPY(buf, "a", 1);
-    g_assert(strlen(buf) == 0);
-    g_assert(buf[0] == 0);
-    
-    GTET_STRCAT(buf, "a", 1);
-    g_assert(strlen(buf) == 0);
-    g_assert(buf[0] == 0);
-    
-    GTET_STRCPY(buf, "abcd", 4);
-    g_assert(strlen(buf) == 3);
-    g_assert(buf[3] == 0);
-    g_assert(buf[2] == 'c');
-    g_assert(buf[1] == 'b');
-    g_assert(buf[0] == 'a');
-    
-    GTET_STRCAT(buf, "xyz", 4);    
-    g_assert(strlen(buf) == 3);
-    g_assert(buf[3] == 0);
-    g_assert(buf[2] == 'c');
-    g_assert(buf[1] == 'b');
-    g_assert(buf[0] == 'a');
-    
-    GTET_STRCAT(buf, "abcd", 7);    
-    g_assert(strlen(buf) == 6);
-    g_assert(buf[6] == 0);
-    g_assert(buf[5] == 'c');
-    g_assert(buf[4] == 'b');
-    g_assert(buf[3] == 'a');
-    g_assert(buf[2] == 'c');
-    g_assert(buf[1] == 'b');
-    g_assert(buf[0] == 'a');
-    
-    GTET_O_STRCPY(buf, "abcd");
-    GTET_O_STRCAT(buf, "abcd");
-    g_assert(strlen(buf) == 8);
-    g_assert(buf[8] == 0);
-    g_assert(buf[7] == 'd');
-    g_assert(buf[6] == 'c');
-    g_assert(buf[5] == 'b');
-    g_assert(buf[4] == 'a');
-    g_assert(buf[3] == 'd');
-    g_assert(buf[2] == 'c');
-    g_assert(buf[1] == 'b');
-    g_assert(buf[0] == 'a');
     
     bindtextdomain(PACKAGE, LOCALEDIR);
     bind_textdomain_codeset(PACKAGE, "UTF-8");
@@ -162,7 +109,6 @@ int main (int argc, char *argv[])
 
     srand (time(NULL));
 
-    //gnome_init_with_popt_table (APPID, APPVERSION, argc, argv, options, 0 , NULL);
     gnome_program_init (APPID, APPVERSION, LIBGNOMEUI_MODULE,
 	                      argc, argv, GNOME_PARAM_POPT_TABLE, options,
 				                GNOME_PARAM_NONE);
@@ -242,7 +188,6 @@ int main (int argc, char *argv[])
     config_loadconfig ();
 
     /* initialise some stuff */
-    client_initpipes ();
     fields_init ();
 
     /* first set up the display */
@@ -354,9 +299,8 @@ int main (int argc, char *argv[])
     gtk_main ();
 
     /* cleanup */
-    client_destroypipes ();
     fields_cleanup ();
-    client_connectcancel (); /* kills the client process */
+    client_disconnect (); /* kills the client process */
     sound_stopmidi ();
 
     return 0;

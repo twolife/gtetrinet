@@ -353,6 +353,8 @@ sound_enable_sound_changed (GConfClient *client,
   soundenable = gconf_value_get_bool (gconf_entry_get_value (entry));
   if (!soundenable)
     gconf_client_set_bool (gconf_client, "/apps/gtetrinet/sound/enable_midi", FALSE, NULL);
+  else
+    sound_cache ();
 }
 
 void

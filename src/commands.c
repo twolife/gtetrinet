@@ -102,7 +102,7 @@ void connect_command (void)
 
 void disconnect_command (void)
 {
-    client_destroy ();
+    client_disconnect ();
 }
 
 void team_command (void)

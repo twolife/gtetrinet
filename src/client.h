@@ -1,5 +1,3 @@
-extern int fdin[2], fdout[2]; /* two pipes, in and out */
-
 extern int connected;
 extern char server[128];
 
@@ -30,14 +28,9 @@ enum outmsg_type {
     OUT_VERSION
 };
 
-/* initalisation functions */
-extern void client_initpipes (void);
-extern void client_destroypipes (void);
-
 /* functions for connecting and disconnecting */
 extern void client_init (const char *server, const char *nick);
-extern void client_connectcancel (void);
-extern void client_destroy (void);
+extern void client_disconnect (void);
 
 /* for sending stuff back and forth */
 extern void client_outmessage (enum outmsg_type msgtype, char *str);
