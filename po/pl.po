@@ -1,7 +1,7 @@
-# Copyright (C) 2001-2002 Free Software Foundation, Inc.
+# Copyright (C) 2001-2004 Free Software Foundation, Inc.
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Aktualną wersję tego pliku możesz odnaleźć w repozytorium cvs.gnome.pl
-# (:pserver:anonymous@cvs.gnome.pl:/home/cvs, puste hasło)
+# (:pserver:anonymous@cvs.gnome.pl:/gnomepl, puste hasło)
 # Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
 # pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas na adres:
 # translators@gnome.pl
@@ -10,10 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-02 07:36+0200\n"
+"POT-Creation-Date: 2004-04-14 16:37+0200\n"
 "PO-Revision-Date: 2003-07-08 15:23+0100\n"
 "Last-Translator: GNOME PL Team <translators@gnome.pl>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -270,49 +270,53 @@ msgstr ""
 "Wybierz motyw z listy.\n"
 "Zainstaluj nowe motywy w katalogu ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:874
+#: src/dialogs.c:873
 msgid "Name:"
 msgstr "Nazwa:"
 
-#: src/dialogs.c:878
+#: src/dialogs.c:876
 msgid "Author:"
 msgstr "Autor:"
 
-#: src/dialogs.c:882
+#: src/dialogs.c:879
 msgid "Description:"
 msgstr "Opis:"
 
-#: src/dialogs.c:900
+#: src/dialogs.c:892
 msgid "Selected Theme"
 msgstr "Wybrany motyw"
 
-#: src/dialogs.c:919
+#: src/dialogs.c:908
+msgid "Download new themes"
+msgstr "Pobranie nowych motywów"
+
+#: src/dialogs.c:913
 msgid "Themes"
 msgstr "Motywy"
 
 #. partyline
-#: src/dialogs.c:924
+#: src/dialogs.c:918
 msgid "Enable _Timestamps"
 msgstr "Włączone znaczniki _czasu"
 
-#: src/dialogs.c:926
+#: src/dialogs.c:920
 msgid "Enable Channel _List"
 msgstr "Włączone _listy kanałów"
 
 #. FIXME
-#: src/dialogs.c:952 src/gtetrinet.c:281
+#: src/dialogs.c:946 src/gtetrinet.c:281
 msgid "Partyline"
 msgstr "Pogawędka"
 
-#: src/dialogs.c:963
+#: src/dialogs.c:957
 msgid "Action"
 msgstr "Akcja"
 
-#: src/dialogs.c:965
+#: src/dialogs.c:959
 msgid "Key"
 msgstr "Klawisz"
 
-#: src/dialogs.c:971
+#: src/dialogs.c:965
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -320,32 +324,32 @@ msgstr ""
 "Wybierz akcję z listy i naciśnij Zmień klawisz aby zmienić klawisz "
 "przypisany do tej akcji."
 
-#: src/dialogs.c:978
+#: src/dialogs.c:972
 msgid "Change _key..."
 msgstr "Zmień _klawisz..."
 
-#: src/dialogs.c:983 src/dialogs.c:1036
+#: src/dialogs.c:977 src/dialogs.c:1030
 msgid "_Restore defaults"
 msgstr "_Przywróć domyślne"
 
-#: src/dialogs.c:1004
+#: src/dialogs.c:998
 msgid "Keyboard"
 msgstr "Klawiatura"
 
 #. sound
-#: src/dialogs.c:1009
+#: src/dialogs.c:1003
 msgid "Enable _Sound"
 msgstr "Włączony _dźwięk"
 
-#: src/dialogs.c:1012
+#: src/dialogs.c:1006
 msgid "Enable _MIDI"
 msgstr "Włączone _MIDI"
 
-#: src/dialogs.c:1026
+#: src/dialogs.c:1020
 msgid "Enter command to play a midi file:"
 msgstr "Podaj polecenie odtwarzania pliku midi:"
 
-#: src/dialogs.c:1029
+#: src/dialogs.c:1023
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -353,7 +357,7 @@ msgstr ""
 "Poniższe polecenie jest uruchamiane gdy należy odtworzyć plik midi. Nazwa "
 "pliku midi jest ustawiona w zmiennej środowiskowej MIDIFILE."
 
-#: src/dialogs.c:1066
+#: src/dialogs.c:1060
 msgid "Sound"
 msgstr "Dźwięk"
 
@@ -367,6 +371,7 @@ msgstr ""
 
 #. shouldnt happen
 #: src/fields.c:85
+#, c-format
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
@@ -440,7 +445,7 @@ msgid "Failed to init GConf: %s\n"
 msgstr "Niepowodzenie podczas inicjalizacji GConf-a: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:470
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
 msgid "Playing Fields"
 msgstr "Pola gry"
 
