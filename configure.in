@@ -7,11 +7,25 @@ AM_INIT_AUTOMAKE(gtetrinet, 0.4.4)
 
 AC_PROG_CC
 
-AM_PATH_GTK(1.2.0,,exit 1)
+AM_PATH_GTK_2_0(2.0.0,,exit 1)
 
 AM_GNU_GETTEXT_VERSION(0.11.5)
 ALL_LINGUAS="ca"
-GNOME_INIT 
+
+dnl *****************************************
+dnl pkg-config check time
+dnl *****************************************
+
+LIBGNOME_REQUIRED=2.0.0
+LIBGNOMEUI_REQUIRED=2.0.0
+
+dnl *****************************************
+dnl libgnome, libgnomeui needed for all utils
+dnl *****************************************
+
+PKG_CHECK_MODULES(GTET, libgnome-2.0 >= $LIBGNOME_REQUIRED libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED)
+AC_SUBST(GTET_CFLAGS)
+AC_SUBST(GTET_LIBS)
 
 AM_PATH_ESD(0.2.5, AC_DEFINE(HAVE_ESD, 1, [Define this to enable EsounD support.]))
 

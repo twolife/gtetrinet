@@ -1,5 +1,16 @@
 2002-10-28  Jordi Mallach  <jordi@sindominio.net>
 
+	* Finally, GNOME2!
+
+	* configure.in: require GTK 2.0.0 and various GNOME2 libs.
+	* src/Makefile.am: new GNOME2 includes.
+	* src/client.c, src/client.h, src/commands.c, src/dialogs.c,
+	src/fields.c, src/fields.h, src/gtetrinet.c, src/misc.c, src/misc.h,
+	src/partyline.c, src/tetrinet.c, src/tetrinet.h: initial port to
+	GNOME2 by James Antill.
+
+2002-10-28  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/config.c (config_loadconfig): patch from James Antill. Save
 	and restore the server, as well as the server history.
 

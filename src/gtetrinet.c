@@ -23,7 +23,6 @@
 
 #include <gtk/gtk.h>
 #include <gnome.h>
-#include <gdk_imlib.h>
 #include <locale.h>
 #include <stdlib.h>
 #include <time.h>
@@ -136,8 +135,9 @@ int main (int argc, char *argv[])
     srand (time(NULL));
 
     gnome_init_with_popt_table (APPID, APPVERSION, argc, argv, options, 0 , NULL);
-    gdk_imlib_init ();
 
+    textbox_setup (); /* needs to be done before text boxes are created */
+    
     /* load settings */
     config_loadconfig ();
 
@@ -217,7 +217,6 @@ int main (int argc, char *argv[])
     gtk_widget_set_usize(winlistwidget, 480, 360);
 
     /* initialise some stuff */
-    textbox_setup ();
     commands_checkstate ();
 
     /* check command line params */
@@ -255,10 +254,14 @@ int main (int argc, char *argv[])
 
 GtkWidget *pixmapdata_label (char **d, char *str)
 {
+    GdkPixbuf *pb;
     GdkPixmap *pm;
     GdkBitmap *mask;
 
-    gdk_imlib_data_to_pixmap (d, &pm, &mask);
+    pb = gdk_pixbuf_new_from_xpm_data ((const char **)d);
+
+    gdk_pixbuf_render_pixmap_and_mask(pb, &pm, &mask, 1);
+    gdk_pixbuf_unref(pb);
 
     return pixmap_label (pm, mask, str);
 }
@@ -301,18 +304,19 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
 
     if (widget == app)
     {
-        /* Main window - check the notebook */
-        game_area = (GTK_NOTEBOOK(notebook)->cur_page->child == pfields);
+      int cur_page = gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));
+      int pfields_page = gtk_notebook_page_num(GTK_NOTEBOOK(notebook),
+                                               pfields);
+      /* Main window - check the notebook */
+      game_area = (cur_page == pfields_page);
     }
     else
     {
         /* Sub-window - find out which */
-        GtkArg arg;
+        char *title = NULL;
 
-        arg.name = "title";
-        gtk_object_getv( GTK_OBJECT(widget), 1, &arg );
-        game_area =  !strcmp( GTK_VALUE_STRING(arg), "Playing Fields" ); // FIXME
-        g_free( GTK_VALUE_STRING(arg) );
+        title = gtk_object_get_data(GTK_OBJECT(widget), "title");
+        game_area =  title && !strcmp( title, "Playing Fields" );
     }
 
     if (game_area)
@@ -338,18 +342,19 @@ gint keyrelease (GtkWidget *widget, GdkEventKey *key)
 
     if (widget == app)
     {
-        /* Main window - check the notebook */
-        game_area = (GTK_NOTEBOOK(notebook)->cur_page->child == pfields);
+      int cur_page = gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));
+      int pfields_page = gtk_notebook_page_num(GTK_NOTEBOOK(notebook),
+                                               pfields);
+      /* Main window - check the notebook */
+      game_area = (cur_page == pfields_page);
     }
     else
     {
         /* Sub-window - find out which */
-        GtkArg arg;
+        char *title = NULL;
 
-        arg.name = "title";
-        gtk_object_getv( GTK_OBJECT(widget), 1, &arg );
-        game_area =  !strcmp( GTK_VALUE_STRING(arg), "Playing Fields" );
-        g_free( GTK_VALUE_STRING(arg) );
+        title = gtk_object_get_data(GTK_OBJECT(widget), "title");
+        game_area =  title && !strcmp( title, "Playing Fields" );
     }
 
     if (game_area)

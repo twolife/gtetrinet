@@ -631,8 +631,7 @@ void prefdialog_themelist ()
 void prefdialog_apply (GnomePropertyBox *dialog, gint pagenum)
 {
     int i;
-    char *midi;
-
+    
     if (pagenum == -1) {
         for (i = 0; i < K_NUM; i ++) {
             keys[i] = newkeys[i];
@@ -657,7 +656,7 @@ void prefdialog_apply (GnomePropertyBox *dialog, gint pagenum)
         }
 
         if (midichanged) {
-            midi = gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(midientry))));
+            const char *midi = gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(midientry))));
             GTET_O_STRCPY (midicmd, midi);
         }
 
@@ -896,9 +895,9 @@ void prefdialog_new (void)
     themechanged = midichanged = FALSE;
 
     gtk_signal_connect (GTK_OBJECT(soundcheck), "toggled",
-                        prefdialog_soundtoggle, NULL);
+                        GTK_SIGNAL_FUNC(prefdialog_soundtoggle), NULL);
     gtk_signal_connect (GTK_OBJECT(midicheck), "toggled",
-                        prefdialog_miditoggle, NULL);
+                        GTK_SIGNAL_FUNC(prefdialog_miditoggle), NULL);
     gtk_signal_connect (GTK_OBJECT(gnome_entry_gtk_entry(GNOME_ENTRY(midientry))),
                         "changed", GTK_SIGNAL_FUNC(prefdialog_midichanged), NULL);
     gtk_signal_connect (GTK_OBJECT(themelist), "select_row",

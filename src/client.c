@@ -172,7 +172,7 @@ void client_destroypipes (void)
 {
 }
 
-void client_init (char *s, char *n)
+void client_init (const char *s, const char *n)
 {
     int i;
     GTET_O_STRCPY(server, s);

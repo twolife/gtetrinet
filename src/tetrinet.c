@@ -144,10 +144,10 @@ static void partylineupdate_team (char *name, char *team);
 static void partylineupdate_leave (char *name);
 static void playerlistupdate (void);
 static void fieldslabelupdate (void);
-static void plinemsg (char *name, char *text);
-static void plineact (char *name, char *text);
-static void plinesmsg (char *name, char *text);
-static void plinesact (char *name, char *text);
+static void plinemsg (const char *name, const char *text);
+static void plineact (const char *name, const char *text);
+static void plinesmsg (const char *name, const char *text);
+static void plinesact (const char *name, const char *text);
 static char translateblock (char c);
 static void clearallfields (void);
 static void checkmoderatorstatus (void);
@@ -711,9 +711,10 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
     }
 }
 
-void tetrinet_playerline (char *text)
+void tetrinet_playerline (const char *text)
 {
-    char buf[1024], *p;
+  char buf[1024];
+  const char *p;
 
     if (text[0] == '/') {
         p = text+1;
@@ -742,7 +743,7 @@ void tetrinet_playerline (char *text)
         plinemsg (nick, text);
 }
 
-void tetrinet_changeteam (char *newteam)
+void tetrinet_changeteam (const char *newteam)
 {
     char buf[128];
 
@@ -924,12 +925,11 @@ void tetrinet_dospecial (int from, int to, int type)
       case S_ADDALL4: /* bad for everyone ... */
         g_assert(!to);
         if (from == playernum)
-          g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
+          g_snprintf (buf, sizeof(buf), "%c%c%s%c",
                       TETRI_TB_BOLD,
                       TETRI_TB_C_BLACK,
                       sbinfo[type].info,
-                      TETRI_TB_C_BLACK,
-                      TETRI_TB_BOLD);
+                      TETRI_TB_RESET);
         else
           g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
                       TETRI_TB_BOLD,
@@ -945,19 +945,17 @@ void tetrinet_dospecial (int from, int to, int type)
       case S_BLOCKQUAKE:
       case S_BLOCKBOMB: /* badish stuff for someone */
         if (to == playernum)
-          g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
+          g_snprintf (buf, sizeof(buf), "%c%c%s%c",
                       TETRI_TB_BOLD,
                       TETRI_TB_C_BRIGHT_RED,
                       sbinfo[type].info,
-                      TETRI_TB_C_BRIGHT_RED,
-                      TETRI_TB_BOLD);
+                      TETRI_TB_RESET);
         else if (from == playernum)
-          g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
+          g_snprintf (buf, sizeof(buf), "%c%c%s%c",
                       TETRI_TB_BOLD,
                       TETRI_TB_C_BLACK,
                       sbinfo[type].info,
-                      TETRI_TB_C_BLACK,
-                      TETRI_TB_BOLD);
+                      TETRI_TB_RESET);
         else
           g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
                       TETRI_TB_BOLD,
@@ -972,12 +970,11 @@ void tetrinet_dospecial (int from, int to, int type)
       case S_SWITCH:
       case S_GRAVITY: /* goodish stuff for someone */
         if (to == playernum)
-          g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
+          g_snprintf (buf, sizeof(buf), "%c%c%s%c",
                       TETRI_TB_BOLD,
                       TETRI_TB_C_BRIGHT_GREEN,
                       sbinfo[type].info,
-                      TETRI_TB_C_BRIGHT_GREEN,
-                      TETRI_TB_BOLD);
+                      TETRI_TB_RESET);
         else
           g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
                       TETRI_TB_BOLD,
@@ -1498,7 +1495,8 @@ notfieldkey:
         switch (keyval) {
         case GDK_Return:
             {
-                char buf[256], *s;
+                char buf[256];
+                const char *s;
                 s = fields_gmsginputtext ();
                 if (strlen(s) > 0) {
                     if (strncmp("/me ", s, 4) == 0) {
@@ -1850,7 +1848,7 @@ void checkmoderatorstatus (void)
     }
 }
 
-void plinemsg (char *name, char *text)
+void plinemsg (const char *name, const char *text)
 {
     char buf[1024];
     g_snprintf (buf, sizeof(buf), "%c<%s%c%c>%c %s",
@@ -1859,7 +1857,7 @@ void plinemsg (char *name, char *text)
     partyline_text (buf);
 }
 
-void plinesmsg (char *name, char *text)
+void plinesmsg (const char *name, const char *text)
 {
     char buf[1024];
     g_snprintf (buf, sizeof(buf), "%c%c<%s%c%c%c>%c %s",
@@ -1870,7 +1868,7 @@ void plinesmsg (char *name, char *text)
     partyline_text (buf);
 }
 
-void plineact (char *name, char *text)
+void plineact (const char *name, const char *text)
 {
     char buf[1024];
     g_snprintf (buf, sizeof(buf), "%c* %c%s%c%c %s",
@@ -1879,7 +1877,7 @@ void plineact (char *name, char *text)
     partyline_text (buf);
 }
 
-void plinesact (char *name, char *text)
+void plinesact (const char *name, const char *text)
 {
     char buf[1024];
     g_snprintf (buf, sizeof(buf), "%c* %c%s%c%c %s",

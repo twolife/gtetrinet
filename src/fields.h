@@ -21,4 +21,4 @@ extern void fields_gmsginputclear (void);
 extern void fields_gmsginputactivate (int i);
 extern void fields_gmsginputadd (char *c);
 extern void fields_gmsginputback (void);
-extern char *fields_gmsginputtext (void);
+extern const char *fields_gmsginputtext (void);

@@ -35,7 +35,7 @@ extern void client_initpipes (void);
 extern void client_destroypipes (void);
 
 /* functions for connecting and disconnecting */
-extern void client_init (char *server, char *nick);
+extern void client_init (const char *server, const char *nick);
 extern void client_connectcancel (void);
 extern void client_destroy (void);
 

@@ -23,7 +23,6 @@
 
 #include <gtk/gtk.h>
 #include <gnome.h>
-#include <gdk_imlib.h>
 #include <stdio.h>
 
 #include "config.h"
@@ -58,15 +57,19 @@ static TETRISBLOCK displayblock;
 
 void fields_init (void)
 {
-    GdkBitmap *bmap;
     GtkWidget *mb;
-    if (gdk_imlib_load_file_to_pixmap (blocksfile, &blockpix, &bmap) == 0) {
+    GdkPixbuf *pb = NULL;
+    GError *err = NULL;
+    GdkBitmap *mask = NULL;
+    
+    if (!(pb = gdk_pixbuf_new_from_file(blocksfile, &err))) {
         mb = gnome_message_box_new (_("Error loading theme: cannot load graphics file\n"
                                       "Falling back to default"),
                                     GNOME_MESSAGE_BOX_ERROR, GNOME_STOCK_BUTTON_OK, NULL);
         gnome_dialog_run (GNOME_DIALOG(mb));
         config_loadtheme (DEFAULTTHEME);
-        if (gdk_imlib_load_file_to_pixmap (blocksfile, &blockpix, &bmap) == 0) {
+        err = NULL;
+        if (!(pb = gdk_pixbuf_new_from_file(blocksfile, &err))) {
             /* shouldnt happen */
             fprintf (stderr, _("Error loading default theme: Aborting...\n"
                                "Check for installation errors\n"));
@@ -74,11 +77,13 @@ void fields_init (void)
         }
     }
     /* we dont want the bitmap mask */
+    gdk_pixbuf_render_pixmap_and_mask(pb, &blockpix, &mask, 1);
+    gdk_pixbuf_unref(pb);
 }
 
 void fields_cleanup (void)
 {
-    gdk_imlib_free_pixmap (blockpix);
+  gdk_pixmap_unref(blockpix);
 }
 
 /* a mess of functions here for creating the fields page */
@@ -270,9 +275,9 @@ GtkWidget *fields_page_contents (void)
     widget = gtk_label_new (_("Attacks and defenses:"));
     gtk_widget_show (widget);
     gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
-    attdefwidget = gtk_text_new (NULL, NULL);
+    attdefwidget = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
     gtk_widget_set_usize (attdefwidget, MAX(22*12, BLOCKSIZE*12), BLOCKSIZE*10);
-    gtk_text_set_word_wrap (GTK_TEXT(attdefwidget), TRUE);
+    gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(attdefwidget), GTK_WRAP_WORD);
     GTK_WIDGET_UNSET_FLAGS (attdefwidget, GTK_CAN_FOCUS);
     gtk_widget_show (attdefwidget);
     scroll = gtk_scrolled_window_new (NULL, NULL);
@@ -290,7 +295,7 @@ GtkWidget *fields_page_contents (void)
 
     /* game messages */
     table2 = gtk_table_new (1, 2, FALSE);
-    gmsgtext = gtk_text_new (NULL, NULL);
+    gmsgtext = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
     gtk_widget_set_usize (gmsgtext, 0, 48);
     gtk_widget_show (gmsgtext);
     GTK_WIDGET_UNSET_FLAGS (gmsgtext, GTK_CAN_FOCUS);
@@ -493,16 +498,13 @@ void fields_drawnextblock (TETRISBLOCK block)
 
 void fields_attdefmsg (char *text)
 {
-    textbox_addtext (GTK_TEXT(attdefwidget), text);
-    adjust_bottom (GTK_TEXT(attdefwidget)->vadj);
+    textbox_addtext (GTK_TEXT_VIEW(attdefwidget), text);
+    adjust_bottom (GTK_TEXT_VIEW(attdefwidget)->vadjustment);
 }
 
 void fields_attdefclear (void)
 {
-    gtk_text_freeze (GTK_TEXT(attdefwidget));
-    gtk_text_backward_delete (GTK_TEXT(attdefwidget),
-                              gtk_text_get_point (GTK_TEXT(attdefwidget)));
-    gtk_text_thaw (GTK_TEXT(attdefwidget));
+  gtk_text_buffer_set_text(GTK_TEXT_VIEW(attdefwidget)->buffer, "", 0);
 }
 
 void fields_setlines (int l)
@@ -538,16 +540,13 @@ void fields_setactivelevel (int l)
 
 void fields_gmsgadd (char *str)
 {
-    textbox_addtext (GTK_TEXT(gmsgtext), str);
-    adjust_bottom (GTK_TEXT(gmsgtext)->vadj);
+    textbox_addtext (GTK_TEXT_VIEW(gmsgtext), str);
+    adjust_bottom (GTK_TEXT_VIEW(gmsgtext)->vadjustment);
 }
 
 void fields_gmsgclear (void)
 {
-    gtk_text_freeze (GTK_TEXT(gmsgtext));
-    gtk_text_backward_delete (GTK_TEXT(gmsgtext),
-                              gtk_text_get_point (GTK_TEXT(gmsgtext)));
-    gtk_text_thaw (GTK_TEXT(gmsgtext));
+  gtk_text_buffer_set_text(GTK_TEXT_VIEW(gmsgtext)->buffer, "", 0);
 }
 
 void fields_gmsginput (int i)
@@ -590,7 +589,7 @@ void fields_gmsginputback (void)
     gtk_entry_set_position (GTK_ENTRY(gmsginput), strlen(buf));
 }
 
-char *fields_gmsginputtext (void)
+const char *fields_gmsginputtext (void)
 {
     return gtk_entry_get_text (GTK_ENTRY(gmsginput));
 }

@@ -15,8 +15,8 @@ extern char specialblocks[256];
 extern int specialblocknum;
 
 extern void tetrinet_inmessage (enum inmsg_type msgtype, char *data);
-extern void tetrinet_playerline (char *text);
-extern void tetrinet_changeteam (char *newteam);
+extern void tetrinet_playerline (const char *text);
+extern void tetrinet_changeteam (const char *newteam);
 extern void tetrinet_updatefield (FIELD field);
 extern void tetrinet_sendfield (int reset);
 extern void tetrinet_resendfield (void);

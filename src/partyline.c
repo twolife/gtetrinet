@@ -62,8 +62,8 @@ GtkWidget *partyline_page_new (void)
     leftbox = gtk_vbox_new (FALSE, 4);
     /* chat thingy */
     /* textbox with scrollbars */
-    textbox = gtk_text_new (NULL, NULL);
-    gtk_text_set_word_wrap (GTK_TEXT(textbox), TRUE);
+    textbox = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
+    gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW(textbox), GTK_WRAP_WORD);
     GTK_WIDGET_UNSET_FLAGS(textbox, GTK_CAN_FOCUS);
     gtk_signal_connect (GTK_OBJECT(textbox), "button_press_event",
                         GTK_SIGNAL_FUNC(partyline_entryfocus), NULL);
@@ -169,7 +169,8 @@ void partyline_status (char *status)
 
 void partyline_text (char *text)
 {
-    textbox_addtext (GTK_TEXT(textbox), text);
+    textbox_addtext (GTK_TEXT_VIEW(textbox), text);
+    adjust_bottom (GTK_TEXT_VIEW(textbox)->vadjustment);
 }
 
 void partyline_playerlist (int *numbers, char **names, char **teams, int n, char **specs, int sn)
@@ -210,7 +211,7 @@ void partyline_switch_entryfocus (void)
 
 void textentry (GtkWidget *widget, gpointer data)
 {
-    char *text;
+    const char *text;
     text = gtk_entry_get_text (GTK_ENTRY(widget));
 
     if (strlen(text) == 0) return;
@@ -233,7 +234,7 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key)
 
     if (keyval == GDK_Up || keyval == GDK_Down) {
         if (plh_cur == plh_end) {
-            char *text;
+            const char *text;
             text = gtk_entry_get_text (GTK_ENTRY(widget));
             GTET_O_STRCPY (plhistory[plh_end], text);
         }
