@@ -902,7 +902,7 @@ static void tetrinet_old_sendfield (int reset, const char *new_buf)
         *p = 0;
         g_snprintf (buf, sizeof(buf), "%d %s", playernum, buf2);
     }
-    if (!strcmp(new_buf, buf))
+    if (strcmp(new_buf, buf))
       g_warning("sendfield ... non compat. data\n"
                 "\tBEG: sendfield data\n"
                 "\t old=%s\n"
