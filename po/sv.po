@@ -8,13 +8,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet\n"
-"POT-Creation-Date: 2003-02-11 09:37+0100\n"
-"PO-Revision-Date: 2003-02-11 09:38+0100\n"
+"POT-Creation-Date: 2003-02-16 08:25+0100\n"
+"PO-Revision-Date: 2003-02-16 08:25+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: src/client.c:237
+msgid "Couldn't resolve hostname."
+msgstr "Kunde inte slå upp värdnamn."
 
 #: src/commands.c:38
 msgid "_Connect to server..."
@@ -130,10 +134,6 @@ msgstr "En Tetrinet-klient för GNOME.\n"
 #: src/commands.c:254
 msgid "GTetrinet Home Page"
 msgstr "GTetrinet-hemsidan"
-
-#: src/client.c:237
-msgid "Couldn't resolve hostname."
-msgstr "Kunde inte slå upp värdnamn."
 
 #: src/config.c:133
 msgid "Warning: theme does not have a name"
@@ -413,176 +413,188 @@ msgstr "Partledning"
 msgid "Winlist"
 msgstr "Vinstlista"
 
-#: src/partyline.c:90 src/winlist.c:47
+#: src/partyline.c:82 src/partyline.c:118 src/winlist.c:47
 msgid "Name"
 msgstr "Namn"
 
-#: src/partyline.c:92
+#: src/partyline.c:84
+msgid "Players"
+msgstr "Spelare"
+
+#: src/partyline.c:86
+msgid "State"
+msgstr "Tillstånd"
+
+#: src/partyline.c:88
+msgid "Description"
+msgstr "Beskrivning"
+
+#: src/partyline.c:120
 msgid "Team"
 msgstr "Lag"
 
-#: src/partyline.c:106
+#: src/partyline.c:133
 msgid "Your name:"
 msgstr "Ditt namn:"
 
-#: src/partyline.c:115
+#: src/partyline.c:140
 msgid "Your team:"
 msgstr "Ditt lag:"
 
-#: src/tetrinet.c:182
+#: src/tetrinet.c:190
 msgid "Server disconnected"
 msgstr "Servern frånkopplad"
 
-#: src/tetrinet.c:201
+#: src/tetrinet.c:210
 #, c-format
 msgid "%c%c*** Disconnected from server"
 msgstr "%c%c*** Frånkopplad från servern"
 
-#: src/tetrinet.c:210
+#: src/tetrinet.c:220
 msgid "Error connecting: "
 msgstr "Fel vid anslutning: "
 
-#: src/tetrinet.c:242
+#: src/tetrinet.c:252
 #, c-format
 msgid "%c%c*** Connected to server"
 msgstr "%c%c*** Ansluten till server"
 
-#: src/tetrinet.c:340
+#: src/tetrinet.c:351
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
 msgstr "%c%c*** Du har sparkats ut från spelet"
 
-#: src/tetrinet.c:344
+#: src/tetrinet.c:355
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
 msgstr "%c*** %c%s%c%c har sparkats ut från spelet"
 
-#: src/tetrinet.c:436
+#: src/tetrinet.c:494
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
 msgstr "%c*** Lag %c%s%c%c har vunnit spelet"
 
-#: src/tetrinet.c:442
+#: src/tetrinet.c:500
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
 msgstr "%c*** %c%s%c%c har vunnit spelet"
 
-#: src/tetrinet.c:502
+#: src/tetrinet.c:560
 #, c-format
 msgid "%c*** The game has %cstarted"
 msgstr "%c*** Spelet har %cbörjat"
 
-#: src/tetrinet.c:527
+#: src/tetrinet.c:585
 #, c-format
 msgid "%c*** The game is %cin progress"
 msgstr "%c*** Spelet %cpågår"
 
-#: src/tetrinet.c:538
+#: src/tetrinet.c:596
 #, c-format
 msgid "%c*** The game has %cpaused"
 msgstr "%c*** Spelet gör %cpaus"
 
-#: src/tetrinet.c:540
+#: src/tetrinet.c:598
 #, c-format
 msgid "The game has %c%cpaused"
 msgstr "Spelet gör %c%cpaus"
 
-#: src/tetrinet.c:545
+#: src/tetrinet.c:603
 #, c-format
 msgid "%c*** The game has %cresumed"
 msgstr "%c*** Spelet har %cåterupptagits"
 
-#: src/tetrinet.c:547
+#: src/tetrinet.c:605
 #, c-format
 msgid "The game has %c%cresumed"
 msgstr "Spelet har %c%cåterupptagits"
 
-#: src/tetrinet.c:556
+#: src/tetrinet.c:614
 #, c-format
 msgid "%c*** The game has %cended"
 msgstr "%c*** Spelet har %cavslutats"
 
-#: src/tetrinet.c:666
+#: src/tetrinet.c:724
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
 msgstr "%c*** Du har gått in i %c%s%c%c"
 
-#: src/tetrinet.c:683
+#: src/tetrinet.c:741
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c har anslutit sig till åskådarna %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:704
+#: src/tetrinet.c:762
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c har lämnat åskådarna %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:861
+#: src/tetrinet.c:919
 msgid "No special blocks"
 msgstr "Inga specialblock"
 
-#: src/tetrinet.c:1020 src/tetrinet.c:1027
+#: src/tetrinet.c:1078 src/tetrinet.c:1085
 #, c-format
 msgid " on %c%c%s%c%c"
 msgstr " på %c%c%s%c%c"
 
-#: src/tetrinet.c:1037
+#: src/tetrinet.c:1095
 msgid " to All"
 msgstr " till ALLA"
 
-#: src/tetrinet.c:1043 src/tetrinet.c:1050
+#: src/tetrinet.c:1101 src/tetrinet.c:1108
 #, c-format
 msgid " by %c%c%s%c%c"
 msgstr " av %c%c%s%c%c"
 
-#: src/tetrinet.c:1643
+#: src/tetrinet.c:1701
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
 msgstr "%c*** %c%s%c%c är spelledare"
 
 #. remove ", " from end of string
-#: src/tetrinet.c:1692
+#: src/tetrinet.c:1750
 msgid " has left the game"
 msgstr " har lämnat spelet"
 
-#: src/tetrinet.c:1693
+#: src/tetrinet.c:1751
 msgid " have left the game"
 msgstr " har lämnat spelet"
 
-#: src/tetrinet.c:1706
+#: src/tetrinet.c:1764
 msgid " has joined the game"
 msgstr " har gått in i spelet"
 
-#: src/tetrinet.c:1707
+#: src/tetrinet.c:1765
 msgid " have joined the game"
 msgstr " har gått in i spelet"
 
-#: src/tetrinet.c:1730
+#: src/tetrinet.c:1788
 #, c-format
 msgid "%s is on team %c%s"
 msgstr "%s är med i lag %c%s"
 
-#: src/tetrinet.c:1733
+#: src/tetrinet.c:1791
 #, c-format
 msgid "%s is alone"
 msgstr "%s är ensam"
 
-#: src/tetrinet.c:1735
+#: src/tetrinet.c:1793
 #, c-format
 msgid "%s are on team %c%s"
 msgstr "%s är med i lag %c%s"
 
-#: src/tetrinet.c:1738
+#: src/tetrinet.c:1796
 #, c-format
 msgid "%s are alone"
 msgstr "%s är ensamma"
 
-#: src/tetrinet.c:1779
+#: src/tetrinet.c:1837
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
 msgstr "%c*** %c%s%c%c är nu med i lag %c%s"
 
-#: src/tetrinet.c:1786
+#: src/tetrinet.c:1844
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
 msgstr "%c*** %c%s%c%c är nu ensam"
@@ -759,6 +771,9 @@ msgstr "Ditt smeknamn."
 #: gtetrinet.schemas.in.h:30
 msgid "Your team."
 msgstr "Ditt lag."
+
+#~ msgid "Player"
+#~ msgstr "Spelare"
 
 #~ msgid "Disconnected"
 #~ msgstr "Frånkopplad"
