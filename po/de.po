@@ -1,13 +1,13 @@
 # German translation of GTetrinet
-# Copyright (C) 2002, 2003 Ka-shu Wong
+# Copyright (C) 2002, 2003, 2004 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtetrinet package.
-# Gerfried Fuchs <alfie@ist.org>, 2002, 2003.
+# Gerfried Fuchs <alfie@ist.org>, 2002, 2003, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtetrinet 0.5.2\n"
+"Project-Id-Version: gtetrinet 0.7.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-23 04:37+0200\n"
+"POT-Creation-Date: 2004-04-30 12:41+0200\n"
 "PO-Revision-Date: 2003-08-28 22:52+0200\n"
 "Last-Translator: Gerfried Fuchs <alfie@ist.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
@@ -128,12 +128,12 @@ msgstr "Ein Tetrinet-Client für GNOME.\n"
 msgid "GTetrinet Home Page"
 msgstr "GTetrinet-Homepage"
 
-#: src/config.c:134
+#: src/config.c:140
 msgid "Warning: theme does not have a name, reverting to default."
 msgstr "Warnung: Theme hat keinen Namen, falle auf den Standard zurück."
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:85 src/dialogs.c:333 src/gtetrinet.c:77
+#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
 msgid "Connect to server"
 msgstr "Zum Server verbinden"
 
@@ -141,125 +141,125 @@ msgstr "Zum Server verbinden"
 msgid "Team name:"
 msgstr "Team-Name:"
 
-#: src/dialogs.c:213
+#: src/dialogs.c:215
 msgid "You must specify a server name."
 msgstr "Sie müssen einen Server-Namen angeben."
 
-#: src/dialogs.c:230
+#: src/dialogs.c:232
 msgid "Please specify a password to connect as spectator."
 msgstr "Geben Sie bitte ein Passwort an, um als Zuschauer zu verbinden."
 
-#: src/dialogs.c:256
+#: src/dialogs.c:258
 msgid "Please specify a valid nickname."
 msgstr "Geben Sie bitte einen gültigen Spitznamen an."
 
 #. game type radio buttons
-#: src/dialogs.c:360
+#: src/dialogs.c:364
 msgid "O_riginal"
 msgstr "_Original"
 
-#: src/dialogs.c:362
+#: src/dialogs.c:366
 msgid "Tetri_Fast"
 msgstr "Tetri_Fast"
 
-#: src/dialogs.c:384
+#: src/dialogs.c:388
 msgid "Server address"
 msgstr "Server-Adresse"
 
-#: src/dialogs.c:393
+#: src/dialogs.c:397
 msgid "Connect as a _spectator"
 msgstr "Als _Zuschauer verbinden"
 
-#: src/dialogs.c:397
+#: src/dialogs.c:401
 msgid "_Password:"
 msgstr "_Passwort:"
 
-#: src/dialogs.c:412
+#: src/dialogs.c:418
 msgid "Spectate game"
 msgstr "Spiel beobachten"
 
-#: src/dialogs.c:421
+#: src/dialogs.c:427
 msgid "_Nick name:"
 msgstr "Spitz_name:"
 
-#: src/dialogs.c:434
+#: src/dialogs.c:442
 msgid "_Team name:"
 msgstr "_Team-Name:"
 
-#: src/dialogs.c:452
+#: src/dialogs.c:462
 msgid "Player information"
 msgstr "Spieler-Informationen"
 
-#: src/dialogs.c:493
+#: src/dialogs.c:503
 msgid "Change Key"
 msgstr "Taste ändern"
 
-#: src/dialogs.c:544
+#: src/dialogs.c:554
 msgid "Move right"
 msgstr "Nach rechts"
 
-#: src/dialogs.c:545
+#: src/dialogs.c:555
 msgid "Move left"
 msgstr "Nach links"
 
-#: src/dialogs.c:546
+#: src/dialogs.c:556
 msgid "Move down"
 msgstr "Nach unten"
 
-#: src/dialogs.c:547
+#: src/dialogs.c:557
 msgid "Rotate right"
 msgstr "Rechts drehen"
 
-#: src/dialogs.c:548
+#: src/dialogs.c:558
 msgid "Rotate left"
 msgstr "Links drehen"
 
-#: src/dialogs.c:549
+#: src/dialogs.c:559
 msgid "Drop piece"
 msgstr "Stein fallen lassen"
 
-#: src/dialogs.c:550
+#: src/dialogs.c:560
 msgid "Discard special"
 msgstr "Spezial-Block wegwerfen"
 
-#: src/dialogs.c:551
+#: src/dialogs.c:561
 msgid "Send message"
 msgstr "Nachricht schicken"
 
-#: src/dialogs.c:552
+#: src/dialogs.c:562
 msgid "Special to field 1"
 msgstr "Spezial-Block auf Feld 1"
 
-#: src/dialogs.c:553
+#: src/dialogs.c:563
 msgid "Special to field 2"
 msgstr "Spezial-Block auf Feld 2"
 
-#: src/dialogs.c:554
+#: src/dialogs.c:564
 msgid "Special to field 3"
 msgstr "Spezial-Block auf Feld 3"
 
-#: src/dialogs.c:555
+#: src/dialogs.c:565
 msgid "Special to field 4"
 msgstr "Spezial-Block auf Feld 4"
 
-#: src/dialogs.c:556
+#: src/dialogs.c:566
 msgid "Special to field 5"
 msgstr "Spezial-Block auf Feld 5"
 
-#: src/dialogs.c:557
+#: src/dialogs.c:567
 msgid "Special to field 6"
 msgstr "Spezial-Block auf Feld 6"
 
-#: src/dialogs.c:617
+#: src/dialogs.c:627
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Drücken Sie die neue Taste für »%s«"
 
-#: src/dialogs.c:834
+#: src/dialogs.c:844
 msgid "GTetrinet Preferences"
 msgstr "GTetrinet-Einstellungen"
 
-#: src/dialogs.c:857
+#: src/dialogs.c:866
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -267,49 +267,53 @@ msgstr ""
 "Wählen Sie ein Theme aus der Liste.\n"
 "Installieren Sie neue Themes nach ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:865
+#: src/dialogs.c:873
 msgid "Name:"
 msgstr "Name:"
 
-#: src/dialogs.c:869
+#: src/dialogs.c:876
 msgid "Author:"
 msgstr "Autor:"
 
-#: src/dialogs.c:873
+#: src/dialogs.c:879
 msgid "Description:"
 msgstr "Beschreibung:"
 
-#: src/dialogs.c:891
+#: src/dialogs.c:892
 msgid "Selected Theme"
 msgstr "Gewähltes Theme"
 
-#: src/dialogs.c:910
+#: src/dialogs.c:908
+msgid "Download new themes"
+msgstr "Neue Themes herunterladen"
+
+#: src/dialogs.c:913
 msgid "Themes"
 msgstr "Themes"
 
 #. partyline
-#: src/dialogs.c:915
+#: src/dialogs.c:918
 msgid "Enable _Timestamps"
 msgstr "_Zeitstempel aktivieren"
 
-#: src/dialogs.c:917
+#: src/dialogs.c:920
 msgid "Enable Channel _List"
 msgstr "Kanal-_Liste einschalten"
 
 #. FIXME
-#: src/dialogs.c:943 src/gtetrinet.c:281
+#: src/dialogs.c:946 src/gtetrinet.c:281
 msgid "Partyline"
 msgstr "Partyraum"
 
-#: src/dialogs.c:954
+#: src/dialogs.c:957
 msgid "Action"
 msgstr "Aktion"
 
-#: src/dialogs.c:956
+#: src/dialogs.c:959
 msgid "Key"
 msgstr "Taste"
 
-#: src/dialogs.c:962
+#: src/dialogs.c:965
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -317,32 +321,32 @@ msgstr ""
 "Wählen Sie eine Aktion aus der Liste und drücken Sie Taste ändern um die mit "
 "der Aktion verknüpfte Taste zu ändern."
 
-#: src/dialogs.c:969
+#: src/dialogs.c:972
 msgid "Change _key..."
 msgstr "Taste _ändern..."
 
-#: src/dialogs.c:974 src/dialogs.c:1027
+#: src/dialogs.c:977 src/dialogs.c:1030
 msgid "_Restore defaults"
 msgstr "Vorgaben wieder_herstellen"
 
-#: src/dialogs.c:995
+#: src/dialogs.c:998
 msgid "Keyboard"
 msgstr "Tastatur"
 
 #. sound
-#: src/dialogs.c:1000
+#: src/dialogs.c:1003
 msgid "Enable _Sound"
 msgstr "_Klänge aktivieren"
 
-#: src/dialogs.c:1003
+#: src/dialogs.c:1006
 msgid "Enable _MIDI"
 msgstr "_MIDI aktivieren"
 
-#: src/dialogs.c:1017
+#: src/dialogs.c:1020
 msgid "Enter command to play a midi file:"
 msgstr "Geben Sie den Befehl zum Abzuspielen einer Midi-Datei ein:"
 
-#: src/dialogs.c:1020
+#: src/dialogs.c:1023
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -351,11 +355,11 @@ msgstr ""
 "wird. Der Name der Midi-Datei ist in der Umgebungsvariable MIDIFILE "
 "vorhanden."
 
-#: src/dialogs.c:1057
+#: src/dialogs.c:1060
 msgid "Sound"
 msgstr "Klänge"
 
-#: src/fields.c:87
+#: src/fields.c:76
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
@@ -364,7 +368,8 @@ msgstr ""
 "Greife auf den Standard zurück"
 
 #. shouldnt happen
-#: src/fields.c:96
+#: src/fields.c:85
+#, c-format
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
@@ -372,31 +377,31 @@ msgstr ""
 "Fehler beim Standard-Theme laden: Abbrechen...\n"
 "Suchen Sie nach Installationsfehlern\n"
 
-#: src/fields.c:217
+#: src/fields.c:206
 msgid "Next piece:"
 msgstr "Nächster Stein:"
 
-#: src/fields.c:234
+#: src/fields.c:223
 msgid "Lines:"
 msgstr "Zeilen:"
 
-#: src/fields.c:238
+#: src/fields.c:227
 msgid "Level:"
 msgstr "Ebene:"
 
-#: src/fields.c:240
+#: src/fields.c:229
 msgid "Active level:"
 msgstr "Aktive Ebene:"
 
-#: src/fields.c:288
+#: src/fields.c:277
 msgid "Attacks and defenses:"
 msgstr "Angriffe und Verteidungungen:"
 
-#: src/fields.c:432
+#: src/fields.c:421
 msgid "Not playing"
 msgstr "Spielt nicht"
 
-#: src/fields.c:463
+#: src/fields.c:452
 msgid "Specials:"
 msgstr "Spezial-Blöcke:"
 
@@ -438,7 +443,7 @@ msgid "Failed to init GConf: %s\n"
 msgstr "GConf konnte nicht initialisiert werden: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:470
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
 msgid "Playing Fields"
 msgstr "Spielfelder"
 
@@ -850,38 +855,38 @@ msgstr ""
 #: gtetrinet.schemas.in.h:37
 msgid "This key uses the current special on Player 1's game field."
 msgstr ""
-"Diese Taste wendet den aktuellen Spezial-Block auf dem Spielfeld von "
-"Spieler 1 an."
+"Diese Taste wendet den aktuellen Spezial-Block auf dem Spielfeld von Spieler "
+"1 an."
 
 #: gtetrinet.schemas.in.h:38
 msgid "This key uses the current special on Player 2's game field."
 msgstr ""
-"Diese Taste wendet den aktuellen Spezial-Block auf dem Spielfeld von "
-"Spieler 2 an."
+"Diese Taste wendet den aktuellen Spezial-Block auf dem Spielfeld von Spieler "
+"2 an."
 
 #: gtetrinet.schemas.in.h:39
 msgid "This key uses the current special on Player 3's game field."
 msgstr ""
-"Diese Taste wendet den aktuellen Spezial-Block auf dem Spielfeld von "
-"Spieler 3 an."
+"Diese Taste wendet den aktuellen Spezial-Block auf dem Spielfeld von Spieler "
+"3 an."
 
 #: gtetrinet.schemas.in.h:40
 msgid "This key uses the current special on Player 4's game field."
 msgstr ""
-"Diese Taste wendet den aktuellen Spezial-Block auf dem Spielfeld von "
-"Spieler 4 an."
+"Diese Taste wendet den aktuellen Spezial-Block auf dem Spielfeld von Spieler "
+"4 an."
 
 #: gtetrinet.schemas.in.h:41
 msgid "This key uses the current special on Player 5's game field."
 msgstr ""
-"Diese Taste wendet den aktuellen Spezial-Block auf dem Spielfeld von "
-"Spieler 5 an."
+"Diese Taste wendet den aktuellen Spezial-Block auf dem Spielfeld von Spieler "
+"5 an."
 
 #: gtetrinet.schemas.in.h:42
 msgid "This key uses the current special on Player 6's game field."
 msgstr ""
-"Diese Taste wendet den aktuellen Spezial-Block auf dem Spielfeld von "
-"Spieler 6 an."
+"Diese Taste wendet den aktuellen Spezial-Block auf dem Spielfeld von Spieler "
+"6 an."
 
 #: gtetrinet.schemas.in.h:43
 msgid "This will be the name of your team."
