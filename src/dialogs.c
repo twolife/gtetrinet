@@ -742,6 +742,14 @@ void prefdialog_apply (GnomePropertyBox *dialog, gint pagenum)
     }
 }
 
+void prefdialog_ok (GtkWidget *widget, gpointer data)
+{
+    prefdialog_apply (NULL, -1);
+    gtk_widget_destroy (prefdialog);
+    prefdialog = NULL;
+}
+
+
 void prefdialog_new (void)
 {
     GtkWidget *label, *table, *frame, *button, *button1, *widget, *table1, *divider;
@@ -986,7 +994,7 @@ void prefdialog_new (void)
     g_signal_connect (G_OBJECT(prefdialog), "destroy",
                       GTK_SIGNAL_FUNC(prefdialog_destroy), NULL);
     g_signal_connect (G_OBJECT(GNOME_PROPERTY_BOX(prefdialog)->ok_button), "clicked",
-                      GTK_SIGNAL_FUNC(prefdialog_destroy), NULL);
+                      GTK_SIGNAL_FUNC(prefdialog_ok), NULL);
     g_signal_connect (G_OBJECT(GNOME_PROPERTY_BOX(prefdialog)->cancel_button), "clicked",
                       GTK_SIGNAL_FUNC(prefdialog_destroy), NULL);
     gtk_widget_show (prefdialog);

@@ -1,3 +1,8 @@
+2003-01-06  Dani Carbonell  <bocata@panete.net>
+
+	* src/dialogs.c (prefdialog_ok): new function.
+	(prefdialog_new): use prefdialog_ok() to fix behaviour of Ok button.
+
 2003-01-06  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS, configure.in: released gtetrinet 0.5.1.
