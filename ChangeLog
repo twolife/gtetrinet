@@ -1,3 +1,9 @@
+2003-03-25  Dani Carbonell  <bocata@panete.net>
+
+	* src/partyline.c (entrykey): fixed a bug when hitting the up or
+	down arrow key when writing in the partyline textentry, after inserting
+	a unicode control character.
+
 2003-03-18  Jordi Mallach  <jordi@sindominio.net>
 
 	* configure.in (ALL_LINGUAS): Added "ja" (Japanese).

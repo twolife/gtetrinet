@@ -351,13 +351,16 @@ void textentry (GtkWidget *widget)
 static gint entrykey (GtkWidget *widget, GdkEventKey *key)
 {
     int keyval = key->keyval;
-    gchar *text;
+    gchar *text = NULL;
 
     if (keyval == GDK_Up || keyval == GDK_Down) {
         if (plh_cur == plh_end) {
             text = g_locale_from_utf8 (gtk_entry_get_text (GTK_ENTRY(widget)), -1, NULL, NULL, NULL);
-            GTET_O_STRCPY (plhistory[plh_end], text);
-            g_free (text);
+            if (text != NULL)
+            {
+              GTET_O_STRCPY (plhistory[plh_end], text);
+              g_free (text);
+            }
         }
         switch (keyval) {
         case GDK_Up:
