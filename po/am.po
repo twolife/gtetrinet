@@ -1,0 +1,715 @@
+# Translations into the Amharic Language.
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gtetrinet package.
+# Ge'ez Frontier Foundation <locales@geez.org>, 2002.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtetrinet\n"
+"POT-Creation-Date: 2003-02-03 11:27+0100\n"
+"PO-Revision-Date: 2003-02-01 10:13+EDT\n"
+"Last-Translator: Ge'ez Frontier Foundation <locales@geez.org>\n"
+"Language-Team: Amharic <locales@geez.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/commands.c:38
+msgid "_Connect to server..."
+msgstr ""
+
+#: src/commands.c:39
+msgid "_Disconnect from server"
+msgstr ""
+
+#: src/commands.c:41
+msgid "Change _team..."
+msgstr "ቡድንን ለውጥ... (_T)"
+
+#: src/commands.c:43
+msgid "_Start game"
+msgstr "ጨዋታን ጀምር (_S)"
+
+#: src/commands.c:44
+msgid "_Pause game"
+msgstr "ጨዋታውን ለጥቂት ጊዜ አሳርፍ (_P)"
+
+#: src/commands.c:45
+msgid "_End game"
+msgstr "ጨዋታውን ጨርስ (_E)"
+
+#: src/commands.c:50
+msgid "Detac_h page..."
+msgstr "ገጽን አለያይ... (_H)"
+
+#: src/commands.c:75
+msgid "Connect"
+msgstr "አገናኝ"
+
+#: src/commands.c:75
+msgid "Connect to a server"
+msgstr ""
+
+#: src/commands.c:76
+msgid "Disconnect"
+msgstr "ግንኙነት አቋርጥ"
+
+#: src/commands.c:76
+msgid "Disconnect from the current server"
+msgstr ""
+
+#: src/commands.c:78
+msgid "Start game"
+msgstr "ጨዋታን ጀምር"
+
+#: src/commands.c:78
+msgid "Start a new game"
+msgstr "አዲስ ጨዋታ ጀምር"
+
+#: src/commands.c:79
+msgid "Pause game"
+msgstr "ጨዋታውን ለጥቂት ጊዜ አሳርፍ"
+
+#: src/commands.c:79
+msgid "Pause the game"
+msgstr "ጨዋታውን ለጥቂት ጊዜ አሳርፍ"
+
+#: src/commands.c:80
+msgid "End game"
+msgstr "ጨዋታውን ጨርስ"
+
+#: src/commands.c:80
+msgid "End the current game"
+msgstr "አሁን ያለውን ጨዋታ ጨርስ"
+
+#: src/commands.c:82 src/dialogs.c:149
+msgid "Change team"
+msgstr "ቡድንን ለውጥ"
+
+#: src/commands.c:82
+msgid "Change your current team name"
+msgstr ""
+
+#: src/commands.c:85
+msgid "Detach page"
+msgstr "ገጽን አለያይ"
+
+#: src/commands.c:85
+msgid "Detach the current notebook page"
+msgstr ""
+
+#: src/commands.c:207
+msgid "Game in progress"
+msgstr ""
+
+#: src/commands.c:210
+msgid "Connected to\n"
+msgstr ""
+
+#: src/commands.c:214
+msgid "Not connected"
+msgstr "ተገናኝቷል አይደለም"
+
+#. Translators: translate as your names & emails
+#: src/commands.c:236
+msgid "translator_credits"
+msgstr "ዘግዕዝ Frontier Foundation"
+
+#: src/commands.c:241
+msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
+msgstr "(ም) 1999፥ 2000፥ 2001፥ 2002፥ 2003 Ka-shu Wong"
+
+#: src/commands.c:242
+msgid "A Tetrinet client for GNOME.\n"
+msgstr ""
+
+#: src/commands.c:254
+msgid "GTetrinet Home Page"
+msgstr "የGTetrinet ማነሻ ገጽ"
+
+#: src/config.c:88
+msgid "Warning: theme does not have a name"
+msgstr ""
+
+#. make dialog that asks for address/nickname
+#: src/dialogs.c:83 src/dialogs.c:296 src/gtetrinet.c:77
+msgid "Connect to server"
+msgstr ""
+
+#: src/dialogs.c:161 src/dialogs.c:395
+msgid "Team name:"
+msgstr "የቡድን ስም፦"
+
+#: src/dialogs.c:200
+msgid "You must specify a server name."
+msgstr ""
+
+#: src/dialogs.c:210
+msgid "Please specify a password to connect as spectator."
+msgstr ""
+
+#: src/dialogs.c:225
+msgid "Please specify a valid nickname."
+msgstr ""
+
+#. game type radio buttons
+#: src/dialogs.c:323
+msgid "Original"
+msgstr "የመጀመሪያው"
+
+#: src/dialogs.c:325
+msgid "TetriFast"
+msgstr "TetriFast"
+
+#: src/dialogs.c:347
+msgid "Server address"
+msgstr "የሰርቨር አድራሻ"
+
+#: src/dialogs.c:356 src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr ""
+
+#: src/dialogs.c:360
+msgid "Password:"
+msgstr "ሚስጢራዊ ቃል፦"
+
+#: src/dialogs.c:374
+msgid "Spectate game"
+msgstr ""
+
+#: src/dialogs.c:383
+msgid "Nick name:"
+msgstr "ቅጽል ስምች፦"
+
+#: src/dialogs.c:412
+msgid "Player information"
+msgstr ""
+
+#: src/dialogs.c:453
+msgid "Change Key"
+msgstr ""
+
+#: src/dialogs.c:516
+msgid "Move right"
+msgstr "ወደቀኝ አንቀሳቅስ"
+
+#: src/dialogs.c:517
+msgid "Move left"
+msgstr "ወደግራ አንቀሳቅስ"
+
+#: src/dialogs.c:518
+msgid "Move down"
+msgstr "ወደታች አንቀሳቅስ"
+
+#: src/dialogs.c:519
+msgid "Rotate right"
+msgstr "በስታቀኝ ያሽከርክሩ"
+
+#: src/dialogs.c:520
+msgid "Rotate left"
+msgstr "በስተግራ ያሽከርክሩ"
+
+#: src/dialogs.c:521
+msgid "Drop piece"
+msgstr ""
+
+#: src/dialogs.c:522
+msgid "Discard special"
+msgstr ""
+
+#: src/dialogs.c:523
+msgid "Send message"
+msgstr ""
+
+#: src/dialogs.c:587
+#, c-format
+msgid "Press new key for \"%s\""
+msgstr ""
+
+#: src/dialogs.c:788
+msgid "GTetrinet Preferences"
+msgstr ""
+
+#: src/dialogs.c:811
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr ""
+
+#: src/dialogs.c:819
+msgid "Name:"
+msgstr "ስም፦"
+
+#: src/dialogs.c:823
+msgid "Author:"
+msgstr "ደራሲ ዎች፦"
+
+#: src/dialogs.c:827
+msgid "Description:"
+msgstr "መግለጫ፦"
+
+#: src/dialogs.c:845
+msgid "Selected Theme"
+msgstr ""
+
+#: src/dialogs.c:864
+msgid "Themes"
+msgstr "ጭብጦች"
+
+#: src/dialogs.c:875
+msgid "Action"
+msgstr "ትግባር"
+
+#: src/dialogs.c:877
+msgid "Key"
+msgstr "ቁልፍ"
+
+#: src/dialogs.c:883
+msgid ""
+"Select an action from the list and press Change Key to change the key "
+"associated with the action."
+msgstr ""
+
+#: src/dialogs.c:889
+msgid "Change key..."
+msgstr ""
+
+#: src/dialogs.c:894 src/dialogs.c:947
+msgid "Restore defaults"
+msgstr ""
+
+#: src/dialogs.c:915
+msgid "Keyboard"
+msgstr "የፊደል ሠሌዳ"
+
+#. sound
+#: src/dialogs.c:920
+msgid "Enable Sound"
+msgstr "ድምፅን አስችል"
+
+#: src/dialogs.c:923
+msgid "Enable MIDI"
+msgstr "MIDIን አስችል"
+
+#: src/dialogs.c:937
+msgid "Enter command to play a midi file:"
+msgstr ""
+
+#: src/dialogs.c:940
+msgid ""
+"The above command is run when a midi file is to be played.  The name of the "
+"midi file is placed in the environment variable MIDIFILE."
+msgstr ""
+
+#: src/dialogs.c:977
+msgid "Sound"
+msgstr "ድምፅ"
+
+#: src/fields.c:68
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr ""
+
+#. shouldnt happen
+#: src/fields.c:76
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr ""
+
+#: src/fields.c:191
+msgid "Next piece:"
+msgstr ""
+
+#: src/fields.c:208
+msgid "Lines:"
+msgstr "መስመሮች፦"
+
+#: src/fields.c:212
+msgid "Level:"
+msgstr "ደረጃ፦"
+
+#: src/fields.c:214
+msgid "Active level:"
+msgstr ""
+
+#: src/fields.c:262
+msgid "Attacks and defenses:"
+msgstr ""
+
+#: src/fields.c:401
+msgid "Not playing"
+msgstr ""
+
+#: src/fields.c:432
+msgid "Specials:"
+msgstr ""
+
+#: src/gtetrinet.c:77
+msgid "SERVER"
+msgstr "ሰርቨር"
+
+#: src/gtetrinet.c:78
+msgid "Set nickname to use"
+msgstr ""
+
+#: src/gtetrinet.c:78
+msgid "NICKNAME"
+msgstr "ቅጽል ስም"
+
+#: src/gtetrinet.c:79
+msgid "Set team name"
+msgstr "የቡድን ስም ይምረጡ"
+
+#: src/gtetrinet.c:79
+msgid "TEAM"
+msgstr "ቡድን"
+
+#: src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr ""
+
+#: src/gtetrinet.c:81
+msgid "PASSWORD"
+msgstr "ሚስጢራዊ ቃል"
+
+#: src/gtetrinet.c:172
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr ""
+
+#. FIXME
+#: src/gtetrinet.c:276 src/gtetrinet.c:421 src/gtetrinet.c:472
+msgid "Playing Fields"
+msgstr ""
+
+#. FIXME
+#: src/gtetrinet.c:287
+msgid "Partyline"
+msgstr ""
+
+#. FIXME
+#: src/gtetrinet.c:298
+msgid "Winlist"
+msgstr ""
+
+#: src/partyline.c:90 src/winlist.c:47
+msgid "Name"
+msgstr "ስም"
+
+#: src/partyline.c:92
+msgid "Team"
+msgstr "ቡድን"
+
+#: src/partyline.c:106
+msgid "Your name:"
+msgstr "የእርሶ ስም፦"
+
+#: src/partyline.c:115
+msgid "Your team:"
+msgstr "የእርሶ ቡድን፦"
+
+#: src/tetrinet.c:200
+#, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr ""
+
+#: src/tetrinet.c:209
+msgid "Error connecting: "
+msgstr ""
+
+#: src/tetrinet.c:238
+#, c-format
+msgid "%c%c*** Connected to server"
+msgstr ""
+
+#: src/tetrinet.c:336
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr ""
+
+#: src/tetrinet.c:340
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr ""
+
+#: src/tetrinet.c:432
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr ""
+
+#: src/tetrinet.c:438
+#, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr ""
+
+#: src/tetrinet.c:498
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr ""
+
+#: src/tetrinet.c:523
+#, c-format
+msgid "%c*** The game is %cin progress"
+msgstr ""
+
+#: src/tetrinet.c:534
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr ""
+
+#: src/tetrinet.c:536
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr ""
+
+#: src/tetrinet.c:541
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr ""
+
+#: src/tetrinet.c:543
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr ""
+
+#: src/tetrinet.c:552
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr ""
+
+#: src/tetrinet.c:662
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr ""
+
+#: src/tetrinet.c:679
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr ""
+
+#: src/tetrinet.c:700
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr ""
+
+#: src/tetrinet.c:857
+msgid "No special blocks"
+msgstr ""
+
+#: src/tetrinet.c:1016 src/tetrinet.c:1023
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr " በ %c%c%s%c%c"
+
+#: src/tetrinet.c:1033
+msgid " to All"
+msgstr ""
+
+#: src/tetrinet.c:1039 src/tetrinet.c:1046
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr " በ %c%c%s%c%c"
+
+#: src/tetrinet.c:1680
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr ""
+
+#. remove ", " from end of string
+#: src/tetrinet.c:1729
+msgid " has left the game"
+msgstr ""
+
+#: src/tetrinet.c:1730
+msgid " have left the game"
+msgstr ""
+
+#: src/tetrinet.c:1743
+msgid " has joined the game"
+msgstr ""
+
+#: src/tetrinet.c:1744
+msgid " have joined the game"
+msgstr ""
+
+#: src/tetrinet.c:1767
+#, c-format
+msgid "%s is on team %c%s"
+msgstr ""
+
+#: src/tetrinet.c:1770
+#, c-format
+msgid "%s is alone"
+msgstr ""
+
+#: src/tetrinet.c:1772
+#, c-format
+msgid "%s are on team %c%s"
+msgstr ""
+
+#: src/tetrinet.c:1775
+#, c-format
+msgid "%s are alone"
+msgstr ""
+
+#: src/tetrinet.c:1816
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr ""
+
+#: src/tetrinet.c:1823
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr ""
+
+#. "T" stands for "Team" here
+#: src/winlist.c:45
+msgid "T"
+msgstr "T"
+
+#: src/winlist.c:49
+msgid "Score"
+msgstr "ነጥብ"
+
+#: gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr "GTetrinet"
+
+#: gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr ""
+
+#: gtetrinet.desktop.in.h:3
+msgid "Tetrinet client for GNOME"
+msgstr ""
+
+#: gtetrinet.schemas.in.h:1
+msgid "Command to run to play midi files."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:2
+msgid "Enable/disable midi music."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:3
+msgid "Enable/disable sound."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:4
+msgid ""
+"Enables/Disables sound. Keep in mind that the theme that you're using must "
+"provide sounds."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:5
+msgid ""
+"Enables/disables midi music. You'll need to enable sound if you want music "
+"to work."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:6
+msgid "Key to discard special."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:7
+msgid "Key to drop piece."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:8
+msgid "Key to move down."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:9
+msgid "Key to move left."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:10
+msgid "Key to move right."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:11
+msgid "Key to open the fields' message dialog."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:12
+msgid "Key to rotate clockwise."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:13
+msgid "Key to rotate counterclockwise."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:14
+msgid "Server where you want to play."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:15
+msgid ""
+"The current theme directory. It should contain a readable \"blocks.png\" and "
+"a \"theme.cfg\"."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:16
+msgid "Theme directory, should end with a '/'."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:17
+msgid ""
+"This command is run when a midi file is to be played. The name of the midi "
+"file is placed in the environment variable MIDIFILE."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:18
+msgid "This is the server where GTetrinet will try to connect."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:19
+msgid "This key discards the current special. This is case insensitive."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:20
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:21
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:22
+msgid "This key moves the block down. This is case insensitive."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:23
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:24
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:25
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:26
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:27
+msgid "This will be the name of your team."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:28
+msgid "This will be your nickname in the game."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:29
+msgid "Your nickname."
+msgstr "የእርሶ ቅጽል።"
+
+#: gtetrinet.schemas.in.h:30
+msgid "Your team."
+msgstr "የእርሶ ቡድን።"
