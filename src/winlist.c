@@ -35,20 +35,20 @@ static GtkWidget *winlist;
 
 GtkWidget *winlist_page_new (void)
 {
-    char *winlisttitles[3];
     GtkWidget *align;
+    GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
+    GtkListStore *winlist_store = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
 
-    winlisttitles [0] = _("T");
-    winlisttitles [1] = _("Name");
-    winlisttitles [2] = _("Score");
+    winlist = gtk_tree_view_new_with_model (GTK_TREE_MODEL (winlist_store));
 
-    winlist = gtk_clist_new_with_titles (3, winlisttitles);
+    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("T"), renderer,
+                                                 "text", 0, NULL);
+    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("Name"), renderer,
+                                                 "text", 1, NULL);
+    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("Score"), renderer,
+                                                 "text", 2, NULL);
 
-    gtk_clist_set_column_width (GTK_CLIST(winlist), 0, 8);
-    gtk_clist_set_column_width (GTK_CLIST(winlist), 1, 120);
     gtk_widget_set_usize (winlist, 240, 0);
-
-    gtk_clist_column_titles_passive (GTK_CLIST(winlist));
 
     gtk_widget_show (winlist);
     align = gtk_alignment_new (0.5, 0.5, 0.0, 0.8);
@@ -60,17 +60,27 @@ GtkWidget *winlist_page_new (void)
 
 void winlist_clear (void)
 {
-    gtk_clist_clear (GTK_CLIST(winlist));
+    GtkListStore *winlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (winlist)));
+  
+    gtk_list_store_clear (winlist_model);
 }
 
 void winlist_additem (int team, char *name, int score)
 {
+    GtkListStore *winlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (winlist)));
+    GtkTreeIter iter;
     char buf[16], *item[3];
+
     if (team) item[0] = "T";
     else item[0] = "";
     item[1] = nocolor (name);
     g_snprintf (buf, sizeof(buf), "%d", score);
     item[2] = buf;
 
-    gtk_clist_append (GTK_CLIST(winlist), item);
+    gtk_list_store_append (winlist_model, &iter);
+    gtk_list_store_set (winlist_model, &iter,
+                        0, item[0],
+                        1, item[1],
+                        2, item[2],
+                        -1);
 }

@@ -1509,18 +1509,22 @@ notfieldkey:
             {
                 char buf[256];
                 const char *s;
+                gchar *locale_s;
                 s = fields_gmsginputtext ();
                 if (strlen(s) > 0) {
                     if (strncmp("/me ", s, 4) == 0) {
                         /* post /me thingy */
                         g_snprintf (buf, sizeof(buf), "* %s %s", nick, s+4);
-                        client_outmessage (OUT_GMSG, buf);
+                        locale_s = g_locale_from_utf8 (buf, -1, NULL, NULL, NULL);
+                        client_outmessage (OUT_GMSG, locale_s);
                     }
                     else {
                         /* post message */
                         g_snprintf (buf, sizeof(buf), "<%s> %s", nick, s);
-                        client_outmessage (OUT_GMSG, buf);
+                        locale_s = g_locale_from_utf8 (buf, -1, NULL, NULL, NULL);
+                        client_outmessage (OUT_GMSG, locale_s);
                     }
+                    g_free (locale_s);
                 }
                 /* hide input area */
                 fields_gmsginput (FALSE);

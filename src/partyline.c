@@ -52,12 +52,9 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key);
 GtkWidget *partyline_page_new (void)
 {
     GtkWidget *widget, *box; /* generic temp variables */
+    GtkListStore *playerlist_model = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
+    GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
     char *listtitles[3];
-
-    /* Initialise the array for the player list */
-    listtitles[0] = "";
-    listtitles[1] = _("Name");
-    listtitles[2] = _("Team");
 
     /* left box */
     leftbox = gtk_vbox_new (FALSE, 4);
@@ -65,9 +62,8 @@ GtkWidget *partyline_page_new (void)
     /* textbox with scrollbars */
     textbox = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
     gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW(textbox), GTK_WRAP_WORD);
-    GTK_WIDGET_UNSET_FLAGS(textbox, GTK_CAN_FOCUS);
-    gtk_signal_connect (GTK_OBJECT(textbox), "button_press_event",
-                        GTK_SIGNAL_FUNC(partyline_entryfocus), NULL);
+    gtk_text_view_set_editable (GTK_TEXT_VIEW (textbox), FALSE);
+    gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (textbox), FALSE);
     gtk_widget_show (textbox);
     textboxscroll = gtk_scrolled_window_new (NULL, NULL);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(textboxscroll),
@@ -87,10 +83,13 @@ GtkWidget *partyline_page_new (void)
     gtk_widget_show (leftbox);
 
     /* player list */
-    playerlist = gtk_clist_new_with_titles (3, listtitles);
-    gtk_clist_set_column_width (GTK_CLIST(playerlist), 0, 10);
-    gtk_clist_set_column_width (GTK_CLIST(playerlist), 1, 60);
-    gtk_clist_column_titles_passive (GTK_CLIST(playerlist));
+    playerlist = GTK_WIDGET (gtk_tree_view_new_with_model (GTK_TREE_MODEL (playerlist_model)));
+    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (playerlist), -1, "", renderer,
+                                                 "text", 0, NULL);
+    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (playerlist), -1, _("Name"), renderer,
+                                                 "text", 1, NULL);
+    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (playerlist), -1, _("Team"), renderer,
+                                                 "text", 2, NULL);
     gtk_widget_set_usize (playerlist, 150, 200);
     gtk_widget_show (playerlist);
 
@@ -157,9 +156,21 @@ void partyline_connectstatus (int status)
 
 void partyline_namelabel (char *nick, char *team)
 {
-    if (nick) gtk_label_set (GTK_LABEL(namelabel), nocolor(nick));
+    gchar *nick_utf8, *team_utf8;
+  
+    if (nick)
+    {
+      nick_utf8 = g_locale_to_utf8 (nick, -1, NULL, NULL, NULL);
+      gtk_label_set (GTK_LABEL(namelabel), nocolor(nick_utf8));
+      g_free (nick_utf8);
+    }
     else gtk_label_set (GTK_LABEL(namelabel), "");
-    if (team) gtk_label_set (GTK_LABEL(teamlabel), nocolor(team));
+    if (team)
+    {
+      team_utf8 = g_locale_to_utf8 (team, -1, NULL, NULL, NULL);
+      gtk_label_set (GTK_LABEL(teamlabel), nocolor(team_utf8));
+      g_free (team_utf8);
+    }
     else gtk_label_set (GTK_LABEL(teamlabel), "");
 }
 
@@ -191,25 +202,45 @@ void partyline_playerlist (int *numbers, char **names, char **teams, int n, char
     int i;
     char buf0[16], buf1[128], buf2[128];
     char *item[3] = {buf0, buf1, buf2};
+    GtkListStore *playerlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (playerlist)));
+    GtkTreeIter iter;
+    gchar *aux1, *aux2; /* for recoding purposes */
     
     /* update the playerlist so that it contains only the given names */
-    gtk_clist_freeze (GTK_CLIST(playerlist));
-    gtk_clist_clear (GTK_CLIST(playerlist));
+    gtk_list_store_clear (playerlist_model);
+
     for (i = 0; i < n; i ++) {
         g_snprintf (buf0, sizeof(buf0), "%d", numbers[i]);
         GTET_O_STRCPY (buf1, nocolor(names[i]));
         GTET_O_STRCPY (buf2, nocolor(teams[i]));
-        gtk_clist_append (GTK_CLIST(playerlist), item);
+        /* we only need to recode buf1 and buf2, buf0 is just a character */
+        aux1 = g_locale_to_utf8 (buf1, -1, NULL, NULL, NULL);
+        aux2 = g_locale_to_utf8 (buf2, -1, NULL, NULL, NULL);
+        gtk_list_store_append (playerlist_model, &iter);
+        gtk_list_store_set (playerlist_model, &iter,
+                            0, buf0, 1, aux1, 2, aux2, -1);
+        g_free (aux1);
+        g_free (aux2);
     }
+
     buf0[0] = buf1[0] = buf2[0] = 0;
-    gtk_clist_append (GTK_CLIST(playerlist), item);
+    gtk_list_store_append (playerlist_model, &iter);
+    gtk_list_store_set (playerlist_model, &iter,
+                        0, buf0, 1, buf1, 2, buf2, -1);
+
     for (i = 0; i < sn; i ++) {
         GTET_O_STRCPY (buf0, "S");
         GTET_O_STRCPY (buf1, nocolor(specs[i]));
         GTET_O_STRCPY (buf2, "");
-        gtk_clist_append (GTK_CLIST(playerlist), item);
+        /* we only need to recode buf1 and buf2, buf0 is just a character */
+        aux1 = g_locale_to_utf8 (buf1, -1, NULL, NULL, NULL);
+        aux2 = g_locale_to_utf8 (buf2, -1, NULL, NULL, NULL);
+        gtk_list_store_append (playerlist_model, &iter);
+        gtk_list_store_set (playerlist_model, &iter,
+                            0, buf0, 1, buf1, 2, buf2, -1);
+        g_free (aux1);
+        g_free (aux2);
     }
-    gtk_clist_thaw (GTK_CLIST(playerlist));
 }
 
 void partyline_entryfocus (void)
@@ -225,12 +256,16 @@ void partyline_switch_entryfocus (void)
 void textentry (GtkWidget *widget, gpointer data)
 {
     const char *text;
+    gchar *iso_text;
     text = gtk_entry_get_text (GTK_ENTRY(widget));
 
     if (strlen(text) == 0) return;
+    
+    /* convert from UTF-8 to the current locale, will work with ISO8859-1 locales */    
+    iso_text = g_locale_from_utf8 (text, -1, NULL, NULL, NULL);
 
-    tetrinet_playerline (text);
-    GTET_O_STRCPY (plhistory[plh_end], text);
+    tetrinet_playerline (iso_text);
+    GTET_O_STRCPY (plhistory[plh_end], iso_text);
     gtk_entry_set_text (GTK_ENTRY(widget), "");
 
     plh_end ++;
@@ -239,17 +274,20 @@ void textentry (GtkWidget *widget, gpointer data)
     if (plh_start == PLHSIZE) plh_start = 0;
     plh_cur = plh_end;
     plhistory[plh_cur][0] = 0;
+    
+    g_free (iso_text);
 }
 
 static gint entrykey (GtkWidget *widget, GdkEventKey *key)
 {
     int keyval = key->keyval;
+    gchar *text;
 
     if (keyval == GDK_Up || keyval == GDK_Down) {
         if (plh_cur == plh_end) {
-            const char *text;
-            text = gtk_entry_get_text (GTK_ENTRY(widget));
+            text = g_locale_from_utf8 (gtk_entry_get_text (GTK_ENTRY(widget)), -1, NULL, NULL, NULL);
             GTET_O_STRCPY (plhistory[plh_end], text);
+            g_free (text);
         }
         switch (keyval) {
         case GDK_Up:
@@ -263,7 +301,10 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key)
             if (plh_cur == PLHSIZE) plh_cur = 0;
             break;
         }
-        gtk_entry_set_text (GTK_ENTRY(widget), plhistory[plh_cur]);
+        text = g_locale_to_utf8 (plhistory[plh_cur], -1, NULL, NULL, NULL);
+        gtk_entry_set_text (GTK_ENTRY(widget), text);
+        gtk_editable_set_position (GTK_EDITABLE (widget), -1);
+        g_free (text);
 #ifdef DEBUG
         printf ("history: %d %d %d %s\n", plh_start, plh_end, plh_cur,
                 plhistory[plh_cur]);

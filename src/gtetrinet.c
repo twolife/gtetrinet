@@ -70,10 +70,12 @@ static const struct poptOption options[] = {
     {NULL, 0, 0, NULL, 0, NULL, NULL}
 };
 
+
 int main (int argc, char *argv[])
 {
     GtkWidget *page, *label, *box;
-    char buf[1024];
+    char buf[1024], *logo;
+    GdkPixbuf *icon_pixbuf;
 
     GTET_STRCPY(buf, "", 4);
     g_assert(strlen(buf) == 0);
@@ -159,6 +161,14 @@ int main (int argc, char *argv[])
     gtk_widget_set_events (app, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
 
     gtk_window_set_policy (GTK_WINDOW(app), FALSE, FALSE, TRUE);
+    
+    /* create and set the window icon */
+    icon_pixbuf = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
+    if (icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (app), icon_pixbuf);
+      gdk_pixbuf_unref (icon_pixbuf);
+    }
 
     /* create the notebook */
     notebook = gtk_notebook_new ();

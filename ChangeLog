@@ -1,5 +1,54 @@
 2003-01-04  Jordi Mallach  <jordi@sindominio.net>
 
+	* Big patch from Dani Carbonell, who saved our day and fixes most of
+	the pending issues in 0.5.0.
+
+	* src/commands.c: add stock icons to the toolbar. Needs better
+	icons, still.
+	(about_command): update author list.
+
+	* src/dialogs.c (teamdialog_button): convert the team name to iso
+	text before sending to the server.
+	(connectdialog_button): likewise, for team, nick and server names.
+	(connectdialog_new): convert nick and team names to UTF-8 before
+	displaying.
+	* src/fields.c (fields_setlabel): likewise.
+	(fields_gmsginputadd): convert field messages to UTF-8 before
+	displaying.
+	(fields_gmsginputback): get previous char in UTF-8.
+	* src/misc.c (textbox_addtext): replace g_utf8_normalize with
+	g_locale_to_utf8.
+	(nocolor): remove stripping of high characters, as we're doing UTF-8.
+	* src/partyline.c (partyline_namelabel): convert nick and team names
+	to UTF-8.
+	(partyline_playerlist): likewise.
+	(textentry): convert input from UTF-8 to ISO-8859-1.
+	(entrykey): likewise.
+	* src/tetrinet.c (tetrinet_key): convert messages to iso text before
+	sending them to the server.
+
+	* dialogs.c (prefdialog_drawkeys): port keys CList to GtkTreeView.
+	(prefdialog_clistupdate): new function, replaces
+	prefdialog_clistselect and prefdialog_clistunselect.
+	(prefdialog_changekey): reworked for GtkTreeView changes.
+	(prefdialog_themeselect): port themes GTK_CList to GtkTreeView.
+	(prefdialog_themelist): port to GtkTreeView.
+	(prefdialog_new): port to GtkTreeView.
+	* src/partyline.c (partyline_page_new): port playerlist CList to
+	GtkTreeView.
+	Stop unsetting GTK_CAN_FOCUS flag for partyline's gtk_text_view, and
+	disable set_editable and set_cursor_visible.
+	(partyline_playerlist): port playerlist CList to GtkTreeViewa
+	* src/winlist.c (winlist_clear): port winlist to GtkTreeView.
+	(winlist_additem): likewise.
+
+	* src/gtetrinet.c (main): assign a window icon.
+
+	* src/misc.c (textbox_setup): don't set a background color. Doesn't
+	appear to be useful at all, and makes text scrolling faster.
+
+2003-01-04  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/tetrinet.c: correct colours for several messages.
 
 2002-12-18  Jordi Mallach  <jordi@sindominio.net>

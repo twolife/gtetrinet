@@ -394,6 +394,7 @@ void fields_drawblock (int field, int x, int y, char block)
 void fields_setlabel (int field, char *name, char *team, int num)
 {
     char buf[11];
+    gchar *name_utf8, *team_utf8;
 
     g_snprintf (buf, sizeof(buf), "%d", num);
     
@@ -410,12 +411,13 @@ void fields_setlabel (int field, char *name, char *team, int num)
         gtk_label_set (GTK_LABEL(fieldlabels[field][5]), "");
     }
     else {
+        name_utf8 = g_locale_to_utf8 (name, -1, NULL, NULL, NULL);
         gtk_widget_show (fieldlabels[field][0]);
         gtk_widget_show (fieldlabels[field][1]);
         gtk_widget_show (fieldlabels[field][2]);
         gtk_widget_hide (fieldlabels[field][3]);
         gtk_label_set (GTK_LABEL(fieldlabels[field][0]), buf);
-        gtk_label_set (GTK_LABEL(fieldlabels[field][2]), nocolor(name));
+        gtk_label_set (GTK_LABEL(fieldlabels[field][2]), nocolor(name_utf8));
         gtk_label_set (GTK_LABEL(fieldlabels[field][3]), "");
         if (team == NULL || team[0] == 0) {
             gtk_widget_hide (fieldlabels[field][4]);
@@ -423,10 +425,13 @@ void fields_setlabel (int field, char *name, char *team, int num)
             gtk_label_set (GTK_LABEL(fieldlabels[field][5]), "");
         }
         else {
+            team_utf8 = g_locale_to_utf8 (team, -1, NULL, NULL, NULL);
             gtk_widget_show (fieldlabels[field][4]);
             gtk_widget_show (fieldlabels[field][5]);
-            gtk_label_set (GTK_LABEL(fieldlabels[field][5]), nocolor(team));
+            gtk_label_set (GTK_LABEL(fieldlabels[field][5]), nocolor(team_utf8));
+            g_free (team_utf8);
         }
+        g_free (name_utf8);
     }
 }
 
@@ -586,17 +591,22 @@ void fields_gmsginputactivate (int t)
 
 void fields_gmsginputadd (char *c)
 {
-    gtk_entry_append_text (GTK_ENTRY(gmsginput), c);
+    gchar *utf8_c = g_locale_to_utf8 (c, -1, NULL, NULL, NULL);
+    gtk_entry_append_text (GTK_ENTRY(gmsginput), utf8_c);
     gtk_entry_set_position (GTK_ENTRY(gmsginput),
                             strlen(gtk_entry_get_text(GTK_ENTRY(gmsginput))));
+    g_free (utf8_c);
 }
 
 void fields_gmsginputback (void)
 {
     char buf[256];
+    gchar *prev;
+  
     GTET_O_STRCPY (buf, gtk_entry_get_text(GTK_ENTRY(gmsginput)));
     if (strlen(buf) == 0) return;
-    buf[strlen(buf)-1] = 0;
+    prev = g_utf8_prev_char (&buf[strlen(buf)]);
+    *prev = 0;
     gtk_entry_set_text (GTK_ENTRY(gmsginput), buf);
     gtk_entry_set_position (GTK_ENTRY(gmsginput), strlen(buf));
 }

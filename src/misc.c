@@ -115,8 +115,8 @@ void textbox_setup (void)
         gtet_text_tags[n].t_c = gtk_text_buffer_create_tag (buffer, NULL,
                                                             "foreground-gdk",
                                                             &gtet_text_tags[n].c,
-                                                            "background",
-                                                            "white",
+//                                                            "background",
+//                                                            "white",
                                                             NULL);
 
     t_bold = gtk_text_buffer_create_tag (buffer, NULL,
@@ -158,6 +158,7 @@ void textbox_addtext (GtkTextView *textbox, unsigned char *text)
     
     if (gtk_text_buffer_get_char_count (textbox->buffer)) /* not first line */
         gtk_text_buffer_insert (textbox->buffer, &iter, "\n", 1);
+    
     for (i = 0; text[i]; i ++) {
 	if (text[i] == TETRI_TB_RESET) {
 	    lastcolor = color = gtet_text_tags[0].t_c;
@@ -190,7 +191,7 @@ void textbox_addtext (GtkTextView *textbox, unsigned char *text)
         }
         else
         {
-          char *out = g_utf8_normalize(&text[i], 1, G_NORMALIZE_ALL);
+          gchar *out = g_locale_to_utf8 (&text[i], 1, NULL, NULL, NULL);
           if (out)
           {
             if (0)
@@ -290,14 +291,6 @@ char *nocolor (char *str)
   g_string_assign(ret, str);
 
   p = scan = ret->str;
-  while (*scan)
-  {
-    if ((signed char)*scan > 0x1F) /* high characters are ok,
-                                    * but only if it's UTF-8 --
-                                    * just kill them for now */
-      *p++ = *scan;
-    ++scan;
-  }
   if (scan != p)
     g_string_truncate(ret, len - (scan - p));
   
