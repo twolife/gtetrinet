@@ -353,6 +353,49 @@ void textentry (GtkWidget *widget)
     g_free (iso_text);
 }
 
+static gboolean is_nick (GtkTreeModel *model,
+                         GtkTreePath *path,
+                         GtkTreeIter *iter,
+                         gpointer data)
+{
+  gchar *nick, *aux, *down;
+
+  gtk_tree_model_get (model, iter, 1, &nick, -1);
+  down = g_utf8_strdown (nick, -1);
+  path = path;
+  
+  if (g_str_has_prefix (down, data))
+  {
+    aux = g_strconcat (nick, ": ", NULL);
+    gtk_entry_set_text (GTK_ENTRY (entrybox), aux);
+    gtk_editable_set_position (GTK_EDITABLE (entrybox), -1);
+    
+    g_free (aux);
+    g_free (nick);
+    g_free (down);
+    return TRUE;
+  }
+  else
+  {
+    g_free (nick);
+    g_free (down);
+    return FALSE;
+  }
+}
+
+static void playerlist_complete_nick (void)
+{
+  GtkListStore *playerlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (playerlist)));
+  gchar *text;
+  
+  text = g_utf8_strdown (gtk_entry_get_text (GTK_ENTRY (entrybox)), -1);
+  if (text == NULL) return;
+
+  gtk_tree_model_foreach (GTK_TREE_MODEL (playerlist_model), is_nick, text);
+
+  g_free (text);
+}
+
 static gint entrykey (GtkWidget *widget, GdkEventKey *key)
 {
     int keyval = key->keyval;
@@ -392,6 +435,11 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key)
     }
     else if (keyval == GDK_Left || keyval == GDK_Right) {
         return FALSE;
+    }
+    else if (keyval == GDK_Tab)
+    {
+      playerlist_complete_nick ();
+      return TRUE;
     }
     else {
         plh_cur = plh_end;

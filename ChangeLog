@@ -1,5 +1,12 @@
 2003-06-04  Dani Carbonell  <bocata@panete.net>
 
+	* src/partyline.c (is_nick): new function, it will compare the
+	actual string with a complete nickname. The completion will be
+	done with the first match.
+	(playerlist_complete_nick): new function, it'll launch the
+	iteration through the player list, calling is_nick for each nick.
+	(entrykey): launch the nick completion when the TAB key is hit.
+
 	* src/commands.h (show_stop_button, show_start_button): new functions.
 
 	* src/commands.c: changed the button order.
