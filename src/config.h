@@ -1,13 +1,39 @@
+#include <gconf/gconf-client.h>
+
 extern char blocksfile[1024];
 extern int bsize;
-extern char currenttheme[1024];
+extern gchar currenttheme[1024];
 extern guint keys[];
 extern guint defaultkeys[];
 
-extern void config_loadtheme (char *themedir);
+extern void config_loadtheme (const gchar *themedir);
 extern int config_getthemeinfo (char *themedir, char *name, char *author, char *desc);
 extern void config_loadconfig (void);
 extern void config_saveconfig (void);
+
+void
+sound_midi_player_changed (GConfClient *client,
+                           guint cnxn_id,
+                           GConfEntry *entry,
+                           gpointer user_data);
+
+void
+sound_enable_sound_changed (GConfClient *client,
+                            guint cnxn_id,
+                            GConfEntry *entry,
+                            gpointer user_data);
+
+void
+sound_enable_midi_changed (GConfClient *client,
+                           guint cnxn_id,
+                           GConfEntry *entry,
+                           gpointer user_data);
+
+void
+themes_theme_dir_changed (GConfClient *client,
+                          guint cnxn_id,
+                          GConfEntry *entry,
+                          gpointer user_data);
 
 #define GTETRINET_THEMES GTETRINET_DATA"/themes"
 #define DEFAULTTHEME GTETRINET_THEMES"/default/"

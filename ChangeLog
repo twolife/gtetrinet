@@ -1,3 +1,58 @@
+2003-02-01  Dani Carbonell  <bocata@panete.net>
+
+	* gtetrinet.schemas.in: first version of the .schemas file.
+	* config.h: a few prototype fixes, and add the handlers for the
+	GConf keys.
+	* config.c: ported to GConf, changed default keys to lowercase, and
+	a few function prototype fixes.
+	(config_loadtheme): prototype fix.
+	(config_loadconfig): ported to GConf.
+	(config_saveconfig): nuked, no longer needed.
+	(load_theme): new function, designed to load a theme "in the fly".
+	(sound_midi_player_changed): new function, it will handle the
+	changes made to the /apps/gtetrinet/sound/midi_player key.
+	(sound_enable_sound_changed): new function, it will handle the
+	changes made to the /apps/gtetrinet/sound/enable_sound key.
+	(sound_enable_midi_changed): new function, it will handle the
+	changes made to the /apps/gtetrinet/sound/enable_midi key.
+	(themes_theme_dir_changed): new function, it will handle the
+	changes made to the /apps/gtetrinet/themes/theme_dir key.
+	* dialogs.c: ported to GConf, and few UI improvements in the
+	dialogs.
+	(teamdialog_button): now it behaves as a gtk_dialog.
+	(teamdialog_new): changed to gtk_dialog.
+	(connectdialog_button): now it behaves as a gtk_dialog, it also
+	saves the server, nickname and team to GConf.
+	(connectdialog_new): changed to gtk_dialog.
+	(key_dialog): changed to gtk_dialog.
+	(key_dialog_callback): cleaned a bit.
+	(prefdialog_drawkeys): added a convenience array, it will make
+	easier the GConf operations later.
+	(prefdialog_clistupdate): now it saves the changes in GConf.
+	(prefdialog_restorekeys): it now operates directly into the main keys
+	array.
+	(prefdialog_changekeys): likewise.
+	(prefdialog_soundtoggle): now it instantly saves the change in
+	GConf.
+	(prefdialog_miditoggle): likewise.
+	(prefdialog_midichanged): likewise.
+	(prefdialog_restoremidi): likewise.
+	(prefdialog_themelistselect): likewise.
+	(prefdialog_themeselect): cleaned a bit.
+	(prefdialog_apply): nuked, no longer needed.
+	(prefdialog_ok): also nuked.
+	(prefdialog_response): new function, now prefdialog behave as a
+	gtk_dialog.
+	(prefdialog_new): changed to gtk_dialog, removed the OK and Apply
+	buttons, also nuked that ugly frame.
+	* gtetrinet.c: ported to GConf.
+	(main): initialize all the GConf stuff. Add notifications and so.
+	Also, it's no longer needed to save the configuration on quit.
+	* sound.c: now it works. Really. config.h was never included, so
+	HAVE_ESD was always undefined, so no sound. Cool.
+	(sound_cache): ported to the new gnome_sound* functions.
+	(sound_playsound): now it plays the sound from cache, a lot faster.
+
 2003-01-29  Jordi Mallach  <jordi@sindominio.net>
 
 	* gtetrinet.desktop.in: adde StartupNotify support.

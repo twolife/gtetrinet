@@ -17,6 +17,10 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#ifdef HAVE_CONFIG_H
+# include "../config.h"
+#endif
+
 #include <gtk/gtk.h>
 #include <gnome.h>
 #include <sys/types.h>
@@ -35,6 +39,7 @@ char midicmd[1024];
 #ifdef HAVE_ESD
 
 #include <esd.h>
+#include <libgnome/gnome-sound.h>
 
 static int soundsamples[S_NUM];
 static int midipid = 0;
@@ -45,7 +50,7 @@ void sound_cache (void)
     if (!soundenable) return;
     for (i = 0; i < S_NUM; i ++) {
         if (soundsamples[i])
-            esd_sample_free (gnome_sound_connection, soundsamples[i]);
+            esd_sample_free (gnome_sound_connection_get (), soundsamples[i]);
         if (soundfiles[i][0])
             soundsamples[i] = gnome_sound_sample_load (soundfiles[i], soundfiles[i]);
         else
@@ -56,8 +61,8 @@ void sound_cache (void)
 void sound_playsound (int id)
 {
     if (!soundenable) return;
-    if (soundfiles[id][0])
-        esd_play_file ("gtetrinet", soundfiles[id], -1);
+    if (soundsamples[id] > 0)
+      esd_sample_play (gnome_sound_connection_get (), soundsamples[id]);
 }
 
 void sound_playmidi (char *file)

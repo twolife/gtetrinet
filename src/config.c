@@ -23,6 +23,7 @@
 
 #include <gtk/gtk.h>
 #include <gnome.h>
+#include <gconf/gconf-client.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
@@ -33,11 +34,15 @@
 #include "tetrinet.h"
 #include "sound.h"
 #include "misc.h"
+#include "tetris.h"
+#include "fields.h"
 
 char blocksfile[1024];
 int bsize;
 
 char currenttheme[1024];
+
+extern GConfClient *gconf_client;
 
 static char *soundkeys[S_NUM] = {
     "Sounds/Drop",
@@ -59,14 +64,14 @@ guint defaultkeys[K_NUM] = {
     GDK_Control_R,
     GDK_Down,
     GDK_space,
-    GDK_D,
-    GDK_T
+    GDK_d,
+    GDK_t
 };
 
 guint keys[K_NUM];
 
 /* themedir is assumed to have a trailing slash */
-void config_loadtheme (char *themedir)
+void config_loadtheme (const gchar *themedir)
 {
     char buf[1024], *p;
     int i;
@@ -155,14 +160,18 @@ int config_getthemeinfo (char *themedir, char *name, char *author, char *desc)
 
 void config_loadconfig (void)
 {
-    char *p;
     unsigned int k;
     int l;
+    gchar *p;
     
-
-    gnome_config_push_prefix ("/"APPID"/");
-
-    p = gnome_config_get_string ("Themes/ThemeDir="DEFAULTTHEME);
+    /* get the current theme */
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/themes/theme_dir", NULL);
+    /* if there is no theme configured, then we fallback to DEFAULTTHEME */
+    if (strlen (p) == 0) 
+    {
+      g_free (p);
+      p = g_strdup (DEFAULTTHEME);
+    }
     GTET_O_STRCPY(currenttheme, p);
     g_free (p);
     /* add trailing slash if none exists */
@@ -171,76 +180,118 @@ void config_loadconfig (void)
       GTET_O_STRCAT(currenttheme, "/");
     }
 
-    p = gnome_config_get_string ("Sound/MidiPlayer="DEFAULTMIDICMD);
+    /* get the midi player */
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/sound/midi_player", NULL);
     GTET_O_STRCPY(midicmd, p);
     g_free (p);
 
-    soundenable = gnome_config_get_int ("Sound/EnableSound=1");
-    midienable = gnome_config_get_int ("Sound/EnableMidi=1");
+    /* get the other sound options */
+    soundenable = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/sound/enable_sound", NULL);
+    midienable  = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/sound/enable_midi",  NULL);
 
-    p = gnome_config_get_string ("Player/Nickname");
+    /* get the player nickname */
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/player/nickname", NULL);
     if (p) {
         GTET_O_STRCPY(nick, p);
         g_free(p);
     }
 
-    p = gnome_config_get_string ("Player/Server");
+    /* get the server name */
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/player/server", NULL);
     if (p) {
         GTET_O_STRCPY(server, p);
         g_free(p);
     }
 
-    p = gnome_config_get_string ("Player/Team");
+    /* get the team name */
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/player/team", NULL);
     if (p) {
         GTET_O_STRCPY(team, p);
         g_free(p);
     }
 
-    k = gnome_config_get_int ("Keys/Right");
+    /* get the keys */
+    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/right", NULL);
     keys[K_RIGHT] = gdk_keyval_to_lower (k ? k : defaultkeys[K_RIGHT]);
-    k = gnome_config_get_int ("Keys/Left");
+    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/left", NULL);
     keys[K_LEFT] = gdk_keyval_to_lower (k ? k : defaultkeys[K_LEFT]);
-    k = gnome_config_get_int ("Keys/RotateRight");
+    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/rotate_right", NULL);
     keys[K_ROTRIGHT] = gdk_keyval_to_lower (k ? k : defaultkeys[K_ROTRIGHT]);
-    k = gnome_config_get_int ("Keys/RotateLeft");
+    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/rotate_left", NULL);
     keys[K_ROTLEFT] = gdk_keyval_to_lower (k ? k : defaultkeys[K_ROTLEFT]);
-    k = gnome_config_get_int ("Keys/Down");
+    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/down", NULL);
     keys[K_DOWN] = gdk_keyval_to_lower (k ? k : defaultkeys[K_DOWN]);
-    k = gnome_config_get_int ("Keys/Drop");
+    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/drop", NULL);
     keys[K_DROP] = gdk_keyval_to_lower (k ? k : defaultkeys[K_DROP]);
-    k = gnome_config_get_int ("Keys/Discard");
+    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/discard", NULL);
     keys[K_DISCARD] = gdk_keyval_to_lower (k ? k : defaultkeys[K_DISCARD]);
-    k = gnome_config_get_int ("Keys/Message");
+    k = gconf_client_get_int (gconf_client, "/apps/gtetrinet/keys/message", NULL);
     keys[K_GAMEMSG] = gdk_keyval_to_lower (k ? k : defaultkeys[K_GAMEMSG]);
-
-    gnome_config_pop_prefix ();
 
     config_loadtheme (currenttheme);
 }
 
-void config_saveconfig (void)
+void load_theme (const gchar *theme_dir)
 {
-    gnome_config_push_prefix ("/"APPID"/");
+  /* load the theme */
+  GTET_O_STRCPY (currenttheme, theme_dir);
+  config_loadtheme (theme_dir);
 
-    gnome_config_set_string ("Themes/ThemeDir", currenttheme);
+  /* update the fields */
+  fields_page_destroy_contents ();
+  fields_cleanup ();
+  fields_init ();
+  fields_page_new ();
+  fieldslabelupdate();
+  if (ingame)
+  {
+    sound_stopmidi ();
+    sound_playmidi (midifile);
+    tetrinet_redrawfields ();
+  }
+}
 
-    gnome_config_set_string ("Sound/MidiPlayer", midicmd);
-    gnome_config_set_int ("Sound/EnableSound", soundenable);
-    gnome_config_set_int ("Sound/EnableMidi", midienable);
+void
+sound_midi_player_changed (GConfClient *client,
+                           guint cnxn_id,
+                           GConfEntry *entry,
+                           gpointer user_data)
+{
+  GTET_O_STRCPY (midicmd, gconf_value_get_string (gconf_entry_get_value (entry)));
+  if (ingame)
+  {
+    sound_stopmidi ();
+    sound_playmidi (midifile);
+  }
+}
 
-    gnome_config_set_string ("Player/Nickname", nick);
-    gnome_config_set_string ("Player/Server", server);
-    gnome_config_set_string ("Player/Team", team);
+void
+sound_enable_sound_changed (GConfClient *client,
+                            guint cnxn_id,
+                            GConfEntry *entry,
+                            gpointer user_data)
+{
+  soundenable = gconf_value_get_bool (gconf_entry_get_value (entry));
+  if (!soundenable)
+    gconf_client_set_bool (gconf_client, "/apps/gtetrinet/sound/enable_midi", FALSE, NULL);
+}
 
-    gnome_config_set_int ("Keys/Right", keys[K_RIGHT]);
-    gnome_config_set_int ("Keys/Left", keys[K_LEFT]);
-    gnome_config_set_int ("Keys/RotateRight", keys[K_ROTRIGHT]);
-    gnome_config_set_int ("Keys/RotateLeft", keys[K_ROTLEFT]);
-    gnome_config_set_int ("Keys/Down", keys[K_DOWN]);
-    gnome_config_set_int ("Keys/Drop", keys[K_DROP]);
-    gnome_config_set_int ("Keys/Discard", keys[K_DISCARD]);
-    gnome_config_set_int ("Keys/Message", keys[K_GAMEMSG]);
+void
+sound_enable_midi_changed (GConfClient *client,
+                           guint cnxn_id,
+                           GConfEntry *entry,
+                           gpointer user_data)
+{
+  midienable = gconf_value_get_bool (gconf_entry_get_value (entry));
+  if (!midienable)
+    sound_stopmidi ();
+}
 
-    gnome_config_pop_prefix ();
-    gnome_config_sync ();
+void
+themes_theme_dir_changed (GConfClient *client,
+                          guint cnxn_id,
+                          GConfEntry *entry,
+                          gpointer user_data)
+{
+  load_theme (gconf_value_get_string (gconf_entry_get_value (entry)));
 }

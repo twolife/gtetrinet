@@ -31,3 +31,5 @@ extern void tetrinet_playerlost (void);
 extern void tetrinet_endgame (void);
 
 extern int playerfield (int p);
+
+extern void fieldslabelupdate (void);

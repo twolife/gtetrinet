@@ -3,7 +3,6 @@ GTetrinet's TODO list
 
 - Get server list from http://www.tetrinet.org/ip/
 - GNOME2 port issues:
-  + preferences dialog (gconf)
   + keybindings
   + port deprecated widgets (-DGTK_DISABLE_DEPRECATED)
   + detaching and reattaching the Menu Bar causes two Bonobo-CRITICAL

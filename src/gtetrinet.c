@@ -29,6 +29,7 @@
 #include <sys/poll.h>
 #include <sys/types.h>
 #include <signal.h>
+#include <gconf/gconf-client.h>
 
 #include "gtetrinet.h"
 #include "config.h"
@@ -68,6 +69,8 @@ int fields_width, fields_height;
 
 gulong keypress_signal;
 
+GConfClient *gconf_client;
+
 static const struct poptOption options[] = {
     {"connect", 'c', POPT_ARG_STRING, &option_connect, 0, N_("Connect to server"), N_("SERVER")},
     {"nickname", 'n', POPT_ARG_STRING, &option_nick, 0, N_("Set nickname to use"), N_("NICKNAME")},
@@ -96,6 +99,7 @@ int main (int argc, char *argv[])
     GtkWidget *label;
     char buf[1024];
     GdkPixbuf *icon_pixbuf;
+    GError *err = NULL;
 
     GTET_STRCPY(buf, "", 4);
     g_assert(strlen(buf) == 0);
@@ -160,6 +164,37 @@ int main (int argc, char *argv[])
 
     textbox_setup (); /* needs to be done before text boxes are created */
     
+    /* Initialize the GConf library */
+    if (!gconf_init (argc, argv, &err))
+    {
+      fprintf (stderr, _("Failed to init GConf: %s\n"), err->message);
+      g_error_free (err); 
+      err = NULL;
+    }
+  
+    /* Start a GConf client */
+    gconf_client = gconf_client_get_default ();
+  
+    /* Add the GTetrinet directories to the list of directories that GConf client must watch */
+    gconf_client_add_dir (gconf_client, "/apps/gtetrinet/sound",
+                          GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
+    
+    gconf_client_add_dir (gconf_client, "/apps/gtetrinet/themes",
+                          GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
+  
+    /* Request notification of change for these gconf keys */
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/sound/midi_player",
+                             sound_midi_player_changed, NULL, NULL, NULL);
+                             
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/sound/enable_sound",
+                             sound_enable_sound_changed, NULL, NULL, NULL);
+                             
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/sound/enable_midi",
+                             sound_enable_midi_changed, NULL, NULL, NULL);
+                             
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/themes/theme_dir",
+                             themes_theme_dir_changed, NULL, NULL, NULL);
+
     /* load settings */
     config_loadconfig ();
 
@@ -279,9 +314,6 @@ int main (int argc, char *argv[])
     fields_cleanup ();
     client_connectcancel (); /* kills the client process */
     sound_stopmidi ();
-
-    /* save settings */
-    config_saveconfig ();
 
     return 0;
 }

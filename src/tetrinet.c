@@ -143,7 +143,6 @@ static void partylineupdate_join (char *name);
 static void partylineupdate_team (char *name, char *team);
 static void partylineupdate_leave (char *name);
 static void playerlistupdate (void);
-static void fieldslabelupdate (void);
 static void plinemsg (const char *name, const char *text);
 static void plineact (const char *name, const char *text);
 static void plinesmsg (const char *name, const char *text);
