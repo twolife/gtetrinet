@@ -1,3 +1,11 @@
+2003-03-17  Daniel Carbonell Fraj  <bocata@panete.net>
+
+	* src/partyline.c (partyline_add_channel): changed the parsing code, so 
+	now it can parse the lines sent by the tetrinet java server.
+
+	* src/tetrinet.c (tetrinet_inmessage): added support for the
+	tetrinet java server.
+
 2003-03-17  Jordi Mallach  <jordi@sindominio.net>
 
 	* TODO: Updated for 0.7.0.

@@ -407,42 +407,73 @@ void partyline_add_channel (gchar *line)
   
   while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
   num = scan->value.v_int;
-  
-  while ((g_scanner_get_next_token (scan) != G_TOKEN_COMMENT_SINGLE) && !g_scanner_eof (scan));
-  utf8 = g_locale_to_utf8 (scan->value.v_comment, -1, NULL, NULL, NULL);
-  name = g_strconcat ("#", utf8, NULL);
-  
-  while ((g_scanner_get_next_token (scan) != G_TOKEN_IDENTIFIER) && !g_scanner_eof (scan));
-  players = g_strdup (scan->value.v_identifier);
 
-  if (strncmp (players, "FULL", 4))
+  g_scanner_get_next_token (scan); /* dump the ')' */
+  
+  if (g_scanner_peek_next_token (scan) == G_TOKEN_LEFT_BRACE)
   {
+    scan->config->cpair_comment_single = "# ";
+    
     while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
     actual = scan->value.v_int;
-
+    
     while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
     max = scan->value.v_int;
 
-    g_snprintf (final, 1024, "%d/%d %s", actual, max, players);
-  }
-  else
-    g_snprintf (final, 1024, "6/6 %s", players);
-  
-  g_scanner_get_next_token (scan); /* dump the ')' */
-  
-  if (g_scanner_get_next_token (scan) == G_TOKEN_LEFT_CURLY)
-  {
-    g_scanner_get_next_token (scan);
-    state = g_strdup (scan->value.v_identifier);
-  }
-  else
-    state = g_strdup ("IDLE");
-  
-  while ((g_scanner_get_next_token (scan) != G_TOKEN_RIGHT_PAREN) && !g_scanner_eof (scan));
-  if (line[scan->position] != 0)
-    desc = g_strstrip (g_locale_to_utf8 (&line[scan->position], -1, NULL, NULL, NULL));
-  else
+    while ((g_scanner_get_next_token (scan) != G_TOKEN_COMMENT_SINGLE) && !g_scanner_eof (scan));
+    utf8 = g_locale_to_utf8 (scan->value.v_comment, -1, NULL, NULL, NULL);
+    name = g_strconcat ("#", utf8, NULL);
+    
+    g_snprintf (final, 1024, "%d/%d", actual, max);
+
+    scan->config->cpair_comment_single = "{}";
+    while ((g_scanner_get_next_token (scan) != G_TOKEN_COMMENT_SINGLE) && !g_scanner_eof (scan));
+    if (!g_scanner_eof (scan))
+      state = g_strdup (scan->value.v_comment);
+    else
+      state = g_strdup ("IDLE");
+
     desc = g_strdup ("");
+    players = g_strdup ("");
+  }
+  else
+  {
+    while ((g_scanner_get_next_token (scan) != G_TOKEN_COMMENT_SINGLE) && !g_scanner_eof (scan));
+    utf8 = g_locale_to_utf8 (scan->value.v_comment, -1, NULL, NULL, NULL);
+    name = g_strconcat ("#", utf8, NULL);
+  
+    while ((g_scanner_get_next_token (scan) != G_TOKEN_IDENTIFIER) && !g_scanner_eof (scan));
+    players = g_strdup (scan->value.v_identifier);
+
+    if (strncmp (players, "FULL", 4))
+    {
+      while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
+      actual = scan->value.v_int;
+
+      while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
+      max = scan->value.v_int;
+
+      g_snprintf (final, 1024, "%d/%d %s", actual, max, players);
+    }
+    else
+      g_snprintf (final, 1024, "6/6 %s", players);
+  
+    g_scanner_get_next_token (scan); /* dump the ')' */
+  
+    if (g_scanner_get_next_token (scan) == G_TOKEN_LEFT_CURLY)
+    {
+      g_scanner_get_next_token (scan);
+      state = g_strdup (scan->value.v_identifier);
+    }
+    else
+      state = g_strdup ("IDLE");
+  
+    while ((g_scanner_get_next_token (scan) != G_TOKEN_RIGHT_PAREN) && !g_scanner_eof (scan));
+    if (line[scan->position] != 0)
+      desc = g_strstrip (g_locale_to_utf8 (&line[scan->position], -1, NULL, NULL, NULL));
+    else
+      desc = g_strdup ("");
+  }
   
   
   gtk_list_store_append (work_model, &iter);

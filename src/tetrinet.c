@@ -185,6 +185,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
     case IN_CONNECT:
         list_issued = 0;
         up_chan_list_source = g_timeout_add (30000, (GSourceFunc) partyline_update_channel_list, NULL);
+        partyline_joining_channel ("");
         break;
     case IN_DISCONNECT:
         if (!connected) {
@@ -280,6 +281,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             }
         }
         /* show partyline on successful connect */
+        partyline_update_channel_list ();
         show_partyline_page ();
         break;
     case IN_PLAYERJOIN:
@@ -399,62 +401,70 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
               break;
             token = strtok (NULL, "");
             if (token == NULL) token = "";
+            //printf ("* %s\n", token);
             if (pnum == 0) {
                 if (strncmp (token, "\04\04\04\04\04\04\04\04", 8) == 0) {
                     /* tetrix identification string */
                     tetrix = TRUE;
                 }
-                else if (tetrix) {
-                    gchar *line = nocolor (token);
+                else
+                {
+                  gchar *line = nocolor (token);
                       
-                    if (list_issued > 0)
+                  if (list_issued > 0)
+                  {
+                    if (*line == '(')
                     {
-                      if (*line == '(')
-                      {
-                        partyline_add_channel (line);
-                        break;
-                      }
-                      
-                      if (!strncmp ("List", line, 4))
-                      {
-                        partyline_more_channel_lines ();
-                        break;
-                      }
-                      
-                      if (!strncmp ("TetriNET", line, 8))
-                        break;
-                      
-                      if (!strncmp ("You", line, 3))
-                      {
-                        /* we will use the error message as list stopper */
-                        list_issued--;
-                        if (list_issued <= 0)
-                          stop_list();
-                        break;
-                      }
-                      
-                      //if (line != NULL) g_free (line);
+                      partyline_add_channel (line);
+                      break;
                     }
-                    /* detect whenever we have joined a channel */
-                    if (!strncmp ("has joined", &line[strlen (playernames[playernum])+1], 10))
+                      
+                    if (!strncmp ("List", line, 4))
                     {
-                      partyline_joining_channel (&line[strlen (playernames[playernum])+20]);
+                      partyline_more_channel_lines ();
+                      break;
                     }
-                    else if (!strncmp ("Joined existing Channel", line, 23))
+                      
+                    if (!strncmp ("TetriNET", line, 8))
+                      break;
+                      
+                    if (!strncmp ("You do NOT", line, 10))
                     {
-                      partyline_joining_channel (&line[26]);
+                      /* we will use the error message as list stopper */
+                      list_issued--;
+                      if (list_issued <= 0)
+                        stop_list();
+                      break;
                     }
-                    else if (!strncmp ("Created new Channel", line, 19))
-                    {
-                      partyline_joining_channel (&line[22]);
-                    }
+                      
+                    //if (line != NULL) g_free (line);
+                  }
+                  /* detect whenever we have joined a channel */
+                  if (!strncmp ("has joined", &line[strlen (playernames[playernum])+1], 10))
+                  {
+                    partyline_joining_channel (&line[strlen (playernames[playernum])+20]);
+                  }
+                  else if (!strncmp ("Joined existing Channel", line, 23))
+                  {
+                    partyline_joining_channel (&line[26]);
+                  }
+                  else if (!strncmp ("Created new Channel", line, 19))
+                  {
+                    partyline_joining_channel (&line[22]);
+                  }
+                  else if (!strncmp ("You have joined", line, 15))
+                  {
+                    partyline_joining_channel (&line[16]);
+                  }
                     
+                  if (tetrix) {
                     g_snprintf (buf, sizeof(buf), "*** %s", token);
                     partyline_text (buf);
                     break;
+                  }
+                  else
+                    plinemsg ("Server", token);
                 }
-                else
-                  plinemsg ("Server", token);
             }
             else
             {
