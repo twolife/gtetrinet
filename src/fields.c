@@ -31,6 +31,7 @@
 #include "tetris.h"
 #include "fields.h"
 #include "misc.h"
+#include "gtetrinet.h"
 
 #define BLOCKSIZE bsize
 #define SMALLBLOCKSIZE (BLOCKSIZE/2)
@@ -49,6 +50,7 @@ static void fields_refreshfield (int field);
 static void fields_drawblock (int field, int x, int y, char block);
 
 static gint fields_eatkey (GtkWidget *widget);
+static void gmsginput_activate (GtkEntry *entry, gpointer data);
 
 static GdkPixmap *blockpix;
 
@@ -311,8 +313,8 @@ GtkWidget *fields_page_contents (void)
     gmsginput = gtk_entry_new_with_max_length (128);
     gtk_widget_show (gmsginput);
     /* eat up key messages */
-    g_signal_connect (G_OBJECT(gmsginput), "key-press-event",
-                        GTK_SIGNAL_FUNC(fields_eatkey), NULL);
+    g_signal_connect (G_OBJECT(gmsginput), "activate",
+                        GTK_SIGNAL_FUNC(gmsginput_activate), NULL);
     gtk_table_attach (GTK_TABLE(table2), gmsginput, 0, 1, 1, 2,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
     gtk_widget_show (table2);
@@ -557,7 +559,7 @@ void fields_setactivelevel (int l)
     }
 }
 
-void fields_gmsgadd (char *str)
+void fields_gmsgadd (const char *str)
 {
     textbox_addtext (GTK_TEXT_VIEW(gmsgtext), str);
     adjust_bottom_text_view (GTK_TEXT_VIEW(gmsgtext));
@@ -568,7 +570,7 @@ void fields_gmsgclear (void)
   gtk_text_buffer_set_text(GTK_TEXT_VIEW(gmsgtext)->buffer, "", 0);
 }
 
-void fields_gmsginput (int i)
+void fields_gmsginput (gboolean i)
 {
     if (i) {
         gtk_widget_show (gmsginput);
@@ -586,7 +588,10 @@ void fields_gmsginputclear (void)
 void fields_gmsginputactivate (int t)
 {
     if (t)
+    {
+        fields_gmsginputclear ();
         gtk_widget_grab_focus (gmsginput);
+    }
     else
         { /* do nothing */; }
 }
@@ -598,6 +603,39 @@ void fields_gmsginputadd (char *c)
     gtk_entry_set_position (GTK_ENTRY(gmsginput),
                             strlen(gtk_entry_get_text(GTK_ENTRY(gmsginput))));
     g_free (utf8_c);
+}
+
+void gmsginput_activate (GtkEntry *entry, gpointer data)
+{
+    gchar *locale_s, buf[256];
+    const gchar *s;
+  
+    if (gmsgstate == 0)
+    {
+        fields_gmsginputclear ();
+        return;
+    }
+    s = fields_gmsginputtext ();
+    if (strlen(s) > 0) {
+        if (strncmp("/me ", s, 4) == 0) {
+            /* post /me thingy */
+            g_snprintf (buf, sizeof(buf), "* %s %s", nick, s+4);
+            locale_s = g_locale_from_utf8 (buf, -1, NULL, NULL, NULL);
+            client_outmessage (OUT_GMSG, locale_s);
+            g_free (locale_s);
+        }
+        else {
+            /* post message */
+            g_snprintf (buf, sizeof(buf), "<%s> %s", nick, s);
+            locale_s = g_locale_from_utf8 (buf, -1, NULL, NULL, NULL);
+            client_outmessage (OUT_GMSG, locale_s);
+            g_free (locale_s);
+        }
+    }
+    fields_gmsginputclear ();
+    fields_gmsginput (FALSE);
+    unblock_keyboard_signal ();
+    gmsgstate = 0;
 }
 
 void fields_gmsginputback (void)

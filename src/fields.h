@@ -16,7 +16,7 @@ extern void fields_attdefclear (void);
 extern void fields_setlines (int l);
 extern void fields_setlevel (int l);
 extern void fields_setactivelevel (int l);
-extern void fields_gmsgadd (char *str);
+extern void fields_gmsgadd (const char *str);
 extern void fields_gmsgclear (void);
 extern void fields_gmsginput (int i);
 extern void fields_gmsginputclear (void);

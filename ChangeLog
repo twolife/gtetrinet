@@ -1,3 +1,11 @@
+2003-01-08  Dani Carbonell  <bocata@panete.net>
+
+	* TODO: remove composed characters problem.
+	* src/fields.c: rewrite fields messages entry box, so it works ok
+	with composed characters.
+	* src/gtetrinet.c: acomodate fields messages changes.
+	* src/tetrinet.c: remove fields messages code, moved to fields.c.
+
 2003-01-08  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/misc.c (nocolor): fix previous change.

@@ -61,6 +61,8 @@ int gamemode = ORIGINAL;
 
 int fields_width, fields_height;
 
+gulong keypress_signal;
+
 static const struct poptOption options[] = {
     {"connect", 'c', POPT_ARG_STRING, &option_connect, 0, N_("Connect to server"), N_("SERVER")},
     {"nickname", 'n', POPT_ARG_STRING, &option_nick, 0, N_("Set nickname to use"), N_("NICKNAME")},
@@ -154,8 +156,8 @@ int main (int argc, char *argv[])
 
     g_signal_connect (G_OBJECT(app), "destroy",
                         GTK_SIGNAL_FUNC(destroymain), NULL);
-    g_signal_connect (G_OBJECT(app), "key-press-event",
-                        GTK_SIGNAL_FUNC(keypress), NULL);
+    keypress_signal = g_signal_connect (G_OBJECT(app), "key-press-event",
+                                        GTK_SIGNAL_FUNC(keypress), NULL);
     g_signal_connect (G_OBJECT(app), "key-release-event",
                         GTK_SIGNAL_FUNC(keyrelease), NULL);
     gtk_widget_set_events (app, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
@@ -340,13 +342,20 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
                                                  GDK_CONTROL_MASK |
                                                  GDK_SHIFT_MASK)))
     {
-      gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key_press_event");
+      gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-press-event");
       return TRUE;
+    }
+    
+    if (game_area && (gdk_keyval_to_upper (key->keyval) == keys[K_GAMEMSG]))
+    {
+      g_signal_handler_block (app, keypress_signal);
+      fields_gmsginputactivate (TRUE);
+      gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-press-event");
     }
 
     if (game_area && tetrinet_key (key->keyval, key->string))
     {
-      gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key_press_event");
+      gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-press-event");
       return TRUE;
     }
     
@@ -502,4 +511,9 @@ void show_fields_page (void)
 void show_partyline_page (void)
 {
     gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 1);
+}
+
+void unblock_keyboard_signal (void)
+{
+    g_signal_handler_unblock (app, keypress_signal);
 }

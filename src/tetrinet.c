@@ -1512,7 +1512,7 @@ int tetrinet_key (int keyval, char *str)
 notfieldkey:
     if (!ingame) return FALSE;
     /* gmsg keys */
-    if (gmsgstate == 1) {
+/*    if (gmsgstate == 1) {
         fields_gmsginputactivate (TRUE);
         switch (keyval) {
         case GDK_Return:
@@ -1523,20 +1523,17 @@ notfieldkey:
                 s = fields_gmsginputtext ();
                 if (strlen(s) > 0) {
                     if (strncmp("/me ", s, 4) == 0) {
-                        /* post /me thingy */
                         g_snprintf (buf, sizeof(buf), "* %s %s", nick, s+4);
                         locale_s = g_locale_from_utf8 (buf, -1, NULL, NULL, NULL);
                         client_outmessage (OUT_GMSG, locale_s);
                     }
                     else {
-                        /* post message */
                         g_snprintf (buf, sizeof(buf), "<%s> %s", nick, s);
                         locale_s = g_locale_from_utf8 (buf, -1, NULL, NULL, NULL);
                         client_outmessage (OUT_GMSG, locale_s);
                     }
                     g_free (locale_s);
                 }
-                /* hide input area */
                 fields_gmsginput (FALSE);
                 fields_gmsginputclear ();
                 gmsgstate = 0;
@@ -1554,7 +1551,7 @@ notfieldkey:
             break;
         }
         return TRUE;
-    }
+    }*/
     if (gdk_keyval_to_upper (keyval) == keys[K_GAMEMSG]) {
         fields_gmsginput (TRUE);
         gmsgstate = 1;

@@ -131,7 +131,7 @@ void textbox_setup (void)
     tag_table = gtk_text_buffer_get_tag_table(buffer);
 }
 
-void textbox_addtext (GtkTextView *textbox, unsigned char *text)
+void textbox_addtext (GtkTextView *textbox, const unsigned char *text)
 {
     GtkTextTag *color, *lastcolor;
     int i;
