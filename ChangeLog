@@ -1,6 +1,11 @@
+2003-10-05  Jordi Mallach  <jordi@sindominio.net>
+
+	* NEWS: Update for 0.7.5.
+	* configure.in: Released gtetrinet 0.7.5.
+
 2003-09-01  Metin Amiroff  <metin@karegen.com>
 
-	configure.in: Added "az" in ALL_LINGUAS.
+	* configure.in: Added "az" in ALL_LINGUAS.
 
 2003-08-30  Jordi Mallach  <jordi@sindominio.net>
 
@@ -9,7 +14,7 @@
 	(connectdialog_button): Likewise.
 	(connectdialog_new): Likewise.
 	(prefdialog_new): Don't make the Close button the default action.
-	Patches from Dagfinn Ilmari Manns�ker. Thanks!
+	Patches from Dagfinn Ilmari Mannsåker. Thanks!
 
 2003-08-29  Dani Carbonell  <bocata@panete.net>
 
@@ -59,7 +64,7 @@
 2003-08-07  Dani Carbonell  <bocata@panete.net>
 
 	* src/dialogs.c (teamdialog_new, connectdialog_new): applied patch
-	from Dagfinn Ilmari Manns�ker, closes bug #119356.
+	from Dagfinn Ilmari Mannsåker, closes bug #119356.
 
 2003-07-25  Artur Flinta  <aflinta@cvs.gnome.org>
 
@@ -208,7 +213,7 @@
 	window, set it modal, and don't show it in the windows list.
 	
 
-2003-05-28  Danilo Šegan  <dsegan@gmx.net>
+2003-05-28  Danilo Å egan  <dsegan@gmx.net>
 
 	* configure.in: Added "sr" and "sr@Latn" to ALL_LINGUAS.
 
@@ -1167,7 +1172,7 @@
 
 2002-12-03  Jordi Mallach  <jordi@sindominio.net>
 
-	* src/tetrinet.c (tetrinet_inmessage): patch from Niko Böhm, fixes
+	* src/tetrinet.c (tetrinet_inmessage): patch from Niko BÃ¶hm, fixes
 	player count after several /move commands.
 
 	* AUTHORS: added Niko.
@@ -1402,7 +1407,7 @@
 
 2002-10-03  Jordi Mallach  <jordi@sindominio.net>
 
-	* src/tetrinet.c: patch from Niko Böhm which fixes a missbehaviour
+	* src/tetrinet.c: patch from Niko BÃ¶hm which fixes a missbehaviour
 	of blockbomb.
 
 2002-07-06  Jordi Mallach  <jordi@sindominio.net>

@@ -1,7 +1,13 @@
+GTetrinet 0.7.5 - 2003-10-04
+- HIGification improvements in several dialogs (Dagfinn Ilmari MannsÃ¥ker).
+- Make the default keys usable in azerty keyboards (Dani).
+- New and updated translations: Azerbaijani (Metin Amiroff),
+  Polish (Artur Flinta), Japanese (KAMAGASAKO Masatoshi).
+
 GTetrinet 0.7.4 - 2003-08-29
 - Fix configure.in so nobody needs intl/ dir. (Jordi)
 - Connect and Team dialogs now have "OK" as default action (Dagfinn Ilmari
-  Mannsåker).
+  MannsÃ¥ker).
 - Fix a crash when restoring the default keys (Dani).
 - Cursor fixes for the game fields (Dani).
 - Fix bug where keyboard would become unusable on game start (Benjamin Drieu).
@@ -28,7 +34,7 @@ GTetrinet 0.7.2 - 2003-06-07
 - The mouse cursor is now hidden while playing.
 - New keyboard shortcuts for connect/disconnect, change team and
   start/stop/pause game.
-­ Attack/defense keys are now configurable, helping Azerty keyboard users.
+Â­ Attack/defense keys are now configurable, helping Azerty keyboard users.
 - Other bugfixes.
 - New and updated translations: French (Christophe Merlet), Catalan
   (Jordi Mallach), Swedish (Christian Rose), Portuguese (Duarte Loreto),
@@ -44,7 +50,7 @@ GTetrinet 0.7.1 - 2003-04-14
 - Fixed segfault in the partyline when entering Unicode control characters
   in the history.
 - Now installs .desktop file in the GNOME2 location.
-- New and updated translations: Spanish (Francisco Javier Fernández),
+- New and updated translations: Spanish (Francisco Javier FernÃ¡ndez),
   Japanese (KAMAGASAKO Masatoshi), Catalan (Jordi Mallach), Swedish
   (Christian Rose), German (Gerfried Fuchs), Portuguese (Duarte Loreto),
   Czech (Miloslav Trmac).
@@ -77,7 +83,7 @@ GTetrinet 0.6.0 - 2003-02-04
 - Speed improvements, which should help TetriFAST.
 - Fixed embarrasing bug which made sound not work.
 - New and updated translations: Swedish (Christian Rose),
-  Spanish (German Poo-Caamaño), Dutch (Vincent van Adrighem),
+  Spanish (German Poo-CaamaÃ±o), Dutch (Vincent van Adrighem),
   Norwegian (Kjartan Maraas), Amharic (Daniel Yacob) and Catalan.
 - Other minor fixes/improvements.
 
