@@ -1,5 +1,10 @@
 2003-02-01  Jordi Mallach  <jordi@sindominio.net>
 
+	* Makefile.am: add rules for schemas install.
+	* NEWS: updated for 0.6.0.
+
+2003-02-01  Jordi Mallach  <jordi@sindominio.net>
+
 	* gtetrinet.schemas.in: reword a few schemas.
 
 2003-02-01  Dani Carbonell  <bocata@panete.net>
@@ -59,7 +64,7 @@
 
 2003-01-29  Jordi Mallach  <jordi@sindominio.net>
 
-	* gtetrinet.desktop.in: adde StartupNotify support.
+	* gtetrinet.desktop.in: add StartupNotify support.
 
 2003-01-29  Jordi Mallach  <jordi@sindominio.net>
 

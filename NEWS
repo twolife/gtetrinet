@@ -1,3 +1,13 @@
+GTetrinet 0.6.0 - Unreleased
+- GTetrinet is now hosted on cvs.gnome.org and uses the GNOME Bugzilla.
+- Configuration ported to GConf.
+- Speed improvements, which should help TetriFAST.
+- Fixed embarrasing bug which made sound not work.
+- New and updated translations: Swedish (Christian Rose),
+  Spanish (German Poo-Caamaño), Dutch (Vincent van Adrighem),
+  Norwegian (Kjartan Maraas) and Catalan.
+- Other minor fixes/improvements.
+
 GTetrinet 0.5.2 - 2003-01-11
 - Fixed segfault on connect dialog many people were seeing. Really.
 - Fixed behaviour of "Ok" button in preferences. It actually works now.
