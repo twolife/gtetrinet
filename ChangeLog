@@ -1,3 +1,7 @@
+2003-06-23  Jordi Mallach  <jordi@sindominio.net>
+
+	* configure.in (ALL_LINGUAS): Add "mk" (Macedonian).
+
 2003-06-14  Dani Carbonell  <bocata@panete.net>
 
 	* src/commands.c (show_connect_button, show_disconnect_button):
