@@ -1,0 +1,863 @@
+# Turkish translation of gtetrinet.
+# Copyright (C) 2003 THE gtetrinet'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gtetrinet package.
+# Tamer Sezgin <tamer_sezgin@yahoo.com>, 2003.
+# 
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtetrinet 2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-11-12 04:13+0100\n"
+"PO-Revision-Date: 2003-11-24 17:21+0200\n"
+"Last-Translator: Tamer Sezgin <tamer_sezgin@yahoo.com>\n"
+"Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#: src/client.c:237
+msgid "Couldn't resolve hostname."
+msgstr "Makina adını çözemedi."
+
+#: src/commands.c:45
+msgid "_Connect to server..."
+msgstr "Sunucuya bağlan..."
+
+#: src/commands.c:46
+msgid "_Disconnect from server"
+msgstr "Sunucudan ayrıl"
+
+#: src/commands.c:48
+msgid "Change _team..."
+msgstr "Takım değiştir..."
+
+#: src/commands.c:50
+msgid "_Start game"
+msgstr "Oyuna başla"
+
+#: src/commands.c:51
+msgid "_Pause game"
+msgstr "Oyunu duraklat"
+
+#: src/commands.c:52
+msgid "_End game"
+msgstr "Oyunu sonlandır"
+
+#: src/commands.c:57
+msgid "Detac_h page..."
+msgstr "Sayfayı ayır..."
+
+#: src/commands.c:82
+msgid "Connect"
+msgstr "Bağlan"
+
+#: src/commands.c:82
+msgid "Connect to a server"
+msgstr "Bir sunucuya bağlan"
+
+#: src/commands.c:83
+msgid "Disconnect"
+msgstr "Bağlantıyı kes"
+
+#: src/commands.c:83
+msgid "Disconnect from the current server"
+msgstr "Şu andaki sunucu bağlantısını kes"
+
+#: src/commands.c:85
+msgid "Start game"
+msgstr "Oyuna başla"
+
+#: src/commands.c:85
+msgid "Start a new game"
+msgstr "Yeni bir oyuna başla"
+
+#: src/commands.c:86
+msgid "End game"
+msgstr "Oyunu sonlandır"
+
+#: src/commands.c:86
+msgid "End the current game"
+msgstr "Şu andaki oyunu sonlandır"
+
+#: src/commands.c:87
+msgid "Pause game"
+msgstr "Oyunu duraklat"
+
+#: src/commands.c:87
+msgid "Pause the game"
+msgstr "Oyunu duraklat"
+
+#: src/commands.c:89 src/dialogs.c:156
+msgid "Change team"
+msgstr "Takım değiştir"
+
+#: src/commands.c:89
+msgid "Change your current team name"
+msgstr "Şu andaki takımının adını değiştir"
+
+#: src/commands.c:92
+msgid "Detach page"
+msgstr "Sayfayı ayır"
+
+#: src/commands.c:92
+msgid "Detach the current notebook page"
+msgstr "Şu andaki defter sayfasını ayır"
+
+#: src/commands.c:258
+msgid "Game in progress"
+msgstr "Oyun devam ediyor"
+
+#: src/commands.c:261
+msgid "Connected to\n"
+msgstr "Bağlandı\n"
+
+#: src/commands.c:265
+msgid "Not connected"
+msgstr "Bağlı değil"
+
+#. Translators: translate as your names & emails
+#: src/commands.c:287
+msgid "translator_credits"
+msgstr "Tamer Sezgin <tamer_sezgin@yahoo.com>"
+
+#: src/commands.c:293
+msgid "A Tetrinet client for GNOME.\n"
+msgstr "GNOME için bir Tetrinet istemcisi.\n"
+
+#: src/commands.c:305
+msgid "GTetrinet Home Page"
+msgstr "GTetrinet Ana Sayfası"
+
+#: src/config.c:140
+msgid "Warning: theme does not have a name, reverting to default."
+msgstr "Uyarı: temanın bir adı yok, öntanımlıya geçiliyor"
+
+#. make dialog that asks for address/nickname
+#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
+msgid "Connect to server"
+msgstr "Sunucuya bağlan"
+
+#: src/dialogs.c:169
+msgid "Team name:"
+msgstr "Takım adı:"
+
+#: src/dialogs.c:215
+msgid "You must specify a server name."
+msgstr "Bir sunucu adı belirtmek zorundasınız."
+
+#: src/dialogs.c:232
+msgid "Please specify a password to connect as spectator."
+msgstr "Seyirci olarak bağlanmak için lütfen bir şifre belirtin."
+
+#: src/dialogs.c:258
+msgid "Please specify a valid nickname."
+msgstr "Lütfen geçerli bir takma ad belirtin."
+
+#. game type radio buttons
+#: src/dialogs.c:364
+msgid "O_riginal"
+msgstr "Özgün"
+
+#: src/dialogs.c:366
+msgid "Tetri_Fast"
+msgstr "Tetri_Fast"
+
+#: src/dialogs.c:388
+msgid "Server address"
+msgstr "Sunucu adresi"
+
+#: src/dialogs.c:397
+msgid "Connect as a _spectator"
+msgstr "Seyirci olarak bağlan"
+
+#: src/dialogs.c:401
+msgid "_Password:"
+msgstr "Şifre:"
+
+#: src/dialogs.c:418
+msgid "Spectate game"
+msgstr "Oyunu seyret"
+
+#: src/dialogs.c:427
+msgid "_Nick name:"
+msgstr "Takma ad:"
+
+#: src/dialogs.c:442
+msgid "_Team name:"
+msgstr "Takım adı:"
+
+#: src/dialogs.c:462
+msgid "Player information"
+msgstr "Oyuncu bilgisi"
+
+#: src/dialogs.c:503
+msgid "Change Key"
+msgstr "Tuş Değiştir"
+
+#: src/dialogs.c:554
+msgid "Move right"
+msgstr "Sağa git"
+
+#: src/dialogs.c:555
+msgid "Move left"
+msgstr "Sola git"
+
+#: src/dialogs.c:556
+msgid "Move down"
+msgstr "Aşağı git"
+
+#: src/dialogs.c:557
+msgid "Rotate right"
+msgstr "Sağa çevir"
+
+#: src/dialogs.c:558
+msgid "Rotate left"
+msgstr "Sola çevir"
+
+#: src/dialogs.c:559
+msgid "Drop piece"
+msgstr "Parçayı düşür"
+
+msgid "Discard special"
+msgstr "Özeli sil"
+
+#: src/dialogs.c:561
+msgid "Send message"
+msgstr "İleti gönder"
+
+#: src/dialogs.c:562
+msgid "Special to field 1"
+msgstr "1. alana özel"
+
+#: src/dialogs.c:563
+msgid "Special to field 2"
+msgstr "2. alana özel"
+
+#: src/dialogs.c:564
+msgid "Special to field 3"
+msgstr "3. alana özel"
+
+#: src/dialogs.c:565
+msgid "Special to field 4"
+msgstr "4. alana özel"
+
+#: src/dialogs.c:566
+msgid "Special to field 5"
+msgstr "5. alana özel"
+
+#: src/dialogs.c:567
+msgid "Special to field 6"
+msgstr "6. alana özel"
+
+#: src/dialogs.c:627
+#, c-format
+msgid "Press new key for \"%s\""
+msgstr "\"%s\" için yeni tuşa basın"
+
+#: src/dialogs.c:844
+msgid "GTetrinet Preferences"
+msgstr "GTetrinet Tercihleri"
+
+#: src/dialogs.c:866
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr ""
+"Listeden bir tema seç.\n"
+"Yeni temaları ~/.gtetrinet/themes/ dizinine kur."
+
+#: src/dialogs.c:874
+msgid "Name:"
+msgstr "Ad:"
+
+#: src/dialogs.c:878
+msgid "Author:"
+msgstr "Yazar:"
+
+#: src/dialogs.c:882
+msgid "Description:"
+msgstr "Açıklama:"
+
+#: src/dialogs.c:900
+msgid "Selected Theme"
+msgstr "Seçili Tema"
+
+#: src/dialogs.c:919
+msgid "Themes"
+msgstr "Temalar"
+
+#. partyline
+#: src/dialogs.c:924
+msgid "Enable _Timestamps"
+msgstr "Zaman Damgalarını Etkinleştir"
+
+#: src/dialogs.c:926
+msgid "Enable Channel _List"
+msgstr "Kanal Listesini Etkinleştir"
+
+#: src/dialogs.c:963
+msgid "Action"
+msgstr "Eylem"
+
+#: src/dialogs.c:965
+msgid "Key"
+msgstr "Tuş"
+
+#: src/dialogs.c:971
+msgid ""
+"Select an action from the list and press Change Key to change the key "
+"associated with the action."
+msgstr ""
+"Listeden bir eylem seçin, ve bu eylemle ilişkilendirilmiş tuşu değiştirmek için "
+"Tuş Değişir'e basın."
+
+#: src/dialogs.c:978
+msgid "Change _key..."
+msgstr "Tuş değiştir..."
+
+#: src/dialogs.c:983 src/dialogs.c:1036
+msgid "_Restore defaults"
+msgstr "Öntanımlıları geri yükle"
+
+#: src/dialogs.c:1004
+msgid "Keyboard"
+msgstr "Klavye"
+
+#. sound
+#: src/dialogs.c:1009
+msgid "Enable _Sound"
+msgstr "_Sesi Etkinleştir"
+
+#: src/dialogs.c:1012
+msgid "Enable _MIDI"
+msgstr "MIDI'yi Etkinleştir"
+
+#: src/dialogs.c:1026
+msgid "Enter command to play a midi file:"
+msgstr "Midi dosyalarını çalacak komutu girin:"
+
+#: src/dialogs.c:1029
+msgid ""
+"The above command is run when a midi file is to be played.  The name of the "
+"midi file is placed in the environment variable MIDIFILE."
+msgstr ""
+"Yukarıdaki komut, bir midi dosyası çalınacağı zaman çalışır Midi dosyasının adı"
+"MIDIFILE çevresel değişkeni içerisine yerleştirilir."
+
+#: src/dialogs.c:1066
+msgid "Sound"
+msgstr "Ses"
+
+#: src/fields.c:76
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr ""
+"Tema yüklenirken hata oluştu: Çizge dosyasını yükleyemedi\n"
+"Öntanımlıya geri dönüyor"
+
+#. shouldnt happen
+#: src/fields.c:85
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr "Öntanımlı tema yüklenirken hata oluştu: İptal ediyor...\n"
+"Kurulum hatalarını kontrol edin\n"
+
+#: src/fields.c:206
+msgid "Next piece:"
+msgstr "Sonraki parça:"
+
+#: src/fields.c:223
+msgid "Lines:"
+msgstr "Çizgiler:"
+
+#: src/fields.c:227
+msgid "Level:"
+msgstr "Düzey:"
+
+#: src/fields.c:229
+msgid "Active level:"
+msgstr "Etkin düzey:"
+
+#: src/fields.c:277
+msgid "Attacks and defenses:"
+msgstr "Saldırılar ve savunmalar:"
+
+#: src/fields.c:421
+msgid "Not playing"
+msgstr "Çalmıyor"
+
+#: src/fields.c:452
+msgid "Specials:"
+msgstr "Özeller:"
+
+#: src/gtetrinet.c:77
+msgid "SERVER"
+msgstr "SUNUCU"
+
+#: src/gtetrinet.c:78
+msgid "Set nickname to use"
+msgstr "Kullanılacak takma adı belirle"
+
+#: src/gtetrinet.c:78
+msgid "NICKNAME"
+msgstr "TAKMAAD"
+
+#: src/gtetrinet.c:79
+msgid "Set team name"
+msgstr "Takım adını belirle"
+
+#: src/gtetrinet.c:79
+msgid "TEAM"
+msgstr "TAKIM"
+
+#: src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "Seyirci olarak bağlan"
+
+#: src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr "Seyirci şifresi"
+
+#: src/gtetrinet.c:81
+msgid "PASSWORD"
+msgstr "SIFRE"
+
+#: src/gtetrinet.c:120
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "GConf'u ilklendirme başarısız: %s\n"
+
+#. FIXME
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:470
+msgid "Playing Fields"
+msgstr "Oyun Alanları"
+
+#. FIXME
+#: src/gtetrinet.c:292
+msgid "Winlist"
+msgstr "Kazanma listesi"
+
+#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
+msgid "Name"
+msgstr "Ad"
+
+#: src/partyline.c:79
+msgid "Players"
+msgstr "Oyuncular"
+
+#: src/partyline.c:81
+msgid "State"
+msgstr "Durum"
+
+#: src/partyline.c:83
+msgid "Description"
+msgstr "Açıklama"
+
+#: src/partyline.c:95
+msgid "Channel List"
+msgstr "Kanal Listesi"
+
+#: src/partyline.c:140
+msgid "Team"
+msgstr "Takım"
+
+#: src/partyline.c:153
+msgid "Your name:"
+msgstr "Adınız:"
+
+#: src/partyline.c:160
+msgid "Your team:"
+msgstr "Takımınız:"
+
+#: src/partyline.c:665
+msgid "Talking in channel"
+msgstr "Kanalda konuşuyor"
+
+#: src/partyline.c:667
+msgid "Disconnected"
+msgstr "Bağlantı kesildi"
+
+#: src/tetrinet.c:194
+msgid "Server disconnected"
+msgstr "Sunucu bağlantısı kesildi"
+
+#: src/tetrinet.c:214
+#, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c*** Sunucu bağlantısı kesildi"
+
+#: src/tetrinet.c:226
+msgid "Error connecting: "
+msgstr "Bağlantı hatası: "
+
+#: src/tetrinet.c:259
+#, c-format
+msgid "%c%c*** Connected to server"
+msgstr "%c%c*** Sunucuya bağlandı"
+
+#: src/tetrinet.c:360
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr "%c%c*** Oyundan atıldınız"
+
+#: src/tetrinet.c:364
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr "%c*** %c%s%c%c oyundan atıldı"
+
+#: src/tetrinet.c:539
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr "%c*** Takımı %c%s%c%c oyunu kazandı"
+
+#: src/tetrinet.c:545
+#, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr "%c*** %c%s%c%c oyunu kazandı"
+
+#: src/tetrinet.c:605
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr "%c*** Oyun %cbaşladı"
+
+#: src/tetrinet.c:631
+#, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "%c*** Oyun %cdevam ediyor"
+
+#: src/tetrinet.c:643
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr "%c*** Oyun %cduraklatıldı"
+
+#: src/tetrinet.c:645
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr "Oyun %c%cduraklatıldı"
+
+#: src/tetrinet.c:650
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr "%c*** Oyun %cdevam ettirildi"
+
+#: src/tetrinet.c:652
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr "Oyun %c%csürdürüldü"
+
+#: src/tetrinet.c:661
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr "%c*** Oyun %cbitti"
+
+#: src/tetrinet.c:772
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr "%c*** Katıldınız %c%s%c%c"
+
+#: src/tetrinet.c:789
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c seyircilere arasına katıldı %c%c(%c%s%c%c%c)"
+
+#: src/tetrinet.c:810
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c seyirciler arasından ayrıldı %c%c(%c%s%c%c%c)"
+
+#: src/tetrinet.c:1048
+msgid "No special blocks"
+msgstr "Özel öbek yok"
+
+#: src/tetrinet.c:1207 src/tetrinet.c:1214
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr " %c%c%s%c%c üzerinde"
+
+#: src/tetrinet.c:1224
+msgid " to All"
+msgstr "Herkese"
+
+#: src/tetrinet.c:1230 src/tetrinet.c:1237
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr " by %c%c%s%c%c"
+
+#: src/tetrinet.c:1865
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr "%c*** %c%s%c%c yöneticidir"
+
+#. remove ", " from end of string
+#: src/tetrinet.c:1914
+msgid " has left the game"
+msgstr "oyundan ayrıldı"
+
+#: src/tetrinet.c:1915
+msgid " have left the game"
+msgstr "oyundan ayrıldı"
+
+#: src/tetrinet.c:1928
+msgid " has joined the game"
+msgstr "oyuna katıldı"
+
+#: src/tetrinet.c:1929
+msgid " have joined the game"
+msgstr "oyuna katıldı(lar)"
+
+#: src/tetrinet.c:1952
+#, c-format
+msgid "%s is on team %c%s"
+msgstr "%s, %c%s takımında"
+
+#: src/tetrinet.c:1955
+#, c-format
+msgid "%s is alone"
+msgstr "%s tek başına"
+
+#: src/tetrinet.c:1957
+#, c-format
+msgid "%s are on team %c%s"
+msgstr "%s, %c%s takımındalar"
+
+#: src/tetrinet.c:1960
+#, c-format
+msgid "%s are alone"
+msgstr "%s tek başlarınalar"
+
+#: src/tetrinet.c:2001
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr "%c*** %c%s%c%c şimdi %c%s takımında"
+
+#: src/tetrinet.c:2008
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr "%c*** %c%s%c%c şimdi tek başına"
+
+#. "T" stands for "Team" here
+#: src/winlist.c:57
+msgid "T"
+msgstr "T"
+
+#: src/winlist.c:61
+msgid "Score"
+msgstr "Durum"
+
+#: gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr "GTetrinet"
+
+#: gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "Tetrinet istemcisi"
+
+#: gtetrinet.desktop.in.h:3
+msgid "Tetrinet client for GNOME"
+msgstr "GNOME için Tetrinet istemcisi"
+
+#: gtetrinet.schemas.in.h:1
+msgid "Command to run to play midi files"
+msgstr "Midi dosyalarını çalacak komut"
+
+#: gtetrinet.schemas.in.h:2
+msgid "Enable/disable channel list."
+msgstr "Kanal listesini aç/kapat"
+
+#: gtetrinet.schemas.in.h:3
+msgid "Enable/disable midi music"
+msgstr "Midi müziğini aç/kapat"
+
+#: gtetrinet.schemas.in.h:4
+msgid "Enable/disable sound"
+msgstr "Sesi aç/kapat"
+
+#: gtetrinet.schemas.in.h:5
+msgid "Enable/disable timestamps."
+msgstr "Zaman damgalarını aç/kapat"
+
+#: gtetrinet.schemas.in.h:6
+msgid ""
+"Enables/Disables sound. Keep in mind that the theme that you're using must "
+"provide sounds."
+msgstr ""
+"Sesi aç/kapat. Kullandığınız temanın sesler sağlamak zorunda olduğunu "
+"aklınızda bulundurun."
+
+#: gtetrinet.schemas.in.h:7
+msgid ""
+"Enables/disables midi music. You'll need to enable sound if you want music "
+"to work."
+msgstr ""
+"Midi müziği aç/kapar. Müziğin çalışmasını istiyorsanız, sesi açmanız gerekir."
+
+#: gtetrinet.schemas.in.h:8
+msgid ""
+"Enables/disables the channel list. Disable it if you experience problems "
+"when connecting or while playing in your favorite tetrinet server."
+msgstr ""
+"Kanal listesini aç/kapat. Gözde sunucunuza bağlanırken, ya da oynarken "
+"sorun yaşarsanız kapatın."
+
+#: gtetrinet.schemas.in.h:9
+msgid "Enables/disables timestamps in the partyline."
+msgstr "Parti-çizgisindeki zaman damgalarını aç/kapat."
+
+#: gtetrinet.schemas.in.h:10
+msgid "Key to discard special"
+msgstr "Özeli atma tuşu"
+
+#: gtetrinet.schemas.in.h:11
+msgid "Key to drop piece"
+msgstr "Parça düşürme tuşu"
+
+#: gtetrinet.schemas.in.h:12
+msgid "Key to move down"
+msgstr "Aşağı hareket tuşu"
+
+#: gtetrinet.schemas.in.h:13
+msgid "Key to move left"
+msgstr "Sola hareket tuşu"
+
+#: gtetrinet.schemas.in.h:14
+msgid "Key to move right"
+msgstr "Sağa hareket tuşu"
+
+#: gtetrinet.schemas.in.h:15
+msgid "Key to open the fields' message dialog"
+msgstr "Alanların ileti penceresini açma tuşu"
+
+#: gtetrinet.schemas.in.h:16
+msgid "Key to rotate clockwise"
+msgstr "Saat yönünde döndürme tuşu"
+
+#: gtetrinet.schemas.in.h:17
+msgid "Key to rotate counterclockwise"
+msgstr "Saat yönünün tersine döndürme tuşu"
+
+#: gtetrinet.schemas.in.h:18
+msgid "Key to use the current special on field 1"
+msgstr "Yürürlükteki özeli 1. alanda kullanma tuşu"
+
+#: gtetrinet.schemas.in.h:19
+msgid "Key to use the current special on field 2"
+msgstr "Yürürlükteki özeli 2. alanda kullanma tuşu"
+
+#: gtetrinet.schemas.in.h:20
+msgid "Key to use the current special on field 3"
+msgstr "Yürürlükteki özeli 3. alanda kullanma tuşu"
+
+#: gtetrinet.schemas.in.h:21
+msgid "Key to use the current special on field 4"
+msgstr "Yürürlükteki özeli 4. alanda kullanma tuşu"
+
+#: gtetrinet.schemas.in.h:22
+msgid "Key to use the current special on field 5"
+msgstr "Yürürlükteki özeli 5. alanda kullanma tuşu"
+
+#: gtetrinet.schemas.in.h:23
+msgid "Key to use the current special on field 6"
+msgstr "Yürürlükteki özeli 6. alanda kullanma tuşu"
+
+#: gtetrinet.schemas.in.h:24
+msgid "Server where you want to play"
+msgstr "Oynamak istediğiniz sunucu"
+
+#: gtetrinet.schemas.in.h:25
+msgid ""
+"The current theme directory. It should contain a readable \"blocks.png\" and "
+"a \"theme.cfg\"."
+msgstr ""
+"Yürürlükteki tema dizini. Okunabilir bir \"blocks.png\" ve \"theme.cfg\" içermeli."
+
+#: gtetrinet.schemas.in.h:26
+msgid "Theme directory, should end with a '/'"
+msgstr "Tema dizini, '/' ile bitmeli"
+
+#: gtetrinet.schemas.in.h:27
+msgid ""
+"This command is run when a midi file is to be played. The name of the midi "
+"file is placed in the environment variable MIDIFILE."
+msgstr ""
+"Bir midi dosyası çalınacağı zaman çalıştırılacak komut. Midi dosyasının"
+"adı MIDIFILE çevresel değişkenine yerleştirilir."
+
+#: gtetrinet.schemas.in.h:28
+msgid "This is the server where GTetrinet will try to connect."
+msgstr "Bu, GTetrinet'in bağlanmayı deneyeceği sunucudur"
+
+#: gtetrinet.schemas.in.h:29
+msgid "This key discards the current special. This is case insensitive."
+msgstr "Bu tuş yürürlükteki özeli atar. Büyük/küçük harf duyarsızdır."
+
+#: gtetrinet.schemas.in.h:30
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr "Bu tuş, alanların ileti penceresini gösterir. Büyük/küçük harf duyarsızdır."
+
+#: gtetrinet.schemas.in.h:31
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr "Bu tuş, öbeği zemine düşürür. Büyük/küçük harf duyarsızdır."
+
+#: gtetrinet.schemas.in.h:32
+msgid "This key moves the block down. This is case insensitive."
+msgstr "Bu tuş, öbeği aşağıya hareket ettirir. Büyük/küçük harf duyarsızdır."
+
+#: gtetrinet.schemas.in.h:33
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr "Bu tuş, öbeği sola hareket ettirir. Büyük/küçük harf duyarsızdır."
+
+#: gtetrinet.schemas.in.h:34
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr "Bu tuş, öbeği sağa hareket ettirir. Büyük/küçük harf duyarsızdır."
+
+#: gtetrinet.schemas.in.h:35
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr "Bu tuş, öbeği saat yönünde döndürür. Büyük/küçük harf duyarsızdır."
+
+#: gtetrinet.schemas.in.h:36
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr "Bu tuş, öbeği saat yönünün tersine döndürür. Büyük/küçük harf duyarsızdır."
+
+#: gtetrinet.schemas.in.h:37
+msgid "This key uses the current special on Player 1's game field."
+msgstr "Bu tuş, yürürlükteki özeli 1. Oyuncunun oyun alanında kullanır."
+
+#: gtetrinet.schemas.in.h:38
+msgid "This key uses the current special on Player 2's game field."
+msgstr "Bu tuş, yürürlükteki özeli 2.Oyuncunun oyun alanında kullanır."
+
+#: gtetrinet.schemas.in.h:39
+msgid "This key uses the current special on Player 3's game field."
+msgstr "Bu·tuş,·yürürlükteki·özeli·3.Oyuncunun·oyun·alanında·kullanır."
+
+#: gtetrinet.schemas.in.h:40
+msgid "This key uses the current special on Player 4's game field."
+msgstr "Bu·tuş,·yürürlükteki·özeli·4.Oyuncunun·oyun·alanında·kullanır."
+
+#: gtetrinet.schemas.in.h:41
+msgid "This key uses the current special on Player 5's game field."
+msgstr "Bu·tuş,·yürürlükteki·özeli·5.Oyuncunun·oyun·alanında·kullanır."
+
+#: gtetrinet.schemas.in.h:42
+msgid "This key uses the current special on Player 6's game field."
+msgstr "Bu·tuş,·yürürlükteki·özeli·6.Oyuncunun·oyun·alanında·kullanır."
+
+#: gtetrinet.schemas.in.h:43
+msgid "This will be the name of your team."
+msgstr "Bu sizin takımınızın adı olacak"
+
+#: gtetrinet.schemas.in.h:44
+msgid "This will be your nickname in the game."
+msgstr "Bu sizin oyundaki takma adınız olacak"
+
+#: gtetrinet.schemas.in.h:45
+msgid "Your nickname"
+msgstr "Takma adınız"
+
+#: gtetrinet.schemas.in.h:46
+msgid "Your team"
+msgstr "Takımınız"
+
