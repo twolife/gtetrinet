@@ -1,6 +1,6 @@
 /*
  *  GTetrinet
- *  Copyright (C) 1999, 2000  Ka-shu Wong (kswong@zip.com.au)
+ *  Copyright (C) 1999, 2000, 2001, 2002, 2003  Ka-shu Wong (kswong@zip.com.au)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -239,7 +239,7 @@ void about_command (GtkWidget *widget, gpointer data)
       logo = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
     
       about = gnome_about_new (APPNAME, APPVERSION,
-                               _("(C) 1999, 2000, 2001, 2002 Ka-shu Wong"),
+                               _("(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"),
                                _("A Tetrinet client for GNOME.\n"),
                                authors,
                                documenters,

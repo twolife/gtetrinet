@@ -1,5 +1,9 @@
 2003-01-05  Jordi Mallach  <jordi@sindominio.net>
 
+	* src/commands.c: update copyright notices... happy new year.
+
+2003-01-05  Jordi Mallach  <jordi@sindominio.net>
+
 	* TODO: add missing item.
 
 	* New patch from Dani Carbonell:
