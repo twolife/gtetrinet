@@ -1,25 +1,24 @@
 # English/Canada translation of gtetrinet.
 # Copyright (C) 2004 Adam Weinberger and the GNOME Foundation
-# This file is distributed under the same license as the gtetrinet package.
+# This file is distributed under the same licence as the gtetrinet package.
 # Adam Weinberger <adamw@gnome.org>, 2004.
-# , fuzzy
 # 
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet\n"
-"POT-Creation-Date: 2004-04-15 16:06-0400\n"
-"PO-Revision-Date: 2004-04-15 21:54-0400\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-09-11 17:09-0400\n"
+"PO-Revision-Date: 2004-09-11 21:54-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canada <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: src/client.c:237
 msgid "Couldn't resolve hostname."
-msgstr "Couldn't resolve hostname."
+msgstr "Could not resolve hostname."
 
 #: src/commands.c:45
 msgid "_Connect to server..."
@@ -132,7 +131,7 @@ msgstr "GTetrinet Home Page"
 
 #: src/config.c:140
 msgid "Warning: theme does not have a name, reverting to default."
-msgstr "Warning: theme does not have a name, reverting to default."
+msgstr "Warning: theme does not have a name. Reverting to default."
 
 #. make dialog that asks for address/nickname
 #: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
@@ -178,7 +177,7 @@ msgstr "_Password:"
 
 #: src/dialogs.c:418
 msgid "Spectate game"
-msgstr "Spectate game"
+msgstr "Watch game as a spectator"
 
 #: src/dialogs.c:427
 msgid "_Nick name:"
@@ -346,15 +345,15 @@ msgstr "Enable _MIDI"
 
 #: src/dialogs.c:1020
 msgid "Enter command to play a midi file:"
-msgstr "Enter command to play a midi file:"
+msgstr "Enter command to play a MIDI file:"
 
 #: src/dialogs.c:1023
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
 msgstr ""
-"The above command is run when a midi file is to be played.  The name of the "
-"midi file is placed in the environment variable MIDIFILE."
+"The above command is run when a MIDI file is to be played.  The name of the "
+"MIDI file is placed in the environment variable MIDIFILE."
 
 #: src/dialogs.c:1060
 msgid "Sound"
@@ -368,8 +367,8 @@ msgstr ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
 
-#. shouldnt happen
 #: src/fields.c:85
+#, c-format
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
@@ -395,7 +394,7 @@ msgstr "Active level:"
 
 #: src/fields.c:277
 msgid "Attacks and defenses:"
-msgstr "Attacks and defenses:"
+msgstr "Attacks and defences:"
 
 #: src/fields.c:421
 msgid "Not playing"
@@ -696,7 +695,7 @@ msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
 msgstr ""
-"Enables/Disables sound. Keep in mind that the theme that you're using must "
+"Enables/Disables sound. Keep in mind that the theme that you are using must "
 "provide sounds."
 
 #: gtetrinet.schemas.in.h:7
@@ -704,7 +703,7 @@ msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
 msgstr ""
-"Enables/disables midi music. You'll need to enable sound if you want music "
+"Enables/disables midi music. You will need to enable sound if you want music "
 "to work."
 
 #: gtetrinet.schemas.in.h:8
@@ -713,7 +712,7 @@ msgid ""
 "when connecting or while playing in your favorite tetrinet server."
 msgstr ""
 "Enables/disables the channel list. Disable it if you experience problems "
-"when connecting or while playing in your favorite tetrinet server."
+"when connecting or while playing in your favourite tetrinet server."
 
 #: gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
@@ -789,14 +788,14 @@ msgstr ""
 
 #: gtetrinet.schemas.in.h:26
 msgid "Theme directory, should end with a '/'"
-msgstr "Theme directory, should end with a '/'"
+msgstr "Theme directory. Should end with a '/'"
 
 #: gtetrinet.schemas.in.h:27
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
 msgstr ""
-"This command is run when a midi file is to be played. The name of the midi "
+"This command is run when a MIDI file is to be played. The name of the MIDI "
 "file is placed in the environment variable MIDIFILE."
 
 #: gtetrinet.schemas.in.h:28
