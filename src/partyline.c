@@ -214,16 +214,12 @@ void partyline_namelabel (char *nick, char *team)
   
     if (nick)
     {
-      nick_utf8 = g_locale_to_utf8 (nocolor (nick), -1, NULL, NULL, NULL);
-      gtk_label_set_text (GTK_LABEL(namelabel), nick_utf8);
-      g_free (nick_utf8);
+      gtk_label_set_text (GTK_LABEL(namelabel), nick);
     }
     else gtk_label_set_text (GTK_LABEL(namelabel), "");
     if (team)
     {
-      team_utf8 = g_locale_to_utf8 (nocolor (team), -1, NULL, NULL, NULL);
-      gtk_label_set_text (GTK_LABEL(teamlabel), team_utf8);
-      g_free (team_utf8);
+      gtk_label_set_text (GTK_LABEL(teamlabel), team);
     }
     else gtk_label_set_text (GTK_LABEL(teamlabel), "");
 }
@@ -272,8 +268,7 @@ void partyline_playerlist (int *numbers, char **names, char **teams, int n, char
     char buf0[16], buf1[128], buf2[128];
     GtkListStore *playerlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (playerlist)));
     GtkTreeIter iter;
-    gchar *aux1, *aux2; /* for recoding purposes */
-    
+
     /* update the playerlist so that it contains only the given names */
     gtk_list_store_clear (playerlist_model);
 
@@ -281,14 +276,10 @@ void partyline_playerlist (int *numbers, char **names, char **teams, int n, char
         g_snprintf (buf0, sizeof(buf0), "%d", numbers[i]);
         GTET_O_STRCPY (buf1, nocolor(names[i]));
         GTET_O_STRCPY (buf2, nocolor(teams[i]));
-        /* we only need to recode buf1 and buf2, buf0 is just a character */
-        aux1 = g_locale_to_utf8 (buf1, -1, NULL, NULL, NULL);
-        aux2 = g_locale_to_utf8 (buf2, -1, NULL, NULL, NULL);
+   
         gtk_list_store_append (playerlist_model, &iter);
         gtk_list_store_set (playerlist_model, &iter,
-                            0, buf0, 1, aux1, 2, aux2, -1);
-        g_free (aux1);
-        g_free (aux2);
+                            0, buf0, 1, buf1, 2, buf2, -1);
     }
 
     buf0[0] = buf1[0] = buf2[0] = 0;
@@ -300,14 +291,9 @@ void partyline_playerlist (int *numbers, char **names, char **teams, int n, char
         GTET_O_STRCPY (buf0, "S");
         GTET_O_STRCPY (buf1, nocolor(specs[i]));
         GTET_O_STRCPY (buf2, "");
-        /* we only need to recode buf1 and buf2, buf0 is just a character */
-        aux1 = g_locale_to_utf8 (buf1, -1, NULL, NULL, NULL);
-        aux2 = g_locale_to_utf8 (buf2, -1, NULL, NULL, NULL);
         gtk_list_store_append (playerlist_model, &iter);
         gtk_list_store_set (playerlist_model, &iter,
                             0, buf0, 1, buf1, 2, buf2, -1);
-        g_free (aux1);
-        g_free (aux2);
     }
 }
 
@@ -324,7 +310,6 @@ void partyline_entryfocus (void)
 void textentry (GtkWidget *widget)
 {
     const char *text;
-    gchar *iso_text;
     text = gtk_entry_get_text (GTK_ENTRY(widget));
 
     if (strlen(text) == 0) return;
@@ -333,19 +318,12 @@ void textentry (GtkWidget *widget)
       stop_list(); /* Parsing can't be perfect,
                       so make sure they can do it by hand... */
     
-    /* convert from UTF-8 to the current locale, will work with ISO8859-1 locales */    
-    iso_text = g_locale_from_utf8 (text, -1, NULL, NULL, NULL);
-
-	/* FIXME : if there is an error while converting from UTF8 to current locale, we ignore the message */
-    if (iso_text == NULL)
-      return;
-
     // Show the command if it's a /msg
     if (g_str_has_prefix (text, "/msg"))
       partyline_text (text);
     
-    tetrinet_playerline (iso_text);
-    GTET_O_STRCPY (plhistory[plh_end], iso_text);
+    tetrinet_playerline (text);
+    GTET_O_STRCPY (plhistory[plh_end], text);
     gtk_entry_set_text (GTK_ENTRY(widget), "");
 
     plh_end ++;
@@ -353,9 +331,7 @@ void textentry (GtkWidget *widget)
     if (plh_end == plh_start) plh_start ++;
     if (plh_start == PLHSIZE) plh_start = 0;
     plh_cur = plh_end;
-    plhistory[plh_cur][0] = 0;
-    
-    g_free (iso_text);
+
 }
 
 static gboolean is_nick (GtkTreeModel *model,
@@ -368,13 +344,13 @@ static gboolean is_nick (GtkTreeModel *model,
   gtk_tree_model_get (model, iter, 1, &nick, -1);
   down = g_utf8_strdown (nick, -1);
   path = path;
-  
+
   if (g_str_has_prefix (down, data))
   {
     aux = g_strconcat (nick, ": ", NULL);
     gtk_entry_set_text (GTK_ENTRY (entrybox), aux);
     gtk_editable_set_position (GTK_EDITABLE (entrybox), -1);
-    
+
     g_free (aux);
     g_free (nick);
     g_free (down);
@@ -392,7 +368,7 @@ static void playerlist_complete_nick (void)
 {
   GtkListStore *playerlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (playerlist)));
   gchar *text;
-  
+
   text = g_utf8_strdown (gtk_entry_get_text (GTK_ENTRY (entrybox)), -1);
   if (text == NULL) return;
 
@@ -408,12 +384,7 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key)
 
     if (keyval == GDK_Up || keyval == GDK_Down) {
         if (plh_cur == plh_end) {
-            text = g_locale_from_utf8 (gtk_entry_get_text (GTK_ENTRY(widget)), -1, NULL, NULL, NULL);
-            if (text != NULL)
-            {
-              GTET_O_STRCPY (plhistory[plh_end], text);
-              g_free (text);
-            }
+            GTET_O_STRCPY (plhistory[plh_end], gtk_entry_get_text(GTK_ENTRY(widget)));
         }
         switch (keyval) {
         case GDK_Up:
@@ -427,10 +398,9 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key)
             if (plh_cur == PLHSIZE) plh_cur = 0;
             break;
         }
-        text = g_locale_to_utf8 (plhistory[plh_cur], -1, NULL, NULL, NULL);
+        text = plhistory[plh_cur]; 
         gtk_entry_set_text (GTK_ENTRY(widget), text);
         gtk_editable_set_position (GTK_EDITABLE (widget), -1);
-        g_free (text);
 #ifdef DEBUG
         printf ("history: %d %d %d %s\n", plh_start, plh_end, plh_cur,
                 plhistory[plh_cur]);
@@ -482,7 +452,10 @@ void partyline_add_channel (gchar *line)
     max = scan->value.v_int;
 
     while ((g_scanner_get_next_token (scan) != G_TOKEN_COMMENT_SINGLE) && !g_scanner_eof (scan));
-    utf8 = g_locale_to_utf8 (scan->value.v_comment, -1, NULL, NULL, NULL);
+    /* This will be utf-8 since it's converted in client_readmsg, but just in
+     * case the parsing code splits up a char sequence.. - vidar
+     */
+    utf8 = ensure_utf8(scan->value.v_comment);
     name = g_strconcat ("#", utf8, NULL);
     
     g_snprintf (final, 1024, "%d/%d", actual, max);
@@ -500,9 +473,9 @@ void partyline_add_channel (gchar *line)
   else
   {
     while ((g_scanner_get_next_token (scan) != G_TOKEN_COMMENT_SINGLE) && !g_scanner_eof (scan));
-    utf8 = g_locale_to_utf8 (scan->value.v_comment, -1, NULL, NULL, NULL);
+    utf8 = ensure_utf8(scan->value.v_comment);
     name = g_strconcat ("#", utf8, NULL);
-  
+
     while ((g_scanner_get_next_token (scan) != G_TOKEN_IDENTIFIER) && !g_scanner_eof (scan));
     players = g_strdup (scan->value.v_identifier);
 
@@ -523,9 +496,9 @@ void partyline_add_channel (gchar *line)
     }
     else
       g_snprintf (final, 1024, "UNK");
-  
+
     g_scanner_get_next_token (scan); /* dump the ')' */
-  
+
     if (g_scanner_get_next_token (scan) == G_TOKEN_LEFT_CURLY)
     {
       g_scanner_get_next_token (scan);
@@ -536,7 +509,7 @@ void partyline_add_channel (gchar *line)
   
     while ((g_scanner_get_next_token (scan) != G_TOKEN_RIGHT_PAREN) && !g_scanner_eof (scan));
     if (line[scan->position] != 0)
-      desc = g_strstrip (g_locale_to_utf8 (&line[scan->position], -1, NULL, NULL, NULL));
+      desc = g_strstrip (ensure_utf8 (&line[scan->position]));
     else
       desc = g_strdup ("");
   }

@@ -42,11 +42,7 @@ GtkWidget *leftlabel_new (char *str)
 
 void leftlabel_set (GtkWidget *align, char *str)
 {
-    gchar *aux;
-  
-    aux = g_locale_to_utf8 (str, -1, NULL, NULL, NULL);
-    gtk_label_set_text (GTK_LABEL(GTK_BIN(align)->child), aux);
-    g_free (aux);
+    gtk_label_set_text (GTK_LABEL(GTK_BIN(align)->child), str);
 }
 
 /* returns a random number in the range 0 to n-1 --
@@ -75,6 +71,7 @@ static struct gtet_text_tags {
  GtkTextTag *t_c;
 } gtet_text_tags[] =
 {
+                                         /* Code + 0xE000 */
     {{0, 0, 0, 0}, NULL},                /* ^A black */
     {{0, 0, 0, 0}, NULL},                /* ^B black */
     {{0, 0x0000, 0xFFFF, 0xFFFF}, NULL}, /* ^C cyan */
@@ -132,18 +129,24 @@ void textbox_setup (void)
     tag_table = gtk_text_buffer_get_tag_table(buffer);
 }
 
-void textbox_addtext (GtkTextView *textbox, const unsigned char *text)
+void textbox_addtext (GtkTextView *textbox, const unsigned char *str)
 {
+    /* At this point, str should be valid utf-8 except for some 0xFF-bytes for
+     * formatting. */
+
     GtkTextTag *color, *lastcolor;
-    int i;
     /* int bottom; */
-    char last = 0;
+    gunichar last = 0;
+    gunichar tmp;
     gboolean attr_bold = FALSE;
     gboolean attr_italic = FALSE;
     gboolean attr_underline = FALSE;
     /* GtkAdjustment *textboxadj = GTK_TEXT_VIEW(textbox)->vadjustment; */
     GtkTextIter iter;
-    
+    guchar* p;
+    guchar* text=g_strdup(str);
+
+                
     /* is the scroll bar at the bottom ?? */
     /* if ((textboxadj->value+10)>(textboxadj->upper-textboxadj->lower-textboxadj->page_size))
        bottom = TRUE;
@@ -160,25 +163,28 @@ void textbox_addtext (GtkTextView *textbox, const unsigned char *text)
     
     if (gtk_text_buffer_get_char_count (textbox->buffer)) /* not first line */
         gtk_text_buffer_insert (textbox->buffer, &iter, "\n", 1);
-    
-    for (i = 0; text[i]; i ++) {
-	if (text[i] == TETRI_TB_RESET) {
+
+    /* For-loop with utf-8 support. - vidar*/
+    for(p=text; p[0]; p=g_utf8_next_char(p)) {
+        tmp=p[0];  /* Only for checking color codes now.*/
+        
+	if (tmp == TETRI_TB_RESET) {
 	    lastcolor = color = gtet_text_tags[0].t_c;
             attr_bold = FALSE;
             attr_italic = FALSE;
             attr_underline = FALSE;
 	}
-        else if (text[i] <= TETRI_TB_END_OFFSET) {
+        else if (tmp <= TETRI_TB_END_OFFSET) {
             g_assert(TETRI_TB_END_OFFSET < 32); /* ASCII space */
             g_assert(TETRI_TB_C_END_OFFSET <= TETRI_TB_END_OFFSET);
           
-            switch (text[i]) {
+            switch (tmp) {
             case TETRI_TB_BOLD:      attr_bold      = !attr_bold; break;
             case TETRI_TB_ITALIC:    attr_italic    = !attr_italic; break;
             case TETRI_TB_UNDERLINE: attr_underline = !attr_underline; break;
             default: /* it is a color... */
-                if (text[i] > TETRI_TB_C_END_OFFSET) break;
-                if (text[i] == last) {
+                if (tmp > TETRI_TB_C_END_OFFSET) break;
+                if (tmp == last) {
                     /* restore previous color */
                     color = lastcolor;
                     last = 0;
@@ -186,16 +192,19 @@ void textbox_addtext (GtkTextView *textbox, const unsigned char *text)
                 }
                 /* save color */
                 lastcolor = color;
-                last = text[i];
+                last = tmp;
                 /* get new color */
-                color = gtet_text_tags[text[i] - TETRI_TB_C_BEG_OFFSET].t_c;
+                color = gtet_text_tags[tmp - TETRI_TB_C_BEG_OFFSET].t_c;
             }
         }
         else
         {
-          gchar *out = g_locale_to_utf8 (&text[i], 1, NULL, NULL, NULL);
-          if (out)
-          {
+          tmp=g_utf8_get_char(p); /* It's not a color code, so get the entire char. */
+          /* gchar *out = g_locale_to_utf8 (&text[i], 1, NULL, NULL, NULL);  */
+          gchar out[7]; /* max utf-8 length plus \0 */
+          out[g_unichar_to_utf8(tmp,out)]='\0'; /* convert and terminate */
+          g_assert(g_utf8_validate(out,-1,NULL));
+          
             if (0)
             { /* do nothing */ ; }
             else if (attr_bold && attr_italic && attr_underline)
@@ -231,9 +240,6 @@ void textbox_addtext (GtkTextView *textbox, const unsigned char *text)
             else
               gtk_text_buffer_insert (textbox->buffer, &iter, out, -1);
             
-          }
-          
-          g_free(out);
         }
         
     next:
@@ -242,6 +248,8 @@ void textbox_addtext (GtkTextView *textbox, const unsigned char *text)
     /* scroll to bottom */
     /* gtk_text_thaw (textbox); */
     /* if (bottom) adjust_bottom (textboxadj); */
+
+    g_free(text);
 }
 
 /* have to use an idle handler for the adjustment ... or the TextView goes
@@ -306,3 +314,24 @@ char *nocolor (char *str)
   
   return ret->str;
 }
+
+/* Check if string is utf-8. If it isn't, convert from locale or iso8859-1. */
+gchar* ensure_utf8(const char* str) {
+    gchar* text;
+
+    if(g_utf8_validate(str,-1,NULL)) {
+        /* The string is valid utf-8, copy it. */
+        text=g_strdup(str); 
+    } else {
+        /* The string isn't valid utf-8, try locale. */
+        text=g_locale_to_utf8(str,-1,NULL,NULL,NULL);
+        if(!text) { /* The locale didn't work. Use ISO8859-1. */
+            text=g_convert(str,-1,"UTF-8","ISO8859-1",NULL,NULL,NULL);
+        }
+    } 
+    /* Any random byte sequence is valid iso8859-1, so this won't happen.*/
+    g_assert(text!=NULL && g_utf8_validate(text,-1,NULL));
+    return text;
+}
+
+

@@ -1,3 +1,16 @@
+2005-03-18  Dani Carbonell  <bocata@panete.net>
+
+	* src/client.c
+	* src/dialogs.c
+	* src/fields.c
+	* src/misc.c
+	* src/misc.h
+	* src/partyline.c
+	* src/tetrinet.c
+	* src/winlist.c: Applied patch from Vidar Holen, which implements
+	proper UTF-8 support. Just convert all incoming data to UTF-8, and
+	avoid any other conversion. Rocks!
+
 2005-03-05  Abel Cheung  <maddog@linuxhall.org>
 
 	* configure.in: Added "tr" "vi" to ALL_LINGUAS.

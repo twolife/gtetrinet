@@ -970,7 +970,7 @@ void tetrinet_sendfield (int reset)
   int x, y, i, d = 0; /* d is the number of differences */
   char buf[1024], *p;
 
-  char diff_buf[15][(FIELDWIDTH + 1)* FIELDHEIGHT * 2] = {0};
+  char diff_buf[15][(FIELDWIDTH + 1)* FIELDHEIGHT * 2] = {{0}};
 
   int row_count[15] = {1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1};
   

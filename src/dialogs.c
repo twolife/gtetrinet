@@ -123,36 +123,32 @@ void teamdialog_destroy (void)
 void teamdialog_button (GtkWidget *button, gint response, gpointer data)
 {
     GtkEntry *entry = GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (data)));
-    gchar *aux;
-
     button = button; /* so we get no unused parameter warning */
-  
+
     switch (response)
     {
       case GTK_RESPONSE_OK :
       {
-        aux = g_locale_from_utf8 (gtk_entry_get_text (entry), -1, NULL, NULL, NULL);
         gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/team",
                                  gtk_entry_get_text (entry), NULL);
-        tetrinet_changeteam (aux);
-        g_free (aux);
+        tetrinet_changeteam (gtk_entry_get_text(entry));
       }; break;
     }
-    
+
     teamdialog_destroy ();
 }
 
 void teamdialog_new (void)
 {
     GtkWidget *hbox, *widget, *entry;
-    gchar *team_utf8 = g_locale_to_utf8 (team, -1, NULL, NULL, NULL);
+    gchar *team_utf8 = team;
   
     if (team_dialog != NULL)
     {
       gtk_window_present (GTK_WINDOW (team_dialog));
       return;
     }
-  
+
     team_dialog = gtk_dialog_new_with_buttons (_("Change team"),
                                                GTK_WINDOW (app),
                                                GTK_DIALOG_NO_SEPARATOR,
@@ -160,7 +156,7 @@ void teamdialog_new (void)
                                                GTK_STOCK_OK, GTK_RESPONSE_OK,
                                                NULL);
     gtk_window_set_skip_taskbar_hint (GTK_WINDOW (team_dialog), TRUE);
-    gtk_dialog_set_default_response (GTK_DIALOG (team_dialog), GTK_RESPONSE_OK);    
+    gtk_dialog_set_default_response (GTK_DIALOG (team_dialog), GTK_RESPONSE_OK);
     gtk_window_set_position (GTK_WINDOW (team_dialog), GTK_WIN_POS_MOUSE);
     gtk_window_set_resizable (GTK_WINDOW (team_dialog), FALSE);
 
@@ -173,11 +169,10 @@ void teamdialog_new (void)
                         team_utf8);
     g_object_set (G_OBJECT (gnome_entry_gtk_entry (GNOME_ENTRY (entry))),
                   "activates_default", TRUE, NULL);
-    g_free (team_utf8);
     gtk_box_pack_start_defaults (GTK_BOX (hbox), entry);
     gtk_container_set_border_width (GTK_CONTAINER (hbox), GNOME_PAD_SMALL);
     gtk_box_pack_end_defaults (GTK_BOX (GTK_DIALOG (team_dialog)->vbox), hbox);
-    
+
     /* pass the entry in the data pointer */
     g_signal_connect (G_OBJECT(team_dialog), "response",
                         GTK_SIGNAL_FUNC(teamdialog_button), (gpointer)entry);
@@ -198,7 +193,7 @@ static int oldgamemode;
 
 void connectdialog_button (GtkDialog *dialog, gint button)
 {
-    gchar *team_utf8, *nick, *nick1; /* intermediate buffer for recoding purposes */
+    gchar *nick; /* intermediate buffer for recoding purposes */
     const gchar *server1;
     GtkWidget *dialog_error;
 
@@ -217,7 +212,7 @@ void connectdialog_button (GtkDialog *dialog, gint button)
           gtk_widget_destroy (dialog_error);
           return;
         }
-    
+
         spectating = GTK_TOGGLE_BUTTON(spectatorcheck)->active ? TRUE : FALSE;
         if (spectating)
         {
@@ -236,18 +231,13 @@ void connectdialog_button (GtkDialog *dialog, gint button)
           }
         }
         
-        team_utf8 = g_locale_from_utf8 (gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))),
-                                        -1, NULL, NULL, NULL);
-        
-        GTET_O_STRCPY (team, team_utf8);
+        GTET_O_STRCPY (team, gtk_entry_get_text(GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))));
         
         nick = g_strdup (gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (nicknameentry)))));
         g_strstrip (nick); /* we remove leading and trailing whitespaces */
         if (g_utf8_strlen (nick, -1) > 0)
         {
-          nick1 = g_locale_from_utf8 (nick, -1, NULL, NULL, NULL);
-          client_init (server1, nick1);
-          g_free (nick1);
+          client_init (server1, nick);
         }
         else
         {
@@ -266,7 +256,7 @@ void connectdialog_button (GtkDialog *dialog, gint button)
         gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/team",
                                  gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))),
                                  NULL);
-        g_free (team_utf8);
+
         g_free (nick);
         break;
     case GTK_RESPONSE_CANCEL:
@@ -319,7 +309,6 @@ void connectdialog_destroy (void)
 void connectdialog_new (void)
 {
     GtkWidget *widget, *table1, *table2, *frame;
-    gchar *aux;
     /* check if dialog is already displayed */
     if (connecting) 
     {
@@ -432,10 +421,9 @@ void connectdialog_new (void)
     gtk_label_set_mnemonic_widget (GTK_LABEL (widget), nicknameentry);
     g_object_set(G_OBJECT(gnome_entry_gtk_entry(GNOME_ENTRY(nicknameentry))),
                  "activates_default", TRUE, NULL);
-    aux = g_locale_to_utf8 (nick, -1, NULL, NULL, NULL);
     gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(nicknameentry))),
-                        aux);
-    g_free (aux);
+                        nick);
+    /* g_free (aux);*/
     gtk_widget_show (nicknameentry);
     gtk_table_attach (GTK_TABLE(table2), nicknameentry, 1, 2, 0, 1,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
@@ -447,10 +435,9 @@ void connectdialog_new (void)
     gtk_label_set_mnemonic_widget (GTK_LABEL (teamnamelabel), teamnameentry);
     g_object_set(G_OBJECT(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry))),
                  "activates_default", TRUE, NULL);
-    aux = g_locale_to_utf8 (team, -1, NULL, NULL, NULL);
     gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry))),
-                        aux);
-    g_free (aux);
+                        team);
+    /*g_free (aux);*/
     gtk_widget_show (teamnameentry);
     gtk_table_attach (GTK_TABLE(table2), teamnameentry, 1, 2, 1, 2,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);

@@ -487,7 +487,9 @@ int client_readmsg (gchar **str)
     printf ("< %s\n", buf);
 #endif
     
-    *str = g_strdup (buf);
+    /** Convert all incoming data to utf-8 (or fall back to locale, and then
+     * iso8859-1. - vidar */
+    *str = ensure_utf8 (buf); 
 
     return 0;
 }

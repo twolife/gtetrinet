@@ -11,6 +11,10 @@ extern void textbox_addtext (GtkTextView *textbox, const unsigned char *text);
 extern void adjust_bottom_text_view (GtkTextView *);
 extern char *nocolor (char *str);
 
+/* Function to validate a char*, and if it's not utf-8, try the locale
+ * or iso8859-1. The returned gchar* must be freed. */
+gchar* ensure_utf8(const char* str);
+
 /* Better versions of the std. string functions */
 #define GTET_STRCPY(x, y, sz) G_STMT_START { \
   size_t gtet_strcpy_x_sz = (sz); \
@@ -56,7 +60,10 @@ extern char *nocolor (char *str);
  } G_STMT_END
 
 /* textbox codes ... */
-#define TETRI_TB_RESET 0xFF
+
+/* UTF-8 won't use 0xFF, so this is ok.  - vidar
+ */
+#define TETRI_TB_RESET 0xFF  
 
 #define TETRI_TB_BOLD             2
 #define TETRI_TB_ITALIC          22

@@ -405,7 +405,6 @@ void fields_drawblock (int field, int x, int y, char block)
 void fields_setlabel (int field, char *name, char *team, int num)
 {
     char buf[11];
-    gchar *name_utf8, *team_utf8;
 
     g_snprintf (buf, sizeof(buf), "%d", num);
     
@@ -422,13 +421,12 @@ void fields_setlabel (int field, char *name, char *team, int num)
         gtk_label_set_text (GTK_LABEL(fieldlabels[field][5]), "");
     }
     else {
-        name_utf8 = g_locale_to_utf8 (nocolor (name), -1, NULL, NULL, NULL);
         gtk_widget_show (fieldlabels[field][0]);
         gtk_widget_show (fieldlabels[field][1]);
         gtk_widget_show (fieldlabels[field][2]);
         gtk_widget_hide (fieldlabels[field][3]);
         gtk_label_set_text (GTK_LABEL(fieldlabels[field][0]), buf);
-        gtk_label_set_text (GTK_LABEL(fieldlabels[field][2]), name_utf8);
+        gtk_label_set_text (GTK_LABEL(fieldlabels[field][2]), name);
         gtk_label_set_text (GTK_LABEL(fieldlabels[field][3]), "");
         if (team == NULL || team[0] == 0) {
             gtk_widget_hide (fieldlabels[field][4]);
@@ -436,13 +434,10 @@ void fields_setlabel (int field, char *name, char *team, int num)
             gtk_label_set_text (GTK_LABEL(fieldlabels[field][5]), "");
         }
         else {
-            team_utf8 = g_locale_to_utf8 (nocolor (team), -1, NULL, NULL, NULL);
             gtk_widget_show (fieldlabels[field][4]);
             gtk_widget_show (fieldlabels[field][5]);
-            gtk_label_set_text (GTK_LABEL(fieldlabels[field][5]), team_utf8);
-            g_free (team_utf8);
+            gtk_label_set_text (GTK_LABEL(fieldlabels[field][5]), team);
         }
-        g_free (name_utf8);
     }
 }
 
@@ -613,9 +608,9 @@ void fields_gmsginputactivate (int t)
 
 void gmsginput_activate (void)
 {
-    gchar *locale_s, buf[256];
+    gchar buf[512]; /* Increased from 256 to ease up for utf-8 sequences. - vidar */
     const gchar *s;
-  
+
     if (gmsgstate == 0)
     {
         fields_gmsginputclear ();
@@ -626,20 +621,12 @@ void gmsginput_activate (void)
         if (strncmp("/me ", s, 4) == 0) {
             /* post /me thingy */
             g_snprintf (buf, sizeof(buf), "* %s %s", nick, s+4);
-            locale_s = g_locale_from_utf8 (buf, -1, NULL, NULL, NULL);
-			/* FIXME : if there is an error while converting from UTF8 to current locale, we ignore the message */
-			if (locale_s == NULL) return;
-            client_outmessage (OUT_GMSG, locale_s);
-            g_free (locale_s);
+            client_outmessage (OUT_GMSG,buf);
         }
         else {
             /* post message */
             g_snprintf (buf, sizeof(buf), "<%s> %s", nick, s);
-            locale_s = g_locale_from_utf8 (buf, -1, NULL, NULL, NULL);
-			/* FIXME : if there is an error while converting from UTF8 to current locale, we ignore the message */
-			if (locale_s == NULL) return;
-            client_outmessage (OUT_GMSG, locale_s);
-            g_free (locale_s);
+            client_outmessage (OUT_GMSG, buf);
         }
     }
     fields_gmsginputclear ();
