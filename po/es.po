@@ -22,7 +22,7 @@ msgstr "_Conectar al servidor..."
 
 #: src/commands.c:39
 msgid "_Disconnect from server"
-msgstr "_Desconectar del servidor"
+msgstr "Desconectar del _servidor"
 
 #: src/commands.c:41
 msgid "Change _team..."
@@ -42,7 +42,7 @@ msgstr "_Terminar el juego"
 
 #: src/commands.c:50
 msgid "Detac_h page..."
-msgstr ""
+msgstr "_Arrancar página..."
 
 #: src/commands.c:75
 msgid "Connect"
@@ -62,7 +62,7 @@ msgstr "Desconectar del servidor activo"
 
 #: src/commands.c:78
 msgid "Start game"
-msgstr "Comenzar el juego"
+msgstr "Comenzar"
 
 #: src/commands.c:78
 msgid "Start a new game"
@@ -70,7 +70,7 @@ msgstr "Comenzar un nuevo juego"
 
 #: src/commands.c:79
 msgid "Pause game"
-msgstr "Detener el juego"
+msgstr "Detener"
 
 #: src/commands.c:79
 msgid "Pause the game"
@@ -78,7 +78,7 @@ msgstr "Detener el juego"
 
 #: src/commands.c:80
 msgid "End game"
-msgstr "Terminar el juego"
+msgstr "Terminar"
 
 #: src/commands.c:80
 msgid "End the current game"
@@ -86,23 +86,23 @@ msgstr "Terminar el juego en curso"
 
 #: src/commands.c:82 src/dialogs.c:149
 msgid "Change team"
-msgstr "Cambiar equipo"
+msgstr "Cambiar"
 
 #: src/commands.c:82
 msgid "Change your current team name"
-msgstr "Cambiar el nombre del equipo actual"
+msgstr "Cambiar el nombre del equipo"
 
 #: src/commands.c:85
 msgid "Detach page"
-msgstr ""
+msgstr "Arrancar página"
 
 #: src/commands.c:85
 msgid "Detach the current notebook page"
-msgstr "Koppla loss den aktuella flikhäftessidan"
+msgstr "Arrancar la pestaña pestaña activa"
 
 #: src/commands.c:207
 msgid "Game in progress"
-msgstr "Juego en progreso"
+msgstr "Juego en curso"
 
 #: src/commands.c:210
 msgid "Connected to\n"
@@ -177,7 +177,7 @@ msgstr "Contraseña:"
 
 #: src/dialogs.c:377
 msgid "Spectate game"
-msgstr ""
+msgstr "Espectador del juego"
 
 #: src/dialogs.c:386
 msgid "Nick name:"
@@ -189,7 +189,7 @@ msgstr "Información del jugador"
 
 #: src/dialogs.c:455
 msgid "Change Key"
-msgstr "Cambiar la clave"
+msgstr "Cambiar tecla"
 
 #: src/dialogs.c:513
 msgid "Move right"
@@ -213,7 +213,7 @@ msgstr "Rotar a la izquierda"
 
 #: src/dialogs.c:518
 msgid "Drop piece"
-msgstr "Descartar la pieza"
+msgstr "Descartar pieza"
 
 #: src/dialogs.c:519
 msgid "Discard special"
@@ -238,7 +238,7 @@ msgid ""
 "Install new themes in ~/.gtetrinet/themes/"
 msgstr ""
 "Seleccione un tema de la lista.\n"
-"Instalar los temas nuevos en ~/.gtetrinet/themes/"
+"Instale nuevos temas en ~/.gtetrinet/themes/"
 
 #: src/dialogs.c:827
 msgid "Name:"
@@ -266,14 +266,14 @@ msgstr "Acción"
 
 #: src/dialogs.c:885
 msgid "Key"
-msgstr "Clave"
+msgstr "Tecla"
 
 #: src/dialogs.c:891
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
 msgstr ""
-"Seleccione una acción de la lista y elija «Cambar tecla» para cambiar la tecla "
+"Seleccione una acción de la lista y elija «Cambiar tecla» para cambiar la tecla "
 "asociada con la acción."
 
 #: src/dialogs.c:897
@@ -306,6 +306,8 @@ msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
 msgstr ""
+"El comando indicado será utilizado para reproducir un archivo MIDI.  El nombre del archivo "
+"se encuentra en la variable de ambiente MIDFILE."
 
 #: src/dialogs.c:994
 msgid "Sound"
@@ -334,7 +336,7 @@ msgstr "Próxima pieza:"
 
 #: src/fields.c:215
 msgid "Lines:"
-msgstr "Lineas:"
+msgstr "Líneas:"
 
 #: src/fields.c:221
 msgid "Level:"
@@ -350,7 +352,7 @@ msgstr "Ataques y defensas:"
 
 #: src/fields.c:414
 msgid "Not playing"
-msgstr "Sin jugar"
+msgstr "Sin juego"
 
 #: src/fields.c:445
 msgid "Specials:"
@@ -387,13 +389,13 @@ msgstr "CONTRASEÑA"
 #. FIXME
 #: src/gtetrinet.c:198 src/gtetrinet.c:336 src/gtetrinet.c:387
 msgid "Playing Fields"
-msgstr ""
+msgstr "Campo de juego"
 
 # Osäker
 #. FIXME
 #: src/gtetrinet.c:209
 msgid "Partyline"
-msgstr ""
+msgstr "Línea de conversación"
 
 #. FIXME
 #: src/gtetrinet.c:220
@@ -453,37 +455,37 @@ msgstr "%c*** %c%s%c%c ha ganado el juego"
 #: src/tetrinet.c:499
 #, c-format
 msgid "%c*** The game has %cstarted"
-msgstr "%c*** El juego %c iniciado"
+msgstr "%c*** El juego %cse ha iniciado"
 
 #: src/tetrinet.c:524
 #, c-format
 msgid "%c*** The game is %cin progress"
-msgstr "%c*** El juego %c está en curso"
+msgstr "%c*** El juego %cse encuentra en curso"
 
 #: src/tetrinet.c:535
 #, c-format
 msgid "%c*** The game has %cpaused"
-msgstr "%c*** El juego %c ha sido detenido"
+msgstr "%c*** El juego %cha sido detenido"
 
 #: src/tetrinet.c:537
 #, c-format
 msgid "The game has %c%cpaused"
-msgstr "El juego %c%c ha sido detenido"
+msgstr "El juego %c%cha sido detenido"
 
 #: src/tetrinet.c:542
 #, c-format
 msgid "%c*** The game has %cresumed"
-msgstr "%c*** El juego %c se ha retomado"
+msgstr "%c*** El juego %cse ha retomado"
 
 #: src/tetrinet.c:544
 #, c-format
 msgid "The game has %c%cresumed"
-msgstr "El juego %c%c se ha retomado"
+msgstr "El juego %c%cse ha retomado"
 
 #: src/tetrinet.c:553
 #, c-format
 msgid "%c*** The game has %cended"
-msgstr ""
+msgstr "%c*** El juego %cha terminado"
 
 #: src/tetrinet.c:663
 #, c-format
@@ -498,11 +500,11 @@ msgstr "%c*** %c%s%c%c se han unido los espectadores %c%c(%c%s%c%c%c)"
 #: src/tetrinet.c:701
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
-msgstr "%c*** %c%s%c%c se han salido los espectadores %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c han dejado los espectadores %c%c(%c%s%c%c%c)"
 
 #: src/tetrinet.c:858
 msgid "No special blocks"
-msgstr "No hay bloques especiales"
+msgstr "Sin bloques especiales"
 
 #: src/tetrinet.c:1017 src/tetrinet.c:1024
 #, c-format
@@ -530,7 +532,7 @@ msgstr " ha dejado el juego"
 
 #: src/tetrinet.c:1731
 msgid " have left the game"
-msgstr ""
+msgstr " ha dejado el juego"
 
 #: src/tetrinet.c:1744
 msgid " has joined the game"
@@ -538,17 +540,17 @@ msgstr " se ha unido al juego"
 
 #: src/tetrinet.c:1745
 msgid " have joined the game"
-msgstr ""
+msgstr " se ha unido al juego"
 
 #: src/tetrinet.c:1768
 #, c-format
 msgid "%s is on team %c%s"
-msgstr "%s está en el equipo %c%s"
+msgstr "%s pertenece al equipo %c%s"
 
 #: src/tetrinet.c:1771
 #, c-format
 msgid "%s is alone"
-msgstr "%s está solo"
+msgstr "%s se encuentra solo"
 
 #: src/tetrinet.c:1773
 #, c-format
@@ -568,15 +570,15 @@ msgstr "%c*** %c%s%c%c ahora pertenece al equipo %c%s"
 #: src/tetrinet.c:1824
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
-msgstr "%c*** %c%s%c%c ahora está solo"
+msgstr "%c*** %c%s%c%c ahora se encuentra solo"
 
 #: src/winlist.c:44
 msgid "T"
-msgstr "T"
+msgstr "E"
 
 #: src/winlist.c:48
 msgid "Score"
-msgstr "Puntuaciones"
+msgstr "Puntuación"
 
 #: gtetrinet.desktop.in.h:1
 msgid "GTetrinet"
