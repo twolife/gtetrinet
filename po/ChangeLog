@@ -1,3 +1,14 @@
+2003-01-06  Jordi Mallach  <jordi@sindominio.net>
+
+	* Makefile.in.in: removed from CVS.
+	* Rules-quot: likewise.
+	* boldquot.sed: likewise.
+	* en@boldquot.header: likewise.
+	* en@quot.header: likewise.
+	* insert-header.sin: likewise.
+	* quot.sed: likewise.
+	* remove-potcdate.sin: likewise. 
+
 2003-01-05  Jordi Mallach  <jordi@sindominio.net>
 
 	* ca.po: Updated Catalan translation.
