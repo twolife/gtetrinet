@@ -4,6 +4,7 @@ _GenericName=Tetrinet client
 _Comment=Tetrinet client for GNOME
 Exec=gtetrinet
 Icon=gtetrinet.png
+StartupNotify=true
 Terminal=0
 Type=Application
 X-GNOME-Bugzilla-Bugzilla=GNOME
