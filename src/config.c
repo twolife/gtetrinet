@@ -66,7 +66,13 @@ guint defaultkeys[K_NUM] = {
     GDK_Down,
     GDK_space,
     GDK_d,
-    GDK_t
+    GDK_t,
+    GDK_1,
+    GDK_2,
+    GDK_3,
+    GDK_4,
+    GDK_5,
+    GDK_6
 };
 
 guint keys[K_NUM];

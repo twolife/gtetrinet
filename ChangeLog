@@ -1,3 +1,11 @@
+2003-08-16  Dani Carbonell  <bocata@panete.net>
+
+	* src/config.c: Addded missing default keys to the 'defaultkeys'
+	array, fixes Debian bug #205656.
+
+	* src/config.h (GTetrinetKeys): Changed this bunch of defines to be a
+	single enum.
+
 2003-08-10  Hasbullah Bin Pit <sebol@ikhlas.com>
 	
 	* configure.in: Added 'ms' (Malay) to AlL_LINGUAS.

@@ -115,19 +115,22 @@ partyline_enable_channel_list_changed (GConfClient *client,
 #define GTETRINET_THEMES GTETRINET_DATA"/themes"
 #define DEFAULTTHEME GTETRINET_THEMES"/default/"
 
-#define K_RIGHT 0
-#define K_LEFT 1
-#define K_ROTRIGHT 2
-#define K_ROTLEFT 3
-#define K_DOWN 4
-#define K_DROP 5
-#define K_DISCARD 6
-#define K_GAMEMSG 7
-#define K_SPECIAL1 8
-#define K_SPECIAL2 9
-#define K_SPECIAL3 10 
-#define K_SPECIAL4 11
-#define K_SPECIAL5 12
-#define K_SPECIAL6 13
+typedef enum
+{
+  K_RIGHT, 
+  K_LEFT, 
+  K_ROTRIGHT, 
+  K_ROTLEFT,
+  K_DOWN,
+  K_DROP,
+  K_DISCARD,
+  K_GAMEMSG,
+  K_SPECIAL1,
+  K_SPECIAL2,
+  K_SPECIAL3, 
+  K_SPECIAL4,
+  K_SPECIAL5,
+  K_SPECIAL6,
 /* not a key but the number of configurable keys */
-#define K_NUM 14
+  K_NUM
+} GTetrinetKeys;
