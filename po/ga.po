@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtetrinet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-02-04 04:17+0100\n"
-"PO-Revision-Date: 2004-03-09 07:10+0000\n"
+"PO-Revision-Date: 2005-03-05 08:28+0800\n"
 "Last-Translator: Alastair McKinstry <mckinstry@computer.org>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -579,7 +579,7 @@ msgid " to All"
 msgstr ""
 
 #: src/tetrinet.c:1230 src/tetrinet.c:1237
-#, c-format
+#, fuzzy, c-format
 msgid " by %c%c%s%c%c"
 msgstr " le %c%s%c%c"
 
