@@ -61,17 +61,6 @@ static GdkCursor *invisible_cursor, *arrow_cursor;
 static FIELD displayfields[6]; /* what is actually displayed */
 static TETRISBLOCK displayblock;
 
-/*
-  GdkColor black = {0,0,0};
-  GdkBitmap *bitmap;
-  GdkCursor *invisible_cursor, *current_cursor;
-  
-  bitmap = gdk_bitmap_create_from_data (widget->window, "\0", 1, 1);
-  invisible_cursor = gdk_cursor_new_from_pixmap (bitmap, bitmap, &black, &black, 0, 0);
-
-  gdk_window_set_cursor (window, cursor);
-*/
-
 void fields_init (void)
 {
     GtkWidget *mb;
@@ -123,7 +112,7 @@ GtkWidget *fields_page_new (void)
     /* create the cursors */
     bitmap = gdk_bitmap_create_from_data (GTK_WIDGET (fieldspage)->window, "\0", 1, 1);
     invisible_cursor = gdk_cursor_new_from_pixmap (bitmap, bitmap, &black, &black, 0, 0);
-    arrow_cursor = gdk_cursor_new (GDK_ARROW);
+    arrow_cursor = gdk_cursor_new (GDK_X_CURSOR);
 
     return fieldspage;
 }

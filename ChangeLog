@@ -1,3 +1,9 @@
+2003-08-20  Dani Carbonell  <bocata@panete.net>
+
+	* src/fields.c (fields_page_new): Changed the cursor when the
+	mouse is above the fields to be GDK_X_CURSOR. This seems to behave
+	better with X 4.3.x
+
 2003-08-16  Dani Carbonell  <bocata@panete.net>
 
 	* src/config.c: Addded missing default keys to the 'defaultkeys'
