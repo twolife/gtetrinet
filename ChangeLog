@@ -1,3 +1,7 @@
+2003-03-08  Evandro Fernandes Giovanini <evandrofg@ig.com.br>
+
+	* configure.in: Added "pt_BR" (Brazilian Portuguese) to ALL_LINGUAS.
+
 2003-03-05  Duarte Loreto <happyguy_pt@hotmail.com>
 
         * configure.in: Added "pt" to ALL_LINGUAS.
@@ -824,7 +828,7 @@
 
 2002-12-03  Jordi Mallach  <jordi@sindominio.net>
 
-	* src/tetrinet.c (tetrinet_inmessage): patch from Niko Böhm, fixes
+	* src/tetrinet.c (tetrinet_inmessage): patch from Niko BÃ¶hm, fixes
 	player count after several /move commands.
 
 	* AUTHORS: added Niko.
@@ -1059,7 +1063,7 @@
 
 2002-10-03  Jordi Mallach  <jordi@sindominio.net>
 
-	* src/tetrinet.c: patch from Niko Böhm which fixes a missbehaviour
+	* src/tetrinet.c: patch from Niko BÃ¶hm which fixes a missbehaviour
 	of blockbomb.
 
 2002-07-06  Jordi Mallach  <jordi@sindominio.net>
