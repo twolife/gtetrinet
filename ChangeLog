@@ -1,3 +1,7 @@
+2003-02-01  Jordi Mallach  <jordi@sindominio.net>
+
+	* gtetrinet.schemas.in: reword a few schemas.
+
 2003-02-01  Dani Carbonell  <bocata@panete.net>
 
 	* gtetrinet.schemas.in: first version of the .schemas file.

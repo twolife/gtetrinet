@@ -1,109 +1,94 @@
 <gconfschemafile>
   <schemalist>
-    
+
     <schema>
       <key>/schemas/apps/gtetrinet/themes/theme_dir</key>
       <applyto>/apps/gtetrinet/themes/theme_dir</applyto>
       <owner>gtetrinet</owner>
       <type>string</type>
       <default></default>
-      
+
       <locale name="C">
-        <short>Theme directory, should end with a '/'</short>
-        <long>This is the current theme directory. It should contain a readable
+        <short>Theme directory, should end with a '/'.</short>
+        <long>The current theme directory. It should contain a readable
         "blocks.png" and a "theme.cfg".</long>
       </locale>
     </schema>
-    
-    
+
+
     <schema>
       <key>/schemas/apps/gtetrinet/sound/midi_player</key>
       <applyto>/apps/gtetrinet/sound/midi_player</applyto>
       <owner>gtetrinet</owner>
       <type>string</type>
       <default>while true; do playmidi $MIDIFILE; done</default>
-      
+
       <locale name="C">
-        <short>Command to run then a midi file is to be played.</short>
+        <short>Command to run to play midi files.</short>
         <long>This command is run when a midi file is to be played. The name of
         the midi file is placed in the environment variable MIDIFILE.</long>
       </locale>
     </schema>
-    
-    
+
+
     <schema>
       <key>/schemas/apps/gtetrinet/sound/enable_sound</key>
       <applyto>/apps/gtetrinet/sound/enable_sound</applyto>
       <owner>gtetrinet</owner>
       <type>bool</type>
       <default>0</default>
-      
+
       <locale name="C">
-        <short>Check this if you want sound.</short>
-        <long>If you want sound, check this option. Keep in mind that the theme
+        <short>Enable/disable sound.</short>
+        <long>Enables/Disables sound. Keep in mind that the theme
         that you're using must provide sounds.</long>
       </locale>
     </schema>
-    
-    
+
+
     <schema>
       <key>/schemas/apps/gtetrinet/sound/enable_midi</key>
       <applyto>/apps/gtetrinet/sound/enable_midi</applyto>
       <owner>gtetrinet</owner>
       <type>bool</type>
       <default>0</default>
-      
+
       <locale name="C">
-        <short>Check if you want midi music.</short>
-        <long>If you want midi music, check this option. You'll need to enable
+        <short>Enable/disable midi music.</short>
+        <long>Enables/disables midi music. You'll need to enable
         sound if you want music to work.</long>
       </locale>
     </schema>
-    
-    
-    <schema>
-      <key>/schemas/apps/gtetrinet/sound/enable_midi</key>
-      <applyto>/apps/gtetrinet/sound/enable_midi</applyto>
-      <owner>gtetrinet</owner>
-      <type>bool</type>
-      <default>0</default>
-      
-      <locale name="C">
-        <short>Check if you want midi music.</short>
-        <long>If you want midi music, check this option. You'll need to enable
-        sound if you want music to work :)</long>
-      </locale>
-    </schema>
-    
-    
+
+
     <schema>
       <key>/schemas/apps/gtetrinet/player/nickname</key>
       <applyto>/apps/gtetrinet/player/nickname</applyto>
       <owner>gtetrinet</owner>
       <type>string</type>
       <default></default>
-      
+
       <locale name="C">
         <short>Your nickname.</short>
-        <long>This will be your nickname in the game. Choose it wisely.</long>
+        <long>This will be your nickname in the game.</long>
       </locale>
     </schema>
-    
-    
+
+
     <schema>
       <key>/schemas/apps/gtetrinet/player/server</key>
       <applyto>/apps/gtetrinet/player/server</applyto>
       <owner>gtetrinet</owner>
       <type>string</type>
       <default>tetrinet.org</default>
-      
+
       <locale name="C">
         <short>Server where you want to play.</short>
-        <long>This will be the server where GTetrinet will try to connect.</long>
+        <long>This is the server where GTetrinet will try to connect.</long>
       </locale>
     </schema>
-    
-    
+
+
     <schema>
       <key>/schemas/apps/gtetrinet/player/team</key>
       <applyto>/apps/gtetrinet/player/team</applyto>
@@ -113,35 +98,35 @@
       
       <locale name="C">
         <short>Your team.</short>
-        <long>This will be the name of your team. Choose it wisely.</long>
+        <long>This will be the name of your team.</long>
       </locale>
     </schema>
-    
-    
+
+
     <schema>
       <key>/schemas/apps/gtetrinet/keys/right</key>
       <applyto>/apps/gtetrinet/keys/right</applyto>
       <owner>gtetrinet</owner>
       <type>int</type>
       <default>65363</default>
-      
+
       <locale name="C">
         <short>Key to move right.</short>
-        <long>If you press this key, the current piece will move to the right. This is case insensitive.</long>
+        <long>This key moves the block to the right. This is case insensitive.</long>
       </locale>
     </schema>
-    
-    
+
+
     <schema>
       <key>/schemas/apps/gtetrinet/keys/left</key>
       <applyto>/apps/gtetrinet/keys/left</applyto>
       <owner>gtetrinet</owner>
       <type>int</type>
       <default>65361</default>
-      
+
       <locale name="C">
         <short>Key to move left.</short>
-        <long>If you press this key, the current piece will move to the left. This is case insensitive.</long>
+        <long>This key moves the block to the left. This is case insensitive.</long>
       </locale>
     </schema>
     
@@ -155,7 +140,7 @@
       
       <locale name="C">
         <short>Key to rotate clockwise.</short>
-        <long>If you press this key, the current piece will rotate clockwise. This is case insensitive.</long>
+        <long>This key rotates the block clockwise. This is case insensitive.</long>
       </locale>
     </schema>
     
@@ -169,7 +154,7 @@
       
       <locale name="C">
         <short>Key to rotate counterclockwise.</short>
-        <long>If you press this key, the current piece will rotate counterclockwise. This is case insensitive.</long>
+        <long>This key rotates the block counterclockwise. This is case insensitive.</long>
       </locale>
     </schema>
     
@@ -183,7 +168,7 @@
       
       <locale name="C">
         <short>Key to move down.</short>
-        <long>If you press this key, the current piece will move down. This is case insensitive.</long>
+        <long>This key moves the block down. This is case insensitive.</long>
       </locale>
     </schema>
     
@@ -197,7 +182,7 @@
       
       <locale name="C">
         <short>Key to drop piece.</short>
-        <long>If you press this key, the current piece will drop to the ground. This is case insensitive.</long>
+        <long>This key drops the block to the ground. This is case insensitive.</long>
       </locale>
     </schema>
     
@@ -211,7 +196,7 @@
       
       <locale name="C">
         <short>Key to discard special.</short>
-        <long>If you press this key, the current special will be discarded. This is case insensitive.</long>
+        <long>This key discards the current special. This is case insensitive.</long>
       </locale>
     </schema>
     
@@ -224,8 +209,8 @@
       <default>116</default>
       
       <locale name="C">
-        <short>Key to open the message box.</short>
-        <long>If you press this key, the message box will be displayed. This is case insensitive.</long>
+        <short>Key to open the fields' message dialog.</short>
+        <long>This key displays the fields' message dialog. This is case insensitive.</long>
       </locale>
     </schema>
     
