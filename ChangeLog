@@ -1,3 +1,7 @@
+2003-03-05  Duarte Loreto <happyguy_pt@hotmail.com>
+
+        * configure.in: Added "pt" to ALL_LINGUAS.
+
 2003-03-03  James Antill  <james@and.org>
 
 	* src/tetrinet.c (tetrinet_sendfield): Put a warning in if blocks are
