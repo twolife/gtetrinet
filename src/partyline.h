@@ -1,4 +1,7 @@
 #include <gtk/gtk.h>
+
+extern int timestampsenable;
+
 extern GtkWidget *partyline_page_new (void);
 extern void partyline_connectstatus (int status);
 extern void partyline_namelabel (char *nick, char *team);

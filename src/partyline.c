@@ -33,6 +33,8 @@
 #include "misc.h"
 #include "commands.h"
 
+int timestampsenable;
+
 /* widgets that we have to do stuff with */
 static GtkWidget *playerlist, *textbox, *entrybox,
     *namelabel, *teamlabel, *infolabel, *textboxscroll, 
@@ -228,7 +230,22 @@ void partyline_status (char *status)
 
 void partyline_text (char *text)
 {
-    textbox_addtext (GTK_TEXT_VIEW(textbox), text);
+    if (timestampsenable) {
+        time_t now;
+        char buf[1024];
+        char timestamp[9];
+
+        now = time(NULL);
+
+        strftime(timestamp, sizeof(timestamp), "%H:%M:%S", localtime(&now));
+        g_snprintf (buf, sizeof(buf), "%c[%s]%c %s",
+                    TETRI_TB_C_GREY, timestamp, TETRI_TB_RESET, text);
+
+        textbox_addtext (GTK_TEXT_VIEW(textbox), buf);
+    }
+    else
+        textbox_addtext (GTK_TEXT_VIEW(textbox), text);
+
     adjust_bottom_text_view(GTK_TEXT_VIEW(textbox));
 }
 

@@ -36,6 +36,7 @@
 #include "misc.h"
 #include "tetris.h"
 #include "fields.h"
+#include "partyline.h"
 
 char blocksfile[1024];
 int bsize;
@@ -130,9 +131,13 @@ void config_loadtheme (const gchar *themedir)
                                    0,
                                    GTK_MESSAGE_WARNING,
                                    GTK_BUTTONS_OK,
-                                   _("Warning: theme does not have a name"));
+                                   _("Warning: theme does not have a name,"
+                                     "reverting to default."));
       gtk_dialog_run (GTK_DIALOG (mb));
       gtk_widget_destroy (mb);
+      gnome_config_pop_prefix ();
+      g_string_assign(currenttheme, DEFAULTTHEME);
+      config_loadtheme (currenttheme->str);
     }
 }
 
@@ -299,6 +304,9 @@ void config_loadconfig (void)
     }
     else
       keys[K_GAMEMSG] = defaultkeys[K_GAMEMSG];
+
+    /* Get the timestamp option. */
+    timestampsenable = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps", NULL);
 
     config_loadtheme (currenttheme->str);
 }
@@ -478,3 +486,16 @@ keys_discard_changed (GConfClient *client,
   keys[K_DISCARD] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
 }
 
+void
+partyline_enable_timestamps_changed (GConfClient *client,
+                                     guint cnxn_id,
+                                     GConfEntry *entry)
+{
+
+  client = client;	/* Suppress compile warnings */
+  cnxn_id = cnxn_id;	/* Suppress compile warnings */
+
+  timestampsenable = gconf_value_get_bool (gconf_entry_get_value (entry));
+  if (!timestampsenable)
+    gconf_client_set_bool (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps", FALSE, NULL);
+}

@@ -35,6 +35,7 @@
 #include "misc.h"
 #include "sound.h"
 #include "string.h"
+#include "partyline.h"
 
 extern GConfClient *gconf_client;
 extern GtkWidget *app;
@@ -507,6 +508,7 @@ gint key_dialog (char *msg)
 /* the preferences dialog */
 /**************************/
 GtkWidget *themelist, *keyclist;
+GtkWidget *timestampcheck;
 GtkWidget *midientry, *miditable, *midicheck, *soundcheck;
 GtkWidget *namelabel, *authlabel, *desclabel;
 
@@ -667,6 +669,12 @@ void prefdialog_restoremidi (void)
     gconf_client_set_string (gconf_client, "/apps/gtetrinet/sound/midi_player",
                              gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (midientry)))),
                              NULL);
+}
+
+void prefdialog_timestampstoggle (GtkWidget *widget)
+{
+    gconf_client_set_bool (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps",
+                           GTK_TOGGLE_BUTTON (widget)->active, NULL);
 }
 
 void prefdialog_themelistselect (int n)
@@ -875,6 +883,32 @@ void prefdialog_new (void)
     gtk_widget_show (table);
 
     label = gtk_label_new (_("Themes"));
+    gtk_widget_show (label);
+    gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);
+
+    /* partyline */
+    timestampcheck = gtk_check_button_new_with_label (_("Enable Timestamps"));
+    gtk_widget_show(timestampcheck);
+
+    frame = gtk_hbox_new (FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(frame), timestampcheck, FALSE, FALSE, 0);
+    gtk_widget_show (frame);
+
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(timestampcheck),
+                                  timestampsenable);
+
+    g_signal_connect (G_OBJECT(timestampcheck), "toggled",
+                      G_CALLBACK(prefdialog_timestampstoggle), NULL);
+
+    table = gtk_table_new (3, 1, FALSE);
+    gtk_container_set_border_width (GTK_CONTAINER(table), GNOME_PAD);
+    gtk_table_set_row_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
+    gtk_table_set_col_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
+    gtk_table_attach (GTK_TABLE(table), frame, 0, 1, 0, 1,
+                      GTK_EXPAND | GTK_FILL, 0, 0, 0);
+    gtk_widget_show (table);
+
+    label = gtk_label_new (_("Partyline"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);
 

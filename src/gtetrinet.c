@@ -135,6 +135,9 @@ int main (int argc, char *argv[])
     gconf_client_add_dir (gconf_client, "/apps/gtetrinet/keys",
                           GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
 
+    gconf_client_add_dir (gconf_client, "/apps/gtetrinet/partyline",
+                          GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
+
     /* Request notification of change for these gconf keys */
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/sound/midi_player",
                              (GConfClientNotifyFunc) sound_midi_player_changed,
@@ -181,6 +184,10 @@ int main (int argc, char *argv[])
 
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/message",
                              (GConfClientNotifyFunc) keys_message_changed,
+			     NULL, NULL, NULL);
+
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps",
+                             (GConfClientNotifyFunc) partyline_enable_timestamps_changed,
 			     NULL, NULL, NULL);
 
     /* load settings */

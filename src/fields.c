@@ -73,6 +73,7 @@ void fields_init (void)
                                       "Falling back to default"));
         gtk_dialog_run (GTK_DIALOG (mb));
         gtk_widget_destroy (mb);
+	g_string_assign(currenttheme, DEFAULTTHEME);
         config_loadtheme (DEFAULTTHEME);
         err = NULL;
         if (!(pb = gdk_pixbuf_new_from_file(blocksfile, &err))) {

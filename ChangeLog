@@ -1,3 +1,20 @@
+2003-02-22  ChipX86 <chipx86@chipx86.com>
+
+	* src/config.c: Add config for timestamping partyline text.
+	* src/config.h: Add config for timestamping partyline text.
+	* src/dialogs.c: Add config for timestamping partyline text.
+	* src/gtetrinet.c: Add config for timestamping partyline text.
+	* src/partyline.c: Add timestamps if config is set.
+	* src/partyline.h: Add config for timestamping partyline text.
+
+2003-02-22  James Antill  <james@and.org>
+
+	* src/config.c (config_loadtheme): If current theme has no name,
+	revert to default.
+
+	* src/fields.c (fields_init): If the current theme fails to load,
+	change the preference.
+
 2003-02-20  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/tetrinet.c (tetrinet_sendfield): Patch from Ian Zink with big
