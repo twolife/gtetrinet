@@ -26,7 +26,7 @@
 #include "winlist.h"
 #include "misc.h"
 
-char *winlisttitles[] = {
+char *winlisttitles[3] = {
     N_("T"),
     N_("Name"),
     N_("Score")

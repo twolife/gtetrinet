@@ -1485,8 +1485,8 @@ int partylineupdate_timeout (void)
             strcat (buf, buf2);
         }
         buf[strlen(buf)-2] = 0;
-        if (plcount == 1) strcat (buf, " has left the game");
-        else strcat (buf, " have left the game");
+        if (plcount == 1) strcat (buf, _(" has left the game"));
+        else strcat (buf, _(" have left the game"));
         plcount = 0;
         partyline_text (buf);
     }
@@ -1497,8 +1497,8 @@ int partylineupdate_timeout (void)
             strcat (buf, buf2);
         }
         buf[strlen(buf)-2] = 0;
-        if (pcount == 1) strcat (buf, " has joined the game");
-        else strcat (buf, " have joined the game");
+        if (pcount == 1) strcat (buf, _(" has joined the game"));
+        else strcat (buf, _(" have joined the game"));
         partyline_text (buf);
 
         for (i = 0; i < pcount; i ++) f[i] = 1;

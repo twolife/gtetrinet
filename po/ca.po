@@ -1,0 +1,404 @@
+# Catalan translation of GTetrinet.
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gtetrinet package.
+# Jordi Mallach <jordi@sindominio.net>, 2002.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtetrinet 0.4.2\n"
+"POT-Creation-Date: 2002-06-28 18:02+0200\n"
+"PO-Revision-Date: 2002-06-28 18:04+0200\n"
+"Last-Translator: Jordi Mallach <jordi@debian.org>\n"
+"Language-Team: Catalan <ca@dodds.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/commands.c:33
+msgid "_Connect to Server..."
+msgstr "_Connecta a un servidor..."
+
+#: src/commands.c:34
+msgid "_Disconnect from Server"
+msgstr "_Desconnecta del servidor"
+
+#: src/commands.c:36
+msgid "Change _Team..."
+msgstr "Canvia d'equi_p"
+
+#: src/commands.c:38
+msgid "_Start game"
+msgstr "Comença el _joc"
+
+#: src/commands.c:39
+msgid "_Pause game"
+msgstr "_Pausa el joc"
+
+#: src/commands.c:40
+msgid "_End game"
+msgstr "_Finalitza el joc"
+
+#: src/commands.c:42
+msgid "Detac_h Page..."
+msgstr "_Separa la pàgina..."
+
+#: src/commands.c:66
+msgid "Connect"
+msgstr "Connecta"
+
+#: src/commands.c:67
+msgid "Disconnect"
+msgstr "Desconnecta"
+
+#: src/commands.c:69
+msgid "Start game"
+msgstr "Comença"
+
+#: src/commands.c:70
+msgid "Pause game"
+msgstr "Pausa"
+
+#: src/commands.c:71
+msgid "End game"
+msgstr "Finalitza"
+
+#: src/commands.c:73 src/dialogs.c:121
+msgid "Change team"
+msgstr "Equip"
+
+#: src/commands.c:75
+msgid "Detach Page"
+msgstr "Separa"
+
+#: src/commands.c:194
+msgid "Game in progress"
+msgstr "Joc en progrés"
+
+#: src/commands.c:197
+msgid "Connected to\n"
+msgstr "Connectat a\n"
+
+#: src/commands.c:201
+msgid "Not connected"
+msgstr "No connectat"
+
+#: src/commands.c:211
+msgid "Ka-shu Wong <kswong@zip.com.au>"
+msgstr "Ka-shu Wong <jswong@zip.com.au>"
+
+#: src/commands.c:214
+msgid "(C) 1999, 2000, 2001, 2002 Ka-shu Wong"
+msgstr "© 1999, 2000, 2001, 2002 Ka-shu Wong"
+
+#: src/commands.c:216
+msgid ""
+"A Tetrinet client for GNOME.\n"
+"Homepage: http://gtetrinet.sourceforge.net/\n"
+msgstr ""
+"Un client de Tetrinet per al GNOME.\n"
+"Pàgina principal: http://gtetrinet.sourceforge.net/\n"
+
+#: src/config.c:76
+msgid "Warning: theme does not have a name"
+msgstr "Avís: el tema no te un nom"
+
+#: src/dialogs.c:73 src/dialogs.c:224
+msgid "Connect to Server"
+msgstr "Connecta a un servidor"
+
+#: src/dialogs.c:128 src/dialogs.c:318
+msgid "Team name:"
+msgstr "Nom de l'equip:"
+
+#: src/dialogs.c:248
+msgid "Original"
+msgstr "Original"
+
+#: src/dialogs.c:250
+msgid "TetriFast"
+msgstr "TetriFast"
+
+#: src/dialogs.c:272
+msgid "Server address"
+msgstr "Adreça del servidor"
+
+#: src/dialogs.c:281
+msgid "Connect as a spectator"
+msgstr "Connecta com espectador"
+
+#: src/dialogs.c:285
+msgid "Password:"
+msgstr "Contrasenya:"
+
+#: src/dialogs.c:299
+msgid "Spectate game"
+msgstr "Espectar el joc"
+
+#: src/dialogs.c:308
+msgid "Nick name:"
+msgstr "Nom d'usuari:"
+
+#: src/dialogs.c:333
+msgid "Player information"
+msgstr "Informació del jugador"
+
+#: src/dialogs.c:372
+msgid "Change Key"
+msgstr "Canvia la tecla"
+
+#: src/dialogs.c:396
+msgid "Action"
+msgstr "Acció"
+
+#: src/dialogs.c:397
+msgid "Key"
+msgstr "Tecla"
+
+#: src/dialogs.c:401
+msgid "Move right"
+msgstr "Moure a la dreta"
+
+#: src/dialogs.c:402
+msgid "Move left"
+msgstr "Moure a l'esquerra"
+
+#: src/dialogs.c:403
+msgid "Move down"
+msgstr "Moure avall"
+
+#: src/dialogs.c:404
+msgid "Rotate right"
+msgstr "Rotar a la dreta"
+
+#: src/dialogs.c:405
+msgid "Rotate left"
+msgstr "Rotar a l'esquerra"
+
+#: src/dialogs.c:406
+msgid "Drop piece"
+msgstr "Soltar la peça"
+
+#: src/dialogs.c:407
+msgid "Send Message"
+msgstr "Enviar missatge"
+
+#: src/dialogs.c:480
+#, c-format
+msgid "Press new key for %s"
+msgstr "Premeu una nova tecla per a %s"
+
+#: src/dialogs.c:674
+msgid "GTetrinet Preferences"
+msgstr "Preferències de GTetrinet"
+
+#: src/dialogs.c:682
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr ""
+"Seleccioneu un tema de la llista.\n"
+"Instal·leu temes nous en ~/.gtetrinet/themes/"
+
+#: src/dialogs.c:690
+msgid "Name:"
+msgstr "Nom:"
+
+#: src/dialogs.c:694
+msgid "Author:"
+msgstr "Autor:"
+
+#: src/dialogs.c:698
+msgid "Description:"
+msgstr "Descripció:"
+
+#: src/dialogs.c:716
+msgid "Selected Theme"
+msgstr "Tema seleccionat"
+
+#: src/dialogs.c:739
+msgid "Themes"
+msgstr "Temes"
+
+#: src/dialogs.c:756
+msgid ""
+"Select an action from the list and press Change Key to change the key "
+"associated with the action."
+msgstr ""
+"Seleccioneu una acció de la llista i premeu «Canvia la tecla» per a canviar "
+"la tecla associada amb l'acció."
+
+#: src/dialogs.c:762
+msgid "Change key..."
+msgstr "Canvia la tecla..."
+
+#: src/dialogs.c:767 src/dialogs.c:825
+msgid "Restore defaults"
+msgstr "Restaura els valors per defecte"
+
+#: src/dialogs.c:792
+msgid "Keyboard"
+msgstr "Teclat"
+
+#: src/dialogs.c:798
+msgid "Enable Sound"
+msgstr "Habilita el só"
+
+#: src/dialogs.c:801
+msgid "Enable MIDI"
+msgstr "Habilita el MIDI"
+
+#: src/dialogs.c:815
+msgid "Enter command to play a midi file:"
+msgstr "Introduïu l'ordre per a reproduir un fitxer de midi:"
+
+#: src/dialogs.c:818
+msgid ""
+"The above command is run when a midi file is to be played.  The name of the "
+"midi file is placed in the environment variable MIDIFILE."
+msgstr ""
+"L'ordre de dalt s'executa quan s'ha de reproduir un fitxer de midi. El nom "
+"del fitxer de midi s'ha de ficar en la variable d'entorn «MIDIFILE»."
+
+#: src/dialogs.c:859
+msgid "Sound"
+msgstr "Só"
+
+#: src/fields.c:59
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr ""
+"Error al carregar el tema: no es pot carregar el fitxer de gràfics\n"
+"S'utilitzarà el tema per defecte"
+
+#: src/fields.c:66
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr ""
+"Error al carregar el tema per defecte: S'està avortant...\n"
+"Mireu si hi ha errors en l'instal·lació\n"
+
+#: src/fields.c:182
+msgid "Next piece:"
+msgstr "Següent peça:"
+
+#: src/fields.c:203
+msgid "Lines:"
+msgstr "Línies:"
+
+#: src/fields.c:209
+msgid "Level:"
+msgstr "Nivell:"
+
+#: src/fields.c:212
+msgid "Active level:"
+msgstr "Nivell actiu:"
+
+#: src/fields.c:265
+msgid "Attacks and defenses:"
+msgstr "Atacs i defenses:"
+
+#: src/fields.c:399
+msgid "Not playing"
+msgstr "No està jugant"
+
+#: src/fields.c:426
+msgid "Specials:"
+msgstr "Especials:"
+
+#: src/gtetrinet.c:61
+msgid "Connect to server"
+msgstr "Connecta al servidor"
+
+#: src/gtetrinet.c:61
+msgid "SERVER"
+msgstr "SERVIDOR"
+
+#: src/gtetrinet.c:62
+msgid "Set nickname to use"
+msgstr "Estableix el nom d'usuari a utilitzar"
+
+#: src/gtetrinet.c:62
+msgid "NICKNAME"
+msgstr "NOM D'USUARI"
+
+#: src/gtetrinet.c:63
+msgid "Set team name"
+msgstr "Estableix el nom de l'equip"
+
+#: src/gtetrinet.c:63
+msgid "TEAM"
+msgstr "EQUIP"
+
+#: src/gtetrinet.c:64
+msgid "Connect as spectator"
+msgstr "Connecta com a espectador"
+
+#: src/gtetrinet.c:65
+msgid "Spectator password"
+msgstr "Contrasenya d'espectador"
+
+#: src/gtetrinet.c:65
+msgid "PASSWORD"
+msgstr "CONTRASENYA"
+
+#: src/gtetrinet.c:123
+msgid "Playing Fields"
+msgstr "Camps de joc"
+
+#: src/gtetrinet.c:134
+msgid "Partyline"
+msgstr "Partyline"
+
+#: src/gtetrinet.c:145
+msgid "Winlist"
+msgstr "Marcadors"
+
+#: src/partyline.c:33 src/winlist.c:31
+msgid "Name"
+msgstr "Nom"
+
+#: src/partyline.c:34
+msgid "Team"
+msgstr "Equip"
+
+#: src/partyline.c:95
+msgid "Your name:"
+msgstr "El vostre nom:"
+
+#: src/partyline.c:104
+msgid "Your team:"
+msgstr "El vostre equip:"
+
+#: src/tetrinet.c:192
+msgid "Error connecting: "
+msgstr "Error al connectar: "
+
+#: src/tetrinet.c:737
+msgid "No special blocks"
+msgstr "No teniu blocs especials"
+
+#: src/tetrinet.c:1488
+msgid " has left the game"
+msgstr " ha abandonat el joc"
+
+#: src/tetrinet.c:1489
+msgid " have left the game"
+msgstr " han abandonat el joc"
+
+#: src/tetrinet.c:1500
+msgid " has joined the game"
+msgstr " s'ha unit al joc"
+
+#: src/tetrinet.c:1501
+msgid " have joined the game"
+msgstr " s'han unit al joc"
+
+#: src/winlist.c:30
+msgid "T"
+msgstr "E"
+
+#: src/winlist.c:32
+msgid "Score"
+msgstr "Puntuació"

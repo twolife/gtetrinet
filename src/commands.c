@@ -208,12 +208,12 @@ void about_command (GtkWidget *widget, gpointer data)
 {
     GtkWidget *about;
 
-    const char *authors[] = {"Ka-shu Wong (kswong@zip.com.au)", NULL};
+    const char *authors[] = {N_("Ka-shu Wong <kswong@zip.com.au>"), NULL};
     
     about = gnome_about_new (APPNAME, APPVERSION,
-                             "(C) 1999, 2000 Ka-shu Wong",
+                             _("(C) 1999, 2000, 2001, 2002 Ka-shu Wong"),
                              authors,
-                             _("A Tetrinet client for GNOME\n"
+                             _("A Tetrinet client for GNOME.\n"
                                "Homepage: http://gtetrinet.sourceforge.net/\n"),
                              NULL);
     gtk_widget_show (about);

@@ -1,3 +1,26 @@
+2002-06-28  Jordi Mallach  <jordi@sindominio.net>
+
+	* Added internationalization support.
+
+	* Makefile,am: added missing stuff to EXTRA_DIST.
+	Added po to SUBDIRS.
+	* configure.in: call AM_GNU_GETTEXT, added ALL_LINGUAS.
+
+	* src/Makefile: define $localedir and add it to the compile
+	includes.
+	* src/gtetrinet.c: setup gettext init.
+	* src/commands.c, src/gtetrinet.c, src/tetrinet.c, src/winlist.c,
+	src/winlist.c: marked missing strings for translation.
+
+	* po/ca.po: new Catalan translation.
+
+2002-06-28  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.am (SUBDIRS): Add m4.
+	(ACLOCAL_AMFLAGS): New variable.
+	(EXTRA_DIST): New variable.
+	* configure.in (AC_OUTPUT): Add po/Makefile.in, m4/Makefile.
+
 2002-01-14  Jordi Mallach  <jordi@sindominio.net>
 	* Fixed cosmetic issue in about dialog.
 	* Fixed major problem in ARM, PowerPC and S/390 architectures,

@@ -19,6 +19,7 @@
 #include <gtk/gtk.h>
 #include <gnome.h>
 #include <gdk_imlib.h>
+#include <locale.h>
 #include <stdlib.h>
 #include <time.h>
 #include <sys/types.h>
@@ -69,6 +70,10 @@ int main (int argc, char *argv[])
 {
     GtkWidget *page, *label, *box;
 
+    setlocale(LC_ALL, "");
+    bindtextdomain(PACKAGE, LOCALEDIR);
+    textdomain(PACKAGE);
+
     srand (time(NULL));
 
     gnome_init_with_popt_table (APPID, APPVERSION, argc, argv, options, 0 , NULL);
@@ -115,7 +120,7 @@ int main (int argc, char *argv[])
     gtk_container_add (GTK_CONTAINER(pfields), fieldswidget);
     gtk_widget_show (pfields);
     gtk_object_set_data( GTK_OBJECT(fieldswidget), "title", "Playing Fields"); // FIXME
-    label = pixmapdata_label (fields_xpm, "Playing Fields");
+    label = pixmapdata_label (fields_xpm, _("Playing Fields"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pfields, label);
 
@@ -126,7 +131,7 @@ int main (int argc, char *argv[])
     gtk_container_add (GTK_CONTAINER(pparty), partywidget);
     gtk_widget_show (pparty);
     gtk_object_set_data( GTK_OBJECT(partywidget), "title", "Partyline"); // FIXME
-    label = pixmapdata_label (partyline_xpm, "Partyline");
+    label = pixmapdata_label (partyline_xpm, _("Partyline"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pparty, label);
 
@@ -137,7 +142,7 @@ int main (int argc, char *argv[])
     gtk_container_add (GTK_CONTAINER(pwinlist), winlistwidget);
     gtk_widget_show (pwinlist);
     gtk_object_set_data( GTK_OBJECT(winlistwidget), "title", "Winlist"); // FIXME
-    label = pixmapdata_label (winlist_xpm, "Winlist");
+    label = pixmapdata_label (winlist_xpm, _("Winlist"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pwinlist, label);
 

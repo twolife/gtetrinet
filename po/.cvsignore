@@ -1,0 +1,8 @@
+Makefile.in
+Makefile
+POTFILES
+*.gmo
+gtetriet.pot
+messages
+messages.in
+remove-potcdate.sed

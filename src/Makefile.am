@@ -1,4 +1,5 @@
-INCLUDES = $(GTK_CFLAGS) $(GNOME_INCLUDEDIR)
+localedir = $(datadir)/locale
+INCLUDES = -DLOCALEDIR=\"$(localedir)\" $(GTK_CFLAGS) $(GNOME_INCLUDEDIR)
 LDADD = $(GNOME_LIBDIR) $(GNOMEUI_LIBS) $(GTK_LIBS)
 CPPFLAGS = -DGTETRINET_DATA=\"$(pkgdatadir)\"
 

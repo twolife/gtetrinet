@@ -1,0 +1,8 @@
+src/commands.c
+src/config.c
+src/dialogs.c
+src/fields.c
+src/gtetrinet.c
+src/partyline.c
+src/tetrinet.c
+src/winlist.c
