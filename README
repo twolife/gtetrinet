@@ -1,13 +1,14 @@
-GTetrinet v0.4.1
---------------
+GTetrinet
+---------
 
 GTetrinet is a clone of the popular Tetrinet game for Win95/NT.  It is
 designed to be fully compatible with, and to be identical in gameplay to the
 original Tetrinet.
 
-For information on how to play the game, refer to the tetrinet.txt file that
-is included with the original Tetrinet distribution.  A copy of this file can
-be found on the GTetrinet homepage.
+For information on how to play the game, see the manpage included with this
+package, or refer to the tetrinet.txt file that is included with the original
+Tetrinet distribution.  A copy of this file can be found on the GTetrinet
+homepage.
 
 If you're looking for a popular public server to play on, take a look at
 tetrinet.org.

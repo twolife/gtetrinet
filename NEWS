@@ -1,0 +1,48 @@
+GTetrinet 0.4.2 - Unreleased
+- Pages can now be detached.
+- TetriFast support.
+- Game messages are not longer cleared when games end.
+- Fix potential segfaults in ARM, PowerPC and S/390.
+- Internationalization support, please submit translations!
+- Catalan translation.
+- Manpage added.
+- GTetrinet now installs in $(prefix)/games, not $(prefix)/bin.
+- Focus fixes in partyline.
+
+GTetrinet 0.4.1 - 2000-07-03
+- Solaris support.
+- Gnome 1.2 fixes.
+- Icons now show better on dark backgrounds.
+- Partyline now works ok with 8bit characters.
+- Pause/resume messages support in partyline.
+- Misc fixes.
+
+GTetrinet 0.4 - 1999-12-21
+- EsounD isn't required to build anymore.
+- Opponent's fields are now correctly displayed when you connect and
+  there's a game in progress.
+- Added ability to enable/disable sound.
+- Spectator mode support.
+- Support for kick and playerwon messages, changes to join, leave
+  and team messages.
+- Added history to partyline.
+- Added Tetrix server detection.
+- Misc bugfixes.
+
+GTetrinet 0.3 - 1999-07-07
+- Added sound support.
+- More Tetrinet compliance.
+- Added F1, F2, F3 shortcuts to cycle between pages.
+- Player fields are now cleared correctly uppon players leaving.
+- Themes support improvements.
+- Added icon and GNOME desktop file.
+
+GTetrinet 0.2 - 1999-04-01
+- Fixes for added lines, switch field and block bomb to follow
+  the original Tetrinet behaviour.
+- Added a short description for the current special block.
+- New preferences dialog.
+- Misc fixes.
+
+GTetrinet 0.1 - 1999-03-22
+- Initial release

@@ -1,3 +1,13 @@
+2002-06-29  Jordi Mallach  <jordi@sindominio.net>
+
+	* NEWS: extracted GTetrinet's history from the ChangeLog.
+	* README: fixed a few things.
+
+	* doc/gtetrinet.6: added the manpage which I've been distributing
+	with the Debian package for over a year.
+
+	* src/Makefile.am: install gtetrinet in /usr/games by default.
+
 2002-06-28  Bastien Nocera  <hadess@hadess.net>
 
 	* src/partyline.c: (partyline_page_new):

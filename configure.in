@@ -33,6 +33,7 @@ AM_GNU_GETTEXT([external])
 
 AC_OUTPUT([
 Makefile
+doc/Makefile
 m4/Makefile 
 po/Makefile.in
 src/Makefile

@@ -1,0 +1,129 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" gtetrinet.6 is copyright 2001, 2002 by
+.\" Jordi Mallach <jordi@debian.org>
+.\"
+.\" This is free documentation, see the latest version of the GNU Free
+.\" Documentation License for copying conditions. There is NO warranty.
+.\"
+.TH GTETRINET 6 "June 29, 2002" "gtetrinet"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+
+.SH NAME
+GTetrinet \- a Tetrinet client for X using Gtk+ and GNOME-libs.
+
+.SH SYNOPSIS
+.B gtetrinet
+.RI [ options ]
+
+.SH DESCRIPTION
+This manual page documents briefly the
+.B gtetrinet
+command.
+.PP
+\fBGTetrinet\fP is a Tetrinet client using Gtk+ and GNOME-libs.
+Tetrinet is a variant of the popular Tetris brick game, that can be played
+simultaneously by 6 players. GTetrinet's goal is to remain completely
+compatible with the Windows, original client. Tetrinet clients need to
+connect to a dedicated server in order to be useful. GTetrient only provides
+the client part, but there are plenty of available servers around.
+Look at http://www.tetrinet.org/ for a list of servers.
+.PP
+There is also an implementation
+of the server for UNIX, called tetrinet-x, but it is (at least according to
+my latest news) abandonware, and has licensing issues (or lack of license
+thereof).
+.SH OPTIONS
+GTetrinet accepts the following options, besides the usual Gtk+/GNOME
+switches:
+.TP
+.B \-c, \-\-connect=SERVER
+Connect to the specified server.
+.TP
+.B \-h, \-\-help
+Display a summary of commandline options.
+.TP
+.B \-n, \-\-nickname=NICKNAME
+Use the specified nickname on the servers.
+.TP
+.B \-t, \-\-team=TEAM
+Join the specified team name for teamplay.
+.TP
+.B \-s, \-\-spectate
+Connect to the server as an spectator.
+.TP
+.B \-p, \-\-password=PASSWORD
+Use the given password to connect as a spectator (if needed).
+
+.SH USAGE
+To play Tetrinet, you first need to find a server where you can connect.
+You may try the servers at
+.I http://www.tetrinet.org/
+or create your own using \fBtetrinet-x\fP (a UNIX server, not included in
+this package).
+.br
+Once inside a server, you'll be able to communicate with other players
+using the \fBPartyLine\fP tab, see the server's highscores in the
+\fBWinlist\fP tab and the actual game in the \fBPlaying Fields\fP tab.
+You can switch between the three tabs using the F1, F2 and F3 shortcuts.
+.br
+Tetrinet is like Tetris, but multiplayer and with some additions. The goal of
+the game is to remain alive, by filling up other player's fields. There are
+some special blocks that can be used for your own benefit and against other
+players. They will appear randomly in your field, replacing previously
+existing blocks when you complete a line. You'll gain special blocks when
+you complete a line that contains one. It will be added to your
+\fBinventory\fP, which is just below your playfield. You need to use them in
+the order you collect them, by pressing the number of the player you want to
+use it against. For example, if your active block is "Add Line" and you want
+to use it against Player 3, you'd have to press "3" and Player 3 would
+get a line added in that instant.
+The following blocks are available:
+.RS
+.TP
+.I A block
+Add Line will an incomplete line to the bottom of the playing field to the
+player you choose.
+.TP
+.I B block
+This will remove all the special blocks from a player's field.
+.TP
+.I C block
+Clear Line is the opposite to Add Line; it will remove a line from the
+top of the selected player's field.
+.TP
+.I G block
+The Gravity block may be very useful if applied to a field which has lots of
+unfilled spaces all around. Blocks over them will fall into the gaps,
+making the puzzle collapse significantly.
+.TP
+.I N block
+Nuke will clear the chosen playing field completely, as if they had just
+started the game. It's useful to help team mates or when you are about to
+lose.
+.TP
+.I O block
+Block Bomb will clear 3x3 portions of a player's field where there are other
+O blocks. The blocks in the 3x3 area will get scattered anywhere around the
+field.
+.TP
+.I Q block
+Quake will make each of the lines in a player's field shift to the left or
+right, or stay as they were.
+.TP
+.I R block
+Random will remove 10 random blocks from the selected player's field.
+.TP
+.I S block
+Switch allows you to swap your playing field with another player. This can
+be a deadly block if used with a bit of strategy.
+.RE
+
+.SH HOMEPAGE
+http://gtetrinet.sourceforge.net/
+
+.SH AUTHOR
+This manual page was written by Jordi Mallach <jordi@debian.org>,
+for the Debian system (but may be used by others).
+Ka-shu Wong <zillidot@zillidot.net> is GTetrinet's main developer.
+You can find more information about GTetrinet in /usr/share/doc/gtetrinet.
