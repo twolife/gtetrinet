@@ -1,3 +1,7 @@
+2004-12-25  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* configure.in: Add «nb» to ALL_LINGUAS.
+
 2004-10-26  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS: Update for new translations.
