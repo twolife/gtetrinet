@@ -19,7 +19,7 @@ Tetrinet was originally conceived by St0rmCat.
 Requirements
 ------------
 
-GTetrinet requires GNOME 1.0 or newer.
+GTetrinet requires GNOME 2.0 or newer.
 
 For sound support, ESD is required.  However, GTetrinet can be compiled
 without sound support.

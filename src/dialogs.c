@@ -137,6 +137,7 @@ void teamdialog_button (GnomeDialog *dialog, gint button, gpointer data)
 void teamdialog_new (void)
 {
     GtkWidget *table, *widget, *entry;
+    gchar *team_utf8 = g_locale_to_utf8 (team, -1, NULL, NULL, NULL);
   
     if (team_dialog != NULL)
     {
@@ -157,7 +158,8 @@ void teamdialog_new (void)
     gtk_table_attach_defaults (GTK_TABLE(table), widget, 0, 1, 0, 1);
     entry = gnome_entry_new ("Team");
     gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(entry))),
-                        team);
+                        team_utf8);
+    g_free (team_utf8);
     gtk_widget_show (entry);
     gtk_table_attach_defaults (GTK_TABLE(table), entry, 1, 2, 0, 1);
     gtk_widget_show (table);

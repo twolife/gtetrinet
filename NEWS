@@ -1,3 +1,8 @@
+GTetrinet 0.5.1 - Unreleased
+- Fix bad bugs in dialog handling which made GTetrinet crash on connect
+  or other situations.
+- Other minor fixes.
+
 GTetrinet 0.5.0 - 2003-01-05
 - Finally, GNOME2 port!
 - The configuration is now read from the ~/.gnome2/gtetrinet file. If you
