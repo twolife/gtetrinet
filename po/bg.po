@@ -1,0 +1,889 @@
+# Bulgarian translation of gtetrinet.
+# Copyright (C) 2005 gtetrinet'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gtetrinet package.
+# Yavor Doganov <yavor@doganov.org>, 2005.
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: gtetrinet HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-03-29 17:40+0300\n"
+"PO-Revision-Date: 2005-03-29 17:39+0300\n"
+"Last-Translator: Yavor Doganov <yavor@doganov.org>\n"
+"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\\n\n"
+
+#: ../src/client.c:243
+msgid "Couldn't resolve hostname."
+msgstr "Не може да се определи името на хоста."
+
+#: ../src/commands.c:45
+msgid "_Connect to server..."
+msgstr "_Свързване със сървър..."
+
+#: ../src/commands.c:46
+msgid "_Disconnect from server"
+msgstr "_Изключване от сървър"
+
+#: ../src/commands.c:48
+msgid "Change _team..."
+msgstr "Смяна на _отбора..."
+
+#: ../src/commands.c:50
+msgid "_Start game"
+msgstr "_Начало на играта"
+
+#: ../src/commands.c:51
+msgid "_Pause game"
+msgstr "_Прекъсване на играта"
+
+#: ../src/commands.c:52
+msgid "_End game"
+msgstr "_Край на играта"
+
+#: ../src/commands.c:57
+msgid "Detac_h page..."
+msgstr "Отдел_яне на страница..."
+
+#: ../src/commands.c:82
+msgid "Connect"
+msgstr "Свързване"
+
+#: ../src/commands.c:82
+msgid "Connect to a server"
+msgstr "Свързване със сървър"
+
+#: ../src/commands.c:83
+msgid "Disconnect"
+msgstr "Изключване"
+
+#: ../src/commands.c:83
+msgid "Disconnect from the current server"
+msgstr "Изключване от текущия сървър"
+
+#: ../src/commands.c:85
+msgid "Start game"
+msgstr "Начало на играта"
+
+#: ../src/commands.c:85
+msgid "Start a new game"
+msgstr "Нова игра"
+
+#: ../src/commands.c:86
+msgid "End game"
+msgstr "Край на играта"
+
+#: ../src/commands.c:86
+msgid "End the current game"
+msgstr "Край на текущата игра"
+
+#: ../src/commands.c:87
+msgid "Pause game"
+msgstr "Прекъсване на играта"
+
+#: ../src/commands.c:87
+msgid "Pause the game"
+msgstr "Прекъсване на играта"
+
+#: ../src/commands.c:89 ../src/dialogs.c:152
+msgid "Change team"
+msgstr "Смяна на отбора"
+
+#: ../src/commands.c:89
+msgid "Change your current team name"
+msgstr "Смяна на името на текущия отбор"
+
+#: ../src/commands.c:92
+msgid "Detach page"
+msgstr "Отделяне на страница"
+
+#: ../src/commands.c:92
+msgid "Detach the current notebook page"
+msgstr "Отделяне на текущата страница"
+
+#: ../src/commands.c:258
+msgid "Game in progress"
+msgstr "Играе се"
+
+#: ../src/commands.c:261
+msgid "Connected to\n"
+msgstr "Свързан към\n"
+
+#: ../src/commands.c:265
+msgid "Not connected"
+msgstr "Изключен"
+
+#. Translators: translate as your names & emails
+#: ../src/commands.c:287
+msgid "translator_credits"
+msgstr "Yavor Doganov <yavor@doganov.org>"
+
+#: ../src/commands.c:293
+msgid "A Tetrinet client for GNOME.\n"
+msgstr "Tetrinet клиент за GNOME.\n"
+
+#: ../src/commands.c:305
+msgid "GTetrinet Home Page"
+msgstr "Домашна страница на GTetrinet"
+
+#: ../src/config.c:140
+msgid "Warning: theme does not have a name, reverting to default."
+msgstr "Предупреждение: темата няма име, използване на стандартната."
+
+#. make dialog that asks for address/nickname
+#: ../src/dialogs.c:85 ../src/dialogs.c:324 ../src/gtetrinet.c:77
+msgid "Connect to server"
+msgstr "Свързване със сървър"
+
+#: ../src/dialogs.c:165
+msgid "Team name:"
+msgstr "Име на отбор:"
+
+#: ../src/dialogs.c:210
+msgid "You must specify a server name."
+msgstr "Трябва да се укаже име на сървъра."
+
+#: ../src/dialogs.c:227
+msgid "Please specify a password to connect as spectator."
+msgstr "Укажете парола за свързване като зрител."
+
+#: ../src/dialogs.c:248
+msgid "Please specify a valid nickname."
+msgstr "Укажете валиден псевдоним."
+
+#. game type radio buttons
+#: ../src/dialogs.c:353
+msgid "O_riginal"
+msgstr "О_ригинал"
+
+#: ../src/dialogs.c:355
+msgid "Tetri_Fast"
+msgstr "Tetri_Бърз"
+
+#: ../src/dialogs.c:377
+msgid "Server address"
+msgstr "Адрес на сървъра"
+
+#: ../src/dialogs.c:386
+msgid "Connect as a _spectator"
+msgstr "Свързване като _зрител"
+
+#: ../src/dialogs.c:390
+msgid "_Password:"
+msgstr "_Парола:"
+
+#: ../src/dialogs.c:407
+msgid "Spectate game"
+msgstr "Гледане на игра"
+
+#: ../src/dialogs.c:416
+msgid "_Nick name:"
+msgstr "П_севдоним:"
+
+#: ../src/dialogs.c:430
+msgid "_Team name:"
+msgstr "_Име на отбор:"
+
+#: ../src/dialogs.c:449
+msgid "Player information"
+msgstr "Информация за играча"
+
+#: ../src/dialogs.c:490
+msgid "Change Key"
+msgstr "Смяна на клавиш"
+
+#: ../src/dialogs.c:541
+msgid "Move right"
+msgstr "Движение надясно"
+
+#: ../src/dialogs.c:542
+msgid "Move left"
+msgstr "Движение наляво"
+
+#: ../src/dialogs.c:543
+msgid "Move down"
+msgstr "Движение надолу"
+
+#: ../src/dialogs.c:544
+msgid "Rotate right"
+msgstr "Въртене надясно"
+
+#: ../src/dialogs.c:545
+msgid "Rotate left"
+msgstr "Въртене наляво"
+
+#: ../src/dialogs.c:546
+msgid "Drop piece"
+msgstr "Пускане на парчето"
+
+#: ../src/dialogs.c:547
+msgid "Discard special"
+msgstr "Отмяна на специалните"
+
+#: ../src/dialogs.c:548
+msgid "Send message"
+msgstr "Изпращане на съобщение"
+
+#: ../src/dialogs.c:549
+msgid "Special to field 1"
+msgstr "Специално парче в поле 1"
+
+#: ../src/dialogs.c:550
+msgid "Special to field 2"
+msgstr "Специално парче в поле 2"
+
+#: ../src/dialogs.c:551
+msgid "Special to field 3"
+msgstr "Специално парче в поле 3"
+
+#: ../src/dialogs.c:552
+msgid "Special to field 4"
+msgstr "Специално парче в поле 4"
+
+#: ../src/dialogs.c:553
+msgid "Special to field 5"
+msgstr "Специално парче в поле 5"
+
+#: ../src/dialogs.c:554
+msgid "Special to field 6"
+msgstr "Специално парче в поле 6"
+
+#: ../src/dialogs.c:614
+#, c-format
+msgid "Press new key for \"%s\""
+msgstr "Натиснете нов клавиш за \"%s\""
+
+#: ../src/dialogs.c:831
+msgid "GTetrinet Preferences"
+msgstr "Настройки на GTetrinet"
+
+#: ../src/dialogs.c:853
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr ""
+"Изберете тема от списъка.\n"
+"Инсталирайте нови теми в ~/.gtetrinet/themes/"
+
+#: ../src/dialogs.c:860
+msgid "Name:"
+msgstr "Име:"
+
+#: ../src/dialogs.c:863
+msgid "Author:"
+msgstr "Автор:"
+
+#: ../src/dialogs.c:866
+msgid "Description:"
+msgstr "Описание:"
+
+#: ../src/dialogs.c:879
+msgid "Selected Theme"
+msgstr "Избрана тема"
+
+#: ../src/dialogs.c:895
+msgid "Download new themes"
+msgstr "Изтегляне на нови теми"
+
+#: ../src/dialogs.c:900
+msgid "Themes"
+msgstr "Теми"
+
+#. partyline
+#: ../src/dialogs.c:905
+msgid "Enable _Timestamps"
+msgstr "Включване на ограничения по _време"
+
+#: ../src/dialogs.c:907
+msgid "Enable Channel _List"
+msgstr "Включване на на _списък с канали"
+
+#. FIXME
+#: ../src/dialogs.c:933 ../src/gtetrinet.c:281
+msgid "Partyline"
+msgstr "Компания"
+
+#: ../src/dialogs.c:944
+msgid "Action"
+msgstr "Действие"
+
+#: ../src/dialogs.c:946
+msgid "Key"
+msgstr "Клавиш"
+
+#: ../src/dialogs.c:952
+msgid ""
+"Select an action from the list and press Change Key to change the key "
+"associated with the action."
+msgstr ""
+"Изберете действие от списъка и натиснете \"Смяна на клавиш\", за да смените "
+"клавиша, свързан с действието."
+
+#: ../src/dialogs.c:959
+msgid "Change _key..."
+msgstr "Смяна на _клавиш..."
+
+#: ../src/dialogs.c:964 ../src/dialogs.c:1017
+msgid "_Restore defaults"
+msgstr "_По подразбиране"
+
+#: ../src/dialogs.c:985
+msgid "Keyboard"
+msgstr "Клавиатура"
+
+#. sound
+#: ../src/dialogs.c:990
+msgid "Enable _Sound"
+msgstr "Включване на _звука"
+
+#: ../src/dialogs.c:993
+msgid "Enable _MIDI"
+msgstr "Включване на _MIDI"
+
+#: ../src/dialogs.c:1007
+msgid "Enter command to play a midi file:"
+msgstr "Въведете команда за изпълнение на midi файл:"
+
+#: ../src/dialogs.c:1010
+msgid ""
+"The above command is run when a midi file is to be played.  The name of the "
+"midi file is placed in the environment variable MIDIFILE."
+msgstr ""
+"Командата се изпълнява, когато предстои изпълнение на midi файл.  Името на "
+"файла е включено в променливата MIDIFILE."
+
+#: ../src/dialogs.c:1047
+msgid "Sound"
+msgstr "Звук"
+
+#: ../src/fields.c:76
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr ""
+"Грешка при зареждане на темата: не може да се зареди графичен файл\n"
+"Възстановяване на стандартната тема"
+
+#. shouldnt happen
+#: ../src/fields.c:85
+#, c-format
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr ""
+"Грешка при зареждане на стандартната тема: Спиране на програмата...\n"
+"Проверете за грешки при инсталацията\n"
+
+#: ../src/fields.c:206
+msgid "Next piece:"
+msgstr "Следващо парче:"
+
+#: ../src/fields.c:223
+msgid "Lines:"
+msgstr "Редове:"
+
+#: ../src/fields.c:227
+msgid "Level:"
+msgstr "Ниво:"
+
+#: ../src/fields.c:229
+msgid "Active level:"
+msgstr "Активно ниво:"
+
+#: ../src/fields.c:277
+msgid "Attacks and defenses:"
+msgstr "Атаки и отстъпления:"
+
+#: ../src/fields.c:420
+msgid "Not playing"
+msgstr "Не играе"
+
+#: ../src/fields.c:447
+msgid "Specials:"
+msgstr "Специални парчета:"
+
+#: ../src/gtetrinet.c:77
+msgid "SERVER"
+msgstr "СЪРВЪР"
+
+#: ../src/gtetrinet.c:78
+msgid "Set nickname to use"
+msgstr "Задаване на псевдоним"
+
+#: ../src/gtetrinet.c:78
+msgid "NICKNAME"
+msgstr "ПСЕВДОНИМ"
+
+#: ../src/gtetrinet.c:79
+msgid "Set team name"
+msgstr "Задаване на име на отбор"
+
+#: ../src/gtetrinet.c:79
+msgid "TEAM"
+msgstr "ОТБОР"
+
+#: ../src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "Свързване като зрител"
+
+#: ../src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr "Парола на зрителя"
+
+#: ../src/gtetrinet.c:81
+msgid "PASSWORD"
+msgstr "ПАРОЛА"
+
+#: ../src/gtetrinet.c:120
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "Не може да се инициализира GConf: %s\n"
+
+#. FIXME
+#: ../src/gtetrinet.c:270 ../src/gtetrinet.c:416 ../src/gtetrinet.c:469
+msgid "Playing Fields"
+msgstr "Игрални зони"
+
+#. FIXME
+#: ../src/gtetrinet.c:292
+msgid "Winlist"
+msgstr "Списък с победители"
+
+#: ../src/partyline.c:77 ../src/partyline.c:138 ../src/winlist.c:59
+msgid "Name"
+msgstr "Име"
+
+#: ../src/partyline.c:79
+msgid "Players"
+msgstr "Играчи"
+
+#: ../src/partyline.c:81
+msgid "State"
+msgstr "Състояние"
+
+#: ../src/partyline.c:83
+msgid "Description"
+msgstr "Описание"
+
+#: ../src/partyline.c:95
+msgid "Channel List"
+msgstr "Списък с канали"
+
+#: ../src/partyline.c:140
+msgid "Team"
+msgstr "Отбор"
+
+#: ../src/partyline.c:153
+msgid "Your name:"
+msgstr "Вашето име:"
+
+#: ../src/partyline.c:160
+msgid "Your team:"
+msgstr "Вашият отбор:"
+
+#: ../src/partyline.c:638
+msgid "Talking in channel"
+msgstr "Разговори в канала"
+
+#: ../src/partyline.c:640
+msgid "Disconnected"
+msgstr "Изключен"
+
+#: ../src/tetrinet.c:197
+msgid "Server disconnected"
+msgstr "Сървъра е изключен"
+
+#: ../src/tetrinet.c:217
+#, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c*** Изключен от сървъра"
+
+#: ../src/tetrinet.c:229
+msgid "Error connecting: "
+msgstr "Грешка при свързване: "
+
+#: ../src/tetrinet.c:263
+#, c-format
+msgid "%c%c*** Connected to server"
+msgstr "%c%c*** Свързан със сървъра"
+
+#: ../src/tetrinet.c:364
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr "c%c*** Изритаха Ви от играта"
+
+#: ../src/tetrinet.c:368
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr "%c*** %c%s%c%c беше изритан от играта"
+
+#: ../src/tetrinet.c:543
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr "%c*** Отбор %c%s%c%c спечели играта"
+
+#: ../src/tetrinet.c:549
+#, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr "%c*** %c%s%c%c спечели играта"
+
+#: ../src/tetrinet.c:612
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr "%c*** Играта е %cзапочнала"
+
+#: ../src/tetrinet.c:638
+#, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "%c*** Играе %cсе"
+
+#: ../src/tetrinet.c:650
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr "%c*** Играта е %cпрекъсната"
+
+#: ../src/tetrinet.c:652
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr "Играта е %c%cпрекъсната"
+
+#: ../src/tetrinet.c:657
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr "%c*** Играта е %cвъзстановена"
+
+#: ../src/tetrinet.c:659
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr "Играта е %c%cвъзстановена"
+
+#: ../src/tetrinet.c:668
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr "%c*** Играта %cсвърши"
+
+#: ../src/tetrinet.c:786
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr "%c*** Включихте се в %c%s%c%c"
+
+#: ../src/tetrinet.c:803
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c се присъедини към зрителите %c%c(%c%s%c%c%c)"
+
+#: ../src/tetrinet.c:824
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c напусна зрителите %c%c(%c%s%c%c%c)"
+
+#: ../src/tetrinet.c:1062
+msgid "No special blocks"
+msgstr "Няма специални"
+
+#: ../src/tetrinet.c:1221 ../src/tetrinet.c:1228
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr " на %c%c%s%c%c"
+
+#: ../src/tetrinet.c:1238
+msgid " to All"
+msgstr " към всички"
+
+#: ../src/tetrinet.c:1244 ../src/tetrinet.c:1251
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr " от %c%c%s%c%c"
+
+#: ../src/tetrinet.c:1879
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr "%c*** %c%s%c%c е модератора"
+
+#. remove ", " from end of string
+#: ../src/tetrinet.c:1928
+msgid " has left the game"
+msgstr " напусна играта"
+
+#: ../src/tetrinet.c:1929
+msgid " have left the game"
+msgstr " напуснаха играта"
+
+#: ../src/tetrinet.c:1942
+msgid " has joined the game"
+msgstr " се включи в играта"
+
+#: ../src/tetrinet.c:1943
+msgid " have joined the game"
+msgstr " се включиха в играта"
+
+#: ../src/tetrinet.c:1966
+#, c-format
+msgid "%s is on team %c%s"
+msgstr "%s е в отбор %c%s"
+
+#: ../src/tetrinet.c:1969
+#, c-format
+msgid "%s is alone"
+msgstr "%s е сам(а)"
+
+#: ../src/tetrinet.c:1971
+#, c-format
+msgid "%s are on team %c%s"
+msgstr "%s са в отбор %c%s"
+
+#: ../src/tetrinet.c:1974
+#, c-format
+msgid "%s are alone"
+msgstr "%s са сами"
+
+#: ../src/tetrinet.c:2015
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr "%c*** %c%s%c%c е вече в отбор %c%s"
+
+#: ../src/tetrinet.c:2022
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr "%c*** %c%s%c%c вече е сам(а)"
+
+#. "T" stands for "Team" here
+#: ../src/winlist.c:57
+msgid "T"
+msgstr "О"
+
+#: ../src/winlist.c:61
+msgid "Score"
+msgstr "Точки"
+
+#: ../gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr "GTetrinet"
+
+#: ../gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "Tetrinet клиент"
+
+#: ../gtetrinet.desktop.in.h:3
+msgid "Tetrinet client for GNOME"
+msgstr "Tetrinet клиент за GNOME"
+
+#: ../gtetrinet.schemas.in.h:1
+msgid "Command to run to play midi files"
+msgstr "Команда за изпълнение на midi файлове"
+
+#: ../gtetrinet.schemas.in.h:2
+msgid "Enable/disable channel list."
+msgstr "Включване/изключване на списъка с канали."
+
+#: ../gtetrinet.schemas.in.h:3
+msgid "Enable/disable midi music"
+msgstr "Включване/изключване на midi музика"
+
+#: ../gtetrinet.schemas.in.h:4
+msgid "Enable/disable sound"
+msgstr "Включване/изключване на звук"
+
+#: ../gtetrinet.schemas.in.h:5
+msgid "Enable/disable timestamps."
+msgstr "Включване/изключване на ограничения по време."
+
+#: ../gtetrinet.schemas.in.h:6
+msgid ""
+"Enables/Disables sound. Keep in mind that the theme that you're using must "
+"provide sounds."
+msgstr ""
+"Включва/изключва звука. Обърнете внимание, че темата, която ползвате, трябва "
+"да съдържа звук."
+
+#: ../gtetrinet.schemas.in.h:7
+msgid ""
+"Enables/disables midi music. You'll need to enable sound if you want music "
+"to work."
+msgstr ""
+"Включва/изключва midi музика. Ще трябва да включите звука, ако искате "
+"музиката да работи."
+
+#: ../gtetrinet.schemas.in.h:8
+msgid ""
+"Enables/disables the channel list. Disable it if you experience problems "
+"when connecting or while playing in your favorite tetrinet server."
+msgstr ""
+"Включва/изключва списъка с канали. Изключете го, ако има проблеми при "
+"свързването или по време на игра в любимия tetrinet сървър."
+
+#: ../gtetrinet.schemas.in.h:9
+msgid "Enables/disables timestamps in the partyline."
+msgstr "Включва/изключва ограничения по време."
+
+#: ../gtetrinet.schemas.in.h:10
+msgid "Key to discard special"
+msgstr "Клавиш за отмяна на специалните парчета"
+
+#: ../gtetrinet.schemas.in.h:11
+msgid "Key to drop piece"
+msgstr "Клавиш за пускане на парче"
+
+#: ../gtetrinet.schemas.in.h:12
+msgid "Key to move down"
+msgstr "Клавиш за движение надолу"
+
+#: ../gtetrinet.schemas.in.h:13
+msgid "Key to move left"
+msgstr "Клавиш за движение наляво"
+
+#: ../gtetrinet.schemas.in.h:14
+msgid "Key to move right"
+msgstr "Клавиш за движение надясно"
+
+#: ../gtetrinet.schemas.in.h:15
+msgid "Key to open the fields' message dialog"
+msgstr "Клавиш за отваряне на диалога със съобщения"
+
+#: ../gtetrinet.schemas.in.h:16
+msgid "Key to rotate clockwise"
+msgstr "Клавиш за въртене по посока на часовниковата стрелка"
+
+#: ../gtetrinet.schemas.in.h:17
+msgid "Key to rotate counterclockwise"
+msgstr "Клавиш за въртене обратно на часовниковата стрелка"
+
+#: ../gtetrinet.schemas.in.h:18
+msgid "Key to use the current special on field 1"
+msgstr "Клавиш за използване на текущото специално парче в поле 1"
+
+#: ../gtetrinet.schemas.in.h:19
+msgid "Key to use the current special on field 2"
+msgstr "Клавиш за използване на текущото специално парче в поле 2"
+
+#: ../gtetrinet.schemas.in.h:20
+msgid "Key to use the current special on field 3"
+msgstr "Клавиш за използване на текущото специално парче в поле 3"
+
+#: ../gtetrinet.schemas.in.h:21
+msgid "Key to use the current special on field 4"
+msgstr "Клавиш за използване на текущото специално парче в поле 4"
+
+#: ../gtetrinet.schemas.in.h:22
+msgid "Key to use the current special on field 5"
+msgstr "Клавиш за използване на текущото специално парче в поле 5"
+
+#: ../gtetrinet.schemas.in.h:23
+msgid "Key to use the current special on field 6"
+msgstr "Клавиш за използване на текущото специално парче в поле 6"
+
+#: ../gtetrinet.schemas.in.h:24
+msgid "Server where you want to play"
+msgstr "Сървър, където искате да играете"
+
+#: ../gtetrinet.schemas.in.h:25
+msgid ""
+"The current theme directory. It should contain a readable \"blocks.png\" and "
+"a \"theme.cfg\"."
+msgstr ""
+"Текущата папка с теми. Трябва да съдържа четими \"blocks.png\" и \"theme.cfg"
+"\" файлове."
+
+#: ../gtetrinet.schemas.in.h:26
+msgid "Theme directory, should end with a '/'"
+msgstr "Папка с теми, трябва да завършва с '/'"
+
+#: ../gtetrinet.schemas.in.h:27
+msgid ""
+"This command is run when a midi file is to be played. The name of the midi "
+"file is placed in the environment variable MIDIFILE."
+msgstr ""
+"Командата се изпълнява, когато предстои изпълнение на midi файл.  Името на "
+"файла е включено в променливата MIDIFILE."
+
+#: ../gtetrinet.schemas.in.h:28
+msgid "This is the server where GTetrinet will try to connect."
+msgstr "Сървъра, с който GTetrinet ще се опита да се свърже."
+
+#: ../gtetrinet.schemas.in.h:29
+msgid "This key discards the current special. This is case insensitive."
+msgstr ""
+"Този клавиш отменя текущото специално парче. Не зависи от малки/големи букви."
+
+#: ../gtetrinet.schemas.in.h:30
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr ""
+"Този клавиш показва диалога със съобщения. Не зависи от малки/големи букви."
+
+#: ../gtetrinet.schemas.in.h:31
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr "Този клавиш пуска парчето на земята. Не зависи от малки/големи букви."
+
+#: ../gtetrinet.schemas.in.h:32
+msgid "This key moves the block down. This is case insensitive."
+msgstr "Този клавиш придвижва парчето надолу. Не зависи от малки/големи букви."
+
+#: ../gtetrinet.schemas.in.h:33
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr "Този клавиш придвижва парчето вляво. Не зависи от малки/големи букви."
+
+#: ../gtetrinet.schemas.in.h:34
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr "Този клавиш придвижва парчето вдясно. Не зависи от малки/големи букви."
+
+#: ../gtetrinet.schemas.in.h:35
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr ""
+"Този клавиш завърта парчето по посока на часовниковата стрелка. Не зависи от "
+"малки/големи букви."
+
+#: ../gtetrinet.schemas.in.h:36
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr ""
+"Този клавиш завърта парчето обратно на часовниковата стрелка. Не зависи от "
+"малки/големи букви."
+
+#: ../gtetrinet.schemas.in.h:37
+msgid "This key uses the current special on Player 1's game field."
+msgstr ""
+"Този клавиш служи за използване на специално парче в полето на Играч 1."
+
+#: ../gtetrinet.schemas.in.h:38
+msgid "This key uses the current special on Player 2's game field."
+msgstr ""
+"Този клавиш служи за използване на специално парче в полето на Играч 2."
+
+#: ../gtetrinet.schemas.in.h:39
+msgid "This key uses the current special on Player 3's game field."
+msgstr ""
+"Този клавиш служи за използване на специално парче в полето на Играч 3."
+
+#: ../gtetrinet.schemas.in.h:40
+msgid "This key uses the current special on Player 4's game field."
+msgstr ""
+"Този клавиш служи за използване на специално парче в полето на Играч 4."
+
+#: ../gtetrinet.schemas.in.h:41
+msgid "This key uses the current special on Player 5's game field."
+msgstr ""
+"Този клавиш служи за използване на специално парче в полето на Играч 5."
+
+#: ../gtetrinet.schemas.in.h:42
+msgid "This key uses the current special on Player 6's game field."
+msgstr ""
+"Този клавиш служи за използване на специално парче в полето на Играч 6."
+
+#: ../gtetrinet.schemas.in.h:43
+msgid "This will be the name of your team."
+msgstr "Това ще бъде името на отбора Ви."
+
+#: ../gtetrinet.schemas.in.h:44
+msgid "This will be your nickname in the game."
+msgstr "Това ще бъде псевдонима Ви в играта."
+
+#: ../gtetrinet.schemas.in.h:45
+msgid "Your nickname"
+msgstr "Вашият псевдоним"
+
+#: ../gtetrinet.schemas.in.h:46
+msgid "Your team"
+msgstr "Вашият отбор"
