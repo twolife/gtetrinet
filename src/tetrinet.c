@@ -861,45 +861,53 @@ void tetrinet_changeteam (const char *newteam)
 
 void tetrinet_sendfield (int reset)
 {
-    int x, y, i, d = FALSE;
-    char buf[1024], buf2[1024], *p;
+  int x, y, i, d = FALSE; /* d is the number of differences */
+  char buf[1024], *p;
 
-    if (reset) goto sendwholefield;
+  char diff_buf[15][(FIELDWIDTH + 1)* FIELDHEIGHT * 2] = {0};
 
-    g_snprintf (buf, sizeof(buf), "%d ", playernum);
-    /* find differences between the fields */
-    for (i = 0; i < 15; i ++) {
-        p = buf2 + 1;
-        buf2[0] = '!' + i;
-        for (y = 0; y < FIELDHEIGHT; y ++)
-            for (x = 0; x < FIELDWIDTH; x ++)
-                if (sentfield[y][x] != fields[playernum][y][x]
-                    && fields[playernum][y][x] == i)
-                {
-                    *p++ = x + '3';
-                    *p++ = y + '3';
-                }
-        if (p > buf2+1) {
-            *p = 0;
-            GTET_O_STRCAT (buf, buf2);
-            d = TRUE;
-        }
+  int row_count[15] = {1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1};
+
+  g_snprintf (buf, sizeof(buf), "%d ", playernum);
+
+  if(!reset) {
+    /* Find out which blocks changed, how, and how many */
+    for (y = 0; y < FIELDHEIGHT; y ++) {
+      for (x = 0; x < FIELDWIDTH; x ++) {
+
+	const int block = fields[playernum][y][x];
+
+	if (block != sentfield[y][x]) {
+	  diff_buf[block][row_count[block]++] = x + '3';
+	  diff_buf[block][row_count[block]++] = y + '3';
+	  d += 2;
+	}
+      }
     }
-    if (!d) return; /* no differences */
-    if (strlen (buf) >= FIELDHEIGHT*FIELDWIDTH+2) {
-        /* sending entire field is more efficient */
-    sendwholefield:
-        p = buf2;
-        for (y = 0; y < FIELDHEIGHT; y ++)
-            for (x = 0; x < FIELDWIDTH; x ++)
-                *p++ = blocks[(int)fields[playernum][y][x]];
-        *p = 0;
-        g_snprintf (buf, sizeof(buf), "%d %s", playernum, buf2);
+    if (d == 0) return; // no differences
+  }
+
+  if (reset || d >= FIELDHEIGHT*FIELDWIDTH) {
+    /* sending entire field is more efficient */
+    p = buf + 2;
+    for (y = 0; y < FIELDHEIGHT; y ++)
+      for (x = 0; x < FIELDWIDTH; x ++)
+	*p++ = blocks[(int)fields[playernum][y][x]];
+    *p = 0;
+  }
+  else { /* so now we need to create the buffer strings */
+    for(i = 0; i < 15; ++i) {
+      if(row_count[i] > 1) {
+	diff_buf[i][0] = '!' + i;
+	GTET_O_STRCAT (buf, diff_buf[i]);
+      }
     }
-    /* send it */
-    client_outmessage (OUT_F, buf);
-    /* update the one in our memory */
-    copyfield (sentfield, fields[playernum]);
+  }
+
+  /* send it */
+  client_outmessage (OUT_F, buf);
+  /* update the one in our memory */
+  copyfield (sentfield, fields[playernum]);
 }
 
 void tetrinet_updatefield (FIELD field)

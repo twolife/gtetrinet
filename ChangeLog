@@ -1,3 +1,8 @@
+2003-02-20  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/tetrinet.c (tetrinet_sendfield): Patch from Ian Zink with big
+	optimizations.
+
 2003-02-19  James Antill  <james@and.org>
 
 	* src/partyline.c (textentry): Add ESC for "/list" parser when user
