@@ -2,6 +2,11 @@
 #define APPNAME "GTetrinet"
 #define APPVERSION VERSION
 
+#define ORIGINAL 0
+#define TETRIFAST 1
+
+extern int gamemode;
+
 extern void destroymain (GtkWidget *widget, gpointer data);
 extern gint keypress (GtkWidget *widget, GdkEventKey *key);
 extern gint keyrelease (GtkWidget *widget, GdkEventKey *key);

@@ -45,11 +45,16 @@ static int gtetrinet_key (int keyval);
 gint keypress (GtkWidget *widget, GdkEventKey *key);
 gint keyrelease (GtkWidget *widget, GdkEventKey *key);
 
-static GtkWidget *app, *pfields;
+static GtkWidget *app, *pfields, *pparty, *pwinlist;
+static GtkWidget *winlistwidget, *partywidget, *fieldswidget;
 GtkWidget *notebook;
 
 char *option_connect = 0, *option_nick = 0, *option_team = 0, *option_pass = 0;
 int option_spec = 0;
+
+int gamemode = ORIGINAL;
+
+int fields_width, fields_height;
 
 static const struct poptOption options[] = {
     {"connect", 'c', POPT_ARG_STRING, &option_connect, 0, N_("Connect to server"), N_("SERVER")},
@@ -102,42 +107,45 @@ int main (int argc, char *argv[])
     make_menus (GNOME_APP(app));
 
     /* create the pages in the notebook */
-    page = fields_page_new ();
-    gtk_widget_set_sensitive (page, TRUE);
-    gtk_widget_show (page);
+    fieldswidget = fields_page_new ();
+    gtk_widget_set_sensitive (fieldswidget, TRUE);
+    gtk_widget_show (fieldswidget);
     pfields = gtk_hbox_new (FALSE, 0);
     gtk_container_set_border_width (GTK_CONTAINER(pfields), 0);
-    gtk_container_add (GTK_CONTAINER(pfields), page);
+    gtk_container_add (GTK_CONTAINER(pfields), fieldswidget);
     gtk_widget_show (pfields);
-    gtk_object_set_data( GTK_OBJECT(page), "title", "Playing Fields"); // FIXME
+    gtk_object_set_data( GTK_OBJECT(fieldswidget), "title", "Playing Fields"); // FIXME
     label = pixmapdata_label (fields_xpm, "Playing Fields");
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pfields, label);
 
-    page = partyline_page_new ();
-    gtk_widget_show (page);
-    box = gtk_hbox_new (FALSE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER(box), 0);
-    gtk_container_add (GTK_CONTAINER(box), page);
-    gtk_widget_show (box);
-    gtk_object_set_data( GTK_OBJECT(page), "title", "Partyline"); // FIXME
+    partywidget = partyline_page_new ();
+    gtk_widget_show (partywidget);
+    pparty = gtk_hbox_new (FALSE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER(pparty), 0);
+    gtk_container_add (GTK_CONTAINER(pparty), partywidget);
+    gtk_widget_show (pparty);
+    gtk_object_set_data( GTK_OBJECT(partywidget), "title", "Partyline"); // FIXME
     label = pixmapdata_label (partyline_xpm, "Partyline");
     gtk_widget_show (label);
-    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), box, label);
+    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pparty, label);
 
-    page = winlist_page_new ();
-    gtk_widget_show (page);
-    box = gtk_hbox_new (FALSE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER(box), 0);
-    gtk_container_add (GTK_CONTAINER(box), page);
-    gtk_widget_show (box);
-    gtk_object_set_data( GTK_OBJECT(page), "title", "Winlist"); // FIXME
+    winlistwidget = winlist_page_new ();
+    gtk_widget_show (winlistwidget);
+    pwinlist = gtk_hbox_new (FALSE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER(pwinlist), 0);
+    gtk_container_add (GTK_CONTAINER(pwinlist), winlistwidget);
+    gtk_widget_show (pwinlist);
+    gtk_object_set_data( GTK_OBJECT(winlistwidget), "title", "Winlist"); // FIXME
     label = pixmapdata_label (winlist_xpm, "Winlist");
     gtk_widget_show (label);
-    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), box, label);
+    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pwinlist, label);
 
     gtk_widget_show (notebook);
     gtk_widget_show (app);
+
+    gtk_widget_set_usize(partywidget, 480, 360);
+    gtk_widget_set_usize(winlistwidget, 480, 360);
 
     /* initialise some stuff */
     textbox_setup ();
@@ -377,4 +385,11 @@ void move_current_page_to_window (void)
                         (gpointer)(pageData));
 
     gtk_widget_show_all( newWindow );
+
+    /* cure annoying side effect */
+    if (gmsgstate)
+        fields_gmsginput(TRUE);
+    else
+        fields_gmsginput(FALSE);
+
 }

@@ -34,6 +34,7 @@
 #include "partyline.h"
 #include "dialogs.h"
 #include "misc.h"
+#include "gtetrinet.h"
 
 #define PORT 31457
 #define SPECPORT 31458
@@ -60,6 +61,8 @@ struct outmsgt {
     char *str;
 };
 
+/* some of these strings change depending on the game mode selected */
+/* these changes are put into effect through the function inmsg_change */
 struct inmsgt inmsgtable[] = {
     {IN_CONNECT, "connect"},
     {IN_DISCONNECT, "disconnect"},
@@ -91,6 +94,27 @@ struct inmsgt inmsgtable[] = {
     {IN_SACT, "sact"},
     {0, 0}
 };
+
+static struct inmsgt *get_inmsg_entry(enum inmsg_type num)
+{
+    int i;
+    for (i = 0; inmsgtable[i].num && inmsgtable[i].num != num; i ++);
+    return &inmsgtable[i];
+}
+
+static void inmsg_change()
+{
+    switch (gamemode) {
+    case ORIGINAL:
+        get_inmsg_entry(IN_PLAYERNUM)->str = "playernum";
+        get_inmsg_entry(IN_NEWGAME)->str = "newgame";
+        break;
+    case TETRIFAST:
+        get_inmsg_entry(IN_PLAYERNUM)->str = ")#)(!@(*3";
+        get_inmsg_entry(IN_NEWGAME)->str = "*******";
+        break;
+    }
+}
 
 struct outmsgt outmsgtable[] = {
     {OUT_DISCONNECT, "disconnect"},
@@ -159,6 +183,9 @@ void client_init (char *s, char *n)
     }
 
     connectingdialog_new ();
+
+    /* set the game mode */
+    inmsg_change();
 
     if ((clientpid = fork()) == 0) {
         client_process ();
@@ -317,7 +344,11 @@ int client_connect (void)
     /* set up the connection */
 
     h = gethostbyname (server);
-    if (h == 0) return -1;
+    if (h == 0) {
+        /* set errno = 0 so that we know it's a gethostbyname error */
+        errno = 0;
+        return -1;
+    }
     memset (&sa, 0, sizeof (sa));
     memcpy (&sa.sin_addr, h->h_addr, h->h_length);
     sa.sin_family = h->h_addrtype;
@@ -336,7 +367,10 @@ int client_connect (void)
         unsigned char iphashbuf[6];
         int i, l, len;
         /* construct message */
-        sprintf (buf, "tetrisstart %s 1.13", nick);
+        if (gamemode == TETRIFAST)
+            sprintf (buf, "tetrifaster %s 1.13", nick);
+        else
+            sprintf (buf, "tetrisstart %s 1.13", nick);
         /* do that encoding thingy */
         server_ip (ip);
         sprintf (iphashbuf, "%d", ip[0]*54 + ip[1]*41 + ip[2]*29 + ip[3]*17);

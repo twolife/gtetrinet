@@ -567,6 +567,7 @@ void fields_gmsginputback (void)
 {
     char buf[256];
     strcpy (buf, gtk_entry_get_text(GTK_ENTRY(gmsginput)));
+    if (strlen(buf) == 0) return;
     buf[strlen(buf)-1] = 0;
     gtk_entry_set_text (GTK_ENTRY(gmsginput), buf);
     gtk_entry_set_position (GTK_ENTRY(gmsginput), strlen(buf));

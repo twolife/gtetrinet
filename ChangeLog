@@ -1,3 +1,10 @@
+2001-11-05
+	* Cleaned up page detach patch.
+	* Merged TetriFast support.
+	  (tested compatible with Pihvi's Java Tetrinet Server)
+	* Added some fixes by Pihvi.
+	* Miscellaneous bug fixes.
+
 2001-01-13
 	* Merged page detach patch from Neil Bird <neil.bird@rdel.co.uk>.
 	* Fixed stupid bug in tetrinet_specialkey().

@@ -262,7 +262,7 @@ void tetris_blockdrop (void)
 
 void tetris_addlines (int count, int type)
 {
-    int x, y, ok, n, i;
+    int x, y, n, i;
     FIELD field;
     copyfield (field, fields[playernum]);
     for (i = 0; i < count; i ++) {
@@ -282,25 +282,16 @@ void tetris_addlines (int count, int type)
         /* generate a random line with spaces in it */
         switch (type) {
         case 1: /* addline lines */
-            ok = FALSE;
-            while (!ok) {
-                for (x = 0; x < FIELDWIDTH; x ++) {
-                    n = randomnum (13);
-                    /* in the original tetrinet, spaces seem to have 1.5 times the
-                     probability of other blocks */
-                    if (n < 10) field[FIELDHEIGHT-1][x] = n/2 + 1;
-                    else {
-                        field[FIELDHEIGHT-1][x] = 0;
-                        ok = TRUE;
-                    }
-                }
-            }
+            /* ### This is how the original tetrinet seems to do an add line */
+            for (x = 0; x < FIELDWIDTH; x ++)
+                field[FIELDHEIGHT-1][x] = randomnum(6);
+            field[FIELDHEIGHT-1][randomnum(FIELDWIDTH)] = 0;
+            /* ### Corrected by Pihvi */
             break;
         case 2: /* classicmode lines */
             /* fill up the line */
-            for (x = 0; x < FIELDWIDTH; x ++) {
+            for (x = 0; x < FIELDWIDTH; x ++)
                 field[FIELDHEIGHT-1][x] = randomnum(5) + 1;
-            }
             /* add a single space */
             field[FIELDHEIGHT-1][randomnum(FIELDWIDTH)] = 0;
             break;

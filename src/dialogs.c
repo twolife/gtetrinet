@@ -148,6 +148,9 @@ void teamdialog_new (void)
 static int connecting;
 static GtkWidget *serveraddressentry, *nicknameentry, *teamnameentry, *spectatorcheck, *passwordentry;
 static GtkWidget *connectdialog, *passwordlabel, *teamnamelabel;
+static GtkWidget *originalradio, *tetrifastradio;
+static GSList *gametypegroup;
+static int oldgamemode;
 
 void connectdialog_button (GnomeDialog *dialog, gint button, gpointer data)
 {
@@ -161,6 +164,7 @@ void connectdialog_button (GnomeDialog *dialog, gint button, gpointer data)
                      gtk_entry_get_text(GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(nicknameentry)))));
         break;
     case 1:
+        gamemode = oldgamemode;
         gtk_widget_destroy (connectdialog);
         break;
     }
@@ -182,9 +186,18 @@ void connectdialog_spectoggle (GtkWidget *widget, gpointer data)
     }
 }
 
-void connectdialog_cancel (GtkWidget *widget, gpointer data)
+void connectdialog_originaltoggle (GtkWidget *widget, gpointer data)
 {
-    gtk_widget_destroy (connectdialog);
+    if (GTK_TOGGLE_BUTTON(widget)-> active) {
+        gamemode = ORIGINAL;
+    }
+}
+
+void connectdialog_tetrifasttoggle (GtkWidget *widget, gpointer data)
+{
+    if (GTK_TOGGLE_BUTTON(widget)-> active) {
+        gamemode = TETRIFAST;
+    }
 }
 
 void connectdialog_connected (void)
@@ -203,6 +216,10 @@ void connectdialog_new (void)
     /* check if dialog is already displayed */
     if (connecting) return;
     connecting = TRUE;
+
+    /* save some stuff */
+    oldgamemode = gamemode;
+
     /* make dialog that asks for address/nickname */
     connectdialog = gnome_dialog_new (_("Connect to Server"),
                                       GNOME_STOCK_BUTTON_OK,
@@ -218,7 +235,7 @@ void connectdialog_new (void)
     gtk_table_set_col_spacings (GTK_TABLE(table1), GNOME_PAD_SMALL);
 
     /* server address */
-    table2 = gtk_table_new (1, 1, FALSE);
+    table2 = gtk_table_new (2, 1, FALSE);
 
     serveraddressentry = gnome_entry_new ("Server");
     gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(serveraddressentry))),
@@ -227,6 +244,26 @@ void connectdialog_new (void)
     gtk_table_attach (GTK_TABLE(table2), serveraddressentry,
                       0, 1, 0, 1, GTK_FILL | GTK_EXPAND,
                       GTK_FILL | GTK_EXPAND, 0, 0);
+    /* game type radio buttons */
+    originalradio = gtk_radio_button_new_with_label (NULL, _("Original"));
+    gametypegroup = gtk_radio_button_group (GTK_RADIO_BUTTON(originalradio));
+    tetrifastradio = gtk_radio_button_new_with_label (gametypegroup, _("TetriFast"));
+    switch (gamemode) {
+    case ORIGINAL:
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(originalradio), TRUE);
+        break;
+    case TETRIFAST:
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(tetrifastradio), TRUE);
+        break;
+    }
+    gtk_widget_show (originalradio);
+    gtk_widget_show (tetrifastradio);
+    widget = gtk_hbox_new (FALSE, GNOME_PAD_SMALL);
+    gtk_box_pack_start (GTK_BOX(widget), originalradio, 0, 0, 0);
+    gtk_box_pack_start (GTK_BOX(widget), tetrifastradio, 0, 0, 0);
+    gtk_widget_show (widget);
+    gtk_table_attach (GTK_TABLE(table2), widget,
+                      0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
 
     gtk_table_set_row_spacings (GTK_TABLE(table2), GNOME_PAD_SMALL);
     gtk_table_set_col_spacings (GTK_TABLE(table2), GNOME_PAD_SMALL);
@@ -299,7 +336,6 @@ void connectdialog_new (void)
     gtk_table_attach (GTK_TABLE(table1), frame, 1, 2, 1, 2,
                       GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND, 0, 0);
 
-
     gtk_widget_show (table1);
 
     gtk_box_pack_start (GTK_BOX(GNOME_DIALOG(connectdialog)->vbox),
@@ -311,6 +347,10 @@ void connectdialog_new (void)
                         GTK_SIGNAL_FUNC(connectdialog_destroy), NULL);
     gtk_signal_connect (GTK_OBJECT(spectatorcheck), "toggled",
                         GTK_SIGNAL_FUNC(connectdialog_spectoggle), NULL);
+    gtk_signal_connect (GTK_OBJECT(originalradio), "toggled",
+                        GTK_SIGNAL_FUNC(connectdialog_originaltoggle), NULL);
+    gtk_signal_connect (GTK_OBJECT(tetrifastradio), "toggled",
+                        GTK_SIGNAL_FUNC(connectdialog_tetrifasttoggle), NULL);
     gtk_widget_show (connectdialog);
 }
 

@@ -9,6 +9,7 @@ extern FIELD fields[7];
 extern int ingame, playing, paused;
 extern int moderator, spectating;
 extern int bigfieldnum;
+extern int gmsgstate;
 
 extern char specialblocks[256];
 extern int specialblocknum;

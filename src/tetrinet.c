@@ -38,7 +38,7 @@
 #include "dialogs.h"
 #include "sound.h"
 
-#define NEXTBLOCKDELAY 1000
+#define NEXTBLOCKDELAY (gamemode==TETRIFAST?0:1000)
 #define DOWNDELAY 100
 #define PARTYLINEDELAY1 100
 #define PARTYLINEDELAY2 200
@@ -912,18 +912,18 @@ void tetrinet_dospecial (int from, int to, int type)
         break;
     case S_BLOCKQUAKE:
         for (y = 0; y < FIELDHEIGHT; y ++) {
-            /*
-             note: I actually measured these frequencies - the following
-             is an approximation of what I measured
-             */
-            int s;
-            i = randomnum (20);
-            if (i < 9) s = 0;
-            else if (i < 15) s = 1;
-            else if (i < 18) s = 2;
-            else s = 3;
+            /* [ the original approximation of blockquake frequencies were
+                 not quite correct ] */
+            /* ### This is a much better approximation and probably how the */
+            /* ### original tetrinet does it */
+            int s = 0;
+            i = randomnum (22);
+            if (i < 1) s ++;
+            if (i < 4) s ++;
+            if (i < 11) s ++;
             if (randomnum(2)) s = -s;
             tetrinet_shiftline (y, s, field);
+            /* ### Corrected by Pihvi */
         }
         tetrinet_updatefield (field);
         break;
