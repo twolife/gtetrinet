@@ -694,8 +694,11 @@ void prefdialog_themelist ()
             theme_select = i;
         }
     }
-    gtk_tree_selection_select_iter (theme_selection, &iter_selected);
-    prefdialog_themelistselect (theme_select);
+    if (theme_select != 0) 
+    {
+      gtk_tree_selection_select_iter (theme_selection, &iter_selected);
+      prefdialog_themelistselect (theme_select);
+    }
 }
 
 void prefdialog_apply (GnomePropertyBox *dialog, gint pagenum)
