@@ -72,17 +72,17 @@ GnomeUIInfo menubar[] = {
 };
 
 GnomeUIInfo toolbar[] = {
-    GNOMEUIINFO_ITEM_STOCK(N_("Connect"), N_("Connect"), connect_command, "gtk-execute"),
-    GNOMEUIINFO_ITEM_STOCK(N_("Disconnect"), N_("Disconnect"), disconnect_command, "gtk-quit"),
+    GNOMEUIINFO_ITEM_STOCK(N_("Connect"), N_("Connect to a server"), connect_command, "gtk-execute"),
+    GNOMEUIINFO_ITEM_STOCK(N_("Disconnect"), N_("Disconnect from the current server"), disconnect_command, "gtk-quit"),
     GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM_STOCK(N_("Start game"), N_("Start game"), start_command, "gtk-go-forward"),
-    GNOMEUIINFO_ITEM_STOCK(N_("Pause game"), N_("Pause game"), pause_command, "gtk-dialog-warning"),
-    GNOMEUIINFO_ITEM_STOCK(N_("End game"), N_("End game"), end_command, "gtk-stop"),
+    GNOMEUIINFO_ITEM_STOCK(N_("Start game"), N_("Start a new game"), start_command, "gtk-go-forward"),
+    GNOMEUIINFO_ITEM_STOCK(N_("Pause game"), N_("Pause the game"), pause_command, "gtk-dialog-warning"),
+    GNOMEUIINFO_ITEM_STOCK(N_("End game"), N_("End the current game"), end_command, "gtk-stop"),
     GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM_STOCK(N_("Change team"), N_("Change team"), team_command, "gtk-jump-to"),
+    GNOMEUIINFO_ITEM_STOCK(N_("Change team"), N_("Change your current team name"), team_command, "gtk-jump-to"),
 #ifdef ENABLE_DETACH
     GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM(N_("Detach page"), NULL, detach_command, NULL),
+    GNOMEUIINFO_ITEM_STOCK(N_("Detach page"), N_("Detach the current notebook page"), detach_command, "gtk-cut"),
 #endif
     GNOMEUIINFO_END
 };
