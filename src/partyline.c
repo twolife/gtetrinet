@@ -1,6 +1,6 @@
 /*
  *  GTetrinet
- *  Copyright (C) 1999, 2000  Ka-shu Wong (kswong@zip.com.au)
+ *  Copyright (C) 1999, 2000, 2001, 2002, 2003  Ka-shu Wong (kswong@zip.com.au)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -46,7 +46,7 @@ char plhistory[PLHSIZE][256];
 int plh_start = 0, plh_end = 0, plh_cur = 0;
 
 /* function prototypes for callbacks */
-static void textentry (GtkWidget *widget, gpointer data);
+static void textentry (GtkWidget *widget);
 static gint entrykey (GtkWidget *widget, GdkEventKey *key);
 
 GtkWidget *partyline_page_new (void)
@@ -54,7 +54,6 @@ GtkWidget *partyline_page_new (void)
     GtkWidget *widget, *box; /* generic temp variables */
     GtkListStore *playerlist_model = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
-    char *listtitles[3];
 
     /* left box */
     leftbox = gtk_vbox_new (FALSE, 4);
@@ -207,7 +206,6 @@ void partyline_playerlist (int *numbers, char **names, char **teams, int n, char
 {
     int i;
     char buf0[16], buf1[128], buf2[128];
-    char *item[3] = {buf0, buf1, buf2};
     GtkListStore *playerlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (playerlist)));
     GtkTreeIter iter;
     gchar *aux1, *aux2; /* for recoding purposes */
@@ -259,7 +257,7 @@ void partyline_switch_entryfocus (void)
     if (connected) gtk_widget_grab_focus (entrybox);
 }
 
-void textentry (GtkWidget *widget, gpointer data)
+void textentry (GtkWidget *widget)
 {
     const char *text;
     gchar *iso_text;

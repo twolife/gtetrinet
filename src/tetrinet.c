@@ -1,6 +1,6 @@
 /*
  *  GTetrinet
- *  Copyright (C) 1999, 2000  Ka-shu Wong (kswong@zip.com.au)
+ *  Copyright (C) 1999, 2000, 2001, 2002, 2003  Ka-shu Wong (kswong@zip.com.au)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -1220,12 +1220,12 @@ static int tetrinet_timeoutduration (void)
 /* tetrisy stuff */
 /*****************/
 static void tetrinet_settimeout (int duration);
-static gint tetrinet_timeout (gpointer data);
+static gint tetrinet_timeout (void);
 static void tetrinet_solidify (void);
 static void tetrinet_nextblock (void);
-static gint tetrinet_nextblocktimeout (gpointer data);
+static gint tetrinet_nextblocktimeout (void);
 static int tetrinet_removelines (void);
-static gint tetrinet_removelinestimeout (gpointer data);
+static gint tetrinet_removelinestimeout (void);
 
 TETRISBLOCK blankblock =
 { {0,0,0,0}, {0,0,0,0}, {0,0,0,0}, {0,0,0,0} };
@@ -1370,7 +1370,7 @@ void tetrinet_removetimeout (void)
     movedowntimeout = 0;
 }
 
-gint tetrinet_timeout (gpointer data)
+gint tetrinet_timeout (void)
 {
     if (paused) return TRUE;
     if (!playing) return FALSE;
@@ -1409,7 +1409,7 @@ void tetrinet_nextblock (void)
                          NULL);
 }
 
-gint tetrinet_nextblocktimeout (gpointer data)
+gint tetrinet_nextblocktimeout (void)
 {
     if (paused) return TRUE; /* come back later */
     if (!playing) return FALSE;
@@ -1485,7 +1485,7 @@ int tetrinet_removelines ()
     return sound;
 }
 
-gint tetrinet_removelinestimeout (gpointer data)
+gint tetrinet_removelinestimeout (void)
 {
     tetris_drawcurrentblock ();
     return FALSE;
@@ -1555,37 +1555,37 @@ notfieldkey:
         }
         return TRUE;
     }
-    if (keyval == keys[K_GAMEMSG]) {
+    if (gdk_keyval_to_upper (keyval) == keys[K_GAMEMSG]) {
         fields_gmsginput (TRUE);
         gmsgstate = 1;
         return TRUE;
     }
     if (paused || !playing) return FALSE;
     /* game keys */
-    if (keyval == keys[K_ROTRIGHT]) {
+    if (gdk_keyval_to_upper (keyval) == keys[K_ROTRIGHT]) {
         if (!nextblocktimeout)
             sound_playsound (S_ROTATE);
         tetris_blockrotate (1);
     }
-    else if (keyval == keys[K_ROTLEFT]) {
+    else if (gdk_keyval_to_upper (keyval) == keys[K_ROTLEFT]) {
         if (!nextblocktimeout)
             sound_playsound (S_ROTATE);
         tetris_blockrotate (-1);
     }
-    else if (keyval == keys[K_RIGHT]) {
+    else if (gdk_keyval_to_upper (keyval) == keys[K_RIGHT]) {
         tetris_blockmove (1);
     }
-    else if (keyval == keys[K_LEFT]) {
+    else if (gdk_keyval_to_upper (keyval) == keys[K_LEFT]) {
         tetris_blockmove (-1);
     }
-    else if (keyval == keys[K_DOWN]) {
+    else if (gdk_keyval_to_upper (keyval) == keys[K_DOWN]) {
         if (!downpressed) {
-            tetrinet_timeout (NULL);
+            tetrinet_timeout ();
             downpressed = 1;
             tetrinet_settimeout (DOWNDELAY);
         }
     }
-    else if (keyval == keys[K_DROP]) {
+    else if (gdk_keyval_to_upper (keyval) == keys[K_DROP]) {
         int sound;
         if (!nextblocktimeout) {
             tetris_blockdrop ();
@@ -1597,7 +1597,7 @@ notfieldkey:
             tetrinet_sendfield (0);
         }
     }
-    else if (keyval == keys[K_DISCARD]) {
+    else if (gdk_keyval_to_upper (keyval) == keys[K_DISCARD]) {
         tetrinet_specialkey(-1);
     }
     else switch (keyval) {
@@ -1617,9 +1617,9 @@ notfieldkey:
 void tetrinet_upkey (int keyval)
 {
     if (!playing) return;
-    if (keyval == keys[K_DOWN]) {
+    if (gdk_keyval_to_upper (keyval) == keys[K_DOWN]) {
          /* if it is a quick press, nudge it down one more step */
-        if (downpressed == 1) tetrinet_timeout (NULL);
+        if (downpressed == 1) tetrinet_timeout ();
         downpressed = 0;
         tetrinet_settimeout (tetrinet_timeoutduration());
     }

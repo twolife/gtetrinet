@@ -1,7 +1,32 @@
+2003-01-07  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/client.c: supress compile warnings.
+	* src/commands.c: likewise.
+	* src/dialogs.c: likewise.
+	* src/fields.c: likewise.
+	* src/gtetrinet.c: likewise.
+	* src/misc.c: likewise.
+	* src/partyline.c: likewise.
+	* src/sound.c: likewise.
+	* src/tetrinet.c: likewise.
+	* src/tetris.c: likewise.
+
+	* src/*.c: update dates in copyright notices.
+
 2003-01-07  Dani Carbonell  <bocata@panete.net>
 
-	* dialogs.c: rewrite the team change dialog, using gtk_window_new and
-	making it HIG compliant.
+	* dialogs.c (teamdialog_new): complete rewrite of this dialog, so it
+	is now HIG compliant.
+	(prefdialog_new): added spacing between buttons.
+	(connectdialog_new): likewise.
+	(connectdialog_button): check if user has specified a servername, a
+	nickname and a spectator password before trying to connect.
+	(key_dialog_callback): converted the key stroke to upper case.
+
+	* tetrinet.c (tetrinet_key): now it converts all keystrokes to upper
+	case.
+
+	* config.c (config_loadconfig): likewise
 
 2003-01-06  Jordi Mallach  <jordi@sindominio.net>
 

@@ -1,6 +1,6 @@
 /*
  *  GTetrinet
- *  Copyright (C) 1999, 2000  Ka-shu Wong (kswong@zip.com.au)
+ *  Copyright (C) 1999, 2000, 2001, 2002, 2003  Ka-shu Wong (kswong@zip.com.au)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -42,13 +42,13 @@ static GtkWidget *fieldwidgets[6], *nextpiecewidget, *fieldlabels[6][6],
 static GtkWidget *fields_page_contents (void);
 
 static gint fields_expose_event (GtkWidget *widget, GdkEventExpose *event, int field);
-static gint fields_nextpiece_expose (GtkWidget *widget, GdkEventExpose *event);
-static gint fields_specials_expose (GtkWidget *widget, GdkEventExpose *event);
+static gint fields_nextpiece_expose (void);
+static gint fields_specials_expose (void);
 
 static void fields_refreshfield (int field);
 static void fields_drawblock (int field, int x, int y, char block);
 
-static gint fields_eatkey (GtkWidget *widget, GdkEventKey *key);
+static gint fields_eatkey (GtkWidget *widget);
 
 static GdkPixmap *blockpix;
 
@@ -332,6 +332,8 @@ GtkWidget *fields_page_contents (void)
 
 gint fields_expose_event (GtkWidget *widget, GdkEventExpose *event, int field)
 {
+    widget = widget;
+    event = event;
     fields_refreshfield (field);
 
     return FALSE;
@@ -445,13 +447,13 @@ void fields_setspeciallabel (char *label)
     }
 }
 
-gint fields_nextpiece_expose (GtkWidget *widget, GdkEventExpose *event)
+gint fields_nextpiece_expose (void)
 {
     fields_drawnextblock (NULL);
     return FALSE;
 }
 
-gint fields_specials_expose (GtkWidget *widget, GdkEventExpose *event)
+gint fields_specials_expose (void)
 {
     fields_drawspecials ();
     return FALSE;
@@ -616,7 +618,7 @@ const char *fields_gmsginputtext (void)
     return gtk_entry_get_text (GTK_ENTRY(gmsginput));
 }
 
-gint fields_eatkey (GtkWidget *widget, GdkEventKey *key)
+gint fields_eatkey (GtkWidget *widget)
 {
     gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key-press-event");
     return TRUE;

@@ -1,6 +1,6 @@
 /*
  *  GTetrinet
- *  Copyright (C) 1999, 2000  Ka-shu Wong (kswong@zip.com.au)
+ *  Copyright (C) 1999, 2000, 2001, 2002, 2003  Ka-shu Wong (kswong@zip.com.au)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -99,8 +99,8 @@ void sound_stopmidi (void)
 
 /* stubs */
 void sound_cache (void) {}
-void sound_playsound (int id) {}
-void sound_playmidi (char *file) {}
+void sound_playsound (int id) {id = id;}
+void sound_playmidi (char *file) {file = file;}
 void sound_stopmidi (void) {}
 
 #endif

@@ -1,6 +1,6 @@
 /*
  *  GTetrinet
- *  Copyright (C) 1999, 2000  Ka-shu Wong (kswong@zip.com.au)
+ *  Copyright (C) 1999, 2000, 2001, 2002, 2003  Ka-shu Wong (kswong@zip.com.au)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -140,8 +140,7 @@ struct outmsgt outmsgtable[] = {
     {0, 0}
 };
 
-static void client_inputfunc (gpointer data, gint source,
-                              GdkInputCondition condition);
+static void client_inputfunc (void);
 
 /* functions which set up the connection */
 static void client_process (void);
@@ -214,8 +213,7 @@ void client_destroy (void)
 }
 
 /* a function that reads stuff from the pipe */
-static void client_inputfunc (gpointer data, gint source,
-                              GdkInputCondition condition)
+static void client_inputfunc (void)
 {
     char buf[1024];
     char *token;
@@ -414,7 +412,8 @@ int client_connect (void)
         GString *s2 = g_string_sized_new(80);
         unsigned char ip[4];
         GString *iphashbuf = g_string_sized_new(11);
-        int i, l, len;
+        unsigned int i, len;
+        int l;
         
         /* construct message */
         if (gamemode == TETRIFAST)

@@ -1,6 +1,6 @@
 /*
  *  GTetrinet
- *  Copyright (C) 1999, 2000  Ka-shu Wong (kswong@zip.com.au)
+ *  Copyright (C) 1999, 2000, 2001, 2002, 2003  Ka-shu Wong (kswong@zip.com.au)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -263,7 +263,7 @@ void tetris_blockdrop (void)
 
 void tetris_addlines (int count, int type)
 {
-    int x, y, n, i;
+    int x, y, i;
     FIELD field;
     copyfield (field, fields[playernum]);
     for (i = 0; i < count; i ++) {

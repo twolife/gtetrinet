@@ -1,6 +1,6 @@
 /*
  *  GTetrinet
- *  Copyright (C) 1999, 2000  Ka-shu Wong (kswong@zip.com.au)
+ *  Copyright (C) 1999, 2000, 2001, 2002, 2003  Ka-shu Wong (kswong@zip.com.au)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -45,8 +45,9 @@ static gint timeouttag = 0;
 
 GtkWidget *team_dialog;
 
-void connectingdialog_button (GnomeDialog *dialog, gint button, gpointer data)
+void connectingdialog_button (GnomeDialog *dialog, gint button)
 {
+    dialog = dialog;
     switch (button) {
     case 0:
         gtk_timeout_remove (timeouttag);
@@ -59,12 +60,12 @@ void connectingdialog_button (GnomeDialog *dialog, gint button, gpointer data)
     }
 }
 
-gint connectingdialog_delete (GtkWidget *widget, gpointer data)
+gint connectingdialog_delete (void)
 {
     return TRUE; /* dont kill me */
 }
 
-gint connectingdialog_timeout (gpointer data)
+gint connectingdialog_timeout (void)
 {
     GtkAdjustment *adj;
     adj = GTK_PROGRESS(progressbar)->adjustment;
@@ -112,19 +113,22 @@ void connectingdialog_destroy (void)
 /*******************/
 /* the team dialog */
 /*******************/
-void teamdialog_destroy (GtkWidget *widget, gpointer data)
+void teamdialog_destroy (void)
 {
     gtk_widget_destroy (team_dialog);
     team_dialog = NULL;
 }
+
 void teamdialog_button (GtkWidget *button, gpointer data)
 {
-    GtkWidget *entry = GTK_WIDGET(data);
+    GtkEntry *entry = GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (data)));
     gchar *aux;
 
-    aux = g_locale_from_utf8 (gtk_entry_get_text(GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(entry)))), -1, NULL, NULL, NULL);
+    button = button; /* so we get no unused parameter warning */
+  
+    aux = g_locale_from_utf8 (gtk_entry_get_text (entry), -1, NULL, NULL, NULL);
     tetrinet_changeteam (aux);
-    teamdialog_destroy (NULL, NULL);
+    teamdialog_destroy ();
     g_free (aux);
 }
 
@@ -146,11 +150,13 @@ void teamdialog_new (void)
     gtk_window_set_resizable (GTK_WINDOW (team_dialog), FALSE);
     gtk_container_set_border_width (GTK_CONTAINER (team_dialog), 12);
 
-    vbox = gtk_vbox_new (FALSE, 6);
+    vbox = gtk_vbox_new (TRUE, 6);
     gtk_container_add (GTK_CONTAINER (team_dialog), vbox);
     
     /* button box*/
-    buttonbox = gtk_hbox_new (TRUE, 6);
+    buttonbox = gtk_hbutton_box_new ();
+    gtk_button_box_set_layout (GTK_BUTTON_BOX (buttonbox), GTK_BUTTONBOX_END);
+    gtk_box_set_spacing (GTK_BOX (buttonbox), 6);
     cancel_button = gtk_button_new_from_stock (GTK_STOCK_CANCEL);
     gtk_box_pack_start_defaults (GTK_BOX (buttonbox), cancel_button);
     ok_button = gtk_button_new_from_stock (GTK_STOCK_OK);
@@ -162,7 +168,7 @@ void teamdialog_new (void)
     widget = gtk_label_new (_("Team name:"));
     gtk_box_pack_start_defaults (GTK_BOX (hbox), widget);
     entry = gnome_entry_new ("Team");
-    gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(entry))),
+    gtk_entry_set_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (entry))),
                         team_utf8);
     g_free (team_utf8);
     gtk_box_pack_start_defaults (GTK_BOX (hbox), entry);
@@ -190,20 +196,42 @@ static GtkWidget *originalradio, *tetrifastradio;
 static GSList *gametypegroup;
 static int oldgamemode;
 
-void connectdialog_button (GnomeDialog *dialog, gint button, gpointer data)
+void connectdialog_button (GnomeDialog *dialog, gint button)
 {
     gchar *team_utf8, *nick; /* intermediate buffer for recoding purposes */
+
     switch (button) {
     case 1:
         /* connect now */
+        if (strlen (gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (serveraddressentry))))) <= 0)
+        {
+          gnome_error_dialog_parented (_("You must specify a server name."), GTK_WINDOW (dialog));
+          return;
+        }
+    
         spectating = GTK_TOGGLE_BUTTON(spectatorcheck)->active ? TRUE : FALSE;
-        GTET_O_STRCPY (specpassword, gtk_entry_get_text (GTK_ENTRY(passwordentry)));
+        if (spectating)
+        {
+          GTET_O_STRCPY (specpassword, gtk_entry_get_text (GTK_ENTRY(passwordentry)));
+          if (strlen (specpassword) <= 0)
+          {
+            gnome_error_dialog_parented (_("Please specify a password to connect as spectator."), GTK_WINDOW (dialog));
+            return;
+          }
+        }
+        
         team_utf8 = g_locale_from_utf8 (gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))),
                                         -1, NULL, NULL, NULL);
         GTET_O_STRCPY (team, team_utf8);
-        nick =   g_locale_from_utf8 (gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (nicknameentry)))),
+        
+        nick =  g_locale_from_utf8 (gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (nicknameentry)))),
                                      -1, NULL, NULL, NULL);
-        client_init (gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (serveraddressentry)))), nick);
+        g_strstrip (nick); /* we remove leading and trailing whitespaces */
+        if (strlen (nick) > 0)
+            client_init (gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (serveraddressentry)))), nick);
+        else
+            gnome_error_dialog_parented (_("Please specify a valid nickname."), GTK_WINDOW (dialog));
+        
         g_free (team_utf8);
         g_free (nick);
         break;
@@ -214,7 +242,7 @@ void connectdialog_button (GnomeDialog *dialog, gint button, gpointer data)
     }
 }
 
-void connectdialog_spectoggle (GtkWidget *widget, gpointer data)
+void connectdialog_spectoggle (GtkWidget *widget)
 {
     if (GTK_TOGGLE_BUTTON(widget)->active) {
         gtk_widget_set_sensitive (passwordentry, TRUE);
@@ -230,14 +258,14 @@ void connectdialog_spectoggle (GtkWidget *widget, gpointer data)
     }
 }
 
-void connectdialog_originaltoggle (GtkWidget *widget, gpointer data)
+void connectdialog_originaltoggle (GtkWidget *widget)
 {
     if (GTK_TOGGLE_BUTTON(widget)-> active) {
         gamemode = ORIGINAL;
     }
 }
 
-void connectdialog_tetrifasttoggle (GtkWidget *widget, gpointer data)
+void connectdialog_tetrifasttoggle (GtkWidget *widget)
 {
     if (GTK_TOGGLE_BUTTON(widget)-> active) {
         gamemode = TETRIFAST;
@@ -249,7 +277,7 @@ void connectdialog_connected (void)
     gtk_widget_destroy (connectdialog);
 }
 
-void connectdialog_destroy (GtkWidget *widget, gpointer data)
+void connectdialog_destroy (void)
 {
     connecting = FALSE;
 }
@@ -394,8 +422,9 @@ void connectdialog_new (void)
     gtk_box_pack_start (GTK_BOX(GNOME_DIALOG(connectdialog)->vbox),
                         table1, TRUE, TRUE, 0);
 
+    gtk_box_set_spacing (GTK_BOX (GNOME_DIALOG (connectdialog)->action_area), 6);
     gtk_toggle_button_set_state (GTK_TOGGLE_BUTTON(spectatorcheck), spectating);
-    connectdialog_spectoggle (spectatorcheck, NULL);
+    connectdialog_spectoggle (spectatorcheck);
     g_signal_connect (G_OBJECT(connectdialog), "destroy",
                         GTK_SIGNAL_FUNC(connectdialog_destroy), NULL);
     g_signal_connect (G_OBJECT(spectatorcheck), "toggled",
@@ -414,7 +443,7 @@ gint keydialog_key;
 
 void key_dialog_callback (GtkWidget *widget, GdkEventKey *key)
 {
-    keydialog_key = key->keyval;
+    keydialog_key = gdk_keyval_to_upper (key->keyval);
     gnome_dialog_close (GNOME_DIALOG(widget));
 }
 
@@ -457,7 +486,7 @@ int actionid[K_NUM] = {
     K_GAMEMSG
 };
 
-gint newkeys[K_NUM];
+guint newkeys[K_NUM];
 
 struct themelistentry {
     char dir[1024];
@@ -467,7 +496,7 @@ struct themelistentry {
 int themecount;
 int theme_select;
 
-void prefdialog_destroy (GtkWidget *widget, gpointer data)
+void prefdialog_destroy (void)
 {
     gtk_widget_destroy (prefdialog);
     prefdialog = NULL;
@@ -516,7 +545,7 @@ void prefdialog_clistupdate ()
     }
 }
 
-void prefdialog_restorekeys (GtkWidget *widget, gpointer data)
+void prefdialog_restorekeys (void)
 {
     int i;
 
@@ -525,7 +554,7 @@ void prefdialog_restorekeys (GtkWidget *widget, gpointer data)
     gnome_property_box_changed (GNOME_PROPERTY_BOX(prefdialog));
 }
 
-void prefdialog_changekey (GtkWidget *widget, gpointer data)
+void prefdialog_changekey (void)
 {
     gchar buf[256], *key;
     gint k, row = 0;
@@ -570,7 +599,7 @@ void prefdialog_soundoff ()
     prefdialog_midioff ();
 }
 
-void prefdialog_soundtoggle (GtkWidget *widget, gpointer data)
+void prefdialog_soundtoggle (GtkWidget *widget)
 {
     if (GTK_TOGGLE_BUTTON(widget)->active) {
         prefdialog_soundon ();
@@ -581,7 +610,7 @@ void prefdialog_soundtoggle (GtkWidget *widget, gpointer data)
     gnome_property_box_changed (GNOME_PROPERTY_BOX(prefdialog));
 }
 
-void prefdialog_miditoggle (GtkWidget *widget, gpointer data)
+void prefdialog_miditoggle (GtkWidget *widget)
 {
     if (GTK_TOGGLE_BUTTON(widget)->active) {
         prefdialog_midion ();
@@ -594,13 +623,13 @@ void prefdialog_miditoggle (GtkWidget *widget, gpointer data)
 }
 
 
-void prefdialog_midichanged (GtkWidget *widget, gpointer data)
+void prefdialog_midichanged (void)
 {
     midichanged = TRUE;
     gnome_property_box_changed (GNOME_PROPERTY_BOX(prefdialog));
 }
 
-void prefdialog_restoremidi (GtkWidget *widget, gpointer data)
+void prefdialog_restoremidi (void)
 {
     gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(midientry))),
                         DEFAULTMIDICMD);
@@ -617,8 +646,7 @@ void prefdialog_themelistselect (int n)
     leftlabel_set (desclabel, desc);
 }
 
-void prefdialog_themeselect (GtkTreeSelection *treeselection,
-                             gpointer data)
+void prefdialog_themeselect (GtkTreeSelection *treeselection)
 {
     GtkListStore *model;
     GtkTreeIter iter;
@@ -711,7 +739,9 @@ void prefdialog_themelist ()
 void prefdialog_apply (GnomePropertyBox *dialog, gint pagenum)
 {
     int i;
-    
+
+    dialog = dialog;
+
     if (pagenum == -1) {
         for (i = 0; i < K_NUM; i ++) {
             keys[i] = newkeys[i];
@@ -749,7 +779,7 @@ void prefdialog_apply (GnomePropertyBox *dialog, gint pagenum)
     }
 }
 
-void prefdialog_ok (GtkWidget *widget, gpointer data)
+void prefdialog_ok (void)
 {
     prefdialog_apply (NULL, -1);
     gtk_widget_destroy (prefdialog);
@@ -763,7 +793,7 @@ void prefdialog_new (void)
     GtkListStore *theme_store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_INT);
     GtkListStore *keys_store = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT);
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
-    GtkTreeSelection *theme_selection, *keys_selection;
+    GtkTreeSelection *theme_selection;
     int i;
   
     if (prefdialog != NULL)
@@ -987,6 +1017,8 @@ void prefdialog_new (void)
 #endif
 
     themechanged = midichanged = FALSE;
+    
+    gtk_box_set_spacing (GTK_BOX (GNOME_DIALOG (prefdialog)->action_area), 6);
 
     g_signal_connect (G_OBJECT(soundcheck), "toggled",
                       GTK_SIGNAL_FUNC(prefdialog_soundtoggle), NULL);

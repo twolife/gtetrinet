@@ -1,8 +1,8 @@
 extern char blocksfile[1024];
 extern int bsize;
 extern char currenttheme[1024];
-extern gint keys[];
-extern gint defaultkeys[];
+extern guint keys[];
+extern guint defaultkeys[];
 
 extern void config_loadtheme (char *themedir);
 extern int config_getthemeinfo (char *themedir, char *name, char *author, char *desc);

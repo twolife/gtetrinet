@@ -1,6 +1,6 @@
 /*
  *  GTetrinet
- *  Copyright (C) 1999, 2000  Ka-shu Wong (kswong@zip.com.au)
+ *  Copyright (C) 1999, 2000, 2001, 2002, 2003  Ka-shu Wong (kswong@zip.com.au)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -47,8 +47,8 @@
 
 static GtkWidget *pixmapdata_label (char **d, char *str);
 static int gtetrinet_key (int keyval, int mod);
-gint keypress (GtkWidget *widget, GdkEventKey *key, gpointer data);
-gint keyrelease (GtkWidget *widget, GdkEventKey *key, gpointer data);
+gint keypress (GtkWidget *widget, GdkEventKey *key);
+gint keyrelease (GtkWidget *widget, GdkEventKey *key);
 
 static GtkWidget *app, *pfields, *pparty, *pwinlist;
 static GtkWidget *winlistwidget, *partywidget, *fieldswidget;
@@ -73,8 +73,8 @@ static const struct poptOption options[] = {
 
 int main (int argc, char *argv[])
 {
-    GtkWidget *page, *label, *box;
-    char buf[1024], *logo;
+    GtkWidget *label;
+    char buf[1024];
     GdkPixbuf *icon_pixbuf;
 
     GTET_STRCPY(buf, "", 4);
@@ -277,7 +277,7 @@ GtkWidget *pixmapdata_label (char **d, char *str)
 }
 
 /* called when the main window is destroyed */
-void destroymain (GtkWidget *widget, gpointer data)
+void destroymain (void)
 {
     gtk_main_quit ();
 }
@@ -303,12 +303,13 @@ gint keytimeoutid = 0;
 
 gint keytimeout (gpointer data)
 {
+    data = data; /* to get rid of the warning */
     tetrinet_upkey (k.keyval);
     keytimeoutid = 0;
     return FALSE;
 }
 
-gint keypress (GtkWidget *widget, GdkEventKey *key, gpointer data)
+gint keypress (GtkWidget *widget, GdkEventKey *key)
 {
     int game_area;
 
@@ -352,7 +353,7 @@ gint keypress (GtkWidget *widget, GdkEventKey *key, gpointer data)
     return FALSE;
 }
 
-gint keyrelease (GtkWidget *widget, GdkEventKey *key, gpointer data)
+gint keyrelease (GtkWidget *widget, GdkEventKey *key)
 {
     int game_area;
 
@@ -417,6 +418,7 @@ typedef struct {
 void destroy_page_window (GtkWidget *window, gpointer data)
 {
     WidgetPageData *pageData = (WidgetPageData *)data;
+    window = window;
 
     /* Put widget back into a page */
     gtk_widget_reparent (pageData->widget, pageData->parent);

@@ -95,50 +95,50 @@ void make_menus (GnomeApp *app)
 
 /* callbacks */
 
-void connect_command (GtkWidget *widget, gpointer data)
+void connect_command (void)
 {
     connectdialog_new ();
 }
 
-void disconnect_command (GtkWidget *widget, gpointer data)
+void disconnect_command (void)
 {
     client_destroy ();
 }
 
-void team_command (GtkWidget *widget, gpointer data)
+void team_command (void)
 {
     teamdialog_new ();
 }
 
 #ifdef ENABLE_DETACH
-void detach_command (GtkWidget *widget, gpointer data)
+void detach_command (void)
 {
     move_current_page_to_window ();
 }
 #endif
 
-void start_command (GtkWidget *widget, gpointer data)
+void start_command (void)
 {
     char buf[22];
     g_snprintf (buf, sizeof(buf), "%i %i", 1, playernum);
     client_outmessage (OUT_STARTGAME, buf);
 }
 
-void end_command (GtkWidget *widget, gpointer data)
+void end_command (void)
 {
     char buf[22];
     g_snprintf (buf, sizeof(buf), "%i %i", 0, playernum);
     client_outmessage (OUT_STARTGAME, buf);
 }
 
-void pause_command (GtkWidget *widget, gpointer data)
+void pause_command (void)
 {
     char buf[22];
     g_snprintf (buf, sizeof(buf), "%i %i", paused?0:1, playernum);
     client_outmessage (OUT_PAUSE, buf);
 }
 
-void preferences_command (GtkWidget *widget, gpointer data)
+void preferences_command (void)
 {
     prefdialog_new ();
 }
@@ -217,7 +217,7 @@ void commands_checkstate ()
 
 /* about... */
 
-void about_command (GtkWidget *widget, gpointer data)
+void about_command (void)
 {
     GtkWidget *hbox;
     GdkPixbuf *logo;

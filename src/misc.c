@@ -1,6 +1,6 @@
 /*
  *  GTetrinet
- *  Copyright (C) 1999, 2000  Ka-shu Wong (kswong@zip.com.au)
+ *  Copyright (C) 1999, 2000, 2001, 2002, 2003  Ka-shu Wong (kswong@zip.com.au)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -134,7 +134,6 @@ void textbox_setup (void)
 void textbox_addtext (GtkTextView *textbox, unsigned char *text)
 {
     GtkTextTag *color, *lastcolor;
-    int attr; /* bits are used as flags: bold, italic */
     int i;
     /* int bottom; */
     char last = 0;
@@ -252,6 +251,8 @@ static gboolean cb_adjust_bottom(gpointer data)
 {
   GList *scan = adj_list;
 
+  data = data; /* to get rid of the warning */
+  
   while (scan)
   {
     GtkTextView *tv = scan->data;
