@@ -5,8 +5,6 @@ GTetrinet's TODO list
 
 - Make gtetrinet resizeable (at least the fields messages bit)
 
-- Hide mouse cursor when game is in progress
-
 - Write a User Manual. (see #105308)
 
 - Remove all the GTET_O_* function calls. Do it in a safe way ;)
@@ -18,8 +16,3 @@ GTetrinet's TODO list
   dragging them around.
 
 - Port GTetrinet to the Tetrinet2 protocol. (see #105305)
-
-- Substitute all those ugly T, E letters in the winlist and in the player
-  list with some cool icons.
-
-- Get better icons for the toolbar. (see #105061)

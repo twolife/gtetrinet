@@ -1,5 +1,9 @@
 2003-06-08  Jordi Mallach  <jordi@sindominio.net>
 
+	* TODO: Updated.
+
+2003-06-08  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/Makefile.am (GTETPIXMAPSDIR): Define as
 	$(datadir)/pixmaps/gtetrinet.
 	(PIXMAPSDIR): Change to $(datadir)/pixmaps.
