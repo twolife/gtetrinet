@@ -1,0 +1,15 @@
+Makefile.in
+Makefile
+aclocal.m4
+autom4te.cache
+confdefs.h
+config.cache
+config.log
+config.status
+configure
+config.guess
+config.sub
+depcomp
+install-sh
+missing
+mkinstalldirs
