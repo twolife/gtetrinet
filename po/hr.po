@@ -1,11 +1,11 @@
 # Translation of gtetrinet to Croatian
 # Copyright (C) Croatian team
-# Translators: Automatski Prijevod <>,
+# Translators: Antun Krasic <butch@gawab.com>,Automatski Prijevod <>,Boris Tudan <boris.tudan@ka.htnet.hr>,
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0\n"
 "POT-Creation-Date: 2003-11-06 18:11+0100\n"
-"PO-Revision-Date: 2003-11-07 18:44+CET\n"
+"PO-Revision-Date: 2003-11-10 16:53+CET\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
@@ -321,9 +321,8 @@ msgid "Change _key..."
 msgstr ""
 
 #: src/dialogs.c:983 src/dialogs.c:1036
-#, fuzzy
 msgid "_Restore defaults"
-msgstr "&Vrati početne vrijednosti"
+msgstr "_Povrati predefinirano"
 
 #: src/dialogs.c:1004
 msgid "Keyboard"
@@ -429,9 +428,8 @@ msgid "PASSWORD"
 msgstr "LOZINKA"
 
 #: src/gtetrinet.c:120
-#, c-format
 msgid "Failed to init GConf: %s\n"
-msgstr ""
+msgstr "Nisam uspio pokrenuti GConf: %s\n"
 
 #. FIXME
 #: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:470
@@ -490,7 +488,7 @@ msgstr ""
 #: src/tetrinet.c:214
 #, c-format
 msgid "%c%c*** Disconnected from server"
-msgstr ""
+msgstr "%c%c*** Odspojen sa servera"
 
 #: src/tetrinet.c:226
 msgid "Error connecting: "
@@ -499,42 +497,42 @@ msgstr ""
 #: src/tetrinet.c:259
 #, c-format
 msgid "%c%c*** Connected to server"
-msgstr ""
+msgstr "%c%c*** Povezan na server"
 
 #: src/tetrinet.c:360
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
-msgstr ""
+msgstr "%c%c*** Izbačeni ste iz igre"
 
 #: src/tetrinet.c:364
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
-msgstr ""
+msgstr "%c*** %c%s%c%c je izbačen iz igre"
 
 #: src/tetrinet.c:539
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
-msgstr ""
+msgstr "%c*** Team %c%s%c%c je pobjedio"
 
 #: src/tetrinet.c:545
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
-msgstr ""
+msgstr "%c*** %c%s%c%c je pobjedio!"
 
 #: src/tetrinet.c:605
 #, c-format
 msgid "%c*** The game has %cstarted"
-msgstr ""
+msgstr "%c*** igra je %cpočela"
 
 #: src/tetrinet.c:631
 #, c-format
 msgid "%c*** The game is %cin progress"
-msgstr ""
+msgstr "%c*** igra je %cu toku"
 
 #: src/tetrinet.c:643
 #, c-format
 msgid "%c*** The game has %cpaused"
-msgstr ""
+msgstr "%c*** igra je %cprivremeno yaustavljena"
 
 #: src/tetrinet.c:645
 #, c-format
@@ -544,7 +542,7 @@ msgstr ""
 #: src/tetrinet.c:650
 #, c-format
 msgid "%c*** The game has %cresumed"
-msgstr ""
+msgstr "%c*** igra se %cnastavila"
 
 #: src/tetrinet.c:652
 #, c-format
@@ -554,22 +552,22 @@ msgstr ""
 #: src/tetrinet.c:661
 #, c-format
 msgid "%c*** The game has %cended"
-msgstr ""
+msgstr "%c*** igra je %czavršila"
 
 #: src/tetrinet.c:772
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
-msgstr ""
+msgstr "%c*** uključili ste se u %c%s%c%c"
 
 #: src/tetrinet.c:789
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
-msgstr ""
+msgstr "%c*** %c%s%c%c se pridružio promatračima %c%c(%c%s%c%c%c)"
 
 #: src/tetrinet.c:810
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
-msgstr ""
+msgstr "%c*** %c%s%c%c je napustio promatrače %c%c(%c%s%c%c%c)"
 
 #: src/tetrinet.c:1048
 msgid "No special blocks"
@@ -578,68 +576,68 @@ msgstr ""
 #: src/tetrinet.c:1207 src/tetrinet.c:1214
 #, c-format
 msgid " on %c%c%s%c%c"
-msgstr ""
+msgstr "na %c%c%s%c%c"
 
 #: src/tetrinet.c:1224
 msgid " to All"
-msgstr ""
+msgstr "Svima"
 
 #: src/tetrinet.c:1230 src/tetrinet.c:1237
 #, c-format
 msgid " by %c%c%s%c%c"
-msgstr ""
+msgstr "sa %c%c%s%c%c"
 
 #: src/tetrinet.c:1865
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
-msgstr ""
+msgstr "%c*** %c%s%c%c je moderator"
 
 #. remove ", " from end of string
 #: src/tetrinet.c:1914
 msgid " has left the game"
-msgstr ""
+msgstr "je napustio igru"
 
 #: src/tetrinet.c:1915
 msgid " have left the game"
-msgstr ""
+msgstr "je napustio igru"
 
 #: src/tetrinet.c:1928
 msgid " has joined the game"
-msgstr ""
+msgstr "je uživao u igri"
 
 #: src/tetrinet.c:1929
 msgid " have joined the game"
-msgstr ""
+msgstr "se pridružio igri"
 
 #: src/tetrinet.c:1952
 #, c-format
 msgid "%s is on team %c%s"
-msgstr ""
+msgstr "%s je u timu %c%s"
 
 #: src/tetrinet.c:1955
 #, c-format
 msgid "%s is alone"
-msgstr ""
+msgstr "%s je sam"
 
 #: src/tetrinet.c:1957
 #, c-format
 msgid "%s are on team %c%s"
-msgstr ""
+msgstr "%s su u momčadi %c%s"
 
 #: src/tetrinet.c:1960
 #, c-format
 msgid "%s are alone"
-msgstr ""
+msgstr "%s su sami"
 
 #: src/tetrinet.c:2001
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
-msgstr ""
+msgstr "%c*** %c%s%c%c je sada u timu %c%s"
 
 #: src/tetrinet.c:2008
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
-msgstr ""
+msgstr "%c*** %c%s%c%c je sada sam"
 
 #. "T" stands for "Team" here
 #: src/winlist.c:57
