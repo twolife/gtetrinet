@@ -397,17 +397,21 @@ io_channel_cb (GIOChannel *source, GIOCondition condition)
     case G_IO_IN :
     {
       if (client_readmsg (&buf) < 0)
-        g_warning ("client_readmsg returned -1\n");
-      
-      if (strlen (buf)) client_inmessage (buf);
-        
-      if (strncmp ("noconnecting", buf, 12) == 0)
       {
-        connected = 1; /* so we can disconnect :) */
+        g_warning ("client_readmsg failed, aborting connection\n");
         client_disconnect ();
       }
-      
-      g_free (buf);
+      else
+      {
+        if (strlen (buf)) client_inmessage (buf);
+        
+        if (strncmp ("noconnecting", buf, 12) == 0)
+        {
+          connected = 1; /* so we can disconnect :) */
+          client_disconnect ();
+        }
+        g_free (buf);
+      }
     }; break;
     default : break;
   }
@@ -443,13 +447,19 @@ int client_readmsg (gchar **str)
       switch (g_io_channel_read_chars (io_channel, &buf[i], 1, &bytes, &error))
       {
         case G_IO_STATUS_EOF :
-          g_warning ("End of file."); break;
+          g_warning ("End of file.");
+          return -1;
+          break;
         
         case G_IO_STATUS_AGAIN :
-          g_warning ("Resource temporarily unavailable."); break;
+          g_warning ("Resource temporarily unavailable.");
+          return -1;
+          break;
         
         case G_IO_STATUS_ERROR :
-          g_warning ("Error"); break;
+          g_warning ("Error");
+          return -1;
+          break;
         
         case G_IO_STATUS_NORMAL :
           if (error != NULL)

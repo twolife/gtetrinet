@@ -68,6 +68,11 @@ int spectatorcount = 0;
 char specialblocks[256];
 int specialblocknum = 0;
 
+/*
+ * this will have the number of /list commands sended and waiting for answer
+ */
+gint list_issued;
+
 FIELD fields[7];
 
 int moderator; /* are we the moderator ? TRUE : FALSE */
@@ -133,6 +138,8 @@ struct sb sbinfo[] = {
     {0, 0, 0}
 };
 
+static guint up_chan_list_source;
+
 static void tetrinet_updatelevels (void);
 static void tetrinet_setspeciallabel (int sb);
 static void tetrinet_dospecial (int from, int to, int type);
@@ -175,7 +182,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
     /* process the message */
     switch (msgtype) {
     case IN_CONNECT:
-        /* do nothing - setup is done with the playernum message */
+        list_issued = 0;
+        up_chan_list_source = g_timeout_add (30000, (GSourceFunc) partyline_update_channel_list, NULL);
         break;
     case IN_DISCONNECT:
         if (!connected) {
@@ -195,11 +203,13 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                 playernames[i][0] = teamnames[i][0] = 0;
             fieldslabelupdate ();
         }
+        g_source_remove (up_chan_list_source);
         winlist_clear ();
         fields_attdefclear ();
         fields_gmsgclear ();
         partyline_fmt (_("%c%c*** Disconnected from server"),
                        TETRI_TB_C_DARK_GREEN, TETRI_TB_BOLD);
+        partyline_clear_list_channel ();
         break;
     case IN_CONNECTERROR:
     connecterror:
@@ -265,6 +275,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                 checkmoderatorstatus ();
                 partylineupdate_join (nick);
                 partylineupdate_team (nick, team);
+                partyline_update_channel_list ();
             }
         }
         /* show partyline on successful connect */
@@ -391,13 +402,60 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                     tetrix = TRUE;
                 }
                 else if (tetrix) {
+                    if (list_issued)
+                    {
+                      gchar *line = nocolor (token);
+                      
+                      if (*line == '(')
+                      {
+                        partyline_add_channel (line);
+                        break;
+                      }
+                      
+                      if (!strncmp ("List", line, 4))
+                      {
+                        partyline_more_channel_lines ();
+                        break;
+                      }
+                      
+                      if (!strncmp ("TetriNET", line, 8))
+                        break;
+                      
+                      if (!strncmp ("You", line, 3))
+                      {
+                        /* we will use the error message as list stopper */
+                        list_issued--;
+                        if (list_issued <= 0)
+                          stop_list();
+                        break;
+                      }
+                      
+                      //if (line != NULL) g_free (line);
+                    }
+
                     g_snprintf (buf, sizeof(buf), "*** %s", token);
                     partyline_text (buf);
                     break;
                 }
-                else plinemsg ("Server", token);
+                else
+                  plinemsg ("Server", token);
             }
-            else plinemsg (playernames[pnum], token);
+            else
+            {
+              if (pnum == playernum)
+              {
+                gchar *line = nocolor (token);
+                if (!strncmp (line, "(msg) --- MARK ---", 18))
+                {
+                  list_issued--;
+                  if (list_issued <= 0)
+                    stop_list();
+                }
+                //g_free (line);
+              }
+              else
+                plinemsg (playernames[pnum], token);
+            }
         }
         break;
     case IN_PLINEACT:

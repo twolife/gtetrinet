@@ -1,3 +1,34 @@
+2003-02-14  Dani Carbonell  <bocata@panete.net>
+
+	* src/client.c: a few fixes in error handling.
+	
+	* src/gtetrinet.h: fixed a couple of function declarations.
+	
+	* src/partyline.c: added the channel_list widget.
+	(partyline_page_new): added the new widget.
+	(partyline_add_channel): new function that will add a channel to the
+	list of available channels.
+	(copy_item): function that will copy a item of the work_model to the
+	actual model of the tree_view.
+	(stop_list): new function that will be called then all the markers
+	are sended back to us.
+	(partyline_update_list): function to be called if you want to update
+	the channel list.
+	(partyline_more_channel_lines): new function that will be called if
+	there are more channels waiting to be listed.
+	(partyline_clear_list_channel): new function that will clear the
+	list channel.
+	
+	* src/partyline.h: added the new function declarations.
+	
+	* src/tetrinet.c: install the channel list refresh signal, and parse
+	the incoming messages when appropiate.
+	(tetrinet_inmessage): install the signal when connecting. Refresh
+	the channel list when the user completes the connection protocol.
+	Parse the system messages if appropiate.
+	
+	* src/tetrinet.h: added new variable declaration.
+
 2003-02-11  Dani Carbonell  <bocata@panete.net>
 
 	* src/gtetrinet.c (main): fixed a bug when quitting GTetrinet when
