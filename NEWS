@@ -1,4 +1,8 @@
-GTetrinet 0.7.6 - Unreleased
+GTetrinet 0.7.6 - 2004-04-12
+- Made the main window resizable. It doesn't mean that the fields will
+  be resizable too ;)
+- Now you can rotate and move a piece while holding CTRL. This fixes the
+  bug reported by Christian Kröner.
 - Disable deprecated flags which broke the build with
   GTK 2.4 (Kjartan Maraas).
 - New and updated translations: Norwegian (Kjartan Maraas),
