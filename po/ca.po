@@ -377,7 +377,7 @@ msgstr "Error al connectar: "
 
 #: src/tetrinet.c:740
 msgid "No special blocks"
-msgstr "No teniu blocs especials"
+msgstr "Sense blocs especials"
 
 #: src/tetrinet.c:1492
 msgid " has left the game"
