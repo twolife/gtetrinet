@@ -4,11 +4,13 @@ aclocal.m4
 autom4te.cache
 confdefs.h
 config.cache
+config.guess
+config.h.in
+config.h
 config.log
 config.status
-configure
-config.guess
 config.sub
+configure
 depcomp
 install-sh
 missing

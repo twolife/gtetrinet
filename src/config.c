@@ -22,6 +22,7 @@
 #include <string.h>
 #include <ctype.h>
 
+#include "../config.h"
 #include "config.h"
 #include "gtetrinet.h"
 #include "client.h"

@@ -1,5 +1,12 @@
 2002-10-14  Jordi Mallach  <jordi@sindominio.net>
 
+	* Upgrade to gettext 0.11.5.
+	* configure.in: add AM_GNU_GETTEXT_VERSION, for autopoint.
+
+	* src/config.c: include ../config.h.
+
+2002-10-14  Jordi Mallach  <jordi@sindominio.net>
+
 	* configure.in: require autoconf 2.52, add switch to enable page
 	detaching.
 
