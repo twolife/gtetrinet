@@ -51,6 +51,7 @@ char server[128];
 static int sock;
 static GIOChannel *io_channel;
 static guint source;
+static int resolved;
 
 /* structures and arrays for message translation */
 
@@ -140,7 +141,7 @@ struct outmsgt outmsgtable[] = {
 
 /* functions which set up the connection */
 static void client_process (void);
-static int client_connect (void);
+static gpointer client_resolv_hostname (void);
 static void client_connected (void);
 
 /* some other useful functions */
@@ -158,15 +159,16 @@ void client_init (const char *s, const char *n)
     GTET_O_STRCPY(server, s);
     GTET_O_STRCPY(nick, n);
 
+    connectingdialog_new ();
+
     /* wipe spaces off the nick */
     for (i = 0; nick[i]; i ++)
-        if (isspace (nick[i])) nick[i] = 0;
-
-    connectingdialog_new ();
+      if (isspace (nick[i]))
+        nick[i] = 0;
 
     /* set the game mode */
     inmsg_change();
-
+    
     client_process ();
 }
 
@@ -206,20 +208,82 @@ void client_inmessage (char *str)
 
 void client_process (void)
 {
-    errno = 0;
-    if (client_connect () == -1) {
-        char errmsg[1024];
+  GString *s1 = g_string_sized_new(80);
+  GString *s2 = g_string_sized_new(80);
+  unsigned char ip[4];
+  GString *iphashbuf = g_string_sized_new(11);
+  unsigned int i, len;
+  int l;
+  GThread *thread;
+        
+  errno = 0;
+  resolved = 0;
+  
+  thread = g_thread_create ((GThreadFunc) client_resolv_hostname, NULL, FALSE, NULL);
+  
+  /* wait until the hostname is resolved */
+  while (resolved == 0)
+  {
+    if (gtk_events_pending ())
+	    gtk_main_iteration ();
+  }
 
-        GTET_O_STRCPY(errmsg, "noconnecting ");
+  if (resolved == -1) {
+    char errmsg[1024];
 
-        if (errno)        GTET_O_STRCAT(errmsg, strerror (errno));
-        else if (h_errno) GTET_O_STRCAT(errmsg, _("Could not resolve host."));
+    GTET_O_STRCPY(errmsg, "noconnecting ");
 
-        client_inmessage (errmsg);
-    }
+    if (errno)        GTET_O_STRCAT(errmsg, strerror (errno));
+    else if (h_errno) GTET_O_STRCAT(errmsg, _("Could not resolve host."));
+
+    client_inmessage (errmsg);
+    
+    return;
+ }
+
+  /**
+   * Set up the g_io_channel
+   * We should set it with no encoding and no buffering, just to simplify things */
+  io_channel = g_io_channel_unix_new (sock);
+  g_io_channel_set_encoding (io_channel, NULL, NULL);
+  g_io_channel_set_buffered (io_channel, FALSE);
+  source = g_io_add_watch (io_channel, G_IO_IN, (GIOFunc)io_channel_cb, NULL);
+
+  /* construct message */
+  if (gamemode == TETRIFAST)
+    g_string_printf (s1, "tetrifaster %s 1.13", nick);
+  else
+    g_string_printf (s1, "tetrisstart %s 1.13", nick);
+
+  /* do that encoding thingy */
+  server_ip (ip);
+  g_string_printf (iphashbuf, "%d",
+                   ip[0]*54 + ip[1]*41 + ip[2]*29 + ip[3]*17);
+  l = iphashbuf->len;
+
+  g_string_append_c(s2, 0);
+  for (i = 0; s1->str[i]; i ++)
+    g_string_append_c(s2, ((((s2->str[i] & 0xFF) +
+                     (s1->str[i] & 0xFF)) % 255) ^
+                      iphashbuf->str[i % l]));
+  g_assert(s1->len == i);
+  g_assert(s2->len == (i + 1));
+  len = i + 1;
+
+  g_string_truncate(s1, 0);
+  for (i = 0; i < len; i ++)
+    g_string_append_printf(s1, "%02X", s2->str[i] & 0xFF);
+
+  /* now send to server */
+  client_sendmsg (s1->str);
+
+  g_string_free(s1, TRUE);
+  g_string_free(s2, TRUE);
+  g_string_free(iphashbuf, TRUE);
 }
 
-int client_connect (void)
+
+gpointer client_resolv_hostname (void)
 {
 #ifdef USE_IPV6
     char hbuf[NI_MAXHOST];
@@ -241,7 +305,8 @@ int client_connect (void)
     if (getaddrinfo(server, service, &hints, &res0)) {
         /* set errno = 0 so that we know it's a getaddrinfo error */
         errno = 0;
-        return -1;
+        resolved = -1;
+        g_thread_exit (GINT_TO_POINTER (-1));
     }
     for (res = res0; res; res = res->ai_next) {
         sock = socket (res->ai_family, res->ai_socktype, res->ai_protocol);
@@ -250,7 +315,8 @@ int client_connect (void)
                 continue;
             else {
                 freeaddrinfo(res0);
-                return -1;
+                resolved = -1;
+                g_thread_exit (GINT_TO_POINTER (-1));
             }
         }
         getnameinfo(res->ai_addr, res->ai_addrlen, hbuf, sizeof(hbuf), NULL, 0, 0);
@@ -261,7 +327,8 @@ int client_connect (void)
             } else {
                 close(sock);
                 freeaddrinfo(res0);
-                return -1;
+                resolved = -1;
+                g_thread_exit (GINT_TO_POINTER (-1));
             }
         }
         break;
@@ -272,7 +339,8 @@ int client_connect (void)
     if (h == 0) {
         /* set errno = 0 so that we know it's a gethostbyname error */
         errno = 0;
-        return -1;
+        resolved = -1;
+        g_thread_exit (GINT_TO_POINTER (-1));
     }
     memset (&sa, 0, sizeof (sa));
     memcpy (&sa.sin_addr, h->h_addr, h->h_length);
@@ -280,62 +348,18 @@ int client_connect (void)
     sa.sin_port = htons (spectating?SPECPORT:PORT);
 
     sock = socket (sa.sin_family, SOCK_STREAM, 0);
-    if (sock < 0) return -1;
+    if (sock < 0)
+        g_thread_exit (GINT_TO_POINTER (-1));
 
     if (connect (sock, (struct sockaddr *)&sa, sizeof(sa)) < 0)
-        return -1;
+    {
+        resolved = -1;
+        g_thread_exit (GINT_TO_POINTER (-1));
+    }
 #endif
 
-    /**
-     * Set up the g_io_channel
-     * We should set it with no encoding and no buffering, just to simplify things */
-    io_channel = g_io_channel_unix_new (sock);
-    g_io_channel_set_encoding (io_channel, NULL, NULL);
-    g_io_channel_set_buffered (io_channel, FALSE);
-    source = g_io_add_watch (io_channel, G_IO_IN, (GIOFunc)io_channel_cb, NULL);
-    
-    /* say hello to the server */
-    {
-        GString *s1 = g_string_sized_new(80);
-        GString *s2 = g_string_sized_new(80);
-        unsigned char ip[4];
-        GString *iphashbuf = g_string_sized_new(11);
-        unsigned int i, len;
-        int l;
-        
-        /* construct message */
-        if (gamemode == TETRIFAST)
-          g_string_printf (s1, "tetrifaster %s 1.13", nick);
-        else
-          g_string_printf (s1, "tetrisstart %s 1.13", nick);
-
-        /* do that encoding thingy */
-        server_ip (ip);
-        g_string_printf (iphashbuf, "%d",
-                          ip[0]*54 + ip[1]*41 + ip[2]*29 + ip[3]*17);
-        l = iphashbuf->len;
-
-        g_string_append_c(s2, 0);
-        for (i = 0; s1->str[i]; i ++)
-          g_string_append_c(s2, ((((s2->str[i] & 0xFF) +
-                                   (s1->str[i] & 0xFF)) % 255) ^
-                                 iphashbuf->str[i % l]));
-        g_assert(s1->len == i);
-        g_assert(s2->len == (i + 1));
-        len = i + 1;
-
-        g_string_truncate(s1, 0);
-        for (i = 0; i < len; i ++)
-          g_string_append_printf(s1, "%02X", s2->str[i] & 0xFF);
-
-        /* now send to server */
-        client_sendmsg (s1->str);
-
-        g_string_free(s1, TRUE);
-        g_string_free(s2, TRUE);
-        g_string_free(iphashbuf, TRUE);
-    }
-    return 0;
+    resolved = 1;
+    return (GINT_TO_POINTER (1));
 }
 
 void client_connected (void)

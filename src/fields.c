@@ -457,10 +457,10 @@ void fields_drawspecials (void)
     int i;
     for (i = 0; i < 18; i ++) {
         if (i < specialblocknum) {
-            gdk_draw_pixmap (specialwidget->window,
-                             specialwidget->style->black_gc,
-                             blockpix, (specialblocks[i]-1)*BLOCKSIZE,
-                             0, BLOCKSIZE*i, 0, BLOCKSIZE, BLOCKSIZE);
+            gdk_draw_drawable (specialwidget->window,
+                               specialwidget->style->black_gc,
+                               blockpix, (specialblocks[i]-1)*BLOCKSIZE,
+                               0, BLOCKSIZE*i, 0, BLOCKSIZE, BLOCKSIZE);
         }
         else {
             gdk_draw_rectangle (specialwidget->window, specialwidget->style->black_gc,
@@ -485,12 +485,12 @@ void fields_drawnextblock (TETRISBLOCK block)
     for (y = ystart; y < 4; y ++)
         for (x = xstart; x < 4; x ++) {
             if (block[y][x]) {
-                gdk_draw_pixmap (nextpiecewidget->window,
-                                 nextpiecewidget->style->black_gc,
-                                 blockpix, (block[y][x]-1)*BLOCKSIZE, 0,
-                                 BLOCKSIZE*(x-xstart)+BLOCKSIZE/4,
-                                 BLOCKSIZE*(y-ystart)+BLOCKSIZE/4,
-                                 BLOCKSIZE, BLOCKSIZE);
+                gdk_draw_drawable (nextpiecewidget->window,
+                                   nextpiecewidget->style->black_gc,
+                                   blockpix, (block[y][x]-1)*BLOCKSIZE, 0,
+                                   BLOCKSIZE*(x-xstart)+BLOCKSIZE/4,
+                                   BLOCKSIZE*(y-ystart)+BLOCKSIZE/4,
+                                   BLOCKSIZE, BLOCKSIZE);
             }
         }
     memcpy (displayblock, block, 16);

@@ -1,3 +1,22 @@
+2003-02-10  Dani Carbonell  <bocata@panete.net>
+
+	* src/Makefile.am: added -DGDK_DISABLE_DEPRECATED to the compilation
+	parameters.
+	
+	* src/client.c: fixed the connecting dialog behaviour, now GTetrinet
+	doesn't hang up while the hostname is resolved.
+	(client_process): this function now launches the thread that
+	resolvers the hostname, does gtk_iterations while the thread finishes,
+	and continues the normal connection protocol.
+	(client_connect): renamed to client_resolv_hostname, now it just
+	resolves the hostname, the rest of the functionality was moved to
+	client_process.
+	
+	* src/fields.c: removed two GDK obsolete function calls.
+	
+	* src/gtetrinet.c: start the GThread system, if it's not started
+	yet.
+
 2003-02-09  Jordi Mallach  <jordi@sindominio.net>
 
 	* configure.in: add debug flags if compiling from CVS.
