@@ -2,6 +2,9 @@ GTetrinet 0.5.1 - Unreleased
 - Fix bad bugs in dialog handling which made GTetrinet crash on connect
   or other situations.
 - Other minor fixes.
+- We've found out that using the C locale and typing 8bit characters into
+  chat windows makes GTetrinet crash. This will be fixed in the future,
+  for the moment, you've been warned.
 
 GTetrinet 0.5.0 - 2003-01-05
 - Finally, GNOME2 port!

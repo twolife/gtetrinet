@@ -9,6 +9,6 @@ GTetrinet's TODO list
   + problem when typing composed letters (á) in fields messages
   + port deprecated widgets (-DGTK_DISABLE_DEPRECATED)
   + detaching and reattaching the Menu Bar causes two Bonobo-CRITICAL
-  + when using /usr/local as prefix, you get a GDK-CRITICAL on prefs.
+  + if you use the C locale and input an 8bit character, gtetrinet segfaults
 - Make gtetrinet resizeable (at least the fields messages bit)
 - Write a User Manual
