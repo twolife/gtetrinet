@@ -339,11 +339,53 @@ clientend:
 
 int client_connect (void)
 {
+#ifdef USE_IPV6
+    char hbuf[NI_MAXHOST];
+    struct addrinfo hints, *res, *res0;
+    struct sockaddr_in6 sa;
+    char service[10];
+#else
     struct hostent *h;
     struct sockaddr_in sa;
+#endif
 
     /* set up the connection */
 
+#ifdef USE_IPV6
+    snprintf(service, 9, "%d", spectating?SPECPORT:PORT);
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_UNSPEC;
+    hints.ai_socktype = SOCK_STREAM;
+    if (getaddrinfo(server, service, &hints, &res0)) {
+        /* set errno = 0 so that we know it's a getaddrinfo error */
+        errno = 0;
+        return -1;
+    }
+    for (res = res0; res; res = res->ai_next) {
+        sock = socket (res->ai_family, res->ai_socktype, res->ai_protocol);
+        if (sock < 0) {
+            if (res->ai_next)
+                continue;
+            else {
+                freeaddrinfo(res0);
+                return -1;
+            }
+        }
+        getnameinfo(res->ai_addr, res->ai_addrlen, hbuf, sizeof(hbuf), NULL, 0, 0);
+        if (connect(sock, res->ai_addr, res->ai_addrlen) < 0) {
+            if (res->ai_next) {
+                close(sock);
+                continue;
+            } else {
+                close(sock);
+                freeaddrinfo(res0);
+                return -1;
+            }
+        }
+        break;
+    }
+    freeaddrinfo(res0);
+#else
     h = gethostbyname (server);
     if (h == 0) {
         /* set errno = 0 so that we know it's a gethostbyname error */
@@ -360,6 +402,7 @@ int client_connect (void)
 
     if (connect (sock, (struct sockaddr *)&sa, sizeof(sa)) < 0)
         return -1;
+#endif
 
     /* say hello to the server */
     {
@@ -442,11 +485,25 @@ int client_readmsg (char *str, int len)
 
 void server_ip (unsigned char buf[4])
 {
+#ifdef USE_IPV6
+    struct sockaddr_in6 sin;
+    struct sockaddr_in *sin4;
+#else
     struct sockaddr_in sin;
+#endif
     int len = sizeof(sin);
 
     getpeername (sock, (struct sockaddr *)&sin, &len);
+#ifdef USE_IPV6
+    if (sin.sin6_family == AF_INET6) {
+	memcpy (buf, ((char *) &sin.sin6_addr) + 12, 4);
+    } else {
+	sin4 = (struct sockaddr_in *) &sin;
+	memcpy (buf, &sin4->sin_addr, 4);
+   }
+#else
     memcpy (buf, &sin.sin_addr, 4);
+#endif
 }
 
 enum inmsg_type inmsg_translate (char *str)
