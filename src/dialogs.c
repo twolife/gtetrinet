@@ -117,26 +117,21 @@ void teamdialog_destroy (GtkWidget *widget, gpointer data)
     gtk_widget_destroy (team_dialog);
     team_dialog = NULL;
 }
-void teamdialog_button (GnomeDialog *dialog, gint button, gpointer data)
+void teamdialog_button (GtkWidget *button, gpointer data)
 {
     GtkWidget *entry = GTK_WIDGET(data);
     gchar *aux;
-    switch (button) {
-    case 1:
-        aux = g_locale_from_utf8 (gtk_entry_get_text(GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(entry)))), -1, NULL, NULL, NULL);
-        tetrinet_changeteam (aux);
-        teamdialog_destroy (NULL, NULL);
-        g_free (aux);
-        break;
-    case 0:
-        teamdialog_destroy (NULL, NULL);
-        break;
-    }
+
+    aux = g_locale_from_utf8 (gtk_entry_get_text(GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(entry)))), -1, NULL, NULL, NULL);
+    tetrinet_changeteam (aux);
+    teamdialog_destroy (NULL, NULL);
+    g_free (aux);
 }
 
 void teamdialog_new (void)
 {
-    GtkWidget *table, *widget, *entry;
+    GtkWidget *hbox, *vbox, *buttonbox, *widget, *entry,
+              *ok_button, *cancel_button;
     gchar *team_utf8 = g_locale_to_utf8 (team, -1, NULL, NULL, NULL);
   
     if (team_dialog != NULL)
@@ -145,32 +140,44 @@ void teamdialog_new (void)
       return;
     }
   
-    team_dialog = gnome_dialog_new (_("Change team"),
-                               GNOME_STOCK_BUTTON_CANCEL,
-                               GNOME_STOCK_BUTTON_OK,
-                               NULL);
-    gnome_dialog_set_default (GNOME_DIALOG(team_dialog), 1);
+    team_dialog = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title (GTK_WINDOW (team_dialog), _("Change team"));
     gtk_window_set_position (GTK_WINDOW (team_dialog), GTK_WIN_POS_MOUSE);
-    table = gtk_table_new (1, 2, FALSE);
-    gtk_table_set_col_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
+    gtk_window_set_resizable (GTK_WINDOW (team_dialog), FALSE);
+    gtk_container_set_border_width (GTK_CONTAINER (team_dialog), 12);
+
+    vbox = gtk_vbox_new (FALSE, 6);
+    gtk_container_add (GTK_CONTAINER (team_dialog), vbox);
+    
+    /* button box*/
+    buttonbox = gtk_hbox_new (TRUE, 6);
+    cancel_button = gtk_button_new_from_stock (GTK_STOCK_CANCEL);
+    gtk_box_pack_start_defaults (GTK_BOX (buttonbox), cancel_button);
+    ok_button = gtk_button_new_from_stock (GTK_STOCK_OK);
+    gtk_box_pack_start_defaults (GTK_BOX (buttonbox), ok_button);
+    gtk_box_pack_end_defaults (GTK_BOX (vbox), buttonbox);
+    
+    /* entry and label */
+    hbox = gtk_hbox_new (FALSE, 6);
     widget = gtk_label_new (_("Team name:"));
-    gtk_widget_show (widget);
-    gtk_table_attach_defaults (GTK_TABLE(table), widget, 0, 1, 0, 1);
+    gtk_box_pack_start_defaults (GTK_BOX (hbox), widget);
     entry = gnome_entry_new ("Team");
     gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(entry))),
                         team_utf8);
     g_free (team_utf8);
-    gtk_widget_show (entry);
-    gtk_table_attach_defaults (GTK_TABLE(table), entry, 1, 2, 0, 1);
-    gtk_widget_show (table);
-    gtk_box_pack_start (GTK_BOX(GNOME_DIALOG(team_dialog)->vbox),
-                        table, TRUE, TRUE, 0);
+    gtk_box_pack_start_defaults (GTK_BOX (hbox), entry);
+    gtk_box_pack_end_defaults (GTK_BOX (vbox), hbox);
+    
     /* pass the entry in the data pointer */
-    g_signal_connect (G_OBJECT(team_dialog), "clicked",
+    g_signal_connect (G_OBJECT(ok_button), "clicked",
                         GTK_SIGNAL_FUNC(teamdialog_button), (gpointer)entry);
+    g_signal_connect (G_OBJECT(cancel_button), "clicked",
+                        GTK_SIGNAL_FUNC(teamdialog_destroy), NULL);
     g_signal_connect (G_OBJECT(team_dialog), "destroy",
                         GTK_SIGNAL_FUNC(teamdialog_destroy), NULL);
-    gtk_widget_show (team_dialog);
+    GTK_WIDGET_SET_FLAGS (ok_button, GTK_CAN_DEFAULT);
+    gtk_widget_grab_default (ok_button);
+    gtk_widget_show_all (team_dialog);
 }
 
 /**********************/
