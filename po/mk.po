@@ -1,10 +1,8 @@
-# translation of gtetrinet.HEAD.po to
-# translation of gtetrinet.HEAD.po to
 # translation of gtetrinet.HEAD.po to Macedonian
-# This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # Глигор Костоски <gigo@ajvar.com.mk>, 2003
-# Arangel Angov <ufo@linux.net.mk>, 2003
+# Arangel Angov <ufo@linux.net.mk>, 2003.
 #
 msgid ""
 msgstr ""
