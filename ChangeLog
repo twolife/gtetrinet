@@ -1,3 +1,8 @@
+2003-06-02  Dani Carbonell  <bocata@panete.net>
+
+	* src/winlist.c (winlist_page_new): added scrollbars to the
+	winlist, also made it bigger.
+
 2003-06-02  Jordi Mallach  <jordi@dindominio.net>
 
 	* configure.in (ALL_LINGUAS): Added "eu" (Basque).
