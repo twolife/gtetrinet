@@ -1,3 +1,7 @@
+GTetrinet 0.6.1 - 2003-02-07
+- Fixed some startup crashes on some situations where GConf values didn't
+  exist.
+
 GTetrinet 0.6.0 - 2003-02-04
 - GTetrinet is now hosted on cvs.gnome.org and uses the GNOME Bugzilla.
 - Configuration ported to GConf.
