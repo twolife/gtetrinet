@@ -1,3 +1,7 @@
+2003-04-10  Jordi Mallach  <jordi@sindominio.net>
+
+	* configure.in: removed call to AM_GNU_GETTEXT.
+
 2003-04-09  Dani Carbonell  <bocata@panete.net>
 
 	* gtetrinet.schemas.in: added a new schema for the Enable Channel List
