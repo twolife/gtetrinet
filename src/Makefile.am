@@ -5,8 +5,6 @@ localedir = $(datadir)/locale
 INCLUDES = -DLOCALEDIR=\"$(localedir)\" \
 	   -DPIXMAPSDIR=\""$(datadir)/pixmaps"\" \
 	   -DGTETPIXMAPSDIR=\""$(datadir)/pixmaps/gtetrinet"\" \
-	   -DG_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED \
-	   -DGTK_DISABLE_DEPRECATED -DGNOME_DISABLE_DEPRECATED \
 	   $(GTET_CFLAGS)
 LDADD = $(GTET_LIBS)
 AM_CPPFLAGS = -DGTETRINET_DATA=\"$(pkgdatadir)\"
