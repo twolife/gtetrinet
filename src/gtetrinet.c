@@ -430,7 +430,7 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
       return TRUE;
     }
 
-    if ((key->state & (GDK_MOD1_MASK | GDK_CONTROL_MASK | GDK_SHIFT_MASK)) > 0)
+    if ((key->state & (GDK_MOD1_MASK | GDK_CONTROL_MASK)) > 0)
       return FALSE;
     
     if (game_area && ingame && (gdk_keyval_to_lower (key->keyval) == keys[K_GAMEMSG]))
