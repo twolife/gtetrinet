@@ -1,3 +1,9 @@
+2002-06-28  Bastien Nocera  <hadess@hadess.net>
+
+	* src/partyline.c: (partyline_page_new):
+	* src/winlist.c: (winlist_page_new):
+	work-arounds to get the clist headers translated
+
 2002-06-28  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/gtetrinet.c, partyline.c, partyline.h, tetrinet.c:

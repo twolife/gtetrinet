@@ -27,13 +27,6 @@
 #include "misc.h"
 #include "commands.h"
 
-/* for the player list */
-static char *listtitles[] = {
-    "",
-    N_("Name"),
-    N_("Team")
-};
-
 /* widgets that we have to do stuff with */
 static GtkWidget *playerlist, *textbox, *entrybox,
     *namelabel, *teamlabel, *infolabel, *textboxscroll;
@@ -53,6 +46,12 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key);
 GtkWidget *partyline_page_new (void)
 {
     GtkWidget *widget, *box; /* generic temp variables */
+    char *listtitles[3];
+
+    /* Initialise the array for the player list */
+    listtitles[0] = "";
+    listtitles[1] = _("Name");
+    listtitles[2] = _("Team");
 
     /* left box */
     leftbox = gtk_vbox_new (FALSE, 4);

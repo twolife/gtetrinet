@@ -16,6 +16,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
+
 #include <gtk/gtk.h>
 #include <gnome.h>
 #include <string.h>
@@ -26,17 +27,16 @@
 #include "winlist.h"
 #include "misc.h"
 
-char *winlisttitles[3] = {
-    N_("T"),
-    N_("Name"),
-    N_("Score")
-};
-
-GtkWidget *winlist;
+static GtkWidget *winlist;
 
 GtkWidget *winlist_page_new (void)
 {
+    char *winlisttitles[3];
     GtkWidget *align;
+
+    winlisttitles [0] = _("T");
+    winlisttitles [1] = _("Name");
+    winlisttitles [2] = _("Score");
 
     winlist = gtk_clist_new_with_titles (3, winlisttitles);
 
