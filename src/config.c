@@ -171,6 +171,7 @@ void config_loadconfig (void)
     {
       g_free (p);
       p = g_strdup (DEFAULTTHEME);
+      gconf_client_set_string (gconf_client, "/apps/gtetrinet/themes/theme_dir", p, NULL);
     }
     GTET_O_STRCPY(currenttheme, p);
     g_free (p);
