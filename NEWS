@@ -1,4 +1,4 @@
-GTetrinet 0.4.3 - Unreleased
+GTetrinet 0.4.3 - 2002-10-21
 - IPv6 support!
 - Add missing includes so i18n works correctly.
 - Minimize the space used by attacks/defenses.
