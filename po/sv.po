@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet\n"
-"POT-Creation-Date: 2003-04-10 11:16+0200\n"
-"PO-Revision-Date: 2003-04-10 11:16+0200\n"
+"POT-Creation-Date: 2003-04-16 14:00+0200\n"
+"PO-Revision-Date: 2003-04-16 14:01+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,118 +20,118 @@ msgstr ""
 msgid "Couldn't resolve hostname."
 msgstr "Kunde inte slå upp värdnamn."
 
-#: src/commands.c:38
+#: src/commands.c:45
 msgid "_Connect to server..."
 msgstr "_Anslut till server..."
 
-#: src/commands.c:39
+#: src/commands.c:46
 msgid "_Disconnect from server"
 msgstr "_Koppla från server"
 
-#: src/commands.c:41
+#: src/commands.c:48
 msgid "Change _team..."
 msgstr "Byt _lag..."
 
-#: src/commands.c:43
+#: src/commands.c:50
 msgid "_Start game"
 msgstr "_Starta spel"
 
-#: src/commands.c:44
+#: src/commands.c:51
 msgid "_Pause game"
 msgstr "_Gör paus i spel"
 
-#: src/commands.c:45
+#: src/commands.c:52
 msgid "_End game"
 msgstr "_Avsluta spel"
 
-#: src/commands.c:50
+#: src/commands.c:57
 msgid "Detac_h page..."
 msgstr "_Koppla loss sida..."
 
-#: src/commands.c:75
+#: src/commands.c:82
 msgid "Connect"
 msgstr "Anslut"
 
-#: src/commands.c:75
+#: src/commands.c:82
 msgid "Connect to a server"
 msgstr "Anslut till en server"
 
-#: src/commands.c:76
+#: src/commands.c:83
 msgid "Disconnect"
 msgstr "Koppla från"
 
-#: src/commands.c:76
+#: src/commands.c:83
 msgid "Disconnect from the current server"
 msgstr "Koppla från den aktuella servern"
 
-#: src/commands.c:78
+#: src/commands.c:85
 msgid "Start game"
 msgstr "Starta spel"
 
-#: src/commands.c:78
+#: src/commands.c:85
 msgid "Start a new game"
 msgstr "Starta ett nytt spel"
 
-#: src/commands.c:79
+#: src/commands.c:86
 msgid "Pause game"
 msgstr "Gör paus i spel"
 
-#: src/commands.c:79
+#: src/commands.c:86
 msgid "Pause the game"
 msgstr "Gör paus i spelet"
 
-#: src/commands.c:80
+#: src/commands.c:87
 msgid "End game"
 msgstr "Avsluta spelet"
 
-#: src/commands.c:80
+#: src/commands.c:87
 msgid "End the current game"
 msgstr "Avsluta det aktuella spelet"
 
-#: src/commands.c:82 src/dialogs.c:155
+#: src/commands.c:89 src/dialogs.c:155
 msgid "Change team"
 msgstr "Byt lag"
 
-#: src/commands.c:82
+#: src/commands.c:89
 msgid "Change your current team name"
 msgstr "Byt namn på ditt aktuella lag"
 
-#: src/commands.c:85
+#: src/commands.c:92
 msgid "Detach page"
 msgstr "Koppla loss sida"
 
-#: src/commands.c:85
+#: src/commands.c:92
 msgid "Detach the current notebook page"
 msgstr "Koppla loss den aktuella flikhäftessidan"
 
-#: src/commands.c:207
+#: src/commands.c:215
 msgid "Game in progress"
 msgstr "Spel pågår"
 
-#: src/commands.c:210
+#: src/commands.c:218
 msgid "Connected to\n"
 msgstr "Ansluten till\n"
 
-#: src/commands.c:214
+#: src/commands.c:222
 msgid "Not connected"
 msgstr "Inte ansluten"
 
 #. Translators: translate as your names & emails
-#: src/commands.c:236
+#: src/commands.c:244
 msgid "translator_credits"
 msgstr ""
 "Christian Rose\n"
 "Skicka synpunkter på översättningen till sv@li.org"
 
-#: src/commands.c:241
+#: src/commands.c:249
 msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
 msgstr "© 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
 
-#: src/commands.c:242
+#: src/commands.c:250
 msgid "A Tetrinet client for GNOME.\n"
 msgstr "En Tetrinet-klient för GNOME.\n"
 
-#: src/commands.c:254
+#: src/commands.c:262
 msgid "GTetrinet Home Page"
 msgstr "GTetrinet-hemsidan"
 
@@ -144,7 +144,7 @@ msgstr "Varning: temat har inget namn, återgår till standardvärdet."
 msgid "Connect to server"
 msgstr "Anslut till server"
 
-#: src/dialogs.c:167 src/dialogs.c:429
+#: src/dialogs.c:167
 msgid "Team name:"
 msgstr "Lagnamn:"
 
@@ -162,83 +162,87 @@ msgstr "Ange ett giltigt smeknamn."
 
 #. game type radio buttons
 #: src/dialogs.c:357
-msgid "Original"
-msgstr "Original"
+msgid "O_riginal"
+msgstr "O_riginal"
 
 #: src/dialogs.c:359
-msgid "TetriFast"
-msgstr "TetriFast"
+msgid "Tetri_Fast"
+msgstr "Tetri_Fast"
 
 #: src/dialogs.c:381
 msgid "Server address"
 msgstr "Serveradress"
 
-#: src/dialogs.c:390 src/gtetrinet.c:80
-msgid "Connect as a spectator"
-msgstr "Anslut som åskådare"
+#: src/dialogs.c:390
+msgid "Connect as a _spectator"
+msgstr "Anslut som en _åskådare"
 
 #: src/dialogs.c:394
-msgid "Password:"
-msgstr "Lösenord:"
+msgid "_Password:"
+msgstr "_Lösenord:"
 
-#: src/dialogs.c:408
+#: src/dialogs.c:409
 msgid "Spectate game"
 msgstr "Beskåda spel"
 
-#: src/dialogs.c:417
-msgid "Nick name:"
-msgstr "Smeknamn:"
+#: src/dialogs.c:418
+msgid "_Nick name:"
+msgstr "_Smeknamn:"
 
-#: src/dialogs.c:446
+#: src/dialogs.c:431
+msgid "_Team name:"
+msgstr "_Lagnamn:"
+
+#: src/dialogs.c:449
 msgid "Player information"
 msgstr "Spelarinformation"
 
-#: src/dialogs.c:487
+#: src/dialogs.c:490
 msgid "Change Key"
 msgstr "Ändra tangent"
 
-#: src/dialogs.c:538
+#: src/dialogs.c:541
 msgid "Move right"
 msgstr "Flytta åt höger"
 
-#: src/dialogs.c:539
+#: src/dialogs.c:542
 msgid "Move left"
 msgstr "Flytta åt vänster"
 
-#: src/dialogs.c:540
+#: src/dialogs.c:543
 msgid "Move down"
 msgstr "Flytta nedåt"
 
-#: src/dialogs.c:541
+#: src/dialogs.c:544
 msgid "Rotate right"
 msgstr "Rotera höger"
 
-#: src/dialogs.c:542
+#: src/dialogs.c:545
 msgid "Rotate left"
 msgstr "Rotera vänster"
 
-#: src/dialogs.c:543
+#: src/dialogs.c:546
 msgid "Drop piece"
 msgstr "Släpp pjäs"
 
-#: src/dialogs.c:544
+#: src/dialogs.c:547
 msgid "Discard special"
 msgstr "Förkasta special"
 
-#: src/dialogs.c:545
+#: src/dialogs.c:548
 msgid "Send message"
 msgstr "Skicka meddelande"
 
-#: src/dialogs.c:599
+#: src/dialogs.c:602
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Tryck ny tangent för \"%s\""
 
-#: src/dialogs.c:816
+#: src/dialogs.c:819
 msgid "GTetrinet Preferences"
 msgstr "Inställningar för GTetrinet"
 
-#: src/dialogs.c:839
+#: src/dialogs.c:842
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -246,50 +250,50 @@ msgstr ""
 "Välj ett tema från listan.\n"
 "Installera nya teman i ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:847
+#: src/dialogs.c:850
 msgid "Name:"
 msgstr "Namn:"
 
-#: src/dialogs.c:851
+#: src/dialogs.c:854
 msgid "Author:"
 msgstr "Författare:"
 
-#: src/dialogs.c:855
+#: src/dialogs.c:858
 msgid "Description:"
 msgstr "Beskrivning:"
 
-#: src/dialogs.c:873
+#: src/dialogs.c:876
 msgid "Selected Theme"
 msgstr "Valt tema"
 
-#: src/dialogs.c:892
+#: src/dialogs.c:895
 msgid "Themes"
 msgstr "Teman"
 
 #. partyline
-#: src/dialogs.c:897
-msgid "Enable Timestamps"
-msgstr "Aktivera tidsstämplar"
+#: src/dialogs.c:900
+msgid "Enable _Timestamps"
+msgstr "Aktivera _tidsstämplar"
 
-#: src/dialogs.c:899
-msgid "Enable Channel List"
-msgstr "Aktivera kanallista"
+#: src/dialogs.c:902
+msgid "Enable Channel _List"
+msgstr "Aktivera kanal_lista"
 
 # Osäker
 #. FIXME
-#: src/dialogs.c:925 src/gtetrinet.c:257
+#: src/dialogs.c:928 src/gtetrinet.c:257
 msgid "Partyline"
 msgstr "Partledning"
 
-#: src/dialogs.c:936
+#: src/dialogs.c:939
 msgid "Action"
 msgstr "Åtgärd"
 
-#: src/dialogs.c:938
+#: src/dialogs.c:941
 msgid "Key"
 msgstr "Tangent"
 
-#: src/dialogs.c:944
+#: src/dialogs.c:947
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -297,32 +301,32 @@ msgstr ""
 "Välj en åtgärd från listan och tryck Ändra tangent för att ändra den tangent "
 "som är associerad med åtgärden."
 
-#: src/dialogs.c:950
-msgid "Change key..."
-msgstr "Ändra tangent..."
+#: src/dialogs.c:953
+msgid "Change _key..."
+msgstr "Ändra _tangent..."
 
-#: src/dialogs.c:955 src/dialogs.c:1008
-msgid "Restore defaults"
-msgstr "Återställ standardalternativ"
+#: src/dialogs.c:958 src/dialogs.c:1011
+msgid "_Restore defaults"
+msgstr "_Återställ standardalternativ"
 
-#: src/dialogs.c:976
+#: src/dialogs.c:979
 msgid "Keyboard"
 msgstr "Tangentbord"
 
 #. sound
-#: src/dialogs.c:981
-msgid "Enable Sound"
-msgstr "Aktivera ljud"
-
 #: src/dialogs.c:984
-msgid "Enable MIDI"
-msgstr "Aktivera MIDI"
+msgid "Enable _Sound"
+msgstr "Aktivera _ljud"
 
-#: src/dialogs.c:998
+#: src/dialogs.c:987
+msgid "Enable _MIDI"
+msgstr "Aktivera _MIDI"
+
+#: src/dialogs.c:1001
 msgid "Enter command to play a midi file:"
 msgstr "Ange kommando för att spela en midifil:"
 
-#: src/dialogs.c:1001
+#: src/dialogs.c:1004
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -330,7 +334,7 @@ msgstr ""
 "Det ovanstående kommandot körs då en midifil ska spelas. Namnet på midifilen "
 "hamnar i miljövariabeln MIDIFILE."
 
-#: src/dialogs.c:1038
+#: src/dialogs.c:1041
 msgid "Sound"
 msgstr "Ljud"
 
@@ -399,6 +403,10 @@ msgstr "Ställ in lagnamn"
 msgid "TEAM"
 msgstr "LAG"
 
+#: src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "Anslut som en åskådare"
+
 #: src/gtetrinet.c:81
 msgid "Spectator password"
 msgstr "Åskådarlösenord"
@@ -422,43 +430,43 @@ msgstr "Spelarfält"
 msgid "Winlist"
 msgstr "Vinstlista"
 
-#: src/partyline.c:76 src/partyline.c:134 src/winlist.c:47
+#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
 msgid "Name"
 msgstr "Namn"
 
-#: src/partyline.c:78
+#: src/partyline.c:79
 msgid "Players"
 msgstr "Spelare"
 
-#: src/partyline.c:80
+#: src/partyline.c:81
 msgid "State"
 msgstr "Tillstånd"
 
-#: src/partyline.c:82
+#: src/partyline.c:83
 msgid "Description"
 msgstr "Beskrivning"
 
-#: src/partyline.c:93
-msgid "<b>Channel List</b>"
-msgstr "<b>Kanallista</b>"
+#: src/partyline.c:95
+msgid "Channel List"
+msgstr "Kanallista"
 
-#: src/partyline.c:136
+#: src/partyline.c:140
 msgid "Team"
 msgstr "Lag"
 
-#: src/partyline.c:149
+#: src/partyline.c:153
 msgid "Your name:"
 msgstr "Ditt namn:"
 
-#: src/partyline.c:156
+#: src/partyline.c:160
 msgid "Your team:"
 msgstr "Ditt lag:"
 
-#: src/partyline.c:608
+#: src/partyline.c:612
 msgid "Talking in channel"
 msgstr "Pratar i kanal"
 
-#: src/partyline.c:610
+#: src/partyline.c:614
 msgid "Disconnected"
 msgstr "Frånkopplad"
 
@@ -621,11 +629,11 @@ msgid "%c*** %c%s%c%c is now alone"
 msgstr "%c*** %c%s%c%c är nu ensam"
 
 #. "T" stands for "Team" here
-#: src/winlist.c:45
+#: src/winlist.c:57
 msgid "T"
 msgstr "T"
 
-#: src/winlist.c:49
+#: src/winlist.c:61
 msgid "Score"
 msgstr "Poäng"
 
@@ -813,11 +821,53 @@ msgstr "Ditt smeknamn."
 msgid "Your team."
 msgstr "Ditt lag."
 
-#~ msgid "Enable channel list"
+#~ msgid "Original"
+#~ msgstr "Original"
+
+#~ msgid "TetriFast"
+#~ msgstr "TetriFast"
+
+#~ msgid "Connect as _spectator"
+#~ msgstr "Anslut som _åskådare"
+
+#~ msgid "Connect as spectator"
+#~ msgstr "Anslut som åskådare"
+
+#~ msgid "Password:"
+#~ msgstr "Lösenord:"
+
+#~ msgid "Nick name:"
+#~ msgstr "Smeknamn:"
+
+#~ msgid "_Nickname:"
+#~ msgstr "_Smeknamn:"
+
+#~ msgid "Nickname:"
+#~ msgstr "Smeknamn:"
+
+#~ msgid "Enable Timestamps"
+#~ msgstr "Aktivera tidsstämplar"
+
+#~ msgid "Enable Channel List"
 #~ msgstr "Aktivera kanallista"
 
-#~ msgid "Channel List"
-#~ msgstr "Kanallista"
+#~ msgid "Change key..."
+#~ msgstr "Ändra tangent..."
+
+#~ msgid "Restore defaults"
+#~ msgstr "Återställ standardalternativ"
+
+#~ msgid "Enable Sound"
+#~ msgstr "Aktivera ljud"
+
+#~ msgid "Enable MIDI"
+#~ msgstr "Aktivera MIDI"
+
+#~ msgid "<b>Channel List</b>"
+#~ msgstr "<b>Kanallista</b>"
+
+#~ msgid "Enable channel list"
+#~ msgstr "Aktivera kanallista"
 
 #~ msgid "Channel list"
 #~ msgstr "Kanallista"
