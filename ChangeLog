@@ -1,3 +1,11 @@
+2002-10-14  Jordi Mallach  <jordi@sindominio.net>
+
+	* configure.in: require autoconf 2.52, add switch to enable page
+	detaching.
+
+	* src/commands.c, src/commands.h: ifdef around detach UI options.
+	* src/commands.h: include ../config.h.
+
 2002-10-12  Jordi Mallach  <jordi@sindominio.net>
 
 	* doc/gtetrinet.6: replace notes about tetrinetx's licensing problems

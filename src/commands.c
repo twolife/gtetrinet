@@ -38,8 +38,12 @@ GnomeUIInfo gamemenu[] = {
     GNOMEUIINFO_ITEM(N_("_Start game"), NULL, start_command, NULL),
     GNOMEUIINFO_ITEM(N_("_Pause game"), NULL, pause_command, NULL),
     GNOMEUIINFO_ITEM(N_("_End game"), NULL, end_command, NULL),
+    /* Detach stuff is not ready, says Ka-shu, so make it configurable at
+     * compile time for now. */
+#ifdef ENABLE_DETACH
     GNOMEUIINFO_SEPARATOR,
     GNOMEUIINFO_ITEM(N_("Detac_h Page..."), NULL, detach_command, NULL),
+#endif /* ENABLE_DETACH */
     GNOMEUIINFO_SEPARATOR,
     GNOMEUIINFO_MENU_EXIT_ITEM(destroymain, NULL),
     GNOMEUIINFO_END
@@ -70,9 +74,11 @@ GnomeUIInfo toolbar[] = {
     GNOMEUIINFO_ITEM(N_("Pause game"), NULL, pause_command, NULL),
     GNOMEUIINFO_ITEM(N_("End game"), NULL, end_command, NULL),
     GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM(N_("Change team"), NULL, team_command, NULL),\
+    GNOMEUIINFO_ITEM(N_("Change team"), NULL, team_command, NULL),
+#ifdef ENABLE_DETACH
     GNOMEUIINFO_SEPARATOR,
     GNOMEUIINFO_ITEM(N_("Detach Page"), NULL, detach_command, NULL),
+#endif
     GNOMEUIINFO_END
 };
 
@@ -99,10 +105,12 @@ void team_command (GtkWidget *widget, gpointer data)
     teamdialog_new ();
 }
 
+#ifdef ENABLE_DETACH
 void detach_command (GtkWidget *widget, gpointer data)
 {
     move_current_page_to_window ();
 }
+#endif
 
 void start_command (GtkWidget *widget, gpointer data)
 {

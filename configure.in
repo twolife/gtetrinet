@@ -1,7 +1,9 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(src/gtetrinet.c)
-
-AM_INIT_AUTOMAKE(gtetrinet, 0.4.2pre1)
+AC_INIT
+AC_PREREQ(2.52)
+AC_CONFIG_SRCDIR([src/gtetrinet.c])
+AM_CONFIG_HEADER(config.h:config.h.in)
+AM_INIT_AUTOMAKE(gtetrinet, 0.4.2pre2)
 
 AC_PROG_CC
 
@@ -10,7 +12,7 @@ AM_PATH_GTK(1.2.0,,exit 1)
 ALL_LINGUAS="ca"
 GNOME_INIT 
 
-AM_PATH_ESD(0.2.5, AC_DEFINE(HAVE_ESD))
+AM_PATH_ESD(0.2.5, AC_DEFINE(HAVE_ESD, 1, [Define this to enable EsounD support.]))
 
 AC_HEADER_STDC
 AC_HEADER_SYS_WAIT
@@ -23,11 +25,18 @@ if test $ac_cv_func_setenv = no; then
     echo "Error: Couldn't find either putenv() or setenv()"
     exit;
   else
-    AC_DEFINE(HAVE_PUTENV)
+    AC_DEFINE(HAVE_PUTENV, 1, [Define this if putenv() is available.])
   fi
-else
-  AC_DEFINE(HAVE_SETENV)
-fi
+ else
+  AC_DEFINE(HAVE_SETENV, 1, [Define this if setenv() is available.])
+ fi
+
+dnl configure options
+AC_ARG_ENABLE(detach,
+[  --enable-detach         Enable page detaching (default=no)],
+  [if test x$enable_detach != xno; then
+    AC_DEFINE(ENABLE_DETACH, 1, [Define this to enable page detaching.])
+  fi])
 
 AM_GNU_GETTEXT([external])
 
