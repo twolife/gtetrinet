@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-10 16:58-0500\n"
-"PO-Revision-Date: 2004-03-10 13:55-0300\n"
+"POT-Creation-Date: 2004-04-13 14:57+0200\n"
+"PO-Revision-Date: 2004-04-13 20:13-0300\n"
 "Last-Translator: Alexandre Folle de Menezes <afmenez@terra.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -123,7 +123,8 @@ msgid "translator_credits"
 msgstr ""
 "Alexandre Folle de Menezes <afmenez@terra.com.br>\n"
 "baseado na versão em Português Ibérico por\n"
-"Duarte Loreto <happyguy_pt@hotmail.com>"
+"Duarte Loreto <happyguy_pt@hotmail.com>\n"
+"Estêvão Samuel Procópio <tevaum@ig.com.br>"
 
 #: src/commands.c:293
 msgid "A Tetrinet client for GNOME.\n"
@@ -135,7 +136,7 @@ msgstr "Página Web GTetrinet"
 
 #: src/config.c:140
 msgid "Warning: theme does not have a name, reverting to default."
-msgstr "Aviso: tema não tem um nome, revertendo para tema padrão."
+msgstr "Aviso: o tema não possui um nome. Revertendo para tema padrão."
 
 #. make dialog that asks for address/nickname
 #: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
@@ -258,7 +259,7 @@ msgstr "Especial para o campo 6"
 #: src/dialogs.c:627
 #, c-format
 msgid "Press new key for \"%s\""
-msgstr "Pressione a nova tecla para \"%s\""
+msgstr "Escolha uma nova tecla para \"%s\""
 
 #: src/dialogs.c:844
 msgid "GTetrinet Preferences"
@@ -272,82 +273,84 @@ msgstr ""
 "Selecione um tema da lista.\n"
 "Instale novos temas em ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:874
+#: src/dialogs.c:873
 msgid "Name:"
 msgstr "Nome:"
 
-#: src/dialogs.c:878
+#: src/dialogs.c:876
 msgid "Author:"
-msgstr "Autor"
+msgstr "Autor:"
 
-#: src/dialogs.c:882
+#: src/dialogs.c:879
 msgid "Description:"
 msgstr "Descrição:"
 
-#: src/dialogs.c:900
+#: src/dialogs.c:892
 msgid "Selected Theme"
 msgstr "Tema Selecionado"
 
-#: src/dialogs.c:919
+#: src/dialogs.c:908
+msgid "Download new themes"
+msgstr "Baixar novos temas"
+
+#: src/dialogs.c:913
 msgid "Themes"
 msgstr "Temas"
 
 #. partyline
-#: src/dialogs.c:924
+#: src/dialogs.c:918
 msgid "Enable _Timestamps"
 msgstr "Ativar _Horários"
 
-#: src/dialogs.c:926
+#: src/dialogs.c:920
 msgid "Enable Channel _List"
 msgstr "Habilitar _Lista de Canais"
 
 #. FIXME
-#: src/dialogs.c:952 src/gtetrinet.c:281
+#: src/dialogs.c:946 src/gtetrinet.c:281
 msgid "Partyline"
 msgstr "Bate-papo"
 
-#: src/dialogs.c:963
+#: src/dialogs.c:957
 msgid "Action"
 msgstr "Ação"
 
-#: src/dialogs.c:965
+#: src/dialogs.c:959
 msgid "Key"
 msgstr "Tecla"
 
-#: src/dialogs.c:971
+#: src/dialogs.c:965
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
-msgstr ""
-"Selecione uma ação da lista e pressione Alterar Tecla para alterar a tecla "
-"associada com a ação."
+msgstr "Selecione uma ação da lista e pressione Alterar Tecla para alterar a tecla associada à ação."
 
-#: src/dialogs.c:978
+#: src/dialogs.c:972
 msgid "Change _key..."
 msgstr "Alterar _tecla..."
 
-#: src/dialogs.c:983 src/dialogs.c:1036
+#: src/dialogs.c:977 src/dialogs.c:1030
 msgid "_Restore defaults"
 msgstr "_Restaurar padrões"
 
-#: src/dialogs.c:1004
+#: src/dialogs.c:998
 msgid "Keyboard"
 msgstr "Teclado"
 
 #. sound
-#: src/dialogs.c:1009
+#: src/dialogs.c:1003
 msgid "Enable _Sound"
 msgstr "Habilitar _Som"
 
-#: src/dialogs.c:1012
+#: src/dialogs.c:1006
 msgid "Enable _MIDI"
 msgstr "Habilitar _MIDI"
 
-#: src/dialogs.c:1026
+#: src/dialogs.c:1020
 msgid "Enter command to play a midi file:"
-msgstr "Introduza comando para reproduzir um arquivo midi:"
+msgstr "Digite o comando para reproduzir um arquivo midi:"
 
-#: src/dialogs.c:1029
+#: src/dialogs.c:1023
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -355,7 +358,7 @@ msgstr ""
 "O comando acima é executado quando um arquivo midi é reproduzido. O nome do "
 "arquivo midi é colocado na variável de ambiente MIDIFILE."
 
-#: src/dialogs.c:1066
+#: src/dialogs.c:1060
 msgid "Sound"
 msgstr "Som"
 
@@ -364,16 +367,17 @@ msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
 msgstr ""
-"Erro carregando tema: impossível ler arquivo de gráficos\n"
+"Erro ao carregar o tema: impossível ler arquivo de gráficos\n"
 "Voltando ao padrão"
 
 #. shouldnt happen
 #: src/fields.c:85
+#, c-format
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
 msgstr ""
-"Erro carregando o tema padrão: Abortando...\n"
+"Erro ao carregar o tema padrão: Abortando...\n"
 "Verifique se ocorreram erros de instalação\n"
 
 #: src/fields.c:206
@@ -410,7 +414,7 @@ msgstr "SERVIDOR"
 
 #: src/gtetrinet.c:78
 msgid "Set nickname to use"
-msgstr "Definir o apelido a usar"
+msgstr "Define o apelido a ser usado"
 
 #: src/gtetrinet.c:78
 msgid "NICKNAME"
@@ -442,7 +446,7 @@ msgid "Failed to init GConf: %s\n"
 msgstr "Falha ao iniciar GConf: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:470
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
 msgid "Playing Fields"
 msgstr "Campos de Jogo"
 
@@ -841,27 +845,27 @@ msgstr ""
 
 #: gtetrinet.schemas.in.h:37
 msgid "This key uses the current special on Player 1's game field."
-msgstr "Esta tecla descarta o especial atual no campo do jogador 1. "
+msgstr "Esta tecla usa o especial atual no campo do jogador 1. "
 
 #: gtetrinet.schemas.in.h:38
 msgid "This key uses the current special on Player 2's game field."
-msgstr "Esta tecla descarta o especial atual no campo do jogador 2."
+msgstr "Esta tecla usa o especial atual no campo do jogador 2."
 
 #: gtetrinet.schemas.in.h:39
 msgid "This key uses the current special on Player 3's game field."
-msgstr "Esta tecla descarta o especial atual no campo do jogador 3."
+msgstr "Esta tecla usa o especial atual no campo do jogador 3."
 
 #: gtetrinet.schemas.in.h:40
 msgid "This key uses the current special on Player 4's game field."
-msgstr "Esta tecla descarta o especial atual no campo do jogador 4."
+msgstr "Esta tecla usa o especial atual no campo do jogador 4."
 
 #: gtetrinet.schemas.in.h:41
 msgid "This key uses the current special on Player 5's game field."
-msgstr "Esta tecla descarta o especial atual no campo do jogador 5."
+msgstr "Esta tecla usa o especial atual no campo do jogador 5."
 
 #: gtetrinet.schemas.in.h:42
 msgid "This key uses the current special on Player 6's game field."
-msgstr "Esta tecla descarta o especial atual no campo do jogador 6."
+msgstr "Esta tecla usa o especial atual no campo do jogador 6."
 
 #: gtetrinet.schemas.in.h:43
 msgid "This will be the name of your team."
@@ -869,15 +873,15 @@ msgstr "Este será o nome do seu time."
 
 #: gtetrinet.schemas.in.h:44
 msgid "This will be your nickname in the game."
-msgstr "Esta será o seu apelido no jogo."
+msgstr "Este será o seu apelido no jogo."
 
 #: gtetrinet.schemas.in.h:45
 msgid "Your nickname"
-msgstr "O seu apelido."
+msgstr "Seu apelido."
 
 #: gtetrinet.schemas.in.h:46
 msgid "Your team"
-msgstr "O seu time."
+msgstr "Seu time."
 
 #~ msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
 #~ msgstr "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
