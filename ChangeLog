@@ -1,10 +1,17 @@
+2004-08-31  Jordi Mallach  <jordi@sindominio.net>
+
+	* configure.in (ALL_LINGUAS): Added "ko" (Korean).
+	* NEWS: Update.
+	* autogen.sh: Require automake 1.7 again, hoping that it's
+	not broken anymore.
+
 2004-07-17  Alessio Frusciante  <algol@firenze.linux.it>
 
 	* configure.in: Added "it" (Italian) to ALL_LINGUAS.
 
 2004-04-18  Jordi Mallach  <jordi@sindominio.net>
 
-	* automake.in: Back out automake-1.7 requirement.
+	* autogen.sh: Back out automake-1.7 requirement.
 	* NEWS: Updated for 0.7.7.
 	* configure.in: Released gtetrinet 0.7.7.
 

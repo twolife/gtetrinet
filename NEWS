@@ -1,3 +1,7 @@
+GTetrinet 0.7.8 - 2004-09-xx
+- New and updated translations: Italian (Riccardo Bozzo),
+  German (Gerfried Fuchs), Korean (Michael Kim).
+
 GTetrinet 0.7.7 - 2004-04-18
 - Regenerated tarball using automake 1.4 to workaround
   tar --posix problems.
