@@ -1,3 +1,8 @@
+2003-02-04  Jordi Mallach  <jordi@sindominio.net>
+
+	* NEWS: updated for 0.6.0.
+	* TODO: updated.
+
 2003-02-04  Dani Carbonell  <bocata@panete.net
 
 	* src/config.c (config_loadtheme): ported to libgnomeui-2.

@@ -3,7 +3,6 @@ GTetrinet's TODO list
 
 - Get server list from http://www.tetrinet.org/ip/
 - GNOME2 port issues:
-  + keybindings
   + detaching and reattaching the Menu Bar causes two Bonobo-CRITICAL
   + if you use the C locale and input an 8bit character, gtetrinet segfaults
 - Make gtetrinet resizeable (at least the fields messages bit)
