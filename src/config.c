@@ -131,7 +131,7 @@ void config_loadtheme (const gchar *themedir)
                                    0,
                                    GTK_MESSAGE_WARNING,
                                    GTK_BUTTONS_OK,
-                                   _("Warning: theme does not have a name,"
+                                   _("Warning: theme does not have a name, "
                                      "reverting to default."));
       gtk_dialog_run (GTK_DIALOG (mb));
       gtk_widget_destroy (mb);
