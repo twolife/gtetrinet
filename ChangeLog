@@ -1,3 +1,7 @@
+2003-01-24  Jordi Mallach  <jordi@sindominio.net>
+
+	* gtetrinet.desktop.in: add bugzilla stuff.
+
 2003-01-23  Jordi Mallach  <jordi@sindominio.net>
 
 	* configure.in: Added "nl" to ALL_LINGUAS.

@@ -1,7 +1,11 @@
 [Desktop Entry]
 _Name=GTetrinet
+_GenericName=Tetrinet client
 _Comment=Tetrinet client for GNOME
 Exec=gtetrinet
 Icon=gtetrinet.png
 Terminal=0
 Type=Application
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gtetrinet
+X-GNOME-Bugzilla-Component=general
