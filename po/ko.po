@@ -1,0 +1,871 @@
+# Korean Translation for GNOME Tetrinet.
+# Copyright (C) 2004 GTetrinet'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Michael Kim <lavnrose@e.sarang.net>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtetrinet 0.7.7\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-04-16 20:260200\n"
+"PO-Revision-Date: 2004-06-08 06:270900\n"
+"Last-Translator: Michael Kim <lavnrose@e.sarang.net>\n"
+"Language-Team: Korean <translation-team-ko@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/client.c:237
+msgid "Couldn't resolve hostname."
+msgstr "호스트명을 해석 할 수 없습니다."
+
+#: src/commands.c:45
+msgid "_Connect to server..."
+msgstr "(_C) 서버에 접속..."
+
+#: src/commands.c:46
+msgid "_Disconnect from server"
+msgstr "(_D) 접속 해제"
+
+#: src/commands.c:48
+msgid "Change _team..."
+msgstr "(_t)팀 바꾸기..."
+
+#: src/commands.c:50
+msgid "_Start game"
+msgstr "(_S)게임 시작"
+
+#: src/commands.c:51
+msgid "_Pause game"
+msgstr "(_P)게임 멈춤"
+
+#: src/commands.c:52
+msgid "_End game"
+msgstr "(_E)게임 종료"
+
+#: src/commands.c:57
+msgid "Detac_h page..."
+msgstr "(_h)페이지 분리..."
+
+#: src/commands.c:82
+msgid "Connect"
+msgstr "접속"
+
+#: src/commands.c:82
+msgid "Connect to a server"
+msgstr "서버에 접속"
+
+#: src/commands.c:83
+msgid "Disconnect"
+msgstr "접속해제"
+
+#: src/commands.c:83
+msgid "Disconnect from the current server"
+msgstr "현재 서버로부터 접속을 종료합니다"
+
+#: src/commands.c:85
+msgid "Start game"
+msgstr "게임시작"
+
+#: src/commands.c:85
+msgid "Start a new game"
+msgstr "새 게임 시작"
+
+#: src/commands.c:86
+msgid "End game"
+msgstr "게임 종료"
+
+#: src/commands.c:86
+msgid "End the current game"
+msgstr "현재 게임을 종료합니다."
+
+#: src/commands.c:87
+msgid "Pause game"
+msgstr "게임 중지"
+
+#: src/commands.c:87
+msgid "Pause the game"
+msgstr "게임을 일시 중지합니다."
+
+#: src/commands.c:89 src/dialogs.c:156
+msgid "Change team"
+msgstr "팀 변경"
+
+#: src/commands.c:89
+msgid "Change your current team name"
+msgstr "현재 당신이 속한 팀을 변경합니다."
+
+#: src/commands.c:92
+msgid "Detach page"
+msgstr "페이지 분리"
+
+#: src/commands.c:92
+msgid "Detach the current notebook page"
+msgstr "현재 노트북 페이지를 분리합니다."
+
+#: src/commands.c:258
+msgid "Game in progress"
+msgstr "게임이 진행중입니다."
+
+#: src/commands.c:261
+msgid "Connected to\n"
+msgstr "접속할 서버 \n"
+
+#: src/commands.c:265
+msgid "Not connected"
+msgstr "접속되지 않았습니다"
+
+#. Translators: translate as your names & emails
+#: src/commands.c:287
+msgid "translator_credits"
+msgstr "Michael Kim <lavnrose@e.sarang.net>"
+
+#: src/commands.c:293
+msgid "A Tetrinet client for GNOME.\n"
+msgstr "그놈 테트리넷 클라이언트.\n"
+
+#: src/commands.c:305
+msgid "GTetrinet Home Page"
+msgstr "GTetrinet 홈페이지"
+
+#: src/config.c:140
+msgid "Warning: theme does not have a name, reverting to default."
+msgstr "경고: 해당 테마가 없으므로 기본 테마를 사용합니다."
+
+#. make dialog that asks for address/nickname
+#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
+msgid "Connect to server"
+msgstr "서버에 접속"
+
+#: src/dialogs.c:169
+msgid "Team name:"
+msgstr "팀 이름:"
+
+#: src/dialogs.c:215
+msgid "You must specify a server name."
+msgstr "서버명을 지정 해야 합니다."
+
+#: src/dialogs.c:232
+msgid "Please specify a password to connect as spectator."
+msgstr "관리자로 접속하기위한 암호를 입력 해 주십시오."
+
+#: src/dialogs.c:258
+msgid "Please specify a valid nickname."
+msgstr "사용가능한 대화명을 입력해 주십시오."
+
+#. game type radio buttons
+#: src/dialogs.c:364
+msgid "O_riginal"
+msgstr "(_r)테트리넷"
+
+#: src/dialogs.c:366
+msgid "Tetri_Fast"
+msgstr "(_F)테트리패스트"
+
+#: src/dialogs.c:388
+msgid "Server address"
+msgstr "서버 주소"
+
+#: src/dialogs.c:397
+msgid "Connect as a _spectator"
+msgstr "(_s)관리자로 접속"
+
+#: src/dialogs.c:401
+msgid "_Password:"
+msgstr "(_P)암호:"
+
+#: src/dialogs.c:418
+msgid "Spectate game"
+msgstr "게임 관리"
+
+#: src/dialogs.c:427
+msgid "_Nick name:"
+msgstr "(_N)대화명:"
+
+#: src/dialogs.c:442
+msgid "_Team name:"
+msgstr "(_T)팀이름:"
+
+#: src/dialogs.c:462
+msgid "Player information"
+msgstr "사용자 정보"
+
+#: src/dialogs.c:503
+msgid "Change Key"
+msgstr "글쇠 변경"
+
+#: src/dialogs.c:554
+msgid "Move right"
+msgstr "오른쪽으로 이동"
+
+#: src/dialogs.c:555
+msgid "Move left"
+msgstr "왼쪽으로 이동"
+
+#: src/dialogs.c:556
+msgid "Move down"
+msgstr "아래로이동"
+
+#: src/dialogs.c:557
+msgid "Rotate right"
+msgstr "오른쪽으로 회전"
+
+#: src/dialogs.c:558
+msgid "Rotate left"
+msgstr "왼쪽으로 회전"
+
+#: src/dialogs.c:559
+msgid "Drop piece"
+msgstr "바닥에 내려놓기"
+
+#: src/dialogs.c:560
+msgid "Discard special"
+msgstr "아이템 버리기"
+
+#: src/dialogs.c:561
+msgid "Send message"
+msgstr "메세지 보내기"
+
+#: src/dialogs.c:562
+msgid "Special to field 1"
+msgstr "아이템을 1번 사용자에게 보내기"
+
+#: src/dialogs.c:563
+msgid "Special to field 2"
+msgstr "아이템을 2번 사용자에게 보내기"
+
+#: src/dialogs.c:564
+msgid "Special to field 3"
+msgstr "아이템을 3번 사용자에게 보내기"
+
+#: src/dialogs.c:565
+msgid "Special to field 4"
+msgstr "아이템을 4번 사용자에게 보내기"
+
+#: src/dialogs.c:566
+msgid "Special to field 5"
+msgstr "아이템을 5번 사용자에게 보내기"
+
+#: src/dialogs.c:567
+msgid "Special to field 6"
+msgstr "아이템을 6번 사용자에게 보내기"
+
+#: src/dialogs.c:627
+#, c-format
+msgid "Press new key for \"%s\""
+msgstr "\"%s\"를(을)위한 새 글쇠를 입력하십시오"
+
+#: src/dialogs.c:844
+msgid "GTetrinet Preferences"
+msgstr "GTetrinet 환경설정"
+
+#: src/dialogs.c:866
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr ""
+"목록에서 테마를 선택 하십시오..\n"
+"새로운 테마는 ~/.gtetrinet/themes/ 에 설치하십시오."
+
+#: src/dialogs.c:873
+msgid "Name:"
+msgstr "이름:"
+
+#: src/dialogs.c:876
+msgid "Author:"
+msgstr "제작자:"
+
+#: src/dialogs.c:879
+msgid "Description:"
+msgstr "요약:"
+
+#: src/dialogs.c:892
+msgid "Selected Theme"
+msgstr "선택된 테마"
+
+#: src/dialogs.c:908
+msgid "Download new themes"
+msgstr "새 테마 받기"
+
+#: src/dialogs.c:913
+msgid "Themes"
+msgstr "테마"
+
+#. partyline
+#: src/dialogs.c:918
+msgid "Enable _Timestamps"
+msgstr "(_T)시간 표시"
+
+#: src/dialogs.c:920
+msgid "Enable Channel _List"
+msgstr "(_L)대화방 목록 표시"
+
+#. FIXME
+#: src/dialogs.c:946 src/gtetrinet.c:281
+msgid "Partyline"
+msgstr "대화방"
+
+#: src/dialogs.c:957
+msgid "Action"
+msgstr "행동"
+
+#: src/dialogs.c:959
+msgid "Key"
+msgstr "글쇠"
+
+#: src/dialogs.c:965
+msgid ""
+"Select an action from the list and press Change Key to change the key "
+"associated with the action."
+msgstr ""
+"목록의 동작을 선택하고 글쇠를 입력하면 글쇠가 변경됩니다."
+"변경된 글쇠로 게임을 진행할 수 있습니다."
+
+#: src/dialogs.c:972
+msgid "Change _key..."
+msgstr "(_k)글쇠 변경..."
+
+#: src/dialogs.c:977 src/dialogs.c:1030
+msgid "_Restore defaults"
+msgstr "(_R)기본값으로 돌리기"
+
+#: src/dialogs.c:998
+msgid "Keyboard"
+msgstr "자판"
+
+#. sound
+#: src/dialogs.c:1003
+msgid "Enable _Sound"
+msgstr "(_S)소리 사용"
+
+#: src/dialogs.c:1006
+msgid "Enable _MIDI"
+msgstr "(_M)IDI 사용"
+
+#: src/dialogs.c:1020
+msgid "Enter command to play a midi file:"
+msgstr "midi 화일을 연주할 명령을 입력하세요:"
+
+#: src/dialogs.c:1023
+msgid ""
+"The above command is run when a midi file is to be played.  The name of the "
+"midi file is placed in the environment variable MIDIFILE."
+msgstr ""
+"미디를 연주할때 사용할 명령을 입력하십시오. 미디의 화일명이 있는 환경변수는 "
+"MIDIFILE 입니다. 환경변수를 먼저 설정하십시오."
+
+#: src/dialogs.c:1060
+msgid "Sound"
+msgstr "소리"
+
+#: src/fields.c:76
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr ""
+"테마 읽기 오류: 이미지 화일을 읽을 수 없습니다.\n"
+"기본값을 사용합니다."
+
+#. shouldnt happen
+#: src/fields.c:85
+#, c-format
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr ""
+"테마 읽기 오류: 취소됨...\n"
+"올바르게 설치 되었는지 확인하십시오.\n"
+
+#: src/fields.c:206
+msgid "Next piece:"
+msgstr "다음 조각:"
+
+#: src/fields.c:223
+msgid "Lines:"
+msgstr "줄:"
+
+#: src/fields.c:227
+msgid "Level:"
+msgstr "등급:"
+
+#: src/fields.c:229
+msgid "Active level:"
+msgstr "실행 등급:"
+
+#: src/fields.c:277
+msgid "Attacks and defenses:"
+msgstr "공격과 방어:"
+
+#: src/fields.c:421
+msgid "Not playing"
+msgstr "게임중이지 않습니다."
+
+#: src/fields.c:452
+msgid "Specials:"
+msgstr "아이템:"
+
+#: src/gtetrinet.c:77
+msgid "SERVER"
+msgstr "서버"
+
+#: src/gtetrinet.c:78
+msgid "Set nickname to use"
+msgstr "사용할 대화명 설정"
+
+#: src/gtetrinet.c:78
+msgid "NICKNAME"
+msgstr "대화명"
+
+#: src/gtetrinet.c:79
+msgid "Set team name"
+msgstr "팀 이름 설정"
+
+#: src/gtetrinet.c:79
+msgid "TEAM"
+msgstr "팀"
+
+#: src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "관리자로 접속"
+
+#: src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr "관리자 암호"
+
+#: src/gtetrinet.c:81
+msgid "PASSWORD"
+msgstr "암호"
+
+#: src/gtetrinet.c:120
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "GConf 초기화 실패: %s\n"
+
+#. FIXME
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
+msgid "Playing Fields"
+msgstr "게임판"
+
+#. FIXME
+#: src/gtetrinet.c:292
+msgid "Winlist"
+msgstr "승리목록"
+
+#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
+msgid "Name"
+msgstr "이름"
+
+#: src/partyline.c:79
+msgid "Players"
+msgstr "사용자"
+
+#: src/partyline.c:81
+msgid "State"
+msgstr "상태"
+
+#: src/partyline.c:83
+msgid "Description"
+msgstr "요약"
+
+#: src/partyline.c:95
+msgid "Channel List"
+msgstr "게임목록"
+
+#: src/partyline.c:140
+msgid "Team"
+msgstr "팀"
+
+#: src/partyline.c:153
+msgid "Your name:"
+msgstr "당신의 이름:"
+
+#: src/partyline.c:160
+msgid "Your team:"
+msgstr "당신의 팀:"
+
+#: src/partyline.c:665
+msgid "Talking in channel"
+msgstr "대화방에서 이야기중입니다"
+
+#: src/partyline.c:667
+msgid "Disconnected"
+msgstr "접속종료됨"
+
+#: src/tetrinet.c:194
+msgid "Server disconnected"
+msgstr "서버에서 접속종료됨"
+
+#: src/tetrinet.c:214
+#, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c*** 서버로 부터 접속이 종료됨"
+
+#: src/tetrinet.c:226
+msgid "Error connecting: "
+msgstr "접속 오류: "
+
+#: src/tetrinet.c:259
+#, c-format
+msgid "%c%c*** Connected to server"
+msgstr "%c%c*** 서버에 접속됨"
+
+#: src/tetrinet.c:360
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr "%c%c*** 당신은 게임에서 추방당했습니다"
+
+#: src/tetrinet.c:364
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr "%c*** %c%s%c%c 님께서 게임에서 추방당했습니다."
+
+#: src/tetrinet.c:539
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr "%c*** %c%s%c%c 팀이 승리 했습니다."
+
+#: src/tetrinet.c:545
+#, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr "%c*** %c%s%c%c 님께서 승리하셨습니다."
+
+#: src/tetrinet.c:605
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr "%c*** 게임이 %c시작됩니다"
+
+#: src/tetrinet.c:631
+#, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "%c*** 게임이 %c진행중입니다"
+
+#: src/tetrinet.c:643
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr "%c*** 게임이 %c잠시 중지되었습니다"
+
+#: src/tetrinet.c:645
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr "게임이 %c%c잠시 중지되었습니다."
+
+#: src/tetrinet.c:650
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr ""
+
+#: src/tetrinet.c:652
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr "게임이 %c%c계속 됩니다."
+
+#: src/tetrinet.c:661
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr "%c*** 게임이 %c종료되었습니다."
+
+#: src/tetrinet.c:772
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr "%c*** 당신은 %c%s%c%c 에 참여합니다."
+
+#: src/tetrinet.c:789
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c 님께서 구경중입니다 %c%c(%c%s%c%c%c)"
+
+#: src/tetrinet.c:810
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c 님께서 구경을 그만둡니다 %c%c(%c%s%c%c%c)"
+
+#: src/tetrinet.c:1048
+msgid "No special blocks"
+msgstr "아이템이 없습니다"
+
+#: src/tetrinet.c:1207 src/tetrinet.c:1214
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr " %c%c%s%c%c"
+
+#: src/tetrinet.c:1224
+msgid " to All"
+msgstr "모두에게"
+
+#: src/tetrinet.c:1230 src/tetrinet.c:1237
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr "%c%c%s%c%c님으로 부터"
+
+#: src/tetrinet.c:1865
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr "%c*** %c%s%c%c 님이 방장입니다."
+
+#. remove ", " from end of string
+#: src/tetrinet.c:1914
+msgid " has left the game"
+msgstr "님께서 게임을 종료했습니다."
+
+#: src/tetrinet.c:1915
+msgid " have left the game"
+msgstr "님께서 게임을 종료했습니다."
+
+#: src/tetrinet.c:1928
+msgid " has joined the game"
+msgstr "님께서 게임에 참여합니다."
+
+#: src/tetrinet.c:1929
+msgid " have joined the game"
+msgstr " 님께서 게임에 참여합니다."
+
+#: src/tetrinet.c:1952
+#, c-format
+msgid "%s is on team %c%s"
+msgstr "%s 님이  %c%s 팀입니다."
+
+#: src/tetrinet.c:1955
+#, c-format
+msgid "%s is alone"
+msgstr "%s 님이 혼자 남았습니다."
+
+#: src/tetrinet.c:1957
+#, c-format
+msgid "%s are on team %c%s"
+msgstr "%s 님은 %c%s 팀입니다."
+
+#: src/tetrinet.c:1960
+#, c-format
+msgid "%s are alone"
+msgstr "%s 님이 혼자 남았습니다."
+
+#: src/tetrinet.c:2001
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr "%c*** %c%s%c%c 님은 이제 %c%s 팀입니다."
+
+#: src/tetrinet.c:2008
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr "%c*** %c%s%c%c 님은 이제 혼자 남았습니다."
+
+#. "T" stands for "Team" here
+#: src/winlist.c:57
+msgid "T"
+msgstr ""
+
+#: src/winlist.c:61
+msgid "Score"
+msgstr "점수"
+
+#: gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr ""
+
+#: gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "테트리넷 클라이언트"
+
+#: gtetrinet.desktop.in.h:3
+msgid "Tetrinet client for GNOME"
+msgstr "그놈 테트리넷 클라이언트"
+
+#: gtetrinet.schemas.in.h:1
+msgid "Command to run to play midi files"
+msgstr "미디 화일을 연주할 명령"
+
+#: gtetrinet.schemas.in.h:2
+msgid "Enable/disable channel list."
+msgstr "대화방 표시/숨김"
+
+#: gtetrinet.schemas.in.h:3
+msgid "Enable/disable midi music"
+msgstr "음악 사용/사용안함"
+
+#: gtetrinet.schemas.in.h:4
+msgid "Enable/disable sound"
+msgstr "소리 사용/사용안함"
+
+#: gtetrinet.schemas.in.h:5
+msgid "Enable/disable timestamps."
+msgstr "시간 표시/숨김"
+
+#: gtetrinet.schemas.in.h:6
+msgid ""
+"Enables/Disables sound. Keep in mind that the theme that you're using must "
+"provide sounds."
+msgstr ""
+"음향효과 사용/사용안함. 당신의 시스템이 사운드 카드를 사용 할 수 있다면"
+"사용 하십시오."
+
+#: gtetrinet.schemas.in.h:7
+msgid ""
+"Enables/disables midi music. You'll need to enable sound if you want music "
+"to work."
+msgstr ""
+"MIDI 음악 사용/사용안함. 만약 음악을 듣고 싶다면 사용으로 "
+"하십시오."
+
+#: gtetrinet.schemas.in.h:8
+msgid ""
+"Enables/disables the channel list. Disable it if you experience problems "
+"when connecting or while playing in your favorite tetrinet server."
+msgstr ""
+"대화방목록 표시/숨김. 만약 당신이 즐겨 찾는 서버에서 게임중이던가"
+"접속해본 경험이 많다면 숨김으로 표시하십시오."
+
+#: gtetrinet.schemas.in.h:9
+msgid "Enables/disables timestamps in the partyline."
+msgstr "대화방에서 시간 표시/숨김"
+
+#: gtetrinet.schemas.in.h:10
+msgid "Key to discard special"
+msgstr "아이템을 버릴 글쇠"
+
+#: gtetrinet.schemas.in.h:11
+msgid "Key to drop piece"
+msgstr "벽돌을 바닥에 내려 놓을 글쇠"
+
+#: gtetrinet.schemas.in.h:12
+msgid "Key to move down"
+msgstr "아래로 이동할 글쇠"
+
+#: gtetrinet.schemas.in.h:13
+msgid "Key to move left"
+msgstr "왼쪽으로 이동할 글쇠"
+
+#: gtetrinet.schemas.in.h:14
+msgid "Key to move right"
+msgstr "오른쪽으로 이동할 글쇠"
+
+#: gtetrinet.schemas.in.h:15
+msgid "Key to open the fields' message dialog"
+msgstr "메세지 대화상자 열기"
+
+#: gtetrinet.schemas.in.h:16
+msgid "Key to rotate clockwise"
+msgstr "시계방향으로 회전"
+
+#: gtetrinet.schemas.in.h:17
+msgid "Key to rotate counterclockwise"
+msgstr "시계 반대방향으로 회전"
+
+#: gtetrinet.schemas.in.h:18
+msgid "Key to use the current special on field 1"
+msgstr "현재 특수벽돌을 1번 사용자에게 사용할 글쇠"
+
+#: gtetrinet.schemas.in.h:19
+msgid "Key to use the current special on field 2"
+msgstr "현재 특수벽돌을 2번 사용자에게 사용할 글쇠"
+
+#: gtetrinet.schemas.in.h:20
+msgid "Key to use the current special on field 3"
+msgstr "현재 특수벽돌을 3번 사용자에게 사용할 글쇠"
+
+#: gtetrinet.schemas.in.h:21
+msgid "Key to use the current special on field 4"
+msgstr "현재 특수벽돌을 4번 사용자에게 사용할 글쇠"
+
+#: gtetrinet.schemas.in.h:22
+msgid "Key to use the current special on field 5"
+msgstr "현재 특수벽돌을 5번 사용자에게 사용할 글쇠"
+
+#: gtetrinet.schemas.in.h:23
+msgid "Key to use the current special on field 6"
+msgstr "현재 특수벽돌을 6번 사용자에게 사용할 글쇠"
+
+#: gtetrinet.schemas.in.h:24
+msgid "Server where you want to play"
+msgstr "당신이 게임을 할 서버"
+
+#: gtetrinet.schemas.in.h:25
+msgid ""
+"The current theme directory. It should contain a readable \"blocks.png\" and "
+"a \"theme.cfg\"."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:26
+msgid "Theme directory, should end with a '/'"
+msgstr ""
+
+#: gtetrinet.schemas.in.h:27
+msgid ""
+"This command is run when a midi file is to be played. The name of the midi "
+"file is placed in the environment variable MIDIFILE."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:28
+msgid "This is the server where GTetrinet will try to connect."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:29
+msgid "This key discards the current special. This is case insensitive."
+msgstr ""
+
+#: gtetrinet.schemas.in.h:30
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr "이 글쇠는 필드 메세지 대화상자를 표시 합니다. 이 글쇠는 대소문자를 구분합니다."
+
+#: gtetrinet.schemas.in.h:31
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr "이 글쇠는 벽돌을 바닥으로 이동 시킵니다. 이 글쇠는 대소문자를 구분합니다."
+
+#: gtetrinet.schemas.in.h:32
+msgid "This key moves the block down. This is case insensitive."
+msgstr "이 글쇠는 벽돌을 아래쪽으로 이동 시킵니다. 이 글쇠는 대소문자를 구분합니다."
+
+#: gtetrinet.schemas.in.h:33
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr "이 글쇠는 벽돌을 왼쪽으로 이동 시킵니다. 이 글쇠는 대소문자를 구분합니다."
+
+#: gtetrinet.schemas.in.h:34
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr "이 글쇠는 벽돌을 오른쪽으로 이동 시킵니다. 이 글쇠는 대소문자를 구분합니다."
+
+#: gtetrinet.schemas.in.h:35
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr "이 글쇠는 벽돌을 시계 방향으로 회전시킵니다. 이 글쇠는 대소문자를 구분합니다."
+
+#: gtetrinet.schemas.in.h:36
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr "이 글쇠는 벽돌을 시계 반대방향으로 회전시킵니다. 이 글쇠는 대소문자를 구분합니다."
+
+#: gtetrinet.schemas.in.h:37
+msgid "This key uses the current special on Player 1's game field."
+msgstr "현재 특수벽돌을 1번 사용자에게 사용합니다."
+
+#: gtetrinet.schemas.in.h:38
+msgid "This key uses the current special on Player 2's game field."
+msgstr "현재 특수벽돌을 2번 사용자에게 사용합니다."
+
+#: gtetrinet.schemas.in.h:39
+msgid "This key uses the current special on Player 3's game field."
+msgstr "현재 특수벽돌을 3번 사용자에게 사용합니다."
+
+#: gtetrinet.schemas.in.h:40
+msgid "This key uses the current special on Player 4's game field."
+msgstr "현재 특수벽돌을 4번 사용자에게 사용합니다."
+
+#: gtetrinet.schemas.in.h:41
+msgid "This key uses the current special on Player 5's game field."
+msgstr "현재 특수벽돌을 5번 사용자에게 사용합니다."
+
+#: gtetrinet.schemas.in.h:42
+msgid "This key uses the current special on Player 6's game field."
+msgstr "현재 특수벽돌을 6번 사용자에게 사용합니다."
+
+#: gtetrinet.schemas.in.h:43
+msgid "This will be the name of your team."
+msgstr "당신의 팀이 사용할 이름"
+
+#: gtetrinet.schemas.in.h:44
+msgid "This will be your nickname in the game."
+msgstr "게임에서 사용할 당신의 대화명"
+
+#: gtetrinet.schemas.in.h:45
+msgid "Your nickname"
+msgstr "당신의 대화명"
+
+#: gtetrinet.schemas.in.h:46
+msgid "Your team"
+msgstr "당신의 팀"
