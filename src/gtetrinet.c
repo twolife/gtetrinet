@@ -1,3 +1,4 @@
+
 /*
  *  GTetrinet
  *  Copyright (C) 1999, 2000, 2001, 2002, 2003  Ka-shu Wong (kswong@zip.com.au)
@@ -75,6 +76,19 @@ static const struct poptOption options[] = {
     {NULL, 0, 0, NULL, 0, NULL, NULL}
 };
 
+static int gtetrinet_poll_func(GPollFD *passed_fds,
+                               guint nfds,
+                               int timeout)
+{ /* passing a timeout wastes time, even if data is ready... don't do that */
+  int ret = 0;
+  struct pollfd *fds = (struct pollfd *)passed_fds;
+
+  ret = poll(fds, nfds, 0);
+  if (!ret && timeout)
+    ret = poll(fds, nfds, timeout);
+
+  return (ret);
+}
 
 int main (int argc, char *argv[])
 {
@@ -251,6 +265,10 @@ int main (int argc, char *argv[])
     if (option_connect) {
         client_init (option_connect, nick);
     }
+
+    /* Don't schedule if data is ready, glib should do this itself,
+     * but welcome to anything that works... */
+    g_main_context_set_poll_func(NULL, gtetrinet_poll_func);
 
     /* gtk_main() */
     gtk_main ();
