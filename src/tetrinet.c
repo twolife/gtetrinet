@@ -186,6 +186,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         list_issued = 0;
         up_chan_list_source = g_timeout_add (30000, (GSourceFunc) partyline_update_channel_list, NULL);
         partyline_joining_channel ("");
+        show_start_button ();
         break;
     case IN_DISCONNECT:
         if (!connected) {
@@ -600,6 +601,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             commands_checkstate ();
             partyline_fmt (_("%c*** The game has %cstarted"),
                            TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
+            show_stop_button ();
             /* switch to playerfields when game starts */
             show_fields_page ();
         }
@@ -625,6 +627,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             commands_checkstate ();
             partyline_fmt(_("%c*** The game is %cin progress"),
                           TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);;
+            show_stop_button ();
         }
         break;
     case IN_PAUSE:
@@ -654,6 +657,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         commands_checkstate ();
         partyline_fmt (_("%c*** The game has %cended"),
                        TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD);
+        show_start_button ();
         /* go back to partyline when game ends */
         show_partyline_page ();
         break;

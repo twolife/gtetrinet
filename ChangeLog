@@ -1,3 +1,17 @@
+2003-06-04  Dani Carbonell  <bocata@panete.net>
+
+	* src/commands.h (show_stop_button, show_start_button): new functions.
+
+	* src/commands.c: changed the button order.
+	(make_menus): hide the stop button just after the toolbar has been created.
+	(show_stop_button): new function, it will hide the start button,
+	and show the stop one.
+	(show_start_button): new function, it will show the start button,
+	and hide the stop one.
+
+	* src/tetrinet.c (tetrinet_inmessage): show / hide the toolbar
+	buttons when required.
+
 2003-06-03  Jordi Mallach  <jordi@sindominio.net>
 
 	* gtetrinet.desktop.in: change value of Terminal from 0 to false to

@@ -83,8 +83,8 @@ GnomeUIInfo toolbar[] = {
     GNOMEUIINFO_ITEM_DATA(N_("Disconnect"), N_("Disconnect from the current server"), disconnect_command, NULL, disconnect_xpm),
     GNOMEUIINFO_SEPARATOR,
     GNOMEUIINFO_ITEM_DATA(N_("Start game"), N_("Start a new game"), start_command, NULL, play_xpm),
-    GNOMEUIINFO_ITEM_DATA(N_("Pause game"), N_("Pause the game"), pause_command, NULL, pause_xpm),
     GNOMEUIINFO_ITEM_DATA(N_("End game"), N_("End the current game"), end_command, NULL, stop_xpm),
+    GNOMEUIINFO_ITEM_DATA(N_("Pause game"), N_("Pause the game"), pause_command, NULL, pause_xpm),
     GNOMEUIINFO_SEPARATOR,
     GNOMEUIINFO_ITEM_DATA(N_("Change team"), N_("Change your current team name"), team_command, NULL, team24_xpm),
 #ifdef ENABLE_DETACH
@@ -99,6 +99,7 @@ void make_menus (GnomeApp *app)
   gnome_app_create_menus (app, menubar);
 
   gnome_app_create_toolbar (app, toolbar);
+  gtk_widget_hide (toolbar[4].widget);
 }
 
 /* callbacks */
@@ -127,23 +128,38 @@ void detach_command (void)
 
 void start_command (void)
 {
-    char buf[22];
-    g_snprintf (buf, sizeof(buf), "%i %i", 1, playernum);
-    client_outmessage (OUT_STARTGAME, buf);
+  char buf[22];
+  
+  g_snprintf (buf, sizeof(buf), "%i %i", 1, playernum);
+  client_outmessage (OUT_STARTGAME, buf);
+}
+
+void show_stop_button (void)
+{
+  gtk_widget_hide (toolbar[3].widget);
+  gtk_widget_show (toolbar[4].widget);
+}
+
+void show_start_button (void)
+{
+  gtk_widget_hide (toolbar[4].widget);
+  gtk_widget_show (toolbar[3].widget);
 }
 
 void end_command (void)
 {
-    char buf[22];
-    g_snprintf (buf, sizeof(buf), "%i %i", 0, playernum);
-    client_outmessage (OUT_STARTGAME, buf);
+  char buf[22];
+  
+  g_snprintf (buf, sizeof(buf), "%i %i", 0, playernum);
+  client_outmessage (OUT_STARTGAME, buf);
 }
 
 void pause_command (void)
 {
-    char buf[22];
-    g_snprintf (buf, sizeof(buf), "%i %i", paused?0:1, playernum);
-    client_outmessage (OUT_PAUSE, buf);
+  char buf[22];
+  
+  g_snprintf (buf, sizeof(buf), "%i %i", paused?0:1, playernum);
+  client_outmessage (OUT_PAUSE, buf);
 }
 
 void preferences_command (void)

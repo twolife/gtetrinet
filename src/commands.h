@@ -14,5 +14,7 @@ void end_command (void);
 void pause_command (void);
 void preferences_command (void);
 void about_command (void);
+void show_start_button (void);
+void show_stop_button (void);
 
 void commands_checkstate (void);
