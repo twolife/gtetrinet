@@ -828,7 +828,7 @@ void prefdialog_response (GtkDialog *dialog,
 void prefdialog_new (void)
 {
     GtkWidget *label, *table, *frame, *button, *button1, *widget, *table1, *divider, *notebook;
-    GtkWidget *themelist_scroll, *key_scroll;
+    GtkWidget *themelist_scroll, *key_scroll, *url;
     GtkWidget *channel_list_check;
     GtkListStore *theme_store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_INT);
     GtkListStore *keys_store = gtk_list_store_new (4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_STRING);
@@ -865,57 +865,51 @@ void prefdialog_new (void)
 
     label = leftlabel_new (_("Select a theme from the list.\n"
                              "Install new themes in ~/.gtetrinet/themes/"));
-    gtk_widget_show (label);
 
     table1 = gtk_table_new (3, 2, FALSE);
     gtk_container_set_border_width (GTK_CONTAINER(table1), GNOME_PAD_SMALL);
     gtk_table_set_row_spacings (GTK_TABLE(table1), 0);
     gtk_table_set_col_spacings (GTK_TABLE(table1), GNOME_PAD_SMALL);
     widget = leftlabel_new (_("Name:"));
-    gtk_widget_show (widget);
     gtk_table_attach (GTK_TABLE(table1), widget, 0, 1, 0, 1,
                       GTK_EXPAND | GTK_FILL, 0, 0, 0);
     widget = leftlabel_new (_("Author:"));
-    gtk_widget_show (widget);
     gtk_table_attach (GTK_TABLE(table1), widget, 0, 1, 1, 2,
                       GTK_EXPAND | GTK_FILL, 0, 0, 0);
     widget = leftlabel_new (_("Description:"));
-    gtk_widget_show (widget);
     gtk_table_attach (GTK_TABLE(table1), widget, 0, 1, 2, 3,
                       GTK_EXPAND | GTK_FILL, 0, 0, 0);
     namelabel = leftlabel_new ("");
-    gtk_widget_show (namelabel);
     gtk_table_attach (GTK_TABLE(table1), namelabel, 1, 2, 0, 1,
                       GTK_EXPAND | GTK_FILL, GTK_FILL, 0, 0);
     authlabel = leftlabel_new ("");
-    gtk_widget_show (authlabel);
     gtk_table_attach (GTK_TABLE(table1), authlabel, 1, 2, 1, 2,
                       GTK_EXPAND | GTK_FILL, GTK_FILL, 0, 0);
     desclabel = leftlabel_new ("");
-    gtk_widget_show (desclabel);
     gtk_table_attach (GTK_TABLE(table1), desclabel, 1, 2, 2, 3,
                       GTK_EXPAND | GTK_FILL, GTK_FILL, 0, 0);
-    gtk_widget_show (table1);
 
     frame = gtk_frame_new (_("Selected Theme"));
     gtk_frame_set_shadow_type (GTK_FRAME(frame), GTK_SHADOW_IN);
     gtk_container_set_border_width (GTK_CONTAINER(frame), GNOME_PAD_SMALL);
     gtk_widget_set_size_request (frame, 240, 100);
-    gtk_widget_show (frame);
     gtk_container_add (GTK_CONTAINER(frame), table1);
-
-    table = gtk_table_new (2, 2, FALSE);
+    
+    table = gtk_table_new (3, 2, FALSE);
     gtk_container_set_border_width (GTK_CONTAINER(table), GNOME_PAD);
     gtk_table_set_row_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
     gtk_table_set_col_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
-    gtk_table_attach (GTK_TABLE(table), themelist_scroll, 0, 1, 0, 2,
+    gtk_table_attach (GTK_TABLE(table), themelist_scroll, 0, 1, 0, 3,
                       GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
     gtk_table_attach (GTK_TABLE(table), label, 1, 2, 0, 1,
                       GTK_EXPAND | GTK_FILL, GTK_FILL, 0, 0);
     gtk_table_attach (GTK_TABLE(table), frame, 1, 2, 1, 2,
                       GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
-    gtk_widget_show (table);
-
+    url = gnome_href_new ("http://gtetrinet.sourceforge.net/themes.shtml", _("Download new themes"));
+    gtk_table_attach (GTK_TABLE(table), url, 1, 2, 2, 3,
+                      GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_SHRINK, 0, 0);
+    gtk_widget_show_all (table);
+    
     label = gtk_label_new (_("Themes"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);

@@ -4,6 +4,10 @@
 
 2004-04-12  Dani Carbonell  <bocata@panete.net>
 
+	* src/dialogs.c (prefdialog_new): Added a button to the
+	Preferences dialog, that opens a browser window with the GTetrinet
+	themes webpage.
+	
 	* src/gtetrinet.c (keypress): Return only when Alt+1, +2 or +3 is
 	pressed. This fixes the bug reported by Christian Kröner :)
 

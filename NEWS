@@ -1,4 +1,6 @@
 GTetrinet 0.7.6 - 2004-04-12
+- Added a button in the Preferences dialog that opens a browser window
+  with the GTetrinet themes webpage. (Dani)
 - Made the main window resizable. It doesn't mean that the fields will
   be resizable too ;) (Dani)
 - Now you can rotate and move a piece while holding CTRL. This fixes the
