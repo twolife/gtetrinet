@@ -231,7 +231,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             /* set up stuff */
             connected = TRUE;
             ingame = playing = paused = FALSE;
-            playercount = spectating ? 0 : 1;
+            playercount = 0;
             partyline_text ("\014\02*** Connected to server");
             commands_checkstate ();
             connectingdialog_destroy ();
@@ -240,6 +240,9 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             else tetrix = FALSE;
         }
         if (!spectating) {
+            /* If we occupy a previously empty slot increase playercount */
+            if (playernames[playernum][0] == 0)
+                playercount++;
             /* set own player/team info */
             GTET_O_STRCPY (playernames[playernum], nick);
             GTET_O_STRCPY (teamnames[playernum], team);
