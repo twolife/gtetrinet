@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet\n"
-"POT-Creation-Date: 2003-05-28 15:40+0200\n"
-"PO-Revision-Date: 2003-05-28 13:41+0000\n"
+"POT-Creation-Date: 2003-05-30 15:49+0200\n"
+"PO-Revision-Date: 2003-05-30 15:48+0200\n"
 "Last-Translator: Slobodan Simic <slsimic@verat.net>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,6 @@ msgstr ""
 "X-Generator: KBabel 1.0.1\n"
 
 #: src/client.c:237
-#, fuzzy
 msgid "Couldn't resolve hostname."
 msgstr "Ne mogu da razrešim ime domaćina."
 
@@ -129,7 +128,6 @@ msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
 msgstr "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
 
 #: src/commands.c:250
-#, fuzzy
 msgid "A Tetrinet client for GNOME.\n"
 msgstr "Tetrinet klijent za Gnom.\n"
 
@@ -164,7 +162,6 @@ msgstr "Molim upišite ispravan nadimak."
 
 #. game type radio buttons
 #: src/dialogs.c:357
-#, fuzzy
 msgid "O_riginal"
 msgstr "Original"
 
@@ -178,12 +175,10 @@ msgid "Server address"
 msgstr "Adresa servera"
 
 #: src/dialogs.c:390
-#, fuzzy
 msgid "Connect as a _spectator"
 msgstr "Poveži se kao gledalac"
 
 #: src/dialogs.c:394
-#, fuzzy
 msgid "_Password:"
 msgstr "Lozinka:"
 
@@ -192,12 +187,10 @@ msgid "Spectate game"
 msgstr "Posmatraj igru"
 
 #: src/dialogs.c:418
-#, fuzzy
 msgid "_Nick name:"
 msgstr "Nadimak:"
 
 #: src/dialogs.c:431
-#, fuzzy
 msgid "_Team name:"
 msgstr "Ime tima:"
 
@@ -280,7 +273,6 @@ msgstr "Postavke"
 
 #. partyline
 #: src/dialogs.c:900
-#, fuzzy
 msgid "Enable _Timestamps"
 msgstr "Uključi vremenske oznake"
 
@@ -290,9 +282,8 @@ msgstr ""
 
 #. FIXME
 #: src/dialogs.c:928 src/gtetrinet.c:257
-#, fuzzy
 msgid "Partyline"
-msgstr "Čavrljanje"
+msgstr ""
 
 #: src/dialogs.c:939
 msgid "Action"
@@ -311,12 +302,10 @@ msgstr ""
 "pridruženog toj radnji."
 
 #: src/dialogs.c:953
-#, fuzzy
 msgid "Change _key..."
 msgstr "Promeni taster..."
 
 #: src/dialogs.c:958 src/dialogs.c:1011
-#, fuzzy
 msgid "_Restore defaults"
 msgstr "Vrati podrazumevano"
 
@@ -326,22 +315,18 @@ msgstr "Tastatura"
 
 #. sound
 #: src/dialogs.c:984
-#, fuzzy
 msgid "Enable _Sound"
 msgstr "Uključi zvuk"
 
 #: src/dialogs.c:987
-#, fuzzy
 msgid "Enable _MIDI"
 msgstr "Uključi MIDI"
 
 #: src/dialogs.c:1001
-#, fuzzy
 msgid "Enter command to play a midi file:"
 msgstr "Unesi komandu za pokretanje midi fajla:"
 
 #: src/dialogs.c:1004
-#, fuzzy
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -658,7 +643,6 @@ msgid "GTetrinet"
 msgstr "GTetrinet"
 
 #: gtetrinet.desktop.in.h:2
-#, fuzzy
 msgid "Tetrinet client"
 msgstr "Tetrinet klijent"
 
@@ -667,7 +651,6 @@ msgid "Tetrinet client for GNOME"
 msgstr "Tetrinet klijent za Gnom"
 
 #: gtetrinet.schemas.in.h:1
-#, fuzzy
 msgid "Command to run to play midi files."
 msgstr "Komanda za puštanje midi fajlova."
 
@@ -697,7 +680,6 @@ msgstr ""
 "sadržati zvuk."
 
 #: gtetrinet.schemas.in.h:7
-#, fuzzy
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
@@ -714,7 +696,7 @@ msgstr ""
 #: gtetrinet.schemas.in.h:9
 #, fuzzy
 msgid "Enables/disables timestamps in the partyline."
-msgstr "Uključi/isključi oznaku vremena u čavrljanjima."
+msgstr "Uključi/isključi oznaku vremena u ..."
 
 #: gtetrinet.schemas.in.h:10
 msgid "Key to discard special."
@@ -766,7 +748,6 @@ msgid "Theme directory, should end with a '/'."
 msgstr "Direktorijum postavki, treba da se završava sa '/'."
 
 #: gtetrinet.schemas.in.h:21
-#, fuzzy
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
