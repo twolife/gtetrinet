@@ -2,6 +2,7 @@
 
 	* src/tetrinet.c (tetrinet_sendfield): Put a warning in if blocks are
 	out of range.
+	(tetrinet_old_sendfield): Add checking code
 
 2003-02-24  Dani Carbonell  <bocata@panete.net>
 

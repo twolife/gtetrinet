@@ -862,6 +862,63 @@ void tetrinet_changeteam (const char *newteam)
     }
 }
 
+#if 0
+#define TETRINET_CHECK_COMPAT_SENDFIELD(x) /* do nothing */
+#else
+static void tetrinet_old_sendfield (int reset, const char *new_buf)
+{
+    int x, y, i, d = FALSE;
+    char buf[1024], buf2[1024], *p;
+
+    if (reset) goto sendwholefield;
+
+    g_snprintf (buf, sizeof(buf), "%d ", playernum);
+    /* find differences between the fields */
+    for (i = 0; i < 15; i ++) {
+        p = buf2 + 1;
+        buf2[0] = '!' + i;
+        for (y = 0; y < FIELDHEIGHT; y ++)
+            for (x = 0; x < FIELDWIDTH; x ++)
+                if (sentfield[y][x] != fields[playernum][y][x]
+                    && fields[playernum][y][x] == i)
+                {
+                    *p++ = x + '3';
+                    *p++ = y + '3';
+                }
+        if (p > buf2+1) {
+            *p = 0;
+            GTET_O_STRCAT (buf, buf2);
+            d = TRUE;
+        }
+    }
+    if (!d) return; /* no differences */
+    if (strlen (buf) >= FIELDHEIGHT*FIELDWIDTH+2) {
+        /* sending entire field is more efficient */
+    sendwholefield:
+        p = buf2;
+        for (y = 0; y < FIELDHEIGHT; y ++)
+            for (x = 0; x < FIELDWIDTH; x ++)
+                *p++ = blocks[(int)fields[playernum][y][x]];
+        *p = 0;
+        g_snprintf (buf, sizeof(buf), "%d %s", playernum, buf2);
+    }
+    if (!strcmp(new_buf, buf))
+      g_warning("sendfield ... non compat. data\n"
+                "\tBEG: sendfield data\n"
+                "\t old=%s\n"
+                "\t new=%s\n"
+                "\tEND: sendfield data\n",
+                buf, new_buf);
+#if 0
+    /* send it */
+    client_outmessage (OUT_F, buf);
+    /* update the one in our memory */
+    copyfield (sentfield, fields[playernum]);
+#endif
+}
+#define TETRINET_CHECK_COMPAT_SENDFIELD(x) tetrinet_old_sendfield (reset, (x))
+#endif
+
 void tetrinet_sendfield (int reset)
 {
   int x, y, i, d = 0; /* d is the number of differences */
@@ -913,6 +970,8 @@ void tetrinet_sendfield (int reset)
     }
   }
 
+  TETRINET_CHECK_COMPAT_SENDFIELD(buf);
+  
   /* send it */
   client_outmessage (OUT_F, buf);
   /* update the one in our memory */
