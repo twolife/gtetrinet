@@ -3,11 +3,8 @@ GTetrinet's TODO list
 
 - Get server list from http://www.tetrinet.org/ip/
 - GNOME2 port issues:
-  + preferences dialog
+  + preferences dialog (gconf)
   + keybindings
-  + toolbar icons/labels
-  + replace GTK_CLIST
-  + not able to select text on partyline
-  + multiple about windows
+  + multiple about windows (raise already open window)
   + playfields messages cleared when games start
-- Make gtetrinet resizeable.
+- Make gtetrinet resizeable (at least the fields messages bit).

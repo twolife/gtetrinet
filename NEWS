@@ -2,6 +2,8 @@ GTetrinet 0.5.0 - Unreleased
 - Finally, GNOME2 port!
 - GTetrinet now remembers and restores the last used server in the
   connect dialog.
+- The "discard special" key can now be configured.
+- The toolbar now has icons, as well as the application window.
 
 GTetrinet 0.4.4 - 2002-10-27
 - SECURITY FIX: multiple buffer overflows fixed all over the place.

@@ -224,7 +224,7 @@ void about_command (GtkWidget *widget, gpointer data)
 
     const char *authors[] = {N_("Ka-shu Wong <kswong@zip.com.au>"),
                              N_("James Antill <james@and.org>"),
-			     N_("Jordi Mallach <jordi@sindominio.net"),
+			     N_("Jordi Mallach <jordi@sindominio.net>"),
 			     N_("Dani Carbonell <bocata@panete.net>"),
                              NULL};
     const char *documenters[] = {N_("Jordi Mallach <jordi@sindominio.net>"),

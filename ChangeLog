@@ -1,3 +1,11 @@
+2003-01-05  Jordi Mallach  <jordi@sindominio.net>
+
+	* AUTHORS: add Dani Carbonell.
+	* TODO: remove done items, add new issues.
+	* NEWS: updated for 0.5.0.
+
+	* src/commands.c (about_command): update author list.
+
 2003-01-04  Jordi Mallach  <jordi@sindominio.net>
 
 	* Big patch from Dani Carbonell, who saved our day and fixes most of
@@ -5,7 +13,6 @@
 
 	* src/commands.c: add stock icons to the toolbar. Needs better
 	icons, still.
-	(about_command): update author list.
 
 	* src/dialogs.c (teamdialog_button): convert the team name to iso
 	text before sending to the server.
