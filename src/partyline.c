@@ -59,10 +59,11 @@ void channel_activated (GtkTreeView *treeview);
 
 GtkWidget *partyline_page_new (void)
 {
-    GtkWidget *widget, *box, *box1, *box2; /* generic temp variables */
+    GtkWidget *widget, *box, *box2; /* generic temp variables */
     GtkListStore *playerlist_model = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
     GList *focus_list = NULL;
+    gchar* aux;
 
     playerlist_channels = gtk_list_store_new (5, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
     work_model = gtk_list_store_new (5, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
@@ -90,7 +91,10 @@ GtkWidget *partyline_page_new (void)
     gtk_container_add (GTK_CONTAINER(playerlist_channel_scroll), channel_box);
     gtk_widget_set_size_request (playerlist_channel_scroll, -1, 100);
     label = gtk_label_new (NULL);
-    gtk_label_set_markup (GTK_LABEL (label), _("<b>Channel List</b>"));
+
+    aux = g_strconcat ("<b>", _("Channel List"), "</b>", NULL);
+    gtk_label_set_markup (GTK_LABEL (label), aux);
+    g_free (aux);
     gtk_box_pack_start (GTK_BOX (channel_list), label, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (channel_list), playerlist_channel_scroll, TRUE, TRUE, 0);
 
