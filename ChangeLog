@@ -1,3 +1,10 @@
+2002-12-05  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/dialogs.c (prefdialog_themelist): fix memleak, spotted by
+	Wichert Akkerman. closedir() before jumping to "too_many_themes".
+
+	* TODO: add more porting problems.
+
 2002-12-03  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/tetrinet.c (tetrinet_inmessage): patch from Niko Böhm, fixes

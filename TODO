@@ -7,5 +7,7 @@ GTetrinet's TODO list
   + keybindings
   + toolbar icons/labels
   + replace GTK_CLIST
-  + text widgets slowness
+  + not able to select text on partyline
+  + multiple about windows
+  + playfields messages cleared when games start
 - Make gtetrinet resizeable.

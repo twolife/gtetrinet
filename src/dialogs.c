@@ -604,6 +604,7 @@ void prefdialog_themelist ()
                     if (themecount == (sizeof(themes) / sizeof(themes[0])))
                     { /* FIXME: should be dynamic */
                       g_warning("Too many theme files.\n");
+                      closedir (d);
                       goto too_many_themes;
                     }
                 }
