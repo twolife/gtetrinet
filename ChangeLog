@@ -1,3 +1,8 @@
+2003-08-07  Dani Carbonell  <bocata@panete.net>
+
+	* src/dialogs.c (teamdialog_new, connectdialog_new): applied patch
+	from Dagfinn Ilmari Mannsåker, closes bug #119356.
+
 2003-07-25  Artur Flinta  <aflinta@cvs.gnome.org>
 
 	* configure.in: Added "pl" to ALL_LINGUAS.

@@ -171,6 +171,8 @@ void teamdialog_new (void)
     entry = gnome_entry_new ("Team");
     gtk_entry_set_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (entry))),
                         team_utf8);
+    g_object_set (G_OBJECT (gnome_entry_gtk_entry (GNOME_ENTRY (entry))),
+                  "activates_default", TRUE, NULL);
     g_free (team_utf8);
     gtk_box_pack_start_defaults (GTK_BOX (hbox), entry);
     gtk_container_set_border_width (GTK_CONTAINER (hbox), GNOME_PAD_SMALL);
@@ -350,6 +352,8 @@ void connectdialog_new (void)
     table2 = gtk_table_new (2, 1, FALSE);
 
     serveraddressentry = gnome_entry_new ("Server");
+    g_object_set(G_OBJECT(gnome_entry_gtk_entry(GNOME_ENTRY(serveraddressentry))),
+                 "activates_default", TRUE, NULL);
     gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(serveraddressentry))),
                         server);
     gtk_widget_show (serveraddressentry);
@@ -401,6 +405,8 @@ void connectdialog_new (void)
     passwordentry = gtk_entry_new ();
     gtk_label_set_mnemonic_widget (GTK_LABEL (passwordlabel), passwordentry);
     gtk_entry_set_visibility (GTK_ENTRY(passwordentry), FALSE);
+    g_object_set(G_OBJECT(passwordentry),
+                 "activates_default", TRUE, NULL);
     gtk_widget_show (passwordentry);
     gtk_table_attach (GTK_TABLE(table2), passwordentry, 1, 2, 1, 2,
                       GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND, 0, 0);
@@ -424,6 +430,8 @@ void connectdialog_new (void)
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
     nicknameentry = gnome_entry_new ("Nickname");
     gtk_label_set_mnemonic_widget (GTK_LABEL (widget), nicknameentry);
+    g_object_set(G_OBJECT(gnome_entry_gtk_entry(GNOME_ENTRY(nicknameentry))),
+                 "activates_default", TRUE, NULL);
     aux = g_locale_to_utf8 (nick, -1, NULL, NULL, NULL);
     gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(nicknameentry))),
                         aux);
@@ -437,6 +445,8 @@ void connectdialog_new (void)
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
     teamnameentry = gnome_entry_new ("Teamname");
     gtk_label_set_mnemonic_widget (GTK_LABEL (teamnamelabel), teamnameentry);
+    g_object_set(G_OBJECT(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry))),
+                 "activates_default", TRUE, NULL);
     aux = g_locale_to_utf8 (team, -1, NULL, NULL, NULL);
     gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry))),
                         aux);
