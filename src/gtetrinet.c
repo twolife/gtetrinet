@@ -128,8 +128,8 @@ int main (int argc, char *argv[])
     g_assert(buf[1] == 'b');
     g_assert(buf[0] == 'a');
     
-    setlocale(LC_ALL, "");
     bindtextdomain(PACKAGE, LOCALEDIR);
+    bind_textdomain_codeset(PACKAGE, "UTF-8");
     textdomain(PACKAGE);
 
     srand (time(NULL));
