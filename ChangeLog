@@ -1,3 +1,8 @@
+2003-02-01  Jordi Mallach  <jordi@sindominio.net>
+
+	* configure.in: check for and export GCONFTOOL.
+	Require intltool 0.25.
+
 2003-02-01  Dani Carbonell  <bocata@panete.net>
 
 	* gtetrinet.schemas.in: changed the type of the keys values to

@@ -4,8 +4,8 @@ icon_DATA = gtetrinet.png
 icondir = $(datadir)/pixmaps
 
 schemadir = $(sysconfdir)/gconf/schemas
-schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 schema_in_files = gtetrinet.schemas.in
+schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 @INTLTOOL_SCHEMAS_RULE@
 
 utildir = $(datadir)/gnome/apps/Games

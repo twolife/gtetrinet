@@ -11,10 +11,13 @@ AC_SUBST(GETTEXT_PACKAGE)
 
 AC_PROG_CC
 
-AC_PROG_INTLTOOL([0.23])
+AC_PROG_INTLTOOL([0.25])
 ALL_LINGUAS="ca de es nl no sv"
 AM_GNU_GETTEXT_VERSION([0.11.5])
 AM_GLIB_GNU_GETTEXT
+
+AC_PATH_PROG(GCONFTOOL, gconftool-2)
+AM_GCONF_SOURCE_2
 
 dnl *****************************************
 dnl pkg-config check time
