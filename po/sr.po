@@ -1,20 +1,21 @@
 # Serbian translation of gtetrinet
 # Courtesy of Prevod.org team (http://www.prevod.org/) -- 2003.
-# 
+#
 # This file is distributed under the same license as the gtetrinet package.
-# 
+#
 # Maintainer: Слободан Симић <slsimic@verat.net>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet\n"
-"POT-Creation-Date: 2003-05-30 15:49+0200\n"
-"PO-Revision-Date: 2003-05-30 15:48+0200\n"
+"POT-Creation-Date: 2003-08-15 15:27+0200\n"
+"PO-Revision-Date: 2003-08-15 15:26+0200\n"
 "Last-Translator: Slobodan Simic <slsimic@verat.net>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.0.1\n"
 
 #: src/client.c:237
@@ -74,22 +75,22 @@ msgid "Start a new game"
 msgstr "Почни нову игру"
 
 #: src/commands.c:86
-msgid "Pause game"
-msgstr "Паузирај игру"
-
-#: src/commands.c:86
-msgid "Pause the game"
-msgstr "Паузирај игру"
-
-#: src/commands.c:87
 msgid "End game"
 msgstr "Заврши игру"
 
-#: src/commands.c:87
+#: src/commands.c:86
 msgid "End the current game"
 msgstr "Заврши тренутну игру"
 
-#: src/commands.c:89 src/dialogs.c:155
+#: src/commands.c:87
+msgid "Pause game"
+msgstr "Паузирај игру"
+
+#: src/commands.c:87
+msgid "Pause the game"
+msgstr "Паузирај игру"
+
+#: src/commands.c:89 src/dialogs.c:156
 msgid "Change team"
 msgstr "Промени тим"
 
@@ -102,36 +103,31 @@ msgid "Detach page"
 msgstr "Одвоји страну"
 
 #: src/commands.c:92
-#, fuzzy
 msgid "Detach the current notebook page"
 msgstr "Одвоји тренутну страницу бележнице"
 
-#: src/commands.c:215
+#: src/commands.c:258
 msgid "Game in progress"
 msgstr "Игра у току"
 
-#: src/commands.c:218
+#: src/commands.c:261
 msgid "Connected to\n"
 msgstr "Повезан на\n"
 
-#: src/commands.c:222
+#: src/commands.c:265
 msgid "Not connected"
 msgstr "Није повезан"
 
 #. Translators: translate as your names & emails
-#: src/commands.c:244
+#: src/commands.c:287
 msgid "translator_credits"
 msgstr "Превод на српски: Слободан Симић <slsimic@verat.net>"
 
-#: src/commands.c:249
-msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
-msgstr "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
-
-#: src/commands.c:250
+#: src/commands.c:293
 msgid "A Tetrinet client for GNOME.\n"
 msgstr "Тетринет клијент за Гном.\n"
 
-#: src/commands.c:262
+#: src/commands.c:305
 msgid "GTetrinet Home Page"
 msgstr "ГТетринет интернет страница"
 
@@ -140,110 +136,133 @@ msgid "Warning: theme does not have a name, reverting to default."
 msgstr "Пажња: тема нема име, враћам на подразумевано"
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:85 src/dialogs.c:330 src/gtetrinet.c:77
+#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
 msgid "Connect to server"
 msgstr "Повежи се на сервер"
 
-#: src/dialogs.c:167
+#: src/dialogs.c:169
 msgid "Team name:"
 msgstr "Име тима:"
 
-#: src/dialogs.c:211
+#: src/dialogs.c:215
 msgid "You must specify a server name."
 msgstr "Морате назначити име сервера."
 
-#: src/dialogs.c:228
+#: src/dialogs.c:232
 msgid "Please specify a password to connect as spectator."
 msgstr "Упишите лозинку да се прикључите као посматрач."
 
-#: src/dialogs.c:254
+#: src/dialogs.c:258
 msgid "Please specify a valid nickname."
 msgstr "Молим упишите исправан надимак."
 
 #. game type radio buttons
-#: src/dialogs.c:357
+#: src/dialogs.c:364
 msgid "O_riginal"
 msgstr "Оригинал"
 
-#: src/dialogs.c:359
-#, fuzzy
+#: src/dialogs.c:366
 msgid "Tetri_Fast"
-msgstr "ГТетринет"
+msgstr "Tetri_Fast"
 
-#: src/dialogs.c:381
+#: src/dialogs.c:388
 msgid "Server address"
 msgstr "Адреса сервера"
 
-#: src/dialogs.c:390
+#: src/dialogs.c:397
 msgid "Connect as a _spectator"
 msgstr "Повежи се као гледалац"
 
-#: src/dialogs.c:394
+#: src/dialogs.c:401
 msgid "_Password:"
 msgstr "Лозинка:"
 
-#: src/dialogs.c:409
+#: src/dialogs.c:418
 msgid "Spectate game"
 msgstr "Посматрај игру"
 
-#: src/dialogs.c:418
+#: src/dialogs.c:427
 msgid "_Nick name:"
 msgstr "Надимак:"
 
-#: src/dialogs.c:431
+#: src/dialogs.c:442
 msgid "_Team name:"
 msgstr "Име тима:"
 
-#: src/dialogs.c:449
+#: src/dialogs.c:462
 msgid "Player information"
 msgstr "Информације о играчу"
 
-#: src/dialogs.c:490
+#: src/dialogs.c:503
 msgid "Change Key"
 msgstr "Промени тастер"
 
-#: src/dialogs.c:541
+#: src/dialogs.c:554
 msgid "Move right"
 msgstr "Десно"
 
-#: src/dialogs.c:542
+#: src/dialogs.c:555
 msgid "Move left"
 msgstr "Лево"
 
-#: src/dialogs.c:543
+#: src/dialogs.c:556
 msgid "Move down"
 msgstr "Доле"
 
-#: src/dialogs.c:544
+#: src/dialogs.c:557
 msgid "Rotate right"
 msgstr "Ротирај десно"
 
-#: src/dialogs.c:545
+#: src/dialogs.c:558
 msgid "Rotate left"
 msgstr "Ротирај лево"
 
-#: src/dialogs.c:546
+#: src/dialogs.c:559
 msgid "Drop piece"
 msgstr "Спусти део"
 
-#: src/dialogs.c:547
+#: src/dialogs.c:560
 msgid "Discard special"
 msgstr "Одбаци посебне"
 
-#: src/dialogs.c:548
+#: src/dialogs.c:561
 msgid "Send message"
 msgstr "Пошаљи поруку"
 
-#: src/dialogs.c:602
+#: src/dialogs.c:562
+msgid "Special to field 1"
+msgstr "Посебне у поље 1"
+
+#: src/dialogs.c:563
+msgid "Special to field 2"
+msgstr "Посебне у поље 2"
+
+#: src/dialogs.c:564
+msgid "Special to field 3"
+msgstr "Посебне у поље 3"
+
+#: src/dialogs.c:565
+msgid "Special to field 4"
+msgstr "Посебне у поље 4"
+
+#: src/dialogs.c:566
+msgid "Special to field 5"
+msgstr "Посебне у поље 5"
+
+#: src/dialogs.c:567
+msgid "Special to field 6"
+msgstr "Посебне у поље 6"
+
+#: src/dialogs.c:627
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Притисни нови тастер за \"%s\""
 
-#: src/dialogs.c:819
+#: src/dialogs.c:844
 msgid "GTetrinet Preferences"
 msgstr "ГТетринет подешавања"
 
-#: src/dialogs.c:842
+#: src/dialogs.c:867
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -251,49 +270,49 @@ msgstr ""
 "Изабери поставку са листе.\n"
 "Инсталирај нове поставке у ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:850
+#: src/dialogs.c:875
 msgid "Name:"
 msgstr "Име:"
 
-#: src/dialogs.c:854
+#: src/dialogs.c:879
 msgid "Author:"
 msgstr "Аутор:"
 
-#: src/dialogs.c:858
+#: src/dialogs.c:883
 msgid "Description:"
 msgstr "Опис:"
 
-#: src/dialogs.c:876
+#: src/dialogs.c:901
 msgid "Selected Theme"
 msgstr "Изабрана поставка"
 
-#: src/dialogs.c:895
+#: src/dialogs.c:920
 msgid "Themes"
 msgstr "Поставке"
 
 #. partyline
-#: src/dialogs.c:900
+#: src/dialogs.c:925
 msgid "Enable _Timestamps"
 msgstr "Укључи временске ознаке"
 
-#: src/dialogs.c:902
+#: src/dialogs.c:927
 msgid "Enable Channel _List"
-msgstr ""
+msgstr "Укључи _листе канала"
 
 #. FIXME
-#: src/dialogs.c:928 src/gtetrinet.c:257
+#: src/dialogs.c:953 src/gtetrinet.c:281
 msgid "Partyline"
-msgstr ""
+msgstr "Чаврљање"
 
-#: src/dialogs.c:939
+#: src/dialogs.c:964
 msgid "Action"
 msgstr "Радња"
 
-#: src/dialogs.c:941
+#: src/dialogs.c:966
 msgid "Key"
 msgstr "Тастер"
 
-#: src/dialogs.c:947
+#: src/dialogs.c:972
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -301,32 +320,32 @@ msgstr ""
 "Изабери радњу са листе и притисни 'Промени тастер' за промену тастера "
 "придруженог тој радњи."
 
-#: src/dialogs.c:953
+#: src/dialogs.c:979
 msgid "Change _key..."
 msgstr "Промени тастер..."
 
-#: src/dialogs.c:958 src/dialogs.c:1011
+#: src/dialogs.c:984 src/dialogs.c:1037
 msgid "_Restore defaults"
-msgstr "Врати подразумевано"
+msgstr "В_рати подразумевано"
 
-#: src/dialogs.c:979
+#: src/dialogs.c:1005
 msgid "Keyboard"
 msgstr "Тастатура"
 
 #. sound
-#: src/dialogs.c:984
+#: src/dialogs.c:1010
 msgid "Enable _Sound"
 msgstr "Укључи звук"
 
-#: src/dialogs.c:987
+#: src/dialogs.c:1013
 msgid "Enable _MIDI"
-msgstr "Укључи MIDI"
+msgstr "Укључи _MIDI"
 
-#: src/dialogs.c:1001
+#: src/dialogs.c:1027
 msgid "Enter command to play a midi file:"
 msgstr "Унеси команду за покретање midi фајла:"
 
-#: src/dialogs.c:1004
+#: src/dialogs.c:1030
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -334,11 +353,11 @@ msgstr ""
 "Наведена команда се покреће када треба одсвирати midi фајл.  Име midi фајла "
 "је постављено у променљиву MIDIFILE."
 
-#: src/dialogs.c:1041
+#: src/dialogs.c:1067
 msgid "Sound"
 msgstr "Звук"
 
-#: src/fields.c:72
+#: src/fields.c:87
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
@@ -347,7 +366,7 @@ msgstr ""
 "Враћам на подразумевано"
 
 #. shouldnt happen
-#: src/fields.c:81
+#: src/fields.c:96
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
@@ -355,31 +374,31 @@ msgstr ""
 "Грешка при учитавању подразумеване поставке: Прекидам... \n"
 "Проверите да нема грешака при инсталацији\n"
 
-#: src/fields.c:196
+#: src/fields.c:217
 msgid "Next piece:"
 msgstr "Следећи:"
 
-#: src/fields.c:213
+#: src/fields.c:234
 msgid "Lines:"
 msgstr "Линија:"
 
-#: src/fields.c:217
+#: src/fields.c:238
 msgid "Level:"
 msgstr "Ниво:"
 
-#: src/fields.c:219
+#: src/fields.c:240
 msgid "Active level:"
 msgstr "Активни ниво:"
 
-#: src/fields.c:267
+#: src/fields.c:288
 msgid "Attacks and defenses:"
 msgstr "Напади и одбране:"
 
-#: src/fields.c:406
+#: src/fields.c:432
 msgid "Not playing"
 msgstr "Не игра"
 
-#: src/fields.c:437
+#: src/fields.c:463
 msgid "Specials:"
 msgstr "Посебни:"
 
@@ -421,12 +440,12 @@ msgid "Failed to init GConf: %s\n"
 msgstr "Неуспела иницијализација GConf-a: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:246 src/gtetrinet.c:392 src/gtetrinet.c:443
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:470
 msgid "Playing Fields"
 msgstr "Поља за играње"
 
 #. FIXME
-#: src/gtetrinet.c:268
+#: src/gtetrinet.c:292
 msgid "Winlist"
 msgstr "Листа прозора"
 
@@ -447,9 +466,8 @@ msgid "Description"
 msgstr "Опис"
 
 #: src/partyline.c:95
-#, fuzzy
 msgid "Channel List"
-msgstr "Промени тим"
+msgstr "Листа канала"
 
 #: src/partyline.c:140
 msgid "Team"
@@ -463,168 +481,168 @@ msgstr "Ваше име:"
 msgid "Your team:"
 msgstr "Ваш тим:"
 
-#: src/partyline.c:612
+#: src/partyline.c:665
 msgid "Talking in channel"
 msgstr "Разговор на каналу"
 
-#: src/partyline.c:614
+#: src/partyline.c:667
 msgid "Disconnected"
 msgstr "Искључен"
 
-#: src/tetrinet.c:192
+#: src/tetrinet.c:194
 msgid "Server disconnected"
 msgstr "Сервер искључен"
 
-#: src/tetrinet.c:212
+#: src/tetrinet.c:214
 #, c-format
 msgid "%c%c*** Disconnected from server"
 msgstr "%c%c*** Искључен са сервера"
 
-#: src/tetrinet.c:223
+#: src/tetrinet.c:226
 msgid "Error connecting: "
 msgstr "Грешка у повезивању: "
 
-#: src/tetrinet.c:255
+#: src/tetrinet.c:259
 #, c-format
 msgid "%c%c*** Connected to server"
 msgstr "%c%c*** Повезан на сервер"
 
-#: src/tetrinet.c:356
+#: src/tetrinet.c:360
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
 msgstr "%c%c*** Избачени сте из игре"
 
-#: src/tetrinet.c:360
+#: src/tetrinet.c:364
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
 msgstr "%c*** %c%s%c%c је избачен из игре"
 
-#: src/tetrinet.c:535
+#: src/tetrinet.c:539
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
 msgstr "%c*** Тим %c%s%c%c је победио"
 
-#: src/tetrinet.c:541
+#: src/tetrinet.c:545
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
 msgstr "%c*** %c%s%c%c је победио"
 
-#: src/tetrinet.c:601
+#: src/tetrinet.c:605
 #, c-format
 msgid "%c*** The game has %cstarted"
 msgstr "%c*** Игра је %cпочела"
 
-#: src/tetrinet.c:626
+#: src/tetrinet.c:631
 #, c-format
 msgid "%c*** The game is %cin progress"
 msgstr "%c*** Игра је %cу току"
 
-#: src/tetrinet.c:637
+#: src/tetrinet.c:643
 #, c-format
 msgid "%c*** The game has %cpaused"
 msgstr "%c*** Игра је %cпаузирана"
 
-#: src/tetrinet.c:639
+#: src/tetrinet.c:645
 #, c-format
 msgid "The game has %c%cpaused"
 msgstr "Игра је %c%cпаузирана"
 
-#: src/tetrinet.c:644
+#: src/tetrinet.c:650
 #, c-format
 msgid "%c*** The game has %cresumed"
 msgstr "%c*** Игра је %cнастављена"
 
-#: src/tetrinet.c:646
+#: src/tetrinet.c:652
 #, c-format
 msgid "The game has %c%cresumed"
 msgstr "Игра је %c%cнастављена"
 
-#: src/tetrinet.c:655
+#: src/tetrinet.c:661
 #, c-format
 msgid "%c*** The game has %cended"
 msgstr "%c*** Игра је %cзавршена"
 
-#: src/tetrinet.c:765
+#: src/tetrinet.c:772
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
 msgstr "%c*** Прикључили сте се %c%s%c%c"
 
-#: src/tetrinet.c:782
+#: src/tetrinet.c:789
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c се прикључио гледаоциома %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:803
+#: src/tetrinet.c:810
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c је напустио гледалиште %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:1041
+#: src/tetrinet.c:1048
 msgid "No special blocks"
 msgstr "Без посебних блокова"
 
-#: src/tetrinet.c:1200 src/tetrinet.c:1207
+#: src/tetrinet.c:1207 src/tetrinet.c:1214
 #, c-format
 msgid " on %c%c%s%c%c"
 msgstr " на %c%c%s%c%c"
 
-#: src/tetrinet.c:1217
+#: src/tetrinet.c:1224
 msgid " to All"
 msgstr "свима"
 
-#: src/tetrinet.c:1223 src/tetrinet.c:1230
+#: src/tetrinet.c:1230 src/tetrinet.c:1237
 #, c-format
 msgid " by %c%c%s%c%c"
 msgstr " од %c%c%s%c%c"
 
-#: src/tetrinet.c:1823
+#: src/tetrinet.c:1865
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
 msgstr "%c*** %c%s%c%c је модератор"
 
 #. remove ", " from end of string
-#: src/tetrinet.c:1872
+#: src/tetrinet.c:1914
 msgid " has left the game"
 msgstr " је напустио игру"
 
-#: src/tetrinet.c:1873
+#: src/tetrinet.c:1915
 msgid " have left the game"
 msgstr " је напустио игру"
 
-#: src/tetrinet.c:1886
+#: src/tetrinet.c:1928
 msgid " has joined the game"
 msgstr " се прикључио игри"
 
-#: src/tetrinet.c:1887
+#: src/tetrinet.c:1929
 msgid " have joined the game"
 msgstr " се прикључио игри"
 
-#: src/tetrinet.c:1910
+#: src/tetrinet.c:1952
 #, c-format
 msgid "%s is on team %c%s"
 msgstr "%s је у тиму %c%s"
 
-#: src/tetrinet.c:1913
+#: src/tetrinet.c:1955
 #, c-format
 msgid "%s is alone"
-msgstr "%s je sam"
+msgstr "%s је сам"
 
-#: src/tetrinet.c:1915
+#: src/tetrinet.c:1957
 #, c-format
 msgid "%s are on team %c%s"
 msgstr "%s је у тиму %c%s"
 
-#: src/tetrinet.c:1918
+#: src/tetrinet.c:1960
 #, c-format
 msgid "%s are alone"
 msgstr "%s је сам"
 
-#: src/tetrinet.c:1959
+#: src/tetrinet.c:2001
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
 msgstr "%c*** %c%s%c%c је сад у тиму %c%s"
 
-#: src/tetrinet.c:1966
+#: src/tetrinet.c:2008
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
 msgstr "%c*** %c%s%c%c је сад сам"
@@ -651,20 +669,19 @@ msgid "Tetrinet client for GNOME"
 msgstr "Тетринет клијент за Гном"
 
 #: gtetrinet.schemas.in.h:1
-msgid "Command to run to play midi files."
-msgstr "Команда за пуштање midi фајлова."
+msgid "Command to run to play midi files"
+msgstr "Команда за пуштање MIDI фајлова."
 
 #: gtetrinet.schemas.in.h:2
-#, fuzzy
 msgid "Enable/disable channel list."
-msgstr "Укључи/искључи ознаке времена."
+msgstr "Укључи/искључи листе канала."
 
 #: gtetrinet.schemas.in.h:3
-msgid "Enable/disable midi music."
-msgstr "Укључи/искључи midi музику."
+msgid "Enable/disable midi music"
+msgstr "Укључи/искључи MIDI музику."
 
 #: gtetrinet.schemas.in.h:4
-msgid "Enable/disable sound."
+msgid "Enable/disable sound"
 msgstr "Укључи/искључи звук."
 
 #: gtetrinet.schemas.in.h:5
@@ -691,50 +708,74 @@ msgid ""
 "Enables/disables the channel list. Disable it if you experience problems "
 "when connecting or while playing in your favorite tetrinet server."
 msgstr ""
+"Укључи/искључи листе канала. Искључите их ако имате проблема кад се "
+"повезујете или док играте на Вашем омиљеном Тетринет серверу."
 
 #: gtetrinet.schemas.in.h:9
-#, fuzzy
 msgid "Enables/disables timestamps in the partyline."
-msgstr "Укључи/искључи ознаку времена у ..."
+msgstr "Укључи/искључи ознаку времена док чаврљате."
 
 #: gtetrinet.schemas.in.h:10
-msgid "Key to discard special."
-msgstr "Тастер за одбацивање посебних."
+msgid "Key to discard special"
+msgstr "Тастер за одбацивање посебних блокова."
 
 #: gtetrinet.schemas.in.h:11
-msgid "Key to drop piece."
+msgid "Key to drop piece"
 msgstr "Тастер са спуштање делића"
 
 #: gtetrinet.schemas.in.h:12
-msgid "Key to move down."
+msgid "Key to move down"
 msgstr "Тастер за померање доле"
 
 #: gtetrinet.schemas.in.h:13
-msgid "Key to move left."
+msgid "Key to move left"
 msgstr "Тастер за померање лево"
 
 #: gtetrinet.schemas.in.h:14
-msgid "Key to move right."
+msgid "Key to move right"
 msgstr "Тастер за померање десно"
 
 #: gtetrinet.schemas.in.h:15
-#, fuzzy
-msgid "Key to open the fields' message dialog."
+msgid "Key to open the fields' message dialog"
 msgstr "Тастер за отварање порука у пољима."
 
 #: gtetrinet.schemas.in.h:16
-msgid "Key to rotate clockwise."
+msgid "Key to rotate clockwise"
 msgstr "Тастер за ротацију у смеру сата."
 
 #: gtetrinet.schemas.in.h:17
-msgid "Key to rotate counterclockwise."
+msgid "Key to rotate counterclockwise"
 msgstr "Тастер за ротацију у смеру супротно од сата."
 
 #: gtetrinet.schemas.in.h:18
-msgid "Server where you want to play."
-msgstr "Сервер на ком желите да играте."
+msgid "Key to use the current special on field 1"
+msgstr "Тастер којим се у пољу 1 користи тренутни посебни блок"
 
 #: gtetrinet.schemas.in.h:19
+msgid "Key to use the current special on field 2"
+msgstr "Тастер којим се у пољу 2 користи тренутни посебни блок"
+
+#: gtetrinet.schemas.in.h:20
+msgid "Key to use the current special on field 3"
+msgstr "Тастер којим се у пољу 3 користи тренутни посебни блок"
+
+#: gtetrinet.schemas.in.h:21
+msgid "Key to use the current special on field 4"
+msgstr "Тастер којим се у пољу 4 користи тренутни посебни блок"
+
+#: gtetrinet.schemas.in.h:22
+msgid "Key to use the current special on field 5"
+msgstr "Тастер којим се у пољу 5 користи тренутни посебни блок"
+
+#: gtetrinet.schemas.in.h:23
+msgid "Key to use the current special on field 6"
+msgstr "Тастер којим се у пољу 6 користи тренутни посебни блок"
+
+#: gtetrinet.schemas.in.h:24
+msgid "Server where you want to play"
+msgstr "Сервер на ком желите да играте."
+
+#: gtetrinet.schemas.in.h:25
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
@@ -742,11 +783,11 @@ msgstr ""
 "Тренутни директоријум са поставкама.Мора да садржи читљив \"blocks.png\" и "
 "\"theme.cfg\"."
 
-#: gtetrinet.schemas.in.h:20
-msgid "Theme directory, should end with a '/'."
+#: gtetrinet.schemas.in.h:26
+msgid "Theme directory, should end with a '/'"
 msgstr "Директоријум поставки, треба да се завршава са '/'."
 
-#: gtetrinet.schemas.in.h:21
+#: gtetrinet.schemas.in.h:27
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
@@ -754,59 +795,84 @@ msgstr ""
 "Наведена команда се покреће када треба одсвирати midi фајл.  Име midi фајла "
 "је постављено у променљиву MIDIFILE."
 
-#: gtetrinet.schemas.in.h:22
+#: gtetrinet.schemas.in.h:28
 msgid "This is the server where GTetrinet will try to connect."
 msgstr "Ово је сервер где ће ГТетринет покушати да се прикључи."
 
-#: gtetrinet.schemas.in.h:23
-#, fuzzy
+#: gtetrinet.schemas.in.h:29
 msgid "This key discards the current special. This is case insensitive."
 msgstr ""
 "Овај тастер одбацује тренутни посебан делић. Велика/мала слова су небитна."
 
-#: gtetrinet.schemas.in.h:24
-#, fuzzy
+#: gtetrinet.schemas.in.h:30
 msgid "This key displays the fields' message dialog. This is case insensitive."
 msgstr "Овај тастер приказује за поруке за поља. Велика/мала слова су небитна."
 
-#: gtetrinet.schemas.in.h:25
+#: gtetrinet.schemas.in.h:31
 msgid "This key drops the block to the ground. This is case insensitive."
 msgstr "Овај тастер спушта блок на дно. Велика/мала слова су небитна."
 
-#: gtetrinet.schemas.in.h:26
+#: gtetrinet.schemas.in.h:32
 msgid "This key moves the block down. This is case insensitive."
 msgstr "Овај тастер помера блок доле. Велика/мала слова су небитна."
 
-#: gtetrinet.schemas.in.h:27
+#: gtetrinet.schemas.in.h:33
 msgid "This key moves the block to the left. This is case insensitive."
 msgstr "Овај тастер помера блок лево. Велика/мала слова су небитна."
 
-#: gtetrinet.schemas.in.h:28
+#: gtetrinet.schemas.in.h:34
 msgid "This key moves the block to the right. This is case insensitive."
 msgstr "Овај тастер помера блок десно. Велика/мала слова су небитна."
 
-#: gtetrinet.schemas.in.h:29
+#: gtetrinet.schemas.in.h:35
 msgid "This key rotates the block clockwise. This is case insensitive."
 msgstr ""
 "Овај тастер ротира блок у смеру кретања сата. Велика/мала слова су небитна."
 
-#: gtetrinet.schemas.in.h:30
+#: gtetrinet.schemas.in.h:36
 msgid "This key rotates the block counterclockwise. This is case insensitive."
 msgstr ""
 "Овај тастер ротира блок супротно кретању сата. Велика/мала слова су небитна."
 
-#: gtetrinet.schemas.in.h:31
+#: gtetrinet.schemas.in.h:37
+msgid "This key uses the current special on Player 1's game field."
+msgstr "Тастер којим се у пољу играча 1 користи тренутни посебни блок"
+
+#: gtetrinet.schemas.in.h:38
+msgid "This key uses the current special on Player 2's game field."
+msgstr "Тастер којим се у пољу играча 2 користи тренутни посебни блок"
+
+#: gtetrinet.schemas.in.h:39
+msgid "This key uses the current special on Player 3's game field."
+msgstr "Тастер којим се у пољу играча 3 користи тренутни посебни блок"
+
+#: gtetrinet.schemas.in.h:40
+msgid "This key uses the current special on Player 4's game field."
+msgstr "Тастер којим се у пољу играча 4 користи тренутни посебни блок"
+
+#: gtetrinet.schemas.in.h:41
+msgid "This key uses the current special on Player 5's game field."
+msgstr "Тастер којим се у пољу играча 5 користи тренутни посебни блок"
+
+#: gtetrinet.schemas.in.h:42
+msgid "This key uses the current special on Player 6's game field."
+msgstr "Тастер којим се у пољу играча 6 користи тренутни посебни блок"
+
+#: gtetrinet.schemas.in.h:43
 msgid "This will be the name of your team."
 msgstr "Ово ће бити име Вашег тима"
 
-#: gtetrinet.schemas.in.h:32
+#: gtetrinet.schemas.in.h:44
 msgid "This will be your nickname in the game."
 msgstr "Ово ће бити Ваш надимак у игри."
 
-#: gtetrinet.schemas.in.h:33
-msgid "Your nickname."
-msgstr "Ваш надимак."
+#: gtetrinet.schemas.in.h:45
+msgid "Your nickname"
+msgstr "Ваш надимак"
 
-#: gtetrinet.schemas.in.h:34
-msgid "Your team."
-msgstr "Ваш надимак."
+#: gtetrinet.schemas.in.h:46
+msgid "Your team"
+msgstr "Ваш тим"
+
+#~ msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
+#~ msgstr "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
