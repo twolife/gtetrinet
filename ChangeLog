@@ -1,3 +1,7 @@
+2003-01-24  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* configure.in: Added "no" to ALL_LINGUAS.
+	
 2003-01-24  Jordi Mallach  <jordi@sindominio.net>
 
 	* gtetrinet.desktop.in: add bugzilla stuff.
