@@ -15,6 +15,7 @@ configure
 configure.lineno
 depcomp
 gtetrinet.desktop
+gtetrinet.schemas
 install-sh
 intltool-extract.in
 intltool-merge.in
