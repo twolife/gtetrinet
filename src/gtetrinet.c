@@ -45,7 +45,7 @@
 #include "images/winlist.xpm"
 
 static GtkWidget *pixmapdata_label (char **d, char *str);
-static int gtetrinet_key (int keyval);
+static int gtetrinet_key (int keyval, int mod);
 gint keypress (GtkWidget *widget, GdkEventKey *key);
 gint keyrelease (GtkWidget *widget, GdkEventKey *key);
 
@@ -266,7 +266,10 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
             gtk_timeout_remove (keytimeoutid);
         if (tetrinet_key (key->keyval, key->string)) goto keyprocessed;
     }
-    if (gtetrinet_key(key->keyval)) goto keyprocessed;
+    if (gtetrinet_key(key->keyval, key->state & (GDK_MOD1_MASK |
+                                                 GDK_CONTROL_MASK |
+                                                 GDK_SHIFT_MASK)))
+        goto keyprocessed;
     return FALSE;
 keyprocessed:
     gtk_signal_emit_stop_by_name (GTK_OBJECT(widget), "key_press_event");
@@ -306,16 +309,19 @@ gint keyrelease (GtkWidget *widget, GdkEventKey *key)
 /*
  TODO: make this switch between detached pages too
  */
-int gtetrinet_key (int keyval)
+static int gtetrinet_key (int keyval, int mod)
 {
+    if (mod != GDK_MOD1_MASK)
+      return (FALSE);
+    
     switch (keyval)
     {
-    case GDK_F1: gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 0); break;
-    case GDK_F2:
+    case GDK_1: gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 0); break;
+    case GDK_2:
         gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 1);
         partyline_entryfocus();
         break;
-    case GDK_F3: gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 2); break;
+    case GDK_3: gtk_notebook_set_page (GTK_NOTEBOOK(notebook), 2); break;
     default:
         return FALSE;
     }

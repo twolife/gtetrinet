@@ -44,7 +44,8 @@ void leftlabel_set (GtkWidget *align, char *str)
     gtk_label_set (GTK_LABEL(GTK_BIN(align)->child), str);
 }
 
-/* returns a random number in the range 0 to n-1 */
+/* returns a random number in the range 0 to n-1 --
+ * Note both n==0 and n==1 always return 0 */
 int randomnum (int n)
 {
     return (float)n*rand()/(RAND_MAX+1.0);
@@ -159,6 +160,7 @@ void textbox_addtext (GtkText *textbox, unsigned char *text)
         }
         else gtk_text_insert (textbox, fonts[attr], color, NULL, &text[i], 1);
     next:
+        continue;
     }
     /* scroll to bottom */
     gtk_text_thaw (textbox);

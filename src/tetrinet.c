@@ -105,15 +105,15 @@ struct sb {
 #define S_BLOCKBOMB    11
 
 struct sb sbinfo[] = {
-    {"cs1", -1, "1 Line Added to All"},
-    {"cs2", -1, "2 Lines Added to All"},
-    {"cs4", -1, "4 Lines Added to All"},
+    {"cs1", -1, "1 Line Added"},
+    {"cs2", -1, "2 Lines Added"},
+    {"cs4", -1, "4 Lines Added"},
     {"a",   6,  "Add Line"},
     {"c",   7,  "Clear Line"},
     {"n",   8,  "Nuke Field"},
-    {"r",   9,  "Clear Random Blocks"},
+    {"r",   9,  "Clear Random"},
     {"s",  10,  "Switch Fields"},
-    {"b",  11,  "Clear Special Blocks"},
+    {"b",  11,  "Clear Specials"},
     {"g",  12,  "Block Gravity"},
     {"q",  13,  "Blockquake"},
     {"o",  14,  "Block Bomb"},
@@ -615,6 +615,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         }
         break;
     default:
+      break;
     }
 }
 
@@ -752,12 +753,13 @@ static void tetrinet_addspecial (char sb)
 {
     int l, i;
     if (specialblocknum >= specialcapacity) return; /* too many ! */
-    /* add to a random location */
-    l = randomnum(specialblocknum);
+
+    /* add to a random location between, 0 and last offset.
+     * Ie. If you have X sps already it gets added between 0 and X */
+    l = randomnum(++specialblocknum);
     for (i = specialblocknum; i > l; i --)
         specialblocks[i] = specialblocks[i-1];
     specialblocks[l] = sb;
-    specialblocknum ++;
     tetrinet_setspeciallabel (specialblocks[0]);
 }
 
@@ -809,6 +811,7 @@ static void tetrinet_addsbtofield (int count)
                         n --;
                     }
         next:
+            /* fall through */ ;
         }
     }
 end:
@@ -820,15 +823,120 @@ void tetrinet_dospecial (int from, int to, int type)
 {
     FIELD field;
     int x, y, i;
-    char buf[256], buf2[256];
+    char buf[512], buf2[256];
 
-    sprintf (buf, "\02\023%s\023\02", sbinfo[type].info);
+    switch (type)
+    {
+      case S_ADDALL1:
+      case S_ADDALL2:
+      case S_ADDALL4: /* bad for everyone ... */
+        g_assert(!to);
+        if (from == playernum)
+          sprintf (buf, "%c%c%s%c%c",
+                   TETRI_TB_BOLD,
+                   TETRI_TB_C_BLACK,
+                   sbinfo[type].info,
+                   TETRI_TB_C_BLACK,
+                   TETRI_TB_BOLD);
+        else
+          sprintf (buf, "%c%c%s%c%c",
+                   TETRI_TB_BOLD,
+                   TETRI_TB_C_BRIGHT_RED,
+                   sbinfo[type].info,
+                   TETRI_TB_C_BRIGHT_RED,
+                   TETRI_TB_BOLD);
+        break;
+        
+      case S_ADDLINE:
+      case S_CLEARBLOCKS:
+      case S_CLEARSPECIAL:
+      case S_BLOCKQUAKE:
+      case S_BLOCKBOMB: /* badish stuff for someone */
+        if (to == playernum)
+          sprintf (buf, "%c%c%s%c%c",
+                   TETRI_TB_BOLD,
+                   TETRI_TB_C_BRIGHT_RED,
+                   sbinfo[type].info,
+                   TETRI_TB_C_BRIGHT_RED,
+                   TETRI_TB_BOLD);
+        else if (from == playernum)
+          sprintf (buf, "%c%c%s%c%c",
+                   TETRI_TB_BOLD,
+                   TETRI_TB_C_BLACK,
+                   sbinfo[type].info,
+                   TETRI_TB_C_BLACK,
+                   TETRI_TB_BOLD);
+        else
+          sprintf (buf, "%c%c%s%c%c",
+                   TETRI_TB_BOLD,
+                   TETRI_TB_C_DARK_RED,
+                   sbinfo[type].info,
+                   TETRI_TB_C_DARK_RED,
+                   TETRI_TB_BOLD);
+        break;
+
+      case S_CLEARLINE:
+      case S_NUKEFIELD:
+      case S_SWITCH:
+      case S_GRAVITY: /* goodish stuff for someone */
+        if (to == playernum)
+          sprintf (buf, "%c%c%s%c%c",
+                   TETRI_TB_BOLD,
+                   TETRI_TB_C_BRIGHT_GREEN,
+                   sbinfo[type].info,
+                   TETRI_TB_C_BRIGHT_GREEN,
+                   TETRI_TB_BOLD);
+        else
+          sprintf (buf, "%c%c%s%c%c",
+                   TETRI_TB_BOLD,
+                   TETRI_TB_C_DARK_GREEN,
+                   sbinfo[type].info,
+                   TETRI_TB_C_DARK_GREEN,
+                   TETRI_TB_BOLD);
+        break;
+        
+      default:
+        g_assert_not_reached();
+    }
+      
     if (to) {
-        sprintf (buf2, " on \02\021%s\021\02", playernames[to]);
+      if (to == playernum)
+        sprintf (buf2, " on %c%c%s%c%c",
+                 TETRI_TB_BOLD,
+                 TETRI_TB_C_BRIGHT_BLUE,
+                 playernames[to],
+                 TETRI_TB_C_BRIGHT_BLUE,
+                 TETRI_TB_BOLD);
+      else
+        sprintf (buf2, " on %c%c%s%c%c",
+                 TETRI_TB_BOLD,
+                 TETRI_TB_C_DARK_BLUE,
+                 playernames[to],
+                 TETRI_TB_C_DARK_BLUE,
+                 TETRI_TB_BOLD);
         strcat (buf, buf2);
     }
+    else
+    {
+      sprintf (buf2, " to All");
+      strcat (buf, buf2);
+    }
+    
     if (from) {
-        sprintf (buf2, " by \02\021%s\021\02", playernames[from]);
+      if (from == playernum)
+        sprintf (buf2, " by %c%c%s%c%c",
+                 TETRI_TB_BOLD,
+                 TETRI_TB_C_BRIGHT_BLUE,
+                 playernames[from],
+                 TETRI_TB_C_BRIGHT_BLUE,
+                 TETRI_TB_BOLD);
+      else
+        sprintf (buf2, " by %c%c%s%c%c",
+                 TETRI_TB_BOLD,
+                 TETRI_TB_C_DARK_BLUE,
+                 playernames[from],
+                 TETRI_TB_C_DARK_BLUE,
+                 TETRI_TB_BOLD);
         strcat (buf, buf2);
     }
     fields_attdefmsg (buf);
@@ -1256,6 +1364,7 @@ int tetrinet_removelines ()
             tetrinet_dospecial (playernum, 0, sbnum);
         }
     endremovelines:
+        /* end of if */ ;
     }
     /* give it a little delay in drawing */
     gtk_timeout_add (40, (GtkFunction)tetrinet_removelinestimeout,

@@ -184,7 +184,7 @@ GtkWidget *fields_page_contents (void)
 
     widget = leftlabel_new (_("Next piece:"));
     gtk_widget_show (widget);
-    gtk_box_pack_start (GTK_BOX(box), widget, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
     /* box that displays the next block */
     border = gtk_frame_new (NULL);
     gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
@@ -228,7 +228,7 @@ GtkWidget *fields_page_contents (void)
     gtk_widget_show (activewidget);
     gtk_table_attach_defaults (GTK_TABLE(table2), activewidget, 1, 2, 3, 4);
     gtk_widget_show (table2);
-    gtk_box_pack_start (GTK_BOX(box), table2, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(box), table2, TRUE, TRUE, 0);
 
     gtk_widget_show (box);
     /* align it */
@@ -243,7 +243,7 @@ GtkWidget *fields_page_contents (void)
     speciallabel = gtk_label_new ("");
     gtk_widget_show (speciallabel);
     fields_setspeciallabel (NULL);
-    gtk_box_pack_start (GTK_BOX(box), speciallabel, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(box), speciallabel, TRUE, TRUE, 0);
     border = gtk_frame_new (NULL);
     gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
     specialwidget = gtk_drawing_area_new ();
@@ -267,9 +267,9 @@ GtkWidget *fields_page_contents (void)
     box = gtk_vbox_new (FALSE, 0);
     widget = gtk_label_new (_("Attacks and defenses:"));
     gtk_widget_show (widget);
-    gtk_box_pack_start (GTK_BOX(box), widget, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
     attdefwidget = gtk_text_new (NULL, NULL);
-    gtk_widget_set_usize (attdefwidget, BLOCKSIZE*12, BLOCKSIZE*10);
+    gtk_widget_set_usize (attdefwidget, MAX(22*12, BLOCKSIZE*12), BLOCKSIZE*10);
     gtk_text_set_word_wrap (GTK_TEXT(attdefwidget), TRUE);
     GTK_WIDGET_UNSET_FLAGS (attdefwidget, GTK_CAN_FOCUS);
     gtk_widget_show (attdefwidget);
@@ -279,7 +279,7 @@ GtkWidget *fields_page_contents (void)
                                     GTK_POLICY_AUTOMATIC);
     gtk_container_add (GTK_CONTAINER(scroll), attdefwidget);
     gtk_widget_show (scroll);
-    gtk_box_pack_start (GTK_BOX(box), scroll, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(box), scroll, TRUE, TRUE, 0);
     gtk_widget_show (box);
     align = gtk_alignment_new (0.5, 0.5, 0.5, 0.0);
     gtk_container_add (GTK_CONTAINER(align), box);
@@ -289,7 +289,7 @@ GtkWidget *fields_page_contents (void)
     /* game messages */
     table2 = gtk_table_new (1, 2, FALSE);
     gmsgtext = gtk_text_new (NULL, NULL);
-    gtk_widget_set_usize (gmsgtext, 0, 46);
+    gtk_widget_set_usize (gmsgtext, 0, 48);
     gtk_widget_show (gmsgtext);
     GTK_WIDGET_UNSET_FLAGS (gmsgtext, GTK_CAN_FOCUS);
     scroll = gtk_scrolled_window_new (NULL, NULL);

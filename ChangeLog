@@ -1,3 +1,20 @@
+2002-10-20  Jordi Mallach  <jordi@sindominio.net>
+
+	* Patches from James Antill with the following fixes.
+	* src/fields.c (fields_page_contents): change the attack/defense
+	box's minimum size, to avoid message wraps as much as possible.
+	* src/gtetrinet.c (keypress): check for modifier states.
+	(gtetrinet_key): change the toggle page keybinds from F1, F2 and F3
+	to Alt+1,2,3. The previous ones were normally captured by window
+	managers.
+	* src/misc.c (textbox_addtext): add continue in next:.
+	* src/misc.h: define colours for attack/defense messages...
+	* src/tetrinet.c (tetrinet_dospecial): ... and use them here,
+	depending on to whom affects the special and its type.
+	(tetrinet_addspecial): Fix the random order of added special blocks
+	when the player just has one.
+	Shorten attack/defense messages.
+
 2002-10-19  Jordi Mallach  <jordi@sindominio.net>
 
 	* Patch from Cougar <cougar@random.ee> which adds IPv6 support.
