@@ -1,4 +1,4 @@
-SUBDIRS= doc m4 po src themes
+SUBDIRS= intl doc po src themes
 
 icon_DATA = gtetrinet.png
 icondir = $(datadir)/pixmaps

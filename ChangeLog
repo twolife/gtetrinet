@@ -1,3 +1,9 @@
+2002-10-28  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am: removed m4/ added intl/
+	* autogen.sh: use a gnome2 one
+	* configure.in: updated to gnome2
+
 2002-10-28  Jordi Mallach  <jordi@sindominio.net>
 
 	* AUTHORS: added a random list of people who should be creditted.

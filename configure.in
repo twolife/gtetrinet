@@ -7,10 +7,8 @@ AM_INIT_AUTOMAKE(gtetrinet, 0.5.0pre1)
 
 AC_PROG_CC
 
-AM_PATH_GTK_2_0(2.0.0,,exit 1)
-
-AM_GNU_GETTEXT_VERSION(0.11.5)
 ALL_LINGUAS="ca"
+AM_GLIB_GNU_GETTEXT
 
 dnl *****************************************
 dnl pkg-config check time
@@ -64,7 +62,6 @@ AM_GNU_GETTEXT([external])
 AC_OUTPUT([
 Makefile
 doc/Makefile
-m4/Makefile 
 po/Makefile.in
 src/Makefile
 src/images/Makefile
