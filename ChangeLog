@@ -1,3 +1,7 @@
+2005-03-05  Abel Cheung  <maddog@linuxhall.org>
+
+	* configure.in: Added "tr" "vi" to ALL_LINGUAS.
+
 2004-12-26  Jordi Mallach  <jordi@sindominio.net>
 
 	* MAINTAINERS: Add.
