@@ -1,3 +1,8 @@
+2003-03-18  Jordi Mallach  <jordi@sindominio.net>
+
+	* ja.po: Added Japanese translation from
+	KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>.
+
 2003-03-17  Pablo Gonzalo del Campo  <pablodc@bigfoot.com>
 
         * es.po: Updated Spanish translation by 
@@ -5,7 +10,7 @@
 
 2003-03-17  Jordi Mallach  <jordi@sindominio.net>
 
-	* ca.po: Added Russian translation from AVL <avl@altlinux.ru>.
+	* ru.po: Added Russian translation from AVL <avl@altlinux.ru>.
 
 2003-03-16  Christophe Merlet  <redfox@redfoxcenter.org>
 
