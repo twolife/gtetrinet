@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-25 09:34+0200\n"
+"POT-Creation-Date: 2003-09-02 07:36+0200\n"
 "PO-Revision-Date: 2003-07-08 15:23+0100\n"
 "Last-Translator: GNOME PL Team <translators@gnome.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -131,12 +131,12 @@ msgstr "Klient Tetrinet dla GNOME.\n"
 msgid "GTetrinet Home Page"
 msgstr "Strona domowa GTetrinet"
 
-#: src/config.c:134
+#: src/config.c:140
 msgid "Warning: theme does not have a name, reverting to default."
 msgstr "Ostrzeżenie: motyw nie posiada nazwy, przywracanie domyślnej."
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:85 src/dialogs.c:333 src/gtetrinet.c:77
+#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
 msgid "Connect to server"
 msgstr "Łączenie z serwerem"
 
@@ -144,125 +144,125 @@ msgstr "Łączenie z serwerem"
 msgid "Team name:"
 msgstr "Nazwa zespołu:"
 
-#: src/dialogs.c:213
+#: src/dialogs.c:215
 msgid "You must specify a server name."
 msgstr "Należy określić nazwę serwera."
 
-#: src/dialogs.c:230
+#: src/dialogs.c:232
 msgid "Please specify a password to connect as spectator."
 msgstr "Określ hasło dla łączących się widzów."
 
-#: src/dialogs.c:256
+#: src/dialogs.c:258
 msgid "Please specify a valid nickname."
 msgstr "Określ poprawny pseudonim."
 
 #. game type radio buttons
-#: src/dialogs.c:360
+#: src/dialogs.c:364
 msgid "O_riginal"
 msgstr "O_ryginalna"
 
-#: src/dialogs.c:362
+#: src/dialogs.c:366
 msgid "Tetri_Fast"
 msgstr "Szybki_Tetris"
 
-#: src/dialogs.c:384
+#: src/dialogs.c:388
 msgid "Server address"
 msgstr "Adres serwera"
 
-#: src/dialogs.c:393
+#: src/dialogs.c:397
 msgid "Connect as a _spectator"
 msgstr "Połącz jako _widz"
 
-#: src/dialogs.c:397
+#: src/dialogs.c:401
 msgid "_Password:"
 msgstr "_Hasło:"
 
-#: src/dialogs.c:412
+#: src/dialogs.c:418
 msgid "Spectate game"
 msgstr "Obserwowanie gry"
 
-#: src/dialogs.c:421
+#: src/dialogs.c:427
 msgid "_Nick name:"
 msgstr "_Pseudonim:"
 
-#: src/dialogs.c:434
+#: src/dialogs.c:442
 msgid "_Team name:"
 msgstr "Nazwa _zespołu:"
 
-#: src/dialogs.c:452
+#: src/dialogs.c:462
 msgid "Player information"
 msgstr "Informacje o graczu"
 
-#: src/dialogs.c:493
+#: src/dialogs.c:503
 msgid "Change Key"
 msgstr "Zmiana klawisza"
 
-#: src/dialogs.c:544
+#: src/dialogs.c:554
 msgid "Move right"
 msgstr "Przeniesienie w prawo"
 
-#: src/dialogs.c:545
+#: src/dialogs.c:555
 msgid "Move left"
 msgstr "Przeniesienie w lewo"
 
-#: src/dialogs.c:546
+#: src/dialogs.c:556
 msgid "Move down"
 msgstr "Przeniesienie w dół"
 
-#: src/dialogs.c:547
+#: src/dialogs.c:557
 msgid "Rotate right"
 msgstr "Obrót w prawo"
 
-#: src/dialogs.c:548
+#: src/dialogs.c:558
 msgid "Rotate left"
 msgstr "Obrót w lewo"
 
-#: src/dialogs.c:549
+#: src/dialogs.c:559
 msgid "Drop piece"
-msgstr ""
+msgstr "Upuszczenie elementu"
 
-#: src/dialogs.c:550
+#: src/dialogs.c:560
 msgid "Discard special"
-msgstr ""
+msgstr "Porzucnie klocka specjalnego"
 
-#: src/dialogs.c:551
+#: src/dialogs.c:561
 msgid "Send message"
 msgstr "Przesłanie komunikatu"
 
-#: src/dialogs.c:552
+#: src/dialogs.c:562
 msgid "Special to field 1"
-msgstr ""
+msgstr "Klocek specjalny na pole 1"
 
-#: src/dialogs.c:553
+#: src/dialogs.c:563
 msgid "Special to field 2"
-msgstr ""
+msgstr "Klocek specjalny na pole 2"
 
-#: src/dialogs.c:554
+#: src/dialogs.c:564
 msgid "Special to field 3"
-msgstr ""
+msgstr "Klocek specjalny na pole 3"
 
-#: src/dialogs.c:555
+#: src/dialogs.c:565
 msgid "Special to field 4"
-msgstr ""
+msgstr "Klocek specjalny na pole 4"
 
-#: src/dialogs.c:556
+#: src/dialogs.c:566
 msgid "Special to field 5"
-msgstr ""
+msgstr "Klocek specjalny na pole 5"
 
-#: src/dialogs.c:557
+#: src/dialogs.c:567
 msgid "Special to field 6"
-msgstr ""
+msgstr "Klocek specjalny na pole 6"
 
-#: src/dialogs.c:617
+#: src/dialogs.c:627
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Naciśnij nowy klawisz dla \"%s\""
 
-#: src/dialogs.c:834
+#: src/dialogs.c:844
 msgid "GTetrinet Preferences"
 msgstr "Preferencje GTetrinet"
 
-#: src/dialogs.c:857
+#: src/dialogs.c:866
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -270,49 +270,49 @@ msgstr ""
 "Wybierz motyw z listy.\n"
 "Zainstaluj nowe motywy w katalogu ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:865
+#: src/dialogs.c:874
 msgid "Name:"
 msgstr "Nazwa:"
 
-#: src/dialogs.c:869
+#: src/dialogs.c:878
 msgid "Author:"
 msgstr "Autor:"
 
-#: src/dialogs.c:873
+#: src/dialogs.c:882
 msgid "Description:"
 msgstr "Opis:"
 
-#: src/dialogs.c:891
+#: src/dialogs.c:900
 msgid "Selected Theme"
 msgstr "Wybrany motyw"
 
-#: src/dialogs.c:910
+#: src/dialogs.c:919
 msgid "Themes"
 msgstr "Motywy"
 
 #. partyline
-#: src/dialogs.c:915
+#: src/dialogs.c:924
 msgid "Enable _Timestamps"
 msgstr "Włączone znaczniki _czasu"
 
-#: src/dialogs.c:917
+#: src/dialogs.c:926
 msgid "Enable Channel _List"
 msgstr "Włączone _listy kanałów"
 
 #. FIXME
-#: src/dialogs.c:943 src/gtetrinet.c:281
+#: src/dialogs.c:952 src/gtetrinet.c:281
 msgid "Partyline"
 msgstr "Pogawędka"
 
-#: src/dialogs.c:954
+#: src/dialogs.c:963
 msgid "Action"
 msgstr "Akcja"
 
-#: src/dialogs.c:956
+#: src/dialogs.c:965
 msgid "Key"
 msgstr "Klawisz"
 
-#: src/dialogs.c:962
+#: src/dialogs.c:971
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -320,32 +320,32 @@ msgstr ""
 "Wybierz akcję z listy i naciśnij Zmień klawisz aby zmienić klawisz "
 "przypisany do tej akcji."
 
-#: src/dialogs.c:969
+#: src/dialogs.c:978
 msgid "Change _key..."
 msgstr "Zmień _klawisz..."
 
-#: src/dialogs.c:974 src/dialogs.c:1027
+#: src/dialogs.c:983 src/dialogs.c:1036
 msgid "_Restore defaults"
 msgstr "_Przywróć domyślne"
 
-#: src/dialogs.c:995
+#: src/dialogs.c:1004
 msgid "Keyboard"
 msgstr "Klawiatura"
 
 #. sound
-#: src/dialogs.c:1000
+#: src/dialogs.c:1009
 msgid "Enable _Sound"
 msgstr "Włączony _dźwięk"
 
-#: src/dialogs.c:1003
+#: src/dialogs.c:1012
 msgid "Enable _MIDI"
 msgstr "Włączone _MIDI"
 
-#: src/dialogs.c:1017
+#: src/dialogs.c:1026
 msgid "Enter command to play a midi file:"
 msgstr "Podaj polecenie odtwarzania pliku midi:"
 
-#: src/dialogs.c:1020
+#: src/dialogs.c:1029
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -353,11 +353,11 @@ msgstr ""
 "Poniższe polecenie jest uruchamiane gdy należy odtworzyć plik midi. Nazwa "
 "pliku midi jest ustawiona w zmiennej środowiskowej MIDIFILE."
 
-#: src/dialogs.c:1057
+#: src/dialogs.c:1066
 msgid "Sound"
 msgstr "Dźwięk"
 
-#: src/fields.c:87
+#: src/fields.c:76
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
@@ -366,7 +366,7 @@ msgstr ""
 "pliku graficznego. Przywrócenie wartości domyślnych"
 
 #. shouldnt happen
-#: src/fields.c:96
+#: src/fields.c:85
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
@@ -374,31 +374,31 @@ msgstr ""
 "Błąd podczas wczytywania domyślnego motywu: Przerwanie...\n"
 "Sprawdź błędy instalacji\n"
 
-#: src/fields.c:217
+#: src/fields.c:206
 msgid "Next piece:"
 msgstr "Następny klocek:"
 
-#: src/fields.c:234
+#: src/fields.c:223
 msgid "Lines:"
 msgstr "Wiersze:"
 
-#: src/fields.c:238
+#: src/fields.c:227
 msgid "Level:"
 msgstr "Poziom"
 
-#: src/fields.c:240
+#: src/fields.c:229
 msgid "Active level:"
 msgstr "Aktywny poziom:"
 
-#: src/fields.c:288
+#: src/fields.c:277
 msgid "Attacks and defenses:"
 msgstr "Ataki i obrony:"
 
-#: src/fields.c:432
+#: src/fields.c:421
 msgid "Not playing"
 msgstr "Nie gra"
 
-#: src/fields.c:463
+#: src/fields.c:452
 msgid "Specials:"
 msgstr "Specjalne:"
 
@@ -693,30 +693,36 @@ msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
 msgstr ""
+"Włącza/wyłącza dźwięk. Należy pamiętać, by używany motyw środowiska "
+"dostarczał dźwięki."
 
 #: gtetrinet.schemas.in.h:7
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
 msgstr ""
+"Włącza/wyłącza muzykę MIDI. Aby muzyka działała, należy również włączyć "
+"dźwięk."
 
 #: gtetrinet.schemas.in.h:8
 msgid ""
 "Enables/disables the channel list. Disable it if you experience problems "
 "when connecting or while playing in your favorite tetrinet server."
 msgstr ""
+"Włącza/wyłącza listę kanałów. Wyłącz to, jeżeli są problemy podczas łączenia "
+"lub gry z ulubionym serwerem tetrinet."
 
 #: gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
-msgstr ""
+msgstr "Włącza/wyłącza znaczniki czasowe w pogawędce."
 
 #: gtetrinet.schemas.in.h:10
 msgid "Key to discard special"
-msgstr ""
+msgstr "Klawisz porzucania klocka specjalnego"
 
 #: gtetrinet.schemas.in.h:11
 msgid "Key to drop piece"
-msgstr ""
+msgstr "Klawisz upuszczania elementu"
 
 #: gtetrinet.schemas.in.h:12
 msgid "Key to move down"
@@ -744,27 +750,27 @@ msgstr "Klawisz do obracania w lewo"
 
 #: gtetrinet.schemas.in.h:18
 msgid "Key to use the current special on field 1"
-msgstr ""
+msgstr "Klawisz użycia klocka specjalnego na polu 1"
 
 #: gtetrinet.schemas.in.h:19
 msgid "Key to use the current special on field 2"
-msgstr ""
+msgstr "Klawisz użycia klocka specjalnego na polu 2"
 
 #: gtetrinet.schemas.in.h:20
 msgid "Key to use the current special on field 3"
-msgstr ""
+msgstr "Klawisz użycia klocka specjalnego na polu 3"
 
 #: gtetrinet.schemas.in.h:21
 msgid "Key to use the current special on field 4"
-msgstr ""
+msgstr "Klawisz użycia klocka specjalnego na polu 4"
 
 #: gtetrinet.schemas.in.h:22
 msgid "Key to use the current special on field 5"
-msgstr ""
+msgstr "Klawisz użycia klocka specjalnego na polu 5"
 
 #: gtetrinet.schemas.in.h:23
 msgid "Key to use the current special on field 6"
-msgstr ""
+msgstr "Klawisz użycia klocka specjalnego na polu 6"
 
 #: gtetrinet.schemas.in.h:24
 msgid "Server where you want to play"
@@ -787,66 +793,77 @@ msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
 msgstr ""
+"Polecenie uruchamiane gdy ma byc odgrywana muzyka MIDI. Nazwa pliku MIDI "
+"jest umieszczana w zmiennej środowiskowej MIDIFILE."
 
 #: gtetrinet.schemas.in.h:28
 msgid "This is the server where GTetrinet will try to connect."
-msgstr ""
+msgstr "Serwer z którym program GTetrinet będzie próbował się łączyć."
 
 #: gtetrinet.schemas.in.h:29
 msgid "This key discards the current special. This is case insensitive."
 msgstr ""
+"Ten klawisz odrzuca bieżący klocek specjalny. Wielkość liter nie ma "
+"znaczenia."
 
 #: gtetrinet.schemas.in.h:30
 msgid "This key displays the fields' message dialog. This is case insensitive."
 msgstr ""
+"Ten klawisz otwiera okno komunikatów pól. Wielkość liter nie ma znaczenia."
 
 #: gtetrinet.schemas.in.h:31
 msgid "This key drops the block to the ground. This is case insensitive."
 msgstr ""
+"Ten klawisz upuszcza klocek na podłoże. Wielkość liter nie ma znaczenia."
 
 #: gtetrinet.schemas.in.h:32
 msgid "This key moves the block down. This is case insensitive."
-msgstr ""
+msgstr "Ten klawisz przenosi klocek w dół. Wielkość liter nie ma znaczenia."
 
 #: gtetrinet.schemas.in.h:33
 msgid "This key moves the block to the left. This is case insensitive."
-msgstr ""
+msgstr "Ten klawisz przenosi klocek w lewo. Wielkość liter nie ma znaczenia."
 
 #: gtetrinet.schemas.in.h:34
 msgid "This key moves the block to the right. This is case insensitive."
-msgstr ""
+msgstr "Ten klawisz przenosi klocek w prawo. Wielkość liter nie ma znaczenia."
 
 #: gtetrinet.schemas.in.h:35
 msgid "This key rotates the block clockwise. This is case insensitive."
-msgstr ""
+msgstr "Ten klawisz obraca klocek w prawo. Wielkość liter nie ma znaczenia."
 
 #: gtetrinet.schemas.in.h:36
 msgid "This key rotates the block counterclockwise. This is case insensitive."
-msgstr ""
+msgstr "Ten klawisz obraca klocek w lewo. Wielkość liter nie ma znaczenia."
 
 #: gtetrinet.schemas.in.h:37
 msgid "This key uses the current special on Player 1's game field."
 msgstr ""
+"Ten klawisz używa bieżącego klocka specjalnego na polu gracza pierwszego."
 
 #: gtetrinet.schemas.in.h:38
 msgid "This key uses the current special on Player 2's game field."
 msgstr ""
+"Ten klawisz używa bieżącego klocka specjalnego na polu gracza drugiego."
 
 #: gtetrinet.schemas.in.h:39
 msgid "This key uses the current special on Player 3's game field."
 msgstr ""
+"Ten klawisz używa bieżącego klocka specjalnego na polu gracza trzeciego."
 
 #: gtetrinet.schemas.in.h:40
 msgid "This key uses the current special on Player 4's game field."
 msgstr ""
+"Ten klawisz używa bieżącego klocka specjalnego na polu gracza czwartego."
 
 #: gtetrinet.schemas.in.h:41
 msgid "This key uses the current special on Player 5's game field."
-msgstr ""
+msgstr "Ten klawisz używa bieżącego klocka specjalnego na polu gracza piątego."
 
 #: gtetrinet.schemas.in.h:42
 msgid "This key uses the current special on Player 6's game field."
 msgstr ""
+"Ten klawisz używa bieżącego klocka specjalnego na polu gracza szóstego."
 
 #: gtetrinet.schemas.in.h:43
 msgid "This will be the name of your team."
