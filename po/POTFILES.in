@@ -1,5 +1,5 @@
-src/commands.c
 src/client.c
+src/commands.c
 src/config.c
 src/dialogs.c
 src/fields.c
