@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet gnome2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-16 15:40+0200\n"
+"POT-Creation-Date: 2003-08-26 12:52+0200\n"
 "PO-Revision-Date: 2003-06-08 19:40+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
@@ -62,7 +62,7 @@ msgstr "Verbinden met een server"
 
 #: src/commands.c:83
 msgid "Disconnect"
-msgstr "Verbreken"
+msgstr "Verbinding verbreken"
 
 #: src/commands.c:83
 msgid "Disconnect from the current server"
@@ -133,12 +133,12 @@ msgstr "Een Tetrinet-cliënt voor GNOME.\n"
 msgid "GTetrinet Home Page"
 msgstr "GTetrinets internetpagina"
 
-#: src/config.c:134
+#: src/config.c:140
 msgid "Warning: theme does not have a name, reverting to default."
 msgstr "Waarschuwing: thema heeft geen naam, overgaan op standaardthema."
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:85 src/dialogs.c:333 src/gtetrinet.c:77
+#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
 msgid "Connect to server"
 msgstr "Verbinden met server"
 
@@ -146,126 +146,126 @@ msgstr "Verbinden met server"
 msgid "Team name:"
 msgstr "Teamnaam:"
 
-#: src/dialogs.c:213
+#: src/dialogs.c:215
 msgid "You must specify a server name."
 msgstr "U moet een servernaam opgeven."
 
-#: src/dialogs.c:230
+#: src/dialogs.c:232
 msgid "Please specify a password to connect as spectator."
 msgstr "Geef een wachtwoord om in te kunnen loggen als toeschouwer."
 
-#: src/dialogs.c:256
+#: src/dialogs.c:258
 msgid "Please specify a valid nickname."
 msgstr "Geef een geldige bijnaam."
 
 #. game type radio buttons
-#: src/dialogs.c:360
+#: src/dialogs.c:364
 msgid "O_riginal"
 msgstr "O_rigineel"
 
-#: src/dialogs.c:362
+#: src/dialogs.c:366
 msgid "Tetri_Fast"
 msgstr "Tetri_Fast"
 
-#: src/dialogs.c:384
+#: src/dialogs.c:388
 msgid "Server address"
 msgstr "Server-adres"
 
-#: src/dialogs.c:393
+#: src/dialogs.c:397
 msgid "Connect as a _spectator"
 msgstr "Aanmelden als _toeschouwer"
 
-#: src/dialogs.c:397
+#: src/dialogs.c:401
 msgid "_Password:"
 msgstr "_Wachtwoord:"
 
-#: src/dialogs.c:412
+#: src/dialogs.c:418
 msgid "Spectate game"
 msgstr "Spel bekijken"
 
-#: src/dialogs.c:421
+#: src/dialogs.c:427
 msgid "_Nick name:"
 msgstr "_Bijnaam:"
 
-#: src/dialogs.c:434
+#: src/dialogs.c:442
 msgid "_Team name:"
 msgstr "_Teamnaam:"
 
-#: src/dialogs.c:452
+#: src/dialogs.c:462
 msgid "Player information"
 msgstr "Spelerinformatie"
 
-#: src/dialogs.c:493
+#: src/dialogs.c:503
 msgid "Change Key"
 msgstr "Toets veranderen"
 
-#: src/dialogs.c:544
+#: src/dialogs.c:554
 msgid "Move right"
 msgstr "Naar rechts"
 
-#: src/dialogs.c:545
+#: src/dialogs.c:555
 msgid "Move left"
 msgstr "Naar links"
 
-#: src/dialogs.c:546
+#: src/dialogs.c:556
 msgid "Move down"
 msgstr "Naar beneden"
 
-#: src/dialogs.c:547
+#: src/dialogs.c:557
 msgid "Rotate right"
 msgstr "Rechts draaien"
 
-#: src/dialogs.c:548
+#: src/dialogs.c:558
 msgid "Rotate left"
 msgstr "Links draaien"
 
 # hier vrij vertaald, de bedoeling is duidelijk
-#: src/dialogs.c:549
+#: src/dialogs.c:559
 msgid "Drop piece"
 msgstr "Laten vallen"
 
-#: src/dialogs.c:550
+#: src/dialogs.c:560
 msgid "Discard special"
 msgstr "Speciaale verwerpen"
 
-#: src/dialogs.c:551
+#: src/dialogs.c:561
 msgid "Send message"
 msgstr "Stuur bericht"
 
-#: src/dialogs.c:552
+#: src/dialogs.c:562
 msgid "Special to field 1"
 msgstr "Speciale naar veld 1"
 
-#: src/dialogs.c:553
+#: src/dialogs.c:563
 msgid "Special to field 2"
 msgstr "Speciale naar veld 2"
 
-#: src/dialogs.c:554
+#: src/dialogs.c:564
 msgid "Special to field 3"
 msgstr "Speciale naar veld 3"
 
-#: src/dialogs.c:555
+#: src/dialogs.c:565
 msgid "Special to field 4"
 msgstr "Speciale naar veld 4"
 
-#: src/dialogs.c:556
+#: src/dialogs.c:566
 msgid "Special to field 5"
 msgstr "Speciale naar veld 5"
 
-#: src/dialogs.c:557
+#: src/dialogs.c:567
 msgid "Special to field 6"
 msgstr "Speciale naar veld 6"
 
-#: src/dialogs.c:617
+#: src/dialogs.c:627
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Geef nieuwe toets voor \"%s\""
 
-#: src/dialogs.c:834
+#: src/dialogs.c:844
 msgid "GTetrinet Preferences"
 msgstr "GTetrinet Voorkeuren"
 
-#: src/dialogs.c:857
+#: src/dialogs.c:867
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -273,49 +273,49 @@ msgstr ""
 "Selecteer een thema uit de lijst.\n"
 "Installeer nieuwe thema's in ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:865
+#: src/dialogs.c:875
 msgid "Name:"
 msgstr "Naam:"
 
-#: src/dialogs.c:869
+#: src/dialogs.c:879
 msgid "Author:"
 msgstr "Auteur:"
 
-#: src/dialogs.c:873
+#: src/dialogs.c:883
 msgid "Description:"
 msgstr "Beschrijving:"
 
-#: src/dialogs.c:891
+#: src/dialogs.c:901
 msgid "Selected Theme"
 msgstr "Geselecteerd thema"
 
-#: src/dialogs.c:910
+#: src/dialogs.c:920
 msgid "Themes"
 msgstr "Thema's"
 
 #. partyline
-#: src/dialogs.c:915
+#: src/dialogs.c:925
 msgid "Enable _Timestamps"
 msgstr "_Timestamps aanzetten"
 
-#: src/dialogs.c:917
+#: src/dialogs.c:927
 msgid "Enable Channel _List"
 msgstr "Kanaal_lijst aanzetten"
 
 #. FIXME
-#: src/dialogs.c:943 src/gtetrinet.c:281
+#: src/dialogs.c:953 src/gtetrinet.c:281
 msgid "Partyline"
 msgstr "Party-lijn"
 
-#: src/dialogs.c:954
+#: src/dialogs.c:964
 msgid "Action"
 msgstr "Actie"
 
-#: src/dialogs.c:956
+#: src/dialogs.c:966
 msgid "Key"
 msgstr "Toets"
 
-#: src/dialogs.c:962
+#: src/dialogs.c:972
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -323,32 +323,32 @@ msgstr ""
 "Selecteer een aktie uit de lijst en druk op 'Toets veranderen' om een andere "
 "toets te koppelen aan de aktie."
 
-#: src/dialogs.c:969
+#: src/dialogs.c:979
 msgid "Change _key..."
 msgstr "Toets _veranderen..."
 
-#: src/dialogs.c:974 src/dialogs.c:1027
+#: src/dialogs.c:984 src/dialogs.c:1037
 msgid "_Restore defaults"
 msgstr "Standaarden _terugzetten"
 
-#: src/dialogs.c:995
+#: src/dialogs.c:1005
 msgid "Keyboard"
 msgstr "Toetsenbord"
 
 #. sound
-#: src/dialogs.c:1000
+#: src/dialogs.c:1010
 msgid "Enable _Sound"
 msgstr "_Geluid aanzetten"
 
-#: src/dialogs.c:1003
+#: src/dialogs.c:1013
 msgid "Enable _MIDI"
 msgstr "_MIDI aanzetten"
 
-#: src/dialogs.c:1017
+#: src/dialogs.c:1027
 msgid "Enter command to play a midi file:"
 msgstr "Opdracht om een midi-bestand af te spelen:"
 
-#: src/dialogs.c:1020
+#: src/dialogs.c:1030
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -357,11 +357,11 @@ msgstr ""
 "afgespeeld.  De naam van het midi-bestand wordt opgeslagen in de "
 "omgevingsvariabele MIDIFILE."
 
-#: src/dialogs.c:1057
+#: src/dialogs.c:1067
 msgid "Sound"
 msgstr "Geluid"
 
-#: src/fields.c:87
+#: src/fields.c:76
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
@@ -370,7 +370,7 @@ msgstr ""
 "Terugvallen naar de standaard"
 
 #. shouldnt happen
-#: src/fields.c:96
+#: src/fields.c:85
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
@@ -378,31 +378,31 @@ msgstr ""
 "Fout bij laden standaard-thema: Afbreken...\n"
 "Controleer op installatiefouten\n"
 
-#: src/fields.c:217
+#: src/fields.c:206
 msgid "Next piece:"
 msgstr "Volgende stuk:"
 
-#: src/fields.c:234
+#: src/fields.c:223
 msgid "Lines:"
 msgstr "Regels:"
 
-#: src/fields.c:238
+#: src/fields.c:227
 msgid "Level:"
 msgstr "Niveau:"
 
-#: src/fields.c:240
+#: src/fields.c:229
 msgid "Active level:"
 msgstr "Huidige niveau:"
 
-#: src/fields.c:288
+#: src/fields.c:277
 msgid "Attacks and defenses:"
 msgstr "Aanval en verdediging:"
 
-#: src/fields.c:432
+#: src/fields.c:421
 msgid "Not playing"
 msgstr "Niet spelend"
 
-#: src/fields.c:463
+#: src/fields.c:452
 msgid "Specials:"
 msgstr "Speciale:"
 
