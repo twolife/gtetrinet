@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet HEAD\n"
-"POT-Creation-Date: 2003-03-05 20:20+0100\n"
-"PO-Revision-Date: 2003-03-17 22:21+0900\n"
+"POT-Creation-Date: 2003-05-05 23:28+0900\n"
+"PO-Revision-Date: 2003-05-05 23:33+0900\n"
 "Last-Translator: KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -18,116 +18,116 @@ msgstr ""
 msgid "Couldn't resolve hostname."
 msgstr "ホスト名を解決できません。"
 
-#: src/commands.c:38
+#: src/commands.c:45
 msgid "_Connect to server..."
 msgstr "サーバに接続(_C)..."
 
-#: src/commands.c:39
+#: src/commands.c:46
 msgid "_Disconnect from server"
 msgstr "サーバとの接続を切断(_D)"
 
-#: src/commands.c:41
+#: src/commands.c:48
 msgid "Change _team..."
 msgstr "チームを変更(_T)..."
 
-#: src/commands.c:43
+#: src/commands.c:50
 msgid "_Start game"
 msgstr "ゲーム開始(_S)"
 
-#: src/commands.c:44
+#: src/commands.c:51
 msgid "_Pause game"
 msgstr "一時停止(_P)"
 
-#: src/commands.c:45
+#: src/commands.c:52
 msgid "_End game"
 msgstr "ゲーム終了(_E)"
 
-#: src/commands.c:50
+#: src/commands.c:57
 msgid "Detac_h page..."
 msgstr "ページを分離する(_H)..."
 
-#: src/commands.c:75
+#: src/commands.c:82
 msgid "Connect"
 msgstr "接続"
 
-#: src/commands.c:75
+#: src/commands.c:82
 msgid "Connect to a server"
 msgstr "サーバに接続する"
 
-#: src/commands.c:76
+#: src/commands.c:83
 msgid "Disconnect"
 msgstr "切断"
 
-#: src/commands.c:76
+#: src/commands.c:83
 msgid "Disconnect from the current server"
 msgstr "現在のサーバとの接続を切断する"
 
-#: src/commands.c:78
+#: src/commands.c:85
 msgid "Start game"
 msgstr "ゲーム開始"
 
-#: src/commands.c:78
+#: src/commands.c:85
 msgid "Start a new game"
 msgstr "新規ゲームを開始する"
 
-#: src/commands.c:79
+#: src/commands.c:86
 msgid "Pause game"
 msgstr "一時停止"
 
-#: src/commands.c:79
+#: src/commands.c:86
 msgid "Pause the game"
 msgstr "ゲームを一時停止する"
 
-#: src/commands.c:80
+#: src/commands.c:87
 msgid "End game"
 msgstr "ゲーム終了"
 
-#: src/commands.c:80
+#: src/commands.c:87
 msgid "End the current game"
 msgstr "現在のゲームを終了する"
 
-#: src/commands.c:82 src/dialogs.c:155
+#: src/commands.c:89 src/dialogs.c:155
 msgid "Change team"
 msgstr "チーム変更"
 
-#: src/commands.c:82
+#: src/commands.c:89
 msgid "Change your current team name"
 msgstr "現在のチーム名を変更する"
 
-#: src/commands.c:85
+#: src/commands.c:92
 msgid "Detach page"
 msgstr "ページ分離"
 
-#: src/commands.c:85
+#: src/commands.c:92
 msgid "Detach the current notebook page"
 msgstr "現在のノートブックページを分離する"
 
-#: src/commands.c:207
+#: src/commands.c:215
 msgid "Game in progress"
 msgstr "進行中のゲーム"
 
-#: src/commands.c:210
+#: src/commands.c:218
 msgid "Connected to\n"
 msgstr "Connected to\n"
 
-#: src/commands.c:214
+#: src/commands.c:222
 msgid "Not connected"
 msgstr "未接続"
 
 #. Translators: translate as your names & emails
-#: src/commands.c:236
+#: src/commands.c:244
 msgid "translator_credits"
 msgstr "KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>"
 
-#: src/commands.c:241
+#: src/commands.c:249
 msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
 msgstr "(C) 1999, 2000, 2001, 2002, 20003 Ka-shu Wong"
 
-#: src/commands.c:242
+#: src/commands.c:250
 msgid "A Tetrinet client for GNOME.\n"
 msgstr "GNOME 用 Tetrinet クライアント\n"
 
-#: src/commands.c:254
+#: src/commands.c:262
 msgid "GTetrinet Home Page"
 msgstr "GTetrinet ホームページ"
 
@@ -140,7 +140,7 @@ msgstr "警告: テーマに名前がありません。デフォルトに戻し�
 msgid "Connect to server"
 msgstr "サーバに接続"
 
-#: src/dialogs.c:167 src/dialogs.c:429
+#: src/dialogs.c:167
 msgid "Team name:"
 msgstr "チーム名:"
 
@@ -158,83 +158,87 @@ msgstr "有効なニックネームを指定してください。"
 
 #. game type radio buttons
 #: src/dialogs.c:357
-msgid "Original"
-msgstr "オリジナル"
+msgid "O_riginal"
+msgstr "オリジナル(_R)"
 
 #: src/dialogs.c:359
-msgid "TetriFast"
-msgstr "TetriFast"
+msgid "Tetri_Fast"
+msgstr "TetriFast(_F)"
 
 #: src/dialogs.c:381
 msgid "Server address"
 msgstr "サーバアドレス"
 
-#: src/dialogs.c:390 src/gtetrinet.c:80
-msgid "Connect as a spectator"
-msgstr "見物人として接続"
+#: src/dialogs.c:390
+msgid "Connect as a _spectator"
+msgstr "見物人として接続(_S)"
 
 #: src/dialogs.c:394
-msgid "Password:"
-msgstr "パスワード:"
+msgid "_Password:"
+msgstr "パスワード(_P):"
 
-#: src/dialogs.c:408
+#: src/dialogs.c:409
 msgid "Spectate game"
 msgstr "ゲームを見物"
 
-#: src/dialogs.c:417
-msgid "Nick name:"
-msgstr "ニックネーム:"
+#: src/dialogs.c:418
+msgid "_Nick name:"
+msgstr "ニックネーム(_N):"
 
-#: src/dialogs.c:446
+#: src/dialogs.c:431
+msgid "_Team name:"
+msgstr "チーム名(_T):"
+
+#: src/dialogs.c:449
 msgid "Player information"
 msgstr "プレイヤの情報"
 
-#: src/dialogs.c:487
+#: src/dialogs.c:490
 msgid "Change Key"
 msgstr "キーを変更"
 
-#: src/dialogs.c:538
+#: src/dialogs.c:541
 msgid "Move right"
 msgstr "右へ移動"
 
-#: src/dialogs.c:539
+#: src/dialogs.c:542
 msgid "Move left"
 msgstr "左へ移動"
 
-#: src/dialogs.c:540
+#: src/dialogs.c:543
 msgid "Move down"
 msgstr "下へ移動"
 
-#: src/dialogs.c:541
+#: src/dialogs.c:544
 msgid "Rotate right"
 msgstr "右回転"
 
-#: src/dialogs.c:542
+#: src/dialogs.c:545
 msgid "Rotate left"
 msgstr "左回転"
 
-#: src/dialogs.c:543
+#: src/dialogs.c:546
 msgid "Drop piece"
 msgstr "落す"
 
-#: src/dialogs.c:544
+#: src/dialogs.c:547
 msgid "Discard special"
 msgstr "スペシャルブロックを捨てる"
 
-#: src/dialogs.c:545
+#: src/dialogs.c:548
 msgid "Send message"
 msgstr "メッセージ送信"
 
-#: src/dialogs.c:599
+#: src/dialogs.c:602
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "\"%s\" に割り当てる新しいキーを推してください"
 
-#: src/dialogs.c:809
+#: src/dialogs.c:819
 msgid "GTetrinet Preferences"
 msgstr "GTetrinet 設定"
 
-#: src/dialogs.c:832
+#: src/dialogs.c:842
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -242,86 +246,90 @@ msgstr ""
 "リストからテーマを選択してください。\n"
 "新しいテーマを ~/.gtetrinet/themes/ にインストールします。"
 
-#: src/dialogs.c:840
+#: src/dialogs.c:850
 msgid "Name:"
 msgstr "名前:"
 
-#: src/dialogs.c:844
+#: src/dialogs.c:854
 msgid "Author:"
 msgstr "作者:"
 
-#: src/dialogs.c:848
+#: src/dialogs.c:858
 msgid "Description:"
 msgstr "説明:"
 
-#: src/dialogs.c:866
+#: src/dialogs.c:876
 msgid "Selected Theme"
 msgstr "選択したテーマ"
 
-#: src/dialogs.c:885
+#: src/dialogs.c:895
 msgid "Themes"
 msgstr "テーマ"
 
 #. partyline
-#: src/dialogs.c:890
-msgid "Enable Timestamps"
-msgstr "タイムスタンプを有効にする"
+#: src/dialogs.c:900
+msgid "Enable _Timestamps"
+msgstr "タイムスタンプを有効にする(_T)"
+
+#: src/dialogs.c:902
+msgid "Enable Channel _List"
+msgstr "チャネルリストを有効にする(_L)"
 
 #. FIXME
-#: src/dialogs.c:911 src/gtetrinet.c:253
+#: src/dialogs.c:928 src/gtetrinet.c:257
 msgid "Partyline"
 msgstr "プレイした時間"
 
-#: src/dialogs.c:922
+#: src/dialogs.c:939
 msgid "Action"
 msgstr "アクション"
 
-#: src/dialogs.c:924
+#: src/dialogs.c:941
 msgid "Key"
 msgstr "キー"
 
-#: src/dialogs.c:930
+#: src/dialogs.c:947
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
 msgstr ""
-"リストからアクションを選択し、\"キーを変更\" ボタンを押して、"
-"アクションに関連付けられているキーを変更してください。"
+"リストからアクションを選択し、\"キーを変更\" ボタンを押して、アクションに関連"
+"付けられているキーを変更してください。"
 
-#: src/dialogs.c:936
-msgid "Change key..."
-msgstr "キーを変更..."
+#: src/dialogs.c:953
+msgid "Change _key..."
+msgstr "キーを変更(_K)..."
 
-#: src/dialogs.c:941 src/dialogs.c:994
-msgid "Restore defaults"
-msgstr "デフォルトに戻す"
+#: src/dialogs.c:958 src/dialogs.c:1011
+msgid "_Restore defaults"
+msgstr "デフォルトに戻す(_R)"
 
-#: src/dialogs.c:962
+#: src/dialogs.c:979
 msgid "Keyboard"
 msgstr "キーボード"
 
 #. sound
-#: src/dialogs.c:967
-msgid "Enable Sound"
-msgstr "サウンドを有効にする"
-
-#: src/dialogs.c:970
-msgid "Enable MIDI"
-msgstr "MIDI を有効にする"
-
 #: src/dialogs.c:984
+msgid "Enable _Sound"
+msgstr "サウンドを有効にする(_S)"
+
+#: src/dialogs.c:987
+msgid "Enable _MIDI"
+msgstr "MIDI を有効にする(_M)"
+
+#: src/dialogs.c:1001
 msgid "Enter command to play a midi file:"
 msgstr "midi ファイルを再生するコマンドを入力してください: "
 
-#: src/dialogs.c:987
+#: src/dialogs.c:1004
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
 msgstr ""
-"上記コマンドは、midi ファイルを再生する時に実行されます。"
-"midi ファイル名は環境変数 MIDIFILE に設定されます。"
+"上記コマンドは、midi ファイルを再生する時に実行されます。midi ファイル名は環"
+"境変数 MIDIFILE に設定されます。"
 
-#: src/dialogs.c:1024
+#: src/dialogs.c:1041
 msgid "Sound"
 msgstr "サウンド"
 
@@ -390,6 +398,10 @@ msgstr "チーム名の設定"
 msgid "TEAM"
 msgstr "チーム"
 
+#: src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "見物人として接続"
+
 #: src/gtetrinet.c:81
 msgid "Spectator password"
 msgstr "見物人用パスワード"
@@ -404,215 +416,219 @@ msgid "Failed to init GConf: %s\n"
 msgstr "GConf の初期化に失敗しました: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:242 src/gtetrinet.c:386 src/gtetrinet.c:437
+#: src/gtetrinet.c:246 src/gtetrinet.c:392 src/gtetrinet.c:443
 msgid "Playing Fields"
 msgstr "プレイフィールド"
 
 #. FIXME
-#: src/gtetrinet.c:264
+#: src/gtetrinet.c:268
 msgid "Winlist"
 msgstr "勝利リスト"
 
-#: src/partyline.c:75 src/partyline.c:133 src/winlist.c:47
+#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
 msgid "Name"
 msgstr "名前"
 
-#: src/partyline.c:77
+#: src/partyline.c:79
 msgid "Players"
 msgstr "プレイヤ"
 
-#: src/partyline.c:79
+#: src/partyline.c:81
 msgid "State"
 msgstr "状態"
 
-#: src/partyline.c:81
+#: src/partyline.c:83
 msgid "Description"
 msgstr "説明"
 
-#: src/partyline.c:135
+#: src/partyline.c:95
+msgid "Channel List"
+msgstr "チャネルリスト"
+
+#: src/partyline.c:140
 msgid "Team"
 msgstr "チーム"
 
-#: src/partyline.c:148
+#: src/partyline.c:153
 msgid "Your name:"
 msgstr "あなたの名前:"
 
-#: src/partyline.c:155
+#: src/partyline.c:160
 msgid "Your team:"
 msgstr "あなたのチーム"
 
-#: src/partyline.c:565
+#: src/partyline.c:612
 msgid "Talking in channel"
 msgstr "チャネルで会話する"
 
-#: src/partyline.c:567
+#: src/partyline.c:614
 msgid "Disconnected"
 msgstr "接続の切断"
 
-#: src/tetrinet.c:191
+#: src/tetrinet.c:192
 msgid "Server disconnected"
 msgstr "サーバとの接続を切断"
 
-#: src/tetrinet.c:211
+#: src/tetrinet.c:212
 #, c-format
 msgid "%c%c*** Disconnected from server"
 msgstr "%c%c*** サーバから接続を切断されました"
 
-#: src/tetrinet.c:222
+#: src/tetrinet.c:223
 msgid "Error connecting: "
 msgstr "接続時エラー: "
 
-#: src/tetrinet.c:254
+#: src/tetrinet.c:255
 #, c-format
 msgid "%c%c*** Connected to server"
 msgstr "%c%c*** サーバに接続しました"
 
-#: src/tetrinet.c:354
+#: src/tetrinet.c:356
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
 msgstr "%c%c*** ゲームから拒否されました"
 
-#: src/tetrinet.c:358
+#: src/tetrinet.c:360
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
 msgstr "%c*** %c%s%c%c ゲームから拒否されました"
 
-#: src/tetrinet.c:510
+#: src/tetrinet.c:535
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
 msgstr "%c*** チーム %c%s%c%c はゲームに勝利しました"
 
-#: src/tetrinet.c:516
+#: src/tetrinet.c:541
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
 msgstr "%c*** %c%s%c%c はゲームに勝利しました"
 
-#: src/tetrinet.c:576
+#: src/tetrinet.c:601
 #, c-format
 msgid "%c*** The game has %cstarted"
 msgstr "%c*** ゲームは %c開始しました "
 
-#: src/tetrinet.c:601
+#: src/tetrinet.c:626
 #, c-format
 msgid "%c*** The game is %cin progress"
 msgstr "%c*** ゲームは %c進行中です"
 
-#: src/tetrinet.c:612
+#: src/tetrinet.c:637
 #, c-format
 msgid "%c*** The game has %cpaused"
 msgstr "%c*** ゲームは %c一時停止中です"
 
-#: src/tetrinet.c:614
+#: src/tetrinet.c:639
 #, c-format
 msgid "The game has %c%cpaused"
 msgstr "ゲームは %c%c一時停止中です"
 
-#: src/tetrinet.c:619
+#: src/tetrinet.c:644
 #, c-format
 msgid "%c*** The game has %cresumed"
 msgstr "%c*** ゲームは %c再開されました"
 
-#: src/tetrinet.c:621
+#: src/tetrinet.c:646
 #, c-format
 msgid "The game has %c%cresumed"
 msgstr "ゲームは %c%c再開されました"
 
-#: src/tetrinet.c:630
+#: src/tetrinet.c:655
 #, c-format
 msgid "%c*** The game has %cended"
 msgstr "%c*** ゲームは %c終了しました"
 
-#: src/tetrinet.c:740
+#: src/tetrinet.c:765
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
 msgstr "%c*** あなたは %c%s%c%c を加えました"
 
-#: src/tetrinet.c:757
+#: src/tetrinet.c:782
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c は見物人 %c%c(%c%s%c%c%c) を加えました"
 
-#: src/tetrinet.c:778
+#: src/tetrinet.c:803
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c は見物人 %c%c(%c%s%c%c%c) を外しました"
 
-#: src/tetrinet.c:1016
+#: src/tetrinet.c:1041
 msgid "No special blocks"
 msgstr "スペシャルブロックなし"
 
-#: src/tetrinet.c:1175 src/tetrinet.c:1182
+#: src/tetrinet.c:1200 src/tetrinet.c:1207
 #, c-format
 msgid " on %c%c%s%c%c"
 msgstr "%c%c%s%c%c 上に"
 
-#: src/tetrinet.c:1192
+#: src/tetrinet.c:1217
 msgid " to All"
 msgstr "全てに"
 
-#: src/tetrinet.c:1198 src/tetrinet.c:1205
+#: src/tetrinet.c:1223 src/tetrinet.c:1230
 #, c-format
 msgid " by %c%c%s%c%c"
 msgstr "%c%c%s%c%c によって"
 
-#: src/tetrinet.c:1798
+#: src/tetrinet.c:1823
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
 msgstr "%c*** %c%s%c%c はモデレータです"
 
 #. remove ", " from end of string
-#: src/tetrinet.c:1847
+#: src/tetrinet.c:1872
 msgid " has left the game"
 msgstr " はゲームから離れました"
 
-#: src/tetrinet.c:1848
+#: src/tetrinet.c:1873
 msgid " have left the game"
 msgstr " はゲームから離れました"
 
-#: src/tetrinet.c:1861
+#: src/tetrinet.c:1886
 msgid " has joined the game"
 msgstr " がゲームに加わりました"
 
-#: src/tetrinet.c:1862
+#: src/tetrinet.c:1887
 msgid " have joined the game"
 msgstr " がゲームに加わりました"
 
-#: src/tetrinet.c:1885
+#: src/tetrinet.c:1910
 #, c-format
 msgid "%s is on team %c%s"
 msgstr "%s はチーム %c%s にいます"
 
-#: src/tetrinet.c:1888
+#: src/tetrinet.c:1913
 #, c-format
 msgid "%s is alone"
 msgstr "%s は単独です"
 
-#: src/tetrinet.c:1890
+#: src/tetrinet.c:1915
 #, c-format
 msgid "%s are on team %c%s"
 msgstr "%s はチーム %c%s にいます"
 
-#: src/tetrinet.c:1893
+#: src/tetrinet.c:1918
 #, c-format
 msgid "%s are alone"
 msgstr "%s は単独です"
 
-#: src/tetrinet.c:1934
+#: src/tetrinet.c:1959
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
 msgstr "%c*** %c%s%c%c は現在、チーム %c%s にいます"
 
-#: src/tetrinet.c:1941
+#: src/tetrinet.c:1966
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
 msgstr "%c*** %c%s%c%c は現在、単独です"
 
 #. "T" stands for "Team" here
-#: src/winlist.c:45
+#: src/winlist.c:57
 msgid "T"
 msgstr "チーム"
 
-#: src/winlist.c:49
+#: src/winlist.c:61
 msgid "Score"
 msgstr "スコア"
 
@@ -633,147 +649,155 @@ msgid "Command to run to play midi files."
 msgstr "midi ファイルを再生するコマンド。"
 
 #: gtetrinet.schemas.in.h:2
+msgid "Enable/disable channel list."
+msgstr "チャネルリストを有効/無効にする。"
+
+#: gtetrinet.schemas.in.h:3
 msgid "Enable/disable midi music."
 msgstr "midi 音源を有効/無効にする。"
 
-#: gtetrinet.schemas.in.h:3
+#: gtetrinet.schemas.in.h:4
 msgid "Enable/disable sound."
 msgstr "サウンドを有効/無効にする。"
 
-#: gtetrinet.schemas.in.h:4
+#: gtetrinet.schemas.in.h:5
 msgid "Enable/disable timestamps."
 msgstr "タイムスタンプを有効/無効にする。"
 
-#: gtetrinet.schemas.in.h:5
+#: gtetrinet.schemas.in.h:6
 msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
 msgstr ""
-"サウンドを有効/無効にします。ご利用のテーマがサウンド機能を提供しなければ"
-"利用できないことに注意してください。"
+"サウンドを有効/無効にします。ご利用のテーマがサウンド機能を提供しなければ利用"
+"できないことに注意してください。"
 
-#: gtetrinet.schemas.in.h:6
+#: gtetrinet.schemas.in.h:7
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
 msgstr ""
-"midi 音源を有効/無効にします。音楽を流したい場合はサウンド機能も有効にする"
-"必要があります。"
+"midi 音源を有効/無効にします。音楽を流したい場合はサウンド機能も有効にする必"
+"要があります。"
 
-#: gtetrinet.schemas.in.h:7
+#: gtetrinet.schemas.in.h:8
+msgid ""
+"Enables/disables the channel list. Disable it if you experience problems "
+"when connecting or while playing in your favorite tetrinet server."
+msgstr "チャネルリストを有効/無効にします。お好みの tetrinet サーバへ接続するときやプレイ中に問題が発生したことがある場合は、無効にしてください。"
+
+#: gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
 msgstr "パーティラインのタイムスタンプを有効/無効にします。"
 
-#: gtetrinet.schemas.in.h:8
+#: gtetrinet.schemas.in.h:10
 msgid "Key to discard special."
 msgstr "スベシャルブロックを捨てるキー。"
 
-#: gtetrinet.schemas.in.h:9
+#: gtetrinet.schemas.in.h:11
 msgid "Key to drop piece."
 msgstr "ブロックを落とすキー。"
 
-#: gtetrinet.schemas.in.h:10
+#: gtetrinet.schemas.in.h:12
 msgid "Key to move down."
 msgstr "下に移動するキー。"
 
-#: gtetrinet.schemas.in.h:11
+#: gtetrinet.schemas.in.h:13
 msgid "Key to move left."
 msgstr "左に移動するキー。"
 
-#: gtetrinet.schemas.in.h:12
+#: gtetrinet.schemas.in.h:14
 msgid "Key to move right."
 msgstr "右に移動するキー。"
 
-#: gtetrinet.schemas.in.h:13
+#: gtetrinet.schemas.in.h:15
 msgid "Key to open the fields' message dialog."
 msgstr "フィールドのメッセージダイアログを開くキー。"
 
-#: gtetrinet.schemas.in.h:14
+#: gtetrinet.schemas.in.h:16
 msgid "Key to rotate clockwise."
 msgstr "時計回しに回転させるキー。"
 
-#: gtetrinet.schemas.in.h:15
+#: gtetrinet.schemas.in.h:17
 msgid "Key to rotate counterclockwise."
 msgstr "反時計回しに回転させるキー。"
 
-#: gtetrinet.schemas.in.h:16
+#: gtetrinet.schemas.in.h:18
 msgid "Server where you want to play."
 msgstr "プレイしたいサーバ。"
 
-#: gtetrinet.schemas.in.h:17
+#: gtetrinet.schemas.in.h:19
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
 msgstr ""
-"現在のテーマのディレクトリです。読み込み可能な \"blocks.png\" と "
-"\"theme.png\" が存在しているべきです。"
+"現在のテーマのディレクトリです。読み込み可能な \"blocks.png\" と \"theme.png"
+"\" が存在しているべきです。"
 
-#: gtetrinet.schemas.in.h:18
+#: gtetrinet.schemas.in.h:20
 msgid "Theme directory, should end with a '/'."
 msgstr "テーマディレクトリは '/' で終わるべきです。"
 
-#: gtetrinet.schemas.in.h:19
+#: gtetrinet.schemas.in.h:21
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
 msgstr ""
-"このコマンドは midi ファイルを再生する時に実行されます。"
-"midiファイル名は環境変数 MIDIFILE に設定されます。"
+"このコマンドは midi ファイルを再生する時に実行されます。midiファイル名は環境"
+"変数 MIDIFILE に設定されます。"
 
-#: gtetrinet.schemas.in.h:20
+#: gtetrinet.schemas.in.h:22
 msgid "This is the server where GTetrinet will try to connect."
 msgstr "これは Gtetrinet が接続を試みるサーバです。"
 
-#: gtetrinet.schemas.in.h:21
+#: gtetrinet.schemas.in.h:23
 msgid "This key discards the current special. This is case insensitive."
 msgstr ""
-"このキーは現在のスペシャルブロックを捨てます。"
-"大文字小文字を区別します。"
+"このキーは現在のスペシャルブロックを捨てます。大文字小文字を区別します。"
 
-#: gtetrinet.schemas.in.h:22
+#: gtetrinet.schemas.in.h:24
 msgid "This key displays the fields' message dialog. This is case insensitive."
 msgstr ""
-"このキーはフィールドのメッセージダイアログを表示します。"
-"大文字小文字を区別します。"
+"このキーはフィールドのメッセージダイアログを表示します。大文字小文字を区別し"
+"ます。"
 
-#: gtetrinet.schemas.in.h:23
+#: gtetrinet.schemas.in.h:25
 msgid "This key drops the block to the ground. This is case insensitive."
 msgstr "このキーはブロックを下まで落とします。大文字小文字を区別します。"
 
-#: gtetrinet.schemas.in.h:24
+#: gtetrinet.schemas.in.h:26
 msgid "This key moves the block down. This is case insensitive."
 msgstr "このキーはブロックを下に移動させます。大文字小文字を区別します。"
 
-#: gtetrinet.schemas.in.h:25
+#: gtetrinet.schemas.in.h:27
 msgid "This key moves the block to the left. This is case insensitive."
 msgstr "このキーはブロックを左に移動させます。大文字小文字を区別します。"
 
-#: gtetrinet.schemas.in.h:26
+#: gtetrinet.schemas.in.h:28
 msgid "This key moves the block to the right. This is case insensitive."
 msgstr "このキーはブロックを右に移動します。大文字小文字を区別します。"
 
-#: gtetrinet.schemas.in.h:27
+#: gtetrinet.schemas.in.h:29
 msgid "This key rotates the block clockwise. This is case insensitive."
 msgstr "このキーはブロックを時計回しに回転させます。大文字小文字を区別します。"
 
-#: gtetrinet.schemas.in.h:28
+#: gtetrinet.schemas.in.h:30
 msgid "This key rotates the block counterclockwise. This is case insensitive."
 msgstr ""
-"このキーはブロックを反時計回しに回転させます。"
-"大文字小文字を区別します。"
+"このキーはブロックを反時計回しに回転させます。大文字小文字を区別します。"
 
-#: gtetrinet.schemas.in.h:29
+#: gtetrinet.schemas.in.h:31
 msgid "This will be the name of your team."
 msgstr "これはあなたのチームの名前になります。"
 
-#: gtetrinet.schemas.in.h:30
+#: gtetrinet.schemas.in.h:32
 msgid "This will be your nickname in the game."
 msgstr "これはあなたのゲームにおけるニックネームになります。"
 
-#: gtetrinet.schemas.in.h:31
+#: gtetrinet.schemas.in.h:33
 msgid "Your nickname."
 msgstr "あなたのニックネーム。"
 
-#: gtetrinet.schemas.in.h:32
+#: gtetrinet.schemas.in.h:34
 msgid "Your team."
 msgstr "あなたのチーム。"
