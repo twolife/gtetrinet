@@ -99,7 +99,6 @@ static int gtetrinet_poll_func(GPollFD *passed_fds,
 int main (int argc, char *argv[])
 {
     GtkWidget *label;
-    char buf[1024];
     GdkPixbuf *icon_pixbuf;
     GError *err = NULL;
     

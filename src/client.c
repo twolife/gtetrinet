@@ -144,8 +144,7 @@ static int client_connect (void);
 static void client_connected (void);
 
 /* some other useful functions */
-static gboolean
-io_channel_cb (GIOChannel *source, GIOCondition condition, gpointer data);
+static gboolean io_channel_cb (GIOChannel *source, GIOCondition condition);
 static int client_sendmsg (char *str);
 static int client_readmsg (gchar **str);
 static void server_ip (unsigned char buf[4]);
@@ -293,7 +292,7 @@ int client_connect (void)
     io_channel = g_io_channel_unix_new (sock);
     g_io_channel_set_encoding (io_channel, NULL, NULL);
     g_io_channel_set_buffered (io_channel, FALSE);
-    source = g_io_add_watch (io_channel, G_IO_IN, io_channel_cb, NULL);
+    source = g_io_add_watch (io_channel, G_IO_IN, (GIOFunc)io_channel_cb, NULL);
     
     /* say hello to the server */
     {
@@ -363,10 +362,11 @@ void client_disconnect (void)
 /* some other useful functions */
 
 static gboolean
-io_channel_cb (GIOChannel *source, GIOCondition condition, gpointer data)
+io_channel_cb (GIOChannel *source, GIOCondition condition)
 {
   gchar *buf;
-  gint i = 0;
+  
+  source = source; /* get rid of the warnings */
   
   switch (condition)
   {
@@ -412,7 +412,6 @@ int client_readmsg (gchar **str)
     gint bytes = 0;
     gchar buf[1024];
     GError *error = NULL;
-    GIOStatus status;
     gint i = 0;
   
     do

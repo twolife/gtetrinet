@@ -173,7 +173,6 @@ int config_getthemeinfo (char *themedir, char *name, char *author, char *desc)
 
 void config_loadconfig (void)
 {
-    int l;
     gchar *p;
 
     currenttheme = g_string_sized_new(100);
