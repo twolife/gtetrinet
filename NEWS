@@ -1,5 +1,5 @@
 GTetrinet 0.4.2 - Unreleased
-- Pages can now be detached.
+- Pages can now be detached (configure with --enable-detach).
 - TetriFast support.
 - Game messages are not longer cleared when games end.
 - Fix potential segfaults in ARM, PowerPC and S/390.
@@ -8,6 +8,7 @@ GTetrinet 0.4.2 - Unreleased
 - Manpage added.
 - GTetrinet now installs in $(prefix)/games, not $(prefix)/bin.
 - Focus fixes in partyline.
+- Blockbomb behaviour fix.
 
 GTetrinet 0.4.1 - 2000-07-03
 - Solaris support.
