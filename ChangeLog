@@ -1,5 +1,6 @@
 2003-02-04  Jordi Mallach  <jordi@sindominio.net>
 
+	* gtetrinet.desktop.in: add Encoding and Categories fields.
 	* src/Makefile.am: compile with -DG_DISABLE_DEPRECATED,
 	-DGTK_DISABLE_DEPRECATED and GNOME_DISABLE_DEPRECATED. GDK still
 	broken.

@@ -1,4 +1,5 @@
 [Desktop Entry]
+Encoding=UTF-8
 _Name=GTetrinet
 _GenericName=Tetrinet client
 _Comment=Tetrinet client for GNOME
@@ -7,6 +8,7 @@ Icon=gtetrinet.png
 StartupNotify=true
 Terminal=0
 Type=Application
+Categories=GNOME;Application;Game;BlocksGame;
 X-GNOME-Bugzilla-Bugzilla=GNOME
 X-GNOME-Bugzilla-Product=gtetrinet
 X-GNOME-Bugzilla-Component=general
