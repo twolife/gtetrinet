@@ -1,3 +1,13 @@
+2003-02-04  Dani Carbonell  <bocata@panete.net>
+
+	* dialogs.c: code cleanup, removed actionid array, no longer needed.
+	(prefdialog_drawkeys): code cleanup.
+	(prefdialog_clistupdate): nuked, no longer needed.
+	(prefdialog_restorekeys): code cleanup.
+	(prefdialog_changekey): code cleanup.
+	(prefdialog_midion): code cleanup.
+	(prefdialog_midichanged): code cleanup.
+
 2003-02-03  Daniel Yacob  <locales@geez.org>
 
 	* configure.ac: Added "am" (Amharic) to ALL_LINGUAS.

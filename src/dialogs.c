@@ -477,19 +477,7 @@ GtkWidget *themelist, *keyclist;
 GtkWidget *midientry, *miditable, *midicheck, *soundcheck;
 GtkWidget *namelabel, *authlabel, *desclabel;
 
-int themechanged, midichanged;
-
-char *actions[K_NUM];
-int actionid[K_NUM] = {
-    K_RIGHT,
-    K_LEFT,
-    K_DOWN,
-    K_ROTRIGHT,
-    K_ROTLEFT,
-    K_DROP,
-    K_DISCARD,
-    K_GAMEMSG
-};
+gchar *actions[K_NUM];
 
 struct themelistentry {
     char dir[1024];
@@ -507,37 +495,34 @@ void prefdialog_destroy (void)
 
 void prefdialog_drawkeys (void)
 {
-    char *array[2];
     gchar *gconf_keys[K_NUM];
     int i;
     GtkTreeIter iter;
     GtkListStore *keys_store = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (keyclist)));
 
-    actions[0] = _("Move right");
-    actions[1] = _("Move left");
-    actions[2] = _("Move down");
-    actions[3] = _("Rotate right");
-    actions[4] = _("Rotate left");
-    actions[5] = _("Drop piece");
-    actions[6] = _("Discard special");
-    actions[7] = _("Send message");
+    actions[K_RIGHT]    = _("Move right");
+    actions[K_LEFT]     = _("Move left");
+    actions[K_DOWN]     = _("Move down");
+    actions[K_ROTRIGHT] = _("Rotate right");
+    actions[K_ROTLEFT]  = _("Rotate left");
+    actions[K_DROP]     = _("Drop piece");
+    actions[K_DISCARD]  = _("Discard special");
+    actions[K_GAMEMSG]  = _("Send message");
   
-    gconf_keys[0] = g_strdup ("/apps/gtetrinet/keys/right");
-    gconf_keys[1] = g_strdup ("/apps/gtetrinet/keys/left");
-    gconf_keys[2] = g_strdup ("/apps/gtetrinet/keys/down");
-    gconf_keys[3] = g_strdup ("/apps/gtetrinet/keys/rotate_right");
-    gconf_keys[4] = g_strdup ("/apps/gtetrinet/keys/rotate_left");
-    gconf_keys[5] = g_strdup ("/apps/gtetrinet/keys/drop");
-    gconf_keys[6] = g_strdup ("/apps/gtetrinet/keys/discard");
-    gconf_keys[7] = g_strdup ("/apps/gtetrinet/keys/message");
+    gconf_keys[K_RIGHT]    = g_strdup ("/apps/gtetrinet/keys/right");
+    gconf_keys[K_LEFT]     = g_strdup ("/apps/gtetrinet/keys/left");
+    gconf_keys[K_DOWN]     = g_strdup ("/apps/gtetrinet/keys/down");
+    gconf_keys[K_ROTRIGHT] = g_strdup ("/apps/gtetrinet/keys/rotate_right");
+    gconf_keys[K_ROTLEFT]  = g_strdup ("/apps/gtetrinet/keys/rotate_left");
+    gconf_keys[K_DROP]     = g_strdup ("/apps/gtetrinet/keys/drop");
+    gconf_keys[K_DISCARD]  = g_strdup ("/apps/gtetrinet/keys/discard");
+    gconf_keys[K_GAMEMSG]  = g_strdup ("/apps/gtetrinet/keys/message");
 
     for (i = 0; i < K_NUM; i ++) {
-        array[0] = actions[i];
-        array[1] = gdk_keyval_name (keys[actionid[i]]);
         gtk_list_store_append (keys_store, &iter);
         gtk_list_store_set (keys_store, &iter,
                             0, actions[i],
-                            1, gdk_keyval_name (keys[actionid[i]]),
+                            1, gdk_keyval_name (keys[i]),
                             2, i,
                             3, gconf_keys[i], -1);
     }
@@ -545,51 +530,45 @@ void prefdialog_drawkeys (void)
     for (i = 0; i < K_NUM; i++) g_free (gconf_keys[i]);
 }
 
-void prefdialog_clistupdate ()
+void prefdialog_restorekeys (void)
 {
     GtkTreeIter iter;
     GtkListStore *keys_store = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (keyclist)));
     gboolean valid;
-    gchar *key;
-    gint row = 0;
-    
+    gchar *gconf_key;
+    gint i;
+
     valid = gtk_tree_model_get_iter_first (GTK_TREE_MODEL (keys_store), &iter);
     while (valid)
     {
-        gtk_tree_model_get (GTK_TREE_MODEL (keys_store), &iter, 3, &key, -1);
-        gtk_list_store_set (keys_store, &iter, 1, gdk_keyval_name (keys[actionid[row]]), -1);
-        gconf_client_set_string (gconf_client, key, gdk_keyval_name (keys[actionid[row]]), NULL);
+        gtk_tree_model_get (GTK_TREE_MODEL (keys_store), &iter, 2, &i, 3, &gconf_key, -1);
+        gtk_list_store_set (keys_store, &iter, 1, gdk_keyval_name (defaultkeys[i]), -1);
+        gconf_client_set_string (gconf_client, gconf_key, gdk_keyval_name (defaultkeys[i]), NULL);
         valid = gtk_tree_model_iter_next (GTK_TREE_MODEL (keys_store), &iter);
-        row ++;
+        g_free (gconf_key);
     }
-}
-
-void prefdialog_restorekeys (void)
-{
-    int i;
-
-    for (i = 0; i < K_NUM; i ++) keys[i] = defaultkeys[i];
-    prefdialog_clistupdate ();
 }
 
 void prefdialog_changekey (void)
 {
-    gchar buf[256], *key;
-    gint k, row = 0;
+    gchar buf[256], *key, *gconf_key;
+    gint k;
     GtkListStore *keys_store = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (keyclist)));
     GtkTreeSelection *selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (keyclist));
-    GtkTreeIter pk_row;
+    GtkTreeIter selected_row;
 
-    if (!gtk_tree_selection_get_selected (selection, NULL, &pk_row)) return;
+    if (!gtk_tree_selection_get_selected (selection, NULL, &selected_row)) return;
 
-    gtk_tree_model_get (GTK_TREE_MODEL (keys_store), &pk_row,
-                        0, &key, 2, &row, -1);
+    gtk_tree_model_get (GTK_TREE_MODEL (keys_store), &selected_row,
+                        0, &key, 3, &gconf_key, -1);
     g_snprintf (buf, sizeof(buf), _("Press new key for \"%s\""), key);
     k = key_dialog (buf);
     if (k) {
-        keys[actionid[row]] = k;
-        prefdialog_clistupdate ();
+        gtk_list_store_set (keys_store, &selected_row, 1, gdk_keyval_name (k), -1);
+        gconf_client_set_string (gconf_client, gconf_key, gdk_keyval_name (k), NULL);
     }
+    
+    g_free (gconf_key);
 }
 
 void prefdialog_midion ()
@@ -636,7 +615,6 @@ void prefdialog_miditoggle (GtkWidget *widget)
     else {
         prefdialog_midioff ();
     }
-    midichanged = TRUE;
     gconf_client_set_bool (gconf_client, "/apps/gtetrinet/sound/enable_midi",
                            GTK_TOGGLE_BUTTON (widget)->active, NULL);
 }
@@ -644,7 +622,6 @@ void prefdialog_miditoggle (GtkWidget *widget)
 
 void prefdialog_midichanged (void)
 {
-    midichanged = TRUE;
     gconf_client_set_string (gconf_client, "/apps/gtetrinet/sound/midi_player",
                              gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (midientry)))),
                              NULL);
