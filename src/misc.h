@@ -8,4 +8,3 @@ extern void textbox_addtext (GtkText *textbox, unsigned char *text);
 extern void adjust_bottom (GtkAdjustment *adj);
 extern char *nocolor (char *str);
 extern GtkWidget *pixmap_label (GdkPixmap *pm, GdkBitmap *mask, char *str);
-extern void move_current_page_to_window (void);
