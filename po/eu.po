@@ -1,6 +1,6 @@
 # translation of gtetrinet to Euskara
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # Julen Landa <julen@mundurat.net>, 2003
 #
 msgid ""
@@ -496,32 +496,32 @@ msgstr "%c *** Jokoa %chasi da"
 #: src/tetrinet.c:601
 #, c-format
 msgid "%c*** The game is %cin progress"
-msgstr "%c *** Jokoa martxan da"
+msgstr "%c*** Jokoa %cmartxan da"
 
 #: src/tetrinet.c:612
 #, c-format
 msgid "%c*** The game has %cpaused"
-msgstr "%c*** Jokoa pautsatu da"
+msgstr "%c*** Jokoa %cpausatu da"
 
 #: src/tetrinet.c:614
 #, c-format
 msgid "The game has %c%cpaused"
-msgstr "Jokoa pautsatu da"
+msgstr "Jokoa %c%cpausatu da"
 
 #: src/tetrinet.c:619
 #, c-format
 msgid "%c*** The game has %cresumed"
-msgstr "Jokua jarriatu da"
+msgstr "%c*** Jokua %cjarraitu da"
 
 #: src/tetrinet.c:621
 #, c-format
 msgid "The game has %c%cresumed"
-msgstr "Jokoa jarraitu da"
+msgstr "Jokoa %c%cjarraitu da"
 
 #: src/tetrinet.c:630
 #, c-format
 msgid "%c*** The game has %cended"
-msgstr "Jokua amaitu da"
+msgstr "%c*** Jokua %camaitu da"
 
 #: src/tetrinet.c:740
 #, c-format
@@ -581,7 +581,7 @@ msgstr "jokura sartu dira"
 #: src/tetrinet.c:1885
 #, c-format
 msgid "%s is on team %c%s"
-msgstr "%s %c%s%c%c taldean dago"
+msgstr "%s %c%s taldean dago"
 
 #: src/tetrinet.c:1888
 #, c-format
@@ -591,7 +591,7 @@ msgstr "%s bakarrik dago"
 #: src/tetrinet.c:1890
 #, c-format
 msgid "%s are on team %c%s"
-msgstr "%s %c %s%c%c taldean daude"
+msgstr "%s %c%s taldean daude"
 
 #: src/tetrinet.c:1893
 #, c-format
@@ -649,17 +649,17 @@ msgstr "timestamp ak Aktibatu/Desaktibatu"
 msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
-msgstr ""
+msgstr "Soinua aktibatu/desaktibatu. Gogoan izan erabilitako gaiak soinuak izan behar dituela "
 
 #: gtetrinet.schemas.in.h:6
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
-msgstr ""
+msgstr "MIDI musika aktibatu/desaktibatu. Soinua ere aktibatu beharko duzu musika nahi baduzu "
 
 #: gtetrinet.schemas.in.h:7
 msgid "Enables/disables timestamps in the partyline."
-msgstr ""
+msgstr "timestamp-ak aktibatu/desaktibatu."
 
 #: gtetrinet.schemas.in.h:8
 msgid "Key to discard special."
@@ -701,11 +701,11 @@ msgstr "Jolastu nahi duzun zerbitzaria."
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
-msgstr ""
+msgstr "Oraingo gai direktorioa. Bertan \"blocks.png\" eta \"theme.cfg\" artxiboek egon bear dute."
 
 #: gtetrinet.schemas.in.h:18
 msgid "Theme directory, should end with a '/'."
-msgstr ""
+msgstr "Gai direktorioa, '/'-z amaituta"
 
 #: gtetrinet.schemas.in.h:19
 msgid ""
