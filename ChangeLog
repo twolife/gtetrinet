@@ -1,3 +1,10 @@
+2003-01-08  Jordi Mallach  <jordi@sindominio.net>
+
+	* NEWS: updated.
+	* src/dialogs.c (connectingdialog_timeout): apply patch from
+	Ian Zink <zforce@networkusa.net>, fixes a null pointer exception
+	which caused a segfault on connect for 	many people. Thanks!
+
 2003-01-08  Dani Carbonell  <bocata@panete.net>
 
 	* TODO: remove composed characters problem.

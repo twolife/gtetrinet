@@ -1,10 +1,12 @@
 GTetrinet 0.5.2 - Unreleased
+- Fixed segfault on connect dialog many people were seeing. Really.
 - Fix behaviour of "Ok" button in preferences. It actually works now.
 - Added intltool support.
 - Dialogs look nicer now, and are HIG compliant.
 - Added sanity checks in the connect dialog, in case you include invalid
   or no nickname, server name or spectator password.
 - Ignore the shift status, so you can use shift keys as game keys.
+- Rewrote fields message input field, so it deals with composed characters.
 - Code cleanups.
 
 GTetrinet 0.5.1 - 2003-01-06

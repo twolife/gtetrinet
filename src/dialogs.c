@@ -69,9 +69,10 @@ gint connectingdialog_timeout (void)
 {
     GtkAdjustment *adj;
     adj = GTK_PROGRESS(progressbar)->adjustment;
-    gtk_progress_set_value (GTK_PROGRESS(progressbar),
-                            (adj->value+1)>adj->upper ?
-                            adj->lower : adj->value+1);
+    if (adj != NULL)
+      gtk_progress_set_value (GTK_PROGRESS(progressbar),
+                              (adj->value+1)>adj->upper ?
+                              adj->lower : adj->value+1);
     return TRUE;
 }
 
