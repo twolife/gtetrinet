@@ -214,7 +214,7 @@ void about_command (GtkWidget *widget, gpointer data)
                              "(C) 1999, 2000 Ka-shu Wong",
                              authors,
                              _("A Tetrinet client for GNOME\n"
-                               "Homepage:\thttp://gtetrinet.sourceforge.net/\n"),
+                               "Homepage: http://gtetrinet.sourceforge.net/\n"),
                              NULL);
     gtk_widget_show (about);
 }

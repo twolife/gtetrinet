@@ -1,3 +1,8 @@
+2002-01-14  Jordi Mallach  <jordi@sindominio.net>
+	* Fixed cosmetic issue in about dialog.
+	* Fixed major problem in ARM, PowerPC and S/390 architectures,
+	  char variables aren't signed by default in those systems.
+
 2001-11-05
 	* Cleaned up page detach patch.
 	* Merged TetriFast support.
