@@ -1,3 +1,9 @@
+gtetrinet (0.4.1-1) unstable; urgency=low
+
+  * New release
+
+ -- Ka-shu Wong <kswong@zip.com.au>  Wed, 28 Jun 2000 19:32:07 +1000
+
 gtetrinet (0.4-2) unstable; urgency=low
 
   * Add gtetrinet menu file.
