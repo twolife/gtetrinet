@@ -163,8 +163,8 @@ void connectdialog_button (GnomeDialog *dialog, gint button, gpointer data)
     case 0:
         /* connect now */
         spectating = GTK_TOGGLE_BUTTON(spectatorcheck)->active ? TRUE : FALSE;
-        strcpy (specpassword, gtk_entry_get_text (GTK_ENTRY(passwordentry)));
-        strcpy (team, gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))));
+        GTET_O_STRCPY (specpassword, gtk_entry_get_text (GTK_ENTRY(passwordentry)));
+        GTET_O_STRCPY (team, gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))));
         client_init (gtk_entry_get_text(GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(serveraddressentry)))),
                      gtk_entry_get_text(GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(nicknameentry)))));
         break;
@@ -476,7 +476,8 @@ void prefdialog_changekey (GtkWidget *widget, gpointer data)
 
     if (pk_row == -1) return;
 
-    sprintf (buf, _("Press new key for \"%s\""), actions[pk_row]);
+    g_snprintf (buf, sizeof(buf), _("Press new key for \"%s\""),
+                actions[pk_row]);
     k = key_dialog (buf);
     if (k) {
         newkeys[actionid[pk_row]] = k;
@@ -579,11 +580,11 @@ void prefdialog_themelist ()
     int i;
     char *basedir[2];
 
-    strcpy (dir, getenv ("HOME"));
-    strcat (dir, "/.gtetrinet/themes");
+    GTET_O_STRCPY (dir, getenv ("HOME"));
+    GTET_O_STRCAT (dir, "/.gtetrinet/themes");
 
-    basedir[0] = GTETRINET_THEMES;
-    basedir[1] = dir;
+    basedir[0] = dir; /* load users themes first ... in case we run out */
+    basedir[1] = GTETRINET_THEMES;
 
     themecount = 0;
 
@@ -591,20 +592,26 @@ void prefdialog_themelist ()
         d = opendir (basedir[i]);
         if (d) {
             while ((de = readdir(d))) {
-                strcpy (buf, basedir[i]);
-                strcat (buf, "/");
-                strcat (buf, de->d_name);
-                strcat (buf, "/");
+                GTET_O_STRCPY (buf, basedir[i]);
+                GTET_O_STRCAT (buf, "/");
+                GTET_O_STRCAT (buf, de->d_name);
+                GTET_O_STRCAT (buf, "/");
 
                 if (config_getthemeinfo(buf, str, NULL, NULL) == 0) {
-                    strcpy (themes[themecount].dir, buf);
-                    strcpy (themes[themecount].name, str);
+                    GTET_O_STRCPY (themes[themecount].dir, buf);
+                    GTET_O_STRCPY (themes[themecount].name, str);
                     themecount ++;
+                    if (themecount == (sizeof(themes) / sizeof(themes[0])))
+                    { /* FIXME: should be dynamic */
+                      g_warning("Too many theme files.\n");
+                      goto too_many_themes;
+                    }
                 }
             }
             closedir (d);
         }
     }
+ too_many_themes:
     qsort (themes, themecount, sizeof(struct themelistentry), themelistcomp);
 
     theme_select = 0;
@@ -639,7 +646,7 @@ void prefdialog_apply (GnomePropertyBox *dialog, gint pagenum)
         }
 
         if (themechanged) {
-            strcpy (currenttheme, themes[theme_select].dir);
+            GTET_O_STRCPY (currenttheme, themes[theme_select].dir);
             config_loadtheme (currenttheme);
 
             fields_page_destroy_contents ();
@@ -651,7 +658,7 @@ void prefdialog_apply (GnomePropertyBox *dialog, gint pagenum)
 
         if (midichanged) {
             midi = gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(midientry))));
-            strcpy (midicmd, midi);
+            GTET_O_STRCPY (midicmd, midi);
         }
 
         if ((themechanged || midichanged) && ingame) {

@@ -119,22 +119,22 @@ void detach_command (GtkWidget *widget, gpointer data)
 
 void start_command (GtkWidget *widget, gpointer data)
 {
-    char buf[16];
-    sprintf (buf, "%i %i", 1, playernum);
+    char buf[22];
+    g_snprintf (buf, sizeof(buf), "%i %i", 1, playernum);
     client_outmessage (OUT_STARTGAME, buf);
 }
 
 void end_command (GtkWidget *widget, gpointer data)
 {
-    char buf[16];
-    sprintf (buf, "%i %i", 0, playernum);
+    char buf[22];
+    g_snprintf (buf, sizeof(buf), "%i %i", 0, playernum);
     client_outmessage (OUT_STARTGAME, buf);
 }
 
 void pause_command (GtkWidget *widget, gpointer data)
 {
-    char buf[16];
-    sprintf (buf, "%i %i", paused?0:1, playernum);
+    char buf[22];
+    g_snprintf (buf, sizeof(buf), "%i %i", paused?0:1, playernum);
     client_outmessage (OUT_PAUSE, buf);
 }
 
@@ -207,8 +207,8 @@ void commands_checkstate ()
     if (ingame) partyline_status (_("Game in progress"));
     else if (connected) {
         char buf[256];
-        strcpy (buf, _("Connected to\n"));
-        strcat (buf, server);
+        GTET_O_STRCPY(buf, _("Connected to\n"));
+        GTET_O_STRCAT(buf, server);
         partyline_status (buf);
     }
     else partyline_status (_("Not connected"));

@@ -175,22 +175,24 @@ void partyline_text (char *text)
 void partyline_playerlist (int *numbers, char **names, char **teams, int n, char **specs, int sn)
 {
     int i;
-    char buf0[16], buf1[128], buf2[128], *item[3] = {buf0, buf1, buf2};
+    char buf0[16], buf1[128], buf2[128];
+    char *item[3] = {buf0, buf1, buf2};
+    
     /* update the playerlist so that it contains only the given names */
     gtk_clist_freeze (GTK_CLIST(playerlist));
     gtk_clist_clear (GTK_CLIST(playerlist));
     for (i = 0; i < n; i ++) {
-        sprintf (item[0], "%d", numbers[i]);
-        strcpy (item[1], nocolor(names[i]));
-        strcpy (item[2], nocolor(teams[i]));
+        g_snprintf (buf0, sizeof(buf0), "%d", numbers[i]);
+        GTET_O_STRCPY (buf1, nocolor(names[i]));
+        GTET_O_STRCPY (buf2, nocolor(teams[i]));
         gtk_clist_append (GTK_CLIST(playerlist), item);
     }
     buf0[0] = buf1[0] = buf2[0] = 0;
     gtk_clist_append (GTK_CLIST(playerlist), item);
     for (i = 0; i < sn; i ++) {
-        strcpy (item[0], "S");
-        strcpy (item[1], nocolor(specs[i]));
-        strcpy (item[2], "");
+        GTET_O_STRCPY (buf0, "S");
+        GTET_O_STRCPY (buf1, nocolor(specs[i]));
+        GTET_O_STRCPY (buf2, "");
         gtk_clist_append (GTK_CLIST(playerlist), item);
     }
     gtk_clist_thaw (GTK_CLIST(playerlist));
@@ -214,7 +216,7 @@ void textentry (GtkWidget *widget, gpointer data)
     if (strlen(text) == 0) return;
 
     tetrinet_playerline (text);
-    strcpy (plhistory[plh_end], text);
+    GTET_O_STRCPY (plhistory[plh_end], text);
     gtk_entry_set_text (GTK_ENTRY(widget), "");
 
     plh_end ++;
@@ -233,7 +235,7 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key)
         if (plh_cur == plh_end) {
             char *text;
             text = gtk_entry_get_text (GTK_ENTRY(widget));
-            strcpy (plhistory[plh_end], text);
+            GTET_O_STRCPY (plhistory[plh_end], text);
         }
         switch (keyval) {
         case GDK_Up:

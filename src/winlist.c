@@ -69,7 +69,7 @@ void winlist_additem (int team, char *name, int score)
     if (team) item[0] = "T";
     else item[0] = "";
     item[1] = nocolor (name);
-    sprintf (buf, "%d", score);
+    g_snprintf (buf, sizeof(buf), "%d", score);
     item[2] = buf;
 
     gtk_clist_append (GTK_CLIST(winlist), item);

@@ -63,7 +63,6 @@ void sound_playsound (int id)
 void sound_playmidi (char *file)
 {
 #ifdef HAVE_PUTENV
-    char sz[1024];
 #endif
 	
     sound_stopmidi();
@@ -74,8 +73,11 @@ void sound_playmidi (char *file)
 #ifdef HAVE_SETENV
         setenv ("MIDIFILE", file, TRUE);
 #elif HAVE_PUTENV
-        sprintf(sz, "MIDIFILE=%s", file);
+      {
+        char sz[1024];
+        g_snprintf(sz, sizeof(sz), "MIDIFILE=%s", file);
         putenv(sz);
+      }
 #else
 #error Need either setenv() or putenv()
 #endif

@@ -74,7 +74,61 @@ static const struct poptOption options[] = {
 int main (int argc, char *argv[])
 {
     GtkWidget *page, *label, *box;
+    char buf[1024];
 
+    GTET_STRCPY(buf, "", 4);
+    g_assert(strlen(buf) == 0);
+    g_assert(buf[0] == 0);
+    
+    GTET_STRCAT(buf, "", 4);
+    g_assert(strlen(buf) == 0);
+    g_assert(buf[0] == 0);
+    
+    GTET_STRCPY(buf, "a", 1);
+    g_assert(strlen(buf) == 0);
+    g_assert(buf[0] == 0);
+    
+    GTET_STRCAT(buf, "a", 1);
+    g_assert(strlen(buf) == 0);
+    g_assert(buf[0] == 0);
+    
+    GTET_STRCPY(buf, "abcd", 4);
+    g_assert(strlen(buf) == 3);
+    g_assert(buf[3] == 0);
+    g_assert(buf[2] == 'c');
+    g_assert(buf[1] == 'b');
+    g_assert(buf[0] == 'a');
+    
+    GTET_STRCAT(buf, "xyz", 4);    
+    g_assert(strlen(buf) == 3);
+    g_assert(buf[3] == 0);
+    g_assert(buf[2] == 'c');
+    g_assert(buf[1] == 'b');
+    g_assert(buf[0] == 'a');
+    
+    GTET_STRCAT(buf, "abcd", 7);    
+    g_assert(strlen(buf) == 6);
+    g_assert(buf[6] == 0);
+    g_assert(buf[5] == 'c');
+    g_assert(buf[4] == 'b');
+    g_assert(buf[3] == 'a');
+    g_assert(buf[2] == 'c');
+    g_assert(buf[1] == 'b');
+    g_assert(buf[0] == 'a');
+    
+    GTET_O_STRCPY(buf, "abcd");
+    GTET_O_STRCAT(buf, "abcd");
+    g_assert(strlen(buf) == 8);
+    g_assert(buf[8] == 0);
+    g_assert(buf[7] == 'd');
+    g_assert(buf[6] == 'c');
+    g_assert(buf[5] == 'b');
+    g_assert(buf[4] == 'a');
+    g_assert(buf[3] == 'd');
+    g_assert(buf[2] == 'c');
+    g_assert(buf[1] == 'b');
+    g_assert(buf[0] == 'a');
+    
     setlocale(LC_ALL, "");
     bindtextdomain(PACKAGE, LOCALEDIR);
     textdomain(PACKAGE);
@@ -176,9 +230,9 @@ int main (int argc, char *argv[])
             option_connect, option_nick, option_team,
             option_pass, option_spec);
 #endif
-    if (option_nick) strcpy (nick, option_nick);
-    if (option_team) strcpy (team, option_team);
-    if (option_pass) strcpy (specpassword, option_pass);
+    if (option_nick) GTET_O_STRCPY(nick, option_nick);
+    if (option_team) GTET_O_STRCPY(team, option_team);
+    if (option_pass) GTET_O_STRCPY(specpassword, option_pass);
     if (option_spec) spectating = TRUE;
     if (option_connect) {
         client_init (option_connect, nick);

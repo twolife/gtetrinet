@@ -10,9 +10,56 @@ extern void adjust_bottom (GtkAdjustment *adj);
 extern char *nocolor (char *str);
 extern GtkWidget *pixmap_label (GdkPixmap *pm, GdkBitmap *mask, char *str);
 
+/* Better versions of the std. string functions */
+#define GTET_STRCPY(x, y, sz) G_STMT_START { \
+  size_t gtet_strcpy_x_sz = (sz); \
+  size_t gtet_strcpy_y_len = strlen(y); \
+  \
+  g_assert(gtet_strcpy_x_sz); \
+  \
+  if (gtet_strcpy_y_len >= gtet_strcpy_x_sz) \
+    gtet_strcpy_y_len = gtet_strcpy_x_sz - 1; \
+  \
+  if (gtet_strcpy_y_len) \
+    memcpy((x), (y), gtet_strcpy_y_len); \
+  (x)[gtet_strcpy_y_len] = 0; \
+ } G_STMT_END
+
+#define GTET_STRCAT(x, y, sz) G_STMT_START { \
+  size_t gtet_strcat_x_sz = (sz); \
+  size_t gtet_strcat_x_len = strlen(x); \
+  size_t gtet_strcat_y_len = strlen(y); \
+  \
+  g_assert(gtet_strcat_x_sz); \
+  \
+  if (gtet_strcat_x_len >= (gtet_strcat_x_sz - 1)) \
+    gtet_strcat_y_len = 0; \
+  \
+  gtet_strcat_x_sz -= gtet_strcat_x_len;  \
+  if (gtet_strcat_y_len >= gtet_strcat_x_sz) \
+    gtet_strcat_y_len = gtet_strcat_x_sz - 1; \
+  \
+  if (gtet_strcat_y_len) \
+    memcpy((x) + gtet_strcat_x_len, (y), gtet_strcat_y_len); \
+  (x)[gtet_strcat_x_len + gtet_strcat_y_len] = 0; \
+ } G_STMT_END
+
+/* these assume you are passing an "object", Ie. sizeof() returns the true
+ * size */
+#define GTET_O_STRCPY(x, y) G_STMT_START { \
+  g_assert(sizeof(x) > 4); GTET_STRCPY(x, y, sizeof(x)); \
+ } G_STMT_END
+
+#define GTET_O_STRCAT(x, y) G_STMT_START { \
+  g_assert(sizeof(x) > 4); GTET_STRCAT(x, y, sizeof(x)); \
+ } G_STMT_END
+
 /* textbox codes ... */
+#define TETRI_TB_RESET 0xFF
+
 #define TETRI_TB_BOLD 0x2
-#define TETRI_TB_UNDERLINE 0x16
+#define TETRI_TB_ITALIC 0x16
+#define TETRI_TB_UNDERLINE 0x1F
 
 /* colors... see colors[] in misc.c */
 #define TETRI_TB_C_CYAN 3

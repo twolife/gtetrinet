@@ -32,6 +32,7 @@
 #include "client.h"
 #include "tetrinet.h"
 #include "sound.h"
+#include "misc.h"
 
 char blocksfile[1024];
 int bsize;
@@ -69,9 +70,9 @@ void config_loadtheme (char *themedir)
     char buf[1024], *p;
     int i;
 
-    strcpy (buf, "=");
-    strcat (buf, themedir);
-    strcat (buf, "theme.cfg=/");
+    GTET_O_STRCPY(buf, "=");
+    GTET_O_STRCAT(buf, themedir);
+    GTET_O_STRCAT(buf, "theme.cfg=/");
 
     gnome_config_push_prefix (buf);
 
@@ -85,15 +86,15 @@ void config_loadtheme (char *themedir)
     else g_free (p);
 
     p = gnome_config_get_string ("Graphics/Blocks=blocks.png");
-    strcpy (blocksfile, themedir);
-    strncat (blocksfile, p, 256);
+    GTET_O_STRCPY(blocksfile, themedir);
+    GTET_O_STRCAT(blocksfile, p);
     g_free (p);
     bsize = gnome_config_get_int ("Graphics/BlockSize=16");
 
     p = gnome_config_get_string ("Sounds/MidiFile");
     if (p) {
-        strcpy (midifile, themedir);
-        strncat (midifile, p, 256);
+        GTET_O_STRCPY(midifile, themedir);
+        GTET_O_STRCAT(midifile, p);
         g_free (p);
     }
     else
@@ -102,8 +103,8 @@ void config_loadtheme (char *themedir)
     for (i = 0; i < S_NUM; i ++) {
         p = gnome_config_get_string (soundkeys[i]);
         if (p) {
-            strcpy (soundfiles[i], themedir);
-            strncat (soundfiles[i], p, 256);
+            GTET_O_STRCPY(soundfiles[i], themedir);
+            GTET_O_STRCAT(soundfiles[i], p);
             g_free (p);
         }
         else
@@ -115,13 +116,14 @@ void config_loadtheme (char *themedir)
     gnome_config_pop_prefix ();
 }
 
+/* Arrggh... all these params are sizeof() == 1024 ... this needs a real fix */
 int config_getthemeinfo (char *themedir, char *name, char *author, char *desc)
 {
     char buf[1024], *p;
 
-    strcpy (buf, "=");
-    strcat (buf, themedir);
-    strcat (buf, "theme.cfg=/");
+    GTET_O_STRCPY (buf, "=");
+    GTET_O_STRCAT (buf, themedir);
+    GTET_O_STRCAT (buf, "theme.cfg=/");
 
     gnome_config_push_prefix (buf);
 
@@ -131,17 +133,17 @@ int config_getthemeinfo (char *themedir, char *name, char *author, char *desc)
         return -1;
     }
     else {
-        if (name) strcpy (name, p);
+        if (name) GTET_STRCPY(name, p, 1024);
         g_free (p);
     }
     if (author) {
         p = gnome_config_get_string ("Theme/Author=");
-        strcpy (author, p);
+        GTET_STRCPY(author, p, 1024);
         g_free (p);
     }
     if (desc) {
         p = gnome_config_get_string ("Theme/Description=");
-        strcpy (desc, p);
+        GTET_STRCPY(desc, p, 1024);
         g_free (p);
     }
 
@@ -158,17 +160,16 @@ void config_loadconfig (void)
     gnome_config_push_prefix ("/"APPID"/");
 
     p = gnome_config_get_string ("Themes/ThemeDir="DEFAULTTHEME);
-    strncpy (currenttheme, p, 1024);
+    GTET_O_STRCPY(currenttheme, p);
     g_free (p);
     /* add trailing slash if none exists */
     l = strlen(currenttheme);
     if (currenttheme[l-1] != '/') {
-        currenttheme[l] = '/';
-        currenttheme[l+1] = 0;
+      GTET_O_STRCAT(currenttheme, "/");
     }
 
     p = gnome_config_get_string ("Sound/MidiPlayer="DEFAULTMIDICMD);
-    strncpy (midicmd, p, 1024);
+    GTET_O_STRCPY(midicmd, p);
     g_free (p);
 
     soundenable = gnome_config_get_int ("Sound/EnableSound=1");
@@ -176,13 +177,13 @@ void config_loadconfig (void)
 
     p = gnome_config_get_string ("Player/Nickname");
     if (p) {
-        strncpy (nick, p, 128);
+        GTET_O_STRCPY(nick, p);
         g_free(p);
     }
 
     p = gnome_config_get_string ("Player/Team");
     if (p) {
-        strncpy (team, p, 128);
+        GTET_O_STRCPY(team, p);
         g_free(p);
     }
 

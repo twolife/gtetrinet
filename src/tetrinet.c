@@ -53,10 +53,12 @@ int playernum = 0;
 int moderatornum = 0;
 char team[128], nick[128], specpassword[128];
 
-char playernames[7][128];
-char teamnames[7][128];
-int playerlevels[7];
-int playerplaying[7];
+#define MAX_PLAYERS 7
+
+char playernames[MAX_PLAYERS][128];
+char teamnames[MAX_PLAYERS][128];
+int playerlevels[MAX_PLAYERS];
+int playerplaying[MAX_PLAYERS];
 int playercount = 0;
 
 char spectatorlist[128][128];
@@ -78,8 +80,16 @@ int gmsgstate;
 int bigfieldnum;
 
 /* game options from the server */
-int initialstackheight, initiallevel, linesperlevel, levelinc,
-    speciallines, specialcount, specialcapacity, levelaverage, classicmode;
+int initialstackheight; /* height of random crap */
+int initiallevel; /* speed speed level */
+int linesperlevel; /* number of lines before you go up a level */
+int levelinc; /* amount you go level up, after every linesperlevel */
+int speciallines; /* ratio of lines needed for special blocks */
+int specialcount; /* multiplier for special blocks to add */
+int specialcapacity; /* max number of specials you can have */
+int levelaverage; /* flag: should we average the levels across all players */
+int classicmode; /* bitflag: does everyone get lines of blocks when you
+                  * 2x, 3x or tetris */
 
 /* these are actually cumulative frequency counts */
 int blockfreq[7];
@@ -152,6 +162,7 @@ static FIELD sentfield; /* the field that the server thinks we have */
  */
 void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
 {
+    int tmp_pnum = 0;
     char buf[1024];
     if (msgtype != IN_PLAYERJOIN && msgtype != IN_PLAYERLEAVE && msgtype != IN_TEAM &&
         msgtype != IN_PLAYERNUM && msgtype != IN_CONNECT && msgtype != IN_F && msgtype != IN_WINLIST) {
@@ -194,20 +205,23 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         {
             GtkWidget *dialog;
             connectingdialog_destroy ();
-            strcpy (buf, _("Error connecting: "));
-            strcat (buf, data);
+            GTET_O_STRCPY (buf, _("Error connecting: "));
+            GTET_O_STRCAT (buf, data);
             dialog = gnome_message_box_new (buf, GNOME_MESSAGE_BOX_ERROR,
                                             GNOME_STOCK_BUTTON_OK, NULL);
             gtk_widget_show (dialog);
         }
         break;
     case IN_PLAYERNUM:
-        bigfieldnum = playernum = atoi (data);
+        tmp_pnum = atoi (data);
+        if (tmp_pnum >= MAX_PLAYERS)
+          break;
+        bigfieldnum = playernum = tmp_pnum;
         if (!connected)
         {
             /* we have successfully connected */
             if (spectating) {
-                sprintf (buf, "%d %s", playernum, specpassword);
+                g_snprintf (buf, sizeof(buf), "%d %s", playernum, specpassword);
                 client_outmessage (OUT_TEAM, buf);
                 client_outmessage (OUT_VERSION, APPNAME"-"APPVERSION);
                 partyline_namelabel (nick, NULL);
@@ -227,10 +241,10 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         }
         if (!spectating) {
             /* set own player/team info */
-            strcpy (playernames[playernum], nick);
-            strcpy (teamnames[playernum], team);
+            GTET_O_STRCPY (playernames[playernum], nick);
+            GTET_O_STRCPY (teamnames[playernum], team);
             /* send team info */
-            sprintf (buf, "%d %s", playernum, team);
+            g_snprintf (buf, sizeof(buf), "%d %s", playernum, team);
             client_outmessage (OUT_TEAM, buf);
             /* update display */
             playerlistupdate ();
@@ -251,10 +265,12 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
+            if (pnum >= MAX_PLAYERS)
+              break;
             token = strtok (NULL, "");
             if (token == NULL) break;
             if (playernames[pnum][0] == 0) playercount ++;
-            strcpy (playernames[pnum], token);
+            GTET_O_STRCPY (playernames[pnum], token);
             teamnames[pnum][0] = 0;
             playerlistupdate ();
             /* update fields display */
@@ -275,6 +291,10 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
+            if (pnum >= MAX_PLAYERS)
+              break;
+            if (!playercount)
+              break;
             playercount --;
             if (playernames[pnum][0]) {
                 /* display */
@@ -299,10 +319,18 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
+            if (pnum >= MAX_PLAYERS)
+              break;
             if ((pnum == playernum) && !spectating)
-                sprintf (buf, "\014\02*** You have been kicked from the game");
+                g_snprintf (buf, sizeof(buf),
+                            "%c%c*** You have been kicked from the game",
+                            TETRI_TB_C_DARK_GREEN, TETRI_TB_BOLD);
             else
-                sprintf (buf, "\014*** \02%s\377\014 has been kicked from the game", playernames[pnum]);
+                g_snprintf (buf, sizeof(buf),
+                            "%c*** %c%s%c%c has been kicked from the game",
+                            TETRI_TB_C_DARK_GREEN, TETRI_TB_BOLD,
+                            playernames[pnum],
+                            TETRI_TB_RESET, TETRI_TB_C_DARK_GREEN);
             partyline_text (buf);
             /*
              mark it so that leave message is not displayed when playerleave
@@ -319,9 +347,11 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
+            if (pnum >= MAX_PLAYERS)
+              break;
             token = strtok (NULL, "");
             if (token == NULL) token = "";
-            strcpy (teamnames[pnum], token);
+            GTET_O_STRCPY (teamnames[pnum], token);
             playerlistupdate ();
             /* update fields display */
             fieldslabelupdate ();
@@ -336,6 +366,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
+            if (pnum >= MAX_PLAYERS)
+              break;
             token = strtok (NULL, "");
             if (token == NULL) token = "";
             if (pnum == 0) {
@@ -344,7 +376,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                     tetrix = TRUE;
                 }
                 else if (tetrix) {
-                    sprintf (buf, "*** %s", token);
+                    g_snprintf (buf, sizeof(buf), "*** %s", token);
                     partyline_text (buf);
                     break;
                 }
@@ -360,6 +392,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
+            if (pnum >= MAX_PLAYERS)
+              break;
             token = strtok (NULL, "");
             if (token == NULL) token = "";
             /* display it */
@@ -370,6 +404,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         {
             int pnum;
             pnum = atoi (data);
+            if (pnum >= MAX_PLAYERS)
+              break;
             /* player is out */
             playerplaying[pnum] = 0;
         }
@@ -378,12 +414,20 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         {
             int pnum;
             pnum = atoi (data);
+            if (pnum >= MAX_PLAYERS)
+              break;
             if (teamnames[pnum][0])
-                sprintf (buf, "\020*** Team \02%s\377\020 has won the game",
-                         teamnames[pnum]);
+                g_snprintf (buf, sizeof(buf),
+                            "%c*** Team %c%s%c%c has won the game",
+                            TETRI_TB_C_DARK_RED, TETRI_TB_BOLD,
+                            teamnames[pnum],
+                            TETRI_TB_RESET, TETRI_TB_C_DARK_RED);
             else
-                sprintf (buf, "\020*** \02%s\377\020 has won the game",
-                         playernames[pnum]);
+                g_snprintf (buf, sizeof(buf),
+                            "%c*** %c%s%c%c has won the game",
+                            TETRI_TB_C_DARK_RED, TETRI_TB_BOLD,
+                            playernames[pnum],
+                            TETRI_TB_RESET, TETRI_TB_C_DARK_RED);
             partyline_text (buf);
         }
         break;
@@ -391,11 +435,31 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         {
             int i, j;
             char bfreq[128], sfreq[128];
-            sscanf (data, "%d %d %d %d %d %d %d %s %s %d %d",
+            sscanf (data, "%d %d %d %d %d %d %d %128s %128s %d %d",
                     &initialstackheight, &initiallevel,
                     &linesperlevel, &levelinc, &speciallines,
                     &specialcount, &specialcapacity,
                     bfreq, sfreq, &levelaverage, &classicmode);
+
+            bfreq[127] = 0;
+            sfreq[127] = 0;
+            
+            /* initialstackheight == seems ok */
+            /* initiallevel == seems ok */
+            /* linesperlevel == seems ok */
+            /* levelinc == seems ok */
+            
+            if (!speciallines) /* does divide by this number */
+              speciallines = 1;
+            
+            /* specialcount == seems ok */
+            
+            if ((unsigned int)specialcapacity > sizeof(specialblocks))
+              specialcapacity = sizeof(specialblocks);
+            
+            /* levelaverage == seems ok */
+            /* classicmode == seems ok */
+            
             /*
              decoding the 11233345666677777 block frequecy thingies:
              */
@@ -475,6 +539,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             s = strtok (data, " ");
             if (s == NULL) break;
             pnum = atoi (s);
+            if (pnum >= MAX_PLAYERS)
+              break;
             s = strtok (NULL, "");
             if (s == NULL) break;
             if (*s >= '0') {
@@ -488,7 +554,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                 int block = 0, x, y;
                 for(; *s; s++) {
                     if (*s < '0' && *s >= '!') block = *s - '!';
-                    else {
+                    else { /* welcome to ASCII hell, x and y tested though */
                         x = *s - '3';
                         y = *(++s) - '3';
                         if (x >= 0 && x < FIELDWIDTH && y >= 0 && y < FIELDHEIGHT)
@@ -507,11 +573,15 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             to = atoi (token);
+            if (to >= MAX_PLAYERS)
+              break;
             sbid = strtok (NULL, " ");
             if (sbid == NULL) break;
             token = strtok (NULL, "");
             if (token == NULL) break;
             from = atoi(token);
+            if (from >= MAX_PLAYERS)
+              break;
             for (sbnum = 0; sbinfo[sbnum].id; sbnum ++)
                 if (strcmp (sbid, sbinfo[sbnum].id) == 0) break;
             if (!sbinfo[sbnum].id) break;
@@ -525,6 +595,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
+            if (pnum >= MAX_PLAYERS)
+              break;
             token = strtok (NULL, "");
             if (token == NULL) break;
             playerlevels[pnum] = atoi (token);
@@ -564,7 +636,9 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             speclist_clear ();
             token = strtok (data, " ");
             if (token == NULL) break;
-            sprintf (buf, "\021*** You have joined \02%s", token);
+            g_snprintf (buf, sizeof(buf),
+                        "%c*** You have joined %c%s",
+                        TETRI_TB_C_DARK_BLUE, TETRI_TB_BOLD, token);
             partyline_text (buf);
             while ((token = strtok (NULL, " ")) != NULL) speclist_add (token);
             playerlistupdate ();
@@ -578,7 +652,15 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             speclist_add (name);
             info = strtok (NULL, "");
             if (info == NULL) info = "";
-            sprintf (buf, "\021*** \02%s\377\021 has joined the spectators \06\02(\02%s\337\06\02)", name, info);
+            g_snprintf (buf, sizeof(buf),
+                        "%c*** %c%s%c%c has joined the spectators"
+                        " %c%c(%c%s%c%c%c)",
+                        TETRI_TB_C_DARK_BLUE, TETRI_TB_BOLD,
+                        name,
+                        TETRI_TB_RESET, TETRI_TB_C_DARK_BLUE,
+                        TETRI_TB_C_GREY, TETRI_TB_BOLD,  TETRI_TB_BOLD,
+                        info,
+                        TETRI_TB_RESET, TETRI_TB_C_GREY, TETRI_TB_BOLD);
             partyline_text (buf);
             playerlistupdate ();
         }
@@ -591,7 +673,15 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             speclist_remove (name);
             info = strtok (NULL, "");
             if (info == NULL) info = "";
-            sprintf (buf, "\021*** \02%s\377\021 has left the spectators \06\02(\02%s\337\06\02)", name, info);
+            g_snprintf (buf, sizeof(buf),
+                        "%c*** %c%s%c%c has left the spectators"
+                        " %c%c(%c%s%c%c%c)",
+                        TETRI_TB_C_DARK_BLUE, TETRI_TB_BOLD,
+                        name,
+                        TETRI_TB_RESET, TETRI_TB_C_DARK_BLUE,
+                        TETRI_TB_C_GREY, TETRI_TB_BOLD,  TETRI_TB_BOLD,
+                        info,
+                        TETRI_TB_RESET, TETRI_TB_C_GREY, TETRI_TB_BOLD);
             partyline_text (buf);
             playerlistupdate ();
         }
@@ -630,7 +720,7 @@ void tetrinet_playerline (char *text)
         if (strncasecmp (p, "me ", 3) == 0) {
             p += 3;
             while (*p && isspace(*p)) p++;
-            sprintf (buf, "%d %s", playernum, p);
+            g_snprintf (buf, sizeof(buf), "%d %s", playernum, p);
             client_outmessage (OUT_PLINEACT, buf);
             if (spectating)
                 plinesact (nick, p);
@@ -639,12 +729,12 @@ void tetrinet_playerline (char *text)
             return;
         }
         if (tetrix) {
-            sprintf (buf, "%d %s", playernum, text);
+            g_snprintf (buf, sizeof(buf), "%d %s", playernum, text);
             client_outmessage (OUT_PLINE, buf);
             return;
         }
     }
-    sprintf (buf, "%d %s", playernum, text);
+    g_snprintf (buf, sizeof(buf), "%d %s", playernum, text);
     client_outmessage (OUT_PLINE, buf);
     if (spectating)
         plinesmsg (nick, text);
@@ -656,10 +746,10 @@ void tetrinet_changeteam (char *newteam)
 {
     char buf[128];
 
-    strcpy (team, newteam);
+    GTET_O_STRCPY (team, newteam);
 
     if (connected) {
-        sprintf (buf, "%d %s", playernum, team);
+        g_snprintf (buf, sizeof(buf), "%d %s", playernum, team);
         client_outmessage (OUT_TEAM, buf);
         tetrinet_inmessage (IN_TEAM, buf);
         partyline_namelabel (nick, team);
@@ -673,7 +763,7 @@ void tetrinet_sendfield (int reset)
 
     if (reset) goto sendwholefield;
 
-    sprintf (buf, "%d ", playernum);
+    g_snprintf (buf, sizeof(buf), "%d ", playernum);
     /* find differences between the fields */
     for (i = 0; i < 15; i ++) {
         p = buf2 + 1;
@@ -688,7 +778,7 @@ void tetrinet_sendfield (int reset)
                 }
         if (p > buf2+1) {
             *p = 0;
-            strcat (buf, buf2);
+            GTET_O_STRCAT (buf, buf2);
             d = TRUE;
         }
     }
@@ -701,7 +791,7 @@ void tetrinet_sendfield (int reset)
             for (x = 0; x < FIELDWIDTH; x ++)
                 *p++ = blocks[(int)fields[playernum][y][x]];
         *p = 0;
-        sprintf (buf, "%d %s", playernum, buf2);
+        g_snprintf (buf, sizeof(buf), "%d %s", playernum, buf2);
     }
     /* send it */
     client_outmessage (OUT_F, buf);
@@ -723,7 +813,7 @@ void tetrinet_resendfield (void)
         for (x = 0; x < FIELDWIDTH; x ++)
             *p++ = blocks[(int)sentfield[y][x]];
     *p = 0;
-    sprintf (buf, "%d %s", playernum, buf2);
+    g_snprintf (buf, sizeof(buf), "%d %s", playernum, buf2);
     client_outmessage (OUT_F, buf);
 }
 
@@ -834,19 +924,19 @@ void tetrinet_dospecial (int from, int to, int type)
       case S_ADDALL4: /* bad for everyone ... */
         g_assert(!to);
         if (from == playernum)
-          sprintf (buf, "%c%c%s%c%c",
-                   TETRI_TB_BOLD,
-                   TETRI_TB_C_BLACK,
-                   sbinfo[type].info,
-                   TETRI_TB_C_BLACK,
-                   TETRI_TB_BOLD);
+          g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
+                      TETRI_TB_BOLD,
+                      TETRI_TB_C_BLACK,
+                      sbinfo[type].info,
+                      TETRI_TB_C_BLACK,
+                      TETRI_TB_BOLD);
         else
-          sprintf (buf, "%c%c%s%c%c",
-                   TETRI_TB_BOLD,
-                   TETRI_TB_C_BRIGHT_RED,
-                   sbinfo[type].info,
-                   TETRI_TB_C_BRIGHT_RED,
-                   TETRI_TB_BOLD);
+          g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
+                      TETRI_TB_BOLD,
+                      TETRI_TB_C_BRIGHT_RED,
+                      sbinfo[type].info,
+                      TETRI_TB_C_BRIGHT_RED,
+                      TETRI_TB_BOLD);
         break;
         
       case S_ADDLINE:
@@ -855,26 +945,26 @@ void tetrinet_dospecial (int from, int to, int type)
       case S_BLOCKQUAKE:
       case S_BLOCKBOMB: /* badish stuff for someone */
         if (to == playernum)
-          sprintf (buf, "%c%c%s%c%c",
-                   TETRI_TB_BOLD,
-                   TETRI_TB_C_BRIGHT_RED,
-                   sbinfo[type].info,
-                   TETRI_TB_C_BRIGHT_RED,
-                   TETRI_TB_BOLD);
+          g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
+                      TETRI_TB_BOLD,
+                      TETRI_TB_C_BRIGHT_RED,
+                      sbinfo[type].info,
+                      TETRI_TB_C_BRIGHT_RED,
+                      TETRI_TB_BOLD);
         else if (from == playernum)
-          sprintf (buf, "%c%c%s%c%c",
-                   TETRI_TB_BOLD,
-                   TETRI_TB_C_BLACK,
-                   sbinfo[type].info,
-                   TETRI_TB_C_BLACK,
-                   TETRI_TB_BOLD);
+          g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
+                      TETRI_TB_BOLD,
+                      TETRI_TB_C_BLACK,
+                      sbinfo[type].info,
+                      TETRI_TB_C_BLACK,
+                      TETRI_TB_BOLD);
         else
-          sprintf (buf, "%c%c%s%c%c",
-                   TETRI_TB_BOLD,
-                   TETRI_TB_C_DARK_RED,
-                   sbinfo[type].info,
-                   TETRI_TB_C_DARK_RED,
-                   TETRI_TB_BOLD);
+          g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
+                      TETRI_TB_BOLD,
+                      TETRI_TB_C_DARK_RED,
+                      sbinfo[type].info,
+                      TETRI_TB_C_DARK_RED,
+                      TETRI_TB_BOLD);
         break;
 
       case S_CLEARLINE:
@@ -882,19 +972,19 @@ void tetrinet_dospecial (int from, int to, int type)
       case S_SWITCH:
       case S_GRAVITY: /* goodish stuff for someone */
         if (to == playernum)
-          sprintf (buf, "%c%c%s%c%c",
-                   TETRI_TB_BOLD,
-                   TETRI_TB_C_BRIGHT_GREEN,
-                   sbinfo[type].info,
-                   TETRI_TB_C_BRIGHT_GREEN,
-                   TETRI_TB_BOLD);
+          g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
+                      TETRI_TB_BOLD,
+                      TETRI_TB_C_BRIGHT_GREEN,
+                      sbinfo[type].info,
+                      TETRI_TB_C_BRIGHT_GREEN,
+                      TETRI_TB_BOLD);
         else
-          sprintf (buf, "%c%c%s%c%c",
-                   TETRI_TB_BOLD,
-                   TETRI_TB_C_DARK_GREEN,
-                   sbinfo[type].info,
-                   TETRI_TB_C_DARK_GREEN,
-                   TETRI_TB_BOLD);
+          g_snprintf (buf, sizeof(buf), "%c%c%s%c%c",
+                      TETRI_TB_BOLD,
+                      TETRI_TB_C_DARK_GREEN,
+                      sbinfo[type].info,
+                      TETRI_TB_C_DARK_GREEN,
+                      TETRI_TB_BOLD);
         break;
         
       default:
@@ -903,43 +993,43 @@ void tetrinet_dospecial (int from, int to, int type)
       
     if (to) {
       if (to == playernum)
-        sprintf (buf2, " on %c%c%s%c%c",
-                 TETRI_TB_BOLD,
-                 TETRI_TB_C_BRIGHT_BLUE,
-                 playernames[to],
-                 TETRI_TB_C_BRIGHT_BLUE,
-                 TETRI_TB_BOLD);
+        g_snprintf (buf2, sizeof(buf2), " on %c%c%s%c%c",
+                    TETRI_TB_BOLD,
+                    TETRI_TB_C_BRIGHT_BLUE,
+                    playernames[to],
+                    TETRI_TB_C_BRIGHT_BLUE,
+                    TETRI_TB_BOLD);
       else
-        sprintf (buf2, " on %c%c%s%c%c",
-                 TETRI_TB_BOLD,
-                 TETRI_TB_C_DARK_BLUE,
-                 playernames[to],
-                 TETRI_TB_C_DARK_BLUE,
-                 TETRI_TB_BOLD);
-        strcat (buf, buf2);
+        g_snprintf (buf2, sizeof(buf2), " on %c%c%s%c%c",
+                    TETRI_TB_BOLD,
+                    TETRI_TB_C_DARK_BLUE,
+                    playernames[to],
+                    TETRI_TB_C_DARK_BLUE,
+                    TETRI_TB_BOLD);
+        GTET_O_STRCAT (buf, buf2);
     }
     else
     {
-      sprintf (buf2, " to All");
-      strcat (buf, buf2);
+      g_snprintf (buf2, sizeof(buf2), " to All");
+      GTET_O_STRCAT (buf, buf2);
     }
     
     if (from) {
       if (from == playernum)
-        sprintf (buf2, " by %c%c%s%c%c",
-                 TETRI_TB_BOLD,
-                 TETRI_TB_C_BRIGHT_BLUE,
-                 playernames[from],
-                 TETRI_TB_C_BRIGHT_BLUE,
-                 TETRI_TB_BOLD);
+        g_snprintf (buf2, sizeof(buf2), " by %c%c%s%c%c",
+                    TETRI_TB_BOLD,
+                    TETRI_TB_C_BRIGHT_BLUE,
+                    playernames[from],
+                    TETRI_TB_C_BRIGHT_BLUE,
+                    TETRI_TB_BOLD);
       else
-        sprintf (buf2, " by %c%c%s%c%c",
-                 TETRI_TB_BOLD,
-                 TETRI_TB_C_DARK_BLUE,
-                 playernames[from],
-                 TETRI_TB_C_DARK_BLUE,
-                 TETRI_TB_BOLD);
-        strcat (buf, buf2);
+        g_snprintf (buf2, sizeof(buf2), " by %c%c%s%c%c",
+                    TETRI_TB_BOLD,
+                    TETRI_TB_C_DARK_BLUE,
+                    playernames[from],
+                    TETRI_TB_C_DARK_BLUE,
+                    TETRI_TB_BOLD);
+        GTET_O_STRCAT (buf, buf2);
     }
     fields_attdefmsg (buf);
 
@@ -1170,7 +1260,7 @@ void tetrinet_resumegame (void)
 void tetrinet_playerlost (void)
 {
     int x, y;
-    char buf[10];
+    char buf[11];
     FIELD field;
     playing = FALSE;
     /* fix up the display */
@@ -1183,7 +1273,7 @@ void tetrinet_playerlost (void)
     /* send field */
     tetrinet_sendfield (1);
     /* post message */
-    sprintf (buf, "%d", playernum);
+    g_snprintf (buf, sizeof(buf), "%d", playernum);
     client_outmessage (OUT_PLAYERLOST, buf);
     /* make a sound */
     sound_playsound (S_YOULOSE);
@@ -1348,7 +1438,8 @@ int tetrinet_removelines ()
                 llines -= linesperlevel;
             }
             /* tell everybody else */
-            sprintf (buf, "%d %d", playernum, playerlevels[playernum]);
+            g_snprintf (buf, sizeof(buf), "%d %d",
+                        playernum, playerlevels[playernum]);
             client_outmessage (OUT_LVL, buf);
             tetrinet_updatelevels ();
         }
@@ -1361,7 +1452,8 @@ int tetrinet_removelines ()
             case 4: sbnum = S_ADDALL4; break;
             default: goto endremovelines;
             }
-            sprintf (buf, "%i %s %i", 0, sbinfo[sbnum].id, playernum);
+            g_snprintf (buf, sizeof(buf), "%i %s %i",
+                        0, sbinfo[sbnum].id, playernum);
             client_outmessage (OUT_SB, buf);
             tetrinet_dospecial (playernum, 0, sbnum);
         }
@@ -1411,12 +1503,12 @@ notfieldkey:
                 if (strlen(s) > 0) {
                     if (strncmp("/me ", s, 4) == 0) {
                         /* post /me thingy */
-                        sprintf (buf, "* %s %s", nick, s+4);
+                        g_snprintf (buf, sizeof(buf), "* %s %s", nick, s+4);
                         client_outmessage (OUT_GMSG, buf);
                     }
                     else {
                         /* post message */
-                        sprintf (buf, "<%s> %s", nick, s);
+                        g_snprintf (buf, sizeof(buf), "<%s> %s", nick, s);
                         client_outmessage (OUT_GMSG, buf);
                     }
                 }
@@ -1536,7 +1628,7 @@ void tetrinet_specialkey (int pnum)
     if (pnum == -1) return;
 
     /* send it out */
-    sprintf (buf, "%i %s %i", pnum, sbinfo[sbnum].id, playernum);
+    g_snprintf (buf, sizeof(buf), "%i %s %i", pnum, sbinfo[sbnum].id, playernum);
     client_outmessage (OUT_SB, buf);
 
     tetrinet_dospecial (playernum, pnum, sbnum);
@@ -1556,7 +1648,11 @@ int moderatorupdate_timeout (void)
 {
     if (moderatornum) {
         char buf[256];
-        sprintf (buf, "\024*** \02%s\377\024 is the moderator", playernames[moderatornum]);
+        g_snprintf (buf, sizeof(buf),
+                    "%c*** %c%s%c%c is the moderator",
+                    TETRI_TB_C_BRIGHT_RED, TETRI_TB_BOLD,
+                    playernames[moderatornum],
+                    TETRI_TB_RESET, TETRI_TB_C_BRIGHT_RED);
         partyline_text (buf);
     }
     mutimeout = 0;
@@ -1594,46 +1690,56 @@ int partylineupdate_timeout (void)
     int f[16];
 
     if (plcount) {
-        strcpy (buf, "\014*** ");
+        g_snprintf(buf, sizeof(buf), "%c*** ", TETRI_TB_C_DARK_GREEN);
         for (i = 0; i < plcount; i++) {
-            sprintf (buf2, "\02%s\377\014, ", pleaves[i]);
-            strcat (buf, buf2);
+            g_snprintf (buf2, sizeof(buf2), "%c%s%c%c, ",
+                        TETRI_TB_BOLD, pleaves[i],
+                        TETRI_TB_RESET, TETRI_TB_C_DARK_GREEN);
+            GTET_O_STRCAT (buf, buf2);
         }
-        buf[strlen(buf)-2] = 0;
-        if (plcount == 1) strcat (buf, _(" has left the game"));
-        else strcat (buf, _(" have left the game"));
+        buf[strlen(buf)-2] = 0; /* remove ", " from end of string */
+        if (plcount == 1) GTET_O_STRCAT (buf, _(" has left the game"));
+        else GTET_O_STRCAT (buf, _(" have left the game"));
         plcount = 0;
         partyline_text (buf);
     }
     if (pcount) {
-        strcpy (buf, "\014*** ");
+        g_snprintf(buf, sizeof(buf), "%c*** ", TETRI_TB_C_DARK_GREEN);
         for (i = 0; i < pcount; i++) {
-            sprintf (buf2, "\02%s\377\014, ", pjoins[i]);
-            strcat (buf, buf2);
+            g_snprintf (buf2, sizeof(buf2), "%c%s%c%c, ",
+                        TETRI_TB_BOLD, pjoins[i],
+                        TETRI_TB_RESET, TETRI_TB_C_DARK_GREEN);
+            GTET_O_STRCAT (buf, buf2);
         }
         buf[strlen(buf)-2] = 0;
-        if (pcount == 1) strcat (buf, _(" has joined the game"));
-        else strcat (buf, _(" have joined the game"));
+        if (pcount == 1) GTET_O_STRCAT (buf, _(" has joined the game"));
+        else GTET_O_STRCAT (buf, _(" have joined the game"));
         partyline_text (buf);
 
         for (i = 0; i < pcount; i ++) f[i] = 1;
         for (i = 0; i < pcount; i ++) if (f[i]) {
-            strcpy (team, pteams[i]);
-            sprintf (buf, "\020*** \02%s\377\020", pjoins[i]);
+            GTET_O_STRCPY (team, pteams[i]);
+            g_snprintf (buf, sizeof(buf), "%c*** %c%s%c%c",
+                        TETRI_TB_C_DARK_RED, TETRI_TB_BOLD,
+                        pjoins[i],
+                        TETRI_TB_RESET, TETRI_TB_C_DARK_RED);
             c = 1;
             for (j = i+1; j < pcount; j ++) {
                 if (strcmp (team, pteams[j]) == 0) {
-                    sprintf (buf2, ", \02%s\377\020", pjoins[j]);
-                    strcat (buf, buf2);
+                    g_snprintf (buf2, sizeof(buf2), ", %c%s%c%c",
+                                TETRI_TB_BOLD, pjoins[j],
+                                TETRI_TB_RESET, TETRI_TB_C_DARK_RED);
+                    GTET_O_STRCAT (buf, buf2);
                     f[j] = 0;
                     c ++;
                 }
             }
-            if (c == 1) strcat (buf, " is ");
-            else strcat (buf, " are ");
-            if (team[0]) sprintf (buf2, "on team \02%s", team);
-            else sprintf (buf2, "alone");
-            strcat (buf, buf2);
+            if (c == 1) GTET_O_STRCAT (buf, " is ");
+            else GTET_O_STRCAT (buf, " are ");
+            if (team[0]) g_snprintf (buf2, sizeof(buf2), "on team %c%s",
+                                     TETRI_TB_BOLD, team);
+            else g_snprintf (buf2, sizeof(buf2), "alone");
+            GTET_O_STRCAT (buf, buf2);
             partyline_text (buf);
         }
         pcount = 0;
@@ -1658,7 +1764,7 @@ void partylineupdate_join (char *name)
     int i;
     if (!connected) return;
     for (i = 0; i < pcount; i ++) if (strcmp(pjoins[i], name) == 0) return;
-    strcpy (pjoins[pcount], name);
+    GTET_O_STRCPY (pjoins[pcount], name);
     pteams[pcount][0] = 0;
     pcount ++;
     partylineupdate (0);
@@ -1674,21 +1780,28 @@ void partylineupdate_team (char *name, char *team)
         char buf[1024];
         /* player did not just join - display normally */
         if (team[0])
-            sprintf (buf, "\020*** \02%s\377\020 is now on team \02%s",
-                     name, team);
+            g_snprintf (buf, sizeof(buf),
+                        "%c*** %c%s%c%c is now on team %c%s",
+                        TETRI_TB_C_DARK_RED, TETRI_TB_BOLD,
+                        name,
+                        TETRI_TB_RESET, TETRI_TB_C_DARK_RED,
+                        TETRI_TB_BOLD, team);
         else
-            sprintf (buf, "\020*** \02%s\377\020 is now alone",
-                     name);
+            g_snprintf (buf, sizeof(buf),
+                        "%c*** %c%s%c%c is now alone",
+                        TETRI_TB_C_DARK_RED, TETRI_TB_BOLD,
+                        name,
+                        TETRI_TB_RESET, TETRI_TB_C_DARK_RED);
         partyline_text (buf);
     }
-    strcpy (pteams[i], team);
+    GTET_O_STRCPY (pteams[i], team);
     partylineupdate (0);
 }
 
 void partylineupdate_leave (char *name)
 {
     if (!connected) return;
-    strcpy (pleaves[plcount], name);
+    GTET_O_STRCPY (pleaves[plcount], name);
     plcount ++;
     partylineupdate (0);
 }
@@ -1740,28 +1853,39 @@ void checkmoderatorstatus (void)
 void plinemsg (char *name, char *text)
 {
     char buf[1024];
-    sprintf (buf, "\02<%s\377\02>\02 %s", name, text);
+    g_snprintf (buf, sizeof(buf), "%c<%s%c%c>%c %s",
+                TETRI_TB_BOLD, name,
+                TETRI_TB_RESET, TETRI_TB_BOLD, TETRI_TB_BOLD, text);
     partyline_text (buf);
 }
 
 void plinesmsg (char *name, char *text)
 {
     char buf[1024];
-    sprintf (buf, "\05\02<%s\377\05\02>\02 %s", name, text);
+    g_snprintf (buf, sizeof(buf), "%c%c<%s%c%c%c>%c %s",
+                TETRI_TB_C_BRIGHT_BLUE, TETRI_TB_BOLD,
+                name,
+                TETRI_TB_RESET,
+                TETRI_TB_C_BRIGHT_BLUE, TETRI_TB_BOLD, TETRI_TB_BOLD, text);
     partyline_text (buf);
 }
 
 void plineact (char *name, char *text)
 {
     char buf[1024];
-    sprintf (buf, "\023* \02%s\377\023 %s", name, text);
+    g_snprintf (buf, sizeof(buf), "%c* %c%s%c%c %s",
+                TETRI_TB_C_PURPLE, TETRI_TB_BOLD, name,
+                TETRI_TB_RESET, TETRI_TB_C_PURPLE, text);
     partyline_text (buf);
 }
 
 void plinesact (char *name, char *text)
 {
     char buf[1024];
-    sprintf (buf, "\05* \02%s\377\05 %s", name, text);
+    g_snprintf (buf, sizeof(buf), "%c* %c%s%c%c %s",
+                TETRI_TB_C_BRIGHT_BLUE, TETRI_TB_BOLD,
+                name,
+                TETRI_TB_RESET, TETRI_TB_C_BRIGHT_BLUE, text);
     partyline_text (buf);
 }
 
@@ -1796,11 +1920,15 @@ void speclist_clear (void)
 void speclist_add (char *name)
 {
     int p, i;
+    
+    if (spectatorcount == (sizeof(spectatorlist) / sizeof(spectatorlist[0])))
+      return;
+    
     for (p = 0; p < spectatorcount; p++)
         if (strcasecmp(name, spectatorlist[p]) < 0) break;
     for (i = spectatorcount; i > p; i--)
-        strcpy (spectatorlist[i], spectatorlist[i-1]);
-    strcpy (spectatorlist[p], name);
+        GTET_O_STRCPY (spectatorlist[i], spectatorlist[i-1]);
+    GTET_O_STRCPY (spectatorlist[p], name);
     spectatorcount ++;
 }
 
@@ -1810,7 +1938,7 @@ void speclist_remove (char *name)
     for (i = 0; i < spectatorcount; i ++) {
         if (strcmp(name, spectatorlist[i]) == 0) {
             for (; i < spectatorcount-1; i++)
-                strcpy (spectatorlist[i], spectatorlist[i+1]);
+                GTET_O_STRCPY (spectatorlist[i], spectatorlist[i+1]);
             spectatorcount --;
             return;
         }

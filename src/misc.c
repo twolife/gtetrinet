@@ -140,9 +140,9 @@ void textbox_addtext (GtkText *textbox, unsigned char *text)
 	}
         else if (text[i] < 32) {
             switch (text[i]) {
-            case 0x02: attr = attr ^ 0x01; break; /* bold */
-            case 0x16: attr = attr ^ 0x02; break; /* italics */
-            case 0x1F: break; /* underline not available */
+            case TETRI_TB_BOLD: attr = attr ^ 0x01; break; /* bold */
+            case TETRI_TB_ITALIC: attr = attr ^ 0x02; break; /* italics */
+            case TETRI_TB_UNDERLINE: break; /* underline not available */
             default: /* it is a color... */
                 if (text[i] > 0x1A) goto next; /* bounds checking */
                 if (text[i] == last) {

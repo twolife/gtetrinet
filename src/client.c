@@ -175,8 +175,8 @@ void client_destroypipes (void)
 void client_init (char *s, char *n)
 {
     int i;
-    strcpy (server, s);
-    strcpy (nick, n);
+    GTET_O_STRCPY(server, s);
+    GTET_O_STRCPY(nick, n);
 
     /* wipe spaces off the nick */
     for (i = 0; nick[i]; i ++)
@@ -236,10 +236,10 @@ static void client_inputfunc (gpointer data, gint source,
 void client_outmessage (enum outmsg_type msgtype, char *str)
 {
     char buf[1024];
-    strcpy (buf, outmsg_translate (msgtype));
+    GTET_O_STRCPY(buf, outmsg_translate (msgtype));
     if (str) {
-        strcat (buf, " ");
-        strcat (buf, str);
+        GTET_O_STRCAT(buf, " ");
+        GTET_O_STRCAT(buf, str);
     }
     write (fdout[1], buf, strlen(buf));
     write (fdout[1], "\n", 1);
@@ -259,10 +259,10 @@ void client_process (void)
     if (client_connect () == -1) {
         char errmsg[1024];
 
-        strcpy (errmsg, "noconnecting ");
+        GTET_O_STRCPY(errmsg, "noconnecting ");
 
-        if (errno) strcat (errmsg, strerror (errno));
-        else if (h_errno) strcat (errmsg, "Unknown host");
+        if (errno)        GTET_O_STRCAT(errmsg, strerror (errno));
+        else if (h_errno) GTET_O_STRCAT(errmsg, "Unknown host");
 
         client_inmessage (errmsg);
 
@@ -410,27 +410,43 @@ int client_connect (void)
 
     /* say hello to the server */
     {
-        char buf[200], buf2[200];
+        GString *s1 = g_string_sized_new(80);
+        GString *s2 = g_string_sized_new(80);
         unsigned char ip[4];
-        unsigned char iphashbuf[6];
+        GString *iphashbuf = g_string_sized_new(11);
         int i, l, len;
+        
         /* construct message */
         if (gamemode == TETRIFAST)
-            sprintf (buf, "tetrifaster %s 1.13", nick);
+          g_string_sprintf (s1, "tetrifaster %s 1.13", nick);
         else
-            sprintf (buf, "tetrisstart %s 1.13", nick);
+          g_string_sprintf (s1, "tetrisstart %s 1.13", nick);
+
         /* do that encoding thingy */
         server_ip (ip);
-        sprintf (iphashbuf, "%d", ip[0]*54 + ip[1]*41 + ip[2]*29 + ip[3]*17);
-        l = strlen (iphashbuf);
-        buf2[0] = 0;
-        for (i = 0; buf[i]; i ++)
-            buf2[i+1] = (((buf2[i]&0xFF)+(buf[i]&0xFF))%255) ^ iphashbuf[i%l];
+        g_string_sprintf (iphashbuf, "%d",
+                          ip[0]*54 + ip[1]*41 + ip[2]*29 + ip[3]*17);
+        l = iphashbuf->len;
+
+        g_string_append_c(s2, 0);
+        for (i = 0; s1->str[i]; i ++)
+          g_string_append_c(s2, ((((s2->str[i] & 0xFF) +
+                                   (s1->str[i] & 0xFF)) % 255) ^
+                                 iphashbuf->str[i % l]));
+        g_assert(s1->len == i);
+        g_assert(s2->len == (i + 1));
         len = i + 1;
+
+        g_string_truncate(s1, 0);
         for (i = 0; i < len; i ++)
-            sprintf (buf+i*2, "%02X", buf2[i] & 0xFF);
+          g_string_sprintfa(s1, "%02X", s2->str[i] & 0xFF);
+
         /* now send to server */
-        client_sendmsg (buf);
+        client_sendmsg (s1->str);
+
+        g_string_free(s1, TRUE);
+        g_string_free(s2, TRUE);
+        g_string_free(iphashbuf, TRUE);
     }
     return 0;
 }

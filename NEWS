@@ -1,3 +1,9 @@
+GTetrinet 0.4.4 - 2002-10-27
+- SECURITY FIX: multiple buffer overflows fixed all over the place.
+  This CAN be exploited REMOTELY, please upgrade ASAP.
+  Special thanks go to Steve Kemp for working on an exploit and its fix,
+  and James Antill for the patch which fixes the problems in this release.
+
 GTetrinet 0.4.3 - 2002-10-21
 - IPv6 support!
 - Add missing includes so i18n works correctly.

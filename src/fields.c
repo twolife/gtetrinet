@@ -388,9 +388,9 @@ void fields_drawblock (int field, int x, int y, char block)
 
 void fields_setlabel (int field, char *name, char *team, int num)
 {
-    char buf[10];
+    char buf[11];
 
-    sprintf (buf, "%d", num);
+    g_snprintf (buf, sizeof(buf), "%d", num);
     
     if (name == NULL) {
         gtk_widget_hide (fieldlabels[field][0]);
@@ -509,7 +509,7 @@ void fields_setlines (int l)
 {
     char buf[16] = "";
     if (l >= 0)
-        sprintf (buf, "%d", l);
+        g_snprintf (buf, sizeof(buf), "%d", l);
     leftlabel_set (lineswidget, buf);
 }
 
@@ -517,7 +517,7 @@ void fields_setlevel (int l)
 {
     char buf[16] = "";
     if (l > 0)
-        sprintf (buf, "%d", l);
+        g_snprintf (buf, sizeof(buf), "%d", l);
     leftlabel_set (levelwidget, buf);
 }
 
@@ -529,7 +529,7 @@ void fields_setactivelevel (int l)
         gtk_widget_hide (activewidget);
     }
     else {
-        sprintf (buf, "%d", l);
+        g_snprintf (buf, sizeof(buf), "%d", l);
         leftlabel_set (activewidget, buf);
         gtk_widget_show (activelabel);
         gtk_widget_show (activewidget);
@@ -570,7 +570,7 @@ void fields_gmsginputactivate (int t)
     if (t)
         gtk_widget_grab_focus (gmsginput);
     else
-        /* do nothing */;
+        { /* do nothing */; }
 }
 
 void fields_gmsginputadd (char *c)
@@ -583,7 +583,7 @@ void fields_gmsginputadd (char *c)
 void fields_gmsginputback (void)
 {
     char buf[256];
-    strcpy (buf, gtk_entry_get_text(GTK_ENTRY(gmsginput)));
+    GTET_O_STRCPY (buf, gtk_entry_get_text(GTK_ENTRY(gmsginput)));
     if (strlen(buf) == 0) return;
     buf[strlen(buf)-1] = 0;
     gtk_entry_set_text (GTK_ENTRY(gmsginput), buf);

@@ -1,3 +1,29 @@
+2002-10-22  James Antill  <james@and.org>
+
+	* src/tetrinet.c (tetrinet_inmessage): Check all values from atoi()
+	for out of bounds.
+	(tetrinet_inmessage): Check all int values from sscanf() for out of
+	bounds.
+	(tetrinet_inmessage): Stop buffer overflows in sscanf() %s.
+	(tetrinet_inmessage): Protect playercount from overflow.
+	(speclist_add): Protect spectatorcount from overflow.
+
+2002-10-21  James Antill  <james@and.org>
+
+	* src/tetrinet.c: Convert hard coded color/attribute values into
+	constants and %c formats, when used in g_snprintf(). Readability.
+	
+	* src/*.c: Replace all uses of sprintf(), strcpy(), strcat(), 
+	strncpy() and strncat() with GTET_STRCPY() or GTET_STRCAT().
+
+	* src/config.c (config_getthemeinfo): Fixup buffer overflows on theme
+	info load.
+
+	* src/misc.h (GTET_STRCPY): Added safe strcpy() function.
+	(GTET_STRCAT): Added safe strcat() function.
+	(GTET_O_STRCPY): Added safe strcpy() function, with auto size.
+	(GTET_O_STRCAT): Added safe strcat() function, with auto size.
+
 2002-10-21  Jordi Mallach  <jordi@sindominio.net>
 
 	* NEWS, configure.in: released gtetrinet 0.4.3.
