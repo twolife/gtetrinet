@@ -1,5 +1,11 @@
 2002-10-28  Jordi Mallach  <jordi@sindominio.net>
 
+	* AUTHORS: added a random list of people who should be creditted.
+	Probably missing many.
+	* NEWS: added 0.5.0 items.
+
+2002-10-28  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/commands.c (about_command): rename documentors to documenters.
 	Add translator credits. Assign the gtetrinet icon to the about dialog.
 	Add a hyperlink to GTetrinet's homepage.
