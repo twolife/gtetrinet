@@ -944,7 +944,7 @@ void prefdialog_new (void)
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (keyclist), -1, _("Key"), renderer,
                                                  "text", 1, NULL);
 
-    gtk_widget_set_size_request (key_scroll, 180, 200);
+    gtk_widget_set_size_request (key_scroll, 240, 200);
     gtk_widget_show (key_scroll);
 
     label = gtk_label_new (_("Select an action from the list and press Change "
@@ -952,15 +952,16 @@ void prefdialog_new (void)
     gtk_label_set_justify (GTK_LABEL(label), GTK_JUSTIFY_LEFT);
     gtk_label_set_line_wrap (GTK_LABEL(label), TRUE);
     gtk_widget_show (label);
+    gtk_widget_set_size_request (label, 180, 100);
 
     button = gtk_button_new_with_mnemonic (_("Change _key..."));
     g_signal_connect (G_OBJECT(button), "clicked",
-                        GTK_SIGNAL_FUNC (prefdialog_changekey), NULL);
+                      GTK_SIGNAL_FUNC (prefdialog_changekey), NULL);
     gtk_widget_show (button);
 
     button1 = gtk_button_new_with_mnemonic (_("_Restore defaults"));
     g_signal_connect (G_OBJECT(button1), "clicked",
-                        GTK_SIGNAL_FUNC (prefdialog_restorekeys), NULL);
+                      GTK_SIGNAL_FUNC (prefdialog_restorekeys), NULL);
     gtk_widget_show (button1);
 
     table = gtk_table_new (2, 2, FALSE);
@@ -1013,7 +1014,7 @@ void prefdialog_new (void)
 
     button = gtk_button_new_with_mnemonic (_("_Restore defaults"));
     g_signal_connect (G_OBJECT(button), "clicked",
-                        GTK_SIGNAL_FUNC (prefdialog_restoremidi), NULL);
+                      GTK_SIGNAL_FUNC (prefdialog_restoremidi), NULL);
     gtk_widget_show (button);
 
     miditable = gtk_table_new (4, 2, FALSE);

@@ -1,5 +1,8 @@
 2003-06-02  Dani Carbonell  <bocata@panete.net>
 
+	* src/dialogs.c (prefdialog_new): changed the size of some widgets
+	in the Keyboard tab.
+
 	* src/winlist.c (winlist_page_new): added scrollbars to the
 	winlist, also made it bigger.
 
