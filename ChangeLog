@@ -1,3 +1,7 @@
+2003-06-05  Jordi Mallach  <jordi@sindominio.net>
+
+	* NEWS: Update for 0.7.2.
+
 2003-06-05  Dani Carbonell  <bocata@panete.net>
 
 	* src/partyline.c (textentry): Show the /msgs commands in the partyline.

@@ -1,3 +1,17 @@
+GTetrinet 0.7.2 - Unreleased
+- Added new icons to several places.
+- Merged Start/Stop button.
+- Nickname autocompletion in partyline!
+- Show /msg commands in partyline.
+- The mouse cursor is now hidden while playing.
+- Other bugfixes.
+- New and updated translations: French (Christophe Merlet), Catalan
+  (Jordi Mallach), Swedish (Christian Rose), Portuguese (Duarte Loreto),
+  Czech (Miloslav Trmac), Dutch (Tino Meinen), Brazilian Portuguese
+  (Alexandre Folle de Menezes), Japanese (KAMAGASAKO Masatoshi), Serbian
+  (Danilo Segan), Basque (Julen Landa Alustiza), Traditional Chinese
+  (Abel Cheung).
+
 GTetrinet 0.7.1 - 2003-04-14
 - Added an option to disable the channels list feature, so GTetrinet is
   usable in non-supported (yet) servers.
