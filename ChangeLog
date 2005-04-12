@@ -1,6 +1,10 @@
+2005-04-12  Jordi Mallach  <jordi@sindominio.net>
+
+	* NEWS: Update for 0.7.9.
+
 2005-04-01  Steve Murphy  <murf@e-tools.com>
 
-        * configure.in: Added "rw" to ALL_LINGUAS.
+	* configure.in: Added "rw" to ALL_LINGUAS.
 
 2005-03-26  Pedro Villavicencio Garrido  <pvillavi@gnome.org> 
 

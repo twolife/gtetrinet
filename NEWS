@@ -1,3 +1,11 @@
+GTetrinet 0.7.9 - 2005-04-12
+- Revamped encoding of data handling, fixing the output in partyline, etc.
+  when using UTF-8 locales (Vidar Holen).
+- Ported to use GtkAboutDialog (Pedro Villavicencio Garrido)
+- New and updated translations: Traditional Chinese (GNOME HK Team),
+  Canadian English (Adam Weinberger), Norwegian bokmål (Vidar Holen),
+  Bulgarian (Yavor Doganov), Kinyarwanda (Steve Murphy).
+
 GTetrinet 0.7.8 - 2004-12-26
 - Added minimal support for the Blocktrix protocol, now in use at
   tetrinet.org (Loren Abrams).
