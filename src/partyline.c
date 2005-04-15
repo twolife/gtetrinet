@@ -437,7 +437,7 @@ void partyline_add_channel (gchar *line)
   scan->config->skip_comment_single = FALSE;
   
   while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
-  num = scan->value.v_int;
+  num = (scan->token==G_TOKEN_INT) ? scan->value.v_int : 0; 
 
   g_scanner_get_next_token (scan); /* dump the ')' */
   
@@ -446,16 +446,16 @@ void partyline_add_channel (gchar *line)
     scan->config->cpair_comment_single = "# ";
     
     while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
-    actual = scan->value.v_int;
+    actual = (scan->token==G_TOKEN_INT) ? scan->value.v_int : 0;
     
     while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
-    max = scan->value.v_int;
+    max = (scan->token==G_TOKEN_INT) ? scan->value.v_int : 0;
 
     while ((g_scanner_get_next_token (scan) != G_TOKEN_COMMENT_SINGLE) && !g_scanner_eof (scan));
     /* This will be utf-8 since it's converted in client_readmsg, but just in
      * case the parsing code splits up a char sequence.. - vidar
      */
-    utf8 = ensure_utf8(scan->value.v_comment);
+    utf8 = ensure_utf8((scan->token==G_TOKEN_COMMENT_SINGLE) ? scan->value.v_comment : "");
     name = g_strconcat ("#", utf8, NULL);
     
     g_snprintf (final, 1024, "%d/%d", actual, max);
@@ -463,7 +463,7 @@ void partyline_add_channel (gchar *line)
     scan->config->cpair_comment_single = "{}";
     while ((g_scanner_get_next_token (scan) != G_TOKEN_COMMENT_SINGLE) && !g_scanner_eof (scan));
     if (!g_scanner_eof (scan))
-      state = g_strdup (scan->value.v_comment);
+      state = g_strdup ((scan->token==G_TOKEN_COMMENT_SINGLE) ? scan->value.v_comment : "");
     else
       state = g_strdup ("IDLE");
 
@@ -473,21 +473,21 @@ void partyline_add_channel (gchar *line)
   else
   {
     while ((g_scanner_get_next_token (scan) != G_TOKEN_COMMENT_SINGLE) && !g_scanner_eof (scan));
-    utf8 = ensure_utf8(scan->value.v_comment);
+    utf8 = ensure_utf8 ((scan->token==G_TOKEN_COMMENT_SINGLE) ? scan->value.v_comment : "");
     name = g_strconcat ("#", utf8, NULL);
 
     while ((g_scanner_get_next_token (scan) != G_TOKEN_IDENTIFIER) && !g_scanner_eof (scan));
-    players = g_strdup (scan->value.v_identifier);
+    players = g_strdup ((scan->token==G_TOKEN_IDENTIFIER) ? scan->value.v_identifier : "");
 
     if (players != NULL)
     {
       if (strncmp (players, "FULL", 4))
       {
         while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
-        actual = scan->value.v_int;
+        actual = (scan->token==G_TOKEN_INT) ? scan->value.v_int : 0;
 
         while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
-        max = scan->value.v_int;
+        max = (scan->token==G_TOKEN_INT) ? scan->value.v_int : 0;
 
         g_snprintf (final, 1024, "%d/%d %s", actual, max, players);
       }
@@ -502,13 +502,13 @@ void partyline_add_channel (gchar *line)
     if (g_scanner_get_next_token (scan) == G_TOKEN_LEFT_CURLY)
     {
       g_scanner_get_next_token (scan);
-      state = g_strdup (scan->value.v_identifier);
+      state = g_strdup ((scan->token==G_TOKEN_IDENTIFIER) ? scan->value.v_identifier : "");
     }
     else
       state = g_strdup ("IDLE");
   
     while ((g_scanner_get_next_token (scan) != G_TOKEN_RIGHT_PAREN) && !g_scanner_eof (scan));
-    if (line[scan->position] != 0)
+    if (!g_scanner_eof(scan) && (scan->position < strlen(line)))
       desc = g_strstrip (ensure_utf8 (&line[scan->position]));
     else
       desc = g_strdup ("");
