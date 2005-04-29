@@ -1,4 +1,4 @@
-GTetrinet 0.7.9 - 2005-04-12
+GTetrinet 0.7.9 - 2005-04-29
 - Revamped encoding of data handling, fixing the output in partyline, etc.
   when using UTF-8 locales (Vidar Holen).
 - Ported to use GtkAboutDialog (Pedro Villavicencio Garrido).

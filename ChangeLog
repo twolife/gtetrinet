@@ -1,5 +1,9 @@
 2005-04-29  Jordi Mallach  <jordi@sindominio.net>
 
+	* configure.in: Release gtetrinet 0.7.9.
+
+2005-04-29  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/client.c: Patch from Julien Plissonneau Duquène to
 	fix network latency.
 
