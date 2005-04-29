@@ -431,12 +431,14 @@ io_channel_cb (GIOChannel *source, GIOCondition condition)
 
 int client_sendmsg (char *str)
 {
-    char c = 0xFF;
+    gchar *buf;
     GError *error = NULL;
     
-    g_io_channel_write_chars (io_channel, str, -1, NULL, &error);
-    g_io_channel_write_chars (io_channel, &c, 1, NULL, &error);
+    buf = g_strdup(str);
+    buf[strlen(str)] = 0xFF;
+    g_io_channel_write_chars (io_channel, buf, strlen(str)+1, NULL, &error);
     g_io_channel_flush (io_channel, &error);
+    g_free(buf);
 
 #ifdef DEBUG
     printf ("> %s\n", str);

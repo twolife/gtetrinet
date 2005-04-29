@@ -1,7 +1,9 @@
 GTetrinet 0.7.9 - 2005-04-12
 - Revamped encoding of data handling, fixing the output in partyline, etc.
   when using UTF-8 locales (Vidar Holen).
-- Ported to use GtkAboutDialog (Pedro Villavicencio Garrido)
+- Ported to use GtkAboutDialog (Pedro Villavicencio Garrido).
+- Fixed network latency issues (Julien Plissonneau Duquène).
+- Fixed crashes in the channel list support (Julien Plissonneau Duquène).
 - New and updated translations: Traditional Chinese (GNOME HK Team),
   Canadian English (Adam Weinberger), Norwegian bokmål (Vidar Holen),
   Bulgarian (Yavor Doganov), Kinyarwanda (Steve Murphy).

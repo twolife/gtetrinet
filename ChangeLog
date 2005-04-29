@@ -1,9 +1,16 @@
+2005-04-29  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/client.c: Patch from Julien Plissonneau Duquène to
+	fix network latency.
+
+	* NEWS: pdate for 0.7.9.
+
 2005-04-15  Dani Carbonell  <bocata@panete.net>
 
-	* src/partyline.c: Applied patch from Julien Plissonneau Duquene which
+	* src/partyline.c: Applied patch from Julien Plissonneau Duquène which
 	fixes a segfault in the channel list.
 	
-	* NEWS: Update for 0.7.9..
+	* NEWS: Update for 0.7.9.
 
 2005-04-12  Jordi Mallach  <jordi@sindominio.net>
 
