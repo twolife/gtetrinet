@@ -117,7 +117,7 @@ msgstr "未连接"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "开源软件国际化之 GNOME 简体中文组\n\thttp://i18n.linux.net.cn"
 
 #: src/commands.c:293

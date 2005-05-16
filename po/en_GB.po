@@ -117,7 +117,7 @@ msgstr "Not connected"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
 "Abigail Brady <morwen@evilmagi_c.org>\n"
 "Bastien Nocera <hadess@hadess.net>\n"

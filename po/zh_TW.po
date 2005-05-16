@@ -116,7 +116,7 @@ msgstr "未連線"
 
 #. Translators: translate as your names & emails
 #: ../src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
 "i18n 程式中文化計劃\n"
 "http://i18n.linux.org.tw/\n"

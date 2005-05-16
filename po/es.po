@@ -120,7 +120,7 @@ msgstr "No conectado"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "Germán Poo-Caamaño <gpoo@ubiobio.cl>"
 
 #: src/commands.c:293

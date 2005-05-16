@@ -117,7 +117,7 @@ msgstr "未接続"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>"
 
 #: src/commands.c:293

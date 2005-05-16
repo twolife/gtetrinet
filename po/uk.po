@@ -117,7 +117,7 @@ msgstr "Немає з'єднання"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:236
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "Юрій Сирота <yuriy@beer.com>"
 
 #: src/commands.c:241

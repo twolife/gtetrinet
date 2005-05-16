@@ -122,7 +122,7 @@ msgstr "Niet verbonden"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "Tino Meinen <a.t.meinen@chello.nl>"
 
 #: src/commands.c:293

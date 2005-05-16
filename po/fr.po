@@ -118,7 +118,7 @@ msgstr "Non connecté"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
 "Gaël Chamoulaud (strider) <strider@freespiders.org>\n"
 "Christophe Merlet (RedFox) <redfox@redfoxcenter.org>"

@@ -117,7 +117,7 @@ msgstr "접속되지 않았습니다"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "Michael Kim <lavnrose@e.sarang.net>"
 
 #: src/commands.c:293

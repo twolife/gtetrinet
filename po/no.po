@@ -116,7 +116,7 @@ msgstr "Ikke tilkoblet"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 
 #: src/commands.c:293

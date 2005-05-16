@@ -113,7 +113,7 @@ msgstr "Не подключен"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:236
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "Благодарности переводчикам"
 
 #: src/commands.c:241

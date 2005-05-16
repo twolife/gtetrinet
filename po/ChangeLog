@@ -1,3 +1,8 @@
+2005-05-16  Jordi Mallach  <jordi@sindominio.net>
+
+	* Mass update for the translator_credits -> translator-credits
+	move.
+
 2005-04-29 Alexander Shopov  <ash@contact.bg>
 
 	* bg.po: Updated Bulgarian translation by

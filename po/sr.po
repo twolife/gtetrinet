@@ -120,7 +120,7 @@ msgstr "Није повезан"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "Превод на српски: Слободан Симић <slsimic@verat.net>"
 
 #: src/commands.c:293

@@ -118,7 +118,7 @@ msgstr "Bağlı değil"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "Tamer Sezgin <tamer_sezgin@yahoo.com>"
 
 #: src/commands.c:293

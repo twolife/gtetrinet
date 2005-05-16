@@ -117,7 +117,7 @@ msgstr "Konektatu gabe"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:236
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
 "Julen Landa Alustiza "
 "julen@mundurat.net"

@@ -119,7 +119,7 @@ msgstr "Não conectado"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
 "Alexandre Folle de Menezes <afmenez@terra.com.br>\n"
 "baseado na versão em Português Ibérico por\n"

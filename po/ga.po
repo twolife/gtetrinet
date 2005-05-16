@@ -117,7 +117,7 @@ msgstr ""
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "Alastair McKinstry <mckinstry@computer.org>"
 
 #: src/commands.c:293

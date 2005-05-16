@@ -118,7 +118,7 @@ msgstr "Chưa kết nối"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "Nhóm GnomeVi (http://gnomevi.sourceforge.net)"
 
 #: src/commands.c:293

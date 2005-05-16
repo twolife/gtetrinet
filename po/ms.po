@@ -126,8 +126,8 @@ msgstr "Tidak disambung"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
-msgstr "translator_credits"
+msgid "translator-credits"
+msgstr "translator-credits"
 
 #: src/commands.c:293
 msgid ""

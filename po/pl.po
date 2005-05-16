@@ -120,7 +120,7 @@ msgstr "Nie połączono"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "GNOME PL Team <translators@gnome.pl>"
 
 #: src/commands.c:293

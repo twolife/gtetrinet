@@ -144,7 +144,7 @@ msgstr ""
 
 #. Translators: translate as your names & emails
 #: src/commands.c:309
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
 
 #: src/commands.c:323

@@ -120,7 +120,7 @@ msgstr "Nepřipojen"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr "Michal Bukovjan <bukm@centrum.cz>"
 
 #: src/commands.c:293
