@@ -28,6 +28,7 @@ dnl *****************************************
 dnl pkg-config check time
 dnl *****************************************
 
+LIBGTK_REQUIRED=2.6.0
 LIBGNOME_REQUIRED=2.0.0
 LIBGNOMEUI_REQUIRED=2.0.0
 
@@ -35,7 +36,7 @@ dnl *****************************************
 dnl libgnome, libgnomeui needed for all utils
 dnl *****************************************
 
-PKG_CHECK_MODULES(GTET, libgnome-2.0 >= $LIBGNOME_REQUIRED libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED)
+PKG_CHECK_MODULES(GTET, gtk+-2.0 >= $LIBGTK_REQUIRED libgnome-2.0 >= $LIBGNOME_REQUIRED libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED)
 AC_SUBST(GTET_CFLAGS)
 AC_SUBST(GTET_LIBS)
 

@@ -1,3 +1,9 @@
+2005-05-16  Jordi Mallach  <jordi@sindominio.net>
+
+	* configure.in: Require gtk+-2.0 >= 2.6.0.
+	* src/commands.c (about_command): Rename "translator_credits" to
+	"translator-credits".
+
 2005-04-29  Jordi Mallach  <jordi@sindominio.net>
 
 	* configure.in: Release gtetrinet 0.7.9.

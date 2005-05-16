@@ -306,7 +306,7 @@ void about_command (void)
     const char *documenters[] = {"Jordi Mallach <jordi@sindominio.net>",
 				 NULL};
     /* Translators: translate as your names & emails */
-    const char *translators = _("translator_credits");
+    const char *translators = _("translator-credits");
 
     logo = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
     
@@ -323,7 +323,7 @@ void about_command (void)
 			   "comments", _("A Tetrinet client for GNOME.\n"),
 			   "authors", authors,
 			   "documenters", documenters,
-			   "translator-credits", strcmp (translators, "translator_credits") != 0 ? translators : NULL,
+			   "translator-credits", strcmp (translators, "translator-credits") != 0 ? translators : NULL,
 			   "logo", logo,
 			   "website", "http://gtetrinet.sf.net",
 			   "website-label", "GTetrinet Home Page",
