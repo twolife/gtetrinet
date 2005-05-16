@@ -1,769 +1,892 @@
+# translation of eu.po to 
+# translation of gtrinet.eu.po to
 # translation of gtetrinet to Euskara
 # This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# Julen Landa <julen@mundurat.net>, 2003
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Julen Landa <julen@mundurat.net>, 2003, 2005.
+# Iñaki Larrañaga  <dooteo@euskalgnu.org>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtetrinet\n"
-"POT-Creation-Date: 2003-03-17 12:11+0100\n"
-"PO-Revision-Date: 2003-06-02 16:32+0200\n"
-"Last-Translator: Julen Landa <julen@mundurat.net>\n"
-"Language-Team: Euskara <eu@li.org>\n"
+"Project-Id-Version: eu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-05-16 17:42+0200\n"
+"PO-Revision-Date: 2005-05-16 17:42+0200\n"
+"Last-Translator: Iñaki Larrañaga  <dooteo@euskalgnu.org>\n"
+"Language-Team:  <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.0.1\n"
+"X-Generator: KBabel 1.9.1\n"
 
-#: src/client.c:237
+#: ../src/client.c:243
 msgid "Couldn't resolve hostname."
-msgstr "Ezin da hostnamea erresolbitu"
+msgstr "Ezin da ostalari-izena ebatzik."
 
-#: src/commands.c:38
+#: ../src/commands.c:45
 msgid "_Connect to server..."
-msgstr "Zerbitzarira _konektatu..."
+msgstr "_Konektatu zerbitzarira..."
 
-#: src/commands.c:39
+#: ../src/commands.c:46
 msgid "_Disconnect from server"
-msgstr "Zerbitzaritik _deskonektatu"
+msgstr "_Deskonektatu zerbitzaritik..."
 
-#: src/commands.c:41
+#: ../src/commands.c:48
 msgid "Change _team..."
-msgstr "_Taldea aldatu..."
+msgstr "Aldatu _taldea..."
 
-#: src/commands.c:43
+#: ../src/commands.c:50
 msgid "_Start game"
-msgstr "Jokua ha_si"
+msgstr "_Hasi jokua"
 
-#: src/commands.c:44
+#: ../src/commands.c:51
 msgid "_Pause game"
-msgstr "Jokua _pausatu"
+msgstr "_Pausatu jokua"
 
-#: src/commands.c:45
+#: ../src/commands.c:52
 msgid "_End game"
-msgstr "Jokua Amaitu"
+msgstr "_Amaitu jokua"
 
-#: src/commands.c:50
+#: ../src/commands.c:57
 msgid "Detac_h page..."
-msgstr "Orria desuztatu..."
+msgstr "_Desu_ztartu orria..."
 
-#: src/commands.c:75
+#: ../src/commands.c:82
 msgid "Connect"
 msgstr "Konektatu"
 
-#: src/commands.c:75
+#: ../src/commands.c:82
 msgid "Connect to a server"
-msgstr "Zerbitari batetara konektatu"
+msgstr "Konektatu zerbitzarira"
 
-#: src/commands.c:76
+#: ../src/commands.c:83
 msgid "Disconnect"
 msgstr "Deskonektatu"
 
-#: src/commands.c:76
+#: ../src/commands.c:83
 msgid "Disconnect from the current server"
-msgstr "Oraingo zerbitzaritik deskonektatu"
+msgstr "Deskonektatu uneko zerbitzaritik"
 
-#: src/commands.c:78
+#: ../src/commands.c:85
 msgid "Start game"
-msgstr "Jokua hasi"
+msgstr "Hasi jokua"
 
-#: src/commands.c:78
+#: ../src/commands.c:85
 msgid "Start a new game"
-msgstr "Joku berri bat hasi"
+msgstr "Hasi joku berria"
 
-#: src/commands.c:79
-msgid "Pause game"
-msgstr "Jokua pausatu"
-
-#: src/commands.c:79
-msgid "Pause the game"
-msgstr "Jokua pausatu"
-
-#: src/commands.c:80
+#: ../src/commands.c:86
 msgid "End game"
-msgstr "Jokua amaitu"
+msgstr "Amaitu jokua"
 
-#: src/commands.c:80
+#: ../src/commands.c:86
 msgid "End the current game"
-msgstr "Oraingo jokua amaitu"
+msgstr "Amaitu uneko jokua"
 
-#: src/commands.c:82 src/dialogs.c:155
+#: ../src/commands.c:87
+msgid "Pause game"
+msgstr "Pausatu jokua"
+
+#: ../src/commands.c:87
+msgid "Pause the game"
+msgstr "Pausatu jokua"
+
+#: ../src/commands.c:89 ../src/dialogs.c:152
 msgid "Change team"
-msgstr "Taldez aldatu"
+msgstr "Aldatu taldea"
 
-#: src/commands.c:82
+#: ../src/commands.c:89
 msgid "Change your current team name"
-msgstr "Oraingo taldearen izena aldatu"
+msgstr "Aldatu uneko taldearen izena"
 
-#: src/commands.c:85
+#: ../src/commands.c:92
 msgid "Detach page"
-msgstr "Orria desuztatu"
+msgstr "Desuztartu orria"
 
-#: src/commands.c:85
+#: ../src/commands.c:92
 msgid "Detach the current notebook page"
-msgstr "Oraingo editoreko orria beruztatu"
+msgstr "Desuztartu uneko koadernoko orrialdea"
 
-#: src/commands.c:207
+#: ../src/commands.c:258
 msgid "Game in progress"
-msgstr "Jokua hasia da"
+msgstr "Jokatzen ari da"
 
-#: src/commands.c:210
+#: ../src/commands.c:261
 msgid "Connected to\n"
 msgstr "Konektatuta: \n"
 
-#: src/commands.c:214
+#: ../src/commands.c:265
 msgid "Not connected"
 msgstr "Konektatu gabe"
 
 #. Translators: translate as your names & emails
-#: src/commands.c:236
+#: ../src/commands.c:309
 msgid "translator-credits"
 msgstr ""
-"Julen Landa Alustiza "
-"julen@mundurat.net"
+"Julen Landa Alustiza <julen@mundurat.net>\n"
+"IÃ±aki LarraÃ±aga <dooteo@euskalgnu.org>"
 
-#: src/commands.c:241
-msgid "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
-msgstr "(C) 1999, 2000, 2001, 2002, 2003 Ka-shu Wong"
-
-#: src/commands.c:242
+#: ../src/commands.c:323
 msgid "A Tetrinet client for GNOME.\n"
-msgstr "GNOMErako Tetrinet bezero bat\n"
+msgstr "Tetrinet bezero bat GNOMErako.\n"
 
-#: src/commands.c:254
-msgid "GTetrinet Home Page"
-msgstr "GTetrinet web orri nagusia"
-
-#: src/config.c:134
+#: ../src/config.c:140
 msgid "Warning: theme does not have a name, reverting to default."
-msgstr "Kontuz! Gaiak ez du izenik, berezkora itzultzen..."
+msgstr "Abisua: gaiak ez du izenik, lehenetsira itzultzen."
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:85 src/dialogs.c:330 src/gtetrinet.c:77
+#: ../src/dialogs.c:85 ../src/dialogs.c:324 ../src/gtetrinet.c:77
 msgid "Connect to server"
-msgstr "Zerbitzarira konektatu"
+msgstr "Konektatu zerbitzarira"
 
-#: src/dialogs.c:167 src/dialogs.c:429
+#: ../src/dialogs.c:165
 msgid "Team name:"
 msgstr "Taldearen izena:"
 
-#: src/dialogs.c:211
+#: ../src/dialogs.c:210
 msgid "You must specify a server name."
-msgstr "Zerbitzari baten izena jarri behar duzu"
+msgstr "Zerbitzari baten izena jarri behar duzu."
 
-#: src/dialogs.c:228
+#: ../src/dialogs.c:227
 msgid "Please specify a password to connect as spectator."
-msgstr "Ikusle bezala konektatzeko pasahitza jarri"
+msgstr "Zehaztu pasahitza ikusle bezala konektatzeko."
 
-#: src/dialogs.c:254
+#: ../src/dialogs.c:248
 msgid "Please specify a valid nickname."
-msgstr "Baliozko ezizen bat jarri"
+msgstr "Zehaztu baliozko goitizena."
 
 #. game type radio buttons
-#: src/dialogs.c:357
-msgid "Original"
-msgstr "Berezkoa"
+#: ../src/dialogs.c:353
+msgid "O_riginal"
+msgstr "J_atorrizkoa"
 
-#: src/dialogs.c:359
-msgid "TetriFast"
-msgstr "TetriFast"
+#: ../src/dialogs.c:355
+msgid "Tetri_Fast"
+msgstr "Tetri_Fast"
 
-#: src/dialogs.c:381
+#: ../src/dialogs.c:377
 msgid "Server address"
 msgstr "Zerbitzariaren helbidea"
 
-#: src/dialogs.c:390 src/gtetrinet.c:80
-msgid "Connect as a spectator"
-msgstr "Ikusle bezala konektatu"
+#: ../src/dialogs.c:386
+msgid "Connect as a _spectator"
+msgstr "Konektatu ikusle gisa"
 
-#: src/dialogs.c:394
-msgid "Password:"
-msgstr "Pasahitza:"
+#: ../src/dialogs.c:390
+msgid "_Password:"
+msgstr "_Pasahitza:"
 
-#: src/dialogs.c:408
+#: ../src/dialogs.c:407
 msgid "Spectate game"
-msgstr "Jokua ikusi"
+msgstr "Ikusi jokua"
 
-#: src/dialogs.c:417
-msgid "Nick name:"
-msgstr "Ezizena:"
+#: ../src/dialogs.c:416
+msgid "_Nick name:"
+msgstr "_Goitizena:"
 
-#: src/dialogs.c:446
+#: ../src/dialogs.c:430
+msgid "_Team name:"
+msgstr "_Taldearen izena:"
+
+#: ../src/dialogs.c:449
 msgid "Player information"
 msgstr "Jokalarien informazioa"
 
-#: src/dialogs.c:487
+#: ../src/dialogs.c:490
 msgid "Change Key"
-msgstr "Pasahitza aldatu"
+msgstr "Aldatu tekla"
 
-#: src/dialogs.c:538
+#: ../src/dialogs.c:541
 msgid "Move right"
-msgstr "Eskubira mugitu"
+msgstr "Mugitu eskuinera"
 
-#: src/dialogs.c:539
+#: ../src/dialogs.c:542
 msgid "Move left"
-msgstr "Ezkerrera mugitu"
+msgstr "Mugitu ezkerrera"
 
-#: src/dialogs.c:540
+#: ../src/dialogs.c:543
 msgid "Move down"
-msgstr "Beherantz mugitu"
+msgstr "Mugitu beherantz"
 
-#: src/dialogs.c:541
+#: ../src/dialogs.c:544
 msgid "Rotate right"
-msgstr "Eskubiran biratu"
+msgstr "Biratu eskuinera"
 
-#: src/dialogs.c:542
+#: ../src/dialogs.c:545
 msgid "Rotate left"
-msgstr "Ezkerreran biratu"
+msgstr "Biratu ezkerrera"
 
-#: src/dialogs.c:543
+#: ../src/dialogs.c:546
 msgid "Drop piece"
 msgstr "Erortzen utzi"
 
-#: src/dialogs.c:544
+#: ../src/dialogs.c:547
 msgid "Discard special"
-msgstr "Bereziak baztertu"
+msgstr "Baztertu bereziak"
 
-#: src/dialogs.c:545
+#: ../src/dialogs.c:548
 msgid "Send message"
-msgstr "Mezua bidali"
+msgstr "Bidali mezua"
 
-#: src/dialogs.c:599
+#: ../src/dialogs.c:549
+msgid "Special to field 1"
+msgstr "Berezia 1. eremura"
+
+#: ../src/dialogs.c:550
+msgid "Special to field 2"
+msgstr "Berezia 2. eremura"
+
+#: ../src/dialogs.c:551
+msgid "Special to field 3"
+msgstr "Berezia 3. eremura"
+
+#: ../src/dialogs.c:552
+msgid "Special to field 4"
+msgstr "Berezia 4. eremura"
+
+#: ../src/dialogs.c:553
+msgid "Special to field 5"
+msgstr "Berezia 5. eremura"
+
+#: ../src/dialogs.c:554
+msgid "Special to field 6"
+msgstr "Berezia 6. eremura"
+
+#: ../src/dialogs.c:614
 #, c-format
 msgid "Press new key for \"%s\""
-msgstr "\"%s\"-rako tekla sakatu"
+msgstr "Sakatu tekla berria \"%s\"-rako"
 
-#: src/dialogs.c:809
+#: ../src/dialogs.c:831
 msgid "GTetrinet Preferences"
-msgstr "GTetrinet Preferentziak"
+msgstr "GTetrinet hobespenak"
 
-#: src/dialogs.c:832
+#: ../src/dialogs.c:853
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
 msgstr ""
-"Aukeratu gai bat zerrendatik\n"
+"Hautatu gaia zerrendatik.\n"
 "Instalatu gai berriak ~/.gtetrinet/themes/ direktorioan"
 
-#: src/dialogs.c:840
+#: ../src/dialogs.c:860
 msgid "Name:"
 msgstr "izena:"
 
-#: src/dialogs.c:844
+#: ../src/dialogs.c:863
 msgid "Author:"
 msgstr "Egilea:"
 
-#: src/dialogs.c:848
+#: ../src/dialogs.c:866
 msgid "Description:"
-msgstr "Deskripzioa:"
+msgstr "Azalpena:"
 
-#: src/dialogs.c:866
+#: ../src/dialogs.c:879
 msgid "Selected Theme"
-msgstr "Aukeratutako gaia"
+msgstr "Hautatutako gaia"
 
-#: src/dialogs.c:885
+#: ../src/dialogs.c:895
+msgid "Download new themes"
+msgstr "Deskargatu gai berriak"
+
+#: ../src/dialogs.c:900
 msgid "Themes"
 msgstr "Gaiak"
 
 #. partyline
-#: src/dialogs.c:890
-msgid "Enable Timestamps"
-msgstr "Denboramarkak aktibatu"
+#: ../src/dialogs.c:905
+msgid "Enable _Timestamps"
+msgstr "Gaitu denbora-markak"
+
+#: ../src/dialogs.c:907
+msgid "Enable Channel _List"
+msgstr "Gaitu kanal_zerrenda"
 
 #. FIXME
-#: src/dialogs.c:911 src/gtetrinet.c:253
+#: ../src/dialogs.c:933 ../src/gtetrinet.c:281
 msgid "Partyline"
-msgstr "Partyline"
+msgstr "Jokaldia"
 
-#: src/dialogs.c:922
+#: ../src/dialogs.c:944
 msgid "Action"
 msgstr "Akzioa"
 
-#: src/dialogs.c:924
+#: ../src/dialogs.c:946
 msgid "Key"
 msgstr "Tekla"
 
-#: src/dialogs.c:930
+#: ../src/dialogs.c:952
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
-msgstr "Aukeratu akzio bat zerrendatik eta klikatu Teklak Aldatun teklak aldatzeko"
+msgstr ""
+"Hautatu zerrendako akzio bat eta sakatu 'Aldatu tekla' akzioari dagokion "
+"tekla aldatzeko."
 
-#: src/dialogs.c:936
-msgid "Change key..."
-msgstr "Teklak Aldatu..."
+#: ../src/dialogs.c:959
+msgid "Change _key..."
+msgstr "Aldatu _tekla..."
 
-#: src/dialogs.c:941 src/dialogs.c:994
-msgid "Restore defaults"
-msgstr "Berezkoak berrezarri"
+#: ../src/dialogs.c:964 ../src/dialogs.c:1017
+msgid "_Restore defaults"
+msgstr "_Berrasieratu lehenetsiak"
 
-#: src/dialogs.c:962
+#: ../src/dialogs.c:985
 msgid "Keyboard"
 msgstr "Teklatua"
 
 #. sound
-#: src/dialogs.c:967
-msgid "Enable Sound"
-msgstr "Soinua aktibatu"
+#: ../src/dialogs.c:990
+msgid "Enable _Sound"
+msgstr "Gaitu _soinua"
 
-#: src/dialogs.c:970
-msgid "Enable MIDI"
-msgstr "MIDIa aktibatu"
+#: ../src/dialogs.c:993
+msgid "Enable _MIDI"
+msgstr "Gaitu _MIDIa"
 
-#: src/dialogs.c:984
+#: ../src/dialogs.c:1007
 msgid "Enter command to play a midi file:"
-msgstr "midi fitxategiak entzuteko komandoa:"
+msgstr "Sartu komandoa midi fitxategia erreproduzitzeko:"
 
-#: src/dialogs.c:987
+#: ../src/dialogs.c:1010
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
 msgstr ""
-"Goiko komandoa midi fitxategi bat entzun behar denean exekutatuko da. "
-"midi fitxategia MIDIFILE ingurumen aldagaiaren bidez ezarriko da."
+"Gaineko komandoa exekutatuko da midi fitxategia erreproduzitzean. Midi "
+"fitxategiaren izena inguruneko MIDIFILE aldagaian gordetzen da."
 
-#: src/dialogs.c:1024
+#: ../src/dialogs.c:1047
 msgid "Sound"
 msgstr "Soinua"
 
-#: src/fields.c:72
+#: ../src/fields.c:76
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
 msgstr ""
-"Ezin da gaia kargatu\n"
-"Berezkoa itzultzen..."
+"Errorea gaia kargatzean: ezin da grafikoen fitxategia kargatu.\n"
+"Lehenetsira itzultzen."
 
 #. shouldnt happen
-#: src/fields.c:81
+#: ../src/fields.c:85
+#, c-format
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
 msgstr ""
-"Ezin da berezko gaia kargatu\n"
-"Instalazio erroreak begiratu\n"
+"Errorea gai lehenetsia kargatzean: abortatzen...\n"
+"Egiaztatu intalazio-erroreak\n"
 
-#: src/fields.c:196
+#: ../src/fields.c:206
 msgid "Next piece:"
 msgstr "Hurrengo pieza:"
 
-#: src/fields.c:213
+#: ../src/fields.c:223
 msgid "Lines:"
 msgstr "Lerroak:"
 
-#: src/fields.c:217
+#: ../src/fields.c:227
 msgid "Level:"
-msgstr "Nibela:"
+msgstr "Maila:"
 
-#: src/fields.c:219
+#: ../src/fields.c:229
 msgid "Active level:"
-msgstr "Nibel aktiboa:"
+msgstr "Aktibatu maila:"
 
-#: src/fields.c:267
+#: ../src/fields.c:277
 msgid "Attacks and defenses:"
 msgstr "Atakeak eta defentsak:"
 
-#: src/fields.c:406
+#: ../src/fields.c:420
 msgid "Not playing"
 msgstr "Ez da jolasten ari"
 
-#: src/fields.c:437
+#: ../src/fields.c:447
 msgid "Specials:"
 msgstr "Bereziak:"
 
-#: src/gtetrinet.c:77
+#: ../src/gtetrinet.c:77
 msgid "SERVER"
 msgstr "Zerbitzaria"
 
-#: src/gtetrinet.c:78
+#: ../src/gtetrinet.c:78
 msgid "Set nickname to use"
-msgstr "Ezizena ezarri"
+msgstr "Ezarri goitizena erabiltzeko"
 
-#: src/gtetrinet.c:78
+#: ../src/gtetrinet.c:78
 msgid "NICKNAME"
-msgstr "Ezizena"
+msgstr "Goitizena"
 
-#: src/gtetrinet.c:79
+#: ../src/gtetrinet.c:79
 msgid "Set team name"
-msgstr "Talde izena ezarri"
+msgstr "Ezarri talde-izena"
 
-#: src/gtetrinet.c:79
+#: ../src/gtetrinet.c:79
 msgid "TEAM"
 msgstr "Taldea"
 
-#: src/gtetrinet.c:81
-msgid "Spectator password"
-msgstr "Ikusle pasahitza"
+#: ../src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "Konektatu ikusle gisa"
 
-#: src/gtetrinet.c:81
+#: ../src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr "Ikuslearen pasahitza"
+
+#: ../src/gtetrinet.c:81
 msgid "PASSWORD"
 msgstr "Pasahitza"
 
-#: src/gtetrinet.c:120
+#: ../src/gtetrinet.c:120
 #, c-format
 msgid "Failed to init GConf: %s\n"
-msgstr "Gconf irikitzen errorea: %s\n"
+msgstr "Huts egin du GConf hasieratzean: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:242 src/gtetrinet.c:386 src/gtetrinet.c:437
+#: ../src/gtetrinet.c:270 ../src/gtetrinet.c:416 ../src/gtetrinet.c:469
 msgid "Playing Fields"
 msgstr "Joko eremuak"
 
 #. FIXME
-#: src/gtetrinet.c:264
+#: ../src/gtetrinet.c:292
 msgid "Winlist"
-msgstr "Irabazleen zerrenda"
+msgstr "Irabazle-zerrenda"
 
-#: src/partyline.c:75 src/partyline.c:133 src/winlist.c:47
+#: ../src/partyline.c:77 ../src/partyline.c:138 ../src/winlist.c:59
 msgid "Name"
 msgstr "Izena"
 
-#: src/partyline.c:77
+#: ../src/partyline.c:79
 msgid "Players"
 msgstr "Jokalariak"
 
-#: src/partyline.c:79
+#: ../src/partyline.c:81
 msgid "State"
 msgstr "Egoera"
 
-#: src/partyline.c:81
+#: ../src/partyline.c:83
 msgid "Description"
-msgstr "Deskripzioa"
+msgstr "Azalpena"
 
-#: src/partyline.c:135
+#: ../src/partyline.c:95
+msgid "Channel List"
+msgstr "Kanal-zerrenda"
+
+#: ../src/partyline.c:140
 msgid "Team"
 msgstr "Taldea"
 
-#: src/partyline.c:148
+#: ../src/partyline.c:153
 msgid "Your name:"
 msgstr "Zure izena:"
 
-#: src/partyline.c:155
+#: ../src/partyline.c:160
 msgid "Your team:"
 msgstr "Zure taldea:"
 
-#: src/partyline.c:568
+#: ../src/partyline.c:638
 msgid "Talking in channel"
 msgstr "Kanalean hitz egiten"
 
-#: src/partyline.c:570
+#: ../src/partyline.c:640
 msgid "Disconnected"
 msgstr "Deskonektatua"
 
-#: src/tetrinet.c:191
+#: ../src/tetrinet.c:197
 msgid "Server disconnected"
 msgstr "Zerbitzaria deskonektatua"
 
-#: src/tetrinet.c:211
+#: ../src/tetrinet.c:217
 #, c-format
 msgid "%c%c*** Disconnected from server"
 msgstr "%c%c***-Zerbitzaritik deskonektatua"
 
-#: src/tetrinet.c:222
+#: ../src/tetrinet.c:229
 msgid "Error connecting: "
-msgstr "Errorea konektatzen: "
+msgstr "Errorea konektatzean: "
 
-#: src/tetrinet.c:254
+#: ../src/tetrinet.c:263
 #, c-format
 msgid "%c%c*** Connected to server"
 msgstr "%c%c*** Zerbitzarira konektatuta"
 
-#: src/tetrinet.c:354
+#: ../src/tetrinet.c:364
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
 msgstr "%c%c*** Jokotik bidali zaituzte"
 
-#: src/tetrinet.c:358
+#: ../src/tetrinet.c:368
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
 msgstr "%c*** %c%s%c%c jokotik bidalia izan da"
 
-#: src/tetrinet.c:510
+#: ../src/tetrinet.c:543
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
-msgstr "%c***%c%s%c%c Taldeak irabazi du jokoa"
+msgstr "%c***%c%s%c%c taldeak irabazi du jokoa"
 
-#: src/tetrinet.c:516
+#: ../src/tetrinet.c:549
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
 msgstr "%c*** %c%s%c%c -ek irabazi du jokoa"
 
-#: src/tetrinet.c:576
+#: ../src/tetrinet.c:612
 #, c-format
 msgid "%c*** The game has %cstarted"
 msgstr "%c *** Jokoa %chasi da"
 
-#: src/tetrinet.c:601
+#: ../src/tetrinet.c:638
 #, c-format
 msgid "%c*** The game is %cin progress"
 msgstr "%c*** Jokoa %cmartxan da"
 
-#: src/tetrinet.c:612
+#: ../src/tetrinet.c:650
 #, c-format
 msgid "%c*** The game has %cpaused"
 msgstr "%c*** Jokoa %cpausatu da"
 
-#: src/tetrinet.c:614
+#: ../src/tetrinet.c:652
 #, c-format
 msgid "The game has %c%cpaused"
 msgstr "Jokoa %c%cpausatu da"
 
-#: src/tetrinet.c:619
+#: ../src/tetrinet.c:657
 #, c-format
 msgid "%c*** The game has %cresumed"
 msgstr "%c*** Jokua %cjarraitu da"
 
-#: src/tetrinet.c:621
+#: ../src/tetrinet.c:659
 #, c-format
 msgid "The game has %c%cresumed"
 msgstr "Jokoa %c%cjarraitu da"
 
-#: src/tetrinet.c:630
+#: ../src/tetrinet.c:668
 #, c-format
 msgid "%c*** The game has %cended"
 msgstr "%c*** Jokua %camaitu da"
 
-#: src/tetrinet.c:740
+#: ../src/tetrinet.c:786
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
 msgstr "%c*** %c%s%c%c ra sartu zara"
 
-#: src/tetrinet.c:757
+#: ../src/tetrinet.c:803
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c ra %c%c(%c%s%c%c%c) ikusleak sartu dira"
 
-#: src/tetrinet.c:778
+#: ../src/tetrinet.c:824
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c ikusleak irten dira %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:1016
+#: ../src/tetrinet.c:1062
 msgid "No special blocks"
 msgstr "Ez duzu bloke berezirik"
 
-#: src/tetrinet.c:1175 src/tetrinet.c:1182
+#: ../src/tetrinet.c:1221 ../src/tetrinet.c:1228
 #, c-format
 msgid " on %c%c%s%c%c"
-msgstr " on %c%c%s%c%c"
+msgstr " %c%c%s%c%c-ean"
 
-#: src/tetrinet.c:1192
+#: ../src/tetrinet.c:1238
 msgid " to All"
 msgstr "Denei"
 
-#: src/tetrinet.c:1198 src/tetrinet.c:1205
+#: ../src/tetrinet.c:1244 ../src/tetrinet.c:1251
 #, c-format
 msgid " by %c%c%s%c%c"
 msgstr "(%c%c%s%c%c)"
 
-#: src/tetrinet.c:1798
+#: ../src/tetrinet.c:1879
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
 msgstr "%c*** %c%s%c%c moderatzailea da"
 
 #. remove ", " from end of string
-#: src/tetrinet.c:1847
+#: ../src/tetrinet.c:1928
 msgid " has left the game"
 msgstr "-ek jokua utzi du"
 
-#: src/tetrinet.c:1848
+#: ../src/tetrinet.c:1929
 msgid " have left the game"
 msgstr "-ek jokua utzi dute"
 
-#: src/tetrinet.c:1861
+#: ../src/tetrinet.c:1942
 msgid " has joined the game"
 msgstr "jokura sartu da"
 
-#: src/tetrinet.c:1862
+#: ../src/tetrinet.c:1943
 msgid " have joined the game"
 msgstr "jokura sartu dira"
 
-#: src/tetrinet.c:1885
+#: ../src/tetrinet.c:1966
 #, c-format
 msgid "%s is on team %c%s"
 msgstr "%s %c%s taldean dago"
 
-#: src/tetrinet.c:1888
+#: ../src/tetrinet.c:1969
 #, c-format
 msgid "%s is alone"
 msgstr "%s bakarrik dago"
 
-#: src/tetrinet.c:1890
+#: ../src/tetrinet.c:1971
 #, c-format
 msgid "%s are on team %c%s"
 msgstr "%s %c%s taldean daude"
 
-#: src/tetrinet.c:1893
+#: ../src/tetrinet.c:1974
 #, c-format
 msgid "%s are alone"
 msgstr "%s bakarrik daude"
 
-#: src/tetrinet.c:1934
+#: ../src/tetrinet.c:2015
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
 msgstr "%c*** %c%s%c%c orain %c%s taldean daude"
 
-#: src/tetrinet.c:1941
+#: ../src/tetrinet.c:2022
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
 msgstr "%c*** %c%s%c%c orain bakarrik dago"
 
 #. "T" stands for "Team" here
-#: src/winlist.c:45
+#: ../src/winlist.c:57
 msgid "T"
 msgstr "T"
 
-#: src/winlist.c:49
+#: ../src/winlist.c:61
 msgid "Score"
 msgstr "Puntuazioa"
 
-#: gtetrinet.desktop.in.h:1
+#: ../gtetrinet.desktop.in.h:1
 msgid "GTetrinet"
 msgstr "GTetrinet"
 
-#: gtetrinet.desktop.in.h:2
+#: ../gtetrinet.desktop.in.h:2
 msgid "Tetrinet client"
-msgstr "Tetrinet Bezeroa"
+msgstr "Tetrinet bezeroa"
 
-#: gtetrinet.desktop.in.h:3
+#: ../gtetrinet.desktop.in.h:3
 msgid "Tetrinet client for GNOME"
-msgstr "GNOMErako tetrinet bezeroa"
+msgstr "Tetrinet bezeroa GNOMErako "
 
-#: gtetrinet.schemas.in.h:1
-msgid "Command to run to play midi files."
-msgstr "MIDI fitxategiak entzuteko exekutatu beharreko komandoa"
+#: ../gtetrinet.schemas.in.h:1
+msgid "Command to run to play midi files"
+msgstr "Komandoa MIDI fitxategiak erreproduzitzeko"
 
-#: gtetrinet.schemas.in.h:2
-msgid "Enable/disable midi music."
-msgstr "MIDI musika Aktibatu/Desaktibatu"
+#: ../gtetrinet.schemas.in.h:2
+msgid "Enable/disable channel list."
+msgstr "Gaitu/Desgaitu kanal-zerrenda"
 
-#: gtetrinet.schemas.in.h:3
-msgid "Enable/disable sound."
-msgstr "Soinua Aktibatu/Desaktibatu"
+#: ../gtetrinet.schemas.in.h:3
+msgid "Enable/disable midi music"
+msgstr "Gaitu/Desgaitu midi musika"
 
-#: gtetrinet.schemas.in.h:4
+#: ../gtetrinet.schemas.in.h:4
+msgid "Enable/disable sound"
+msgstr "Gaitu/Deskatibatu soinua"
+
+#: ../gtetrinet.schemas.in.h:5
 msgid "Enable/disable timestamps."
-msgstr "timestamp ak Aktibatu/Desaktibatu"
+msgstr "Gaitu/Desgaitu denbora-markak"
 
-#: gtetrinet.schemas.in.h:5
+#: ../gtetrinet.schemas.in.h:6
 msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
-msgstr "Soinua aktibatu/desaktibatu. Gogoan izan erabilitako gaiak soinuak izan behar dituela "
+msgstr ""
+"Gaitu/Desgaitu soinua. Gogoan izan erabilitako gaiak soinuak izan behar "
+"dituela."
 
-#: gtetrinet.schemas.in.h:6
+#: ../gtetrinet.schemas.in.h:7
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
-msgstr "MIDI musika aktibatu/desaktibatu. Soinua ere aktibatu beharko duzu musika nahi baduzu "
+msgstr "Gaitu/desgaitumidi musika. Soinua gaitu behar duzu musika musika nahi baduzu."
 
-#: gtetrinet.schemas.in.h:7
+#: ../gtetrinet.schemas.in.h:8
+msgid ""
+"Enables/disables the channel list. Disable it if you experience problems "
+"when connecting or while playing in your favorite tetrinet server."
+msgstr ""
+"Gaitu/desgaitu kanal-zerrenda. Desgaitu arazoak edukiz gero konektatzean edo "
+"tetrinet gustokoen duzun zerbitzarian jokatzean"
+
+#: ../gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
-msgstr "timestamp-ak aktibatu/desaktibatu."
+msgstr "Gaitu/desgaitu jokaldiko denbora-markak"
 
-#: gtetrinet.schemas.in.h:8
-msgid "Key to discard special."
-msgstr "Bereziak deskartatzeko tekla"
+#: ../gtetrinet.schemas.in.h:10
+msgid "Key to discard special"
+msgstr "Bereziak baztertzeko tekla"
 
-#: gtetrinet.schemas.in.h:9
-msgid "Key to drop piece."
+#: ../gtetrinet.schemas.in.h:11
+msgid "Key to drop piece"
 msgstr "Erortzen uzteko tekla"
 
-#: gtetrinet.schemas.in.h:10
-msgid "Key to move down."
-msgstr "Beherantz mugitzeko tekla"
+#: ../gtetrinet.schemas.in.h:12
+msgid "Key to move down"
+msgstr "Behera mugitzeko tekla"
 
-#: gtetrinet.schemas.in.h:11
-msgid "Key to move left."
-msgstr "Ezkerrerantz mugitzeko tekla"
+#: ../gtetrinet.schemas.in.h:13
+msgid "Key to move left"
+msgstr "Ezkerrera mugitzeko tekla"
 
-#: gtetrinet.schemas.in.h:12
-msgid "Key to move right."
-msgstr "Eskubirantz mugitzeko tekla"
+#: ../gtetrinet.schemas.in.h:14
+msgid "Key to move right"
+msgstr "Eskuinera mugitzeko tekla"
 
-#: gtetrinet.schemas.in.h:13
-msgid "Key to open the fields' message dialog."
-msgstr "Joku Eremuetako mezuen leihoa irekitzeko tekla"
+#: ../gtetrinet.schemas.in.h:15
+msgid "Key to open the fields' message dialog"
+msgstr "Eremuetako mezuen leihoa irekitzeko tekla"
 
-#: gtetrinet.schemas.in.h:14
-msgid "Key to rotate clockwise."
-msgstr "Erlojuaren alderantz biratzeko tekla"
+#: ../gtetrinet.schemas.in.h:16
+msgid "Key to rotate clockwise"
+msgstr "Erlojuaren norantzan biratzeko tekla"
 
-#: gtetrinet.schemas.in.h:15
-msgid "Key to rotate counterclockwise."
-msgstr "Erlojuaren aurka biratzeko tekla"
+#: ../gtetrinet.schemas.in.h:17
+msgid "Key to rotate counterclockwise"
+msgstr "Erlojuaren norantzaren aurka biratzeko tekla"
 
-#: gtetrinet.schemas.in.h:16
-msgid "Server where you want to play."
+#: ../gtetrinet.schemas.in.h:18
+msgid "Key to use the current special on field 1"
+msgstr "Uneko berezia 1. eremuan erabiltzeko tekla"
+
+#: ../gtetrinet.schemas.in.h:19
+msgid "Key to use the current special on field 2"
+msgstr "Uneko berezia 2. eremuan erabiltzeko tekla"
+
+#: ../gtetrinet.schemas.in.h:20
+msgid "Key to use the current special on field 3"
+msgstr "Uneko berezia 3. eremuan erabiltzeko tekla"
+
+#: ../gtetrinet.schemas.in.h:21
+msgid "Key to use the current special on field 4"
+msgstr "Uneko berezia 4. eremuan erabiltzeko tekla"
+
+#: ../gtetrinet.schemas.in.h:22
+msgid "Key to use the current special on field 5"
+msgstr "Uneko berezia 5. eremuan erabiltzeko tekla"
+
+#: ../gtetrinet.schemas.in.h:23
+msgid "Key to use the current special on field 6"
+msgstr "Uneko berezia 6. eremuan erabiltzeko tekla"
+
+#: ../gtetrinet.schemas.in.h:24
+msgid "Server where you want to play"
 msgstr "Jolastu nahi duzun zerbitzaria."
 
-#: gtetrinet.schemas.in.h:17
+#: ../gtetrinet.schemas.in.h:25
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
-msgstr "Oraingo gai direktorioa. Bertan \"blocks.png\" eta \"theme.cfg\" artxiboek egon bear dute."
+msgstr ""
+"Uneko gaiaren direktorioa. \"blocks.png\" eta \"theme.cfg\" fitxategiak "
+"eduki behar ditu."
 
-#: gtetrinet.schemas.in.h:18
-msgid "Theme directory, should end with a '/'."
-msgstr "Gai direktorioa, '/'-z amaituta"
+#: ../gtetrinet.schemas.in.h:26
+msgid "Theme directory, should end with a '/'"
+msgstr "Gaiaren direktorioa, '/'-z amaituta"
 
-#: gtetrinet.schemas.in.h:19
+#: ../gtetrinet.schemas.in.h:27
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
 msgstr ""
-"Goiko komandoa midi fitxategi bat entzun behar denean exekutatuko da. "
-"midi fitxategia MIDIFILE ingurumen aldagaiaren bidez ezarriko da."
+"Komando hau midi fitxategia erreproduzitzeko da. Midi fitxategiaren izena "
+"inguruneko MIDIFILE aldagaian gordetzen da."
 
-#: gtetrinet.schemas.in.h:20
+#: ../gtetrinet.schemas.in.h:28
 msgid "This is the server where GTetrinet will try to connect."
-msgstr "Hau GTetrinet konektatzen saiatuko den zerbitzaria da"
+msgstr "GTetrinet konektatzen saiatuko den zerbitzaria da."
 
-#: gtetrinet.schemas.in.h:21
+#: ../gtetrinet.schemas.in.h:29
 msgid "This key discards the current special. This is case insensitive."
-msgstr "Tekla honek momentuan dituzun bereziak ezeztatuko ditu."
+msgstr ""
+"Tekla honek uneko bereziak baztertzen ditu. Maiuskulak/minuskulak ez ditu "
+"bereizten."
 
-#: gtetrinet.schemas.in.h:22
+#: ../gtetrinet.schemas.in.h:30
 msgid "This key displays the fields' message dialog. This is case insensitive."
-msgstr "Tekla honek mezu leihoak irekiko ditu."
+msgstr ""
+"Tekla honek eremuen mezuen leihoa bistaratzen du. Maiuskulak/minuskulak ez "
+"ditu bereizten."
 
-#: gtetrinet.schemas.in.h:23
+#: ../gtetrinet.schemas.in.h:31
 msgid "This key drops the block to the ground. This is case insensitive."
-msgstr "Tekla honek fitxak erortzen utziko ditu."
+msgstr ""
+"Tekla honek fitxak erortzen utziko ditu. Maiuskulak/minuskulak ez ditu "
+"bereizten."
 
-#: gtetrinet.schemas.in.h:24
+#: ../gtetrinet.schemas.in.h:32
 msgid "This key moves the block down. This is case insensitive."
-msgstr "Tekla honek beherantz mugitzen du fitxa."
+msgstr ""
+"Tekla honek beherantz mugitzen du fitxa. Maiuskulak/minuskulak ez ditu "
+"bereizten."
 
-#: gtetrinet.schemas.in.h:25
+#: ../gtetrinet.schemas.in.h:33
 msgid "This key moves the block to the left. This is case insensitive."
-msgstr "Tekla honek ezkerrantz mugitzen du fitxa."
+msgstr ""
+"Tekla honek ezkerrantz mugitzen du fitxa. Maiuskulak/minuskulak ez ditu "
+"bereizten."
 
-#: gtetrinet.schemas.in.h:26
+#: ../gtetrinet.schemas.in.h:34
 msgid "This key moves the block to the right. This is case insensitive."
-msgstr "Tekla honek eskubirantz mugitzen du fitxa."
+msgstr ""
+"Tekla honek eskubirantz mugitzen du fitxa. Maiuskulak/minuskulak ez ditu "
+"bereizten."
 
-#: gtetrinet.schemas.in.h:27
+#: ../gtetrinet.schemas.in.h:35
 msgid "This key rotates the block clockwise. This is case insensitive."
-msgstr "Tekla honek erlojuaren alderantz biratzen du."
+msgstr ""
+"Tekla honek erlojuaren norabidean biratzen du. Maiuskulak/minuskulak ez ditu "
+"bereizten."
 
-#: gtetrinet.schemas.in.h:28
+#: ../gtetrinet.schemas.in.h:36
 msgid "This key rotates the block counterclockwise. This is case insensitive."
-msgstr "Tekla honek erlojuaren aurka biratzen du."
+msgstr ""
+"Tekla honek erlojuaren noranzkoaren aurka biratzen du. Maiuskulak/minuskulak "
+"ez ditu bereizten."
 
-#: gtetrinet.schemas.in.h:29
+#: ../gtetrinet.schemas.in.h:37
+msgid "This key uses the current special on Player 1's game field."
+msgstr "Tekla honek 1. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
+
+#: ../gtetrinet.schemas.in.h:38
+msgid "This key uses the current special on Player 2's game field."
+msgstr "Tekla honek 2. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
+
+#: ../gtetrinet.schemas.in.h:39
+msgid "This key uses the current special on Player 3's game field."
+msgstr "Tekla honek 3. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
+
+#: ../gtetrinet.schemas.in.h:40
+msgid "This key uses the current special on Player 4's game field."
+msgstr "Tekla honek 4. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
+
+#: ../gtetrinet.schemas.in.h:41
+msgid "This key uses the current special on Player 5's game field."
+msgstr "Tekla honek 5. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
+
+#: ../gtetrinet.schemas.in.h:42
+msgid "This key uses the current special on Player 6's game field."
+msgstr "Tekla honek 6. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
+
+#: ../gtetrinet.schemas.in.h:43
 msgid "This will be the name of your team."
 msgstr "Zure taldearen izena izango da hau."
 
-#: gtetrinet.schemas.in.h:30
+#: ../gtetrinet.schemas.in.h:44
 msgid "This will be your nickname in the game."
-msgstr "Hau zure jokoko ezizena izango da."
+msgstr "Hau zure jokoko goitizena izango da."
 
-#: gtetrinet.schemas.in.h:31
-msgid "Your nickname."
-msgstr "Zure ezizena."
+#: ../gtetrinet.schemas.in.h:45
+msgid "Your nickname"
+msgstr "Zure goitizena"
 
-#: gtetrinet.schemas.in.h:32
-msgid "Your team."
-msgstr "Zure taldea."
+#: ../gtetrinet.schemas.in.h:46
+msgid "Your team"
+msgstr "Zure taldea"
 
