@@ -2,14 +2,15 @@
 # Copyright (C) 2002, 2003, 2004 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtetrinet package.
 # Gerfried Fuchs <alfie@ist.org>, 2002, 2003, 2004.
+# Hendrik Richter <hendi@gnome-de.org>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.7.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-30 12:41+0200\n"
-"PO-Revision-Date: 2003-08-28 22:52+0200\n"
-"Last-Translator: Gerfried Fuchs <alfie@ist.org>\n"
+"PO-Revision-Date: 2005-07-04 19:14+0200\n"
+"Last-Translator: Hendrik Richter <hendi@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -113,7 +114,7 @@ msgstr "Verbunden mit\n"
 
 #: src/commands.c:265
 msgid "Not connected"
-msgstr "Nicht vebunden"
+msgstr "Nicht verbunden"
 
 #. Translators: translate as your names & emails
 #: src/commands.c:287
@@ -753,27 +754,27 @@ msgstr "Taste zum Drehen gegen den Uhrzeigersinn"
 
 #: gtetrinet.schemas.in.h:18
 msgid "Key to use the current special on field 1"
-msgstr "Taste, um den aktuellen Spezial-Bock am Feld 1 anzuwenden"
+msgstr "Taste, um den aktuellen Spezial-Block am Feld 1 anzuwenden"
 
 #: gtetrinet.schemas.in.h:19
 msgid "Key to use the current special on field 2"
-msgstr "Taste, um den aktuellen Spezial-Bock am Feld 2 anzuwenden"
+msgstr "Taste, um den aktuellen Spezial-Block am Feld 2 anzuwenden"
 
 #: gtetrinet.schemas.in.h:20
 msgid "Key to use the current special on field 3"
-msgstr "Taste, um den aktuellen Spezial-Bock am Feld 3 anzuwenden"
+msgstr "Taste, um den aktuellen Spezial-Block am Feld 3 anzuwenden"
 
 #: gtetrinet.schemas.in.h:21
 msgid "Key to use the current special on field 4"
-msgstr "Taste, um den aktuellen Spezial-Bock am Feld 4 anzuwenden"
+msgstr "Taste, um den aktuellen Spezial-Block am Feld 4 anzuwenden"
 
 #: gtetrinet.schemas.in.h:22
 msgid "Key to use the current special on field 5"
-msgstr "Taste, um den aktuellen Spezial-Bock am Feld 5 anzuwenden"
+msgstr "Taste, um den aktuellen Spezial-Block am Feld 5 anzuwenden"
 
 #: gtetrinet.schemas.in.h:23
 msgid "Key to use the current special on field 6"
-msgstr "Taste, um den aktuellen Spezial-Bock am Feld 6 anzuwenden"
+msgstr "Taste, um den aktuellen Spezial-Block am Feld 6 anzuwenden"
 
 #: gtetrinet.schemas.in.h:24
 msgid "Server where you want to play"
@@ -819,7 +820,7 @@ msgstr ""
 #: gtetrinet.schemas.in.h:31
 msgid "This key drops the block to the ground. This is case insensitive."
 msgstr ""
-"Diese Taste läßt den Stein auf den Boden fallen. Die Groß-/Kleinschreibung "
+"Diese Taste lässt den Stein auf den Boden fallen. Die Groß-/Kleinschreibung "
 "ist unwichtig."
 
 #: gtetrinet.schemas.in.h:32
