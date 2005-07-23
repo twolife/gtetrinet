@@ -1,3 +1,7 @@
+2005-07-23  Pawan Chitrakar  <pawan@nplinux.org>
+
+	* configure.in: Added ne in ALL_LINGUAS
+
 2005-05-16  Jordi Mallach  <jordi@sindominio.net>
 
 	* configure.in: Require gtk+-2.0 >= 2.6.0.

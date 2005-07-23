@@ -1,0 +1,861 @@
+# translation of gtetrinet.HEAD.po to Nepali
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Pawan Chitrakar <pawan@mpp.org.np>, 2005.
+# Jaydeep Bhusal <zaydeep@hotmail.com>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtetrinet.HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-04-04 03:38+0200\n"
+"PO-Revision-Date: 2005-06-22 12:01+0545\n"
+"Last-Translator: Jaydeep Bhusal <zaydeep@hotmail.com>\n"
+"Language-Team: Nepali <info@mpp.org.np>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+"Plural-Forms: Nplurals=2;plural=(n!=0)\n"
+
+#: src/client.c:243
+msgid "Couldn't resolve hostname."
+msgstr "होस्टनाम स्पष्ट गर्न सकेन"
+
+#: src/commands.c:45
+msgid "_Connect to server..."
+msgstr "_सरभर संग जडान गर्नुहोस"
+
+#: src/commands.c:46
+msgid "_Disconnect from server"
+msgstr "_सर्भर बाट जडान विच्छेद गर्नुहोस"
+
+#: src/commands.c:48
+msgid "Change _team..."
+msgstr "समुह परिवर्तन गर्नुहोस"
+
+#: src/commands.c:50
+msgid "_Start game"
+msgstr "_ खेल शुरु गर्नुहोस्"
+
+#: src/commands.c:51
+msgid "_Pause game"
+msgstr "_खेल पज गर्नुहोस"
+
+#: src/commands.c:52
+msgid "_End game"
+msgstr "_खेल समाप्त गर्नुहोस"
+
+#: src/commands.c:57
+msgid "Detac_h page..."
+msgstr "पृष्ठ पृथक गर्नुहोस"
+
+#: src/commands.c:82
+msgid "Connect"
+msgstr "जडान गर्नुहोस"
+
+#: src/commands.c:82
+msgid "Connect to a server"
+msgstr "सर्भर संग जडान गर्नुहोस"
+
+#: src/commands.c:83
+msgid "Disconnect"
+msgstr "जडान विच्छेद गर्नुहोस"
+
+#: src/commands.c:83
+msgid "Disconnect from the current server"
+msgstr "हालको सर्भर बाट जडान विच्छेद गर्नुहोस"
+
+#: src/commands.c:85
+msgid "Start game"
+msgstr "खेल शुरु गर्नुहोस"
+
+#: src/commands.c:85
+msgid "Start a new game"
+msgstr "नयाँ खेल शुरु गर्नुहोस्"
+
+#: src/commands.c:86
+msgid "End game"
+msgstr "खेल समाप्त गर्नुहोस"
+
+#: src/commands.c:86
+msgid "End the current game"
+msgstr "अहिलेको खेल समाप्त गर्नुहोस"
+
+#: src/commands.c:87
+msgid "Pause game"
+msgstr "खेललाई पज गर्नुहोस"
+
+#: src/commands.c:87
+msgid "Pause the game"
+msgstr "खेल पज गर्नुहोस"
+
+#: src/commands.c:89 src/dialogs.c:152
+msgid "Change team"
+msgstr "समुह परिवर्तन गर्नुहोस"
+
+#: src/commands.c:89
+msgid "Change your current team name"
+msgstr "तपाईं को हालको समुह नाम परिवर्तन गर्नुहोस"
+
+#: src/commands.c:92
+msgid "Detach page"
+msgstr "पृष्ठ पृथक गर्नुहोस"
+
+#: src/commands.c:92
+msgid "Detach the current notebook page"
+msgstr "हालको नोटबुक पृष्ठ पृथक गर्नुहोस"
+
+#: src/commands.c:258
+msgid "Game in progress"
+msgstr "खेल प्रगति मा"
+
+#: src/commands.c:261
+msgid "Connected to\n"
+msgstr "संग जडित\n"
+
+#: src/commands.c:265
+msgid "Not connected"
+msgstr "जडान नभएको"
+
+#. Translators: translate as your names & emails
+#: src/commands.c:309
+msgid "translator_credits"
+msgstr "अनुवादकको श्रेय"
+
+#: src/commands.c:323
+msgid "A Tetrinet client for GNOME.\n"
+msgstr "जिनोम को लागि एउटा टेट्रिनेट ग्राहक.\n"
+
+#: src/config.c:140
+msgid "Warning: theme does not have a name, reverting to default."
+msgstr "चेतावनी:विषयवस्तु को नाम छैन,पुरवनिर्धारित मा फर्कंदै"
+
+#. make dialog that asks for address/nickname
+#: src/dialogs.c:85 src/dialogs.c:324 src/gtetrinet.c:77
+msgid "Connect to server"
+msgstr "सर्भर संग जडान गर्नुहोस"
+
+#: src/dialogs.c:165
+msgid "Team name:"
+msgstr "समुह नाम"
+
+#: src/dialogs.c:210
+msgid "You must specify a server name."
+msgstr "तपाईंले एउटा सर्भर नाम तोक्नैपर्दछ"
+
+#: src/dialogs.c:227
+msgid "Please specify a password to connect as spectator."
+msgstr "दर्शक को रुप मा जडान गर्नको लागि कृपया एउटा पासवर्ड तोक्नुहोस"
+
+#: src/dialogs.c:248
+msgid "Please specify a valid nickname."
+msgstr "कृपया एउटा वैध उपनाम तोक्नुहोस"
+
+#. game type radio buttons
+#: src/dialogs.c:353
+msgid "O_riginal"
+msgstr "मौलिक"
+
+#: src/dialogs.c:355
+msgid "Tetri_Fast"
+msgstr "टेट्रि_तिव्र"
+
+#: src/dialogs.c:377
+msgid "Server address"
+msgstr "सर्भर ठेगाना"
+
+#: src/dialogs.c:386
+msgid "Connect as a _spectator"
+msgstr "दर्शकको रुपमा जडान गर्नुहोस"
+
+#: src/dialogs.c:390
+msgid "_Password:"
+msgstr "_पासवर्ड"
+
+#: src/dialogs.c:407
+msgid "Spectate game"
+msgstr "खेल हेर्नुहोस"
+
+#: src/dialogs.c:416
+msgid "_Nick name:"
+msgstr "_उपनाम"
+
+#: src/dialogs.c:430
+msgid "_Team name:"
+msgstr "_समुह नाम"
+
+#: src/dialogs.c:449
+msgid "Player information"
+msgstr "खेलाडि जानकारि"
+
+#: src/dialogs.c:490
+msgid "Change Key"
+msgstr "कुञ्जि परिवर्तन गर्नुहोस"
+
+#: src/dialogs.c:541
+msgid "Move right"
+msgstr "दाँया सार्नुहोस् "
+
+#: src/dialogs.c:542
+msgid "Move left"
+msgstr "बाँया सार्नुहोस्"
+
+#: src/dialogs.c:543
+msgid "Move down"
+msgstr "तल सार्नुहोस्"
+
+#: src/dialogs.c:544
+msgid "Rotate right"
+msgstr "दायाँ घुमाउनुहोस"
+
+#: src/dialogs.c:545
+msgid "Rotate left"
+msgstr "बायाँ घुमाउनुहोस"
+
+#: src/dialogs.c:546
+msgid "Drop piece"
+msgstr "टुक्रा खसाल्नुहोस"
+
+#: src/dialogs.c:547
+msgid "Discard special"
+msgstr "विशेष छोड्नुहोस"
+
+#: src/dialogs.c:548
+msgid "Send message"
+msgstr "संदेश पठाउनुहोस"
+
+#: src/dialogs.c:549
+msgid "Special to field 1"
+msgstr "क्षेत्र १ मा विशेष"
+
+#: src/dialogs.c:550
+msgid "Special to field 2"
+msgstr "क्षेत्र २ मा विशेष"
+
+#: src/dialogs.c:551
+msgid "Special to field 3"
+msgstr "क्षेत्र ३ मा विशेष"
+
+#: src/dialogs.c:552
+msgid "Special to field 4"
+msgstr "क्षेत्र ४ मा विशेष"
+
+#: src/dialogs.c:553
+msgid "Special to field 5"
+msgstr "क्षेत्र ५ मा विशेष"
+
+#: src/dialogs.c:554
+msgid "Special to field 6"
+msgstr "क्षेत्र ६ मा विशेष"
+
+#: src/dialogs.c:614
+#, c-format
+msgid "Press new key for \"%s\""
+msgstr "\"%s\"को लागि नयाँ कुञ्जि थिच्नुहोस"
+
+#: src/dialogs.c:831
+msgid "GTetrinet Preferences"
+msgstr "जिटेट्रिनेट प्राथमिकताहरु"
+
+#: src/dialogs.c:853
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr ""
+"सुचिबाट एउटा विषयवस्तु चयन गर्नुहोस.\n"
+"मा नयाँ विषयवस्तुहरु स्थापना गर्नुहोस ~/.जिटेट्रिनेट/विषयवस्तुहरु/"
+
+#: src/dialogs.c:860
+msgid "Name:"
+msgstr "नाम:"
+
+#: src/dialogs.c:863
+msgid "Author:"
+msgstr "लेखक:"
+
+#: src/dialogs.c:866
+msgid "Description:"
+msgstr "वर्णन:"
+
+#: src/dialogs.c:879
+msgid "Selected Theme"
+msgstr "छानिएको विषयवस्तु"
+
+#: src/dialogs.c:895
+msgid "Download new themes"
+msgstr "नयाँ विषयवस्तुहरु डाउनलोड गर्नुहोस"
+
+#: src/dialogs.c:900
+msgid "Themes"
+msgstr "विषयवस्तुहरु"
+
+#. partyline
+#: src/dialogs.c:905
+msgid "Enable _Timestamps"
+msgstr "समयस्टाम्पहरु सक्षम पार्नुहोस"
+
+#: src/dialogs.c:907
+msgid "Enable Channel _List"
+msgstr "च्यानल सुचि सक्षम पार्नुहोस"
+
+#. FIXME
+#: src/dialogs.c:933 src/gtetrinet.c:281
+msgid "Partyline"
+msgstr "पार्टिलाइन"
+
+#: src/dialogs.c:944
+msgid "Action"
+msgstr "कार्य"
+
+#: src/dialogs.c:946
+msgid "Key"
+msgstr "कुञ्जि"
+
+#: src/dialogs.c:952
+msgid ""
+"Select an action from the list and press Change Key to change the key "
+"associated with the action."
+msgstr "सुचिबाट एउटा कार्य चयन गर्नुहोस अनि कार्य संग संगठित कुञ्जि परिवर्तन गर्न परिवर्तन कुञ्जि थिच्नुहोस"
+
+#: src/dialogs.c:959
+msgid "Change _key..."
+msgstr "कुञ्जि परिवर्तन गर्नुहोस"
+
+#: src/dialogs.c:964 src/dialogs.c:1017
+msgid "_Restore defaults"
+msgstr "पुर्वनिर्धारित हरु पुर्वावस्थामा ल्याउनुहोस"
+
+#: src/dialogs.c:985
+msgid "Keyboard"
+msgstr "कुञ्जिपाटि"
+
+#. sound
+#: src/dialogs.c:990
+msgid "Enable _Sound"
+msgstr "ध्वनि सक्षम पार्नुहोस"
+
+#: src/dialogs.c:993
+msgid "Enable _MIDI"
+msgstr "मिडि सक्षम पार्नुहोस"
+
+#: src/dialogs.c:1007
+msgid "Enter command to play a midi file:"
+msgstr "मिडि फाइल प्ले गर्नको लागि आदेश प्रविष्टि गर्नुहोस"
+
+#: src/dialogs.c:1010
+msgid ""
+"The above command is run when a midi file is to be played.  The name of the "
+"midi file is placed in the environment variable MIDIFILE."
+msgstr "मिडि फाइल प्ले हुने बेलामा माथिको आदेश चालु हुन्छ.  मिडि फाइलको नाम वातावरण चल मिडिफाइल मा राखिएको छ"
+
+#: src/dialogs.c:1047
+msgid "Sound"
+msgstr "ध्वनि"
+
+#: src/fields.c:76
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr ""
+"विषयवस्तु लोड गर्दा त्रुटि: पुर्वावस्थामा फर्केर\n"
+"ग्राफिक्स फाइल लोड गर्न सक्दैन"
+
+#. shouldnt happen
+#: src/fields.c:85
+#, c-format
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr ""
+"पुर्वनिर्धारित विषयवस्तु लोड गर्दा त्रुटि: परित्याग गर्दै...\n"
+"स्थापना त्रुटिहरु को लागि जाँच गर्नुहोस\n"
+
+#: src/fields.c:206
+msgid "Next piece:"
+msgstr "पछिल्लो टुक्रा"
+
+#: src/fields.c:223
+msgid "Lines:"
+msgstr "हरफहरु"
+
+#: src/fields.c:227
+msgid "Level:"
+msgstr "स्तर:"
+
+#: src/fields.c:229
+msgid "Active level:"
+msgstr "क्रियाशिल स्तर"
+
+#: src/fields.c:277
+msgid "Attacks and defenses:"
+msgstr "आक्रमणहरु र रक्षाहरु"
+
+#: src/fields.c:420
+msgid "Not playing"
+msgstr "प्ले भइरहेको छैन"
+
+#: src/fields.c:447
+msgid "Specials:"
+msgstr "विशेषहरु"
+
+#: src/gtetrinet.c:77
+msgid "SERVER"
+msgstr "सर्भर"
+
+#: src/gtetrinet.c:78
+msgid "Set nickname to use"
+msgstr "प्रयोग गर्नको लागि उपनाम सेट गर्नुहोस"
+
+#: src/gtetrinet.c:78
+msgid "NICKNAME"
+msgstr "उपनाम"
+
+#: src/gtetrinet.c:79
+msgid "Set team name"
+msgstr "समुह नाम सेट गर्नुहोस"
+
+#: src/gtetrinet.c:79
+msgid "TEAM"
+msgstr "समुह"
+
+#: src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "दर्शकको रुपमा जडान गर्नुहोस"
+
+#: src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr "दर्शक पासवर्ड"
+
+#: src/gtetrinet.c:81
+msgid "PASSWORD"
+msgstr "पासवर्ड"
+
+#: src/gtetrinet.c:120
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "जिकन्फ: %s सुरूगर्न असफल\n"
+
+#. FIXME
+#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
+msgid "Playing Fields"
+msgstr "खेल्ने मैदानहरु"
+
+#. FIXME
+#: src/gtetrinet.c:292
+msgid "Winlist"
+msgstr "जितसुचि"
+
+#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
+msgid "Name"
+msgstr "नाम"
+
+#: src/partyline.c:79
+msgid "Players"
+msgstr "खेलाडिहरु"
+
+#: src/partyline.c:81
+msgid "State"
+msgstr "स्थिति"
+
+#: src/partyline.c:83
+msgid "Description"
+msgstr "बर्णन"
+
+#: src/partyline.c:95
+msgid "Channel List"
+msgstr "च्यानल सुचि"
+
+#: src/partyline.c:140
+msgid "Team"
+msgstr "समुह"
+
+#: src/partyline.c:153
+msgid "Your name:"
+msgstr "तपाईंको नाम"
+
+#: src/partyline.c:160
+msgid "Your team:"
+msgstr "तपाईंको समुह"
+
+#: src/partyline.c:638
+msgid "Talking in channel"
+msgstr "च्यानलमा कुरा गर्दै"
+
+#: src/partyline.c:640
+msgid "Disconnected"
+msgstr "जडान विच्छेद भयो"
+
+#: src/tetrinet.c:197
+msgid "Server disconnected"
+msgstr "सर्भर जडान विच्छेद भयो"
+
+#: src/tetrinet.c:217
+#, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c*** सर्भरबाट जडान विच्छेद"
+
+#: src/tetrinet.c:229
+msgid "Error connecting: "
+msgstr "जडान गर्दा त्रुटि"
+
+#: src/tetrinet.c:263
+#, c-format
+msgid "%c%c*** Connected to server"
+msgstr "%c%c*** सर्भरसंग जडित"
+
+#: src/tetrinet.c:364
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr "%c%c*** तपाईंलाइ खेलबाट निकालिएको छ"
+
+#: src/tetrinet.c:368
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr "%c*** %c%s%c%c लाइ खेलबाट निकालिएको छ"
+
+#: src/tetrinet.c:543
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr "%c*** समुह %c%s%c%c ले खेल जितेको छ"
+
+#: src/tetrinet.c:549
+#, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr "%c*** %c%s%c%c ले खेल जितेको छ"
+
+#: src/tetrinet.c:612
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr "%c*** खेल %cशुरु भएको छ"
+
+#: src/tetrinet.c:638
+#, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "%c*** खेल %c प्रगतिमा छ"
+
+#: src/tetrinet.c:650
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr "%c*** खेल %c पज भएको छ"
+
+#: src/tetrinet.c:652
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr "खेल%c%c पज भएको छ"
+
+#: src/tetrinet.c:657
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr "%c*** खेललाइ %c पुन:निरन्तरता दिइएको छ"
+
+#: src/tetrinet.c:659
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr "खेललाइ %c%c पुन:निरन्तरता दिइएको छ"
+
+#: src/tetrinet.c:668
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr "%c*** खेल %c समाप्त भएको छ"
+
+#: src/tetrinet.c:786
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr "%c*** तपाईंले भाग लिनुभएको छ %c%s%c%c"
+
+#: src/tetrinet.c:803
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c दर्शकहरु संग भएको छ%c%c(%c%s%c%c%c)"
+
+#: src/tetrinet.c:824
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c ले दर्शकहरु छोडेको छ %c%c(%c%s%c%c%c)"
+
+#: src/tetrinet.c:1062
+msgid "No special blocks"
+msgstr "विशेष ब्लकहरु छैन"
+
+#: src/tetrinet.c:1221 src/tetrinet.c:1228
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr "मा %c%c%s%c%c"
+
+#: src/tetrinet.c:1238
+msgid " to All"
+msgstr "सबै लाइ"
+
+#: src/tetrinet.c:1244 src/tetrinet.c:1251
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr " बाट %c%c%s%c%c"
+
+#: src/tetrinet.c:1879
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr "%c*** %c%s%c%c सभापति हो"
+
+#. remove ", " from end of string
+#: src/tetrinet.c:1928
+msgid " has left the game"
+msgstr "ले खेल छोडेको छ"
+
+#: src/tetrinet.c:1929
+msgid " have left the game"
+msgstr "ले खेल छोडेको छ"
+
+#: src/tetrinet.c:1942
+msgid " has joined the game"
+msgstr "ले खेल मा भाग लिएको छ"
+
+#: src/tetrinet.c:1943
+msgid " have joined the game"
+msgstr "ले खेल मा भाग लिएको छ"
+
+#: src/tetrinet.c:1966
+#, c-format
+msgid "%s is on team %c%s"
+msgstr "%s समुहमा छ %c%s"
+
+#: src/tetrinet.c:1969
+#, c-format
+msgid "%s is alone"
+msgstr "%s एक्लो छ"
+
+#: src/tetrinet.c:1971
+#, c-format
+msgid "%s are on team %c%s"
+msgstr "%s समुहमा छन %c%s"
+
+#: src/tetrinet.c:1974
+#, c-format
+msgid "%s are alone"
+msgstr "%s एक्लो छन"
+
+#: src/tetrinet.c:2015
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr "%c*** %c%s%c%c अहिले समुहमा छ %c%s"
+
+#: src/tetrinet.c:2022
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr "%c*** %c%s%c%cअहिले एक्लो छ"
+
+#. "T" stands for "Team" here
+#: src/winlist.c:57
+msgid "T"
+msgstr "टि"
+
+#: src/winlist.c:61
+msgid "Score"
+msgstr "स्कोर"
+
+#: gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr "जिटेट्रिनेट"
+
+#: gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "टेट्रिनेट ग्राहक"
+
+#: gtetrinet.desktop.in.h:3
+msgid "Tetrinet client for GNOME"
+msgstr "जिनोमको लागि टेट्रिनेट ग्राहक"
+
+#: gtetrinet.schemas.in.h:1
+msgid "Command to run to play midi files"
+msgstr "मिडि फाइलहरु प्ले गर्न चलाइने आदेश"
+
+#: gtetrinet.schemas.in.h:2
+msgid "Enable/disable channel list."
+msgstr "च्यानल सुचि सक्षम/अक्षम पार्नुहोस"
+
+#: gtetrinet.schemas.in.h:3
+msgid "Enable/disable midi music"
+msgstr "मिडि संगित सक्षम/अक्षम पार्नुहोस"
+
+#: gtetrinet.schemas.in.h:4
+msgid "Enable/disable sound"
+msgstr "ध्वनि सक्षम/अक्षम पार्नुहोस"
+
+#: gtetrinet.schemas.in.h:5
+msgid "Enable/disable timestamps."
+msgstr "समयस्टाम्प सक्षम/अक्षम पार्नुहोस"
+
+#: gtetrinet.schemas.in.h:6
+msgid ""
+"Enables/Disables sound. Keep in mind that the theme that you're using must "
+"provide sounds."
+msgstr "ध्वनि सक्षम/अक्षम पार्दछ.ख्याल गर्नुहोस कि तपाईं ले प्रयोग गरिरहनुभएको विषयवस्तुले ध्वनि उपलब्ध गराउनै पर्दछ"
+
+#: gtetrinet.schemas.in.h:7
+msgid ""
+"Enables/disables midi music. You'll need to enable sound if you want music "
+"to work."
+msgstr "मिडि संगित सक्षम/अक्षम पार्दछ.यदि तपाईंले संगितले काम गरेको चाहनुहुन्छ भने तपाईंले ध्वनि सक्षम पार्नुपर्दछ"
+
+#: gtetrinet.schemas.in.h:8
+msgid ""
+"Enables/disables the channel list. Disable it if you experience problems "
+"when connecting or while playing in your favorite tetrinet server."
+msgstr "च्यानल सुचि सक्षम/अक्षम पार्छ. जडान गर्दा वा तपाईंको मनपर्ने टेट्रिनेट सर्भर प्ले गर्दा तपाईंले यदि समस्याहरु अनुभव गर्नुभयो भने यसलाइ अक्षम पार्नुहोस"
+
+#: gtetrinet.schemas.in.h:9
+msgid "Enables/disables timestamps in the partyline."
+msgstr "पार्टिलाइनमा समयस्टाम्पहरु सक्षम/अक्षम पार्दछ"
+
+#: gtetrinet.schemas.in.h:10
+msgid "Key to discard special"
+msgstr "विशेष छोड्ने कुञ्जि"
+
+#: gtetrinet.schemas.in.h:11
+msgid "Key to drop piece"
+msgstr "टुक्रा खसाल्ने कुञ्जि"
+
+#: gtetrinet.schemas.in.h:12
+msgid "Key to move down"
+msgstr "तल सार्ने कुञ्जि"
+
+#: gtetrinet.schemas.in.h:13
+msgid "Key to move left"
+msgstr "बायाँ सार्ने कुञ्जि"
+
+#: gtetrinet.schemas.in.h:14
+msgid "Key to move right"
+msgstr "दायाँ सार्ने कुञ्जि"
+
+#: gtetrinet.schemas.in.h:15
+msgid "Key to open the fields' message dialog"
+msgstr "मैदानहरुको संदेश संवाद खोल्ने कुञ्जि"
+
+#: gtetrinet.schemas.in.h:16
+msgid "Key to rotate clockwise"
+msgstr "घडि चाल अनुसार घुमाउने कुञ्जि"
+
+#: gtetrinet.schemas.in.h:17
+msgid "Key to rotate counterclockwise"
+msgstr "उल्टो घडि चाल अनुसार घुमाउने कुञ्जि"
+
+#: gtetrinet.schemas.in.h:18
+msgid "Key to use the current special on field 1"
+msgstr "मैदान १ मा हालको विशेष प्रयोग गर्नको लागि कुञ्जि"
+
+#: gtetrinet.schemas.in.h:19
+msgid "Key to use the current special on field 2"
+msgstr "मैदान २ मा हालको विशेष प्रयोग गर्नको लागि कुञ्जि"
+
+#: gtetrinet.schemas.in.h:20
+msgid "Key to use the current special on field 3"
+msgstr "मैदान ३ मा हालको विशेष प्रयोग गर्नको लागि कुञ्जि"
+
+#: gtetrinet.schemas.in.h:21
+msgid "Key to use the current special on field 4"
+msgstr "मैदान ४ मा हालको विशेष प्रयोग गर्नको लागि कुञ्जि"
+
+#: gtetrinet.schemas.in.h:22
+msgid "Key to use the current special on field 5"
+msgstr "मैदान ५ मा हालको विशेष प्रयोग गर्नको लागि कुञ्जि"
+
+#: gtetrinet.schemas.in.h:23
+msgid "Key to use the current special on field 6"
+msgstr "मैदान ६ मा हालको विशेष प्रयोग गर्नको लागि कुञ्जि"
+
+#: gtetrinet.schemas.in.h:24
+msgid "Server where you want to play"
+msgstr "सर्भर जहाँ तपाईं प्ले गर्न चाहनुहुन्छ"
+
+#: gtetrinet.schemas.in.h:25
+msgid ""
+"The current theme directory. It should contain a readable \"blocks.png\" and "
+"a \"theme.cfg\"."
+msgstr "हालको विषयवस्तु निर्देशिका.यसमा एउटा पठनयोग्य \"ब्लकहरु.पिएनजि\" र एउटा \"विषयवस्तु.सिएफजि\" समाहित हुनुपर्दछ"
+
+#: gtetrinet.schemas.in.h:26
+msgid "Theme directory, should end with a '/'"
+msgstr "विषयवस्तु निर्देशिका एउटा '/' बाट अन्त्य हुनुपर्दछ"
+
+#: gtetrinet.schemas.in.h:27
+msgid ""
+"This command is run when a midi file is to be played. The name of the midi "
+"file is placed in the environment variable MIDIFILE."
+msgstr "मिडि फाएल प्ले हुने बेलामा यो आदेश चल्दछ. मिडि फाइलको नाम वातावरण चल मिडिफाइल मा राखिएको हुन्छ"
+
+#: gtetrinet.schemas.in.h:28
+msgid "This is the server where GTetrinet will try to connect."
+msgstr "यो त्यो सर्भर हो जहाँ जिटेट्रिनेट जडान गर्ने प्रयास गर्दछ"
+
+#: gtetrinet.schemas.in.h:29
+msgid "This key discards the current special. This is case insensitive."
+msgstr "यो कुञ्जिले हालको विशेष छोड्दछ. यो केस असंवेदनशिल हो"
+
+#: gtetrinet.schemas.in.h:30
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr "यो कुञ्जि ले मैदानहरुको संदेश संवाद प्रदर्शन गर्दछ. यो केस असंवेदनशिल हो"
+
+#: gtetrinet.schemas.in.h:31
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr "यो कुञ्जिले ब्लकलाइ भुईंमा झार्दछ. यो केस असंवेदनशिल हो"
+
+#: gtetrinet.schemas.in.h:32
+msgid "This key moves the block down. This is case insensitive."
+msgstr "यो कुञ्जिले ब्लकलाइ तल सार्दछ. यो केस असंवेदनशिल हो"
+
+#: gtetrinet.schemas.in.h:33
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr "यो कुञ्जिले ब्लकलाइ बाँयातिर सार्दछ. यो केस असंवेदनशिल हो"
+
+#: gtetrinet.schemas.in.h:34
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr "यो कुञ्जिले ब्लकलाइ दाँयातिर सार्दछ. यो केस असंवेदनशिल हो"
+
+#: gtetrinet.schemas.in.h:35
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr "यो कुञ्जिले ब्लकलाइ घडि चाल अनुसार घुमाउँदछ. यो केस असंवेदनशिल हो"
+
+#: gtetrinet.schemas.in.h:36
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr "यो कुञ्जिले ब्लकलाइ उल्टो घडि चाल अनुसार घुमाउँदछ. यो केस असंवेदनशिल हो"
+
+#: gtetrinet.schemas.in.h:37
+msgid "This key uses the current special on Player 1's game field."
+msgstr "यो कुञ्जि ले हालको विशेषलाइ खेलाडि १ को खेल मैदान मा प्रयोग गर्दछ"
+
+#: gtetrinet.schemas.in.h:38
+msgid "This key uses the current special on Player 2's game field."
+msgstr "यो कुञ्जि ले हालको विशेषलाइ खेलाडि २ को खेल मैदान मा प्रयोग गर्दछ"
+
+#: gtetrinet.schemas.in.h:39
+msgid "This key uses the current special on Player 3's game field."
+msgstr "यो कुञ्जि ले हालको विशेषलाइ खेलाडि ३ को खेल मैदान मा प्रयोग गर्दछ"
+
+#: gtetrinet.schemas.in.h:40
+msgid "This key uses the current special on Player 4's game field."
+msgstr "यो कुञ्जि ले हालको विशेषलाइ खेलाडि ४ को खेल मैदान मा प्रयोग गर्दछ"
+
+#: gtetrinet.schemas.in.h:41
+msgid "This key uses the current special on Player 5's game field."
+msgstr "यो कुञ्जि ले हालको विशेषलाइ खेलाडि ५ को खेल मैदान मा प्रयोग गर्दछ"
+
+#: gtetrinet.schemas.in.h:42
+msgid "This key uses the current special on Player 6's game field."
+msgstr "यो कुञ्जि ले हालको विशेषलाइ खेलाडि ६ को खेल मैदान मा प्रयोग गर्दछ"
+
+#: gtetrinet.schemas.in.h:43
+msgid "This will be the name of your team."
+msgstr "यो तपाईं को समुहको नाम हुनेछ"
+
+#: gtetrinet.schemas.in.h:44
+msgid "This will be your nickname in the game."
+msgstr "खेलमा यो तपाईं को उपनाम हुनेछ"
+
+#: gtetrinet.schemas.in.h:45
+msgid "Your nickname"
+msgstr "तपाईंको उपनाम"
+
+#: gtetrinet.schemas.in.h:46
+msgid "Your team"
+msgstr "तपाईंको समुह"
+
