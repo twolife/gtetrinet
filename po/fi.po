@@ -1,0 +1,855 @@
+# Finnish messages for gtetrinet
+# Copyright (C) 2005 Ilkka Tuohela
+# This file is distributed under the same license as the gtetrinet package.
+# Ilkka Tuohela <hile@iki.fi> 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtetrinet\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-08-18 22:18+0300\n"
+"PO-Revision-Date: 2005-08-18 22:41+0300\n"
+"Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
+"Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../src/client.c:243
+msgid "Couldn't resolve hostname."
+msgstr ""
+
+#: ../src/commands.c:45
+msgid "_Connect to server..."
+msgstr "_Yhdistä palvelimeen..."
+
+#: ../src/commands.c:46
+msgid "_Disconnect from server"
+msgstr "_Katkaise palvelinyhteys"
+
+#: ../src/commands.c:48
+msgid "Change _team..."
+msgstr "Vaihda _joukkuetta..."
+
+#: ../src/commands.c:50
+msgid "_Start game"
+msgstr "_Aloita peli"
+
+#: ../src/commands.c:51
+msgid "_Pause game"
+msgstr "_Pysäytä peli"
+
+#: ../src/commands.c:52
+msgid "_End game"
+msgstr "Lop_eta peli"
+
+#: ../src/commands.c:57
+msgid "Detac_h page..."
+msgstr "Irro_ta sivu..."
+
+#: ../src/commands.c:82
+msgid "Connect"
+msgstr "Yhdistä"
+
+#: ../src/commands.c:82
+msgid "Connect to a server"
+msgstr "Yhdistä palvelimeen"
+
+#: ../src/commands.c:83
+msgid "Disconnect"
+msgstr "Katkaise"
+
+#: ../src/commands.c:83
+msgid "Disconnect from the current server"
+msgstr "Katkaise yhteys tämänhetkiseen palvelimeen"
+
+#: ../src/commands.c:85
+msgid "Start game"
+msgstr "Aloita peli"
+
+#: ../src/commands.c:85
+msgid "Start a new game"
+msgstr "Aloita uusi peli"
+
+#: ../src/commands.c:86
+msgid "End game"
+msgstr "Lopeta peli"
+
+#: ../src/commands.c:86
+msgid "End the current game"
+msgstr "Lopeta tämänhetkinen peli"
+
+#: ../src/commands.c:87
+msgid "Pause game"
+msgstr "Pysäytä peli"
+
+#: ../src/commands.c:87
+msgid "Pause the game"
+msgstr "Pysäytä peli väliaikaisesti"
+
+#: ../src/commands.c:89 ../src/dialogs.c:152
+msgid "Change team"
+msgstr "Vaihda joukkuetta"
+
+#: ../src/commands.c:89
+msgid "Change your current team name"
+msgstr "Vaihda tämänhetkisen joukkueesi nimeä"
+
+#: ../src/commands.c:92
+msgid "Detach page"
+msgstr "Irrota sivu"
+
+#: ../src/commands.c:92
+msgid "Detach the current notebook page"
+msgstr "Irrota tämänhetkinen muiston sivu"
+
+#: ../src/commands.c:258
+msgid "Game in progress"
+msgstr "Peli meneillään"
+
+#: ../src/commands.c:261
+msgid "Connected to\n"
+msgstr "Yhteydessä palvelimeen\n"
+
+#: ../src/commands.c:265
+msgid "Not connected"
+msgstr "Ei yhteyttä"
+
+#. Translators: translate as your names & emails
+#: ../src/commands.c:309
+msgid "translator-credits"
+msgstr ""
+"Ilkka Tuohela, 2005.\n"
+"\n"
+"http://www.gnome.fi/"
+
+#: ../src/commands.c:323
+msgid "A Tetrinet client for GNOME.\n"
+msgstr "Gnomen Tetrinet-asiakas.\n"
+
+#: ../src/config.c:140
+msgid "Warning: theme does not have a name, reverting to default."
+msgstr ""
+
+#. make dialog that asks for address/nickname
+#: ../src/dialogs.c:85 ../src/dialogs.c:324 ../src/gtetrinet.c:77
+msgid "Connect to server"
+msgstr "Yhdistä palvelimeen"
+
+#: ../src/dialogs.c:165
+msgid "Team name:"
+msgstr "Joukkueen nimi:"
+
+#: ../src/dialogs.c:210
+msgid "You must specify a server name."
+msgstr "Palvelimen nimi täytyy antaa."
+
+#: ../src/dialogs.c:227
+msgid "Please specify a password to connect as spectator."
+msgstr ""
+
+#: ../src/dialogs.c:248
+msgid "Please specify a valid nickname."
+msgstr ""
+
+#. game type radio buttons
+#: ../src/dialogs.c:353
+msgid "O_riginal"
+msgstr ""
+
+#: ../src/dialogs.c:355
+msgid "Tetri_Fast"
+msgstr ""
+
+#: ../src/dialogs.c:377
+msgid "Server address"
+msgstr "Palvelimen osoite"
+
+#: ../src/dialogs.c:386
+msgid "Connect as a _spectator"
+msgstr ""
+
+#: ../src/dialogs.c:390
+msgid "_Password:"
+msgstr "_Salasana:"
+
+#: ../src/dialogs.c:407
+msgid "Spectate game"
+msgstr ""
+
+#: ../src/dialogs.c:416
+msgid "_Nick name:"
+msgstr "L_empinimi:"
+
+#: ../src/dialogs.c:430
+msgid "_Team name:"
+msgstr "_Joukkue:"
+
+#: ../src/dialogs.c:449
+msgid "Player information"
+msgstr "Pelaajan tiedot"
+
+#: ../src/dialogs.c:490
+msgid "Change Key"
+msgstr ""
+
+#: ../src/dialogs.c:541
+msgid "Move right"
+msgstr "Siirry oikealle"
+
+#: ../src/dialogs.c:542
+msgid "Move left"
+msgstr "Siirry vasemmalle"
+
+#: ../src/dialogs.c:543
+msgid "Move down"
+msgstr "Siirry alas"
+
+#: ../src/dialogs.c:544
+msgid "Rotate right"
+msgstr "Käännä oikealle"
+
+#: ../src/dialogs.c:545
+msgid "Rotate left"
+msgstr "Käännä vasemmalle"
+
+#: ../src/dialogs.c:546
+msgid "Drop piece"
+msgstr "Pudota kappale"
+
+#: ../src/dialogs.c:547
+msgid "Discard special"
+msgstr ""
+
+#: ../src/dialogs.c:548
+msgid "Send message"
+msgstr "Lähetä viesti"
+
+#: ../src/dialogs.c:549
+msgid "Special to field 1"
+msgstr ""
+
+#: ../src/dialogs.c:550
+msgid "Special to field 2"
+msgstr ""
+
+#: ../src/dialogs.c:551
+msgid "Special to field 3"
+msgstr ""
+
+#: ../src/dialogs.c:552
+msgid "Special to field 4"
+msgstr ""
+
+#: ../src/dialogs.c:553
+msgid "Special to field 5"
+msgstr ""
+
+#: ../src/dialogs.c:554
+msgid "Special to field 6"
+msgstr ""
+
+#: ../src/dialogs.c:614
+#, c-format
+msgid "Press new key for \"%s\""
+msgstr ""
+
+#: ../src/dialogs.c:831
+msgid "GTetrinet Preferences"
+msgstr "GTetrinetin asetukset"
+
+#: ../src/dialogs.c:853
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr ""
+
+#: ../src/dialogs.c:860
+msgid "Name:"
+msgstr "Nimi:"
+
+#: ../src/dialogs.c:863
+msgid "Author:"
+msgstr "Kirjoittanut:"
+
+#: ../src/dialogs.c:866
+msgid "Description:"
+msgstr "Kuvaus:"
+
+#: ../src/dialogs.c:879
+msgid "Selected Theme"
+msgstr "Valittu teema"
+
+#: ../src/dialogs.c:895
+msgid "Download new themes"
+msgstr "Hae uusia teemoja"
+
+#: ../src/dialogs.c:900
+msgid "Themes"
+msgstr "Teemat"
+
+#. partyline
+#: ../src/dialogs.c:905
+msgid "Enable _Timestamps"
+msgstr "Näytä _aikaleimat" 
+
+#: ../src/dialogs.c:907
+msgid "Enable Channel _List"
+msgstr "Näytä kanava_lista"
+
+#. FIXME
+#: ../src/dialogs.c:933 ../src/gtetrinet.c:281
+msgid "Partyline"
+msgstr "Keskustelu"
+
+#: ../src/dialogs.c:944
+msgid "Action"
+msgstr "Toiminto"
+
+#: ../src/dialogs.c:946
+msgid "Key"
+msgstr "Näppäin"
+
+#: ../src/dialogs.c:952
+msgid ""
+"Select an action from the list and press Change Key to change the key "
+"associated with the action."
+msgstr ""
+
+#: ../src/dialogs.c:959
+msgid "Change _key..."
+msgstr "Vaihda _näppäintä..."
+
+#: ../src/dialogs.c:964 ../src/dialogs.c:1017
+msgid "_Restore defaults"
+msgstr "Palauta _oletukset"
+
+#: ../src/dialogs.c:985
+msgid "Keyboard"
+msgstr "Näppäimistö"
+
+#. sound
+#: ../src/dialogs.c:990
+msgid "Enable _Sound"
+msgstr "Käytä _ääniä"
+
+#: ../src/dialogs.c:993
+msgid "Enable _MIDI"
+msgstr "Käytä _MIDIä"
+
+#: ../src/dialogs.c:1007
+msgid "Enter command to play a midi file:"
+msgstr "Anna komento MIDI-tiedoston soittoon:"
+
+#: ../src/dialogs.c:1010
+msgid ""
+"The above command is run when a midi file is to be played.  The name of the "
+"midi file is placed in the environment variable MIDIFILE."
+msgstr ""
+
+#: ../src/dialogs.c:1047
+msgid "Sound"
+msgstr "Ääni"
+
+#: ../src/fields.c:76
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr ""
+
+#. shouldnt happen
+#: ../src/fields.c:85
+#, c-format
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr ""
+
+#: ../src/fields.c:206
+msgid "Next piece:"
+msgstr "Seuraava kappale:"
+
+#: ../src/fields.c:223
+msgid "Lines:"
+msgstr "Viivat:"
+
+#: ../src/fields.c:227
+msgid "Level:"
+msgstr "Taso:"
+
+#: ../src/fields.c:229
+msgid "Active level:"
+msgstr "Aktiivinen taso:"
+
+#: ../src/fields.c:277
+msgid "Attacks and defenses:"
+msgstr "Hyökkäykset ja puolustukset:"
+
+#: ../src/fields.c:420
+msgid "Not playing"
+msgstr "Ei pelaa"
+
+#: ../src/fields.c:447
+msgid "Specials:"
+msgstr "Erikoisuudet:"
+
+#: ../src/gtetrinet.c:77
+msgid "SERVER"
+msgstr "PALVELIN"
+
+#: ../src/gtetrinet.c:78
+msgid "Set nickname to use"
+msgstr "Anna käytettävä lempinimi"
+
+#: ../src/gtetrinet.c:78
+msgid "NICKNAME"
+msgstr "LEMPINIMI"
+
+#: ../src/gtetrinet.c:79
+msgid "Set team name"
+msgstr "Anna joukkueen nimi"
+
+#: ../src/gtetrinet.c:79
+msgid "TEAM"
+msgstr "JOUKKUE"
+
+#: ../src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "Ota yhteyttä katselijana"
+
+#: ../src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr "Katselijan salasana"
+
+#: ../src/gtetrinet.c:81
+msgid "PASSWORD"
+msgstr "SALASANA"
+
+#: ../src/gtetrinet.c:120
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "GConfin alustus epäonnistui: %s\n"
+
+#. FIXME
+#: ../src/gtetrinet.c:270 ../src/gtetrinet.c:416 ../src/gtetrinet.c:469
+msgid "Playing Fields"
+msgstr "Pelikentät"
+
+#. FIXME
+#: ../src/gtetrinet.c:292
+msgid "Winlist"
+msgstr "Voittajalista"
+
+#: ../src/partyline.c:77 ../src/partyline.c:138 ../src/winlist.c:59
+msgid "Name"
+msgstr "Nimi"
+
+#: ../src/partyline.c:79
+msgid "Players"
+msgstr "Pelaajat"
+
+#: ../src/partyline.c:81
+msgid "State"
+msgstr "Tila"
+
+#: ../src/partyline.c:83
+msgid "Description"
+msgstr "Kuvaus"
+
+#: ../src/partyline.c:95
+msgid "Channel List"
+msgstr "Kanavalista"
+
+#: ../src/partyline.c:140
+msgid "Team"
+msgstr "Joukkue"
+
+#: ../src/partyline.c:153
+msgid "Your name:"
+msgstr "Oma nimi:"
+
+#: ../src/partyline.c:160
+msgid "Your team:"
+msgstr "Oma joukkue:"
+
+#: ../src/partyline.c:638
+msgid "Talking in channel"
+msgstr "Puhut kanavalle"
+
+#: ../src/partyline.c:640
+msgid "Disconnected"
+msgstr "Yhteys katkaistu"
+
+#: ../src/tetrinet.c:197
+msgid "Server disconnected"
+msgstr "Palvelin katkaisi yhteyden"
+
+#: ../src/tetrinet.c:217
+#, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c*** yhteys katkaistu palvelimelta"
+
+#: ../src/tetrinet.c:229
+msgid "Error connecting: "
+msgstr "Virhe otettaessa yhteyttä: "
+
+#: ../src/tetrinet.c:263
+#, c-format
+msgid "%c%c*** Connected to server"
+msgstr "%c%c*** Yhteys palvelimelle"
+
+#: ../src/tetrinet.c:364
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr "%c%c*** Sinut potkaistiin pelistä"
+
+#: ../src/tetrinet.c:368
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr "%c** %c%s%c%c potkaistiin pelistä"
+
+#: ../src/tetrinet.c:543
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr "%c*** Joukkue %c%s%c%c voitti pelin"
+
+#: ../src/tetrinet.c:549
+#, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr "%c*** %c%s%c%c voitti pelin"
+
+#: ../src/tetrinet.c:612
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr "%c*** peli alkoi %c"
+
+#: ../src/tetrinet.c:638
+#, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "%c*** Peli on meneillään %c"
+
+#: ../src/tetrinet.c:650
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr "%c*** Peli on keskeytetty %c"
+
+#: ../src/tetrinet.c:652
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr "Peli on %c%c keskeytetty"
+
+#: ../src/tetrinet.c:657
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr "%c*** Peli jatkuu taas %c"
+
+#: ../src/tetrinet.c:659
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr "Peli %c%c jatkuu taas"
+
+#: ../src/tetrinet.c:668
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr "%c*** Peli päättyi %c"
+
+#: ../src/tetrinet.c:786
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr "%c*** Liityit peliin %c%s%c%c"
+
+#: ../src/tetrinet.c:803
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c liittyi katsojiin %c%c(%c%s%c%c%c)"
+
+#: ../src/tetrinet.c:824
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr ""
+
+#: ../src/tetrinet.c:1062
+msgid "No special blocks"
+msgstr "Ei erikoiskappaleita"
+
+#: ../src/tetrinet.c:1221 ../src/tetrinet.c:1228
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr "%c%c%s%c%c"
+
+#: ../src/tetrinet.c:1238
+msgid " to All"
+msgstr " kaikille"
+
+#: ../src/tetrinet.c:1244 ../src/tetrinet.c:1251
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr "%c%c%s%c%c"
+
+#: ../src/tetrinet.c:1879
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr "%c*** %c%s%c%c on moderoija"
+
+#. remove ", " from end of string
+#: ../src/tetrinet.c:1928
+msgid " has left the game"
+msgstr " lopetti pelin"
+
+#: ../src/tetrinet.c:1929
+msgid " have left the game"
+msgstr " lopetti pelin"
+
+#: ../src/tetrinet.c:1942
+msgid " has joined the game"
+msgstr " liittyi peliin"
+
+#: ../src/tetrinet.c:1943
+msgid " have joined the game"
+msgstr " liittyi peliin"
+
+#: ../src/tetrinet.c:1966
+#, c-format
+msgid "%s is on team %c%s"
+msgstr "%s kuuluu joukkueeseen %c%s"
+
+#: ../src/tetrinet.c:1969
+#, c-format
+msgid "%s is alone"
+msgstr "%s pelaa yksin"
+
+#: ../src/tetrinet.c:1971
+#, c-format
+msgid "%s are on team %c%s"
+msgstr "%s pelaavat joukkueessa %c%s"
+
+#: ../src/tetrinet.c:1974
+#, c-format
+msgid "%s are alone"
+msgstr "%s pelaavat yksin"
+
+#: ../src/tetrinet.c:2015
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr "%c*** %c%s%c%c pelaa nyt joukkueessa %c%s"
+
+#: ../src/tetrinet.c:2022
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr "%c*** %c%s%c%c pelaa nyt yksin"
+
+#. "T" stands for "Team" here
+#: ../src/winlist.c:57
+msgid "T"
+msgstr "T"
+
+#: ../src/winlist.c:61
+msgid "Score"
+msgstr "tulos"
+
+#: ../gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr "GTetrinet"
+
+#: ../gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "Tetrinet-asiakas"
+
+#: ../gtetrinet.desktop.in.h:3
+msgid "Tetrinet client for GNOME"
+msgstr "Gnomen tetrinet-asiakas"
+
+#: ../gtetrinet.schemas.in.h:1
+msgid "Command to run to play midi files"
+msgstr "Suoritettava komento MIDI-tiedostojen soittoon"
+
+#: ../gtetrinet.schemas.in.h:2
+msgid "Enable/disable channel list."
+msgstr "Näytä tai piilota kanavalista."
+
+#: ../gtetrinet.schemas.in.h:3
+msgid "Enable/disable midi music"
+msgstr "Vaihtele MIDI-musiikin toistoa"
+
+#: ../gtetrinet.schemas.in.h:4
+msgid "Enable/disable sound"
+msgstr "Vaihtele musiikin toistoa"
+
+#: ../gtetrinet.schemas.in.h:5
+msgid "Enable/disable timestamps."
+msgstr "Näytä tai piilota aikaleimat."
+
+#: ../gtetrinet.schemas.in.h:6
+msgid ""
+"Enables/Disables sound. Keep in mind that the theme that you're using must "
+"provide sounds."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:7
+msgid ""
+"Enables/disables midi music. You'll need to enable sound if you want music "
+"to work."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:8
+msgid ""
+"Enables/disables the channel list. Disable it if you experience problems "
+"when connecting or while playing in your favorite tetrinet server."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:9
+msgid "Enables/disables timestamps in the partyline."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:10
+msgid "Key to discard special"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:11
+msgid "Key to drop piece"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:12
+msgid "Key to move down"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:13
+msgid "Key to move left"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:14
+msgid "Key to move right"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:15
+msgid "Key to open the fields' message dialog"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:16
+msgid "Key to rotate clockwise"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:17
+msgid "Key to rotate counterclockwise"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:18
+msgid "Key to use the current special on field 1"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:19
+msgid "Key to use the current special on field 2"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:20
+msgid "Key to use the current special on field 3"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:21
+msgid "Key to use the current special on field 4"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:22
+msgid "Key to use the current special on field 5"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:23
+msgid "Key to use the current special on field 6"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:24
+msgid "Server where you want to play"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:25
+msgid ""
+"The current theme directory. It should contain a readable \"blocks.png\" and "
+"a \"theme.cfg\"."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:26
+msgid "Theme directory, should end with a '/'"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:27
+msgid ""
+"This command is run when a midi file is to be played. The name of the midi "
+"file is placed in the environment variable MIDIFILE."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:28
+msgid "This is the server where GTetrinet will try to connect."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:29
+msgid "This key discards the current special. This is case insensitive."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:30
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:31
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:32
+msgid "This key moves the block down. This is case insensitive."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:33
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:34
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:35
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:36
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:37
+msgid "This key uses the current special on Player 1's game field."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:38
+msgid "This key uses the current special on Player 2's game field."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:39
+msgid "This key uses the current special on Player 3's game field."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:40
+msgid "This key uses the current special on Player 4's game field."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:41
+msgid "This key uses the current special on Player 5's game field."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:42
+msgid "This key uses the current special on Player 6's game field."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:43
+msgid "This will be the name of your team."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:44
+msgid "This will be your nickname in the game."
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:45
+msgid "Your nickname"
+msgstr ""
+
+#: ../gtetrinet.schemas.in.h:46
+msgid "Your team"
+msgstr ""
