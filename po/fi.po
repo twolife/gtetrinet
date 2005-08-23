@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-18 22:18+0300\n"
-"PO-Revision-Date: 2005-08-18 22:41+0300\n"
+"POT-Creation-Date: 2005-08-23 06:05+0300\n"
+"PO-Revision-Date: 2005-08-23 06:06+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../src/client.c:243
 msgid "Couldn't resolve hostname."
-msgstr ""
+msgstr "Isäntänimeä ei voitu selvittää."
 
 #: ../src/commands.c:45
 msgid "_Connect to server..."
@@ -130,7 +130,7 @@ msgstr "Gnomen Tetrinet-asiakas.\n"
 
 #: ../src/config.c:140
 msgid "Warning: theme does not have a name, reverting to default."
-msgstr ""
+msgstr "Varoitus: teemalla ei ole nimeä, käytetään oletusta."
 
 #. make dialog that asks for address/nickname
 #: ../src/dialogs.c:85 ../src/dialogs.c:324 ../src/gtetrinet.c:77
@@ -147,20 +147,20 @@ msgstr "Palvelimen nimi täytyy antaa."
 
 #: ../src/dialogs.c:227
 msgid "Please specify a password to connect as spectator."
-msgstr ""
+msgstr "Anna salasana yhdistääksesi katselijana."
 
 #: ../src/dialogs.c:248
 msgid "Please specify a valid nickname."
-msgstr ""
+msgstr "Anna kelvollinen lempinimi."
 
 #. game type radio buttons
 #: ../src/dialogs.c:353
 msgid "O_riginal"
-msgstr ""
+msgstr "_Alkuperäinen"
 
 #: ../src/dialogs.c:355
 msgid "Tetri_Fast"
-msgstr ""
+msgstr "Tetri_Fast"
 
 #: ../src/dialogs.c:377
 msgid "Server address"
@@ -168,7 +168,7 @@ msgstr "Palvelimen osoite"
 
 #: ../src/dialogs.c:386
 msgid "Connect as a _spectator"
-msgstr ""
+msgstr "Yhdistä _katselijana"
 
 #: ../src/dialogs.c:390
 msgid "_Password:"
@@ -176,7 +176,7 @@ msgstr "_Salasana:"
 
 #: ../src/dialogs.c:407
 msgid "Spectate game"
-msgstr ""
+msgstr "Katsele peliä"
 
 #: ../src/dialogs.c:416
 msgid "_Nick name:"
@@ -192,7 +192,7 @@ msgstr "Pelaajan tiedot"
 
 #: ../src/dialogs.c:490
 msgid "Change Key"
-msgstr ""
+msgstr "Vaihda avainta"
 
 #: ../src/dialogs.c:541
 msgid "Move right"
@@ -220,7 +220,7 @@ msgstr "Pudota kappale"
 
 #: ../src/dialogs.c:547
 msgid "Discard special"
-msgstr ""
+msgstr "Hylkää erikoiskappale"
 
 #: ../src/dialogs.c:548
 msgid "Send message"
@@ -228,32 +228,32 @@ msgstr "Lähetä viesti"
 
 #: ../src/dialogs.c:549
 msgid "Special to field 1"
-msgstr ""
+msgstr "Erikoiskappale kenttään 1"
 
 #: ../src/dialogs.c:550
 msgid "Special to field 2"
-msgstr ""
+msgstr "Erikoiskappale kenttään 2"
 
 #: ../src/dialogs.c:551
 msgid "Special to field 3"
-msgstr ""
+msgstr "Erikoiskappale kenttään 3"
 
 #: ../src/dialogs.c:552
 msgid "Special to field 4"
-msgstr ""
+msgstr "Erikoiskappale kenttään 4"
 
 #: ../src/dialogs.c:553
 msgid "Special to field 5"
-msgstr ""
+msgstr "Erikoiskappale kenttään 5"
 
 #: ../src/dialogs.c:554
 msgid "Special to field 6"
-msgstr ""
+msgstr "Erikoiskappale kenttään 6"
 
 #: ../src/dialogs.c:614
 #, c-format
 msgid "Press new key for \"%s\""
-msgstr ""
+msgstr "Anna uusi näppäin toiminnolle \"%s\""
 
 #: ../src/dialogs.c:831
 msgid "GTetrinet Preferences"
@@ -264,6 +264,8 @@ msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
 msgstr ""
+"Valitse teema listasta.\n"
+"Asenna uudet teemat hakemistoon ~/.gtetrinet/themes/"
 
 #: ../src/dialogs.c:860
 msgid "Name:"
@@ -292,7 +294,7 @@ msgstr "Teemat"
 #. partyline
 #: ../src/dialogs.c:905
 msgid "Enable _Timestamps"
-msgstr "Näytä _aikaleimat" 
+msgstr "Näytä _aikaleimat"
 
 #: ../src/dialogs.c:907
 msgid "Enable Channel _List"
@@ -316,6 +318,8 @@ msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
 msgstr ""
+"Valitse toiminto listasta ja paina \"Vaihda näppäin\", jos haluat vaihtaa "
+"toimintoon liittyvää näppäintä."
 
 #: ../src/dialogs.c:959
 msgid "Change _key..."
@@ -347,6 +351,8 @@ msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
 msgstr ""
+"Yllä oleva komento suoritetaan, kun halutaan soittaa MIDI-tiedosto. MIDI-"
+"tiedoston nimi laitetaan ympäristömuuttujaan MIDIFILE."
 
 #: ../src/dialogs.c:1047
 msgid "Sound"
@@ -357,6 +363,8 @@ msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
 msgstr ""
+"Virhe ladattaessa teemaa: grafiikkatiedostoa ei voida ladata\n"
+"Palataan oletusteemaan"
 
 #. shouldnt happen
 #: ../src/fields.c:85
@@ -365,6 +373,8 @@ msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
 msgstr ""
+"Virhe ladattaessa oletusteemaa: keskeytetään...\n"
+"Tarkista gtetrinetin asennuksesi\n"
 
 #: ../src/fields.c:206
 msgid "Next piece:"
@@ -567,7 +577,7 @@ msgstr "%c*** %c%s%c%c liittyi katsojiin %c%c(%c%s%c%c%c)"
 #: ../src/tetrinet.c:824
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
-msgstr ""
+msgstr "%c*** %c%s%c%c poistui katsojajoukosta %c%c(%c%s%c%c%c)"
 
 #: ../src/tetrinet.c:1062
 msgid "No special blocks"
@@ -685,171 +695,182 @@ msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
 msgstr ""
+"Ottaa käyttöön tai käytöstä pois äänet. Muista, että käyttämässäsi teemassa "
+"tulee olla äänet mukana, jos haluat ääniä."
 
 #: ../gtetrinet.schemas.in.h:7
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
 msgstr ""
+"Ottaa käyttöön tai poistaa MIDI-musiikit. Äänen täytyy olla käytössä, jos "
+"haluat käyttää MIDI-musiikkeja."
 
 #: ../gtetrinet.schemas.in.h:8
 msgid ""
 "Enables/disables the channel list. Disable it if you experience problems "
 "when connecting or while playing in your favorite tetrinet server."
 msgstr ""
+"Ottaa käyttöön tai poistaa kanavalistan. Ota pois käytöstä, jos sinulla on "
+"ongelma palvelimeen yhdistämisessä tai palvelimella pelatessa."
 
 #: ../gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
-msgstr ""
+msgstr "Näyttää tai piilottaa aikaleimat keskustelussa."
 
 #: ../gtetrinet.schemas.in.h:10
 msgid "Key to discard special"
-msgstr ""
+msgstr "Erikoispalan hylkäysnäppäin"
 
 #: ../gtetrinet.schemas.in.h:11
 msgid "Key to drop piece"
-msgstr ""
+msgstr "Palan pudotusnäppäin"
 
 #: ../gtetrinet.schemas.in.h:12
 msgid "Key to move down"
-msgstr ""
+msgstr "Alas liikkumisen näppäin"
 
 #: ../gtetrinet.schemas.in.h:13
 msgid "Key to move left"
-msgstr ""
+msgstr "Vasemmalle liikkumisen näppäin"
 
 #: ../gtetrinet.schemas.in.h:14
 msgid "Key to move right"
-msgstr ""
+msgstr "Oikealle liikkumisen näppäin"
 
 #: ../gtetrinet.schemas.in.h:15
 msgid "Key to open the fields' message dialog"
-msgstr ""
+msgstr "Kentän viestikeskustelun avaamisen näppäin"
 
 #: ../gtetrinet.schemas.in.h:16
 msgid "Key to rotate clockwise"
-msgstr ""
+msgstr "Myötäpäivään kääntämisen näppäin"
 
 #: ../gtetrinet.schemas.in.h:17
 msgid "Key to rotate counterclockwise"
-msgstr ""
+msgstr "Vastapäivään kääntämisen näppäin"
 
 #: ../gtetrinet.schemas.in.h:18
 msgid "Key to use the current special on field 1"
-msgstr ""
+msgstr "Näppäin tämänhetkisen erikoispalan käyttöön kentässä 1"
 
 #: ../gtetrinet.schemas.in.h:19
 msgid "Key to use the current special on field 2"
-msgstr ""
+msgstr "Näppäin tämänhetkisen erikoispalan käyttöön kentässä 2"
 
 #: ../gtetrinet.schemas.in.h:20
 msgid "Key to use the current special on field 3"
-msgstr ""
+msgstr "Näppäin tämänhetkisen erikoispalan käyttöön kentässä 3"
 
 #: ../gtetrinet.schemas.in.h:21
 msgid "Key to use the current special on field 4"
-msgstr ""
+msgstr "Näppäin tämänhetkisen erikoispalan käyttöön kentässä 4"
 
 #: ../gtetrinet.schemas.in.h:22
 msgid "Key to use the current special on field 5"
-msgstr ""
+msgstr "Näppäin tämänhetkisen erikoispalan käyttöön kentässä 5"
 
 #: ../gtetrinet.schemas.in.h:23
 msgid "Key to use the current special on field 6"
-msgstr ""
+msgstr "Näppäin tämänhetkisen erikoispalan käyttöön kentässä 6"
 
 #: ../gtetrinet.schemas.in.h:24
 msgid "Server where you want to play"
-msgstr ""
+msgstr "Palvein, jolla haluat pelata"
 
 #: ../gtetrinet.schemas.in.h:25
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
 msgstr ""
+"Tämänhetkinen teemahakemisto. Hakemistossa tulee olla luettavat tiedostot "
+"\"blocks.png\" ja \"theme.cfg\"."
 
 #: ../gtetrinet.schemas.in.h:26
 msgid "Theme directory, should end with a '/'"
-msgstr ""
+msgstr "Teemahakemisto, päättyen merkkiin \"/\""
 
 #: ../gtetrinet.schemas.in.h:27
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
 msgstr ""
+"Tämä komento suoritetaan, kun halutaan soittaa MIDI-tiedosto. MIDI-tiedoston "
+"nimi laitetaan ympäristömuuttujaan MIDIFILE."
 
 #: ../gtetrinet.schemas.in.h:28
 msgid "This is the server where GTetrinet will try to connect."
-msgstr ""
+msgstr "Palvelin, johon gtetrinet yrittää yhteyttä"
 
 #: ../gtetrinet.schemas.in.h:29
 msgid "This key discards the current special. This is case insensitive."
-msgstr ""
+msgstr "Valitun erikoispalikan hylkäysnäppäin. Ei välitä kirjainkoosta."
 
 #: ../gtetrinet.schemas.in.h:30
 msgid "This key displays the fields' message dialog. This is case insensitive."
-msgstr ""
+msgstr "Kentän keskustelun näyttävä näppäin. Ei välitä kirjainkoosta."
 
 #: ../gtetrinet.schemas.in.h:31
 msgid "This key drops the block to the ground. This is case insensitive."
-msgstr ""
+msgstr "Kappaleen maahanpudotusnäppäin. Ei välitä kirjainkoosta."
 
 #: ../gtetrinet.schemas.in.h:32
 msgid "This key moves the block down. This is case insensitive."
-msgstr ""
+msgstr "Kappaleen siirtonäppäin, alaspäin. Ei välitä kirjainkoosta."
 
 #: ../gtetrinet.schemas.in.h:33
 msgid "This key moves the block to the left. This is case insensitive."
-msgstr ""
+msgstr "Kappaleen siirtonäppäin, vasemmalle. Ei välitä kirjainkoosta."
 
 #: ../gtetrinet.schemas.in.h:34
 msgid "This key moves the block to the right. This is case insensitive."
-msgstr ""
+msgstr "Kappaleen siirtonäppäin, oikealle. Ei välitä kirjainkoosta."
 
 #: ../gtetrinet.schemas.in.h:35
 msgid "This key rotates the block clockwise. This is case insensitive."
-msgstr ""
+msgstr "Kappaleen kääntönäppäin, myötäpäivään. Ei välitä kirjainkoosta."
 
 #: ../gtetrinet.schemas.in.h:36
 msgid "This key rotates the block counterclockwise. This is case insensitive."
-msgstr ""
+msgstr "Kappaleen kääntönäppäin, vastapäivään. Ei välitä kirjainkoosta."
 
 #: ../gtetrinet.schemas.in.h:37
 msgid "This key uses the current special on Player 1's game field."
-msgstr ""
+msgstr "Näppäin nykyisen erikoiskappaleen käyttöön pelaajan 1 kentässä."
 
 #: ../gtetrinet.schemas.in.h:38
 msgid "This key uses the current special on Player 2's game field."
-msgstr ""
+msgstr "Näppäin nykyisen erikoiskappaleen käyttöön pelaajan 2 kentässä."
 
 #: ../gtetrinet.schemas.in.h:39
 msgid "This key uses the current special on Player 3's game field."
-msgstr ""
+msgstr "Näppäin nykyisen erikoiskappaleen käyttöön pelaajan 3 kentässä."
 
 #: ../gtetrinet.schemas.in.h:40
 msgid "This key uses the current special on Player 4's game field."
-msgstr ""
+msgstr "Näppäin nykyisen erikoiskappaleen käyttöön pelaajan 4 kentässä."
 
 #: ../gtetrinet.schemas.in.h:41
 msgid "This key uses the current special on Player 5's game field."
-msgstr ""
+msgstr "Näppäin nykyisen erikoiskappaleen käyttöön pelaajan 5 kentässä."
 
 #: ../gtetrinet.schemas.in.h:42
 msgid "This key uses the current special on Player 6's game field."
-msgstr ""
+msgstr "Näppäin nykyisen erikoiskappaleen käyttöön pelaajan 6 kentässä."
 
 #: ../gtetrinet.schemas.in.h:43
 msgid "This will be the name of your team."
-msgstr ""
+msgstr "Joukkuuesi nimi"
 
 #: ../gtetrinet.schemas.in.h:44
 msgid "This will be your nickname in the game."
-msgstr ""
+msgstr "Lempinimesi pelissä"
 
 #: ../gtetrinet.schemas.in.h:45
 msgid "Your nickname"
-msgstr ""
+msgstr "Lempinimesi"
 
 #: ../gtetrinet.schemas.in.h:46
 msgid "Your team"
-msgstr ""
+msgstr "Joukkueesi"
+
