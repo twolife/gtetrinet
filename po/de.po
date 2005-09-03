@@ -22,7 +22,7 @@ msgstr "Kann den Hostnamen nicht auflösen."
 
 #: src/commands.c:45
 msgid "_Connect to server..."
-msgstr "Zum Server _Verbinden..."
+msgstr "Zum Server _verbinden..."
 
 #: src/commands.c:46
 msgid "_Disconnect from server"
@@ -34,7 +34,7 @@ msgstr "Das _Team ändern..."
 
 #: src/commands.c:50
 msgid "_Start game"
-msgstr "Spiel _Starten"
+msgstr "Spiel _starten"
 
 #: src/commands.c:51
 msgid "_Pause game"
