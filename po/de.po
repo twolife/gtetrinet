@@ -319,7 +319,7 @@ msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
 msgstr ""
-"Wählen Sie eine Aktion aus der Liste und drücken Sie Taste ändern um die mit "
+"Wählen Sie eine Aktion aus der Liste und drücken Sie »Taste ändern« um die mit "
 "der Aktion verknüpfte Taste zu ändern."
 
 #: src/dialogs.c:972
@@ -345,7 +345,7 @@ msgstr "_MIDI aktivieren"
 
 #: src/dialogs.c:1020
 msgid "Enter command to play a midi file:"
-msgstr "Geben Sie den Befehl zum Abzuspielen einer Midi-Datei ein:"
+msgstr "Geben Sie den Befehl zum Abspielen einer Midi-Datei ein:"
 
 #: src/dialogs.c:1023
 msgid ""
@@ -353,8 +353,8 @@ msgid ""
 "midi file is placed in the environment variable MIDIFILE."
 msgstr ""
 "Der oben angegebene Befehl wird ausgeführt, wenn eine Midi-Datei abgespielt "
-"wird. Der Name der Midi-Datei ist in der Umgebungsvariable MIDIFILE "
-"vorhanden."
+"wird. Der Name der Midi-Datei kann in der Umgebungsvariablen MIDIFILE "
+"gefunden werden."
 
 #: src/dialogs.c:1060
 msgid "Sound"
@@ -365,7 +365,7 @@ msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
 msgstr ""
-"Fehler beim Theme laden: Grafik-Datei kann nicht geladen werden\n"
+"Fehler beim Theme-Laden: Grafik-Datei kann nicht geladen werden\n"
 "Greife auf den Standard zurück"
 
 #. shouldnt happen
@@ -375,7 +375,7 @@ msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
 msgstr ""
-"Fehler beim Standard-Theme laden: Abbrechen...\n"
+"Fehler beim Standard-Theme-Laden: Abbruch...\n"
 "Suchen Sie nach Installationsfehlern\n"
 
 #: src/fields.c:206
@@ -396,7 +396,7 @@ msgstr "Aktive Ebene:"
 
 #: src/fields.c:277
 msgid "Attacks and defenses:"
-msgstr "Angriffe und Verteidungungen:"
+msgstr "Angriffe und Verteidigungen:"
 
 #: src/fields.c:421
 msgid "Not playing"
@@ -697,7 +697,7 @@ msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
 msgstr ""
-"Ton de/aktivieren. Bedenken Sie, dass das verwendete Theme Ton-Dateien "
+"Ton de-/aktivieren. Bedenken Sie, dass das verwendete Theme Ton-Dateien "
 "enthalten muss."
 
 #: gtetrinet.schemas.in.h:7
@@ -705,7 +705,7 @@ msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
 msgstr ""
-"Midi-Musik de/aktivieren. Sie müssen die Klänge aktivieren, falls Sie Musik "
+"Midi-Musik de-/aktivieren. Sie müssen die Klänge aktivieren, falls Sie Musik "
 "wünschen."
 
 #: gtetrinet.schemas.in.h:8
@@ -790,7 +790,7 @@ msgstr ""
 
 #: gtetrinet.schemas.in.h:26
 msgid "Theme directory, should end with a '/'"
-msgstr "Themenverzeichnis, sollte mit einem »/« aufhören"
+msgstr "Theme-Verzeichnis, sollte mit einem »/« aufhören"
 
 #: gtetrinet.schemas.in.h:27
 msgid ""
@@ -798,7 +798,7 @@ msgid ""
 "file is placed in the environment variable MIDIFILE."
 msgstr ""
 "Dieser Befehl wird ausgeführt, wenn eine Midi-Datei abgespielt wird. Der "
-"Name der Midi-Datei ist in der Umgebungsvariable MIDIFILE vorhanden."
+"Name der Midi-Datei kann in der Umgebungsvariablen MIDIFILE gefunden werden."
 
 #: gtetrinet.schemas.in.h:28
 msgid "This is the server where GTetrinet will try to connect."
