@@ -1,5 +1,5 @@
 # Bulgarian translation of gtetrinet.
-# Copyright (C) 2005 gtetrinet'S COPYRIGHT HOLDER
+# Copyright (C) 2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtetrinet package.
 # Yavor Doganov <yavor@doganov.org>, 2005.
 # 
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-29 10:35+0300\n"
-"PO-Revision-Date: 2005-04-28 18:17+0300\n"
+"POT-Creation-Date: 2005-11-02 09:57+0200\n"
+"PO-Revision-Date: 2005-10-22 16:06+0300\n"
 "Last-Translator: Yavor Doganov <yavor@doganov.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -120,7 +120,12 @@ msgstr "Изключен"
 #. Translators: translate as your names & emails
 #: ../src/commands.c:309
 msgid "translator-credits"
-msgstr "Явор Доганов <yavor@doganov.org>"
+msgstr ""
+"Явор Доганов <yavor@doganov.org>\n"
+"\n"
+"Проектът за превод на GNOME има нужда от подкрепа.\n"
+"Научете повече за нас на http://gnome.cult.bg\n"
+"Докладвайте за грешки на http://gnome.cult.bg/bugs"
 
 #: ../src/commands.c:323
 msgid "A Tetrinet client for GNOME.\n"
@@ -251,7 +256,7 @@ msgstr "Специално парче в поле 6"
 #: ../src/dialogs.c:614
 #, c-format
 msgid "Press new key for \"%s\""
-msgstr "Натиснете нов клавиш за \"%s\""
+msgstr "Натиснете нов клавиш за „%s“"
 
 #: ../src/dialogs.c:831
 msgid "GTetrinet Preferences"
@@ -316,7 +321,7 @@ msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
 msgstr ""
-"Изберете действие от списъка и натиснете \"Смяна на клавиш\", за да смените "
+"Изберете действие от списъка и натиснете „Смяна на клавиш“, за да смените "
 "клавиша, свързан с действието."
 
 #: ../src/dialogs.c:959
@@ -781,12 +786,12 @@ msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
 msgstr ""
-"Текущата папка с теми. Трябва да съдържа четими \"blocks.png\" и \"theme.cfg"
-"\" файлове."
+"Текущата папка с теми. Трябва да съдържа четими файлове „blocks.png“ и "
+"„theme.cfg“."
 
 #: ../gtetrinet.schemas.in.h:26
 msgid "Theme directory, should end with a '/'"
-msgstr "Папка с теми, трябва да завършва с '/'"
+msgstr "Папка с теми, трябва да завършва с „/“"
 
 #: ../gtetrinet.schemas.in.h:27
 msgid ""
