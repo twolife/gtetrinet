@@ -1,871 +1,858 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Vietnamese translation for GTetrinet.
+# Copyright © 2005 Gnome i18n Project for Vietnamese.
 # This file is distributed under the same license as the gtetrinet package.
 # Ly Trong Van <ltvan_vn@yahoo.fr>, 2003.
-#
+# Clytie Siddall <clytie@riverland.net.au>, 2005.
 msgid ""
-msgstr ""
-"Project-Id-Version: gtetrinet VERSION\n"
+""
+msgstr "Project-Id-Version: gtetrinet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-08 13:33+0200\n"
-"PO-Revision-Date: 2003-10-11 18:48+0700\n"
-"Last-Translator: Ly Trong Van <ltvan_vn@yahoo.fr>\n"
-"Language-Team: GnomeVi Team <gnomevi-list@lists.sourceforge.net>\n"
+"POT-Creation-Date: 2006-01-01 12:12+0100\n"
+"PO-Revision-Date: 2006-01-01 23:15+1030\n"
+"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
+"Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"X-Generator: LocFactoryEditor 1.5.1b\n"
 
-#: src/client.c:237
+#:../src/client.c:243
 msgid "Couldn't resolve hostname."
-msgstr "Không thể phân giải hostname"
+msgstr "Không thể dịch tên máy."
 
-#: src/commands.c:45
+#:../src/commands.c:45
 msgid "_Connect to server..."
-msgstr "Kết nối tới server..."
+msgstr "_Kết nối tới máy phục vụ..."
 
-#: src/commands.c:46
+#:../src/commands.c:46
 msgid "_Disconnect from server"
-msgstr "Ngắt kết nối khỏi server"
+msgstr "_Ngắt kết nối khỏi máy phục vụ"
 
-#: src/commands.c:48
+#:../src/commands.c:48
 msgid "Change _team..."
-msgstr "Chuyển đội..."
+msgstr "Chuyển _đội"
 
-#: src/commands.c:50
+#:../src/commands.c:50
 msgid "_Start game"
-msgstr "Bắt đầu chơi"
+msgstr "_Bắt đầu chơi"
 
-#: src/commands.c:51
+#:../src/commands.c:51
 msgid "_Pause game"
-msgstr "Tạm dừng"
+msgstr "Tạm _dừng chơi"
 
-#: src/commands.c:52
+#:../src/commands.c:52
 msgid "_End game"
-msgstr "Kết thúc trò chơi"
+msgstr "_Kết thúc trò chơi"
 
-#: src/commands.c:57
+#:../src/commands.c:57
 msgid "Detac_h page..."
-msgstr ""
+msgstr "Tháo _bỏ trang..."
 
-#: src/commands.c:82
+#:../src/commands.c:82
 msgid "Connect"
 msgstr "Kết nối"
 
-#: src/commands.c:82
+#:../src/commands.c:82
 msgid "Connect to a server"
-msgstr "Kết nối tới server"
+msgstr "Kết nối tới máy phục vụ"
 
-#: src/commands.c:83
+#:../src/commands.c:83
 msgid "Disconnect"
 msgstr "Ngắt kết nối"
 
-#: src/commands.c:83
+#:../src/commands.c:83
 msgid "Disconnect from the current server"
-msgstr "Ngắt kết nối khỏi server hiện tại"
+msgstr "Ngắt kết nối khỏi máy phục vụ hiện tại"
 
-#: src/commands.c:85
+#:../src/commands.c:85
 msgid "Start game"
 msgstr "Bắt đầu chơi"
 
-#: src/commands.c:85
+#:../src/commands.c:85
 msgid "Start a new game"
 msgstr "Bắt đầu một lượt chơi mới"
 
-#: src/commands.c:86
+#:../src/commands.c:86
 msgid "End game"
 msgstr "Kết thúc trò chơi"
 
-#: src/commands.c:86
+#:../src/commands.c:86
 msgid "End the current game"
 msgstr "Kết thúc lượt chơi hiện tại"
 
-#: src/commands.c:87
+#:../src/commands.c:87
 msgid "Pause game"
-msgstr "Tạm dừng"
+msgstr "Tạm dừng chơi"
 
-#: src/commands.c:87
+#:../src/commands.c:87
 msgid "Pause the game"
 msgstr "Tạm dừng trò chơi"
 
-#: src/commands.c:89 src/dialogs.c:156
+#:../src/commands.c:89 ../src/dialogs.c:152
 msgid "Change team"
 msgstr "Chuyển đội"
 
-#: src/commands.c:89
+#:../src/commands.c:89
 msgid "Change your current team name"
 msgstr "Chuyển tên của đội mà bạn hiện đang chơi"
 
-#: src/commands.c:92
+#:../src/commands.c:92
 msgid "Detach page"
 msgstr ""
 
-#: src/commands.c:92
+#:../src/commands.c:92
 msgid "Detach the current notebook page"
 msgstr ""
 
+#:../src/commands.c:258
 #,fuzzy
-#: src/commands.c:258
 msgid "Game in progress"
 msgstr "Trò chơi đang diễn tiến"
 
-#: src/commands.c:261
+#:../src/commands.c:261
 msgid "Connected to\n"
 msgstr "Đã kết nối đến\n"
 
-#: src/commands.c:265
+#:../src/commands.c:265
 msgid "Not connected"
 msgstr "Chưa kết nối"
 
-#. Translators: translate as your names & emails
-#: src/commands.c:287
+#.Translators: translate as your names & emails
+#:../src/commands.c:309
 msgid "translator-credits"
 msgstr "Nhóm GnomeVi (http://gnomevi.sourceforge.net)"
 
-#: src/commands.c:293
+#:../src/commands.c:323
 msgid "A Tetrinet client for GNOME.\n"
 msgstr "Tetrinet client cho GNOME.\n"
 
-#: src/commands.c:305
-msgid "GTetrinet Home Page"
-msgstr "Trang chủ GTetrinet"
-
-#: src/config.c:140
+#:../src/config.c:140
 msgid "Warning: theme does not have a name, reverting to default."
 msgstr "Cảnh báo: theme không có tên, phục hồi lại trạng thái mặc định."
 
-#. make dialog that asks for address/nickname
-#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
+#.make dialog that asks for address/nickname
+#:../src/dialogs.c:85 ../src/dialogs.c:324 ../src/gtetrinet.c:77
 msgid "Connect to server"
 msgstr "Kết nối tới server"
 
-#: src/dialogs.c:169
+#:../src/dialogs.c:165
 msgid "Team name:"
 msgstr "Tên đội:"
 
-#: src/dialogs.c:215
+#:../src/dialogs.c:210
 msgid "You must specify a server name."
-msgstr "Bạn phải chỉ định tên server."
+msgstr "Bạn phải chỉ định tên máy phục vụ."
 
-#: src/dialogs.c:232
+#:../src/dialogs.c:227
 msgid "Please specify a password to connect as spectator."
 msgstr "Vui lòng chỉ ra mật khẩu để kết nối như là một khán giả."
 
-#: src/dialogs.c:258
+#:../src/dialogs.c:248
 msgid "Please specify a valid nickname."
-msgstr "Vui lòng chỉ ra bí danh hợp lệ."
+msgstr "Vui lòng chỉ ra tên hiệu hợp lệ."
 
-#. game type radio buttons
-#: src/dialogs.c:364
+#.game type radio buttons
+#:../src/dialogs.c:353
 msgid "O_riginal"
-msgstr ""
+msgstr "_Gốc"
 
-#: src/dialogs.c:366
+#:../src/dialogs.c:355
 msgid "Tetri_Fast"
-msgstr ""
+msgstr "Tetri_Nhanh"
 
-#: src/dialogs.c:388
+#:../src/dialogs.c:377
 msgid "Server address"
-msgstr "Địa chỉ server"
+msgstr "Địa chỉ máy phục vụ"
 
-#: src/dialogs.c:397
+#:../src/dialogs.c:386
 msgid "Connect as a _spectator"
-msgstr "Kết nối như là một khán giả"
+msgstr "Kết nối như là một _khán giả"
 
-#: src/dialogs.c:401
+#:../src/dialogs.c:390
 msgid "_Password:"
-msgstr "Mật khẩu:"
+msgstr "_Mật khẩu :"
 
-#: src/dialogs.c:418
+#:../src/dialogs.c:407
 msgid "Spectate game"
-msgstr ""
+msgstr "Khán lượt chơi"
 
-#: src/dialogs.c:427
+#:../src/dialogs.c:416
 msgid "_Nick name:"
-msgstr "Bí danh:"
+msgstr "Tên _hiệu :"
 
-#: src/dialogs.c:442
+#:../src/dialogs.c:430
 msgid "_Team name:"
-msgstr "Tên đội:"
+msgstr "Tên _đội:"
 
-#: src/dialogs.c:462
+#:../src/dialogs.c:449
 msgid "Player information"
 msgstr "Thông tin người chơi"
 
-#: src/dialogs.c:503
+#:../src/dialogs.c:490
 msgid "Change Key"
-msgstr ""
+msgstr "Chuyển phím"
 
-#: src/dialogs.c:554
+#:../src/dialogs.c:541
 msgid "Move right"
 msgstr "Qua phải"
 
-#: src/dialogs.c:555
+#:../src/dialogs.c:542
 msgid "Move left"
 msgstr "Qua trái"
 
-#: src/dialogs.c:556
+#:../src/dialogs.c:543
 msgid "Move down"
 msgstr "Đi xuống"
 
-#: src/dialogs.c:557
+#:../src/dialogs.c:544
 msgid "Rotate right"
 msgstr "Quay phải"
 
-#: src/dialogs.c:558
+#:../src/dialogs.c:545
 msgid "Rotate left"
 msgstr "Quay trái"
 
-#: src/dialogs.c:559
+#:../src/dialogs.c:546
 msgid "Drop piece"
-msgstr ""
+msgstr "Thả khối"
 
-#: src/dialogs.c:560
+#:../src/dialogs.c:547
 msgid "Discard special"
-msgstr ""
+msgstr "Hủy viên đặc biệt"
 
-#: src/dialogs.c:561
+#:../src/dialogs.c:548
 msgid "Send message"
 msgstr "Gửi tin nhắn"
 
-#: src/dialogs.c:562
+#:../src/dialogs.c:549
 msgid "Special to field 1"
-msgstr ""
+msgstr "Đặc biệt cho trường 1"
 
-#: src/dialogs.c:563
+#:../src/dialogs.c:550
 msgid "Special to field 2"
-msgstr ""
+msgstr "Đặc biệt cho trường 2"
 
-#: src/dialogs.c:564
+#:../src/dialogs.c:551
 msgid "Special to field 3"
-msgstr ""
+msgstr "Đặc biệt cho trường 3"
 
-#: src/dialogs.c:565
+#:../src/dialogs.c:552
 msgid "Special to field 4"
-msgstr ""
+msgstr "Đặc biệt cho trường 4"
 
-#: src/dialogs.c:566
+#:../src/dialogs.c:553
 msgid "Special to field 5"
-msgstr ""
+msgstr "Đặc biệt cho trường 5"
 
-#: src/dialogs.c:567
+#:../src/dialogs.c:554
 msgid "Special to field 6"
-msgstr ""
+msgstr "Đặc biệt cho trường 6"
 
-#: src/dialogs.c:627
-#, c-format
+#:../src/dialogs.c:614
+#,c-format
 msgid "Press new key for \"%s\""
-msgstr "Nhấn một phím mới cho \"%s\""
+msgstr "Nhấn một phím mới cho « %s »"
 
-#: src/dialogs.c:844
+#:../src/dialogs.c:831
 msgid "GTetrinet Preferences"
-msgstr "Tùy chỉnh GTetrinet"
+msgstr "Tùy thích GTetrinet"
 
-#: src/dialogs.c:866
+#:../src/dialogs.c:853
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
-msgstr "Chọn theme từ danh sách.\n"
-"Cài theme mới trong ~/.gtetrinet/themes/"
+msgstr "Chọn sắc thái từ danh sách.\n"
+"Cài sắc thái mới vào <~/.gtetrinet/themes/>"
 
-#: src/dialogs.c:874
+#:../src/dialogs.c:860
 msgid "Name:"
 msgstr "Tên:"
 
-#: src/dialogs.c:878
+#:../src/dialogs.c:863
 msgid "Author:"
 msgstr "Tác giả:"
 
-#: src/dialogs.c:882
+#:../src/dialogs.c:866
 msgid "Description:"
-msgstr "Mô tả"
+msgstr "Mô tả:"
 
-#: src/dialogs.c:900
+#:../src/dialogs.c:879
 msgid "Selected Theme"
-msgstr "Theme đã chọn"
+msgstr "Sắc thái đã chọn"
 
-#: src/dialogs.c:919
+#:../src/dialogs.c:895
+msgid "Download new themes"
+msgstr "Tải về sắc thái mới"
+
+#:../src/dialogs.c:900
 msgid "Themes"
-msgstr "Themes"
+msgstr "Sắc thái"
 
-#. partyline
-#: src/dialogs.c:924
+#.partyline
+#:../src/dialogs.c:905
 msgid "Enable _Timestamps"
-msgstr "Hiệu lực _Timestamps"
+msgstr "Bật _ghi giờ"
 
-#: src/dialogs.c:926
+#:../src/dialogs.c:907
 msgid "Enable Channel _List"
-msgstr "Hiệu lực danh sách Channel"
+msgstr "Bật danh sách _kênh"
 
-#. FIXME
-#: src/dialogs.c:952 src/gtetrinet.c:281
+#.FIXME
+#:../src/dialogs.c:933 ../src/gtetrinet.c:281
 msgid "Partyline"
-msgstr ""
+msgstr "Đường chung"
 
-#: src/dialogs.c:963
+#:../src/dialogs.c:944
 msgid "Action"
 msgstr "Hành vi"
 
-#: src/dialogs.c:965
+#:../src/dialogs.c:946
 msgid "Key"
 msgstr "Phím"
 
-#: src/dialogs.c:971
+#:../src/dialogs.c:952
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
-msgstr ""
-"Chọn một hành vi từ danh sách và nhấn Change Key để đổi phím "
-"tương ứng với hành vi đó."
+msgstr "Chọn một hành vi từ danh sách và nhấn Chuyển Phím để đổi phím tương ứng với hành vi đó."
 
-#: src/dialogs.c:978
+#:../src/dialogs.c:959
 msgid "Change _key..."
-msgstr ""
+msgstr "Chuyển _Phím..."
 
-#: src/dialogs.c:983 src/dialogs.c:1036
+#:../src/dialogs.c:964 ../src/dialogs.c:1017
 msgid "_Restore defaults"
-msgstr "Thiết lập mặc định"
+msgstr "_Phục hồi mặc định"
 
-#: src/dialogs.c:1004
+#:../src/dialogs.c:985
 msgid "Keyboard"
-msgstr ""
+msgstr "Bàn phím"
 
-#. sound
-#: src/dialogs.c:1009
+#.sound
+#:../src/dialogs.c:990
 msgid "Enable _Sound"
-msgstr "Hiệu lực Âm thanh"
+msgstr "Bật _Âm thanh"
 
-#: src/dialogs.c:1012
+#:../src/dialogs.c:993
 msgid "Enable _MIDI"
-msgstr "Hiệu lực MIDI"
+msgstr "Bật _MIDI"
 
-#: src/dialogs.c:1026
+#:../src/dialogs.c:1007
 msgid "Enter command to play a midi file:"
-msgstr "Nhập lệnh để chơi tập tin midi:"
+msgstr "Nhập lệnh để phát tập tin MIDI:"
 
-#: src/dialogs.c:1029
+#:../src/dialogs.c:1010
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
-msgstr ""
-"Câu lệnh trên dược chạy khi một tập tin midi được phát. Tên của "
-"tập tin midi được đặt trong biến môi trường MIDIFILE."
+msgstr "Câu lệnh trên dược chạy khi một tập tin MIDI được phát. Tên của tập tin MIDI được đặt trong biến môi trường « MIDIFILE »."
 
-#: src/dialogs.c:1066
+#:../src/dialogs.c:1047
 msgid "Sound"
 msgstr "Âm thanh"
 
-#: src/fields.c:76
+#:../src/fields.c:76
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
-msgstr ""
-"Lỗi nạp theme: không thể nạp tập tin hình ảnh\n"
+msgstr "Lỗi tải sắc thái: không thể tải tập tin đồ họa\n"
 "Quay lại chế độ mặc định"
 
-#. shouldnt happen
-#: src/fields.c:85
+#.shouldnt happen
+#:../src/fields.c:85
+#,c-format
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
-msgstr ""
-"Lỗi nạp theme mặc định: Đang thoát...\n"
+msgstr "Lỗi tải sắc thái mặc định nên hủy bỏ...\n"
 "Hãy kiểm tra lỗi cài đặt\n"
 
-#: src/fields.c:206
+#:../src/fields.c:206
 msgid "Next piece:"
-msgstr "Cục gạch kế:"
+msgstr "Gạch kế:"
 
-#: src/fields.c:223
+#:../src/fields.c:223
 msgid "Lines:"
 msgstr "Dòng:"
 
-#: src/fields.c:227
+#:../src/fields.c:227
 msgid "Level:"
 msgstr "Cấp độ:"
 
-#,fuzzy
-#: src/fields.c:229
+#:../src/fields.c:229
 msgid "Active level:"
-msgstr "Cấp độ Active:"
+msgstr "Cấp độ hoạt động:"
 
-#: src/fields.c:277
+#:../src/fields.c:277
 msgid "Attacks and defenses:"
-msgstr "Tấn công và phòng thủ:"
+msgstr "Tấn công và phòng thủ :"
 
-#: src/fields.c:421
+#:../src/fields.c:420
 msgid "Not playing"
 msgstr "Không có ai chơi"
 
-#: src/fields.c:452
+#:../src/fields.c:447
 msgid "Specials:"
-msgstr ""
+msgstr "Đặc biệt:"
 
-#: src/gtetrinet.c:77
+#:../src/gtetrinet.c:77
 msgid "SERVER"
-msgstr "SERVER"
+msgstr "MÁY PHỤC VỤ"
 
-#: src/gtetrinet.c:78
+#:../src/gtetrinet.c:78
 msgid "Set nickname to use"
-msgstr "Đặt bí danh để sử dụng"
+msgstr "Đặt tên hiệu cần dùng"
 
-#: src/gtetrinet.c:78
+#:../src/gtetrinet.c:78
 msgid "NICKNAME"
-msgstr "BÍ DANH"
+msgstr "TÊN HIỆU"
 
-#: src/gtetrinet.c:79
+#:../src/gtetrinet.c:79
 msgid "Set team name"
 msgstr "Đặt tên đội"
 
-#: src/gtetrinet.c:79
+#:../src/gtetrinet.c:79
 msgid "TEAM"
 msgstr "ĐỘI"
 
-#: src/gtetrinet.c:80
+#:../src/gtetrinet.c:80
 msgid "Connect as a spectator"
 msgstr "Kết nối như là khán giả"
 
-#: src/gtetrinet.c:81
+#:../src/gtetrinet.c:81
 msgid "Spectator password"
 msgstr "Mật khẩu khán giả"
 
-#: src/gtetrinet.c:81
+#:../src/gtetrinet.c:81
 msgid "PASSWORD"
 msgstr "MẬT KHẨU"
 
-#: src/gtetrinet.c:120
-#, c-format
+#:../src/gtetrinet.c:120
+#,c-format
 msgid "Failed to init GConf: %s\n"
-msgstr "Khởi động GConf thất bại: %s\n"
+msgstr "Lỗi khởi động GConf: %s\n"
 
-#. FIXME
-#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:470
+#.FIXME
+#:../src/gtetrinet.c:270 ../src/gtetrinet.c:416 ../src/gtetrinet.c:469
 msgid "Playing Fields"
-msgstr ""
+msgstr "Bảng chơi"
 
-#. FIXME
-#: src/gtetrinet.c:292
+#.FIXME
+#:../src/gtetrinet.c:292
 msgid "Winlist"
-msgstr ""
+msgstr "Danh sách thắng"
 
-#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
+#:../src/partyline.c:77 ../src/partyline.c:138 ../src/winlist.c:59
 msgid "Name"
 msgstr "Tên"
 
-#: src/partyline.c:79
+#:../src/partyline.c:79
 msgid "Players"
 msgstr "Người chơi"
 
-#: src/partyline.c:81
+#:../src/partyline.c:81
 msgid "State"
 msgstr "Tình trạng"
 
-#: src/partyline.c:83
+#:../src/partyline.c:83
 msgid "Description"
 msgstr "Mô tả"
 
-#: src/partyline.c:95
+#:../src/partyline.c:95
 msgid "Channel List"
-msgstr "Danh sách Channel"
+msgstr "Danh sách kênh"
 
-#: src/partyline.c:140
+#:../src/partyline.c:140
 msgid "Team"
 msgstr "Đội"
 
-#: src/partyline.c:153
+#:../src/partyline.c:153
 msgid "Your name:"
 msgstr "Tên của bạn:"
 
-#: src/partyline.c:160
+#:../src/partyline.c:160
 msgid "Your team:"
 msgstr "Đội của bạn:"
 
-#: src/partyline.c:665
+#:../src/partyline.c:638
 msgid "Talking in channel"
-msgstr "Tán gẫu trong channel"
+msgstr "Nói chuyện trên kênh"
 
-#: src/partyline.c:667
+#:../src/partyline.c:640
 msgid "Disconnected"
-msgstr "Kết nối đã bị ngắt"
+msgstr "Bị ngắt kết nối"
 
-#: src/tetrinet.c:194
+#:../src/tetrinet.c:197
 msgid "Server disconnected"
-msgstr "Server đã ngắt kết nối"
+msgstr "Máy phục vụ đã ngắt kết nối"
 
-#: src/tetrinet.c:214
-#, c-format
+#:../src/tetrinet.c:217
+#,c-format
 msgid "%c%c*** Disconnected from server"
-msgstr "%c%c*** Đã ngắt kết nối từ server"
+msgstr "%c%c*** Bị ngắt kết nối ra máy phục vụ"
 
-#: src/tetrinet.c:226
+#:../src/tetrinet.c:229
 msgid "Error connecting: "
 msgstr "Lỗi khi kết nối: "
 
-#: src/tetrinet.c:259
-#, c-format
+#:../src/tetrinet.c:263
+#,c-format
 msgid "%c%c*** Connected to server"
-msgstr "%c%c*** Đã kết nối tới server"
+msgstr "%c%c*** Đã kết nối đến máy phục vụ"
 
-#: src/tetrinet.c:360
-#, c-format
+#:../src/tetrinet.c:364
+#,c-format
 msgid "%c%c*** You have been kicked from the game"
-msgstr "%c%c*** Bạn đã bị đá khỏi trò chơi"
+msgstr "%c%c*** Bạn đã bị đá khỏi lượt chơi này"
 
-#: src/tetrinet.c:364
-#, c-format
+#:../src/tetrinet.c:368
+#,c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
-msgstr "%c*** %c%s%c%c đã bị đá khỏi trò chơi"
+msgstr "%c*** %c%s%c%c đã bị đá khỏi lượt chơi này"
 
-#: src/tetrinet.c:539
-#, c-format
+#:../src/tetrinet.c:543
+#,c-format
 msgid "%c*** Team %c%s%c%c has won the game"
-msgstr "%c*** Đội %c%s%c%c đã thắng trò chơi"
+msgstr "%c*** Đội %c%s%c%c đã thắng lượt chơi này"
 
-#: src/tetrinet.c:545
-#, c-format
+#:../src/tetrinet.c:549
+#,c-format
 msgid "%c*** %c%s%c%c has won the game"
-msgstr "%c*** %c%s%c%c đã thắng trò chơi"
+msgstr "%c*** %c%s%c%c đã thắng lượt chơi này"
 
-#: src/tetrinet.c:605
-#, c-format
+#:../src/tetrinet.c:612
+#,c-format
 msgid "%c*** The game has %cstarted"
-msgstr ""
+msgstr "%c*** Lượt chơi này đã %cbắt đầu"
 
-#: src/tetrinet.c:631
-#, c-format
+#:../src/tetrinet.c:638
+#,c-format
 msgid "%c*** The game is %cin progress"
-msgstr ""
+msgstr "%c*** Lượt chơi này %cđang tiến hành"
 
-#: src/tetrinet.c:643
-#, c-format
+#:../src/tetrinet.c:650
+#,c-format
 msgid "%c*** The game has %cpaused"
-msgstr ""
+msgstr "%c*** Lượt chơi này đã %ctạm dừng"
 
-#: src/tetrinet.c:645
-#, c-format
+#:../src/tetrinet.c:652
+#,c-format
 msgid "The game has %c%cpaused"
-msgstr ""
+msgstr "Lượt chơi này đã %c%ctạm dừng"
 
-#: src/tetrinet.c:650
-#, c-format
+#:../src/tetrinet.c:657
+#,c-format
 msgid "%c*** The game has %cresumed"
-msgstr ""
+msgstr "%c*** Lượt chơi này đã %ctiếp tục lại"
 
-#: src/tetrinet.c:652
-#, c-format
+#:../src/tetrinet.c:659
+#,c-format
 msgid "The game has %c%cresumed"
-msgstr ""
+msgstr "Lượt chơi này đã %c%ctiếp tục lại"
 
-#: src/tetrinet.c:661
-#, c-format
+#:../src/tetrinet.c:668
+#,c-format
 msgid "%c*** The game has %cended"
-msgstr ""
+msgstr "%c*** Lượt chơi này đã %ckết thức"
 
-#: src/tetrinet.c:772
-#, c-format
+#:../src/tetrinet.c:786
+#,c-format
 msgid "%c*** You have joined %c%s%c%c"
 msgstr "%c*** Bạn đã gia nhập vào %c%s%c%c"
 
-#: src/tetrinet.c:789
-#, c-format
+#:../src/tetrinet.c:803
+#,c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c đã gia nhập vào nhóm khán giả %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:810
-#, c-format
+#:../src/tetrinet.c:824
+#,c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c đã rời khỏi nhóm khán giả %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:1048
+#:../src/tetrinet.c:1062
 msgid "No special blocks"
-msgstr "Không có khối đặc biệt"
+msgstr "Không có viên đặc biệt"
 
-#: src/tetrinet.c:1207 src/tetrinet.c:1214
-#, c-format
+#:../src/tetrinet.c:1221 ../src/tetrinet.c:1228
+#,c-format
 msgid " on %c%c%s%c%c"
 msgstr " trên %c%c%s%c%c"
 
-#: src/tetrinet.c:1224
+#:../src/tetrinet.c:1238
 msgid " to All"
 msgstr " cho tất cả"
 
-#: src/tetrinet.c:1230 src/tetrinet.c:1237
-#, c-format
+#:../src/tetrinet.c:1244 ../src/tetrinet.c:1251
+#,c-format
 msgid " by %c%c%s%c%c"
 msgstr " bởi %c%c%s%c%c"
 
-#: src/tetrinet.c:1865
-#, c-format
+#:../src/tetrinet.c:1879
+#,c-format
 msgid "%c*** %c%s%c%c is the moderator"
-msgstr "%c*** %c%s%c%c là moderator"
+msgstr "%c*** %c%s%c%c là nhà điều tiết"
 
-#. remove ", " from end of string
-#: src/tetrinet.c:1914
+#.remove ", " from end of string
+#:../src/tetrinet.c:1928
 msgid " has left the game"
 msgstr " đã rời khỏi trò chơi"
 
-#: src/tetrinet.c:1915
+#:../src/tetrinet.c:1929
 msgid " have left the game"
 msgstr " đã rời khỏi trò chơi"
 
-#: src/tetrinet.c:1928
+#:../src/tetrinet.c:1942
 msgid " has joined the game"
 msgstr " đã gia nhập vào trò chơi"
 
-#: src/tetrinet.c:1929
+#:../src/tetrinet.c:1943
 msgid " have joined the game"
 msgstr " đã gia nhập vào trò chơi"
 
-#: src/tetrinet.c:1952
-#, c-format
+#:../src/tetrinet.c:1966
+#,c-format
 msgid "%s is on team %c%s"
 msgstr "%s đang trong đội %c%s"
 
-#: src/tetrinet.c:1955
-#, c-format
+#:../src/tetrinet.c:1969
+#,c-format
 msgid "%s is alone"
 msgstr "%s chơi một mình"
 
-#: src/tetrinet.c:1957
-#, c-format
+#:../src/tetrinet.c:1971
+#,c-format
 msgid "%s are on team %c%s"
 msgstr "%s đang trong đội %c%s"
 
-#: src/tetrinet.c:1960
-#, c-format
+#:../src/tetrinet.c:1974
+#,c-format
 msgid "%s are alone"
 msgstr "%s chơi một mình"
 
-#: src/tetrinet.c:2001
-#, c-format
+#:../src/tetrinet.c:2015
+#,c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
-msgstr "%c*** %c%s%c%c đang trong đội %c%s"
+msgstr "%c*** %c%s%c%c mới trong đội %c%s"
 
-#: src/tetrinet.c:2008
-#, c-format
+#:../src/tetrinet.c:2022
+#,c-format
 msgid "%c*** %c%s%c%c is now alone"
-msgstr "%c*** %c%s%c%c đang chơi một mình"
+msgstr "%c*** %c%s%c%c mới chơi một mình"
 
-#. "T" stands for "Team" here
-#: src/winlist.c:57
+#."T" stands for "Team" here
+#:../src/winlist.c:57
 msgid "T"
 msgstr "Đ"
 
-#: src/winlist.c:61
+#:../src/winlist.c:61
 msgid "Score"
 msgstr "Điểm"
 
-#: gtetrinet.desktop.in.h:1
+#:../gtetrinet.desktop.in.h:1
 msgid "GTetrinet"
 msgstr "GTetrinet"
 
-#: gtetrinet.desktop.in.h:2
+#:../gtetrinet.desktop.in.h:2
 msgid "Tetrinet client"
-msgstr "Tetrinet client"
+msgstr "Ứng dụng khách Tetrinet"
 
-#: gtetrinet.desktop.in.h:3
+#:../gtetrinet.desktop.in.h:3
 msgid "Tetrinet client for GNOME"
-msgstr "Tetrinet client cho GNOME"
+msgstr "Ứng dụng khách Tetrinet cho GNOME"
 
-#: gtetrinet.schemas.in.h:1
+#:../gtetrinet.schemas.in.h:1
 msgid "Command to run to play midi files"
-msgstr "Lệnh dùng để chơi tập tin midi"
+msgstr "Lệnh cần chạy để phát tập tin MIDI"
 
-#: gtetrinet.schemas.in.h:2
+#:../gtetrinet.schemas.in.h:2
 msgid "Enable/disable channel list."
-msgstr "Hiệu lực/vô hiệu danh sách channel"
+msgstr "Bật/tắt danh sách kênh."
 
-#: gtetrinet.schemas.in.h:3
+#:../gtetrinet.schemas.in.h:3
 msgid "Enable/disable midi music"
-msgstr "Hiệu lực/vô hiệu nhạc midi"
+msgstr "Bật/tắt nhạc MIDI"
 
-#: gtetrinet.schemas.in.h:4
+#:../gtetrinet.schemas.in.h:4
 msgid "Enable/disable sound"
-msgstr "Hiệu lực/vô hiệu âm thanh"
+msgstr "Bật/tắt âm thanh"
 
-#: gtetrinet.schemas.in.h:5
+#:../gtetrinet.schemas.in.h:5
 msgid "Enable/disable timestamps."
-msgstr "Hiệu lực/vô hiệu tính giờ"
+msgstr "Bật/tắt ghi giờ"
 
-#: gtetrinet.schemas.in.h:6
+#:../gtetrinet.schemas.in.h:6
 msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
-msgstr ""
-"Hiệu lực/Vô hiệu âm thanh. Lưu ý là theme mà bạn đang sử dụng"
-" có dùng đến âm thanh."
+msgstr "Bật/tắt âm thanh. Lưu ý là sắc thái mà bạn đang sử dụng phải cung cấp âm thanh."
 
-#: gtetrinet.schemas.in.h:7
+#:../gtetrinet.schemas.in.h:7
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
-msgstr ""
-"Hiệu lực/Vô hiệu nhạc midi. Bạn cần hiệu lực âm thanh nếu bạn muốn "
-"có nhạc."
+msgstr "Bật/tắt nhạc MIDI. Bạn cần hiệu lực âm thanh nếu bạn muốn có nhạc nào."
 
-#: gtetrinet.schemas.in.h:8
+#:../gtetrinet.schemas.in.h:8
 msgid ""
 "Enables/disables the channel list. Disable it if you experience problems "
 "when connecting or while playing in your favorite tetrinet server."
-msgstr ""
-"Hiệu lực/Vô hiệu danh sách channel. Vô hiệu nó nếu bạn gặp trục trặc "
-"khi kết nối hay trong khi chơi trên tetrinet server yêu thích của bạn."
+msgstr "Bật/tắt danh sách kênh. Tắt nó nếu bạn gặp trục trặc khi kết nối hay trong khi chơi trên máy phục vụ tetrinet yêu thích của bạn."
 
-#: gtetrinet.schemas.in.h:9
+#:../gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
-msgstr "Hiệu lực/Vô hiệu tính giờ trong partyline"
+msgstr "Bật/tắt ghi giờ trong đường chung"
 
-#: gtetrinet.schemas.in.h:10
+#:../gtetrinet.schemas.in.h:10
 msgid "Key to discard special"
 msgstr "Phím để bỏ đi viên đặc biệt"
 
-#: gtetrinet.schemas.in.h:11
+#:../gtetrinet.schemas.in.h:11
 msgid "Key to drop piece"
 msgstr "Phím để thả rơi viên gạch"
 
-#: gtetrinet.schemas.in.h:12
+#:../gtetrinet.schemas.in.h:12
 msgid "Key to move down"
 msgstr "Phím đi xuống"
 
-#: gtetrinet.schemas.in.h:13
+#:../gtetrinet.schemas.in.h:13
 msgid "Key to move left"
 msgstr "Phím qua trái"
 
-#: gtetrinet.schemas.in.h:14
+#:../gtetrinet.schemas.in.h:14
 msgid "Key to move right"
 msgstr "Phím qua phải"
 
-#: gtetrinet.schemas.in.h:15
+#:../gtetrinet.schemas.in.h:15
 msgid "Key to open the fields' message dialog"
 msgstr "Phím để mở hộp nhắn tin"
 
-#: gtetrinet.schemas.in.h:16
+#:../gtetrinet.schemas.in.h:16
 msgid "Key to rotate clockwise"
 msgstr "Phím để xoay xuôi chiều"
 
-#: gtetrinet.schemas.in.h:17
+#:../gtetrinet.schemas.in.h:17
 msgid "Key to rotate counterclockwise"
 msgstr "Phím để xoay ngược chiều"
 
-#: gtetrinet.schemas.in.h:18
+#:../gtetrinet.schemas.in.h:18
 msgid "Key to use the current special on field 1"
-msgstr "Phím để sử dụng viên đặc biệt trên vùng 1"
+msgstr "Phím để sử dụng viên đặc biệt hiện thời trên vùng 1"
 
-#: gtetrinet.schemas.in.h:19
+#:../gtetrinet.schemas.in.h:19
 msgid "Key to use the current special on field 2"
-msgstr "Phím để sử dụng viên đặc biệt trên vùng 2"
+msgstr "Phím để sử dụng viên đặc biệt hiện thời trên vùng 2"
 
-#: gtetrinet.schemas.in.h:20
+#:../gtetrinet.schemas.in.h:20
 msgid "Key to use the current special on field 3"
-msgstr "Phím để sử dụng viên đặc biệt trên vùng 3"
+msgstr "Phím để sử dụng viên đặc biệt hiện thời trên vùng 3"
 
-#: gtetrinet.schemas.in.h:21
+#:../gtetrinet.schemas.in.h:21
 msgid "Key to use the current special on field 4"
-msgstr "Phím để sử dụng viên đặc biệt trên vùng 4"
+msgstr "Phím để sử dụng viên đặc biệt hiện thời trên vùng 4"
 
-#: gtetrinet.schemas.in.h:22
+#:../gtetrinet.schemas.in.h:22
 msgid "Key to use the current special on field 5"
-msgstr "Phím để sử dụng viên đặc biệt trên vùng 5"
+msgstr "Phím để sử dụng viên đặc biệt hiện thời trên vùng 5"
 
-#: gtetrinet.schemas.in.h:23
+#:../gtetrinet.schemas.in.h:23
 msgid "Key to use the current special on field 6"
-msgstr "Phím để sử dụng viên đặc biệt trên vùng 6"
+msgstr "Phím để sử dụng viên đặc biệt hiện thời trên vùng 6"
 
-#: gtetrinet.schemas.in.h:24
+#:../gtetrinet.schemas.in.h:24
 msgid "Server where you want to play"
-msgstr "Server mà bạn muốn chơi"
+msgstr "Máy phục vụ nơi bạn muốn chơi"
 
-#: gtetrinet.schemas.in.h:25
+#:../gtetrinet.schemas.in.h:25
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
-msgstr ""
-"Thư mục chứa theme hiện tại. Nó cần có một tập tin \"blocks.png\" "
-"và một tập tin \"theme.cfg\"."
+msgstr "Thư mục chứa sắc thái hiện tại. Nó cần có một tập tin <blocks.png> đọc được và một tập "
+"tin <theme.cfg> (sắc thái)."
 
-#: gtetrinet.schemas.in.h:26
+#:../gtetrinet.schemas.in.h:26
 msgid "Theme directory, should end with a '/'"
-msgstr "Thư mục chứa theme, cần kết thúc bằng dấu '/'"
+msgstr "Thư mục chứa sắc thái, cần kết thúc bằng dấu '/'"
 
-#: gtetrinet.schemas.in.h:27
+#:../gtetrinet.schemas.in.h:27
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
-msgstr ""
-"Lệnh này được thi hành khi một tập tin midi được chơi. Tên của "
-"tập tin được đặt trong biến môi trường MIDIFILE."
+msgstr "Lệnh này được thi hành khi một tập tin MIDI được phát. Tên của tập tin được đặt trong biến môi trường « MIDIFILE »."
 
-#: gtetrinet.schemas.in.h:28
+#:../gtetrinet.schemas.in.h:28
 msgid "This is the server where GTetrinet will try to connect."
-msgstr "Đây là server mà GTetrinet sẽ cố kết nối vào."
+msgstr "Đây là máy phục vụ mà GTetrinet sẽ cố kết nối vào."
 
-#: gtetrinet.schemas.in.h:29
+#:../gtetrinet.schemas.in.h:29
 msgid "This key discards the current special. This is case insensitive."
 msgstr "Phím này để hủy viên đặc biệt hiện tại, không phân biệt hoa thường."
 
-#: gtetrinet.schemas.in.h:30
+#:../gtetrinet.schemas.in.h:30
 msgid "This key displays the fields' message dialog. This is case insensitive."
-msgstr "Phím này cho xuất hiện hộp nhắn tin, không phân biệt hoa thường."
+msgstr "Phím này hiển thị hộp nhắn tin, không phân biệt hoa thường."
 
-#: gtetrinet.schemas.in.h:31
+#:../gtetrinet.schemas.in.h:31
 msgid "This key drops the block to the ground. This is case insensitive."
 msgstr "Phím này thả rơi viên gạch xuống đất, không phân biệt hoa thường."
 
-#: gtetrinet.schemas.in.h:32
+#:../gtetrinet.schemas.in.h:32
 msgid "This key moves the block down. This is case insensitive."
 msgstr "Phím này di chuyển viên gạch xuống, không phân biệt hoa thường."
 
-#: gtetrinet.schemas.in.h:33
+#:../gtetrinet.schemas.in.h:33
 msgid "This key moves the block to the left. This is case insensitive."
 msgstr "Phím này di chuyển viên gạch sang trái, không phân biệt hoa thường."
 
-#: gtetrinet.schemas.in.h:34
+#:../gtetrinet.schemas.in.h:34
 msgid "This key moves the block to the right. This is case insensitive."
 msgstr "Phím này di chuyển viên gạch sang phải, không phân biệt hoa thường."
 
-#: gtetrinet.schemas.in.h:35
+#:../gtetrinet.schemas.in.h:35
 msgid "This key rotates the block clockwise. This is case insensitive."
 msgstr "Phím này xoay viên gạch xuôi chiều, không phân biệt hoa thường."
 
-#: gtetrinet.schemas.in.h:36
+#:../gtetrinet.schemas.in.h:36
 msgid "This key rotates the block counterclockwise. This is case insensitive."
 msgstr "Phím này xoay viên gạch ngược chiều, không phân biệt hoa thường."
 
-#: gtetrinet.schemas.in.h:37
+#:../gtetrinet.schemas.in.h:37
 msgid "This key uses the current special on Player 1's game field."
 msgstr "Phím này sử dụng viên đặc biệt hiện tại trên vùng của Người chơi 1."
 
-#: gtetrinet.schemas.in.h:38
+#:../gtetrinet.schemas.in.h:38
 msgid "This key uses the current special on Player 2's game field."
 msgstr "Phím này sử dụng viên đặc biệt hiện tại trên vùng của Người chơi 2."
 
-#: gtetrinet.schemas.in.h:39
+#:../gtetrinet.schemas.in.h:39
 msgid "This key uses the current special on Player 3's game field."
 msgstr "Phím này sử dụng viên đặc biệt hiện tại trên vùng của Người chơi 3."
 
-#: gtetrinet.schemas.in.h:40
+#:../gtetrinet.schemas.in.h:40
 msgid "This key uses the current special on Player 4's game field."
 msgstr "Phím này sử dụng viên đặc biệt hiện tại trên vùng của Người chơi 4."
 
-#: gtetrinet.schemas.in.h:41
+#:../gtetrinet.schemas.in.h:41
 msgid "This key uses the current special on Player 5's game field."
 msgstr "Phím này sử dụng viên đặc biệt hiện tại trên vùng của Người chơi 5."
 
-#: gtetrinet.schemas.in.h:42
+#:../gtetrinet.schemas.in.h:42
 msgid "This key uses the current special on Player 6's game field."
 msgstr "Phím này sử dụng viên đặc biệt hiện tại trên vùng của Người chơi 6."
 
-#: gtetrinet.schemas.in.h:43
+#:../gtetrinet.schemas.in.h:43
 msgid "This will be the name of your team."
 msgstr "Đây là tên đội của bạn."
 
-#: gtetrinet.schemas.in.h:44
+#:../gtetrinet.schemas.in.h:44
 msgid "This will be your nickname in the game."
-msgstr "Đây là bí danh của bạn trong trò chơi."
+msgstr "Đây là tên hiệu của bạn trong lượt chơi này."
 
-#: gtetrinet.schemas.in.h:45
+#:../gtetrinet.schemas.in.h:45
 msgid "Your nickname"
-msgstr "Bí danh của bạn"
+msgstr "Tên hiệu của bạn"
 
-#: gtetrinet.schemas.in.h:46
+#:../gtetrinet.schemas.in.h:46
 msgid "Your team"
 msgstr "Đội của bạn"
