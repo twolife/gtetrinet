@@ -7,8 +7,8 @@ msgid ""
 ""
 msgstr "Project-Id-Version: gtetrinet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-01 12:12+0100\n"
-"PO-Revision-Date: 2006-01-01 23:15+1030\n"
+"POT-Creation-Date: 2006-01-02 12:13+0100\n"
+"PO-Revision-Date: 2006-01-02 22:45+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -99,14 +99,13 @@ msgstr "Chuyển tên của đội mà bạn hiện đang chơi"
 
 #:../src/commands.c:92
 msgid "Detach page"
-msgstr ""
+msgstr "Gỡ trang ra"
 
 #:../src/commands.c:92
 msgid "Detach the current notebook page"
-msgstr ""
+msgstr "Gỡ ra trang vở hiện có"
 
 #:../src/commands.c:258
-#,fuzzy
 msgid "Game in progress"
 msgstr "Trò chơi đang diễn tiến"
 
@@ -315,7 +314,8 @@ msgstr "Phím"
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
-msgstr "Chọn một hành vi từ danh sách và nhấn Chuyển Phím để đổi phím tương ứng với hành vi đó."
+msgstr "Chọn một hành vi từ danh sách và nhấn Chuyển Phím để đổi phím tương ứng với "
+"hành vi đó."
 
 #:../src/dialogs.c:959
 msgid "Change _key..."
@@ -346,7 +346,8 @@ msgstr "Nhập lệnh để phát tập tin MIDI:"
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
-msgstr "Câu lệnh trên dược chạy khi một tập tin MIDI được phát. Tên của tập tin MIDI được đặt trong biến môi trường « MIDIFILE »."
+msgstr "Câu lệnh trên dược chạy khi một tập tin MIDI được phát. Tên của tập tin MIDI "
+"được đặt trong biến môi trường « MIDIFILE »."
 
 #:../src/dialogs.c:1047
 msgid "Sound"
@@ -686,7 +687,8 @@ msgstr "Bật/tắt ghi giờ"
 msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
-msgstr "Bật/tắt âm thanh. Lưu ý là sắc thái mà bạn đang sử dụng phải cung cấp âm thanh."
+msgstr "Bật/tắt âm thanh. Lưu ý là sắc thái mà bạn đang sử dụng phải cung cấp âm "
+"thanh."
 
 #:../gtetrinet.schemas.in.h:7
 msgid ""
@@ -698,7 +700,8 @@ msgstr "Bật/tắt nhạc MIDI. Bạn cần hiệu lực âm thanh nếu bạn 
 msgid ""
 "Enables/disables the channel list. Disable it if you experience problems "
 "when connecting or while playing in your favorite tetrinet server."
-msgstr "Bật/tắt danh sách kênh. Tắt nó nếu bạn gặp trục trặc khi kết nối hay trong khi chơi trên máy phục vụ tetrinet yêu thích của bạn."
+msgstr "Bật/tắt danh sách kênh. Tắt nó nếu bạn gặp trục trặc khi kết nối hay trong "
+"khi chơi trên máy phục vụ tetrinet yêu thích của bạn."
 
 #:../gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
@@ -768,8 +771,8 @@ msgstr "Máy phục vụ nơi bạn muốn chơi"
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
-msgstr "Thư mục chứa sắc thái hiện tại. Nó cần có một tập tin <blocks.png> đọc được và một tập "
-"tin <theme.cfg> (sắc thái)."
+msgstr "Thư mục chứa sắc thái hiện tại. Nó cần có một tập tin <blocks.png> đọc được "
+"và một tập tin <theme.cfg> (sắc thái)."
 
 #:../gtetrinet.schemas.in.h:26
 msgid "Theme directory, should end with a '/'"
@@ -779,7 +782,8 @@ msgstr "Thư mục chứa sắc thái, cần kết thúc bằng dấu '/'"
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
-msgstr "Lệnh này được thi hành khi một tập tin MIDI được phát. Tên của tập tin được đặt trong biến môi trường « MIDIFILE »."
+msgstr "Lệnh này được thi hành khi một tập tin MIDI được phát. Tên của tập tin được "
+"đặt trong biến môi trường « MIDIFILE »."
 
 #:../gtetrinet.schemas.in.h:28
 msgid "This is the server where GTetrinet will try to connect."
