@@ -1,3 +1,9 @@
+2006-05-25  Jordi Mallach  <jordi@sindominio.net>
+
+	* configure.in: Switch to IT_PROG_INTLTOOL([0.35.0) and move
+	ALL_LINGUAS to po/LINGUAS.
+	* po/LINGUAS: Added.
+
 2006-04-18  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.in: Remove obsolete entry for no_NO
