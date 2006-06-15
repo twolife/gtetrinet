@@ -2,15 +2,15 @@
 # Copyright (C) 2002, 2003, 2004 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtetrinet package.
 # Gerfried Fuchs <alfie@ist.org>, 2002, 2003, 2004.
-# Hendrik Richter <hendi@gnome-de.org>, 2005.
+# Hendrik Richter <hendrikr@gnome.org>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.7.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-30 12:41+0200\n"
-"PO-Revision-Date: 2005-07-04 19:14+0200\n"
-"Last-Translator: Hendrik Richter <hendi@gnome-de.org>\n"
+"PO-Revision-Date: 2006-06-15 17:15+0200\n"
+"Last-Translator: Hendrik Richter <hendrikr@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,15 +22,15 @@ msgstr "Kann den Hostnamen nicht auflösen."
 
 #: src/commands.c:45
 msgid "_Connect to server..."
-msgstr "Zum Server _verbinden..."
+msgstr "Zum Server _verbinden …"
 
 #: src/commands.c:46
 msgid "_Disconnect from server"
-msgstr "Verbindung zum Server _trennen..."
+msgstr "Verbindung zum Server _trennen …"
 
 #: src/commands.c:48
 msgid "Change _team..."
-msgstr "Das _Team ändern..."
+msgstr "Das _Team ändern …"
 
 #: src/commands.c:50
 msgid "_Start game"
@@ -46,7 +46,7 @@ msgstr "Spiel be_enden"
 
 #: src/commands.c:57
 msgid "Detac_h page..."
-msgstr "Seite los_lösen..."
+msgstr "Seite los_lösen …"
 
 #: src/commands.c:82
 msgid "Connect"
@@ -324,7 +324,7 @@ msgstr ""
 
 #: src/dialogs.c:972
 msgid "Change _key..."
-msgstr "Taste _ändern..."
+msgstr "Taste _ändern …"
 
 #: src/dialogs.c:977 src/dialogs.c:1030
 msgid "_Restore defaults"
@@ -904,3 +904,6 @@ msgstr "Ihr Spitzname"
 #: gtetrinet.schemas.in.h:46
 msgid "Your team"
 msgstr "Ihr Team"
+
+
+
