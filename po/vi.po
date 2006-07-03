@@ -555,7 +555,7 @@ msgstr "Lượt chơi này đã %c%ctiếp tục lại"
 #:../src/tetrinet.c:668
 #,c-format
 msgid "%c*** The game has %cended"
-msgstr "%c*** Lượt chơi này đã %ckết thức"
+msgstr "%c*** Lượt chơi này đã %ckết thúc"
 
 #:../src/tetrinet.c:786
 #,c-format
