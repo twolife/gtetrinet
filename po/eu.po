@@ -1,16 +1,14 @@
-# translation of eu.po to 
-# translation of gtrinet.eu.po to
-# translation of gtetrinet to Euskara
+# translation of gtetrinet to Basque
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Julen Landa <julen@mundurat.net>, 2003, 2005.
-# Iñaki Larrañaga  <dooteo@euskalgnu.org>, 2005.
+# Iñaki Larrañaga  <dooteo@euskalgnu.org>, 2005, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-20 19:36+0200\n"
+"POT-Creation-Date: 2006-08-08 11:11+0000\n"
 "PO-Revision-Date: 2005-05-16 17:42+0200\n"
 "Last-Translator: Iñaki Larrañaga  <dooteo@euskalgnu.org>\n"
 "Language-Team:  <itzulpena@euskalgnu.org>\n"
@@ -18,6 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"\n"
 
 #: ../src/client.c:243
 msgid "Couldn't resolve hostname."
