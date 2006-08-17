@@ -1,3 +1,10 @@
+2006-08-17  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/tetrinet.c: [CVE-2006-3125] Add index underflow protections
+	where needed. Patch from Martin Schulze from the Debian Security
+	Team. Thanks to Michael Gehring for analysis and proof of concept
+	code.
+
 2006-05-25  Jordi Mallach  <jordi@sindominio.net>
 
 	* configure.in: Switch to IT_PROG_INTLTOOL([0.35.0) and move

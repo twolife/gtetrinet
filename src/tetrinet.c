@@ -242,7 +242,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
     case IN_PLAYERNUM:
         pnumrec = 1;
         tmp_pnum = atoi (data);
-        if (tmp_pnum >= MAX_PLAYERS)
+        if (tmp_pnum >= MAX_PLAYERS || tmp_pnum < 0)
           break;
         bigfieldnum = playernum = tmp_pnum;
         if (!connected)
@@ -300,7 +300,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
-            if (pnum >= MAX_PLAYERS)
+            if (pnum >= MAX_PLAYERS || pnum < 0)
               break;
             token = strtok (NULL, "");
             if (token == NULL) break;
@@ -328,7 +328,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
-            if (pnum >= MAX_PLAYERS)
+            if (pnum >= MAX_PLAYERS || pnum < 0)
               break;
             if (!playercount)
               break;
@@ -357,7 +357,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
-            if (pnum >= MAX_PLAYERS)
+            if (pnum >= MAX_PLAYERS || pnum < 0)
               break;
             if ((pnum == playernum) && !spectating)
                 g_snprintf (buf, sizeof(buf),
@@ -386,7 +386,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
-            if (pnum >= MAX_PLAYERS)
+            if (pnum >= MAX_PLAYERS || pnum < 0)
               break;
             token = strtok (NULL, "");
             if (token == NULL) token = "";
@@ -405,7 +405,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
-            if (pnum >= MAX_PLAYERS)
+            if (pnum >= MAX_PLAYERS || pnum < 0)
               break;
             token = strtok (NULL, "");
             if (token == NULL) token = "";
@@ -514,7 +514,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
-            if (pnum >= MAX_PLAYERS)
+            if (pnum >= MAX_PLAYERS || pnum < 0)
               break;
             token = strtok (NULL, "");
             if (token == NULL) token = "";
@@ -526,7 +526,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         {
             int pnum;
             pnum = atoi (data);
-            if (pnum >= MAX_PLAYERS)
+            if (pnum >= MAX_PLAYERS || pnum < 0)
               break;
             /* player is out */
             playerplaying[pnum] = 0;
@@ -536,7 +536,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
         {
             int pnum;
             pnum = atoi (data);
-            if (pnum >= MAX_PLAYERS)
+            if (pnum >= MAX_PLAYERS || pnum < 0)
               break;
             if (teamnames[pnum][0])
                 g_snprintf (buf, sizeof(buf),
@@ -681,7 +681,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             s = strtok (data, " ");
             if (s == NULL) break;
             pnum = atoi (s);
-            if (pnum >= MAX_PLAYERS)
+            if (pnum >= MAX_PLAYERS || pnum < 0)
               break;
             s = strtok (NULL, "");
             if (s == NULL) break;
@@ -715,14 +715,14 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             to = atoi (token);
-            if (to >= MAX_PLAYERS)
+            if (to >= MAX_PLAYERS || to < 0)
               break;
             sbid = strtok (NULL, " ");
             if (sbid == NULL) break;
             token = strtok (NULL, "");
             if (token == NULL) break;
             from = atoi(token);
-            if (from >= MAX_PLAYERS)
+            if (from >= MAX_PLAYERS || from < 0)
               break;
             for (sbnum = 0; sbinfo[sbnum].id; sbnum ++)
                 if (strcmp (sbid, sbinfo[sbnum].id) == 0) break;
@@ -737,7 +737,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
-            if (pnum >= MAX_PLAYERS)
+            if (pnum >= MAX_PLAYERS || pnum <= 0)
               break;
             token = strtok (NULL, "");
             if (token == NULL) break;
