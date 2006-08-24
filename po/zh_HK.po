@@ -1,15 +1,15 @@
 # Chinese (Taiwan) translation of gtetrinet.
-# Copyright (C) 2003, 05, 06 Free Software Foundation, Inc.
-# Abel Cheung <abel@oaka.org>, 2003, 05, 06.
+# Copyright (C) 2006 Free Software Foundation, Inc.
+# Abel Cheung <abel@oaka.org>, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.7.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-06-24 04:01+0000\n"
-"PO-Revision-Date: 2006-08-23 23:19+0800\n"
+"PO-Revision-Date: 2006-08-23 23:16+0800\n"
 "Last-Translator: Abel Cheung <abel@oaka.org>\n"
-"Language-Team: Chinese (Taiwan) <community@linuxhall.org>\n"
+"Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -92,7 +92,7 @@ msgstr "換隊"
 
 #: ../src/commands.c:89
 msgid "Change your current team name"
-msgstr "變更您目前所屬的團隊的名稱"
+msgstr "更改你目前所屬的隊伍的名稱"
 
 #: ../src/commands.c:92
 msgid "Detach page"
@@ -119,7 +119,7 @@ msgstr "未連線"
 msgid "translator-credits"
 msgstr ""
 "如對翻譯有任何意見，請送一封電子郵件給\n"
-"以下地址，GNOME 翻譯團隊會盡快回覆您：\n"
+"以下地址，GNOME 翻譯隊伍會盡快回覆你：\n"
 "community@linuxhall.org\n"
 "\n"
 "Abel Cheung <abel@oaka.org>, 2003"
@@ -139,11 +139,11 @@ msgstr "連接至伺服器"
 
 #: ../src/dialogs.c:165
 msgid "Team name:"
-msgstr "團隊名稱："
+msgstr "隊伍名稱："
 
 #: ../src/dialogs.c:210
 msgid "You must specify a server name."
-msgstr "您必須指定伺服器名稱。"
+msgstr "你必須指定伺服器名稱。"
 
 #: ../src/dialogs.c:227
 msgid "Please specify a password to connect as spectator."
@@ -192,7 +192,7 @@ msgstr "玩者資訊"
 
 #: ../src/dialogs.c:490
 msgid "Change Key"
-msgstr "變更按鍵"
+msgstr "更改按鍵"
 
 #: ../src/dialogs.c:541
 msgid "Move right"
@@ -265,7 +265,7 @@ msgid ""
 "Install new themes in ~/.gtetrinet/themes/"
 msgstr ""
 "請在清單中選取佈景主題。\n"
-"您可以將新的佈景主題安裝在 ~/.gtetrinet/themes/"
+"你可以將新的佈景主題安裝在 ~/.gtetrinet/themes/"
 
 #: ../src/dialogs.c:860
 msgid "Name:"
@@ -317,11 +317,11 @@ msgstr "按鍵"
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
-msgstr "在清單中選取某項操作程序，然後按「變更按鍵」，就可以變更代表該項操作程序的按鍵。"
+msgstr "在清單中選取某項操作程序，然後按「更改按鍵」，就可以更改代表該項操作程序的按鍵。"
 
 #: ../src/dialogs.c:959
 msgid "Change _key..."
-msgstr "變更按鍵(_K)..."
+msgstr "更改按鍵(_K)..."
 
 #: ../src/dialogs.c:964 ../src/dialogs.c:1017
 msgid "_Restore defaults"
@@ -418,7 +418,7 @@ msgstr "指定隊名"
 
 #: ../src/gtetrinet.c:79
 msgid "TEAM"
-msgstr "團隊"
+msgstr "隊伍"
 
 #: ../src/gtetrinet.c:80
 msgid "Connect as a spectator"
@@ -469,15 +469,15 @@ msgstr "聊天室清單"
 
 #: ../src/partyline.c:140
 msgid "Team"
-msgstr "團隊"
+msgstr "隊伍"
 
 #: ../src/partyline.c:153
 msgid "Your name:"
-msgstr "您的名稱："
+msgstr "你的名稱："
 
 #: ../src/partyline.c:160
 msgid "Your team:"
-msgstr "您所屬的團隊："
+msgstr "你所屬的隊伍："
 
 #: ../src/partyline.c:638
 msgid "Talking in channel"
@@ -508,7 +508,7 @@ msgstr "%c%c*** 已連接至伺服器"
 #: ../src/tetrinet.c:364
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
-msgstr "%c%c*** 您被人趕走"
+msgstr "%c%c*** 你被人趕走"
 
 #: ../src/tetrinet.c:368
 #, c-format
@@ -518,7 +518,7 @@ msgstr "%c*** %c%s%c%c 被人趕走"
 #: ../src/tetrinet.c:543
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
-msgstr "%c*** %c%s%c%c 團隊贏了"
+msgstr "%c*** %c%s%c%c 隊伍贏了"
 
 #: ../src/tetrinet.c:549
 #, c-format
@@ -563,7 +563,7 @@ msgstr "%c*** 遊戲已%c結束"
 #: ../src/tetrinet.c:786
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
-msgstr "%c*** 您加入了 %c%s%c%c"
+msgstr "%c*** 你加入了 %c%s%c%c"
 
 #: ../src/tetrinet.c:803
 #, c-format
@@ -623,7 +623,7 @@ msgstr "%s 在 %c%s 隊"
 #: ../src/tetrinet.c:1969
 #, c-format
 msgid "%s is alone"
-msgstr "%s 沒有加入團隊"
+msgstr "%s 沒有加入隊伍"
 
 #: ../src/tetrinet.c:1971
 #, c-format
@@ -633,17 +633,17 @@ msgstr "%s 在 %c%s 隊"
 #: ../src/tetrinet.c:1974
 #, c-format
 msgid "%s are alone"
-msgstr "%s 沒有加入團隊"
+msgstr "%s 沒有加入隊伍"
 
 #: ../src/tetrinet.c:2015
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
-msgstr "%c*** %c%s%c%c 在 %c%s 團隊"
+msgstr "%c*** %c%s%c%c 在 %c%s 隊伍"
 
 #: ../src/tetrinet.c:2022
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
-msgstr "%c*** %c%s%c%c 沒有加入團隊"
+msgstr "%c*** %c%s%c%c 沒有加入隊伍"
 
 #. "T" stands for "Team" here
 #: ../src/winlist.c:57
@@ -690,19 +690,19 @@ msgstr "顯示/隱藏時間"
 msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
-msgstr "啟用/不啟用音效。可是您使用的佈景主題必須提供音效才會有用。"
+msgstr "啟用/不啟用音效。可是你使用的佈景主題必須提供音效才會有用。"
 
 #: ../gtetrinet.schemas.in.h:7
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
-msgstr "啟用/不啟用 midi 音效。可是您使用的佈景主題必須提供音效才會有用。"
+msgstr "啟用/不啟用 midi 音效。可是你使用的佈景主題必須提供音效才會有用。"
 
 #: ../gtetrinet.schemas.in.h:8
 msgid ""
 "Enables/disables the channel list. Disable it if you experience problems "
 "when connecting or while playing in your favorite tetrinet server."
-msgstr "啟用/不啟用聊天室清單。如果您覺得在玩遊戲時或者連線時出現問題，可以關閉這個選項。"
+msgstr "啟用/不啟用聊天室清單。如果你覺得在玩遊戲時或者連線時出現問題，可以關閉這個選項。"
 
 #: ../gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
@@ -766,7 +766,7 @@ msgstr "將特殊方塊使用於第 6 個玩者的按鍵"
 
 #: ../gtetrinet.schemas.in.h:24
 msgid "Server where you want to play"
-msgstr "您會連接至哪部伺服器玩遊戲"
+msgstr "你會連接至哪部伺服器玩遊戲"
 
 #: ../gtetrinet.schemas.in.h:25
 msgid ""
@@ -846,19 +846,19 @@ msgstr "本按鍵會將目前的特殊方塊使用於第 6 個玩者。"
 
 #: ../gtetrinet.schemas.in.h:43
 msgid "This will be the name of your team."
-msgstr "您的團隊名稱"
+msgstr "你的隊伍名稱"
 
 #: ../gtetrinet.schemas.in.h:44
 msgid "This will be your nickname in the game."
-msgstr "您在遊戲中會使用這個稱呼"
+msgstr "你在遊戲中會使用這個稱呼"
 
 #: ../gtetrinet.schemas.in.h:45
 msgid "Your nickname"
-msgstr "您的稱呼"
+msgstr "你的稱呼"
 
 #: ../gtetrinet.schemas.in.h:46
 msgid "Your team"
-msgstr "您的團隊"
+msgstr "你的隊伍"
 
 #~ msgid "GTetrinet Home Page"
 #~ msgstr "GTetrinet 網頁"

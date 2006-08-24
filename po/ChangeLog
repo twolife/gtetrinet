@@ -1,3 +1,8 @@
+2006-08-23  Abel Cheung  <abel@oaka.org>
+
+	* zh_HK.po, zh_TW.po: Updated traditional Chinese translations.
+	* LINGUAS: Added 'sr' 'sr@Latn' 'sv' 'zh_HK'.
+
 2006-08-08  Inaki Larranaga  <dooteo@euskalgnu.org>
 
 	* eu.po: Fixed some typos.
