@@ -1,3 +1,8 @@
+2006-09-02  Jordi Mallach  <jordi@sindominio.net>
+
+	* doc/gtetrinet.6: Patch from Nelson A. de Oliveira to correct
+	some minor bugs in the manpage (Debian Bug#325662).
+
 2006-08-17  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/tetrinet.c: [CVE-2006-3125] Add index underflow protections
