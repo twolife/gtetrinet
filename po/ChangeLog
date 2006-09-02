@@ -3,7 +3,7 @@
 	* zh_HK.po, zh_TW.po: Updated traditional Chinese translations.
 	* LINGUAS: Added 'sr' 'sr@Latn' 'sv' 'zh_HK'.
 
-2006-08-08  Inaki Larranaga  <dooteo@euskalgnu.org>
+2006-08-08  Iñaki Larrañaga  <dooteo@euskalgnu.org>
 
 	* eu.po: Fixed some typos.
 
@@ -49,11 +49,11 @@
 
 	* zh_TW.po: Fix language team reference.
 
-2005-05-20  I�aki Larra�aga  <dooteo@euskalgnu.org>
+2005-05-20  Iñaki Larrañaga  <dooteo@euskalgnu.org>
 
 	* eu.po:  saved as UTF-8.
 
-2005-05-16  I�aki Larra�aga  <dooteo@euskalgnu.org>
+2005-05-16  Iñaki Larrañaga  <dooteo@euskalgnu.org>
 
 	* eu.po:  Updated Basque translation.
 
