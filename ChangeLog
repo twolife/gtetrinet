@@ -1,5 +1,9 @@
 2006-09-02  Jordi Mallach  <jordi@sindominio.net>
 
+	* configure.in: Release gtetrinet 0.7.10.
+
+2006-09-02  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/tetrinet.c: Check that pnum < 0, not <= for IN_LVL,
 	probably an oversight in the security patch.
 
