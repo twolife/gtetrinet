@@ -1,7 +1,12 @@
 2006-09-02  Jordi Mallach  <jordi@sindominio.net>
 
+	* src/tetrinet.c: Check that pnum < 0, not <= for IN_LVL,
+	probably an oversight in the security patch.
+
 	* doc/gtetrinet.6: Patch from Nelson A. de Oliveira to correct
 	some minor bugs in the manpage (Debian Bug#325662).
+
+	* NEWS: Updated for 0.7.10.
 
 2006-08-17  Jordi Mallach  <jordi@sindominio.net>
 
@@ -44,7 +49,7 @@
 	* src/client.c: Patch from Julien Plissonneau Duquène to
 	fix network latency.
 
-	* NEWS: pdate for 0.7.9.
+	* NEWS: Update for 0.7.9.
 
 2005-04-15  Dani Carbonell  <bocata@panete.net>
 

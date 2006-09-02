@@ -737,7 +737,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             token = strtok (data, " ");
             if (token == NULL) break;
             pnum = atoi (token);
-            if (pnum >= MAX_PLAYERS || pnum <= 0)
+            if (pnum >= MAX_PLAYERS || pnum < 0)
               break;
             token = strtok (NULL, "");
             if (token == NULL) break;
