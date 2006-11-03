@@ -193,7 +193,6 @@ void config_loadconfig (void)
     /* if there is no theme configured, then we fallback to DEFAULTTHEME */
     if (!p || !p[0])
     {
-      g_free (p);
       g_string_assign(currenttheme, DEFAULTTHEME);
       gconf_client_set_string (gconf_client, "/apps/gtetrinet/themes/theme_dir", currenttheme->str, NULL);
     }
