@@ -210,8 +210,6 @@ void partyline_connectstatus (int status)
 
 void partyline_namelabel (char *nick, char *team)
 {
-    gchar *nick_utf8, *team_utf8;
-  
     if (nick)
     {
       gtk_label_set_text (GTK_LABEL(namelabel), nick);

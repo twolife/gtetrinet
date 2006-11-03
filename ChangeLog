@@ -1,5 +1,12 @@
 2006-11-03  Jordi Mallach  <jordi@sindominio.net>
 
+	* src/partyline.c: Remove two unused variables.
+	* src/client.c (client_readmsg): Change a gint to gsize to avoid
+	a crash when connecting on NetBSD/Sparc64. Thanks khorben for the
+	info. Fixes: #338712.
+
+2006-11-03  Jordi Mallach  <jordi@sindominio.net>
+
 	* configure.in, src/Makefile.am: Patch from Ricardo Setti: Add
 	$(ESOUND_LIBS) to LDADD if esound is detected. Fixes: #312995.
 

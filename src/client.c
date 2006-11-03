@@ -449,7 +449,7 @@ int client_sendmsg (char *str)
 
 int client_readmsg (gchar **str)
 {
-    gint bytes = 0;
+    gsize bytes = 0;
     gchar buf[1024];
     GError *error = NULL;
     gint i = 0;
