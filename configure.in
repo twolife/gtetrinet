@@ -30,6 +30,7 @@ dnl *****************************************
 LIBGTK_REQUIRED=2.6.0
 LIBGNOME_REQUIRED=2.0.0
 LIBGNOMEUI_REQUIRED=2.0.0
+LIBESD_REQUIRED=0.2.36
 
 dnl *****************************************
 dnl libgnome, libgnomeui needed for all utils
@@ -39,7 +40,21 @@ PKG_CHECK_MODULES(GTET, gtk+-2.0 >= $LIBGTK_REQUIRED libgnome-2.0 >= $LIBGNOME_R
 AC_SUBST(GTET_CFLAGS)
 AC_SUBST(GTET_LIBS)
 
-AM_PATH_ESD(0.2.5, AC_DEFINE(HAVE_ESD, 1, [Define this to enable EsounD support.]))
+dnl Check for libesd
+if pkg-config --exists esound ; then
+	have_esound=yes
+else 
+	have_esound=no
+fi
+
+if test "x$have_esound" = "xyes"; then
+AC_DEFINE(HAVE_ESD, 1, [Define this to enable EsounD support.])
+PKG_CHECK_MODULES(ESOUND, esound >= $LIBESD_REQUIRED)
+AC_SUBST(ESOUND_CFLAGS)
+AC_SUBST(ESOUND_LIBS)
+fi
+
+AM_CONDITIONAL(HAVE_ESOUND, test "x$have_esound" = "xyes")
 
 AC_HEADER_STDC
 AC_HEADER_SYS_WAIT

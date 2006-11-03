@@ -6,7 +6,13 @@ INCLUDES = -DLOCALEDIR=\"$(localedir)\" \
 	   -DPIXMAPSDIR=\""$(datadir)/pixmaps"\" \
 	   -DGTETPIXMAPSDIR=\""$(datadir)/pixmaps/gtetrinet"\" \
 	   $(GTET_CFLAGS)
+
+if HAVE_ESOUND
+LDADD = $(GTET_LIBS) $(ESOUND_LIBS)
+else
 LDADD = $(GTET_LIBS)
+endif
+
 AM_CPPFLAGS = -DGTETRINET_DATA=\"$(pkgdatadir)\"
 
 gamesdir = $(prefix)/games

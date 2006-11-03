@@ -1,5 +1,10 @@
 2006-11-03  Jordi Mallach  <jordi@sindominio.net>
 
+	* configure.in, src/Makefile.am: Patch from Ricardo Setti: Add
+	$(ESOUND_LIBS) to LDADD if esound is detected. Fixes: #312995.
+
+2006-11-03  Jordi Mallach  <jordi@sindominio.net>
+
 	* src/config.c, src/dialogs.c, gtetrinet.schemas.in: Patch from
 	Lucas Nussbaum <lucas@lucas-nussbaum.net> to save the last
 	game mode used in GConf (Debian #344522).
