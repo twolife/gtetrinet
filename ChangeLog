@@ -1,4 +1,10 @@
-2006-11-03  Loïc Minier <lool@dooz.org>
+2006-11-03  Jordi Mallach  <jordi@sindominio.net>
+
+	* src/config.c, src/dialogs.c, gtetrinet.schemas.in: Patch from
+	Lucas Nussbaum <lucas@lucas-nussbaum.net> to save the last
+	game mode used in GConf.
+
+2006-11-03  Loïc Minier  <lool@dooz.org>
 
 	* src/config.c: Fix a double free() which causes a crash on
 	first start, when theme_dir isn't set. Fixes #114425.

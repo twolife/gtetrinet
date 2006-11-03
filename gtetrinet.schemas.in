@@ -102,6 +102,19 @@
       </locale>
     </schema>
 
+    <schema>
+      <key>/schemas/apps/gtetrinet/player/gamemode</key>
+      <applyto>/apps/gtetrinet/player/gamemode</applyto>
+      <owner>gtetrinet</owner>
+      <type>bool</type>
+      <default>0</default>
+      
+      <locale name="C">
+        <short>Tetrinet game mode</short>
+        <long>If set to true, the game mode will be set to Tetrifast.
+	 If false, gtetrinet will use the original mode.</long>
+      </locale>
+    </schema>
 
     <schema>
       <key>/schemas/apps/gtetrinet/keys/right</key>

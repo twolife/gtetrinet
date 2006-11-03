@@ -236,6 +236,9 @@ void config_loadconfig (void)
         GTET_O_STRCPY(team, p);
         g_free(p);
     }
+	 
+    /* get the game mode */
+    gamemode = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/player/gamemode", NULL);
 
     /* get the keys */
     p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/right", NULL);

@@ -189,7 +189,6 @@ static GtkWidget *serveraddressentry, *nicknameentry, *teamnameentry, *spectator
 static GtkWidget *passwordlabel, *teamnamelabel;
 static GtkWidget *originalradio, *tetrifastradio;
 static GSList *gametypegroup;
-static int oldgamemode;
 
 void connectdialog_button (GtkDialog *dialog, gint button)
 {
@@ -256,11 +255,11 @@ void connectdialog_button (GtkDialog *dialog, gint button)
         gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/team",
                                  gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))),
                                  NULL);
+        gconf_client_set_bool (gconf_client, "/apps/gtetrinet/player/gamemode", gamemode, NULL);
 
         g_free (nick);
         break;
     case GTK_RESPONSE_CANCEL:
-        gamemode = oldgamemode;
         gtk_widget_destroy (connectdialog);
         break;
     }
@@ -316,9 +315,6 @@ void connectdialog_new (void)
       return;
     }
     connecting = TRUE;
-
-    /* save some stuff */
-    oldgamemode = gamemode;
 
     /* make dialog that asks for address/nickname */
     connectdialog = gtk_dialog_new_with_buttons (_("Connect to server"),
