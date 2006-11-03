@@ -111,8 +111,8 @@
       
       <locale name="C">
         <short>Tetrinet game mode</short>
-        <long>If set to true, the game mode will be set to Tetrifast.
-	 If false, gtetrinet will use the original mode.</long>
+        <long>If set to true, the game mode will be set to TetriFast.
+	 If false, GTetrinet will use the original mode.</long>
       </locale>
     </schema>
 

@@ -716,9 +716,9 @@ msgstr "Habilita/inhabilita les marques de temps en el partyline."
 
 #: ../gtetrinet.schemas.in.h:10
 msgid ""
-"If set to true, the game mode will be set to Tetrifast. If false, gtetrinet "
+"If set to true, the game mode will be set to TetriFast. If false, GTetrinet "
 "will use the original mode."
-msgstr "Si és cert, el mode de joc s'establirà a Tetrifast. Si és fals, gtetrinet utilitzarà el mode original."
+msgstr "Si és cert, el mode de joc s'establirà a TetriFast. Si és fals, el GTetrinet utilitzarà el mode original."
 
 #: ../gtetrinet.schemas.in.h:11
 msgid "Key to discard special"
