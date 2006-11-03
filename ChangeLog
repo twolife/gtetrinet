@@ -2,7 +2,7 @@
 
 	* src/config.c, src/dialogs.c, gtetrinet.schemas.in: Patch from
 	Lucas Nussbaum <lucas@lucas-nussbaum.net> to save the last
-	game mode used in GConf.
+	game mode used in GConf (Debian #344522).
 
 2006-11-03  Loïc Minier  <lool@dooz.org>
 
