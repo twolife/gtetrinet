@@ -1,3 +1,13 @@
+GTetrinet 0.7.11 - 2006-11-15
+- Fix a long-standing hang/crash when executing GTetrinet for
+  the first time (Loïc Minier, #114425).
+- Remember game mode setting (Lucas Nussbaum, #344522).
+- Fix compilation without libesd (Ricardo Setti, #312995).
+- Fix a crash on NetBSD/Sparc64 (#338712).
+- New and updated translations: Nepali (Pawan Chitrakar),
+  Catalan (Jordi Mallach), Welsh (Dafydd Harries), Dutch (Wouter Bolsterlee),
+  Swedish (Daniel Nylander).
+
 GTetrinet 0.7.10 - 2006-09-02
 - SECURITY RELEASE -- Ref. CVE-2006-3125
 - Add index undeflow protections in network code.

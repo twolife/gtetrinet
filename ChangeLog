@@ -1,3 +1,8 @@
+2006-11-15  Jordi Mallach  <jordi@sindominio.net>
+
+	* NEWS: Update for 0.7.11.
+	* configure.in: Release gtetrinet 0.7.11.
+
 2006-11-03  Jordi Mallach  <jordi@sindominio.net>
 
 	* src/partyline.c: Remove two unused variables.
