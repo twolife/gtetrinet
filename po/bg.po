@@ -1,15 +1,15 @@
 # Bulgarian translation of gtetrinet.
-# Copyright (C) 2005 Free Software Foundation, Inc.
+# Copyright (C) 2005, 2006 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtetrinet package.
-# Yavor Doganov <yavor@doganov.org>, 2005.
+# Yavor Doganov <yavor@doganov.org>, 2005, 2006.
 # 
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-02 09:57+0200\n"
-"PO-Revision-Date: 2005-10-22 16:06+0300\n"
+"POT-Creation-Date: 2006-11-15 23:05+0200\n"
+"PO-Revision-Date: 2006-11-10 18:06+0200\n"
 "Last-Translator: Yavor Doganov <yavor@doganov.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +136,7 @@ msgid "Warning: theme does not have a name, reverting to default."
 msgstr "Предупреждение: темата няма име, използване на стандартната."
 
 #. make dialog that asks for address/nickname
-#: ../src/dialogs.c:85 ../src/dialogs.c:324 ../src/gtetrinet.c:77
+#: ../src/dialogs.c:85 ../src/dialogs.c:320 ../src/gtetrinet.c:77
 msgid "Connect to server"
 msgstr "Свързване със сървър"
 
@@ -144,125 +144,125 @@ msgstr "Свързване със сървър"
 msgid "Team name:"
 msgstr "Име на отбор:"
 
-#: ../src/dialogs.c:210
+#: ../src/dialogs.c:209
 msgid "You must specify a server name."
 msgstr "Трябва да се укаже име на сървъра."
 
-#: ../src/dialogs.c:227
+#: ../src/dialogs.c:226
 msgid "Please specify a password to connect as spectator."
 msgstr "Укажете парола за свързване като зрител."
 
-#: ../src/dialogs.c:248
+#: ../src/dialogs.c:247
 msgid "Please specify a valid nickname."
 msgstr "Укажете валиден псевдоним."
 
 #. game type radio buttons
-#: ../src/dialogs.c:353
+#: ../src/dialogs.c:349
 msgid "O_riginal"
-msgstr "О_ригинал"
+msgstr "О_ригинална"
 
-#: ../src/dialogs.c:355
+#: ../src/dialogs.c:351
 msgid "Tetri_Fast"
 msgstr "Tetri_Fast"
 
-#: ../src/dialogs.c:377
+#: ../src/dialogs.c:373
 msgid "Server address"
 msgstr "Адрес на сървъра"
 
-#: ../src/dialogs.c:386
+#: ../src/dialogs.c:382
 msgid "Connect as a _spectator"
 msgstr "Свързване като _зрител"
 
-#: ../src/dialogs.c:390
+#: ../src/dialogs.c:386
 msgid "_Password:"
 msgstr "_Парола:"
 
-#: ../src/dialogs.c:407
+#: ../src/dialogs.c:403
 msgid "Spectate game"
 msgstr "Гледане на игра"
 
-#: ../src/dialogs.c:416
+#: ../src/dialogs.c:412
 msgid "_Nick name:"
 msgstr "П_севдоним:"
 
-#: ../src/dialogs.c:430
+#: ../src/dialogs.c:426
 msgid "_Team name:"
 msgstr "_Име на отбор:"
 
-#: ../src/dialogs.c:449
+#: ../src/dialogs.c:445
 msgid "Player information"
 msgstr "Информация за играча"
 
-#: ../src/dialogs.c:490
+#: ../src/dialogs.c:486
 msgid "Change Key"
 msgstr "Смяна на клавиш"
 
-#: ../src/dialogs.c:541
+#: ../src/dialogs.c:537
 msgid "Move right"
 msgstr "Движение надясно"
 
-#: ../src/dialogs.c:542
+#: ../src/dialogs.c:538
 msgid "Move left"
 msgstr "Движение наляво"
 
-#: ../src/dialogs.c:543
+#: ../src/dialogs.c:539
 msgid "Move down"
 msgstr "Движение надолу"
 
-#: ../src/dialogs.c:544
+#: ../src/dialogs.c:540
 msgid "Rotate right"
 msgstr "Въртене надясно"
 
-#: ../src/dialogs.c:545
+#: ../src/dialogs.c:541
 msgid "Rotate left"
 msgstr "Въртене наляво"
 
-#: ../src/dialogs.c:546
+#: ../src/dialogs.c:542
 msgid "Drop piece"
 msgstr "Пускане на парчето"
 
-#: ../src/dialogs.c:547
+#: ../src/dialogs.c:543
 msgid "Discard special"
 msgstr "Отмяна на специалните"
 
-#: ../src/dialogs.c:548
+#: ../src/dialogs.c:544
 msgid "Send message"
 msgstr "Изпращане на съобщение"
 
-#: ../src/dialogs.c:549
+#: ../src/dialogs.c:545
 msgid "Special to field 1"
 msgstr "Специално парче в поле 1"
 
-#: ../src/dialogs.c:550
+#: ../src/dialogs.c:546
 msgid "Special to field 2"
 msgstr "Специално парче в поле 2"
 
-#: ../src/dialogs.c:551
+#: ../src/dialogs.c:547
 msgid "Special to field 3"
 msgstr "Специално парче в поле 3"
 
-#: ../src/dialogs.c:552
+#: ../src/dialogs.c:548
 msgid "Special to field 4"
 msgstr "Специално парче в поле 4"
 
-#: ../src/dialogs.c:553
+#: ../src/dialogs.c:549
 msgid "Special to field 5"
 msgstr "Специално парче в поле 5"
 
-#: ../src/dialogs.c:554
+#: ../src/dialogs.c:550
 msgid "Special to field 6"
 msgstr "Специално парче в поле 6"
 
-#: ../src/dialogs.c:614
+#: ../src/dialogs.c:610
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Натиснете нов клавиш за „%s“"
 
-#: ../src/dialogs.c:831
+#: ../src/dialogs.c:827
 msgid "GTetrinet Preferences"
 msgstr "Настройки на GTetrinet"
 
-#: ../src/dialogs.c:853
+#: ../src/dialogs.c:849
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -270,53 +270,53 @@ msgstr ""
 "Изберете тема от списъка.\n"
 "Инсталирайте нови теми в ~/.gtetrinet/themes/"
 
-#: ../src/dialogs.c:860
+#: ../src/dialogs.c:856
 msgid "Name:"
 msgstr "Име:"
 
-#: ../src/dialogs.c:863
+#: ../src/dialogs.c:859
 msgid "Author:"
 msgstr "Автор:"
 
-#: ../src/dialogs.c:866
+#: ../src/dialogs.c:862
 msgid "Description:"
 msgstr "Описание:"
 
-#: ../src/dialogs.c:879
+#: ../src/dialogs.c:875
 msgid "Selected Theme"
 msgstr "Избрана тема"
 
-#: ../src/dialogs.c:895
+#: ../src/dialogs.c:891
 msgid "Download new themes"
 msgstr "Изтегляне на нови теми"
 
-#: ../src/dialogs.c:900
+#: ../src/dialogs.c:896
 msgid "Themes"
 msgstr "Теми"
 
 #. partyline
-#: ../src/dialogs.c:905
+#: ../src/dialogs.c:901
 msgid "Enable _Timestamps"
 msgstr "Включване на ограничения по _време"
 
-#: ../src/dialogs.c:907
+#: ../src/dialogs.c:903
 msgid "Enable Channel _List"
 msgstr "Включване на на _списък с канали"
 
 #. FIXME
-#: ../src/dialogs.c:933 ../src/gtetrinet.c:281
+#: ../src/dialogs.c:929 ../src/gtetrinet.c:281
 msgid "Partyline"
 msgstr "Компания"
 
-#: ../src/dialogs.c:944
+#: ../src/dialogs.c:940
 msgid "Action"
 msgstr "Действие"
 
-#: ../src/dialogs.c:946
+#: ../src/dialogs.c:942
 msgid "Key"
 msgstr "Клавиш"
 
-#: ../src/dialogs.c:952
+#: ../src/dialogs.c:948
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -324,40 +324,40 @@ msgstr ""
 "Изберете действие от списъка и натиснете „Смяна на клавиш“, за да смените "
 "клавиша, свързан с действието."
 
-#: ../src/dialogs.c:959
+#: ../src/dialogs.c:955
 msgid "Change _key..."
 msgstr "Смяна на _клавиш..."
 
-#: ../src/dialogs.c:964 ../src/dialogs.c:1017
+#: ../src/dialogs.c:960 ../src/dialogs.c:1013
 msgid "_Restore defaults"
 msgstr "_По подразбиране"
 
-#: ../src/dialogs.c:985
+#: ../src/dialogs.c:981
 msgid "Keyboard"
 msgstr "Клавиатура"
 
 #. sound
-#: ../src/dialogs.c:990
+#: ../src/dialogs.c:986
 msgid "Enable _Sound"
 msgstr "Включване на _звука"
 
-#: ../src/dialogs.c:993
+#: ../src/dialogs.c:989
 msgid "Enable _MIDI"
 msgstr "Включване на _MIDI"
 
-#: ../src/dialogs.c:1007
+#: ../src/dialogs.c:1003
 msgid "Enter command to play a midi file:"
-msgstr "Въведете команда за изпълнение на midi файл:"
+msgstr "Въведете команда за изпълнение на файл, формат midi:"
 
-#: ../src/dialogs.c:1010
+#: ../src/dialogs.c:1006
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
 msgstr ""
-"Командата се изпълнява, когато предстои изпълнение на midi файл.  Името на "
-"файла е включено в променливата MIDIFILE."
+"Командата се изпълнява, когато предстои изпълнение на файл във формат midi. "
+"Името на файла е включено в променливата MIDIFILE."
 
-#: ../src/dialogs.c:1047
+#: ../src/dialogs.c:1043
 msgid "Sound"
 msgstr "Звук"
 
@@ -486,11 +486,11 @@ msgstr "Вашето име:"
 msgid "Your team:"
 msgstr "Вашият отбор:"
 
-#: ../src/partyline.c:638
+#: ../src/partyline.c:636
 msgid "Talking in channel"
 msgstr "Разговори в канала"
 
-#: ../src/partyline.c:640
+#: ../src/partyline.c:638
 msgid "Disconnected"
 msgstr "Изключен"
 
@@ -722,66 +722,78 @@ msgid "Enables/disables timestamps in the partyline."
 msgstr "Включва/изключва ограничения по време."
 
 #: ../gtetrinet.schemas.in.h:10
+msgid ""
+"If set to true, the game mode will be set to TetriFast. If false, GTetrinet "
+"will use the original mode."
+msgstr ""
+"Ако е настроено на „true“, режимът на играта ще бъде „TetriFast“. Ако е "
+"„false“, GTetrinet ще използва оригиналния режим."
+
+#: ../gtetrinet.schemas.in.h:11
 msgid "Key to discard special"
 msgstr "Клавиш за отмяна на специалните парчета"
 
-#: ../gtetrinet.schemas.in.h:11
+#: ../gtetrinet.schemas.in.h:12
 msgid "Key to drop piece"
 msgstr "Клавиш за пускане на парче"
 
-#: ../gtetrinet.schemas.in.h:12
+#: ../gtetrinet.schemas.in.h:13
 msgid "Key to move down"
 msgstr "Клавиш за движение надолу"
 
-#: ../gtetrinet.schemas.in.h:13
+#: ../gtetrinet.schemas.in.h:14
 msgid "Key to move left"
 msgstr "Клавиш за движение наляво"
 
-#: ../gtetrinet.schemas.in.h:14
+#: ../gtetrinet.schemas.in.h:15
 msgid "Key to move right"
 msgstr "Клавиш за движение надясно"
 
-#: ../gtetrinet.schemas.in.h:15
+#: ../gtetrinet.schemas.in.h:16
 msgid "Key to open the fields' message dialog"
 msgstr "Клавиш за отваряне на диалога със съобщения"
 
-#: ../gtetrinet.schemas.in.h:16
+#: ../gtetrinet.schemas.in.h:17
 msgid "Key to rotate clockwise"
 msgstr "Клавиш за въртене по посока на часовниковата стрелка"
 
-#: ../gtetrinet.schemas.in.h:17
+#: ../gtetrinet.schemas.in.h:18
 msgid "Key to rotate counterclockwise"
 msgstr "Клавиш за въртене обратно на часовниковата стрелка"
 
-#: ../gtetrinet.schemas.in.h:18
+#: ../gtetrinet.schemas.in.h:19
 msgid "Key to use the current special on field 1"
 msgstr "Клавиш за използване на текущото специално парче в поле 1"
 
-#: ../gtetrinet.schemas.in.h:19
+#: ../gtetrinet.schemas.in.h:20
 msgid "Key to use the current special on field 2"
 msgstr "Клавиш за използване на текущото специално парче в поле 2"
 
-#: ../gtetrinet.schemas.in.h:20
+#: ../gtetrinet.schemas.in.h:21
 msgid "Key to use the current special on field 3"
 msgstr "Клавиш за използване на текущото специално парче в поле 3"
 
-#: ../gtetrinet.schemas.in.h:21
+#: ../gtetrinet.schemas.in.h:22
 msgid "Key to use the current special on field 4"
 msgstr "Клавиш за използване на текущото специално парче в поле 4"
 
-#: ../gtetrinet.schemas.in.h:22
+#: ../gtetrinet.schemas.in.h:23
 msgid "Key to use the current special on field 5"
 msgstr "Клавиш за използване на текущото специално парче в поле 5"
 
-#: ../gtetrinet.schemas.in.h:23
+#: ../gtetrinet.schemas.in.h:24
 msgid "Key to use the current special on field 6"
 msgstr "Клавиш за използване на текущото специално парче в поле 6"
 
-#: ../gtetrinet.schemas.in.h:24
+#: ../gtetrinet.schemas.in.h:25
 msgid "Server where you want to play"
 msgstr "Сървър, където искате да играете"
 
-#: ../gtetrinet.schemas.in.h:25
+#: ../gtetrinet.schemas.in.h:26
+msgid "Tetrinet game mode"
+msgstr "Режим на игра на Tetrinet"
+
+#: ../gtetrinet.schemas.in.h:27
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
@@ -789,105 +801,102 @@ msgstr ""
 "Текущата папка с теми. Трябва да съдържа четими файлове „blocks.png“ и "
 "„theme.cfg“."
 
-#: ../gtetrinet.schemas.in.h:26
+#: ../gtetrinet.schemas.in.h:28
 msgid "Theme directory, should end with a '/'"
 msgstr "Папка с теми, трябва да завършва с „/“"
 
-#: ../gtetrinet.schemas.in.h:27
+#: ../gtetrinet.schemas.in.h:29
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
 msgstr ""
-"Командата се изпълнява, когато предстои изпълнение на midi файл.  Името на "
-"файла е включено в променливата MIDIFILE."
+"Командата се изпълнява, когато предстои изпълнение на файл във формат midi. "
+"Името на файла е включено в променливата MIDIFILE."
 
-#: ../gtetrinet.schemas.in.h:28
+#: ../gtetrinet.schemas.in.h:30
 msgid "This is the server where GTetrinet will try to connect."
 msgstr "Сървъра, с който GTetrinet ще се опита да се свърже."
 
-#: ../gtetrinet.schemas.in.h:29
+#: ../gtetrinet.schemas.in.h:31
 msgid "This key discards the current special. This is case insensitive."
 msgstr ""
 "Този клавиш отменя текущото специално парче. Не зависи от малки/големи букви."
 
-#: ../gtetrinet.schemas.in.h:30
+#: ../gtetrinet.schemas.in.h:32
 msgid "This key displays the fields' message dialog. This is case insensitive."
 msgstr ""
 "Този клавиш показва диалога със съобщения. Не зависи от малки/големи букви."
 
-#: ../gtetrinet.schemas.in.h:31
+#: ../gtetrinet.schemas.in.h:33
 msgid "This key drops the block to the ground. This is case insensitive."
 msgstr "Този клавиш пуска парчето на земята. Не зависи от малки/големи букви."
 
-#: ../gtetrinet.schemas.in.h:32
+#: ../gtetrinet.schemas.in.h:34
 msgid "This key moves the block down. This is case insensitive."
 msgstr "Този клавиш придвижва парчето надолу. Не зависи от малки/големи букви."
 
-#: ../gtetrinet.schemas.in.h:33
+#: ../gtetrinet.schemas.in.h:35
 msgid "This key moves the block to the left. This is case insensitive."
 msgstr "Този клавиш придвижва парчето вляво. Не зависи от малки/големи букви."
 
-#: ../gtetrinet.schemas.in.h:34
+#: ../gtetrinet.schemas.in.h:36
 msgid "This key moves the block to the right. This is case insensitive."
 msgstr "Този клавиш придвижва парчето вдясно. Не зависи от малки/големи букви."
 
-#: ../gtetrinet.schemas.in.h:35
+#: ../gtetrinet.schemas.in.h:37
 msgid "This key rotates the block clockwise. This is case insensitive."
 msgstr ""
 "Този клавиш завърта парчето по посока на часовниковата стрелка. Не зависи от "
 "малки/големи букви."
 
-#: ../gtetrinet.schemas.in.h:36
+#: ../gtetrinet.schemas.in.h:38
 msgid "This key rotates the block counterclockwise. This is case insensitive."
 msgstr ""
 "Този клавиш завърта парчето обратно на часовниковата стрелка. Не зависи от "
 "малки/големи букви."
 
-#: ../gtetrinet.schemas.in.h:37
+#: ../gtetrinet.schemas.in.h:39
 msgid "This key uses the current special on Player 1's game field."
 msgstr ""
 "Този клавиш служи за използване на специално парче в полето на Играч 1."
 
-#: ../gtetrinet.schemas.in.h:38
+#: ../gtetrinet.schemas.in.h:40
 msgid "This key uses the current special on Player 2's game field."
 msgstr ""
 "Този клавиш служи за използване на специално парче в полето на Играч 2."
 
-#: ../gtetrinet.schemas.in.h:39
+#: ../gtetrinet.schemas.in.h:41
 msgid "This key uses the current special on Player 3's game field."
 msgstr ""
 "Този клавиш служи за използване на специално парче в полето на Играч 3."
 
-#: ../gtetrinet.schemas.in.h:40
+#: ../gtetrinet.schemas.in.h:42
 msgid "This key uses the current special on Player 4's game field."
 msgstr ""
 "Този клавиш служи за използване на специално парче в полето на Играч 4."
 
-#: ../gtetrinet.schemas.in.h:41
+#: ../gtetrinet.schemas.in.h:43
 msgid "This key uses the current special on Player 5's game field."
 msgstr ""
 "Този клавиш служи за използване на специално парче в полето на Играч 5."
 
-#: ../gtetrinet.schemas.in.h:42
+#: ../gtetrinet.schemas.in.h:44
 msgid "This key uses the current special on Player 6's game field."
 msgstr ""
 "Този клавиш служи за използване на специално парче в полето на Играч 6."
 
-#: ../gtetrinet.schemas.in.h:43
+#: ../gtetrinet.schemas.in.h:45
 msgid "This will be the name of your team."
 msgstr "Това ще бъде името на отбора."
 
-#: ../gtetrinet.schemas.in.h:44
+#: ../gtetrinet.schemas.in.h:46
 msgid "This will be your nickname in the game."
 msgstr "Това ще бъде псевдонима в играта."
 
-#: ../gtetrinet.schemas.in.h:45
+#: ../gtetrinet.schemas.in.h:47
 msgid "Your nickname"
 msgstr "Вашият псевдоним"
 
-#: ../gtetrinet.schemas.in.h:46
+#: ../gtetrinet.schemas.in.h:48
 msgid "Your team"
 msgstr "Вашият отбор"
-
-#~ msgid "GTetrinet Home Page"
-#~ msgstr "Домашна страница на GTetrinet"
