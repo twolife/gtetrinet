@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-16 18:08+0200\n"
-"PO-Revision-Date: 2003-06-21 21:17+0000\n"
+"POT-Creation-Date: 2006-12-11 18:37+0100\n"
+"PO-Revision-Date: 2006-12-11 18:38+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@arrakis.es>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,251 +18,247 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.1\n"
 
-#: src/client.c:237
+#: ../src/client.c:243
 msgid "Couldn't resolve hostname."
 msgstr "No se pudo resolver el nombre del anfitrión"
 
-#: src/commands.c:45
+#: ../src/commands.c:45
 msgid "_Connect to server..."
 msgstr "_Conectar al servidor..."
 
-#: src/commands.c:46
+#: ../src/commands.c:46
 msgid "_Disconnect from server"
 msgstr "Desconectar del _servidor"
 
-#: src/commands.c:48
+#: ../src/commands.c:48
 msgid "Change _team..."
 msgstr "Cambiar _equipo..."
 
-#: src/commands.c:50
+#: ../src/commands.c:50
 msgid "_Start game"
 msgstr "_Comenzar el juego"
 
-#: src/commands.c:51
+#: ../src/commands.c:51
 msgid "_Pause game"
 msgstr "_Detener el juego"
 
-#: src/commands.c:52
+#: ../src/commands.c:52
 msgid "_End game"
 msgstr "_Terminar el juego"
 
-#: src/commands.c:57
+#: ../src/commands.c:57
 msgid "Detac_h page..."
 msgstr "_Arrancar página..."
 
-#: src/commands.c:82
+#: ../src/commands.c:82
 msgid "Connect"
 msgstr "Conectar"
 
-#: src/commands.c:82
+#: ../src/commands.c:82
 msgid "Connect to a server"
 msgstr "Conectar al servidor"
 
-#: src/commands.c:83
+#: ../src/commands.c:83
 msgid "Disconnect"
 msgstr "Desconectar"
 
-#: src/commands.c:83
+#: ../src/commands.c:83
 msgid "Disconnect from the current server"
 msgstr "Desconectar del servidor activo"
 
-#: src/commands.c:85
+#: ../src/commands.c:85
 msgid "Start game"
 msgstr "Comenzar"
 
-#: src/commands.c:85
+#: ../src/commands.c:85
 msgid "Start a new game"
 msgstr "Comenzar un nuevo juego"
 
-#: src/commands.c:86
+#: ../src/commands.c:86
 msgid "End game"
 msgstr "Terminar"
 
-#: src/commands.c:86
+#: ../src/commands.c:86
 msgid "End the current game"
 msgstr "Terminar el juego en curso"
 
-#: src/commands.c:87
+#: ../src/commands.c:87
 msgid "Pause game"
 msgstr "Detener"
 
-#: src/commands.c:87
+#: ../src/commands.c:87
 msgid "Pause the game"
 msgstr "Detener el juego"
 
-#: src/commands.c:89 src/dialogs.c:156
+#: ../src/commands.c:89 ../src/dialogs.c:152
 msgid "Change team"
 msgstr "Cambiar"
 
-#: src/commands.c:89
+#: ../src/commands.c:89
 msgid "Change your current team name"
 msgstr "Cambiar el nombre del equipo"
 
-#: src/commands.c:92
+#: ../src/commands.c:92
 msgid "Detach page"
 msgstr "Arrancar página"
 
-#: src/commands.c:92
+#: ../src/commands.c:92
 msgid "Detach the current notebook page"
 msgstr "Arrancar la pestaña pestaña activa"
 
-#: src/commands.c:258
+#: ../src/commands.c:258
 msgid "Game in progress"
 msgstr "Juego en curso"
 
-#: src/commands.c:261
+#: ../src/commands.c:261
 msgid "Connected to\n"
 msgstr "Conectado a\n"
 
-#: src/commands.c:265
+#: ../src/commands.c:265
 msgid "Not connected"
 msgstr "No conectado"
 
 #. Translators: translate as your names & emails
-#: src/commands.c:287
+#: ../src/commands.c:309
 msgid "translator-credits"
 msgstr "Germán Poo-Caamaño <gpoo@ubiobio.cl>"
 
-#: src/commands.c:293
+#: ../src/commands.c:323
 msgid "A Tetrinet client for GNOME.\n"
 msgstr "Un cliente Tetrinet para GNOME.\n"
 
-#: src/commands.c:305
-msgid "GTetrinet Home Page"
-msgstr "Página de GTetrinet"
-
-#: src/config.c:140
+#: ../src/config.c:140
 msgid "Warning: theme does not have a name, reverting to default."
 msgstr "Aviso: el tema no tiene nombre, usando el predeterminado."
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
+#: ../src/dialogs.c:85 ../src/dialogs.c:320 ../src/gtetrinet.c:77
 msgid "Connect to server"
 msgstr "Conectar al servidor"
 
-#: src/dialogs.c:169
+#: ../src/dialogs.c:165
 msgid "Team name:"
 msgstr "Nombre del equipo:"
 
-#: src/dialogs.c:215
+#: ../src/dialogs.c:209
 msgid "You must specify a server name."
 msgstr "Debe especificar un servidor."
 
-#: src/dialogs.c:232
+#: ../src/dialogs.c:226
 msgid "Please specify a password to connect as spectator."
 msgstr "Indique una contraseña para conectarse como espectador."
 
-#: src/dialogs.c:258
+#: ../src/dialogs.c:247
 msgid "Please specify a valid nickname."
 msgstr "Indique un alias válido."
 
 #. game type radio buttons
-#: src/dialogs.c:364
+#: ../src/dialogs.c:349
 msgid "O_riginal"
 msgstr "O_riginal"
 
-#: src/dialogs.c:366
+#: ../src/dialogs.c:351
 msgid "Tetri_Fast"
 msgstr "Tetri_Fast"
 
-#: src/dialogs.c:388
+#: ../src/dialogs.c:373
 msgid "Server address"
 msgstr "Dirección del servidor"
 
-#: src/dialogs.c:397
+#: ../src/dialogs.c:382
 msgid "Connect as a _spectator"
 msgstr "Conectarse como e_spectador"
 
-#: src/dialogs.c:401
+#: ../src/dialogs.c:386
 msgid "_Password:"
 msgstr "_Contraseña:"
 
-#: src/dialogs.c:418
+#: ../src/dialogs.c:403
 msgid "Spectate game"
 msgstr "Espectador del juego"
 
-#: src/dialogs.c:427
+#: ../src/dialogs.c:412
 msgid "_Nick name:"
 msgstr "A_lias:"
 
-#: src/dialogs.c:442
+#: ../src/dialogs.c:426
 msgid "_Team name:"
 msgstr "Nombre del _equipo:"
 
-#: src/dialogs.c:462
+#: ../src/dialogs.c:445
 msgid "Player information"
 msgstr "Información del jugador"
 
-#: src/dialogs.c:503
+#: ../src/dialogs.c:486
 msgid "Change Key"
 msgstr "Cambiar tecla"
 
-#: src/dialogs.c:554
+#: ../src/dialogs.c:537
 msgid "Move right"
 msgstr "Mover a la derecha"
 
-#: src/dialogs.c:555
+#: ../src/dialogs.c:538
 msgid "Move left"
 msgstr "Mover a la izquierda"
 
-#: src/dialogs.c:556
+#: ../src/dialogs.c:539
 msgid "Move down"
 msgstr "Mover abajo"
 
-#: src/dialogs.c:557
+#: ../src/dialogs.c:540
 msgid "Rotate right"
 msgstr "Rotar a la derecha"
 
-#: src/dialogs.c:558
+#: ../src/dialogs.c:541
 msgid "Rotate left"
 msgstr "Rotar a la izquierda"
 
-#: src/dialogs.c:559
+#: ../src/dialogs.c:542
 msgid "Drop piece"
 msgstr "Descartar pieza"
 
-#: src/dialogs.c:560
+#: ../src/dialogs.c:543
 msgid "Discard special"
 msgstr "Descartar especial"
 
-#: src/dialogs.c:561
+#: ../src/dialogs.c:544
 msgid "Send message"
 msgstr "Enviar mensaje"
 
-#: src/dialogs.c:562
+#: ../src/dialogs.c:545
 msgid "Special to field 1"
 msgstr "Especial a campo 1"
 
-#: src/dialogs.c:563
+#: ../src/dialogs.c:546
 msgid "Special to field 2"
 msgstr "Especial a campo 2"
 
-#: src/dialogs.c:564
+#: ../src/dialogs.c:547
 msgid "Special to field 3"
 msgstr "Especial a campo 3"
 
-#: src/dialogs.c:565
+#: ../src/dialogs.c:548
 msgid "Special to field 4"
 msgstr "Especial a campo 4"
 
-#: src/dialogs.c:566
+#: ../src/dialogs.c:549
 msgid "Special to field 5"
 msgstr "Especial a campo 5"
 
-#: src/dialogs.c:567
+#: ../src/dialogs.c:550
 msgid "Special to field 6"
 msgstr "Especial a campo 6"
 
-#: src/dialogs.c:627
+#: ../src/dialogs.c:610
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Presione una tecla para \"%s\""
 
-#: src/dialogs.c:844
+#: ../src/dialogs.c:827
 msgid "GTetrinet Preferences"
 msgstr "Preferencias de GTetrinet"
 
-#: src/dialogs.c:866
+#: ../src/dialogs.c:849
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -270,54 +266,54 @@ msgstr ""
 "Seleccione un tema de la lista.\n"
 "Instale nuevos temas en ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:873
+#: ../src/dialogs.c:856
 msgid "Name:"
 msgstr "Nombre:"
 
-#: src/dialogs.c:876
+#: ../src/dialogs.c:859
 msgid "Author:"
 msgstr "Autor:"
 
-#: src/dialogs.c:879
+#: ../src/dialogs.c:862
 msgid "Description:"
 msgstr "Descripción:"
 
-#: src/dialogs.c:892
+#: ../src/dialogs.c:875
 msgid "Selected Theme"
 msgstr "Tema seleccionado"
 
-#: src/dialogs.c:908
+#: ../src/dialogs.c:891
 msgid "Download new themes"
 msgstr "Descargar temas nuevos"
 
-#: src/dialogs.c:913
+#: ../src/dialogs.c:896
 msgid "Themes"
 msgstr "Temas"
 
 #. partyline
-#: src/dialogs.c:918
+#: ../src/dialogs.c:901
 msgid "Enable _Timestamps"
 msgstr "Activar registro de _tiempos"
 
-#: src/dialogs.c:920
+#: ../src/dialogs.c:903
 msgid "Enable Channel _List"
 msgstr "Activar _lista del canal"
 
 # Osäker
 #. FIXME
-#: src/dialogs.c:946 src/gtetrinet.c:281
+#: ../src/dialogs.c:929 ../src/gtetrinet.c:281
 msgid "Partyline"
 msgstr "Línea de conversación"
 
-#: src/dialogs.c:957
+#: ../src/dialogs.c:940
 msgid "Action"
 msgstr "Acción"
 
-#: src/dialogs.c:959
+#: ../src/dialogs.c:942
 msgid "Key"
 msgstr "Tecla"
 
-#: src/dialogs.c:965
+#: ../src/dialogs.c:948
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -325,32 +321,32 @@ msgstr ""
 "Seleccione una acción de la lista y elija «Cambiar tecla» para cambiar la "
 "tecla asociada con la acción."
 
-#: src/dialogs.c:972
+#: ../src/dialogs.c:955
 msgid "Change _key..."
 msgstr "Cambiar _tecla..."
 
-#: src/dialogs.c:977 src/dialogs.c:1030
+#: ../src/dialogs.c:960 ../src/dialogs.c:1013
 msgid "_Restore defaults"
 msgstr "_Restaurar predeterminados"
 
-#: src/dialogs.c:998
+#: ../src/dialogs.c:981
 msgid "Keyboard"
 msgstr "Teclado"
 
 #. sound
-#: src/dialogs.c:1003
+#: ../src/dialogs.c:986
 msgid "Enable _Sound"
 msgstr "Habilitar _sonido"
 
-#: src/dialogs.c:1006
+#: ../src/dialogs.c:989
 msgid "Enable _MIDI"
 msgstr "Habilitar _MIDI"
 
-#: src/dialogs.c:1020
+#: ../src/dialogs.c:1003
 msgid "Enter command to play a midi file:"
 msgstr "Ingresar comando para reproducir un archivo MIDI:"
 
-#: src/dialogs.c:1023
+#: ../src/dialogs.c:1006
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -358,11 +354,11 @@ msgstr ""
 "El comando indicado será utilizado para reproducir un archivo MIDI.  El "
 "nombre del archivo se encuentra en la variable de ambiente MIDFILE."
 
-#: src/dialogs.c:1060
+#: ../src/dialogs.c:1043
 msgid "Sound"
 msgstr "Sonido"
 
-#: src/fields.c:76
+#: ../src/fields.c:76
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
@@ -372,7 +368,7 @@ msgstr ""
 "Volviendo a los predeterminados"
 
 #. shouldnt happen
-#: src/fields.c:85
+#: ../src/fields.c:85
 #, c-format
 msgid ""
 "Error loading default theme: Aborting...\n"
@@ -381,321 +377,321 @@ msgstr ""
 "Ha ocurrido un error al cargar el tema predeterminado: Abortando...\n"
 "Verifique su instalación\n"
 
-#: src/fields.c:206
+#: ../src/fields.c:206
 msgid "Next piece:"
 msgstr "Próxima pieza:"
 
-#: src/fields.c:223
+#: ../src/fields.c:223
 msgid "Lines:"
 msgstr "Líneas:"
 
-#: src/fields.c:227
+#: ../src/fields.c:227
 msgid "Level:"
 msgstr "Nivel:"
 
-#: src/fields.c:229
+#: ../src/fields.c:229
 msgid "Active level:"
 msgstr "Nivel activo:"
 
-#: src/fields.c:277
+#: ../src/fields.c:277
 msgid "Attacks and defenses:"
 msgstr "Ataques y defensas:"
 
-#: src/fields.c:421
+#: ../src/fields.c:420
 msgid "Not playing"
 msgstr "Sin juego"
 
-#: src/fields.c:452
+#: ../src/fields.c:447
 msgid "Specials:"
 msgstr "Especiales:"
 
-#: src/gtetrinet.c:77
+#: ../src/gtetrinet.c:77
 msgid "SERVER"
 msgstr "SERVIDOR"
 
-#: src/gtetrinet.c:78
+#: ../src/gtetrinet.c:78
 msgid "Set nickname to use"
 msgstr "Indicar el alias a usar"
 
-#: src/gtetrinet.c:78
+#: ../src/gtetrinet.c:78
 msgid "NICKNAME"
 msgstr "ALIAS"
 
-#: src/gtetrinet.c:79
+#: ../src/gtetrinet.c:79
 msgid "Set team name"
 msgstr "Indicar el nombre del equipo"
 
-#: src/gtetrinet.c:79
+#: ../src/gtetrinet.c:79
 msgid "TEAM"
 msgstr "EQUIPO"
 
-#: src/gtetrinet.c:80
+#: ../src/gtetrinet.c:80
 msgid "Connect as a spectator"
 msgstr "Conectarse como espectador"
 
-#: src/gtetrinet.c:81
+#: ../src/gtetrinet.c:81
 msgid "Spectator password"
 msgstr "Contraseña de espectador"
 
-#: src/gtetrinet.c:81
+#: ../src/gtetrinet.c:81
 msgid "PASSWORD"
 msgstr "CONTRASEÑA"
 
-#: src/gtetrinet.c:120
+#: ../src/gtetrinet.c:120
 #, c-format
 msgid "Failed to init GConf: %s\n"
 msgstr "Ha ocurrido un error al inicializar GConf: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
+#: ../src/gtetrinet.c:270 ../src/gtetrinet.c:416 ../src/gtetrinet.c:469
 msgid "Playing Fields"
 msgstr "Campo de juego"
 
 #. FIXME
-#: src/gtetrinet.c:292
+#: ../src/gtetrinet.c:292
 msgid "Winlist"
 msgstr "Lista de ganadores"
 
-#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
+#: ../src/partyline.c:77 ../src/partyline.c:138 ../src/winlist.c:59
 msgid "Name"
 msgstr "Nombre"
 
-#: src/partyline.c:79
+#: ../src/partyline.c:79
 msgid "Players"
 msgstr "Jugadores"
 
-#: src/partyline.c:81
+#: ../src/partyline.c:81
 msgid "State"
 msgstr "Estado"
 
-#: src/partyline.c:83
+#: ../src/partyline.c:83
 msgid "Description"
 msgstr "Descripción"
 
-#: src/partyline.c:95
+#: ../src/partyline.c:95
 msgid "Channel List"
 msgstr "Lista del canal"
 
-#: src/partyline.c:140
+#: ../src/partyline.c:140
 msgid "Team"
 msgstr "Equipo"
 
-#: src/partyline.c:153
+#: ../src/partyline.c:153
 msgid "Your name:"
 msgstr "Su nombre:"
 
-#: src/partyline.c:160
+#: ../src/partyline.c:160
 msgid "Your team:"
 msgstr "Su equipo:"
 
-#: src/partyline.c:665
+#: ../src/partyline.c:636
 msgid "Talking in channel"
 msgstr "Hablando en el canal"
 
-#: src/partyline.c:667
+#: ../src/partyline.c:638
 msgid "Disconnected"
 msgstr "Desconectado"
 
-#: src/tetrinet.c:194
+#: ../src/tetrinet.c:197
 msgid "Server disconnected"
 msgstr "Servidor desconectado"
 
-#: src/tetrinet.c:214
+#: ../src/tetrinet.c:217
 #, c-format
 msgid "%c%c*** Disconnected from server"
 msgstr "%c%c*** desconectado del servidor"
 
-#: src/tetrinet.c:226
+#: ../src/tetrinet.c:229
 msgid "Error connecting: "
 msgstr "Ha ocurrido un error al conectarse: "
 
-#: src/tetrinet.c:259
+#: ../src/tetrinet.c:263
 #, c-format
 msgid "%c%c*** Connected to server"
 msgstr "%c%c*** conectado al servidor"
 
-#: src/tetrinet.c:360
+#: ../src/tetrinet.c:364
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
 msgstr "%c%c*** Ha sido echado del juego"
 
-#: src/tetrinet.c:364
+#: ../src/tetrinet.c:368
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
 msgstr "%c*** %c%s%c%c ha sido echado del juego"
 
-#: src/tetrinet.c:539
+#: ../src/tetrinet.c:543
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
 msgstr "%c*** equipo %c%s%c%c ha ganado el juego"
 
-#: src/tetrinet.c:545
+#: ../src/tetrinet.c:549
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
 msgstr "%c*** %c%s%c%c ha ganado el juego"
 
-#: src/tetrinet.c:605
+#: ../src/tetrinet.c:612
 #, c-format
 msgid "%c*** The game has %cstarted"
 msgstr "%c*** El juego %cse ha iniciado"
 
-#: src/tetrinet.c:631
+#: ../src/tetrinet.c:638
 #, c-format
 msgid "%c*** The game is %cin progress"
 msgstr "%c*** El juego %cse encuentra en curso"
 
-#: src/tetrinet.c:643
+#: ../src/tetrinet.c:650
 #, c-format
 msgid "%c*** The game has %cpaused"
 msgstr "%c*** El juego %cha sido detenido"
 
-#: src/tetrinet.c:645
+#: ../src/tetrinet.c:652
 #, c-format
 msgid "The game has %c%cpaused"
 msgstr "El juego %c%cha sido detenido"
 
-#: src/tetrinet.c:650
+#: ../src/tetrinet.c:657
 #, c-format
 msgid "%c*** The game has %cresumed"
 msgstr "%c*** El juego %cse ha retomado"
 
-#: src/tetrinet.c:652
+#: ../src/tetrinet.c:659
 #, c-format
 msgid "The game has %c%cresumed"
 msgstr "El juego %c%cse ha retomado"
 
-#: src/tetrinet.c:661
+#: ../src/tetrinet.c:668
 #, c-format
 msgid "%c*** The game has %cended"
 msgstr "%c*** El juego %cha terminado"
 
-#: src/tetrinet.c:772
+#: ../src/tetrinet.c:786
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
 msgstr "%c*** Se ha unido %c%s%c%c"
 
-#: src/tetrinet.c:789
+#: ../src/tetrinet.c:803
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c se han unido los espectadores %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:810
+#: ../src/tetrinet.c:824
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c han dejado los espectadores %c%c(%c%s%c%c%c)"
 
-#: src/tetrinet.c:1048
+#: ../src/tetrinet.c:1062
 msgid "No special blocks"
 msgstr "Sin bloques especiales"
 
-#: src/tetrinet.c:1207 src/tetrinet.c:1214
+#: ../src/tetrinet.c:1221 ../src/tetrinet.c:1228
 #, c-format
 msgid " on %c%c%s%c%c"
 msgstr " en %c%c%s%c%c"
 
-#: src/tetrinet.c:1224
+#: ../src/tetrinet.c:1238
 msgid " to All"
 msgstr " a todos"
 
-#: src/tetrinet.c:1230 src/tetrinet.c:1237
+#: ../src/tetrinet.c:1244 ../src/tetrinet.c:1251
 #, c-format
 msgid " by %c%c%s%c%c"
 msgstr " por %c%c%s%c%c"
 
-#: src/tetrinet.c:1865
+#: ../src/tetrinet.c:1879
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
 msgstr "%c*** %c%s%c%c es el moderador"
 
 #. remove ", " from end of string
-#: src/tetrinet.c:1914
+#: ../src/tetrinet.c:1928
 msgid " has left the game"
 msgstr " ha dejado el juego"
 
-#: src/tetrinet.c:1915
+#: ../src/tetrinet.c:1929
 msgid " have left the game"
 msgstr " ha dejado el juego"
 
-#: src/tetrinet.c:1928
+#: ../src/tetrinet.c:1942
 msgid " has joined the game"
 msgstr " se ha unido al juego"
 
-#: src/tetrinet.c:1929
+#: ../src/tetrinet.c:1943
 msgid " have joined the game"
 msgstr " se ha unido al juego"
 
-#: src/tetrinet.c:1952
+#: ../src/tetrinet.c:1966
 #, c-format
 msgid "%s is on team %c%s"
 msgstr "%s pertenece al equipo %c%s"
 
-#: src/tetrinet.c:1955
+#: ../src/tetrinet.c:1969
 #, c-format
 msgid "%s is alone"
 msgstr "%s se encuentra solo"
 
-#: src/tetrinet.c:1957
+#: ../src/tetrinet.c:1971
 #, c-format
 msgid "%s are on team %c%s"
 msgstr "%s están en el equipo %c%s"
 
-#: src/tetrinet.c:1960
+#: ../src/tetrinet.c:1974
 #, c-format
 msgid "%s are alone"
 msgstr "%s están solos"
 
-#: src/tetrinet.c:2001
+#: ../src/tetrinet.c:2015
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
 msgstr "%c*** %c%s%c%c ahora pertenece al equipo %c%s"
 
-#: src/tetrinet.c:2008
+#: ../src/tetrinet.c:2022
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
 msgstr "%c*** %c%s%c%c ahora se encuentra solo"
 
 #. "T" stands for "Team" here
-#: src/winlist.c:57
+#: ../src/winlist.c:57
 msgid "T"
 msgstr "E"
 
-#: src/winlist.c:61
+#: ../src/winlist.c:61
 msgid "Score"
 msgstr "Puntuación"
 
-#: gtetrinet.desktop.in.h:1
+#: ../gtetrinet.desktop.in.h:1
 msgid "GTetrinet"
 msgstr "GTetrinet"
 
-#: gtetrinet.desktop.in.h:2
+#: ../gtetrinet.desktop.in.h:2
 msgid "Tetrinet client"
 msgstr "Cliente Tetrinet"
 
-#: gtetrinet.desktop.in.h:3
+#: ../gtetrinet.desktop.in.h:3
 msgid "Tetrinet client for GNOME"
 msgstr "Cliente Tetrinet para GNOME"
 
-#: gtetrinet.schemas.in.h:1
+#: ../gtetrinet.schemas.in.h:1
 msgid "Command to run to play midi files"
 msgstr "Comando para reproducir archivos MIDI."
 
-#: gtetrinet.schemas.in.h:2
+#: ../gtetrinet.schemas.in.h:2
 msgid "Enable/disable channel list."
 msgstr "Habilitar/deshabilitar lista del canal"
 
-#: gtetrinet.schemas.in.h:3
+#: ../gtetrinet.schemas.in.h:3
 msgid "Enable/disable midi music"
 msgstr "Habilitar/deshabilitar música MIDI."
 
-#: gtetrinet.schemas.in.h:4
+#: ../gtetrinet.schemas.in.h:4
 msgid "Enable/disable sound"
 msgstr "Habilitar/deshabilitar sonido"
 
-#: gtetrinet.schemas.in.h:5
+#: ../gtetrinet.schemas.in.h:5
 msgid "Enable/disable timestamps."
 msgstr "Habilitar/deshabilitar registros de tiempos"
 
-#: gtetrinet.schemas.in.h:6
+#: ../gtetrinet.schemas.in.h:6
 msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
@@ -703,7 +699,7 @@ msgstr ""
 "Habilitar/deshabilitar sonido.  Tenga en mente que el tema que está usando "
 "debe proveer sonidos."
 
-#: gtetrinet.schemas.in.h:7
+#: ../gtetrinet.schemas.in.h:7
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
@@ -711,7 +707,7 @@ msgstr ""
 "Habilitar/deshabilitar música midi.  Necesitará habilitar el sonido si desea "
 "que la música funcione."
 
-#: gtetrinet.schemas.in.h:8
+#: ../gtetrinet.schemas.in.h:8
 msgid ""
 "Enables/disables the channel list. Disable it if you experience problems "
 "when connecting or while playing in your favorite tetrinet server."
@@ -719,71 +715,81 @@ msgstr ""
 "Activar/desactivar la lista del canal. Desactívala si experimentas problemas "
 "al conectar o mientras juegas en tu servidor tetrinet favorito."
 
-#: gtetrinet.schemas.in.h:9
+#: ../gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
 msgstr "Activa/desactiva registros de tiempos en la línea."
 
-#: gtetrinet.schemas.in.h:10
+#: ../gtetrinet.schemas.in.h:10
+msgid ""
+"If set to true, the game mode will be set to TetriFast. If false, GTetrinet "
+"will use the original mode."
+msgstr "Si se establece a 'true', el modo de juego se establecerá a TetriFast. Si es 'false' Gtetrinet usará el modo original."
+
+#: ../gtetrinet.schemas.in.h:11
 msgid "Key to discard special"
 msgstr "Tecla para descartar especial"
 
-#: gtetrinet.schemas.in.h:11
+#: ../gtetrinet.schemas.in.h:12
 msgid "Key to drop piece"
 msgstr "Tecla para descartar pieza"
 
-#: gtetrinet.schemas.in.h:12
+#: ../gtetrinet.schemas.in.h:13
 msgid "Key to move down"
 msgstr "Tecla para mover abajo"
 
-#: gtetrinet.schemas.in.h:13
+#: ../gtetrinet.schemas.in.h:14
 msgid "Key to move left"
 msgstr "Tecla para mover a la izquierda"
 
-#: gtetrinet.schemas.in.h:14
+#: ../gtetrinet.schemas.in.h:15
 msgid "Key to move right"
 msgstr "Tecla para mover a la derecha"
 
-#: gtetrinet.schemas.in.h:15
+#: ../gtetrinet.schemas.in.h:16
 msgid "Key to open the fields' message dialog"
 msgstr "Clave para abrir el diálogo del mensaje de campos"
 
-#: gtetrinet.schemas.in.h:16
+#: ../gtetrinet.schemas.in.h:17
 msgid "Key to rotate clockwise"
 msgstr "Tecla para rotar en el sentido del reloj"
 
-#: gtetrinet.schemas.in.h:17
+#: ../gtetrinet.schemas.in.h:18
 msgid "Key to rotate counterclockwise"
 msgstr "Tecla para rotar en el sentido contrario del reloj"
 
-#: gtetrinet.schemas.in.h:18
+#: ../gtetrinet.schemas.in.h:19
 msgid "Key to use the current special on field 1"
 msgstr "Tecla para usar el especial actual en campo 1"
 
-#: gtetrinet.schemas.in.h:19
+#: ../gtetrinet.schemas.in.h:20
 msgid "Key to use the current special on field 2"
 msgstr "Tecla para usar el especial actual en campo 2"
 
-#: gtetrinet.schemas.in.h:20
+#: ../gtetrinet.schemas.in.h:21
 msgid "Key to use the current special on field 3"
 msgstr "Tecla para usar el especial actual en campo 3"
 
-#: gtetrinet.schemas.in.h:21
+#: ../gtetrinet.schemas.in.h:22
 msgid "Key to use the current special on field 4"
 msgstr "Tecla para usar el especial actual en campo 4"
 
-#: gtetrinet.schemas.in.h:22
+#: ../gtetrinet.schemas.in.h:23
 msgid "Key to use the current special on field 5"
 msgstr "Tecla para usar el especial actual en campo 5"
 
-#: gtetrinet.schemas.in.h:23
+#: ../gtetrinet.schemas.in.h:24
 msgid "Key to use the current special on field 6"
 msgstr "Tecla para usar el especial actual en campo 6"
 
-#: gtetrinet.schemas.in.h:24
+#: ../gtetrinet.schemas.in.h:25
 msgid "Server where you want to play"
 msgstr "Servidor en el cual desea jugar"
 
-#: gtetrinet.schemas.in.h:25
+#: ../gtetrinet.schemas.in.h:26
+msgid "Tetrinet game mode"
+msgstr "Modo de juego de GTetrinet"
+
+#: ../gtetrinet.schemas.in.h:27
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
@@ -791,11 +797,11 @@ msgstr ""
 "El directorio actual del tema.  Debe contener los archivos «blocks.png» y "
 "«theme.cfg», los cuales deben tener permisos de lectura."
 
-#: gtetrinet.schemas.in.h:26
+#: ../gtetrinet.schemas.in.h:28
 msgid "Theme directory, should end with a '/'"
 msgstr "Directorio del tema, debe terminar con «/»"
 
-#: gtetrinet.schemas.in.h:27
+#: ../gtetrinet.schemas.in.h:29
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
@@ -803,94 +809,94 @@ msgstr ""
 "El comando indicado será utilizado para reproducir un archivo MIDI.  El "
 "nombre del archivo se encuentra en la variable de ambiente MIDFILE."
 
-#: gtetrinet.schemas.in.h:28
+#: ../gtetrinet.schemas.in.h:30
 msgid "This is the server where GTetrinet will try to connect."
 msgstr "El servidor al cual GTetrinet intentará conectarse."
 
-#: gtetrinet.schemas.in.h:29
+#: ../gtetrinet.schemas.in.h:31
 msgid "This key discards the current special. This is case insensitive."
 msgstr ""
 "Esta tecla descarta el especial activo.  No es sensible a mayúsculas y "
 "minúsculas."
 
-#: gtetrinet.schemas.in.h:30
+#: ../gtetrinet.schemas.in.h:32
 msgid "This key displays the fields' message dialog. This is case insensitive."
 msgstr ""
 "Esta clave muestra el diálogo del mensaje de campos. Es sensible a "
 "mayúsculas."
 
-#: gtetrinet.schemas.in.h:31
+#: ../gtetrinet.schemas.in.h:33
 msgid "This key drops the block to the ground. This is case insensitive."
 msgstr ""
 "Esta tecla descarta el bloque. No es sensible a mayúsculas y minúsculas."
 
-#: gtetrinet.schemas.in.h:32
+#: ../gtetrinet.schemas.in.h:34
 msgid "This key moves the block down. This is case insensitive."
 msgstr ""
 "Esta tecla mueve el bloque hacia abajo. No es sensible a mayúsculas y "
 "minúsculas."
 
-#: gtetrinet.schemas.in.h:33
+#: ../gtetrinet.schemas.in.h:35
 msgid "This key moves the block to the left. This is case insensitive."
 msgstr ""
 "Esta tecla mueve el bloque hacia la izquierda. No es sensible a mayúsculas y "
 "minúsculas."
 
-#: gtetrinet.schemas.in.h:34
+#: ../gtetrinet.schemas.in.h:36
 msgid "This key moves the block to the right. This is case insensitive."
 msgstr ""
 "Esta tecla mueve el bloque hacia la derecha. No es sensible a mayúsculas y "
 "minúsculas."
 
-#: gtetrinet.schemas.in.h:35
+#: ../gtetrinet.schemas.in.h:37
 msgid "This key rotates the block clockwise. This is case insensitive."
 msgstr ""
 "Esta tecla mueve el bloque en el sentido del reloj. No es sensible a "
 "mayúsculas y minúsculas."
 
-#: gtetrinet.schemas.in.h:36
+#: ../gtetrinet.schemas.in.h:38
 msgid "This key rotates the block counterclockwise. This is case insensitive."
 msgstr ""
 "Esta tecla rota el bloque en el sentido contrario del reloj. No es sensible "
 "a mayúsculas y minúsculas."
 
-#: gtetrinet.schemas.in.h:37
+#: ../gtetrinet.schemas.in.h:39
 msgid "This key uses the current special on Player 1's game field."
 msgstr "Esta tecla usa el especial actual en el campo de juego del Jugador 1"
 
-#: gtetrinet.schemas.in.h:38
+#: ../gtetrinet.schemas.in.h:40
 msgid "This key uses the current special on Player 2's game field."
 msgstr "Esta tecla usa el especial actual en el campo de juego del Jugador 2"
 
-#: gtetrinet.schemas.in.h:39
+#: ../gtetrinet.schemas.in.h:41
 msgid "This key uses the current special on Player 3's game field."
 msgstr "Esta tecla usa el especial actual en el campo de juego del Jugador 3"
 
-#: gtetrinet.schemas.in.h:40
+#: ../gtetrinet.schemas.in.h:42
 msgid "This key uses the current special on Player 4's game field."
 msgstr "Esta tecla usa el especial actual en el campo de juego del Jugador 4"
 
-#: gtetrinet.schemas.in.h:41
+#: ../gtetrinet.schemas.in.h:43
 msgid "This key uses the current special on Player 5's game field."
 msgstr "Esta tecla usa el especial actual en el campo de juego del Jugador 5"
 
-#: gtetrinet.schemas.in.h:42
+#: ../gtetrinet.schemas.in.h:44
 msgid "This key uses the current special on Player 6's game field."
 msgstr "Esta tecla usa el especial actual en el campo de juego del Jugador 6"
 
-#: gtetrinet.schemas.in.h:43
+#: ../gtetrinet.schemas.in.h:45
 msgid "This will be the name of your team."
 msgstr "Este será el nombre de su equipo."
 
-#: gtetrinet.schemas.in.h:44
+#: ../gtetrinet.schemas.in.h:46
 msgid "This will be your nickname in the game."
 msgstr "Este será su apodo en el juego."
 
-#: gtetrinet.schemas.in.h:45
+#: ../gtetrinet.schemas.in.h:47
 msgid "Your nickname"
 msgstr "Su apodo."
 
-#: gtetrinet.schemas.in.h:46
+#: ../gtetrinet.schemas.in.h:48
 msgid "Your team"
 msgstr "Su equipo"
 
