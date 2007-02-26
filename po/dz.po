@@ -1,0 +1,867 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtetrinet.head.pot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-02-26 03:19+0000\n"
+"PO-Revision-Date: 2007-02-26 12:14+0530\n"
+"Last-Translator: sonam pelden <sonaa_peldn@yahoo.com>\n"
+"Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Poedit-Language: Dzongkha\n"
+"X-Poedit-Country: Bhutan\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../src/client.c:243
+msgid "Couldn't resolve hostname."
+msgstr "ཧོསཊི་ནེམ་མོས་མཐུན་འབད་མ་ཚུགས།"
+
+#: ../src/commands.c:45
+msgid "_Connect to server..."
+msgstr "སར་བར་ལུ་མཐུད... (_C)"
+
+#: ../src/commands.c:46
+msgid "_Disconnect from server"
+msgstr "སར་བར་ལས་མཐུད་ལམ་བཏོག། (_D)"
+
+#: ../src/commands.c:48
+msgid "Change _team..."
+msgstr "རུ་ཚན་བསྒྱུར་བཅོས་འབད... (_t)"
+
+#: ../src/commands.c:50
+msgid "_Start game"
+msgstr "རྩེདམོ་འགོ་བཙུགས། (_S)"
+
+#: ../src/commands.c:51
+msgid "_Pause game"
+msgstr "རྩེདམོ་ཐེམ། (_P)"
+
+#: ../src/commands.c:52
+msgid "_End game"
+msgstr "རྩེདམོ་མཇུག་བསྡུ། (_E)"
+
+#: ../src/commands.c:57
+msgid "Detac_h page..."
+msgstr "ཤོག་ལེབ་ཁ་འཕྱལ... (_h)"
+
+#: ../src/commands.c:82
+msgid "Connect"
+msgstr "མཐུད་"
+
+#: ../src/commands.c:82
+msgid "Connect to a server"
+msgstr "སར་བར་ཅིག་ལུ་མཐུད་"
+
+#: ../src/commands.c:83
+msgid "Disconnect"
+msgstr "མཐུད་ལམ་བཏོག་"
+
+#: ../src/commands.c:83
+msgid "Disconnect from the current server"
+msgstr "ད་ལྟོའི་སར་བར་ལས་མཐུད་ལམ་བཏོག་"
+
+#: ../src/commands.c:85
+msgid "Start game"
+msgstr "རྩེདམོ་འགོ་བཙུགས་"
+
+#: ../src/commands.c:85
+msgid "Start a new game"
+msgstr "རྩེདམོ་གསརཔ་ཅིག་འགོ་བཙུགས་"
+
+#: ../src/commands.c:86
+msgid "End game"
+msgstr "རྩེདམོ་མཇུག་བསྡུ་"
+
+#: ../src/commands.c:86
+msgid "End the current game"
+msgstr "ད་ལྟོའི་རྩེདམོ་མཇུག་བསྡུ་"
+
+#: ../src/commands.c:87
+msgid "Pause game"
+msgstr "རྩེདམོ་ཐེམ་"
+
+#: ../src/commands.c:87
+msgid "Pause the game"
+msgstr "རྩེདམོ་ཐེམ་"
+
+#: ../src/commands.c:89
+#: ../src/dialogs.c:152
+msgid "Change team"
+msgstr "རུ་ཚན་བསྒྱུར་བཅོས་འབད་"
+
+#: ../src/commands.c:89
+msgid "Change your current team name"
+msgstr "ཁྱོད་རའི་ད་ལྟོའི་རུ་ཚན་གྱི་མིང་བསྒྱུར་བཅོས་འབད་"
+
+#: ../src/commands.c:92
+msgid "Detach page"
+msgstr "ཤོག་ལེབ་ཁ་འཕྱལ་"
+
+#: ../src/commands.c:92
+msgid "Detach the current notebook page"
+msgstr "ད་ལྟོའི་ཀི་དེབ་ཤོག་ལེབ་ཁ་འཕྱལ་"
+
+#: ../src/commands.c:258
+msgid "Game in progress"
+msgstr "རྩེདམོ་ཡར་འཕེལ་འགྱོ་བའི་བསྒང་"
+
+#: ../src/commands.c:261
+msgid "Connected to\n"
+msgstr "མཐུད\n"
+
+#: ../src/commands.c:265
+msgid "Not connected"
+msgstr "མ་མཐུད་བས་"
+
+#. Translators: translate as your names & emails
+#: ../src/commands.c:309
+msgid "translator-credits"
+msgstr "སྐད་བསྒྱུར་པའི་-ངོ་བསྟོད་ཚུ་"
+
+#: ../src/commands.c:323
+msgid "A Tetrinet client for GNOME.\n"
+msgstr "ཇི་ནོམ་གྱི་དོན་ལུ་ ཏི་ཊི་ནེཊི་ཅིག། \n"
+
+#: ../src/config.c:140
+msgid "Warning: theme does not have a name, reverting to default."
+msgstr "ཉེན་བརྡ: སྔོན་སྒྲིག་ལུ་རྒྱབ་ལོག་འབད་ནིའི་  བརྗོད་དོན་འདི་ལུ་མིང་མེད།"
+
+#. make dialog that asks for address/nickname
+#: ../src/dialogs.c:85
+#: ../src/dialogs.c:320
+#: ../src/gtetrinet.c:77
+msgid "Connect to server"
+msgstr "སར་བར་ལུ་མཐུད་"
+
+#: ../src/dialogs.c:165
+msgid "Team name:"
+msgstr "རུ་ཚན་གྱི་མིང་:"
+
+#: ../src/dialogs.c:209
+msgid "You must specify a server name."
+msgstr "ཁྱོད་ཀྱིས་སར་བར་གྱི་མིང་གསལ་བཀོད་འབད་དགོ།"
+
+#: ../src/dialogs.c:226
+msgid "Please specify a password to connect as spectator."
+msgstr "ལྟདམོ་ལྟ་མི་སྦེ་མཐུད་ནི་ལུ་  ཆོག་ཡིག་ཅིག་གསལ་བཀོད་འབད་དགོ།"
+
+#: ../src/dialogs.c:247
+msgid "Please specify a valid nickname."
+msgstr "ནུས་ཅན་ཡོད་པའི་སྐྱོན་མིང་ཅིག་གསལ་བཀོད་འབད་གནང་།"
+
+#. game type radio buttons
+#: ../src/dialogs.c:349
+msgid "O_riginal"
+msgstr "འདྲ་དང་པ། (_r)"
+
+#: ../src/dialogs.c:351
+msgid "Tetri_Fast"
+msgstr "ཏི་ཊི་མགྱོགས་དྲགས། (_F)"
+
+#: ../src/dialogs.c:373
+msgid "Server address"
+msgstr "སར་བར་གྱི་ཁ་བྱང་"
+
+#: ../src/dialogs.c:382
+msgid "Connect as a _spectator"
+msgstr "ལྟདམོ་ལྟ་མི་ཅིག་སྦེ་མཐུད། (_s)"
+
+#: ../src/dialogs.c:386
+msgid "_Password:"
+msgstr "ཆོག་ཡིག: (_P)"
+
+#: ../src/dialogs.c:403
+msgid "Spectate game"
+msgstr "རྩེདམོ་ལྟདམོ་ལྟ་"
+
+#: ../src/dialogs.c:412
+msgid "_Nick name:"
+msgstr "སྐྱོན་མིང་: (_N)"
+
+#: ../src/dialogs.c:426
+msgid "_Team name:"
+msgstr "རུ་ཚན་གྱི་མིང་: (_T)"
+
+#: ../src/dialogs.c:445
+msgid "Player information"
+msgstr "རྨེ་མིའི་བརྡ་དོན་"
+
+#: ../src/dialogs.c:486
+msgid "Change Key"
+msgstr "ལྡེ་མིག་བསྒྱུར་བཅོས་འབད་"
+
+#: ../src/dialogs.c:537
+msgid "Move right"
+msgstr "གཡས་ལུ་སྤོ་བཤུད་འབད་"
+
+#: ../src/dialogs.c:538
+msgid "Move left"
+msgstr "གཡོན་ལུ་སྤོ་བཤུད་འབད་"
+
+#: ../src/dialogs.c:539
+msgid "Move down"
+msgstr "མར་སྤོ་བཤུད་འབད་"
+
+#: ../src/dialogs.c:540
+msgid "Rotate right"
+msgstr "གཡས་སྐོར་"
+
+#: ../src/dialogs.c:541
+msgid "Rotate left"
+msgstr "གཡོན་སྐོར་"
+
+#: ../src/dialogs.c:542
+msgid "Drop piece"
+msgstr "པིསི་བཞག་"
+
+#: ../src/dialogs.c:543
+msgid "Discard special"
+msgstr "དམིགས་བསལ་བཏོག་བཀོག་"
+
+#: ../src/dialogs.c:544
+msgid "Send message"
+msgstr "འཕྲིན་དོན་གཏང་"
+
+#: ../src/dialogs.c:545
+msgid "Special to field 1"
+msgstr "ས་སྒོ་ ༡་ ལུ་དམིགས་བསལ་"
+
+#: ../src/dialogs.c:546
+msgid "Special to field 2"
+msgstr "ས་སྒོ་ ༢་ ལུ་དམིགས་བསལ་"
+
+#: ../src/dialogs.c:547
+msgid "Special to field 3"
+msgstr "ས་སྒོ་ ༣་ ལུ་དམིགས་བསལ་"
+
+#: ../src/dialogs.c:548
+msgid "Special to field 4"
+msgstr "ས་སྒོ་ ༤་ ལུ་དམིགས་བསལ་"
+
+#: ../src/dialogs.c:549
+msgid "Special to field 5"
+msgstr "ས་སྒོ་ ༥་ ལུ་དམིགས་བསལ་"
+
+#: ../src/dialogs.c:550
+msgid "Special to field 6"
+msgstr "ས་སྒོ་ ༦་ ལུ་དམིགས་བསལ་"
+
+#: ../src/dialogs.c:610
+#, c-format
+msgid "Press new key for \"%s\""
+msgstr "\"%s\"དོན་ལུ་ ལྡེ་མིག་གསརཔ་ཨེབ་གཏང་"
+
+#: ../src/dialogs.c:827
+msgid "GTetrinet Preferences"
+msgstr "ཇི་ཏི་ཊི་ནེཊི་དགའ་གདམ་ཚུ་"
+
+#: ../src/dialogs.c:849
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr ""
+"ཐོ་ཡིག་ལས་བརྗོད་དོན་ཅིག་སེལ་འཐུ་འབད། \n"
+"~/.gtetrinet/themes/ ནང་བརྗོད་དོན་གསརཔ་གཞི་བཙུགས་འབད་"
+
+#: ../src/dialogs.c:856
+msgid "Name:"
+msgstr "མིང་:"
+
+#: ../src/dialogs.c:859
+msgid "Author:"
+msgstr "རྩོམ་པ་པོ:"
+
+#: ../src/dialogs.c:862
+msgid "Description:"
+msgstr "འགྲེལ་བཤད:"
+
+#: ../src/dialogs.c:875
+msgid "Selected Theme"
+msgstr "སེལ་འཐུ་འབད་དེ་ཡོད་པའི་བརྗོད་དོན་"
+
+#: ../src/dialogs.c:891
+msgid "Download new themes"
+msgstr "བརྗོད་དོན་གསརཔ་ཚུ་ཕབ་ལེན་འབད་"
+
+#: ../src/dialogs.c:896
+msgid "Themes"
+msgstr "བརྗོད་དོན་ཚུ་"
+
+#. partyline
+#: ../src/dialogs.c:901
+msgid "Enable _Timestamps"
+msgstr "དུས་བཀོད་ཚུ་ལྕོགས་ཅན་བཟོ། (_T)"
+
+#: ../src/dialogs.c:903
+msgid "Enable Channel _List"
+msgstr "རྒྱུ་ལམ་ཐོ་ཡིག་ལྕོགས་ཅན་བཟོ། (_L)"
+
+#. FIXME
+#: ../src/dialogs.c:929
+#: ../src/gtetrinet.c:281
+msgid "Partyline"
+msgstr "སྡེ་ཚོགས་གྲལ་ཐིག་"
+
+#: ../src/dialogs.c:940
+msgid "Action"
+msgstr "བྱ་བ་"
+
+#: ../src/dialogs.c:942
+msgid "Key"
+msgstr "ལྡེ་མིག་"
+
+#: ../src/dialogs.c:948
+msgid "Select an action from the list and press Change Key to change the key associated with the action."
+msgstr "ཐོ་ཡིག་ལས་བྱ་བ་ཅིག་སེལ་འཐུ་འབད་ནི་དང་  བྱ་བ་དང་ཅིག་ཁར་མཉམ་སྦྲགས་འབད་དེ་ཡོད་པའི་ལྡེ་མིག་འདི་བསྒྱུར་བཅོས་འབད་ནི་ལུ་  བསྒྱུལ་བཅོས་ལྡེ་མིག་འདི་ཨེབ་གཏང་འབད།"
+
+#: ../src/dialogs.c:955
+msgid "Change _key..."
+msgstr "ལྡེ་མིག་བསྒྱུར་བཅོས་འབད... (_k)"
+
+#: ../src/dialogs.c:960
+#: ../src/dialogs.c:1013
+msgid "_Restore defaults"
+msgstr "སྔོན་སྒྲིག་ཚུ་སོར་ཆུད་འབད། (_R)"
+
+#: ../src/dialogs.c:981
+msgid "Keyboard"
+msgstr "ལྡེ་སྒྲོམ་"
+
+#. sound
+#: ../src/dialogs.c:986
+msgid "Enable _Sound"
+msgstr "སྒྲ་སྐད་ལྕོགས་ཅན་བཟོ། (_S)"
+
+#: ../src/dialogs.c:989
+msgid "Enable _MIDI"
+msgstr "ཨེམ་ཨའི་ཌི་ཨའི་ལྕོགས་ཅན་བཟོ། (_M)"
+
+#: ../src/dialogs.c:1003
+msgid "Enter command to play a midi file:"
+msgstr "མི་ཌི་ཡིག་སྣོད་ཅིག་རྩེ་ནི་ལུ་བརྡ་བཀོད་ཐོ་བཀོད་འབད:"
+
+#: ../src/dialogs.c:1006
+msgid "The above command is run when a midi file is to be played.  The name of the midi file is placed in the environment variable MIDIFILE."
+msgstr "མི་ཌི་ཡིག་སྣོད་འདི་རྩེ་ཡོདཔ་ད་  ལྟག་གི་བརྡ་བཀོད་འདི་གཡོག་བཀོལ་ནི་ཨིན་མས།  མི་ཌི་ཡིག་སྣོད་ཀྱི་མིང་འདི་ མཐའ་འཁོར་འགྱུར་ཅན་ MIDIFILEནང་བཞགཔ་ཨིན།"
+
+#: ../src/dialogs.c:1043
+msgid "Sound"
+msgstr "སྒྲ་སྐད་"
+
+#: ../src/fields.c:76
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr ""
+"བརྗོད་དོན་མངོན་གསལ་འབདཝ་ད་འཛོལ་བ: སྔོན་སྒྲིག་ལུ་རྒྱབ་ལོག་འབདཝ་ལས་\n"
+"ཐིག་ཁྲམ་གྱི་ཡིག་སྣོད་མངོན་གསལ་འབད་མ་ཚུགས་"
+
+#. shouldnt happen
+#: ../src/fields.c:85
+#, c-format
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr ""
+"སྔནོ་སྒྲིག་བརྗོད་དོན་མངོན་གསལ་འབདཝ་ད་འཛོལ་བ: བཙུག་སྒྲིག་འཛོལ་བ་ཚུ་གི་དོན་ལུ་... \n"
+"ཞིབ་དཔྱད་བར་བཤོལ་འབད་དོ་\n"
+
+#: ../src/fields.c:206
+msgid "Next piece:"
+msgstr "ཤུལ་མའི་པིསི:"
+
+#: ../src/fields.c:223
+msgid "Lines:"
+msgstr "གྲལ་ཐིག་ཚུ:"
+
+#: ../src/fields.c:227
+msgid "Level:"
+msgstr "གནས་རིམ:"
+
+#: ../src/fields.c:229
+msgid "Active level:"
+msgstr "གནས་རིམ་ཤུགས་ལྡན:"
+
+#: ../src/fields.c:277
+msgid "Attacks and defenses:"
+msgstr "དབང་གནོན་འབད་ནི་དང་རྒྱབ་སྣོན་འབད་ནི་ཚུ:"
+
+#: ../src/fields.c:420
+msgid "Not playing"
+msgstr "མི་རྩེ་བས་"
+
+#: ../src/fields.c:447
+msgid "Specials:"
+msgstr "དམིགས་བསལ་ཚུ:"
+
+#: ../src/gtetrinet.c:77
+msgid "SERVER"
+msgstr "སར་བར་"
+
+#: ../src/gtetrinet.c:78
+msgid "Set nickname to use"
+msgstr "ལག་ལེན་འཐབ་ནི་ལུ་སྐྱོན་མིང་གཞི་སྒྲིག་འབད་"
+
+#: ../src/gtetrinet.c:78
+msgid "NICKNAME"
+msgstr "སྐྱོན་མིང་"
+
+#: ../src/gtetrinet.c:79
+msgid "Set team name"
+msgstr "རུ་ཚན་མིང་གཞི་སྒྲིག་འབད་"
+
+#: ../src/gtetrinet.c:79
+msgid "TEAM"
+msgstr "རུ་ཚན་"
+
+#: ../src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "ལྟདམོ་ལྟ་མི་ཅིག་སྦེ་མཐུད་"
+
+#: ../src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr "ལྟེདམོ་ལྟ་མིའི་ཆོག་ཡིག་"
+
+#: ../src/gtetrinet.c:81
+msgid "PASSWORD"
+msgstr "ཆོག་ཡིག་"
+
+#: ../src/gtetrinet.c:120
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "ཇི་རིམ་སྒྲིག་ཨིན་ཨིཊི་འབད་མ་ཚུགས: %s\n"
+
+#. FIXME
+#: ../src/gtetrinet.c:270
+#: ../src/gtetrinet.c:416
+#: ../src/gtetrinet.c:469
+msgid "Playing Fields"
+msgstr "རྩེ་ནིའི་ས་སྒོ་ཚུ་"
+
+#. FIXME
+#: ../src/gtetrinet.c:292
+msgid "Winlist"
+msgstr "རྒྱལ་ཐོ་"
+
+#: ../src/partyline.c:77
+#: ../src/partyline.c:138
+#: ../src/winlist.c:59
+msgid "Name"
+msgstr "མིང་"
+
+#: ../src/partyline.c:79
+msgid "Players"
+msgstr "རྩེ་མི་ཚུ་"
+
+#: ../src/partyline.c:81
+msgid "State"
+msgstr "གནས་ལུགས་"
+
+#: ../src/partyline.c:83
+msgid "Description"
+msgstr "འགྲེལ་བཤད་"
+
+#: ../src/partyline.c:95
+msgid "Channel List"
+msgstr "རྒྱུ་ལམ་ཐོ་ཡིག་"
+
+#: ../src/partyline.c:140
+msgid "Team"
+msgstr "རུ་ཚན་"
+
+#: ../src/partyline.c:153
+msgid "Your name:"
+msgstr "ཁྱོད་རའི་མིང་:"
+
+#: ../src/partyline.c:160
+msgid "Your team:"
+msgstr "ཁྱོད་རའི་རུ་ཚན:"
+
+#: ../src/partyline.c:636
+msgid "Talking in channel"
+msgstr "རྒྱུ་ལམ་ནང་ཁ་སླབ་ནི་"
+
+#: ../src/partyline.c:638
+msgid "Disconnected"
+msgstr "མཐུད་ལམ་བཏོག་"
+
+#: ../src/tetrinet.c:197
+msgid "Server disconnected"
+msgstr "སར་བར་བཏོག་ཡོདཔ་"
+
+#: ../src/tetrinet.c:217
+#, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c*** སར་བར་ལས་མཐུད་ལམ་བཏོག་ཡོདཔ་"
+
+#: ../src/tetrinet.c:229
+msgid "Error connecting: "
+msgstr "མཐུདཔ་ད་འཛོལ་བ:"
+
+#: ../src/tetrinet.c:263
+#, c-format
+msgid "%c%c*** Connected to server"
+msgstr "%c%c*** སར་བར་ལུ་མཐུད་ཡོདཔ་"
+
+#: ../src/tetrinet.c:364
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr "%c%c*** ཁྱོད་རྩེདམོ་ལས་བཏོན་གཏང་ཡོདཔ་"
+
+#: ../src/tetrinet.c:368
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr "%c*** %c%s%c%c རྩེདམོ་ལས་བཏོན་གཏང་ཡོདཔ་"
+
+#: ../src/tetrinet.c:543
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr "%c*** རུ་ཚན་ %c%s%c%c རྩེདམོ་རྒྱལ་ཁ་ཐོབ་ནུག་"
+
+#: ../src/tetrinet.c:549
+#, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr "%c*** %c%s%c%c རྩེདམོ་རྒྱལ་ཁ་ཐོབ་ནུག་"
+
+#: ../src/tetrinet.c:612
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr "%c*** རྩེདམོ་འདི་ %cའགོ་བཙུགས་ཡོདཔ་"
+
+#: ../src/tetrinet.c:638
+#, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "%c*** རྩེདམོ་འདི་ %cཡར་འཕེལ་འགྱོ་བའི་བསྒང་"
+
+#: ../src/tetrinet.c:650
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr "%c*** རྩེདམོ་འདི་  %cཐེམ་ཡོདཔ་"
+
+#: ../src/tetrinet.c:652
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr "རྩེདམོ་འདི་ %c%cཐེམ་ཡོདཔ་"
+
+#: ../src/tetrinet.c:657
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr "%c*** རྩེདམོ་འདི་ %cབསྐྱར་ལོག་འབད་དེ་ཡོདཔ་"
+
+#: ../src/tetrinet.c:659
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr "རྩེདམོ་འདི་ %c%cབསྐྱར་ལོག་འབད་དེ་ཡོདཔ་"
+
+#: ../src/tetrinet.c:668
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr "%c*** རྩེདམོ་འདི་ %cམཇུག་བསྡུ་ཡོདཔ་"
+
+#: ../src/tetrinet.c:786
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr "%c*** ཁྱོད་ %c%s%c%c མཐུད་ཡོདཔ་"
+
+#: ../src/tetrinet.c:803
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c དེ་གིས་ལྟདམོ་ལྟ་མི་ཚུ་མཐུད་ནུག་%c%c(%c%s%c%c%c)"
+
+#: ../src/tetrinet.c:824
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%cདེ་གིས་ལྟདམོ་ལྟ་མི་ཚུ་བཀོ་བཞག་ནུག་ %c%c(%c%s%c%c%c)"
+
+#: ../src/tetrinet.c:1062
+msgid "No special blocks"
+msgstr "དམིགས་བསལ་གྱི་བཀག་ཆ་ཚུ་མེད་"
+
+#: ../src/tetrinet.c:1221
+#: ../src/tetrinet.c:1228
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr " ཨཱོན %c%c%s%c%c"
+
+#: ../src/tetrinet.c:1238
+msgid " to All"
+msgstr "ཆ་མཉམ་ལུ་"
+
+#: ../src/tetrinet.c:1244
+#: ../src/tetrinet.c:1251
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr " གིས་ %c%c%s%c%c"
+
+#: ../src/tetrinet.c:1879
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr "%c*** %c%s%c%c འདི་མཐུན་སྒྲིག་འབད་མི་"
+
+#. remove ", " from end of string
+#: ../src/tetrinet.c:1928
+msgid " has left the game"
+msgstr "དེ་གིས་རྩེདམོ་བཀོ་བཞག་ནུག་"
+
+#: ../src/tetrinet.c:1929
+msgid " have left the game"
+msgstr "རྩེདམོ་བཀོ་བཞག་ནུག་"
+
+#: ../src/tetrinet.c:1942
+msgid " has joined the game"
+msgstr "དེ་གིས་རྩེདམོ་ནང་འཛུལ་ནུག་"
+
+#: ../src/tetrinet.c:1943
+msgid " have joined the game"
+msgstr "རྩེདམོ་ནང་འཛུལ་ནུག་"
+
+#: ../src/tetrinet.c:1966
+#, c-format
+msgid "%s is on team %c%s"
+msgstr "%s འདི་རུ་ཚན་གུ་ཡོད་ %c%s"
+
+#: ../src/tetrinet.c:1969
+#, c-format
+msgid "%s is alone"
+msgstr "%sའདི་རྐྱང་པ་ཨིན་མས་"
+
+#: ../src/tetrinet.c:1971
+#, c-format
+msgid "%s are on team %c%s"
+msgstr "%s ཚུ་རུ་ཚན་གུ་འདུག་ %c%s"
+
+#: ../src/tetrinet.c:1974
+#, c-format
+msgid "%s are alone"
+msgstr "%s རྐྱང་པ་ཨིན་མས་"
+
+#: ../src/tetrinet.c:2015
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr "%c*** %c%s%c%c འདི་ད་རུ་ཚན་གུ་འདུག་ %c%s"
+
+#: ../src/tetrinet.c:2022
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr "%c*** %c%s%c%c འདི་ད་རྐྱང་པ་ཨིན་མས་"
+
+#. "T" stands for "Team" here
+#: ../src/winlist.c:57
+msgid "T"
+msgstr "ཊི་"
+
+#: ../src/winlist.c:61
+msgid "Score"
+msgstr "སྐུགས་"
+
+#: ../gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr "ཇི་ཏི་ཊི་ནེཊི་"
+
+#: ../gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "ཏི་ཊི་ནེཊི་ཞབས་ཏོག་སྤྱོད་མི་"
+
+#: ../gtetrinet.desktop.in.h:3
+msgid "Tetrinet client for GNOME"
+msgstr "ཇི་ནོམ་གྱི་དོན་ལུ་ཏི་ཊི་ནེཊི་ཞབས་ཐོག་སྤྱོད་མི་"
+
+#: ../gtetrinet.schemas.in.h:1
+msgid "Command to run to play midi files"
+msgstr "མི་ཌི་ཡིད་སྣོད་ཚུ་རྩེ་ནི་ལུ་གཡོག་བཀོལ་ནི་ཨིན་པའི་བརྡ་བཀོད་"
+
+#: ../gtetrinet.schemas.in.h:2
+msgid "Enable/disable channel list."
+msgstr "རྒྱུ་ལམ་ཐོ་ཡིག་འདི་ལྕོགས་ཅན་/ལྕོགས་མིན་བཟོ།"
+
+#: ../gtetrinet.schemas.in.h:3
+msgid "Enable/disable midi music"
+msgstr "མི་ཌི་སྙན་ཆ་ལྕོགས་ཅན་/ལྕོགས་མིན་བཟོ་"
+
+#: ../gtetrinet.schemas.in.h:4
+msgid "Enable/disable sound"
+msgstr "སྒྲ་སྐད་ལྕོགས་ཅན་/ལྕོགས་མིན་བཟོ་"
+
+#: ../gtetrinet.schemas.in.h:5
+msgid "Enable/disable timestamps."
+msgstr "དུས་བཀོད་ཚུ་ལྕོགས་ཅན་/ལྕོགས་མེན་བཟོ།"
+
+#: ../gtetrinet.schemas.in.h:6
+msgid "Enables/Disables sound. Keep in mind that the theme that you're using must provide sounds."
+msgstr "སྒྲ་སྐད་འདི་ལྕོགས་ཅན་/ལྕོགས་མིན་བཟོ། ཁྱོད་ཀྱིས་ལག་ལེན་འཐབ་པའི་བརྗོད་དོན་འདི་  སྒྲ་སྐད་བྱིན་དགོཔ་ཨིན་ཟེར་སེམས་ཁར་ངེས།"
+
+#: ../gtetrinet.schemas.in.h:7
+msgid "Enables/disables midi music. You'll need to enable sound if you want music to work."
+msgstr "མི་ཌི་སྙན་ཆ་འདི་ལྕོགས་ཅན་/ལྕོགས་མིན་བཟོ།  སྙན་ཆ་འདི་ལཱ་འབད་བཏུབ་དགོ་པ་ཅིན་  ཁྱོད་ཀྱིས་སྒྲ་སྐད་ལྕོགས་ཅན་བཟོ་དགོ།"
+
+#: ../gtetrinet.schemas.in.h:8
+msgid "Enables/disables the channel list. Disable it if you experience problems when connecting or while playing in your favorite tetrinet server."
+msgstr "རྒྱུ་ལམ་ཐོ་ཡིག་འདི་ལྕོགས་ཅན་/ལྕོགས་མིན་བཟོ།  ཁྱོད་རང་དགའ་མི་ཏི་ཊི་ནེཊི་སར་བར་ནང་ མཐུད་པའི་བསྒང་དང་ཡང་ན་རྩེ་བའི་བསྒང་དཀའ་ངལ་བྱུང་པ་ཅིན་  ལྕོགས་མིན་བཟོ།"
+
+#: ../gtetrinet.schemas.in.h:9
+msgid "Enables/disables timestamps in the partyline."
+msgstr "སྡེ་ཚོགས་གྲལ་ཐིག་ནང་དུས་བཀོད་ཚུ་ལྕོགས་ཅན་/ལྕོགས་མིན་བཟོ།"
+
+#: ../gtetrinet.schemas.in.h:10
+msgid "If set to true, the game mode will be set to TetriFast. If false, GTetrinet will use the original mode."
+msgstr "བདེན་པ་ལུ་གཞི་སྒྲིག་འབད་དེ་ཡོད་པ་ཅིན་  རྩེདམོ་ཐབས་ལམ་འདི་ཏི་ཊི་མགྱོགས་དྲགས་ལུ་གཞི་སྒྲིག་འབད་ནི་ཨིན།  རྫུན་མ་ཨིན་པ་ཅིན་  ཇི་ཏི་ཊི་ནེཊི་དེ་གིས་  ཐབས་ལམ་ངོ་མ་འདི་ལག་ལེན་འཐབ་ནི་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:11
+msgid "Key to discard special"
+msgstr "དམིགས་བསལ་བཏོན་བཀོག་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:12
+msgid "Key to drop piece"
+msgstr "པིསི་བཞག་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:13
+msgid "Key to move down"
+msgstr "མར་སྤོ་བཤུད་འབད་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:14
+msgid "Key to move left"
+msgstr "གཡོན་སྤོ་བཤུད་འབད་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:15
+msgid "Key to move right"
+msgstr "གཡས་སྤོ་བཤུད་འབད་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:16
+msgid "Key to open the fields' message dialog"
+msgstr "ས་སྒོའི་' འཕྲིན་དོན་ཌའི་ལོག་འདི་ཁ་ཕྱེ་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:17
+msgid "Key to rotate clockwise"
+msgstr "གཡས་སྐོར་སྐོར་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:18
+msgid "Key to rotate counterclockwise"
+msgstr "གཡོན་སྐོར་སྐོར་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:19
+msgid "Key to use the current special on field 1"
+msgstr "ས་སྒོ་ ༡་གུ་ད་ལྟོའི་དམིགས་བསལ་འདི་ལག་ལེན་འཐབ་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:20
+msgid "Key to use the current special on field 2"
+msgstr "ས་སྒོ་ ༢་གུ་ད་ལྟོའི་དམིགས་བསལ་འདི་ལག་ལེན་འཐབ་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:21
+msgid "Key to use the current special on field 3"
+msgstr "ས་སྒོ་ ༣་གུ་ད་ལྟོའི་དམིགས་བསལ་འདི་ལག་ལེན་འཐབ་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:22
+msgid "Key to use the current special on field 4"
+msgstr "ས་སྒོ་ ༤་གུ་ད་ལྟོའི་དམིགས་བསལ་འདི་ལག་ལེན་འཐབ་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:23
+msgid "Key to use the current special on field 5"
+msgstr "ས་སྒོ་ ༥་གུ་ད་ལྟོའི་དམིགས་བསལ་འདི་ལག་ལེན་འཐབ་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:24
+msgid "Key to use the current special on field 6"
+msgstr "ས་སྒོ་ ༦་གུ་ད་ལྟོའི་དམིགས་བསལ་འདི་ལག་ལེན་འཐབ་ནི་ལུ་ལྡེ་མིག་"
+
+#: ../gtetrinet.schemas.in.h:25
+msgid "Server where you want to play"
+msgstr "ཁྱོད་ག་སྟེ་རྩེ་ནི་ཨིན་ན་ལུ་སར་བར་"
+
+#: ../gtetrinet.schemas.in.h:26
+msgid "Tetrinet game mode"
+msgstr "ཏི་ཊི་ནེཊི་རྩེདམོ་ཐབས་ལམ་"
+
+#: ../gtetrinet.schemas.in.h:27
+msgid "The current theme directory. It should contain a readable \"blocks.png\" and a \"theme.cfg\"."
+msgstr "ད་ལྟོའི་བརྗོད་དོན་གྱི་སྣོད་ཐོ།  དེ་ལུ་ལྷག་ཚུགས་པའི་ \"blocks.png\" དང་ \"theme.cfg\" འོང་དགོཔ་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:28
+msgid "Theme directory, should end with a '/'"
+msgstr "བརྗོད་དོན་སྣོད་ཐོ་འདི་ '/' དང་ཅིག་ཁར་མཇུག་བསྡུ་དགོ་"
+
+#: ../gtetrinet.schemas.in.h:29
+msgid "This command is run when a midi file is to be played. The name of the midi file is placed in the environment variable MIDIFILE."
+msgstr "མི་ཌི་ཡིག་སྣོད་འདི་གཏང་ནི་འབདཝ་ད་གཡོག་བཀོལ་ནི་ཨིན་པའི་བརྡ་བཀོད།  མི་ཌི་ཡིག་སྣོད་ཀྱི་མིང་འདི་  མཐའ་འཁོར་འགྱུར་ཅན་ MIDIFILE ནང་བཞག་སྟེ་ཡོདཔ་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:30
+msgid "This is the server where GTetrinet will try to connect."
+msgstr "ཇི་ཏི་ཊི་ནེཊི་དེ་གིས་མཐུད་ནི་ལུ་འབད་བརྩོལ་བསྐྱེད་ནི་ཨིན་པའི་  སར་བར་འདི་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:31
+msgid "This key discards the current special. This is case insensitive."
+msgstr "ལྡེ་མིག་འདི་གིས་ད་ལྟོའི་དམིགས་བསལ་འདི་བཏོན་བཀོགཝ་ཨིན།  འདི་ཉེན་ཁ་མེད་པའི་གནད་དོན་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:32
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr "ལྡེ་མིག་འདི་གིས་ ས་སྒོ་'འཕྲིན་དོན་ཌའི་ལོག་འདི་བཀྲམ་སྟོན་འབདཝ་ཨིན།  འདི་ཉེན་ཁ་མེད་པའི་གནད་དོན་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:33
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr "ལྡེ་མིག་དེ་གིས་བཀག་ཆ་འདི་ས་ཁར་བཞགཔ་ཨིན།  འདི་ཉེན་ཁ་མེད་པའི་གནད་དོན་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:34
+msgid "This key moves the block down. This is case insensitive."
+msgstr "ལྡེ་མིག་དེ་གིས་བཀག་ཆ་འདི་མར་སྤོ་བཤུད་འབདཝ་ཨིན། འདི་ཉེན་ཁ་མེད་པའི་གནད་དོན་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:35
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr "ལྡེ་མིག་འདི་གིས་བཀག་ཆ་འདི་གཡོན་ཁ་ཐུག་སྤོ་བཤུད་འབདཝ་ཨིན།  འདི་ཉེན་ཁ་མེད་པའི་གནད་དོན་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:36
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr "ལྡེ་མིག་འདི་གིས་བཀག་ཆ་འདི་གཡས་ཁ་ཐུག་སྤོ་བཤུད་འབདཝ་ཨིན།  འདི་ཉེན་ཁ་མེད་པའི་གནད་དོན་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:37
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr "ལྡེ་མིག་འདི་གིས་བཀག་ཆ་འདི་གཡས་སྐོར་སྦརེ་སྐོརཝ་ཨིན།  འདི་ཉེན་ཁ་མེད་པའི་གནད་དོན་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:38
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr "ལྡེ་མིག་འདི་གིས་བཀག་ཆ་འདི་གཡོན་སྐོར་སྦེ་སྐོརཝ་ཨིན།  འདི་ཉེན་ཁ་མེད་པའི་གནད་དོན་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:39
+msgid "This key uses the current special on Player 1's game field."
+msgstr "ལྡེ་མིག་འདི་གིས་ད་ལྟོའི་དམིགས་བསལ་འདི་ རྩེ་མི་ ༡་ པའི་རྩེདམོ་ས་སྒོ་གུ་ལག་ལེན་འཐབ་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:40
+msgid "This key uses the current special on Player 2's game field."
+msgstr "ལྡེ་མིག་འདི་གིས་ད་ལྟོའི་དམིགས་བསལ་འདི་  རྩེ་མི་ ༢་ པའི་རྩེདམོ་ས་སྒོ་གུ་ལག་ལེན་འཐབ་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:41
+msgid "This key uses the current special on Player 3's game field."
+msgstr "ལྡེ་མིག་འདི་གིས་རྩེ་མི་ ༣་པའི་རྩེདམོ་ས་སྒོ་གུ་ད་ལྟོའི་དམིགས་བསལ་འདི་ལག་ལེན་འཐབ་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:42
+msgid "This key uses the current special on Player 4's game field."
+msgstr "ལྡེ་མིག་འདི་གིས་ད་ལྟོའི་དམིགས་བསལ་འདི་  རྩེ་མི་ ༤་པའི་རྩེདམོ་ས་སྒོ་གུ་ལག་ལེན་འཐབ་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:43
+msgid "This key uses the current special on Player 5's game field."
+msgstr "ལྡེ་མིག་འདི་གིས་ད་ལྟོའི་དམིགས་བསལ་འདི་  རྩེ་མི་ ༥་པའི་རྩེདམོ་ས་སྒོ་གུ་ལག་ལེན་འཐབ་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:44
+msgid "This key uses the current special on Player 6's game field."
+msgstr "ལྡེ་མིག་འདི་གིས་ད་ལྟོའི་དམིགས་བསལ་འདི་  རྩེ་མི་ ༦་པའི་རྩེདམོ་ས་སྒོ་གུ་ལག་ལེན་འཐབ་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:45
+msgid "This will be the name of your team."
+msgstr "འདི་ཁྱོད་རའི་རུ་ཚན་གྱི་མིང་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:46
+msgid "This will be your nickname in the game."
+msgstr "འདི་རྩེདམོ་ནང་ཁྱོད་རའི་སྐྱོན་མིང་ཨིན།"
+
+#: ../gtetrinet.schemas.in.h:47
+msgid "Your nickname"
+msgstr "ཁྱོད་རའི་སྐྱོན་མིང་"
+
+#: ../gtetrinet.schemas.in.h:48
+msgid "Your team"
+msgstr "ཁྱོད་རའི་རུ་ཚན་"
+
