@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtetrinet 0.7.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-07 20:38+0100\n"
-"PO-Revision-Date: 2007-05-13 11:33+0200\n"
+"PO-Revision-Date: 2007-08-19 21:35+0200\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
@@ -71,7 +71,7 @@ msgstr ""
 
 #: ../src/commands.c:85
 msgid "Start a new game"
-msgstr ""
+msgstr "Començar una partida nova"
 
 #: ../src/commands.c:86
 msgid "End game"
@@ -115,12 +115,12 @@ msgstr ""
 
 #: ../src/commands.c:265
 msgid "Not connected"
-msgstr ""
+msgstr "Pas connectat"
 
 #. Translators: translate as your names & emails
 #: ../src/commands.c:309
 msgid "translator-credits"
-msgstr ""
+msgstr "La còla occitana de revirada d'Ubuntu, 2007 - ubuntu-l10n-oci@lists.ubuntu.com"
 
 #: ../src/commands.c:323
 msgid "A Tetrinet client for GNOME.\n"
@@ -154,7 +154,7 @@ msgstr ""
 #. game type radio buttons
 #: ../src/dialogs.c:349
 msgid "O_riginal"
-msgstr ""
+msgstr "O_riginal"
 
 #: ../src/dialogs.c:351
 msgid "Tetri_Fast"
@@ -170,7 +170,7 @@ msgstr ""
 
 #: ../src/dialogs.c:386
 msgid "_Password:"
-msgstr ""
+msgstr "Mot de _pas :"
 
 #: ../src/dialogs.c:403
 msgid "Spectate game"
@@ -194,15 +194,15 @@ msgstr ""
 
 #: ../src/dialogs.c:537
 msgid "Move right"
-msgstr ""
+msgstr "Bolegar cap a drecha"
 
 #: ../src/dialogs.c:538
 msgid "Move left"
-msgstr ""
+msgstr "Bolegar cap a esquèrra"
 
 #: ../src/dialogs.c:539
 msgid "Move down"
-msgstr ""
+msgstr "Bolegar cap aval"
 
 #: ../src/dialogs.c:540
 msgid "Rotate right"
@@ -222,7 +222,7 @@ msgstr ""
 
 #: ../src/dialogs.c:544
 msgid "Send message"
-msgstr ""
+msgstr "Enviar un messatge"
 
 #: ../src/dialogs.c:545
 msgid "Special to field 1"
@@ -255,7 +255,7 @@ msgstr ""
 
 #: ../src/dialogs.c:827
 msgid "GTetrinet Preferences"
-msgstr ""
+msgstr "Preferéncias de GTetrinet"
 
 #: ../src/dialogs.c:849
 msgid ""
@@ -269,7 +269,7 @@ msgstr "Nom :"
 
 #: ../src/dialogs.c:859
 msgid "Author:"
-msgstr ""
+msgstr "Autor :"
 
 #: ../src/dialogs.c:862
 msgid "Description:"
@@ -285,7 +285,7 @@ msgstr ""
 
 #: ../src/dialogs.c:896
 msgid "Themes"
-msgstr ""
+msgstr "Tèmas"
 
 #. partyline
 #: ../src/dialogs.c:901
@@ -325,7 +325,7 @@ msgstr ""
 
 #: ../src/dialogs.c:981
 msgid "Keyboard"
-msgstr ""
+msgstr "Clavièr"
 
 #. sound
 #: ../src/dialogs.c:986
@@ -348,7 +348,7 @@ msgstr ""
 
 #: ../src/dialogs.c:1043
 msgid "Sound"
-msgstr ""
+msgstr "Son"
 
 #: ../src/fields.c:76
 msgid ""
@@ -394,7 +394,7 @@ msgstr ""
 
 #: ../src/gtetrinet.c:77
 msgid "SERVER"
-msgstr ""
+msgstr "SERVIDOR"
 
 #: ../src/gtetrinet.c:78
 msgid "Set nickname to use"
@@ -445,11 +445,11 @@ msgstr "Nom"
 
 #: ../src/partyline.c:79
 msgid "Players"
-msgstr ""
+msgstr "Jogaires"
 
 #: ../src/partyline.c:81
 msgid "State"
-msgstr ""
+msgstr "Estat"
 
 #: ../src/partyline.c:83
 msgid "Description"
@@ -640,15 +640,15 @@ msgstr ""
 #. "T" stands for "Team" here
 #: ../src/winlist.c:57
 msgid "T"
-msgstr ""
+msgstr "T"
 
 #: ../src/winlist.c:61
 msgid "Score"
-msgstr ""
+msgstr "Marca"
 
 #: ../gtetrinet.desktop.in.h:1
 msgid "GTetrinet"
-msgstr ""
+msgstr "GTetrinet"
 
 #: ../gtetrinet.desktop.in.h:2
 msgid "Tetrinet client"
