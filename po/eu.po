@@ -1,16 +1,16 @@
-# translation of eu.po to Basque
+# translation of gtetrinet.HEAD.po to Basque
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Julen Landa <julen@mundurat.net>, 2003, 2005.
 # Iñaki Larrañaga  <dooteo@euskalgnu.org>, 2005, 2006.
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2007.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2007, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: eu\n"
+"Project-Id-Version: gtetrinet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-02 18:32+0200\n"
-"PO-Revision-Date: 2007-04-02 18:33+0200\n"
+"POT-Creation-Date: 2008-01-29 16:48+0100\n"
+"PO-Revision-Date: 2008-01-25 19:05+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../src/client.c:243
 msgid "Couldn't resolve hostname."
-msgstr "Ezin da ostalari-izena ebatzik."
+msgstr "Ezin izan da ostalari-izena ebatzi."
 
 #: ../src/commands.c:45
 msgid "_Connect to server..."
@@ -125,7 +125,7 @@ msgstr "Konektatu gabe"
 msgid "translator-credits"
 msgstr ""
 "Julen Landa Alustiza <julen@mundurat.net>\n"
-"IÃ±aki LarraÃ±aga <dooteo@euskalgnu.org>"
+"Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>"
 
 #: ../src/commands.c:323
 msgid "A Tetrinet client for GNOME.\n"
@@ -199,15 +199,15 @@ msgstr "Aldatu tekla"
 
 #: ../src/dialogs.c:537
 msgid "Move right"
-msgstr "Mugitu eskuinera"
+msgstr "Eraman eskuinera"
 
 #: ../src/dialogs.c:538
 msgid "Move left"
-msgstr "Mugitu ezkerrera"
+msgstr "Eraman ezkerrera"
 
 #: ../src/dialogs.c:539
 msgid "Move down"
-msgstr "Mugitu beherantz"
+msgstr "Eraman behera"
 
 #: ../src/dialogs.c:540
 msgid "Rotate right"
@@ -272,7 +272,7 @@ msgstr ""
 
 #: ../src/dialogs.c:856
 msgid "Name:"
-msgstr "izena:"
+msgstr "Izena:"
 
 #: ../src/dialogs.c:859
 msgid "Author:"
@@ -297,11 +297,11 @@ msgstr "Gaiak"
 #. partyline
 #: ../src/dialogs.c:901
 msgid "Enable _Timestamps"
-msgstr "Gaitu denbora-markak"
+msgstr "Gaitu _denbora-markak"
 
 #: ../src/dialogs.c:903
 msgid "Enable Channel _List"
-msgstr "Gaitu kanal_zerrenda"
+msgstr "Gaitu kanal-_zerrenda"
 
 #. FIXME
 #: ../src/dialogs.c:929 ../src/gtetrinet.c:281
@@ -310,7 +310,7 @@ msgstr "Jokaldia"
 
 #: ../src/dialogs.c:940
 msgid "Action"
-msgstr "Akzioa"
+msgstr "Ekintza"
 
 #: ../src/dialogs.c:942
 msgid "Key"
@@ -321,7 +321,7 @@ msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
 msgstr ""
-"Hautatu zerrendako akzio bat eta sakatu 'Aldatu tekla' akzioari dagokion "
+"Hautatu zerrendako ekintza bat eta sakatu 'Aldatu tekla' ekintzari dagokion "
 "tekla aldatzeko."
 
 #: ../src/dialogs.c:955
@@ -377,7 +377,7 @@ msgid ""
 "Check for installation errors\n"
 msgstr ""
 "Errorea gai lehenetsia kargatzean: abortatzen...\n"
-"Egiaztatu intalazio-erroreak\n"
+"Begiratu instalazioko erroreak\n"
 
 #: ../src/fields.c:206
 msgid "Next piece:"
@@ -417,7 +417,7 @@ msgstr "Ezarri goitizena erabiltzeko"
 
 #: ../src/gtetrinet.c:78
 msgid "NICKNAME"
-msgstr "Goitizena"
+msgstr "GOITIZENA"
 
 #: ../src/gtetrinet.c:79
 msgid "Set team name"
@@ -425,7 +425,7 @@ msgstr "Ezarri talde-izena"
 
 #: ../src/gtetrinet.c:79
 msgid "TEAM"
-msgstr "Taldea"
+msgstr "TALDEA"
 
 #: ../src/gtetrinet.c:80
 msgid "Connect as a spectator"
@@ -437,7 +437,7 @@ msgstr "Ikuslearen pasahitza"
 
 #: ../src/gtetrinet.c:81
 msgid "PASSWORD"
-msgstr "Pasahitza"
+msgstr "PASAHITZA"
 
 #: ../src/gtetrinet.c:120
 #, c-format
@@ -447,7 +447,7 @@ msgstr "Huts egin du GConf hasieratzean: %s\n"
 #. FIXME
 #: ../src/gtetrinet.c:270 ../src/gtetrinet.c:416 ../src/gtetrinet.c:469
 msgid "Playing Fields"
-msgstr "Joko eremuak"
+msgstr "Joko-eremuak"
 
 #. FIXME
 #: ../src/gtetrinet.c:292
@@ -501,7 +501,7 @@ msgstr "Zerbitzaria deskonektatua"
 #: ../src/tetrinet.c:217
 #, c-format
 msgid "%c%c*** Disconnected from server"
-msgstr "%c%c***-Zerbitzaritik deskonektatua"
+msgstr "%c%c*** Zerbitzaritik deskonektatua"
 
 #: ../src/tetrinet.c:229
 msgid "Error connecting: "
@@ -530,7 +530,7 @@ msgstr "%c***%c%s%c%c taldeak irabazi du jokoa"
 #: ../src/tetrinet.c:549
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
-msgstr "%c*** %c%s%c%c -ek irabazi du jokoa"
+msgstr "%c*** %c%s%c%c -(e)k irabazi du jokoa"
 
 #: ../src/tetrinet.c:612
 #, c-format
@@ -570,17 +570,17 @@ msgstr "%c*** Jokua %camaitu da"
 #: ../src/tetrinet.c:786
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
-msgstr "%c*** %c%s%c%c ra sartu zara"
+msgstr "%c*** %c%s%c%c-(e)ra sartu zara"
 
 #: ../src/tetrinet.c:803
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
-msgstr "%c*** %c%s%c%c ra %c%c(%c%s%c%c%c) ikusleak sartu dira"
+msgstr "%c*** %c%s%c%c-(e)ra %c%c(%c%s%c%c%c) ikusleak sartu dira"
 
 #: ../src/tetrinet.c:824
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
-msgstr "%c*** %c%s%c%c ikusleak irten dira %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c-(e)tik ikusleak irten dira %c%c(%c%s%c%c%c)"
 
 #: ../src/tetrinet.c:1062
 msgid "No special blocks"
@@ -589,7 +589,7 @@ msgstr "Ez duzu bloke berezirik"
 #: ../src/tetrinet.c:1221 ../src/tetrinet.c:1228
 #, c-format
 msgid " on %c%c%s%c%c"
-msgstr " %c%c%s%c%c-ean"
+msgstr " %c%c%s%c%c-(e)an"
 
 #: ../src/tetrinet.c:1238
 msgid " to All"
@@ -608,19 +608,19 @@ msgstr "%c*** %c%s%c%c moderatzailea da"
 #. remove ", " from end of string
 #: ../src/tetrinet.c:1928
 msgid " has left the game"
-msgstr "-ek jokua utzi du"
+msgstr "-(e)k jokua utzi du"
 
 #: ../src/tetrinet.c:1929
 msgid " have left the game"
-msgstr "-ek jokua utzi dute"
+msgstr "-(e)k jokua utzi dute"
 
 #: ../src/tetrinet.c:1942
 msgid " has joined the game"
-msgstr "jokura sartu da"
+msgstr " jokura sartu da"
 
 #: ../src/tetrinet.c:1943
 msgid " have joined the game"
-msgstr "jokura sartu dira"
+msgstr " jokura sartu dira"
 
 #: ../src/tetrinet.c:1966
 #, c-format
@@ -671,7 +671,7 @@ msgstr "Tetrinet bezeroa"
 
 #: ../gtetrinet.desktop.in.h:3
 msgid "Tetrinet client for GNOME"
-msgstr "Tetrinet bezeroa GNOMErako "
+msgstr "Tetrinet bezeroa GNOMErako"
 
 #: ../gtetrinet.schemas.in.h:1
 msgid "Command to run to play midi files"
@@ -687,7 +687,7 @@ msgstr "Gaitu/Desgaitu midi musika"
 
 #: ../gtetrinet.schemas.in.h:4
 msgid "Enable/disable sound"
-msgstr "Gaitu/Deskatibatu soinua"
+msgstr "Gaitu/Desgaitu soinua"
 
 #: ../gtetrinet.schemas.in.h:5
 msgid "Enable/disable timestamps."
@@ -705,7 +705,8 @@ msgstr ""
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
-msgstr "Gaitu/desgaitumidi musika. Soinua gaitu behar duzu musika musika nahi baduzu."
+msgstr ""
+"Gaitu/desgaitu midi musika. Soinua gaitu behar duzu musika nahi baduzu."
 
 #: ../gtetrinet.schemas.in.h:8
 msgid ""
@@ -713,11 +714,11 @@ msgid ""
 "when connecting or while playing in your favorite tetrinet server."
 msgstr ""
 "Gaitu/desgaitu kanal-zerrenda. Desgaitu arazoak edukiz gero konektatzean edo "
-"tetrinet gustokoen duzun zerbitzarian jokatzean"
+"tetrinet gustokoen duzun zerbitzarian jokatzean."
 
 #: ../gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
-msgstr "Gaitu/desgaitu jokaldiko denbora-markak"
+msgstr "Gaitu/desgaitu jokaldiko denbora-markak."
 
 #: ../gtetrinet.schemas.in.h:10
 msgid ""
@@ -836,19 +837,19 @@ msgstr ""
 #: ../gtetrinet.schemas.in.h:34
 msgid "This key moves the block down. This is case insensitive."
 msgstr ""
-"Tekla honek beherantz mugitzen du fitxa. Maiuskulak/minuskulak ez ditu "
+"Tekla honek beherantz eramaten du fitxa. Maiuskulak/minuskulak ez ditu "
 "bereizten."
 
 #: ../gtetrinet.schemas.in.h:35
 msgid "This key moves the block to the left. This is case insensitive."
 msgstr ""
-"Tekla honek ezkerrantz mugitzen du fitxa. Maiuskulak/minuskulak ez ditu "
+"Tekla honek ezkerrantz eramaten du fitxa. Maiuskulak/minuskulak ez ditu "
 "bereizten."
 
 #: ../gtetrinet.schemas.in.h:36
 msgid "This key moves the block to the right. This is case insensitive."
 msgstr ""
-"Tekla honek eskubirantz mugitzen du fitxa. Maiuskulak/minuskulak ez ditu "
+"Tekla honek eskubirantz eramaten du fitxa. Maiuskulak/minuskulak ez ditu "
 "bereizten."
 
 #: ../gtetrinet.schemas.in.h:37
@@ -865,27 +866,33 @@ msgstr ""
 
 #: ../gtetrinet.schemas.in.h:39
 msgid "This key uses the current special on Player 1's game field."
-msgstr "Tekla honek 1. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
+msgstr ""
+"Tekla honek 1. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
 
 #: ../gtetrinet.schemas.in.h:40
 msgid "This key uses the current special on Player 2's game field."
-msgstr "Tekla honek 2. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
+msgstr ""
+"Tekla honek 2. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
 
 #: ../gtetrinet.schemas.in.h:41
 msgid "This key uses the current special on Player 3's game field."
-msgstr "Tekla honek 3. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
+msgstr ""
+"Tekla honek 3. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
 
 #: ../gtetrinet.schemas.in.h:42
 msgid "This key uses the current special on Player 4's game field."
-msgstr "Tekla honek 4. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
+msgstr ""
+"Tekla honek 4. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
 
 #: ../gtetrinet.schemas.in.h:43
 msgid "This key uses the current special on Player 5's game field."
-msgstr "Tekla honek 5. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
+msgstr ""
+"Tekla honek 5. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
 
 #: ../gtetrinet.schemas.in.h:44
 msgid "This key uses the current special on Player 6's game field."
-msgstr "Tekla honek 6. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
+msgstr ""
+"Tekla honek 6. jokalariaren joku-eremuaren uneko berezia erabiltzen du."
 
 #: ../gtetrinet.schemas.in.h:45
 msgid "This will be the name of your team."
@@ -902,4 +909,3 @@ msgstr "Zure goitizena"
 #: ../gtetrinet.schemas.in.h:48
 msgid "Your team"
 msgstr "Zure taldea"
-

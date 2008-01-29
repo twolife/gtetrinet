@@ -1,3 +1,7 @@
+2008-01-29  Inaki Larranaga Murgoitio  <dooteo@euskalgnu.org>
+
+	* eu.po: Updated Basque translation and fixed some typos.
+
 2008-01-07  Pawan Chitrakar  <chautari@gmail.com>
 
 	* ne.po: Updated Nepali Translation
@@ -5,7 +9,8 @@
 2007-12-31  Yannig Marchegay <yannig@marchegay.org>
 
 	* oc.po: Updated Occitan translation.
-2007-08-17  Raivis Dejus  <orvils@gmail.com>
+
+2007-08-17  Raivis Dejus  <orvils@gmail.com>
 
         * lv.po: Added Latvian Translation.
         * LINGUAS: Added Latvian Translation.
