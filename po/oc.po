@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-02 21:53+0100\n"
-"PO-Revision-Date: 2007-11-20 14:31+0100\n"
+"POT-Creation-Date: 2008-02-19 20:24+0100\n"
+"PO-Revision-Date: 2008-02-05 16:44+0100\n"
 "Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgstr ""
 
 #: ../src/commands.c:52
 msgid "_End game"
-msgstr ""
+msgstr "_Acabar lo jòc"
 
 #: ../src/commands.c:57
 msgid "Detac_h page..."
@@ -178,7 +178,7 @@ msgstr ""
 
 #: ../src/dialogs.c:412
 msgid "_Nick name:"
-msgstr ""
+msgstr "Es_cais :"
 
 #: ../src/dialogs.c:426
 msgid "_Team name:"
@@ -465,7 +465,7 @@ msgstr ""
 
 #: ../src/partyline.c:153
 msgid "Your name:"
-msgstr ""
+msgstr "Vòstre nom :"
 
 #: ../src/partyline.c:160
 msgid "Your team:"
