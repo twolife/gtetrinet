@@ -1,268 +1,267 @@
-# Translation of gtetrinet to Czech
+# Translation of gtetrinet to Czech.
+# Copyright (C) 2003, 2004 Free Software Foundation.
+# Copyright (C) 2004 Miloslav Trmac <mitr@volny.cz>.
 # This file is distributed under the same license as the gtetrinet package.
-# Copyright (C) 2003 Free Software Foundation
-# Copyright (C) 2004 gtetrinet's COPYRIGHT HOLDER
-# Copyright (C) 2004 Miloslav Trmac <mitr@volny.cz>
-# Michal Bukovjan <bukm@centrum.cz>, 2003
-# Miloslav Trmac <mitr@volny.cz>, 2004
+# Michal Bukovjan <bukm@centrum.cz>, 2003.
+# Miloslav Trmac <mitr@volny.cz>, 2004.
+# Lucas Lommer <llommer@svn.gnome.org>, 2008.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtetrinet VERSION\n"
+"Project-Id-Version: gtetrinet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-13 03:54+0200\n"
-"PO-Revision-Date: 2004-04-13 13:46+0200\n"
-"Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"POT-Creation-Date: 2008-03-04 22:32+0100\n"
+"PO-Revision-Date: 2008-02-29 18:51+0100\n"
+"Last-Translator: Lucas Lommer <llommer@svn.gnome.org>\n"
+"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/client.c:237
+#: ../src/client.c:243
 msgid "Couldn't resolve hostname."
 msgstr "Nelze zjistit název počítače."
 
-#: src/commands.c:45
+#: ../src/commands.c:45
 msgid "_Connect to server..."
 msgstr "_Připojit se k serveru..."
 
-#: src/commands.c:46
+#: ../src/commands.c:46
 msgid "_Disconnect from server"
 msgstr "O_dpojit se od serveru"
 
-#: src/commands.c:48
+#: ../src/commands.c:48
 msgid "Change _team..."
 msgstr "Změnit _tým..."
 
-#: src/commands.c:50
+#: ../src/commands.c:50
 msgid "_Start game"
 msgstr "_Začít hru"
 
-#: src/commands.c:51
+#: ../src/commands.c:51
 msgid "_Pause game"
 msgstr "P_ozastavit hru"
 
-#: src/commands.c:52
+#: ../src/commands.c:52
 msgid "_End game"
 msgstr "_Ukončit hru"
 
-#: src/commands.c:57
+#: ../src/commands.c:57
 msgid "Detac_h page..."
 msgstr "Odpo_jit stránku..."
 
-#: src/commands.c:82
+#: ../src/commands.c:82
 msgid "Connect"
 msgstr "Připojit"
 
-#: src/commands.c:82
+#: ../src/commands.c:82
 msgid "Connect to a server"
 msgstr "Připojit se k serveru"
 
-#: src/commands.c:83
+#: ../src/commands.c:83
 msgid "Disconnect"
 msgstr "Odpojit"
 
-#: src/commands.c:83
+#: ../src/commands.c:83
 msgid "Disconnect from the current server"
 msgstr "Odpojit se od současného serveru"
 
-#: src/commands.c:85
+#: ../src/commands.c:85
 msgid "Start game"
 msgstr "Začít hru"
 
-#: src/commands.c:85
+#: ../src/commands.c:85
 msgid "Start a new game"
 msgstr "Začít novou hru"
 
-#: src/commands.c:86
+#: ../src/commands.c:86
 msgid "End game"
 msgstr "Ukončit hru"
 
-#: src/commands.c:86
+#: ../src/commands.c:86
 msgid "End the current game"
 msgstr "Ukončit současnou hru"
 
-#: src/commands.c:87
+#: ../src/commands.c:87
 msgid "Pause game"
 msgstr "Pozastavit hru"
 
-#: src/commands.c:87
+#: ../src/commands.c:87
 msgid "Pause the game"
 msgstr "Pozastavit hru"
 
-#: src/commands.c:89 src/dialogs.c:156
+#: ../src/commands.c:89 ../src/dialogs.c:152
 msgid "Change team"
 msgstr "Změnit tým"
 
-#: src/commands.c:89
+#: ../src/commands.c:89
 msgid "Change your current team name"
 msgstr "Změnit název vašeho současného týmu"
 
-#: src/commands.c:92
+#: ../src/commands.c:92
 msgid "Detach page"
 msgstr "Odpojit stránku"
 
-#: src/commands.c:92
+#: ../src/commands.c:92
 msgid "Detach the current notebook page"
 msgstr "Odpojit aktuální stránku sešitu"
 
-#: src/commands.c:258
+#: ../src/commands.c:258
 msgid "Game in progress"
 msgstr "Hra probíhá"
 
-#: src/commands.c:261
+#: ../src/commands.c:261
 msgid "Connected to\n"
 msgstr "Připojen k\n"
 
-#: src/commands.c:265
+#: ../src/commands.c:265
 msgid "Not connected"
 msgstr "Nepřipojen"
 
 #. Translators: translate as your names & emails
-#: src/commands.c:287
+#: ../src/commands.c:309
 msgid "translator-credits"
-msgstr "Michal Bukovjan <bukm@centrum.cz>"
+msgstr ""
+"Michal Bukovjan <bukm@centrum.cz>\n"
+"Miloslav Trmac <mitr@volny.cz>\n"
+"Lucas Lommer <llommer@svn.gnome.org>"
 
-#: src/commands.c:293
+#: ../src/commands.c:323
 msgid "A Tetrinet client for GNOME.\n"
 msgstr "Klient hry Tetrinet pro GNOME.\n"
 
-#: src/commands.c:305
-msgid "GTetrinet Home Page"
-msgstr "Domovská stránka GTetrinet"
-
-#: src/config.c:140
+#: ../src/config.c:140
 msgid "Warning: theme does not have a name, reverting to default."
 msgstr "Varování: téma nemá název, vracím se zpět k výchozímu."
 
 #. make dialog that asks for address/nickname
-#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
+#: ../src/dialogs.c:85 ../src/dialogs.c:320 ../src/gtetrinet.c:77
 msgid "Connect to server"
 msgstr "Připojit se k serveru"
 
-#: src/dialogs.c:169
+#: ../src/dialogs.c:165
 msgid "Team name:"
 msgstr "Název týmu:"
 
-#: src/dialogs.c:215
+#: ../src/dialogs.c:209
 msgid "You must specify a server name."
 msgstr "Musíte zadat název serveru."
 
-#: src/dialogs.c:232
+#: ../src/dialogs.c:226
 msgid "Please specify a password to connect as spectator."
 msgstr "Zadejte prosím heslo pro připojení se jako divák."
 
-#: src/dialogs.c:258
+#: ../src/dialogs.c:247
 msgid "Please specify a valid nickname."
 msgstr "Zadejte prosím platnou přezdívku."
 
 #. game type radio buttons
-#: src/dialogs.c:364
+#: ../src/dialogs.c:349
 msgid "O_riginal"
 msgstr "_Původní"
 
-#: src/dialogs.c:366
+#: ../src/dialogs.c:351
 msgid "Tetri_Fast"
 msgstr "Tetri_Fast"
 
-#: src/dialogs.c:388
+#: ../src/dialogs.c:373
 msgid "Server address"
 msgstr "Adresa serveru"
 
-#: src/dialogs.c:397
+#: ../src/dialogs.c:382
 msgid "Connect as a _spectator"
 msgstr "Připojit se jako _divák"
 
-#: src/dialogs.c:401
+#: ../src/dialogs.c:386
 msgid "_Password:"
 msgstr "_Heslo:"
 
-#: src/dialogs.c:418
+#: ../src/dialogs.c:403
 msgid "Spectate game"
 msgstr "Dívat se na hru"
 
-#: src/dialogs.c:427
+#: ../src/dialogs.c:412
 msgid "_Nick name:"
 msgstr "_Přezdívka:"
 
-#: src/dialogs.c:442
+#: ../src/dialogs.c:426
 msgid "_Team name:"
 msgstr "Název _týmu:"
 
-#: src/dialogs.c:462
+#: ../src/dialogs.c:445
 msgid "Player information"
 msgstr "Informace o hráči"
 
-#: src/dialogs.c:503
+#: ../src/dialogs.c:486
 msgid "Change Key"
 msgstr "Změnit klávesu"
 
-#: src/dialogs.c:554
+#: ../src/dialogs.c:537
 msgid "Move right"
 msgstr "Posun doprava"
 
-#: src/dialogs.c:555
+#: ../src/dialogs.c:538
 msgid "Move left"
 msgstr "Posun doleva"
 
-#: src/dialogs.c:556
+#: ../src/dialogs.c:539
 msgid "Move down"
 msgstr "Posun dolů"
 
-#: src/dialogs.c:557
+#: ../src/dialogs.c:540
 msgid "Rotate right"
 msgstr "Rotace doprava"
 
-#: src/dialogs.c:558
+#: ../src/dialogs.c:541
 msgid "Rotate left"
 msgstr "Rotace doleva"
 
-#: src/dialogs.c:559
+#: ../src/dialogs.c:542
 msgid "Drop piece"
 msgstr "Položení kousku"
 
-#: src/dialogs.c:560
+#: ../src/dialogs.c:543
 msgid "Discard special"
 msgstr "Vyřazení speciální"
 
-#: src/dialogs.c:561
+#: ../src/dialogs.c:544
 msgid "Send message"
 msgstr "Poslání zprávy"
 
-#: src/dialogs.c:562
+#: ../src/dialogs.c:545
 msgid "Special to field 1"
 msgstr "Specialitu do pole 1"
 
-#: src/dialogs.c:563
+#: ../src/dialogs.c:546
 msgid "Special to field 2"
 msgstr "Specialitu do pole 2"
 
-#: src/dialogs.c:564
+#: ../src/dialogs.c:547
 msgid "Special to field 3"
 msgstr "Specialitu do pole 3"
 
-#: src/dialogs.c:565
+#: ../src/dialogs.c:548
 msgid "Special to field 4"
 msgstr "Specialitu do pole 4"
 
-#: src/dialogs.c:566
+#: ../src/dialogs.c:549
 msgid "Special to field 5"
 msgstr "Specialitu do pole 5"
 
-#: src/dialogs.c:567
+#: ../src/dialogs.c:550
 msgid "Special to field 6"
 msgstr "Specialitu do pole 6"
 
-#: src/dialogs.c:627
+#: ../src/dialogs.c:610
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "Stiskněte novou klávesu pro \"%s\""
 
-#: src/dialogs.c:844
+#: ../src/dialogs.c:827
 msgid "GTetrinet Preferences"
 msgstr "Nastavení GTetrinet"
 
-#: src/dialogs.c:866
+#: ../src/dialogs.c:849
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -270,53 +269,53 @@ msgstr ""
 "Vyberte téma ze seznamu.\n"
 "Nová témata instalujte do ~/.gtetrinet/themes/"
 
-#: src/dialogs.c:873
+#: ../src/dialogs.c:856
 msgid "Name:"
 msgstr "Název:"
 
-#: src/dialogs.c:876
+#: ../src/dialogs.c:859
 msgid "Author:"
 msgstr "Autor:"
 
-#: src/dialogs.c:879
+#: ../src/dialogs.c:862
 msgid "Description:"
 msgstr "Popis:"
 
-#: src/dialogs.c:892
+#: ../src/dialogs.c:875
 msgid "Selected Theme"
 msgstr "Vybrané téma"
 
-#: src/dialogs.c:908
+#: ../src/dialogs.c:891
 msgid "Download new themes"
 msgstr "Stáhnout nová témata"
 
-#: src/dialogs.c:913
+#: ../src/dialogs.c:896
 msgid "Themes"
 msgstr "Témata"
 
 #. partyline
-#: src/dialogs.c:918
+#: ../src/dialogs.c:901
 msgid "Enable _Timestamps"
-msgstr "Povolit _časové údaje"
+msgstr "Povolit č_asové údaje"
 
-#: src/dialogs.c:920
+#: ../src/dialogs.c:903
 msgid "Enable Channel _List"
 msgstr "Povolit _seznam kanálů"
 
 #. FIXME
-#: src/dialogs.c:946 src/gtetrinet.c:281
+#: ../src/dialogs.c:929 ../src/gtetrinet.c:281
 msgid "Partyline"
 msgstr "Partyline"
 
-#: src/dialogs.c:957
+#: ../src/dialogs.c:940
 msgid "Action"
 msgstr "Akce"
 
-#: src/dialogs.c:959
+#: ../src/dialogs.c:942
 msgid "Key"
 msgstr "Klávesa"
 
-#: src/dialogs.c:965
+#: ../src/dialogs.c:948
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
@@ -324,32 +323,32 @@ msgstr ""
 "Vyberte akci ze seznamu a po stisknutí Změnit klávesu změňte klávesu "
 "přiřazenou této akci."
 
-#: src/dialogs.c:972
+#: ../src/dialogs.c:955
 msgid "Change _key..."
 msgstr "Změnit _klávesu..."
 
-#: src/dialogs.c:977 src/dialogs.c:1030
+#: ../src/dialogs.c:960 ../src/dialogs.c:1013
 msgid "_Restore defaults"
 msgstr "_Obnovit výchozí"
 
-#: src/dialogs.c:998
+#: ../src/dialogs.c:981
 msgid "Keyboard"
 msgstr "Klávesnice"
 
 #. sound
-#: src/dialogs.c:1003
+#: ../src/dialogs.c:986
 msgid "Enable _Sound"
 msgstr "Povolit z_vuk"
 
-#: src/dialogs.c:1006
+#: ../src/dialogs.c:989
 msgid "Enable _MIDI"
 msgstr "Povolit _MIDI"
 
-#: src/dialogs.c:1020
+#: ../src/dialogs.c:1003
 msgid "Enter command to play a midi file:"
 msgstr "Zadejte příkaz pro přehrávání souboru MIDI:"
 
-#: src/dialogs.c:1023
+#: ../src/dialogs.c:1006
 msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
@@ -357,11 +356,11 @@ msgstr ""
 "Příkaz zadaný výše je spuštěn, pokud se má přehrát soubor MIDI. Název MIDI "
 "souboru je umístěn do proměnné prostředí MIDIFILE."
 
-#: src/dialogs.c:1060
+#: ../src/dialogs.c:1043
 msgid "Sound"
 msgstr "Zvuk"
 
-#: src/fields.c:76
+#: ../src/fields.c:76
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
@@ -370,7 +369,7 @@ msgstr ""
 "Vracím se zpět k výchozímu"
 
 #. shouldnt happen
-#: src/fields.c:85
+#: ../src/fields.c:85
 #, c-format
 msgid ""
 "Error loading default theme: Aborting...\n"
@@ -379,321 +378,321 @@ msgstr ""
 "Chyba při načítání výchozího tématu: Končím...\n"
 "Zkontrolujte chyby v instalaci\n"
 
-#: src/fields.c:206
+#: ../src/fields.c:206
 msgid "Next piece:"
 msgstr "Další kousek:"
 
-#: src/fields.c:223
+#: ../src/fields.c:223
 msgid "Lines:"
 msgstr "Řádky:"
 
-#: src/fields.c:227
+#: ../src/fields.c:227
 msgid "Level:"
 msgstr "Úroveň:"
 
-#: src/fields.c:229
+#: ../src/fields.c:229
 msgid "Active level:"
 msgstr "Aktivní úroveň:"
 
-#: src/fields.c:277
+#: ../src/fields.c:277
 msgid "Attacks and defenses:"
 msgstr "Útoky a obrany:"
 
-#: src/fields.c:421
+#: ../src/fields.c:420
 msgid "Not playing"
 msgstr "Nehraje se"
 
-#: src/fields.c:452
+#: ../src/fields.c:447
 msgid "Specials:"
 msgstr "Speciální:"
 
-#: src/gtetrinet.c:77
+#: ../src/gtetrinet.c:77
 msgid "SERVER"
 msgstr "SERVER"
 
-#: src/gtetrinet.c:78
+#: ../src/gtetrinet.c:78
 msgid "Set nickname to use"
 msgstr "Zadejte přezdívku, která se má použít"
 
-#: src/gtetrinet.c:78
+#: ../src/gtetrinet.c:78
 msgid "NICKNAME"
 msgstr "PŘEZDÍVKA"
 
-#: src/gtetrinet.c:79
+#: ../src/gtetrinet.c:79
 msgid "Set team name"
 msgstr "Nastavit název týmu"
 
-#: src/gtetrinet.c:79
+#: ../src/gtetrinet.c:79
 msgid "TEAM"
 msgstr "TÝM"
 
-#: src/gtetrinet.c:80
+#: ../src/gtetrinet.c:80
 msgid "Connect as a spectator"
 msgstr "Připojit se jako divák"
 
-#: src/gtetrinet.c:81
+#: ../src/gtetrinet.c:81
 msgid "Spectator password"
 msgstr "Heslo pro diváka"
 
-#: src/gtetrinet.c:81
+#: ../src/gtetrinet.c:81
 msgid "PASSWORD"
 msgstr "HESLO"
 
-#: src/gtetrinet.c:120
+#: ../src/gtetrinet.c:120
 #, c-format
 msgid "Failed to init GConf: %s\n"
 msgstr "Selhala inicializace GConf: %s\n"
 
 #. FIXME
-#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
+#: ../src/gtetrinet.c:270 ../src/gtetrinet.c:416 ../src/gtetrinet.c:469
 msgid "Playing Fields"
 msgstr "Hrací pole"
 
 #. FIXME
-#: src/gtetrinet.c:292
+#: ../src/gtetrinet.c:292
 msgid "Winlist"
 msgstr "Seznam výher"
 
-#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
+#: ../src/partyline.c:77 ../src/partyline.c:138 ../src/winlist.c:59
 msgid "Name"
 msgstr "Jméno"
 
-#: src/partyline.c:79
+#: ../src/partyline.c:79
 msgid "Players"
 msgstr "Hráči"
 
-#: src/partyline.c:81
+#: ../src/partyline.c:81
 msgid "State"
 msgstr "Stav"
 
-#: src/partyline.c:83
+#: ../src/partyline.c:83
 msgid "Description"
 msgstr "Popis"
 
-#: src/partyline.c:95
+#: ../src/partyline.c:95
 msgid "Channel List"
 msgstr "Seznam kanálů"
 
-#: src/partyline.c:140
+#: ../src/partyline.c:140
 msgid "Team"
 msgstr "Tým"
 
-#: src/partyline.c:153
+#: ../src/partyline.c:153
 msgid "Your name:"
 msgstr "Vaše jméno:"
 
-#: src/partyline.c:160
+#: ../src/partyline.c:160
 msgid "Your team:"
 msgstr "Váš tým:"
 
-#: src/partyline.c:665
+#: ../src/partyline.c:636
 msgid "Talking in channel"
 msgstr "Hovor v kanálu"
 
-#: src/partyline.c:667
+#: ../src/partyline.c:638
 msgid "Disconnected"
 msgstr "Odpojen"
 
-#: src/tetrinet.c:194
+#: ../src/tetrinet.c:197
 msgid "Server disconnected"
 msgstr "Server se odpojil"
 
-#: src/tetrinet.c:214
+#: ../src/tetrinet.c:217
 #, c-format
 msgid "%c%c*** Disconnected from server"
 msgstr "%c%c*** Odpojen od serveru"
 
-#: src/tetrinet.c:226
+#: ../src/tetrinet.c:229
 msgid "Error connecting: "
 msgstr "Chyba při připojení: "
 
-#: src/tetrinet.c:259
+#: ../src/tetrinet.c:263
 #, c-format
 msgid "%c%c*** Connected to server"
 msgstr "%c%c*** Připojen k serveru"
 
-#: src/tetrinet.c:360
+#: ../src/tetrinet.c:364
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
 msgstr "%c%c*** Byl jste vyhozen ze hry"
 
-#: src/tetrinet.c:364
+#: ../src/tetrinet.c:368
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
 msgstr "%c*** %c%s%c%c byl vyhozen ze hry"
 
-#: src/tetrinet.c:539
+#: ../src/tetrinet.c:543
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
 msgstr "%c*** Tým %c%s%c%c vyhrál hru"
 
-#: src/tetrinet.c:545
+#: ../src/tetrinet.c:549
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
 msgstr "%c*** %c%s%c%c vyhrál hru"
 
-#: src/tetrinet.c:605
+#: ../src/tetrinet.c:612
 #, c-format
 msgid "%c*** The game has %cstarted"
 msgstr "%c*** Hra %czačala"
 
-#: src/tetrinet.c:631
+#: ../src/tetrinet.c:638
 #, c-format
 msgid "%c*** The game is %cin progress"
 msgstr "%c*** Hra %cprobíhá"
 
-#: src/tetrinet.c:643
+#: ../src/tetrinet.c:650
 #, c-format
 msgid "%c*** The game has %cpaused"
 msgstr "%c*** Hra byla %cpozastavena"
 
-#: src/tetrinet.c:645
+#: ../src/tetrinet.c:652
 #, c-format
 msgid "The game has %c%cpaused"
 msgstr "Hra byla %c%cpozastavena"
 
-#: src/tetrinet.c:650
+#: ../src/tetrinet.c:657
 #, c-format
 msgid "%c*** The game has %cresumed"
 msgstr "%c*** Hra %cpokračuje"
 
-#: src/tetrinet.c:652
+#: ../src/tetrinet.c:659
 #, c-format
 msgid "The game has %c%cresumed"
 msgstr "Hra znovu %c%cpokračuje"
 
-#: src/tetrinet.c:661
+#: ../src/tetrinet.c:668
 #, c-format
 msgid "%c*** The game has %cended"
 msgstr "%c*** Hra %cskončila"
 
-#: src/tetrinet.c:772
+#: ../src/tetrinet.c:786
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
 msgstr "%c*** Připojili jste se k %c%s%c%c"
 
-#: src/tetrinet.c:789
+#: ../src/tetrinet.c:803
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c se připojil k divákům %c%c (%c%s%c%c%c)"
 
-#: src/tetrinet.c:810
+#: ../src/tetrinet.c:824
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c opustil řady diváků %c%c (%c%s%c%c%c)"
 
-#: src/tetrinet.c:1048
+#: ../src/tetrinet.c:1062
 msgid "No special blocks"
 msgstr "Žádné speciální bloky"
 
-#: src/tetrinet.c:1207 src/tetrinet.c:1214
+#: ../src/tetrinet.c:1221 ../src/tetrinet.c:1228
 #, c-format
 msgid " on %c%c%s%c%c"
 msgstr " na %c%c%s%c%c"
 
-#: src/tetrinet.c:1224
+#: ../src/tetrinet.c:1238
 msgid " to All"
 msgstr " všem"
 
-#: src/tetrinet.c:1230 src/tetrinet.c:1237
+#: ../src/tetrinet.c:1244 ../src/tetrinet.c:1251
 #, c-format
 msgid " by %c%c%s%c%c"
 msgstr " od %c%c%s%c%c"
 
-#: src/tetrinet.c:1865
+#: ../src/tetrinet.c:1879
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
 msgstr "%c*** %c%s%c%c je moderátor"
 
 #. remove ", " from end of string
-#: src/tetrinet.c:1914
+#: ../src/tetrinet.c:1928
 msgid " has left the game"
 msgstr " opustil hru"
 
-#: src/tetrinet.c:1915
+#: ../src/tetrinet.c:1929
 msgid " have left the game"
 msgstr " opustili hru"
 
-#: src/tetrinet.c:1928
+#: ../src/tetrinet.c:1942
 msgid " has joined the game"
 msgstr " se připojil ke hře"
 
-#: src/tetrinet.c:1929
+#: ../src/tetrinet.c:1943
 msgid " have joined the game"
 msgstr " se připojili ke hře"
 
-#: src/tetrinet.c:1952
+#: ../src/tetrinet.c:1966
 #, c-format
 msgid "%s is on team %c%s"
 msgstr "%s je v týmu %c%s"
 
-#: src/tetrinet.c:1955
+#: ../src/tetrinet.c:1969
 #, c-format
 msgid "%s is alone"
 msgstr "%s je sám"
 
-#: src/tetrinet.c:1957
+#: ../src/tetrinet.c:1971
 #, c-format
 msgid "%s are on team %c%s"
 msgstr "%s jsou v týmu %c%s"
 
-#: src/tetrinet.c:1960
+#: ../src/tetrinet.c:1974
 #, c-format
 msgid "%s are alone"
 msgstr "%s jsou sami"
 
-#: src/tetrinet.c:2001
+#: ../src/tetrinet.c:2015
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
 msgstr "%c*** %c%s%c%c je nyní v týmu %c%s"
 
-#: src/tetrinet.c:2008
+#: ../src/tetrinet.c:2022
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
 msgstr "%c*** %c%s%c%c je nyní sám"
 
 #. "T" stands for "Team" here
-#: src/winlist.c:57
+#: ../src/winlist.c:57
 msgid "T"
 msgstr "T"
 
-#: src/winlist.c:61
+#: ../src/winlist.c:61
 msgid "Score"
 msgstr "Skóre"
 
-#: gtetrinet.desktop.in.h:1
+#: ../gtetrinet.desktop.in.h:1
 msgid "GTetrinet"
 msgstr "GTetrinet"
 
-#: gtetrinet.desktop.in.h:2
+#: ../gtetrinet.desktop.in.h:2
 msgid "Tetrinet client"
 msgstr "Klient hry Tetrinet"
 
-#: gtetrinet.desktop.in.h:3
+#: ../gtetrinet.desktop.in.h:3
 msgid "Tetrinet client for GNOME"
 msgstr "Klient hry Tetrinet pro prostředí GNOME"
 
-#: gtetrinet.schemas.in.h:1
+#: ../gtetrinet.schemas.in.h:1
 msgid "Command to run to play midi files"
 msgstr "Příkaz, který spustit pro přehrávání souborů midi"
 
-#: gtetrinet.schemas.in.h:2
+#: ../gtetrinet.schemas.in.h:2
 msgid "Enable/disable channel list."
 msgstr "Povolit/zakázat seznam kanálů."
 
-#: gtetrinet.schemas.in.h:3
+#: ../gtetrinet.schemas.in.h:3
 msgid "Enable/disable midi music"
 msgstr "Povolit/zakázat hudbu midi"
 
-#: gtetrinet.schemas.in.h:4
+#: ../gtetrinet.schemas.in.h:4
 msgid "Enable/disable sound"
 msgstr "Povolit/zakázat zvuk"
 
-#: gtetrinet.schemas.in.h:5
+#: ../gtetrinet.schemas.in.h:5
 msgid "Enable/disable timestamps."
 msgstr "Povolit/zakázat časové údaje."
 
-#: gtetrinet.schemas.in.h:6
+#: ../gtetrinet.schemas.in.h:6
 msgid ""
 "Enables/Disables sound. Keep in mind that the theme that you're using must "
 "provide sounds."
@@ -701,14 +700,14 @@ msgstr ""
 "Zapne/vypne zvuk. Mějte na paměti, že téma, které používáte, musí obsahovat "
 "zvuky."
 
-#: gtetrinet.schemas.in.h:7
+#: ../gtetrinet.schemas.in.h:7
 msgid ""
 "Enables/disables midi music. You'll need to enable sound if you want music "
 "to work."
 msgstr ""
 "Zapne/vypne hudbu MIDI. Chcete-li, aby hrála hudba, musíte také zapnout zvuk."
 
-#: gtetrinet.schemas.in.h:8
+#: ../gtetrinet.schemas.in.h:8
 msgid ""
 "Enables/disables the channel list. Disable it if you experience problems "
 "when connecting or while playing in your favorite tetrinet server."
@@ -716,71 +715,83 @@ msgstr ""
 "Povolí/zakáže seznam kanálů. Zakažte jej, pokud máte problémy při "
 "připojování se nebo hraní na svém oblíbeném serveru tetrinet."
 
-#: gtetrinet.schemas.in.h:9
+#: ../gtetrinet.schemas.in.h:9
 msgid "Enables/disables timestamps in the partyline."
 msgstr "Zapne/vypne časové údaje ve vaší partyline."
 
-#: gtetrinet.schemas.in.h:10
+#: ../gtetrinet.schemas.in.h:10
+msgid ""
+"If set to true, the game mode will be set to TetriFast. If false, GTetrinet "
+"will use the original mode."
+msgstr ""
+"Je-li nastaveno na pravda (true), herní mód bude nastaven na TetriFast. V "
+"opačném případě je použit výchozí mód GTetrinet."
+
+#: ../gtetrinet.schemas.in.h:11
 msgid "Key to discard special"
 msgstr "Klávesa pro vyřazení speciality"
 
-#: gtetrinet.schemas.in.h:11
+#: ../gtetrinet.schemas.in.h:12
 msgid "Key to drop piece"
 msgstr "Klávesa pro položení kousku"
 
-#: gtetrinet.schemas.in.h:12
+#: ../gtetrinet.schemas.in.h:13
 msgid "Key to move down"
 msgstr "Klávesa pro posun dolů"
 
-#: gtetrinet.schemas.in.h:13
+#: ../gtetrinet.schemas.in.h:14
 msgid "Key to move left"
 msgstr "Klávesa pro posun doleva"
 
-#: gtetrinet.schemas.in.h:14
+#: ../gtetrinet.schemas.in.h:15
 msgid "Key to move right"
 msgstr "Klávesa pro posun doprava"
 
-#: gtetrinet.schemas.in.h:15
+#: ../gtetrinet.schemas.in.h:16
 msgid "Key to open the fields' message dialog"
 msgstr "Klávesa pro otevření dialogu zprávy polí"
 
-#: gtetrinet.schemas.in.h:16
+#: ../gtetrinet.schemas.in.h:17
 msgid "Key to rotate clockwise"
 msgstr "Klávesa pro rotaci ve směru hodinových ručiček"
 
-#: gtetrinet.schemas.in.h:17
+#: ../gtetrinet.schemas.in.h:18
 msgid "Key to rotate counterclockwise"
 msgstr "Klávesa pro rotaci proti směru hodinových ručiček"
 
-#: gtetrinet.schemas.in.h:18
+#: ../gtetrinet.schemas.in.h:19
 msgid "Key to use the current special on field 1"
 msgstr "Klávesa pro použití aktuální speciality do pole 1"
 
-#: gtetrinet.schemas.in.h:19
+#: ../gtetrinet.schemas.in.h:20
 msgid "Key to use the current special on field 2"
 msgstr "Klávesa pro použití aktuální speciality do pole 2"
 
-#: gtetrinet.schemas.in.h:20
+#: ../gtetrinet.schemas.in.h:21
 msgid "Key to use the current special on field 3"
 msgstr "Klávesa pro použití aktuální speciality do pole 3"
 
-#: gtetrinet.schemas.in.h:21
+#: ../gtetrinet.schemas.in.h:22
 msgid "Key to use the current special on field 4"
 msgstr "Klávesa pro použití aktuální speciality do pole 4"
 
-#: gtetrinet.schemas.in.h:22
+#: ../gtetrinet.schemas.in.h:23
 msgid "Key to use the current special on field 5"
 msgstr "Klávesa pro použití aktuální speciality do pole 5"
 
-#: gtetrinet.schemas.in.h:23
+#: ../gtetrinet.schemas.in.h:24
 msgid "Key to use the current special on field 6"
 msgstr "Klávesa pro použití aktuální speciality do pole 6"
 
-#: gtetrinet.schemas.in.h:24
+#: ../gtetrinet.schemas.in.h:25
 msgid "Server where you want to play"
 msgstr "Server, kde chcete hrát"
 
-#: gtetrinet.schemas.in.h:25
+#: ../gtetrinet.schemas.in.h:26
+msgid "Tetrinet game mode"
+msgstr "Mód hry Tetrinet"
+
+#: ../gtetrinet.schemas.in.h:27
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
@@ -788,11 +799,11 @@ msgstr ""
 "Aktuální adresář s tématem. Měl by obsahovat čitelné soubory \"blocks.png\" "
 "a \"theme.cfg\"."
 
-#: gtetrinet.schemas.in.h:26
+#: ../gtetrinet.schemas.in.h:28
 msgid "Theme directory, should end with a '/'"
 msgstr "Adresář s tématem, měl by končit znakem '/'"
 
-#: gtetrinet.schemas.in.h:27
+#: ../gtetrinet.schemas.in.h:29
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
@@ -800,86 +811,86 @@ msgstr ""
 "Tento příkaz je spuštěn, kdykoli se má přehrát soubor MIDI. Název souboru "
 "MIDI je umístěn v proměnné prostředí MIDIFILE."
 
-#: gtetrinet.schemas.in.h:28
+#: ../gtetrinet.schemas.in.h:30
 msgid "This is the server where GTetrinet will try to connect."
 msgstr "Toto je server, ke kterému se hra GTetrinet pokusí připojit."
 
-#: gtetrinet.schemas.in.h:29
+#: ../gtetrinet.schemas.in.h:31
 msgid "This key discards the current special. This is case insensitive."
 msgstr ""
 "Tato klávesa vyřadí aktuální specialitu. Nerozlišují se velká a malá písmena."
 
-#: gtetrinet.schemas.in.h:30
+#: ../gtetrinet.schemas.in.h:32
 msgid "This key displays the fields' message dialog. This is case insensitive."
 msgstr ""
 "Tato klávesa zobrazí dialog pro zprávu polí. Nerozlišují se velká a malá "
 "písmena."
 
-#: gtetrinet.schemas.in.h:31
+#: ../gtetrinet.schemas.in.h:33
 msgid "This key drops the block to the ground. This is case insensitive."
 msgstr "Tato klávesa položí blok na zemi. Nerozlišují se velká a malá písmena."
 
-#: gtetrinet.schemas.in.h:32
+#: ../gtetrinet.schemas.in.h:34
 msgid "This key moves the block down. This is case insensitive."
 msgstr "Tato klávesa přesune blok dolů. Nerozlišují se velká a malá písmena."
 
-#: gtetrinet.schemas.in.h:33
+#: ../gtetrinet.schemas.in.h:35
 msgid "This key moves the block to the left. This is case insensitive."
 msgstr "Tato klávesa přesune blok doleva. Nerozlišují se velká a malá písmena."
 
-#: gtetrinet.schemas.in.h:34
+#: ../gtetrinet.schemas.in.h:36
 msgid "This key moves the block to the right. This is case insensitive."
 msgstr ""
 "Tato klávesa přesune blok doprava. Nerozlišují se velká a malá písmena."
 
-#: gtetrinet.schemas.in.h:35
+#: ../gtetrinet.schemas.in.h:37
 msgid "This key rotates the block clockwise. This is case insensitive."
 msgstr ""
 "Tato klávesa otočí blok po směru hodinových ručiček. Nerozlišují se velká a "
 "malá písmena."
 
-#: gtetrinet.schemas.in.h:36
+#: ../gtetrinet.schemas.in.h:38
 msgid "This key rotates the block counterclockwise. This is case insensitive."
 msgstr ""
 "Tato klávesa otočí blok proti směru hodinových ručiček. Nerozlišují se velká "
 "a malá písmena."
 
-#: gtetrinet.schemas.in.h:37
+#: ../gtetrinet.schemas.in.h:39
 msgid "This key uses the current special on Player 1's game field."
 msgstr "Tato klávesa použije aktuální specialitu na herním poli hráče 1."
 
-#: gtetrinet.schemas.in.h:38
+#: ../gtetrinet.schemas.in.h:40
 msgid "This key uses the current special on Player 2's game field."
 msgstr "Tato klávesa použije aktuální specialitu na herním poli hráče 2."
 
-#: gtetrinet.schemas.in.h:39
+#: ../gtetrinet.schemas.in.h:41
 msgid "This key uses the current special on Player 3's game field."
 msgstr "Tato klávesa použije aktuální specialitu na herním poli hráče 3."
 
-#: gtetrinet.schemas.in.h:40
+#: ../gtetrinet.schemas.in.h:42
 msgid "This key uses the current special on Player 4's game field."
 msgstr "Tato klávesa použije aktuální specialitu na herním poli hráče 4."
 
-#: gtetrinet.schemas.in.h:41
+#: ../gtetrinet.schemas.in.h:43
 msgid "This key uses the current special on Player 5's game field."
 msgstr "Tato klávesa použije aktuální specialitu na herním poli hráče 5."
 
-#: gtetrinet.schemas.in.h:42
+#: ../gtetrinet.schemas.in.h:44
 msgid "This key uses the current special on Player 6's game field."
 msgstr "Tato klávesa použije aktuální specialitu na herním poli hráče 6."
 
-#: gtetrinet.schemas.in.h:43
+#: ../gtetrinet.schemas.in.h:45
 msgid "This will be the name of your team."
 msgstr "Toto bude název vašeho týmu."
 
-#: gtetrinet.schemas.in.h:44
+#: ../gtetrinet.schemas.in.h:46
 msgid "This will be your nickname in the game."
 msgstr "Toto bude vaše přezdívka ve hře."
 
-#: gtetrinet.schemas.in.h:45
+#: ../gtetrinet.schemas.in.h:47
 msgid "Your nickname"
 msgstr "Vaše přezdívka"
 
-#: gtetrinet.schemas.in.h:46
+#: ../gtetrinet.schemas.in.h:48
 msgid "Your team"
 msgstr "Váš tým"
