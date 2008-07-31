@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arabic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-21 10:46+0100\n"
+"POT-Creation-Date: 2008-07-31 11:07+0100\n"
 "PO-Revision-Date: 2007-04-14 18:49+0100\n"
 "Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
 "Language-Team: Arabeyes <doc@arabeyes.org>\n"
@@ -662,7 +662,7 @@ msgid " on %c%c%s%c%c"
 msgstr ""
 
 #: ../src/tetrinet.c:1238
-#, fuzzy
+#, fuzzy, c-format
 msgid " to All"
 msgstr "رد على الجميع"
 
@@ -981,4 +981,3 @@ msgstr "اسم مضيفك"
 #, fuzzy
 msgid "Your team"
 msgstr "اسم مضيفك"
-
