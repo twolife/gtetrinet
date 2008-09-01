@@ -6,14 +6,15 @@
 # Christophe Merlet <redfox@redfoxcenter.org>, 2003.
 # Jonathan Ernst <jonathan@ernstfamily.ch>, 2007.
 # Stéphane Raimbault <stephane.raimbault@gmail.com>, 2007.
+# Robert-André Mauchin <zebob.m@pengzone.org>, 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.7.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-07 20:38+0100\n"
-"PO-Revision-Date: 2007-03-07 21:03+0100\n"
-"Last-Translator: Stéphane Raimbault <stephane.raimbault@gmail.com>\n"
+"POT-Creation-Date: 2008-09-01 13:59+0200\n"
+"PO-Revision-Date: 2008-09-01 13:53+0200\n"
+"Last-Translator: Robert-André Mauchin <zebob.m@pengzone.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: ../src/client.c:243
 msgid "Couldn't resolve hostname."
-msgstr "Impossible de résoudre le nom de l'hôte."
+msgstr "Impossible de résoudre le nom d'hôte."
 
 #: ../src/commands.c:45
 msgid "_Connect to server..."
@@ -53,7 +54,7 @@ msgstr "Détac_her la page..."
 
 #: ../src/commands.c:82
 msgid "Connect"
-msgstr "Connecter"
+msgstr "Se connecter"
 
 #: ../src/commands.c:82
 msgid "Connect to a server"
@@ -61,7 +62,7 @@ msgstr "Se connecte à un serveur"
 
 #: ../src/commands.c:83
 msgid "Disconnect"
-msgstr "Déconnecter"
+msgstr "Se déconnecter"
 
 #: ../src/commands.c:83
 msgid "Disconnect from the current server"
@@ -105,7 +106,7 @@ msgstr "Détacher la page"
 
 #: ../src/commands.c:92
 msgid "Detach the current notebook page"
-msgstr "Détache la page courante du carnet"
+msgstr "Détache la page actuelle du bloc-notes"
 
 #: ../src/commands.c:258
 msgid "Game in progress"
@@ -125,7 +126,8 @@ msgid "translator-credits"
 msgstr ""
 "Gaël Chamoulaud <strider@freespiders.org>\n"
 "Christophe Merlet <redfox@redfoxcenter.org>\n"
-"Stéphane Raimbault <stephane.raimbault@gmail.com>"
+"Stéphane Raimbault <stephane.raimbault@gmail.com>\n"
+"Robert-André Mauchin <zebob.m@pengzone.org>"
 
 #: ../src/commands.c:323
 msgid "A Tetrinet client for GNOME.\n"
@@ -133,7 +135,8 @@ msgstr "Un client Tetrinet pour GNOME.\n"
 
 #: ../src/config.c:140
 msgid "Warning: theme does not have a name, reverting to default."
-msgstr "Attention : le thème n'a pas de nom, retour aux valeurs par défaut."
+msgstr ""
+"Attention : le thème n'a pas de nom, rétablissement des valeurs par défaut."
 
 #. make dialog that asks for address/nickname
 #: ../src/dialogs.c:85 ../src/dialogs.c:320 ../src/gtetrinet.c:77
@@ -150,7 +153,8 @@ msgstr "Vous devez indiquer un nom de serveur."
 
 #: ../src/dialogs.c:226
 msgid "Please specify a password to connect as spectator."
-msgstr "Veuillez saisir un mot de passe pour vous connecter en tant que spectateur"
+msgstr ""
+"Veuillez indiquer un mot de passe pour se connecter en tant que spectateur"
 
 #: ../src/dialogs.c:247
 msgid "Please specify a valid nickname."
@@ -179,7 +183,7 @@ msgstr "_Mot de passe :"
 
 #: ../src/dialogs.c:403
 msgid "Spectate game"
-msgstr "Assister à la partie"
+msgstr "Observer la partie"
 
 #: ../src/dialogs.c:412
 msgid "_Nick name:"
@@ -211,15 +215,15 @@ msgstr "Déplacer vers le bas"
 
 #: ../src/dialogs.c:540
 msgid "Rotate right"
-msgstr "Tourner vers la droite"
+msgstr "Pivoter vers la droite"
 
 #: ../src/dialogs.c:541
 msgid "Rotate left"
-msgstr "Tourner vers la gauche"
+msgstr "Pivoter vers la gauche"
 
 #: ../src/dialogs.c:542
 msgid "Drop piece"
-msgstr "Lacher la pièce"
+msgstr "Lâcher la pièce"
 
 #: ../src/dialogs.c:543
 msgid "Discard special"
@@ -268,7 +272,7 @@ msgid ""
 "Install new themes in ~/.gtetrinet/themes/"
 msgstr ""
 "Sélectionnez un thème dans la liste.\n"
-"Installation des nouveaux thèmes dans ~/. gtetrinet/themes/"
+"Installation de nouveaux thèmes dans ~/. gtetrinet/themes/"
 
 #: ../src/dialogs.c:856
 msgid "Name:"
@@ -306,7 +310,7 @@ msgstr "Activer la _liste des canaux"
 #. FIXME
 #: ../src/dialogs.c:929 ../src/gtetrinet.c:281
 msgid "Partyline"
-msgstr "Partie en ligne"
+msgstr "Salon de discussion"
 
 #: ../src/dialogs.c:940
 msgid "Action"
@@ -320,7 +324,9 @@ msgstr "Touche"
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
-msgstr "Sélectionnez une action dans la liste puis appuyez sur le bouton « Modifier la touche » pour changer la touche associée à l'action. "
+msgstr ""
+"Sélectionnez une action dans la liste puis appuyez sur le bouton « Modifier "
+"la touche » pour changer la touche associée à l'action. "
 
 #: ../src/dialogs.c:955
 msgid "Change _key..."
@@ -352,7 +358,7 @@ msgid ""
 "The above command is run when a midi file is to be played.  The name of the "
 "midi file is placed in the environment variable MIDIFILE."
 msgstr ""
-"La commande ci-dessus est actionnée lorsque un fichier midi va être joué. Le "
+"La commande ci-dessus est exécutée lorsque un fichier midi va être joué. Le "
 "nom de ce fichier midi est placé dans la variable d'environnement MIDIFILE. "
 
 #: ../src/dialogs.c:1043
@@ -364,7 +370,7 @@ msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
 msgstr ""
-"Erreur au chargement du thème : impossible de charger les images.\n"
+"Erreur lors du chargement du thème : impossible de charger les images.\n"
 "Utilisation du thème par défaut."
 
 #. shouldnt happen
@@ -374,8 +380,8 @@ msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
 msgstr ""
-"Erreur au chargement du thème par défaut : annulation... \n"
-"Vérifier les erreurs d'installation.\n"
+"Erreur lors du chargement du thème par défaut : annulation... \n"
+"Vérifiez que l'installation s'est déroulée correctement.\n"
 
 #: ../src/fields.c:206
 msgid "Next piece:"
@@ -440,7 +446,7 @@ msgstr "MOT DE PASSE"
 #: ../src/gtetrinet.c:120
 #, c-format
 msgid "Failed to init GConf: %s\n"
-msgstr "Impossible d'initialiser GConf : %s\n"
+msgstr "L'initialisation de GConf a échoué : %s\n"
 
 #. FIXME
 #: ../src/gtetrinet.c:270 ../src/gtetrinet.c:416 ../src/gtetrinet.c:469
@@ -503,7 +509,7 @@ msgstr "%c%c*** Déconnecté du serveur"
 
 #: ../src/tetrinet.c:229
 msgid "Error connecting: "
-msgstr "Erreur à la connexion :"
+msgstr "Erreur lors de la connexion :"
 
 #: ../src/tetrinet.c:263
 #, c-format
@@ -590,6 +596,7 @@ msgid " on %c%c%s%c%c"
 msgstr " sur %c%c%s%c%c"
 
 #: ../src/tetrinet.c:1238
+#, c-format
 msgid " to All"
 msgstr " à tous"
 
@@ -681,7 +688,7 @@ msgstr "Activer/Désactiver la liste des canaux."
 
 #: ../gtetrinet.schemas.in.h:3
 msgid "Enable/disable midi music"
-msgstr "Activer/Désactiver le son midi"
+msgstr "Activer/Désactiver la musique midi"
 
 #: ../gtetrinet.schemas.in.h:4
 msgid "Enable/disable sound"
@@ -713,7 +720,7 @@ msgid ""
 "when connecting or while playing in your favorite tetrinet server."
 msgstr ""
 "Active/Désactive la liste des canaux. Désactivez la si vous avez des "
-"problèmes pour vous connecter ou lors de partie avec votre serveur tetrinet "
+"problèmes pour vous connecter ou lors de parties sur votre serveur tetrinet "
 "favori."
 
 #: ../gtetrinet.schemas.in.h:9
@@ -724,7 +731,9 @@ msgstr "Active/Désactive l'horodatage durant la partie"
 msgid ""
 "If set to true, the game mode will be set to TetriFast. If false, GTetrinet "
 "will use the original mode."
-msgstr "Si définit à vrai, le jeu fonctionnera en mode TetriFast. Si définit à faux, GTetrinet utilisera le mode original."
+msgstr ""
+"Si défini à vrai, le jeu fonctionnera en mode TetriFast. Si défini à faux, "
+"GTetrinet utilisera le mode original."
 
 #: ../gtetrinet.schemas.in.h:11
 msgid "Key to discard special"
@@ -748,39 +757,39 @@ msgstr "Touche pour déplacer vers la droite"
 
 #: ../gtetrinet.schemas.in.h:16
 msgid "Key to open the fields' message dialog"
-msgstr "Touche pour ouvrir le champ de message de la boîte de dialogue"
+msgstr "Touche pour ouvrir la fenêtre des messages du champ"
 
 #: ../gtetrinet.schemas.in.h:17
 msgid "Key to rotate clockwise"
-msgstr "Touche pour tourner dans le sens des aiguilles d'une montre"
+msgstr "Touche pour pivoter dans le sens horaire"
 
 #: ../gtetrinet.schemas.in.h:18
 msgid "Key to rotate counterclockwise"
-msgstr "Touche pour tourner dans le sens inverse des aiguilles d'une montre"
+msgstr "Touche pour pivoter dans le sens antihoraire"
 
 #: ../gtetrinet.schemas.in.h:19
 msgid "Key to use the current special on field 1"
-msgstr "Touche pour utiliser le spécial courant sur le champ 1"
+msgstr "Touche pour utiliser le spécial actuel sur le champ 1"
 
 #: ../gtetrinet.schemas.in.h:20
 msgid "Key to use the current special on field 2"
-msgstr "Touche pour utiliser le spécial courant sur le champ 2"
+msgstr "Touche pour utiliser le spécial actuel sur le champ 2"
 
 #: ../gtetrinet.schemas.in.h:21
 msgid "Key to use the current special on field 3"
-msgstr "Touche pour utiliser le spécial courant sur le champ 3"
+msgstr "Touche pour utiliser le spécial actuel sur le champ 3"
 
 #: ../gtetrinet.schemas.in.h:22
 msgid "Key to use the current special on field 4"
-msgstr "Touche pour utiliser le spécial courant sur le champ 4"
+msgstr "Touche pour utiliser le spécial actuel sur le champ 4"
 
 #: ../gtetrinet.schemas.in.h:23
 msgid "Key to use the current special on field 5"
-msgstr "Touche pour utiliser le spécial courant sur le champ 5"
+msgstr "Touche pour utiliser le spécial actuel sur le champ 5"
 
 #: ../gtetrinet.schemas.in.h:24
 msgid "Key to use the current special on field 6"
-msgstr "Touche pour utiliser le spécial courant sur le champ 6"
+msgstr "Touche pour utiliser le spécial actuel sur le champ 6"
 
 #: ../gtetrinet.schemas.in.h:25
 msgid "Server where you want to play"
@@ -794,18 +803,20 @@ msgstr "Mode de jeu Tetrinet"
 msgid ""
 "The current theme directory. It should contain a readable \"blocks.png\" and "
 "a \"theme.cfg\"."
-msgstr "Le répertoire du thème actuel. Il doit contenir un fichier « blocks.png » (accessible en lecture) et un fichier « theme.cfg »."
+msgstr ""
+"Le répertoire du thème actuel. Il doit contenir un fichier « blocks."
+"png » (accessible en lecture) et un fichier « theme.cfg »."
 
 #: ../gtetrinet.schemas.in.h:28
 msgid "Theme directory, should end with a '/'"
-msgstr "Répertoire des thèmes, doit terminer par un « / »"
+msgstr "Répertoire des thèmes, doit se terminer par un « / »"
 
 #: ../gtetrinet.schemas.in.h:29
 msgid ""
 "This command is run when a midi file is to be played. The name of the midi "
 "file is placed in the environment variable MIDIFILE."
 msgstr ""
-"La commande ci-dessus est actionnée lorsque un fichier midi va être joué. Le "
+"La commande ci-dessus est exécutée lorsque un fichier midi va être joué. Le "
 "nom de ce fichier midi est placé dans la variable d'environnement MIDIFILE. "
 
 #: ../gtetrinet.schemas.in.h:30
@@ -814,17 +825,18 @@ msgstr "Ceci est le serveur sur lequel GTetrinet essayera de se connecter."
 
 #: ../gtetrinet.schemas.in.h:31
 msgid "This key discards the current special. This is case insensitive."
-msgstr ""
-"Cette touche écarte le spécial en cours. Ceci est insensible à la casse."
+msgstr "Cette touche écarte le spécial actuel. Ceci est insensible à la casse."
 
 #: ../gtetrinet.schemas.in.h:32
 msgid "This key displays the fields' message dialog. This is case insensitive."
 msgstr ""
-"Cette touche affiche le champs de message de la boîte de dialogue. Ceci est insensible à la casse."
+"Cette touche affiche la fenêtre des messages du champ. Ceci est insensible à "
+"la casse."
 
 #: ../gtetrinet.schemas.in.h:33
 msgid "This key drops the block to the ground. This is case insensitive."
-msgstr "Cette touche supprime la pièce du champ. Ceci est insensible à la casse."
+msgstr ""
+"Cette touche lâche la pièce jusqu'au sol. Ceci est insensible à la casse."
 
 #: ../gtetrinet.schemas.in.h:34
 msgid "This key moves the block down. This is case insensitive."
@@ -844,44 +856,44 @@ msgstr ""
 #: ../gtetrinet.schemas.in.h:37
 msgid "This key rotates the block clockwise. This is case insensitive."
 msgstr ""
-"Cette touche fait tourner la pièce dans le sens des aiguilles d'une montre. "
+"Cette touche fait pivoter la pièce dans le sens des aiguilles d'une montre. "
 "Ceci est insensible à la casse."
 
 #: ../gtetrinet.schemas.in.h:38
 msgid "This key rotates the block counterclockwise. This is case insensitive."
 msgstr ""
-"Cette touche fait tourner la pièce dans le sens inverse des aiguilles d'une "
+"Cette touche fait pivoter la pièce dans le sens inverse des aiguilles d'une "
 "montre. Ceci est insensible à la casse."
 
 #: ../gtetrinet.schemas.in.h:39
 msgid "This key uses the current special on Player 1's game field."
 msgstr ""
-"Cette touche utilise le spécial en cours sur le joueur 1 du champ de jeu."
+"Cette touche utilise le spécial actuel sur le champ de jeu du joueur 1."
 
 #: ../gtetrinet.schemas.in.h:40
 msgid "This key uses the current special on Player 2's game field."
 msgstr ""
-"Cette touche utilise le spécial en cours sur le joueur 2 du champ de jeu."
+"Cette touche utilise le spécial actuel sur le champ de jeu du joueur 2."
 
 #: ../gtetrinet.schemas.in.h:41
 msgid "This key uses the current special on Player 3's game field."
 msgstr ""
-"Cette touche utilise le spécial en cours sur le joueur 3 du champ de jeu."
+"Cette touche utilise le spécial actuel sur le champ de jeu du joueur 3."
 
 #: ../gtetrinet.schemas.in.h:42
 msgid "This key uses the current special on Player 4's game field."
 msgstr ""
-"Cette touche utilise le spécial en cours sur le joueur 4 du champ de jeu."
+"Cette touche utilise le spécial actuel sur le champ de jeu du joueur 4."
 
 #: ../gtetrinet.schemas.in.h:43
 msgid "This key uses the current special on Player 5's game field."
 msgstr ""
-"Cette touche utilise le spécial en cours sur le joueur 5 du champ de jeu."
+"Cette touche utilise le spécial actuel sur le champ de jeu du joueur 5."
 
 #: ../gtetrinet.schemas.in.h:44
 msgid "This key uses the current special on Player 6's game field."
 msgstr ""
-"Cette touche utilise le spécial en cours sur le joueur 6 du champ de jeu."
+"Cette touche utilise le spécial actuel sur le champ de jeu du joueur 6."
 
 #: ../gtetrinet.schemas.in.h:45
 msgid "This will be the name of your team."
