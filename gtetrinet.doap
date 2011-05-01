@@ -1,0 +1,25 @@
+<Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:gnome="http://api.gnome.org/doap-extensions#"
+         xmlns="http://usefulinc.com/ns/doap#">
+
+  <name xml:lang="en">GTetrinet</name>
+  <shortdesc xml:lang="en">The Tetrinet client for GNOME</shortdesc>
+  <description xml:lang="en">GTetrinet is a clone of Tetrinet, a
+multiplayer tetris variant for Windows. It is compatible with the
+original tetrinet, although you need a separate tetrinet server to create
+your own games.</description>
+  <homepage rdf:resource="http://gtetrinet.sourceforge.net/" />
+  <mailing-list rdf:resource="http://mail.gnome.org/mailman/listinfo/gtetrinet-list" />
+  <download-page rdf:resource="http://download.gnome.org/sources/gtetrinet/" />
+  <bug-database rdf:resource="http://bugzilla.gnome.org/browse.cgi?product=gtetrinet" />
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Jordi Mallach</foaf:name>
+      <gnome:userid>jordim</gnome:userid>
+      <foaf:mbox rdf:resource="mailto:jordi@sindominio.net" />
+    </foaf:Person>
+  </maintainer>
+</Project>
