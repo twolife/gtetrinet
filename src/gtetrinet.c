@@ -419,7 +419,7 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
     if (game_area)
     { /* keys for the playing field - key releases needed - install timeout */
       if (keytimeoutid && key->time == k.time)
-        gtk_timeout_remove (keytimeoutid);
+        g_source_remove (keytimeoutid);
     }
 
     /* Check if it's a GTetrinet key */
@@ -472,7 +472,7 @@ gint keyrelease (GtkWidget *widget, GdkEventKey *key)
     if (game_area)
     {
         k = *key;
-        keytimeoutid = gtk_timeout_add (10, keytimeout, 0);
+        keytimeoutid = g_timeout_add (10, keytimeout, 0);
         g_signal_stop_emission_by_name (G_OBJECT(widget), "key-release-event");
         return TRUE;
     }

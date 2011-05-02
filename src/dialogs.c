@@ -54,7 +54,7 @@ void connectingdialog_button (GtkWidget *dialog, gint button)
     dialog = dialog;
     switch (button) {
     case GTK_RESPONSE_CANCEL:
-        gtk_timeout_remove (timeouttag);
+        g_source_remove (timeouttag);
         timeouttag = 0;
         if (connectingdialog == 0) return;
         client_disconnect ();
@@ -93,8 +93,8 @@ void connectingdialog_new (void)
     gtk_box_pack_start (GTK_BOX (GTK_DIALOG(connectingdialog)->vbox),
                         progressbar, TRUE, TRUE, 0);
 
-    timeouttag = gtk_timeout_add (20, (GtkFunction)connectingdialog_timeout,
-                                  NULL);
+    timeouttag = g_timeout_add (20, (GtkFunction)connectingdialog_timeout,
+                                NULL);
     g_signal_connect (G_OBJECT(connectingdialog), "response",
                         GTK_SIGNAL_FUNC(connectingdialog_button), NULL);
     g_signal_connect (G_OBJECT(connectingdialog), "delete_event",
@@ -163,15 +163,15 @@ void teamdialog_new (void)
     /* entry and label */
     hbox = gtk_hbox_new (FALSE, GNOME_PAD_SMALL);
     widget = gtk_label_new (_("Team name:"));
-    gtk_box_pack_start_defaults (GTK_BOX (hbox), widget);
+    gtk_box_pack_start (GTK_BOX (hbox), widget ,TRUE, TRUE, 0);
     entry = gnome_entry_new ("Team");
     gtk_entry_set_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (entry))),
                         team_utf8);
     g_object_set (G_OBJECT (gnome_entry_gtk_entry (GNOME_ENTRY (entry))),
                   "activates_default", TRUE, NULL);
-    gtk_box_pack_start_defaults (GTK_BOX (hbox), entry);
+    gtk_box_pack_start (GTK_BOX (hbox), entry  ,TRUE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox), GNOME_PAD_SMALL);
-    gtk_box_pack_end_defaults (GTK_BOX (GTK_DIALOG (team_dialog)->vbox), hbox);
+    gtk_box_pack_end (GTK_BOX (GTK_DIALOG (team_dialog)->vbox), hbox ,TRUE, TRUE, 0);
 
     /* pass the entry in the data pointer */
     g_signal_connect (G_OBJECT(team_dialog), "response",

@@ -1504,9 +1504,9 @@ void tetrinet_playerlost (void)
     sound_playsound (S_YOULOSE);
     /* end timeout thingies */
     if (movedowntimeout)
-        gtk_timeout_remove (movedowntimeout);
+        g_source_remove (movedowntimeout);
     if (nextblocktimeout)
-        gtk_timeout_remove (nextblocktimeout);
+        g_source_remove (nextblocktimeout);
     movedowntimeout = nextblocktimeout = 0;
     tetris_makeblock (-1, 0);
 }
@@ -1521,9 +1521,9 @@ void tetrinet_endgame (void)
     sound_stopmidi ();
     ingame = playing = FALSE;
     if (movedowntimeout)
-        gtk_timeout_remove (movedowntimeout);
+        g_source_remove (movedowntimeout);
     if (nextblocktimeout)
-        gtk_timeout_remove (nextblocktimeout);
+        g_source_remove (nextblocktimeout);
     movedowntimeout = nextblocktimeout = 0;
     tetris_makeblock (-1, 0);
     fields_drawnextblock (blankblock);
@@ -1568,15 +1568,15 @@ void tetrinet_updatelevels (void)
 void tetrinet_settimeout (int duration)
 {
     if (movedowntimeout)
-        gtk_timeout_remove (movedowntimeout);
-    movedowntimeout = gtk_timeout_add (duration, (GtkFunction)tetrinet_timeout,
-                                       NULL);
+        g_source_remove (movedowntimeout);
+    movedowntimeout = g_timeout_add (duration, (GtkFunction)tetrinet_timeout,
+                                     NULL);
 }
 
 void tetrinet_removetimeout (void)
 {
     if (movedowntimeout)
-        gtk_timeout_remove (movedowntimeout);
+        g_source_remove (movedowntimeout);
     movedowntimeout = 0;
 }
 
@@ -1615,8 +1615,8 @@ void tetrinet_nextblock (void)
     if (nextblocktimeout) return;
     tetrinet_removetimeout ();
     nextblocktimeout =
-        gtk_timeout_add ( (btrixgame ? 0 : NEXTBLOCKDELAY),
-                (GtkFunction)tetrinet_nextblocktimeout, NULL);
+        g_timeout_add ((btrixgame ? 0 : NEXTBLOCKDELAY),
+                       (GtkFunction)tetrinet_nextblocktimeout, NULL);
 }
 
 gint tetrinet_nextblocktimeout (void)
@@ -1690,8 +1690,8 @@ int tetrinet_removelines ()
         /* end of if */ ;
     }
     /* give it a little delay in drawing */
-    gtk_timeout_add (40, (GtkFunction)tetrinet_removelinestimeout,
-                     NULL);
+    g_timeout_add (40, (GtkFunction)tetrinet_removelinestimeout,
+                   NULL);
     return sound;
 }
 
@@ -1890,14 +1890,15 @@ void moderatorupdate (int now)
 {
     if (now) {
         if (mutimeout) {
-            gtk_timeout_remove (mutimeout);
+            g_source_remove (mutimeout);
             moderatorupdate_timeout ();
         }
     }
     else {
         if (mutimeout)
-            gtk_timeout_remove (mutimeout);
-        mutimeout = gtk_timeout_add (PARTYLINEDELAY2, (GtkFunction)moderatorupdate_timeout, NULL);
+            g_source_remove (mutimeout);
+        mutimeout = g_timeout_add (PARTYLINEDELAY2,
+                                   (GtkFunction)moderatorupdate_timeout, NULL);
     }
 }
 
@@ -1982,12 +1983,12 @@ int partylineupdate_timeout (void)
 
 void partylineupdate (int now)
 {
-    if (putimeout) gtk_timeout_remove (putimeout);
+    if (putimeout) g_source_remove (putimeout);
     if (now)
         partylineupdate_timeout ();
     else
-        putimeout = gtk_timeout_add (PARTYLINEDELAY1, (GtkFunction)partylineupdate_timeout,
-                                     NULL);
+        putimeout = g_timeout_add (PARTYLINEDELAY1, (GtkFunction)partylineupdate_timeout,
+                                   NULL);
 }
 
 void partylineupdate_join (char *name)

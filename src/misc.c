@@ -286,7 +286,7 @@ void adjust_bottom_text_view (GtkTextView *tv)
   if (!g_list_find(adj_list, tv))
   {
     if (!adj_list)
-      gtk_idle_add(cb_adjust_bottom, adj_list);
+      g_idle_add (cb_adjust_bottom, adj_list);
     
     adj_list = g_list_append(adj_list, tv);
   }
