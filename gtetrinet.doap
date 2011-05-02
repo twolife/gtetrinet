@@ -22,4 +22,11 @@ your own games.</description>
       <foaf:mbox rdf:resource="mailto:jordi@sindominio.net" />
     </foaf:Person>
   </maintainer>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Ignacio Casal Quinteiro</foaf:name>
+      <gnome:userid>icq</gnome:userid>
+      <foaf:mbox rdf:resource="mailto:icq@gnome.org" />
+    </foaf:Person>
+  </maintainer>
 </Project>
