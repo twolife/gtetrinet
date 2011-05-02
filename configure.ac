@@ -114,6 +114,25 @@ else
 fi
 AC_MSG_RESULT($enable_ipv6)
 
+dnl ---------------------------------------------------------------------------
+dnl - Use strict options (default enabled for devs, disabled in releases)
+dnl ---------------------------------------------------------------------------
+if test -d ".git"; then
+	default_strict=yes
+else
+	default_strict=no
+fi
+
+AC_ARG_ENABLE(strict, AS_HELP_STRING([--enable-strict],[Enable strict compilation options]), enable_strict=$enableval,
+					enable_strict=$default_strict)
+if test x$enable_strict != xno; then
+	CPPFLAGS="$CPPFLAGS -DG_DISABLE_SINGLE_INCLUDES -DGTK_DISABLE_SINGLE_INCLUDES"
+	CPPFLAGS="$CPPFLAGS -DG_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED"
+#	if test "$GCC" = "yes"; then
+#		CPPFLAGS="$CPPFLAGS -Werror"
+#	fi
+fi
+
 # Generate files
 AC_CONFIG_FILES([
 Makefile
@@ -135,6 +154,7 @@ echo "   ------------- ------"
 echo
 echo "   GTranslator version: ${PACKAGE_VERSION}"
 echo "   Compilation flags:   ${CFLAGS}"
+echo "   CPPFLAGS:            ${CPPFLAGS}"
 echo "   IPv6 support:        $enable_ipv6"
 echo "   EsounD support:      $have_esound"
 echo "   Page detaching:      $enable_detach"
