@@ -1,23 +1,26 @@
 #!/bin/sh
 # Run this to generate all the initial makefiles, etc.
 
-srcdir=$(dirname $0)
-test -z "$srcdir" && srcdir=.
+test -n "$srcdir" || srcdir=`dirname "$0"`
+test -n "$srcdir" || srcdir=.
 
-PKG_NAME="gtetrinet"
-REQUIRED_AUTOMAKE_VERSION="1.10"
+olddir=`pwd`
+cd $srcdir
 
-(test -f $srcdir/configure.ac \
-  && test -d $srcdir/src) || {
-    echo -n "**Error**: Directory "\`$srcdir\'" does not look like the"
-    echo " top-level $PKG_NAME directory"
-    exit 1
-}
+AUTORECONF=`which autoreconf`
+if test -z $AUTORECONF; then
+        echo "*** No autoreconf found, please intall it ***"
+        exit 1
+fi
 
-which gnome-autogen.sh || {
-	echo "You need to install gnome-common from GNOME Git (or from"
-        echo "your OS vendor's package manager)."
-	exit 1
-}
+INTLTOOLIZE=`which intltoolize`
+if test -z $INTLTOOLIZE; then
+        echo "*** No intltoolize found, please install the intltool package ***"
+        exit 1
+fi
 
-USE_GNOME2_MACROS=1 . gnome-autogen.sh
+autopoint --force
+AUTOPOINT='intltoolize --automake --copy' autoreconf --force --install --verbose
+
+cd $olddir
+test -n "$NOCONFIGURE" || "$srcdir/configure" "$@"
