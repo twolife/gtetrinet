@@ -1,17 +1,14 @@
 # Process this file with autoconf to produce a configure script.
-AC_PREREQ(2.63)
+AC_PREREQ([2.64])
 AC_INIT([gtetrinet],[0.7.11],[http://bugzilla.gnome.org/enter_bug.cgi?product=gtetrinet],[gtetrinet],[http://gtetrinet.sourceforge.net/])
 
 AC_CONFIG_SRCDIR([src/gtetrinet.c])
-AM_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
-AC_CONFIG_AUX_DIR([config])
-
-AC_SUBST([PACKAGE_NAME], ["$PACKAGE_NAME"])
-AC_SUBST([PACKAGE_VERSION], ["$PACKAGE_VERSION"])
+AC_CONFIG_AUX_DIR([build-aux])
 
 AM_INIT_AUTOMAKE([1.10 dist-bzip2 no-dist-gzip foreign silent-rules])
-AM_MAINTAINER_MODE
+AM_MAINTAINER_MODE([enable])
 
 # Enable silent rules by default
 AM_SILENT_RULES([yes])
@@ -60,8 +57,6 @@ PKG_CHECK_MODULES(GTETRINET,[
                   libgnome-2.0 >= $LIBGNOME_REQUIRED
                   libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED
 ])
-AC_SUBST(GTETRINET_CFLAGS)
-AC_SUBST(GTETRINET_LIBS)
 
 # Check for libesd
 if pkg-config --exists esound ; then
@@ -78,9 +73,6 @@ if test "x$have_esound" = "xyes"; then
 fi
 
 AM_CONDITIONAL(HAVE_ESOUND, test "x$have_esound" = "xyes")
-
-AC_HEADER_STDC
-AC_HEADER_SYS_WAIT
 
 AC_CHECK_FUNC(putenv)
 AC_CHECK_FUNC(setenv)

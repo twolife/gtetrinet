@@ -1,3 +1,5 @@
+ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
+
 SUBDIRS= doc po src themes icons
 
 icon_DATA = gtetrinet.png
