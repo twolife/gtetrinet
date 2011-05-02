@@ -25,7 +25,7 @@
 #include <gnome.h>
 #include <stdio.h>
 
-#include "config.h"
+#include "gtet_config.h"
 #include "client.h"
 #include "tetrinet.h"
 #include "tetris.h"

@@ -28,7 +28,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "config.h"
+#include "gtet_config.h"
 #include "gtetrinet.h"
 #include "client.h"
 #include "tetrinet.h"

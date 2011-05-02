@@ -32,7 +32,7 @@
 #include <gconf/gconf-client.h>
 
 #include "gtetrinet.h"
-#include "config.h"
+#include "gtet_config.h"
 #include "client.h"
 #include "tetrinet.h"
 #include "tetris.h"
