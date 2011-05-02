@@ -291,7 +291,7 @@ void client_process (void)
 
 gpointer client_resolv_hostname (void)
 {
-#ifdef USE_IPV6
+#ifdef ENABLE_IPV6
     char hbuf[NI_MAXHOST];
     struct addrinfo hints, *res, *res0;
     struct sockaddr_in6 sa;
@@ -303,7 +303,7 @@ gpointer client_resolv_hostname (void)
 
     /* set up the connection */
 
-#ifdef USE_IPV6
+#ifdef ENABLE_IPV6
     snprintf(service, 9, "%d", spectating?SPECPORT:PORT);
     memset(&hints, 0, sizeof(hints));
     hints.ai_family = AF_UNSPEC;
@@ -498,7 +498,7 @@ int client_readmsg (gchar **str)
 
 void server_ip (unsigned char buf[4])
 {
-#ifdef USE_IPV6
+#ifdef ENABLE_IPV6
     struct sockaddr_in6 sin;
     struct sockaddr_in *sin4;
 #else
@@ -507,7 +507,7 @@ void server_ip (unsigned char buf[4])
     int len = sizeof(sin);
 
     getpeername (sock, (struct sockaddr *)&sin, &len);
-#ifdef USE_IPV6
+#ifdef ENABLE_IPV6
     if (sin.sin6_family == AF_INET6) {
 	memcpy (buf, ((char *) &sin.sin6_addr) + 12, 4);
     } else {

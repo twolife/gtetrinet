@@ -43,7 +43,7 @@ AM_GCONF_SOURCE_2
 # Check for pkg-config
 PKG_PROG_PKG_CONFIG([0.22])
 
-dnl Add debug flags if building from git.
+# Add debug flags if building from git.
 if test -d $srcdir/.git; then
 	CFLAGS="-Wall -W -g3 -ggdb -O0"
 	AC_SUBST(CFLAGS)
@@ -63,7 +63,7 @@ PKG_CHECK_MODULES(GTETRINET,[
 AC_SUBST(GTETRINET_CFLAGS)
 AC_SUBST(GTETRINET_LIBS)
 
-dnl Check for libesd
+# Check for libesd
 if pkg-config --exists esound ; then
 	have_esound=yes
 else 
@@ -71,10 +71,10 @@ else
 fi
 
 if test "x$have_esound" = "xyes"; then
-AC_DEFINE(HAVE_ESD, 1, [Define this to enable EsounD support.])
-PKG_CHECK_MODULES(ESOUND, esound >= $LIBESD_OPTIONAL)
-AC_SUBST(ESOUND_CFLAGS)
-AC_SUBST(ESOUND_LIBS)
+	AC_DEFINE([HAVE_ESD],[1],[Define this to enable EsounD support.])
+	PKG_CHECK_MODULES([ESOUND],[esound >= $LIBESD_OPTIONAL])
+	AC_SUBST(ESOUND_CFLAGS)
+	AC_SUBST(ESOUND_LIBS)
 fi
 
 AM_CONDITIONAL(HAVE_ESOUND, test "x$have_esound" = "xyes")
@@ -95,18 +95,30 @@ if test $ac_cv_func_setenv = no; then
   AC_DEFINE(HAVE_SETENV, 1, [Define this if setenv() is available.])
  fi
 
-dnl configure options
+# configure options
+# Check for page detaching support
 AC_ARG_ENABLE(detach,
-[  --enable-detach         Enable page detaching (default=no)],
-  [if test "x$enable_detach" = "xyes"; then
-    AC_DEFINE(ENABLE_DETACH, 1, [Define this to enable page detaching.])
-  fi])
+	AS_HELP_STRING([--enable-detach],[Enable page detaching support (default=no)]),
+	enable_detach="yes")
+AC_MSG_CHECKING([if page detaching support should be built])
+if test "x$enable_detach" = "xyes"; then
+	AC_DEFINE([ENABLE_DETACH],[1],[Define this to enable page detaching.])
+else
+	enable_detach="no"
+fi
+AC_MSG_RESULT($enable_detach)
 
+# Check for IPv6
 AC_ARG_ENABLE(ipv6,
-[  --enable-ipv6           Enable IPv6 support (default=no)],
-  [if test "x$enable_ipv6" = "xyes"; then
-   AC_DEFINE(USE_IPV6, 1, [Define this to enable IPv6 support.])
-  fi])
+	AS_HELP_STRING([--enable-ipv6],[Enable IPv6 support (default=no)]),
+        enable_ipv6="yes")
+AC_MSG_CHECKING([if IPv6 support should be built])
+if test "x$enable_ipv6" = "xyes"; then
+	AC_DEFINE([ENABLE_IPV6],[1],[Define this to enable IPv6 support.])
+else
+	enable_ipv6="no"
+fi
+AC_MSG_RESULT($enable_ipv6)
 
 # Generate files
 AC_CONFIG_FILES([
@@ -123,6 +135,7 @@ icons/Makefile
 AC_OUTPUT
 
 # Print configuration information
+echo
 echo "   Configuration result"
 echo "   ------------- ------"
 echo
