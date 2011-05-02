@@ -27,11 +27,13 @@ AC_CHECK_HEADERS([ctype.h dirent.h errno.h locale.h signal.h \
 AC_CHECK_FUNCS([memset setlocale])
 
 # Initialise i18n
+AM_GNU_GETTEXT_VERSION([0.17])
+AM_GNU_GETTEXT([external])
+
 GETTEXT_PACKAGE=gtetrinet
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Define to the gettext domain name.])
 IT_PROG_INTLTOOL([0.40.0])
-AM_GLIB_GNU_GETTEXT
 
 # Check for GConf
 AC_PATH_PROG(GCONFTOOL, gconftool-2)
