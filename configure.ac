@@ -7,7 +7,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_AUX_DIR([build-aux])
 
-AM_INIT_AUTOMAKE([1.10 dist-bzip2 no-dist-gzip foreign silent-rules])
+AM_INIT_AUTOMAKE([1.11 tar-pax dist-xz no-dist-gzip foreign silent-rules])
 AM_MAINTAINER_MODE([enable])
 
 # Enable silent rules by default
