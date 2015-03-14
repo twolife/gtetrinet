@@ -1,0 +1,900 @@
+# Bosnian translation for bosnianuniversetranslation
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the bosnianuniversetranslation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bosnianuniversetranslation\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gtetrinet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-02-26 21:39+0000\n"
+"PO-Revision-Date: 2013-12-24 15:25+0000\n"
+"Last-Translator: Samir Ribić <Unknown>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-15 06:11+0000\n"
+
+#: ../src/client.c:243
+msgid "Couldn't resolve hostname."
+msgstr "Neprepoznatljivo domačinsko ime."
+
+#: ../src/commands.c:45
+msgid "_Connect to server..."
+msgstr "_Poveži  se sa serverom.."
+
+#: ../src/commands.c:46
+msgid "_Disconnect from server"
+msgstr "_Diskonektovati se sa servera"
+
+#: ../src/commands.c:48
+msgid "Change _team..."
+msgstr "Promjena _tima..."
+
+#: ../src/commands.c:50
+msgid "_Start game"
+msgstr "_Početak igre"
+
+#: ../src/commands.c:51
+msgid "_Pause game"
+msgstr "_Pauziraj igru"
+
+#: ../src/commands.c:52
+msgid "_End game"
+msgstr "_Kraj igre"
+
+#: ../src/commands.c:57
+msgid "Detac_h page..."
+msgstr "Odvoji _stranicu..."
+
+#: ../src/commands.c:82
+msgid "Connect"
+msgstr "Poveži"
+
+#: ../src/commands.c:82
+msgid "Connect to a server"
+msgstr "Povezivanje na server"
+
+#: ../src/commands.c:83
+msgid "Disconnect"
+msgstr "Prekini vezu"
+
+#: ../src/commands.c:83
+msgid "Disconnect from the current server"
+msgstr "Odspoji se sa trenutnog servera"
+
+#: ../src/commands.c:85
+msgid "Start game"
+msgstr "Započni igru"
+
+#: ../src/commands.c:85
+msgid "Start a new game"
+msgstr "Započni novu igru"
+
+#: ../src/commands.c:86
+msgid "End game"
+msgstr "Kraj igre"
+
+#: ../src/commands.c:86
+msgid "End the current game"
+msgstr "Završi trenutnu igru"
+
+#: ../src/commands.c:87
+msgid "Pause game"
+msgstr "Pauza"
+
+#: ../src/commands.c:87
+msgid "Pause the game"
+msgstr "Pauziraj igru"
+
+#: ../src/commands.c:89 ../src/dialogs.c:152
+msgid "Change team"
+msgstr "Promjena tima"
+
+#: ../src/commands.c:89
+msgid "Change your current team name"
+msgstr "Promijeni trenutno ime tima"
+
+#: ../src/commands.c:92
+msgid "Detach page"
+msgstr "Odspoji stranicu"
+
+#: ../src/commands.c:92
+msgid "Detach the current notebook page"
+msgstr "Odspoji trenutnu notebook stranicu"
+
+#: ../src/commands.c:258
+msgid "Game in progress"
+msgstr "Igra u progresu"
+
+#: ../src/commands.c:261
+msgid "Connected to\n"
+msgstr "Spoji se na\n"
+
+#: ../src/commands.c:265
+msgid "Not connected"
+msgstr "Nije povezan"
+
+#. Translators: translate as your names & emails
+#: ../src/commands.c:309
+msgid "translator-credits"
+msgstr ""
+"   Samir Ribić https://launchpad.net/~megaribi\n"
+"  irma jakic https://launchpad.net/~ijakic1"
+
+#: ../src/commands.c:323
+msgid "A Tetrinet client for GNOME.\n"
+msgstr "Tetrinet klijent za GNOME\n"
+
+#: ../src/config.c:140
+msgid "Warning: theme does not have a name, reverting to default."
+msgstr "Upozorenje: Tema nema ime, vraćanje na početnu."
+
+#. makije dialog that asks for address/nickname
+#: ../src/dialogs.c:85 ../src/dialogs.c:320 ../src/gtetrinet.c:77
+msgid "Connect to server"
+msgstr "Poveži se na server"
+
+#: ../src/dialogs.c:165
+msgid "Team name:"
+msgstr "Ime tima:"
+
+#: ../src/dialogs.c:209
+msgid "You must specify a server name."
+msgstr "Morate specifirati ime servera."
+
+#: ../src/dialogs.c:226
+msgid "Please specify a password to connect as spectator."
+msgstr "Molimo vas da specifirate lozinku da bi se povezali kao posmatrač."
+
+#: ../src/dialogs.c:247
+msgid "Please specify a valid nickname."
+msgstr "Molimo vas da specifirate validan nadimak."
+
+#. game type radio buttons
+#: ../src/dialogs.c:349
+msgid "O_riginal"
+msgstr "O_riginal"
+
+#: ../src/dialogs.c:351
+msgid "Tetri_Fast"
+msgstr "Tetri_fast"
+
+#: ../src/dialogs.c:373
+msgid "Server address"
+msgstr "Adresa servera"
+
+#: ../src/dialogs.c:382
+msgid "Connect as a _spectator"
+msgstr "Poveži se kao _posmatrač"
+
+#: ../src/dialogs.c:386
+msgid "_Password:"
+msgstr "_Lozinka:"
+
+#: ../src/dialogs.c:403
+msgid "Spectate game"
+msgstr "Posmatraj igru"
+
+#: ../src/dialogs.c:412
+msgid "_Nick name:"
+msgstr "_Nadimak:"
+
+#: ../src/dialogs.c:426
+msgid "_Team name:"
+msgstr "_Ime tima:"
+
+#: ../src/dialogs.c:445
+msgid "Player information"
+msgstr "Informacije o igraču"
+
+#: ../src/dialogs.c:486
+msgid "Change Key"
+msgstr "Promjena tastera"
+
+#: ../src/dialogs.c:537
+msgid "Move right"
+msgstr "Pomjeri udesno"
+
+#: ../src/dialogs.c:538
+msgid "Move left"
+msgstr "Pomjeri ulijevo"
+
+#: ../src/dialogs.c:539
+msgid "Move down"
+msgstr "Pomjeri nadolje"
+
+#: ../src/dialogs.c:540
+msgid "Rotate right"
+msgstr "Rotiraj desno"
+
+#: ../src/dialogs.c:541
+msgid "Rotate left"
+msgstr "Rotiraj lijevo"
+
+#: ../src/dialogs.c:542
+msgid "Drop piece"
+msgstr "Ispusti dio"
+
+#: ../src/dialogs.c:543
+msgid "Discard special"
+msgstr "Odbaci specijala"
+
+#: ../src/dialogs.c:544
+msgid "Send message"
+msgstr "Pošalji poruku"
+
+#: ../src/dialogs.c:545
+msgid "Special to field 1"
+msgstr "Specijal na polje 1"
+
+#: ../src/dialogs.c:546
+msgid "Special to field 2"
+msgstr "Specijal na polje 2"
+
+#: ../src/dialogs.c:547
+msgid "Special to field 3"
+msgstr "Specijal na polje 3"
+
+#: ../src/dialogs.c:548
+msgid "Special to field 4"
+msgstr "Specijal na polje 4"
+
+#: ../src/dialogs.c:549
+msgid "Special to field 5"
+msgstr "Specijal na polje 5"
+
+#: ../src/dialogs.c:550
+msgid "Special to field 6"
+msgstr "Specijal na polje 6"
+
+#: ../src/dialogs.c:610
+#, c-format
+msgid "Press new key for \"%s\""
+msgstr "Pritisni novi taster za \"%s\""
+
+#: ../src/dialogs.c:827
+msgid "GTetrinet Preferences"
+msgstr "GTetrinet preferencije"
+
+#: ../src/dialogs.c:849
+msgid ""
+"Select a theme from the list.\n"
+"Install new themes in ~/.gtetrinet/themes/"
+msgstr ""
+"Izaberi temu sa liste.\n"
+"Instaliraj nove teme u ~/.gtetrinet/themes/"
+
+#: ../src/dialogs.c:856
+msgid "Name:"
+msgstr "Ime:"
+
+#: ../src/dialogs.c:859
+msgid "Author:"
+msgstr "Autor:"
+
+#: ../src/dialogs.c:862
+msgid "Description:"
+msgstr "Opis:"
+
+#: ../src/dialogs.c:875
+msgid "Selected Theme"
+msgstr "Odabrana tema"
+
+#: ../src/dialogs.c:891
+msgid "Download new themes"
+msgstr "Skini nove teme"
+
+#: ../src/dialogs.c:896
+msgid "Themes"
+msgstr "Teme"
+
+#. partyline
+#: ../src/dialogs.c:901
+msgid "Enable _Timestamps"
+msgstr "Omoguči _Vremenske oznake"
+
+#: ../src/dialogs.c:903
+msgid "Enable Channel _List"
+msgstr "Omoguči Listu_Kanala"
+
+#. FIXME
+#: ../src/dialogs.c:929 ../src/gtetrinet.c:281
+msgid "Partyline"
+msgstr "Partyline"
+
+#: ../src/dialogs.c:940
+msgid "Action"
+msgstr "Radnja"
+
+#: ../src/dialogs.c:942
+msgid "Key"
+msgstr "Taster"
+
+#: ../src/dialogs.c:948
+msgid ""
+"Select an action from the list and press Change Key to change the key "
+"associated with the action."
+msgstr ""
+"Izaberi radnju sa liste i pritisni Taster Promjene za promjenu tastera "
+"povezanog sa radnjom."
+
+#: ../src/dialogs.c:955
+msgid "Change _key..."
+msgstr "Promjena _tastera.."
+
+#: ../src/dialogs.c:960 ../src/dialogs.c:1013
+msgid "_Restore defaults"
+msgstr "_Vrati na početne postavke"
+
+#: ../src/dialogs.c:981
+msgid "Keyboard"
+msgstr "Tastatura"
+
+#. sound
+#: ../src/dialogs.c:986
+msgid "Enable _Sound"
+msgstr "Omoguči _Zvuk"
+
+#: ../src/dialogs.c:989
+msgid "Enable _MIDI"
+msgstr "Omoguči _MIDI"
+
+#: ../src/dialogs.c:1003
+msgid "Enter command to play a midi file:"
+msgstr "Unesi komandu za pokretanje midi fajla:"
+
+#: ../src/dialogs.c:1006
+msgid ""
+"The above command is run when a midi file is to be played.  The name of the "
+"midi file is placed in the environment variable MIDIFILE."
+msgstr ""
+"Gornja komanda će biti pokrentua kada se pokrene midi fajl. Ime midi fajla "
+"je smješteno u okruženje varijable MIDIFILE."
+
+#: ../src/dialogs.c:1043
+msgid "Sound"
+msgstr "Zvuk"
+
+#: ../src/fields.c:76
+msgid ""
+"Error loading theme: cannot load graphics file\n"
+"Falling back to default"
+msgstr ""
+"Greška pri očitavanju teme: ne mogu se očitati grafički fajlovi\n"
+"Vračanje na početne postavke"
+
+#. shouldnt happen
+#: ../src/fields.c:85
+#, c-format
+msgid ""
+"Error loading default theme: Aborting...\n"
+"Check for installation errors\n"
+msgstr ""
+"Greška pri očitavanju početne tebe: Zaustavljanje...\n"
+"Potraži greške u instalaciji\n"
+
+#: ../src/fields.c:206
+msgid "Next piece:"
+msgstr "Sljedeći dio:"
+
+#: ../src/fields.c:223
+msgid "Lines:"
+msgstr "Linije:"
+
+#: ../src/fields.c:227
+msgid "Level:"
+msgstr "Nivo:"
+
+#: ../src/fields.c:229
+msgid "Active level:"
+msgstr "Aktivni nivo:"
+
+#: ../src/fields.c:277
+msgid "Attacks and defenses:"
+msgstr "Napad i odbrana:"
+
+#: ../src/fields.c:420
+msgid "Not playing"
+msgstr "Ne izvodi se"
+
+#: ../src/fields.c:447
+msgid "Specials:"
+msgstr "Specijani dodatci:"
+
+#: ../src/gtetrinet.c:77
+msgid "SERVER"
+msgstr "SERVER"
+
+#: ../src/gtetrinet.c:78
+msgid "Set nickname to use"
+msgstr "Stavi nadimak u upotrebu"
+
+#: ../src/gtetrinet.c:78
+msgid "NICKNAME"
+msgstr "NICKNAME"
+
+#: ../src/gtetrinet.c:79
+msgid "Set team name"
+msgstr "Postavi ime tima"
+
+#: ../src/gtetrinet.c:79
+msgid "TEAM"
+msgstr "TEAM"
+
+#: ../src/gtetrinet.c:80
+msgid "Connect as a spectator"
+msgstr "Poveži se kao gledaoc"
+
+#: ../src/gtetrinet.c:81
+msgid "Spectator password"
+msgstr "Lozinka gledaoca"
+
+#: ../src/gtetrinet.c:81
+msgid "PASSWORD"
+msgstr "LOZINKA"
+
+#: ../src/gtetrinet.c:120
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "Neuspješna inicijalizacija GConf: %s\n"
+
+#. FIXME
+#: ../src/gtetrinet.c:270 ../src/gtetrinet.c:416 ../src/gtetrinet.c:469
+msgid "Playing Fields"
+msgstr "Područja Igre"
+
+#. FIXME
+#: ../src/gtetrinet.c:292
+msgid "Winlist"
+msgstr "Lista Pobjeda"
+
+#: ../src/partyline.c:77 ../src/partyline.c:138 ../src/winlist.c:59
+msgid "Name"
+msgstr "Ime:"
+
+#: ../src/partyline.c:79
+msgid "Players"
+msgstr "Igrači"
+
+#: ../src/partyline.c:81
+msgid "State"
+msgstr "Stanje:"
+
+#: ../src/partyline.c:83
+msgid "Description"
+msgstr "Opis"
+
+#: ../src/partyline.c:95
+msgid "Channel List"
+msgstr "Lista kanala"
+
+#: ../src/partyline.c:140
+msgid "Team"
+msgstr "Tim"
+
+#: ../src/partyline.c:153
+msgid "Your name:"
+msgstr "Vaše ime:"
+
+#: ../src/partyline.c:160
+msgid "Your team:"
+msgstr "Vaš tim:"
+
+#: ../src/partyline.c:636
+msgid "Talking in channel"
+msgstr "Razgovor na kanalu"
+
+#: ../src/partyline.c:638
+msgid "Disconnected"
+msgstr "Odspojeno"
+
+#: ../src/tetrinet.c:197
+msgid "Server disconnected"
+msgstr "Server odspojen"
+
+#: ../src/tetrinet.c:217
+#, c-format
+msgid "%c%c*** Disconnected from server"
+msgstr "%c%c*** Odspojeni sa servera"
+
+#: ../src/tetrinet.c:229
+msgid "Error connecting: "
+msgstr "Greška u povezivanju: "
+
+#: ../src/tetrinet.c:263
+#, c-format
+msgid "%c%c*** Connected to server"
+msgstr "%c%c*** Spojeni na server"
+
+#: ../src/tetrinet.c:364
+#, c-format
+msgid "%c%c*** You have been kicked from the game"
+msgstr "%c%c*** Izbačeni ste iz igre"
+
+#: ../src/tetrinet.c:368
+#, c-format
+msgid "%c*** %c%s%c%c has been kicked from the game"
+msgstr "%c*** %c%s%c%c  je izbačeni iz igre"
+
+#: ../src/tetrinet.c:543
+#, c-format
+msgid "%c*** Team %c%s%c%c has won the game"
+msgstr "%c*** Tim %c%s%c%c je pobjedio"
+
+#: ../src/tetrinet.c:549
+#, c-format
+msgid "%c*** %c%s%c%c has won the game"
+msgstr "%c*** %c%s%c%c je pobjedio"
+
+#: ../src/tetrinet.c:612
+#, c-format
+msgid "%c*** The game has %cstarted"
+msgstr "%c*** Igra je %cpočela"
+
+#: ../src/tetrinet.c:638
+#, c-format
+msgid "%c*** The game is %cin progress"
+msgstr "%c*** Igra %cu toku"
+
+#: ../src/tetrinet.c:650
+#, c-format
+msgid "%c*** The game has %cpaused"
+msgstr "%c*** Igra je %cpauzirana"
+
+#: ../src/tetrinet.c:652
+#, c-format
+msgid "The game has %c%cpaused"
+msgstr "Igra je %c%cpauzirana"
+
+#: ../src/tetrinet.c:657
+#, c-format
+msgid "%c*** The game has %cresumed"
+msgstr "%c*** Igra %cse nastavlja"
+
+#: ../src/tetrinet.c:659
+#, c-format
+msgid "The game has %c%cresumed"
+msgstr "Igra se%c%cnastavlja"
+
+#: ../src/tetrinet.c:668
+#, c-format
+msgid "%c*** The game has %cended"
+msgstr "%c*** Igra je %czavršena"
+
+#: ../src/tetrinet.c:786
+#, c-format
+msgid "%c*** You have joined %c%s%c%c"
+msgstr "%c*** Priključili ste se %c%s%c%c"
+
+#: ../src/tetrinet.c:803
+#, c-format
+msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c se priključio gledaocima %c%c(%c%s%c%c%c)"
+
+#: ../src/tetrinet.c:824
+#, c-format
+msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
+msgstr "%c*** %c%s%c%c je napustio gledaoce %c%c(%c%s%c%c%c)"
+
+#: ../src/tetrinet.c:1062
+msgid "No special blocks"
+msgstr "Nema specijalnih blokova"
+
+#: ../src/tetrinet.c:1221 ../src/tetrinet.c:1228
+#, c-format
+msgid " on %c%c%s%c%c"
+msgstr " na %c%c%s%c%c"
+
+#: ../src/tetrinet.c:1238
+#, c-format
+msgid " to All"
+msgstr " za Sve"
+
+#: ../src/tetrinet.c:1244 ../src/tetrinet.c:1251
+#, c-format
+msgid " by %c%c%s%c%c"
+msgstr " od %c%c%s%c%c"
+
+#: ../src/tetrinet.c:1879
+#, c-format
+msgid "%c*** %c%s%c%c is the moderator"
+msgstr "%c*** %c%s%c%c je moderator"
+
+#. remove ", " from end of string
+#: ../src/tetrinet.c:1929
+msgid " has left the game"
+msgstr " je napustio igru"
+
+#: ../src/tetrinet.c:1930
+msgid " have left the game"
+msgstr " su napustili igru"
+
+#: ../src/tetrinet.c:1943
+msgid " has joined the game"
+msgstr " se priključio u igru"
+
+#: ../src/tetrinet.c:1944
+msgid " have joined the game"
+msgstr " su se priključili u igru"
+
+#: ../src/tetrinet.c:1967
+#, c-format
+msgid "%s is on team %c%s"
+msgstr "%s je u timu %c%s"
+
+#: ../src/tetrinet.c:1970
+#, c-format
+msgid "%s is alone"
+msgstr "%s je sam"
+
+#: ../src/tetrinet.c:1972
+#, c-format
+msgid "%s are on team %c%s"
+msgstr "%s su u timu %c%s"
+
+#: ../src/tetrinet.c:1975
+#, c-format
+msgid "%s are alone"
+msgstr "%s su sami"
+
+#: ../src/tetrinet.c:2016
+#, c-format
+msgid "%c*** %c%s%c%c is now on team %c%s"
+msgstr "%c*** %c%s%c%c je sada u timu %c%s"
+
+#: ../src/tetrinet.c:2023
+#, c-format
+msgid "%c*** %c%s%c%c is now alone"
+msgstr "%c*** %c%s%c%c je sada sam"
+
+#. "T" stands for "Team" here
+#: ../src/winlist.c:57
+msgid "T"
+msgstr "T"
+
+#: ../src/winlist.c:61
+msgid "Score"
+msgstr "Rezultat"
+
+#: ../gtetrinet.desktop.in.h:1
+msgid "GTetrinet"
+msgstr "GTetrinet"
+
+#: ../gtetrinet.desktop.in.h:2
+msgid "Tetrinet client"
+msgstr "Tetrinet klijent"
+
+#: ../gtetrinet.desktop.in.h:3
+msgid "Tetrinet client for GNOME"
+msgstr "Tetrinet klijent za GNOME"
+
+#: ../gtetrinet.schemas.in.h:1
+msgid "Theme directory, should end with a '/'"
+msgstr "Direktorij teme, treba završavati sa '/'"
+
+#: ../gtetrinet.schemas.in.h:2
+msgid ""
+"The current theme directory. It should contain a readable \"blocks.png\" and "
+"a \"theme.cfg\"."
+msgstr ""
+"Trenutni direktorij teme. Treba sadržavati čitljive \"blocks.png\" i \"theme."
+"cfg\"."
+
+#: ../gtetrinet.schemas.in.h:3
+msgid "Command to run to play midi files"
+msgstr "Komanda za pokretanje za puštanje midi fajlova"
+
+#: ../gtetrinet.schemas.in.h:4
+msgid ""
+"This command is run when a midi file is to be played. The name of the midi "
+"file is placed in the environment variable MIDIFILE."
+msgstr ""
+"Ova komanda je pokrenuta kada se pušta midi fajl. Ime midi fajla je "
+"smješteno u okolini varijalbe MIDIFILE."
+
+#: ../gtetrinet.schemas.in.h:5
+msgid "Enable/disable sound"
+msgstr "Omogući/onemogući zvuk"
+
+#: ../gtetrinet.schemas.in.h:6
+msgid ""
+"Enables/Disables sound. Keep in mind that the theme that you're using must "
+"provide sounds."
+msgstr ""
+"Omogući/onemogući zvuk. Imajte na umu da tema koju koristite mora "
+"proizvoditi zvukove."
+
+#: ../gtetrinet.schemas.in.h:7
+msgid "Enable/disable midi music"
+msgstr "Omogući/onemogući midi muziku"
+
+#: ../gtetrinet.schemas.in.h:8
+msgid ""
+"Enables/disables midi music. You'll need to enable sound if you want music "
+"to work."
+msgstr ""
+"Omogući/onemogući midi muziku. Moraćete omogućiti zvuk ako želite da muzika "
+"radi."
+
+#: ../gtetrinet.schemas.in.h:9
+msgid "Your nickname"
+msgstr "Vaš nadimak"
+
+#: ../gtetrinet.schemas.in.h:10
+msgid "This will be your nickname in the game."
+msgstr "Ovo će biti vaš nadimak u igri."
+
+#: ../gtetrinet.schemas.in.h:11
+msgid "Server where you want to play"
+msgstr "Server na kome želite igrati"
+
+#: ../gtetrinet.schemas.in.h:12
+msgid "This is the server where GTetrinet will try to connect."
+msgstr "Ovo je sjever na koji će se GTetrinet pokušati povezati."
+
+#: ../gtetrinet.schemas.in.h:13
+msgid "Your team"
+msgstr "Vaš tim"
+
+#: ../gtetrinet.schemas.in.h:14
+msgid "This will be the name of your team."
+msgstr "Ovo će biti ime vašeg tima."
+
+#: ../gtetrinet.schemas.in.h:15
+msgid "Tetrinet game mode"
+msgstr "Tetrinet mod igre"
+
+#: ../gtetrinet.schemas.in.h:16
+msgid ""
+"If set to true, the game mode will be set to TetriFast. If false, GTetrinet "
+"will use the original mode."
+msgstr ""
+"Ako je postavljeno na tačno, igra čć biti postavljena na TetriFast. Ako je "
+"netačno, GTetrinet će koristit orginalne postavke."
+
+#: ../gtetrinet.schemas.in.h:17
+msgid "Key to move right"
+msgstr "Taster za skretanje desno"
+
+#: ../gtetrinet.schemas.in.h:18
+msgid "This key moves the block to the right. This is case insensitive."
+msgstr "Ovaj taster pomjera blok u desno. Neosjetljivo na mala i velika slova."
+
+#: ../gtetrinet.schemas.in.h:19
+msgid "Key to move left"
+msgstr "Taster za skretanje lijevo"
+
+#: ../gtetrinet.schemas.in.h:20
+msgid "This key moves the block to the left. This is case insensitive."
+msgstr ""
+"Ovaj taster pomijera blok u lijevo. Neosjetljivo na mala i velika slova."
+
+#: ../gtetrinet.schemas.in.h:21
+msgid "Key to rotate clockwise"
+msgstr "Taster za rotiranje u smjeru kazaljke"
+
+#: ../gtetrinet.schemas.in.h:22
+msgid "This key rotates the block clockwise. This is case insensitive."
+msgstr ""
+"Ovaj taster rotira blok u smjeru kazaljke. Neosjetljivo na mala i velika "
+"slova."
+
+#: ../gtetrinet.schemas.in.h:23
+msgid "Key to rotate counterclockwise"
+msgstr "Taster za rotiranje suprotno od smjera kazaljke"
+
+#: ../gtetrinet.schemas.in.h:24
+msgid "This key rotates the block counterclockwise. This is case insensitive."
+msgstr ""
+"Ovaj taster rotira blok suprotno od smjera kazaljke. Neosjetljivo na mala i "
+"velika slova."
+
+#: ../gtetrinet.schemas.in.h:25
+msgid "Key to move down"
+msgstr "Taster za pomjeranje nadolje"
+
+#: ../gtetrinet.schemas.in.h:26
+msgid "This key moves the block down. This is case insensitive."
+msgstr ""
+"Ovaj taster pomjera blok prema dolje. Neosjetljivo na mala i velika slova."
+
+#: ../gtetrinet.schemas.in.h:27
+msgid "Key to drop piece"
+msgstr "Taster za ispuštanje dijela"
+
+#: ../gtetrinet.schemas.in.h:28
+msgid "This key drops the block to the ground. This is case insensitive."
+msgstr ""
+"Ovaj taster ispusta blok na zemlju. Neosjetljivo na mala i velika slova."
+
+#: ../gtetrinet.schemas.in.h:29
+msgid "Key to open the fields' message dialog"
+msgstr "Taster za otvaranje polja poruke/dijalog"
+
+#: ../gtetrinet.schemas.in.h:30
+msgid "This key displays the fields' message dialog. This is case insensitive."
+msgstr ""
+"Ovaj taster prikazuje dijalog poruka polja.  Ne razlikuje velika i mala "
+"slova."
+
+#: ../gtetrinet.schemas.in.h:31
+msgid "Key to discard special"
+msgstr "Taster za odbacivanje specijalca"
+
+#: ../gtetrinet.schemas.in.h:32
+msgid "This key discards the current special. This is case insensitive."
+msgstr ""
+"Ovaj taster odbacuje trenutni specijala. Ne razlikuje velika i mala slova."
+
+#: ../gtetrinet.schemas.in.h:33
+msgid "Key to use the current special on field 1"
+msgstr "Taster za korištenje trenutnog specijala na polju 1"
+
+#: ../gtetrinet.schemas.in.h:34
+msgid "This key uses the current special on Player 1's game field."
+msgstr "Ovaj taster koristi trenutni specijal na polju igre Igrača 1."
+
+#: ../gtetrinet.schemas.in.h:35
+msgid "Key to use the current special on field 2"
+msgstr "Taster za korištenje trenutnog specijala na polju 2"
+
+#: ../gtetrinet.schemas.in.h:36
+msgid "This key uses the current special on Player 2's game field."
+msgstr "Ovaj taster koristi trenutni specijal na polju igre Igrača 2."
+
+#: ../gtetrinet.schemas.in.h:37
+msgid "Key to use the current special on field 3"
+msgstr "Taster za korištenje trenutnog specijala na polju 3"
+
+#: ../gtetrinet.schemas.in.h:38
+msgid "This key uses the current special on Player 3's game field."
+msgstr "Ovaj taster koristi trenutni specijal na polju igre Igrača 3."
+
+#: ../gtetrinet.schemas.in.h:39
+msgid "Key to use the current special on field 4"
+msgstr "Taster za korištenje trenutnog specijala na polju 4"
+
+#: ../gtetrinet.schemas.in.h:40
+msgid "This key uses the current special on Player 4's game field."
+msgstr "Ovaj taster koristi trenutni specijal na polju igre Igrača 4."
+
+#: ../gtetrinet.schemas.in.h:41
+msgid "Key to use the current special on field 5"
+msgstr "Taster za korištenje trenutnog specijala na polju 5"
+
+#: ../gtetrinet.schemas.in.h:42
+msgid "This key uses the current special on Player 5's game field."
+msgstr "Ovaj taster koristi trenutni specijal na polju igre Igrača 5."
+
+#: ../gtetrinet.schemas.in.h:43
+msgid "Key to use the current special on field 6"
+msgstr "Taster za korištenje trenutnog specijala na polju 6"
+
+#: ../gtetrinet.schemas.in.h:44
+msgid "This key uses the current special on Player 6's game field."
+msgstr "Ovaj taster koristi trenutni specijal na polju igre Igrača 6."
+
+#: ../gtetrinet.schemas.in.h:45
+msgid "Enable/disable timestamps."
+msgstr "Omogući/onemogući vremenske oznake."
+
+#: ../gtetrinet.schemas.in.h:46
+msgid "Enables/disables timestamps in the partyline."
+msgstr "Omogući/onemogući vremenske oznake na partyline."
+
+#: ../gtetrinet.schemas.in.h:47
+msgid "Enable/disable channel list."
+msgstr "Omogući/onemogući listu kanala."
+
+#: ../gtetrinet.schemas.in.h:48
+msgid ""
+"Enables/disables the channel list. Disable it if you experience problems "
+"when connecting or while playing in your favorite tetrinet server."
+msgstr ""
+"Omogući/onemogući listu kanala. Onemogučite ako imate probleme pri "
+"povezivanju ili dok igrate na vašem omiljenom tetrinet serveru."
