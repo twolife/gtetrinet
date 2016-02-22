@@ -265,35 +265,6 @@ void commands_checkstate ()
     else partyline_status (_("Not connected"));
 }
 
-enum {
-	LINK_TYPE_EMAIL,
-	LINK_TYPE_URL
-};
-/* handle the links */
-
-void handle_links (GtkAboutDialog *about G_GNUC_UNUSED, const gchar *link, gpointer data)
-{
-    gchar *new_link;
-
-    switch (GPOINTER_TO_INT (data)) {
-    case LINK_TYPE_EMAIL:
-	    new_link = g_strdup_printf ("mailto: %s", link);
-	    break;
-    case LINK_TYPE_URL:
-	    new_link = g_strdup (link);
-	    break;
-    default:
-	    g_assert_not_reached ();
-    }
-
-    if (!gnome_url_show (new_link, NULL)){
-	    g_warning ("Unable to follow link %s\n", link);
-    }
-    
-    g_free (new_link);
-}
-/* about... */
-
 void about_command (void)
 {
     GdkPixbuf *logo;
@@ -309,13 +280,7 @@ void about_command (void)
     const char *translators = _("translator-credits");
 
     logo = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
-    
-    gtk_about_dialog_set_email_hook ((GtkAboutDialogActivateLinkFunc) handle_links,
-				     GINT_TO_POINTER (LINK_TYPE_EMAIL), NULL);
-    
-    gtk_about_dialog_set_url_hook ((GtkAboutDialogActivateLinkFunc) handle_links,
-				   GINT_TO_POINTER (LINK_TYPE_URL), NULL);
-  
+
     gtk_show_about_dialog (NULL,
 			   "name", APPNAME, 
 			   "version", APPVERSION,
