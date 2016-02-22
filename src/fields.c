@@ -43,7 +43,7 @@ static GtkWidget *fieldwidgets[6], *nextpiecewidget, *fieldlabels[6][6],
 
 static GtkWidget *fields_page_contents (void);
 
-static gint fields_expose_event (GtkWidget *widget, GdkEventExpose *event, int field);
+static gint fields_expose_event (GtkWidget *widget, GdkEventExpose *event, gpointer field);
 static gint fields_nextpiece_expose (GtkWidget *widget);
 static gint fields_specials_expose (GtkWidget *widget);
 
@@ -181,7 +181,7 @@ GtkWidget *fields_page_contents (void)
             
             /* attach the signals */
             g_signal_connect (G_OBJECT(fieldwidgets[i]), "expose_event",
-                                GTK_SIGNAL_FUNC(fields_expose_event), (gpointer)i);
+                                GTK_SIGNAL_FUNC(fields_expose_event), GINT_TO_POINTER(i));
             gtk_widget_set_events (fieldwidgets[i], GDK_EXPOSURE_MASK);
             /* set the size */
             gtk_widget_set_size_request (fieldwidgets[i],
@@ -334,11 +334,11 @@ GtkWidget *fields_page_contents (void)
 }
 
 
-gint fields_expose_event (GtkWidget *widget, GdkEventExpose *event, int field)
+gint fields_expose_event (GtkWidget *widget, GdkEventExpose *event, gpointer field)
 {
     widget = widget;
     event = event;
-    fields_refreshfield (field);
+    fields_refreshfield (GPOINTER_TO_INT (field));
     /* hide the cursor */
     if (ingame)
       gdk_window_set_cursor (widget->window, invisible_cursor);
