@@ -75,7 +75,7 @@ int specialblocknum = 0;
 /*
  * this will have the number of /list commands sended and waiting for answer
  */
-gint list_issued;
+int list_issued;
 
 FIELD fields[7];
 

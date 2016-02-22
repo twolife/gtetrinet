@@ -1,5 +1,3 @@
-#include <gnome.h>
-
 #define FIELDWIDTH 12
 #define FIELDHEIGHT 22
 
@@ -17,7 +15,7 @@ extern int gmsgstate;
 
 extern char specialblocks[256];
 extern int specialblocknum;
-extern gint list_issued;
+extern int list_issued;
 
 extern void tetrinet_inmessage (enum inmsg_type msgtype, char *data);
 extern void tetrinet_playerline (const char *text);
