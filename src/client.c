@@ -504,7 +504,7 @@ void server_ip (unsigned char buf[4])
 #else
     struct sockaddr_in sin;
 #endif
-    int len = sizeof(sin);
+    socklen_t len = sizeof(sin);
 
     getpeername (sock, (struct sockaddr *)&sin, &len);
 #ifdef ENABLE_IPV6

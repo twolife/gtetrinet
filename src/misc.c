@@ -129,7 +129,7 @@ void textbox_setup (void)
     tag_table = gtk_text_buffer_get_tag_table(buffer);
 }
 
-void textbox_addtext (GtkTextView *textbox, const unsigned char *str)
+void textbox_addtext (GtkTextView *textbox, const char *str)
 {
     /* At this point, str should be valid utf-8 except for some 0xFF-bytes for
      * formatting. */
@@ -143,8 +143,8 @@ void textbox_addtext (GtkTextView *textbox, const unsigned char *str)
     gboolean attr_underline = FALSE;
     /* GtkAdjustment *textboxadj = GTK_TEXT_VIEW(textbox)->vadjustment; */
     GtkTextIter iter;
-    guchar* p;
-    guchar* text=g_strdup(str);
+    gchar* p;
+    gchar* text=g_strdup(str);
 
                 
     /* is the scroll bar at the bottom ?? */
@@ -165,8 +165,10 @@ void textbox_addtext (GtkTextView *textbox, const unsigned char *str)
         gtk_text_buffer_insert (textbox->buffer, &iter, "\n", 1);
 
     /* For-loop with utf-8 support. - vidar*/
+    /* XXX: Relies on g_utf8_next_char advancing by one byte on an invalid start byte,
+       which is undefined by the documentation of g_utf8_next_char. -stump */
     for(p=text; p[0]; p=g_utf8_next_char(p)) {
-        tmp=p[0];  /* Only for checking color codes now.*/
+        tmp=(guchar)p[0];  /* Only for checking color codes now.*/
         
 	if (tmp == TETRI_TB_RESET) {
 	    lastcolor = color = gtet_text_tags[0].t_c;
@@ -303,7 +305,7 @@ char *nocolor (char *str)
 
   g_string_assign(ret, str);
 
-  p = scan = ret->str;
+  p = scan = (signed char *)ret->str;
   while (*scan != 0)
   {
     if ((*scan > 0x1F) || (*scan < 0x0)) *p++ = *scan;
