@@ -22,7 +22,8 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <gnome.h>
+#include <gdk/gdkkeysyms.h>
+#include <glib/gi18n.h>
 #include <gconf/gconf-client.h>
 #include <stdlib.h>
 #include <string.h>
@@ -46,16 +47,16 @@ GString *currenttheme = NULL;
 extern GConfClient *gconf_client;
 
 static char *soundkeys[S_NUM] = {
-    "Sounds/Drop",
-    "Sounds/Solidify",
-    "Sounds/LineClear",
-    "Sounds/Tetris",
-    "Sounds/Rotate",
-    "Sounds/SpecialLine",
-    "Sounds/YouWin",
-    "Sounds/YouLose",
-    "Sounds/Message",
-    "Sounds/GameStart",
+    "Drop",
+    "Solidify",
+    "LineClear",
+    "Tetris",
+    "Rotate",
+    "SpecialLine",
+    "YouWin",
+    "YouLose",
+    "Message",
+    "GameStart",
 };
 
 guint defaultkeys[K_NUM] = {
@@ -82,28 +83,37 @@ void config_loadtheme (const gchar *themedir)
 {
     char buf[1024], *p;
     int i;
+    GKeyFile *keyfile;
+    GError *err = NULL;
 
-    GTET_O_STRCPY(buf, "=");
-    GTET_O_STRCAT(buf, themedir);
-    GTET_O_STRCAT(buf, "theme.cfg=/");
+    GTET_O_STRCPY(buf, themedir);
+    GTET_O_STRCAT(buf, "theme.cfg");
 
-    gnome_config_push_prefix (buf);
+    keyfile = g_key_file_new ();
+    if (!g_key_file_load_from_file (keyfile, buf, 0, &err))
+      goto bad_theme;
 
-    p = gnome_config_get_string ("Theme/Name");
+    p = g_key_file_get_string (keyfile, "Theme", "Name", &err);
     if (!p)
       goto bad_theme;
     g_free (p);
 
-    p = gnome_config_get_string ("Graphics/Blocks=blocks.png");
+    p = g_key_file_get_string (keyfile, "Graphics", "Blocks", NULL);
     if (!p)
-      goto bad_theme;
+      p = g_strdup("blocks.png");
     
     GTET_O_STRCPY(blocksfile, themedir);
     GTET_O_STRCAT(blocksfile, p);
     g_free (p);
-    bsize = gnome_config_get_int ("Graphics/BlockSize=16");
+    bsize = g_key_file_get_integer (keyfile, "Graphics", "BlockSize", &err);
+    if (err)
+    {
+      bsize = 16;
+      g_error_free (err);
+      err = NULL;
+    }
 
-    p = gnome_config_get_string ("Sounds/MidiFile");
+    p = g_key_file_get_string (keyfile, "Sounds", "MidiFile", NULL);
     if (!p)
         midifile[0] = 0;
     else
@@ -114,7 +124,7 @@ void config_loadtheme (const gchar *themedir)
     }
 
     for (i = 0; i < S_NUM; i ++) {
-        p = gnome_config_get_string (soundkeys[i]);
+        p = g_key_file_get_string (keyfile, "Sounds", soundkeys[i], NULL);
         if (p) {
             GTET_O_STRCPY(soundfiles[i], themedir);
             GTET_O_STRCAT(soundfiles[i], p);
@@ -126,7 +136,7 @@ void config_loadtheme (const gchar *themedir)
 
     sound_cache ();
 
-    gnome_config_pop_prefix ();
+    g_key_file_unref (keyfile);
 
     return;
 
@@ -141,7 +151,7 @@ void config_loadtheme (const gchar *themedir)
                                      "reverting to default."));
       gtk_dialog_run (GTK_DIALOG (mb));
       gtk_widget_destroy (mb);
-      gnome_config_pop_prefix ();
+      g_key_file_unref (keyfile);
       g_string_assign(currenttheme, DEFAULTTHEME);
       config_loadtheme (currenttheme->str);
     }
@@ -152,32 +162,44 @@ int config_getthemeinfo (char *themedir, char *name, char *author, char *desc)
 {
     char buf[1024];
     char *p = NULL;
+    GKeyFile *keyfile;
 
-    GTET_O_STRCPY (buf, "=");
-    GTET_O_STRCAT (buf, themedir);
-    GTET_O_STRCAT (buf, "theme.cfg=/");
+    GTET_O_STRCPY (buf, themedir);
+    GTET_O_STRCAT (buf, "theme.cfg");
 
-    gnome_config_push_prefix (buf);
+    keyfile = g_key_file_new ();
+    if (!g_key_file_load_from_file (keyfile, buf, 0, NULL)) {
+        g_key_file_unref (keyfile);
+        return -1;
+    }
 
-    p = gnome_config_get_string ("Theme/Name");
+    p = g_key_file_get_string (keyfile, "Theme", "Name", NULL);
     if (p == 0) {
-        gnome_config_pop_prefix ();
+        g_key_file_unref (keyfile);
         return -1;
     }
     else {
         if (name) GTET_STRCPY(name, p, 1024);
         g_free (p);
     }
-    if (author && (p = gnome_config_get_string ("Theme/Author="))) {
-        GTET_STRCPY(author, p, 1024);
-        g_free (p);
+    if (author) {
+        if ((p = g_key_file_get_string (keyfile, "Theme", "Author", NULL))) {
+            GTET_STRCPY(author, p, 1024);
+            g_free (p);
+        } else {
+            author[0] = 0;
+        }
     }
-    if (desc && (p = gnome_config_get_string ("Theme/Description="))) {
-        GTET_STRCPY(desc, p, 1024);
-        g_free (p);
+    if (desc) {
+        if ((p = g_key_file_get_string (keyfile, "Theme", "Description", NULL))) {
+            GTET_STRCPY(desc, p, 1024);
+            g_free (p);
+        } else {
+            desc[0] = 0;
+        }
     }
 
-    gnome_config_pop_prefix ();
+    g_key_file_unref (keyfile);
 
     return 0;
 }
