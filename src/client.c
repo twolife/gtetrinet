@@ -296,7 +296,6 @@ gpointer client_resolv_hostname (void)
 #ifdef ENABLE_IPV6
     char hbuf[NI_MAXHOST];
     struct addrinfo hints, *res, *res0;
-    struct sockaddr_in6 sa;
     char service[10];
 #else
     struct hostent *h;
