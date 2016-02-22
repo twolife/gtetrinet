@@ -1,4 +1,3 @@
-extern GnomeUIInfo menubar[];
 extern GnomeUIInfo toolbar[];
 
 void make_menus (GnomeApp *app);

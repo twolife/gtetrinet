@@ -38,42 +38,54 @@
 
 #define GTET_STOCK_TEAM24 "gtet-team24"
 
-GnomeUIInfo gamemenu[] = {
-    GNOMEUIINFO_ITEM(N_("_Connect to server..."), NULL, connect_command, NULL),
-    GNOMEUIINFO_ITEM(N_("_Disconnect from server"), NULL, disconnect_command, NULL),
-    GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM(N_("Change _team..."), NULL, team_command, NULL),
-    GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM(N_("_Start game"), NULL, start_command, NULL),
-    GNOMEUIINFO_ITEM(N_("_Pause game"), NULL, pause_command, NULL),
-    GNOMEUIINFO_ITEM(N_("_End game"), NULL, end_command, NULL),
-    /* Detach stuff is not ready, says Ka-shu, so make it configurable at
-     * compile time for now. */
+static const GtkActionEntry entries[] = {
+  {"GameMenu", NULL, N_("_Game"), NULL, NULL, NULL},
+  {"SettingsMenu", NULL, N_("_Settings"), NULL, NULL, NULL},
+  {"HelpMenu", NULL, N_("_Help"), NULL, NULL, NULL},
+
+  {"Connect", NULL, N_("_Connect to server..."), "<control>C", NULL, connect_command},
+  {"Disconnect", NULL, N_("_Disconnect from server"), "<control>D", NULL, disconnect_command},
+  {"ChangeTeam", NULL, N_("Change _team..."), "<control>T", NULL, team_command},
+  {"StartGame", NULL, N_("_Start game"), "<control>N", NULL, start_command},
+  {"PauseGame", NULL, N_("_Pause game"), "<control>P", NULL, pause_command},
+  {"EndGame", NULL, N_("_End game"), "<control>S", NULL, end_command},
+  /* Detach stuff is not ready, says Ka-shu, so make it configurable at
+   * compile time for now. */
 #ifdef ENABLE_DETACH
-    GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM(N_("Detac_h page..."), NULL, detach_command, NULL),
+  {"DetachPage", NULL, N_("Detac_h page..."), NULL, NULL, detach_command},
 #endif /* ENABLE_DETACH */
-    GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_MENU_EXIT_ITEM(destroymain, NULL),
-    GNOMEUIINFO_END
+  {"Exit", GTK_STOCK_QUIT, NULL, "<control>Q", NULL, destroymain},
+  {"Preferences", GTK_STOCK_PREFERENCES, NULL, NULL, NULL, preferences_command},
+  {"About", GTK_STOCK_ABOUT, NULL, NULL, NULL, about_command},
 };
 
-GnomeUIInfo settingsmenu[] = {
-    GNOMEUIINFO_MENU_PREFERENCES_ITEM(preferences_command, NULL),
-    GNOMEUIINFO_END
-};
-
-GnomeUIInfo helpmenu[] = {
-    GNOMEUIINFO_MENU_ABOUT_ITEM(about_command, NULL),
-    GNOMEUIINFO_END
-};
-
-GnomeUIInfo menubar[] = {
-    GNOMEUIINFO_MENU_GAME_TREE(gamemenu),
-    GNOMEUIINFO_MENU_SETTINGS_TREE(settingsmenu),
-    GNOMEUIINFO_MENU_HELP_TREE(helpmenu),
-    GNOMEUIINFO_END
-};
+static const char *ui_description =
+"<ui>"
+  "<menubar name='MainMenu'>"
+    "<menu action='GameMenu'>"
+      "<menuitem action='Connect' />"
+      "<menuitem action='Disconnect' />"
+      "<separator />"
+      "<menuitem action='ChangeTeam' />"
+      "<separator />"
+      "<menuitem action='StartGame' />"
+      "<menuitem action='PauseGame' />"
+      "<menuitem action='EndGame' />"
+#ifdef ENABLE_DETACH
+      "<separator />"
+      "<menuitem action='DetachPage' />"
+#endif
+      "<separator />"
+      "<menuitem action='Exit' />"
+    "</menu>"
+    "<menu action='SettingsMenu'>"
+      "<menuitem action='Preferences' />"
+    "</menu>"
+    "<menu action='HelpMenu'>"
+      "<menuitem action='About' />"
+    "</menu>"
+  "</menubar>"
+"</ui>";
 
 GnomeUIInfo toolbar[] = {
     GNOMEUIINFO_ITEM_STOCK(N_("Connect"), N_("Connect to a server"), connect_command, GTK_STOCK_CONNECT),
@@ -91,11 +103,25 @@ GnomeUIInfo toolbar[] = {
     GNOMEUIINFO_END
 };
 
+static GtkActionGroup *action_group;
+#define ACTION_SHOW(name) \
+  gtk_action_set_visible (gtk_action_group_get_action (action_group, name), TRUE)
+#define ACTION_HIDE(name) \
+  gtk_action_set_visible (gtk_action_group_get_action (action_group, name), FALSE)
+#define ACTION_ENABLE(name) \
+  gtk_action_set_sensitive (gtk_action_group_get_action (action_group, name), TRUE)
+#define ACTION_DISABLE(name) \
+  gtk_action_set_sensitive (gtk_action_group_get_action (action_group, name), FALSE)
+
 void make_menus (GnomeApp *app)
 {
   GtkIconFactory *icon_factory;
   GdkPixbuf *team24_pixbuf;
   GtkIconSet *team24_icon_set;
+  GError *err = NULL;
+  GtkUIManager *ui_manager;
+  GtkAccelGroup *accel_group;
+  GtkWidget *menubar;
 
   icon_factory = gtk_icon_factory_new ();
   team24_pixbuf = gdk_pixbuf_new_from_xpm_data ((const char **)team24_xpm);
@@ -106,21 +132,23 @@ void make_menus (GnomeApp *app)
   gtk_icon_factory_add_default (icon_factory);
   g_object_unref (icon_factory);
 
-  gnome_app_create_menus (app, menubar);
+  action_group = gtk_action_group_new ("MenuActions");
+  gtk_action_group_add_actions (action_group, entries, G_N_ELEMENTS (entries), app);
 
-  gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Start", gdk_keyval_from_name ("n"), GDK_CONTROL_MASK);
-  gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Pause", gdk_keyval_from_name ("p"), GDK_CONTROL_MASK);
-  gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Stop", gdk_keyval_from_name ("s"), GDK_CONTROL_MASK);
-  gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Connect", gdk_keyval_from_name ("c"), GDK_CONTROL_MASK);
-  gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Disconnect", gdk_keyval_from_name ("d"), GDK_CONTROL_MASK);
-  gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Change_Team", gdk_keyval_from_name ("t"), GDK_CONTROL_MASK);
-  
-  gtk_menu_item_set_accel_path (GTK_MENU_ITEM (gamemenu[0].widget), "<GTetrinet-Main>/Game/Connect");
-  gtk_menu_item_set_accel_path (GTK_MENU_ITEM (gamemenu[1].widget), "<GTetrinet-Main>/Game/Disconnect");
-  gtk_menu_item_set_accel_path (GTK_MENU_ITEM (gamemenu[3].widget), "<GTetrinet-Main>/Game/Change_Team");
-  gtk_menu_item_set_accel_path (GTK_MENU_ITEM (gamemenu[5].widget), "<GTetrinet-Main>/Game/Start");
-  gtk_menu_item_set_accel_path (GTK_MENU_ITEM (gamemenu[6].widget), "<GTetrinet-Main>/Game/Pause");
-  gtk_menu_item_set_accel_path (GTK_MENU_ITEM (gamemenu[7].widget), "<GTetrinet-Main>/Game/Stop");
+  ui_manager = gtk_ui_manager_new ();
+  gtk_ui_manager_insert_action_group (ui_manager, action_group, 0);
+
+  accel_group = gtk_ui_manager_get_accel_group (ui_manager);
+  gtk_window_add_accel_group (GTK_WINDOW (app), accel_group);
+
+  if (!gtk_ui_manager_add_ui_from_string (ui_manager, ui_description, -1, &err)) {
+    g_message ("building menus failed: %s", err->message);
+    g_error_free (err);
+    exit (EXIT_FAILURE);
+  }
+
+  menubar = gtk_ui_manager_get_widget (ui_manager, "/MainMenu");
+  gnome_app_set_menus (app, GTK_MENU_BAR (menubar));
 
   gnome_app_create_toolbar (app, toolbar);
   gtk_widget_hide (toolbar[4].widget);
@@ -210,33 +238,33 @@ void preferences_command (void)
 void commands_checkstate ()
 {
     if (connected) {
-        gtk_widget_set_sensitive (gamemenu[0].widget, FALSE);
-        gtk_widget_set_sensitive (gamemenu[1].widget, TRUE);
+        ACTION_DISABLE ("Connect");
+        ACTION_ENABLE ("Disconnect");
 
         gtk_widget_set_sensitive (toolbar[0].widget, FALSE);
         gtk_widget_set_sensitive (toolbar[1].widget, TRUE);
     }
     else {
-        gtk_widget_set_sensitive (gamemenu[0].widget, TRUE);
-        gtk_widget_set_sensitive (gamemenu[1].widget, FALSE);
+        ACTION_ENABLE ("Connect");
+        ACTION_DISABLE ("Disconnect");
 
         gtk_widget_set_sensitive (toolbar[0].widget, TRUE);
         gtk_widget_set_sensitive (toolbar[1].widget, FALSE);
     }
     if (moderator) {
         if (ingame) {
-            gtk_widget_set_sensitive (gamemenu[5].widget, FALSE);
-            gtk_widget_set_sensitive (gamemenu[6].widget, TRUE);
-            gtk_widget_set_sensitive (gamemenu[7].widget, TRUE);
+            ACTION_DISABLE ("StartGame");
+            ACTION_ENABLE ("PauseGame");
+            ACTION_ENABLE ("EndGame");
 
             gtk_widget_set_sensitive (toolbar[3].widget, FALSE);
             gtk_widget_set_sensitive (toolbar[4].widget, TRUE);
             gtk_widget_set_sensitive (toolbar[5].widget, TRUE);
         }
         else {
-            gtk_widget_set_sensitive (gamemenu[5].widget, TRUE);
-            gtk_widget_set_sensitive (gamemenu[6].widget, FALSE);
-            gtk_widget_set_sensitive (gamemenu[7].widget, FALSE);
+            ACTION_ENABLE ("StartGame");
+            ACTION_DISABLE ("PauseGame");
+            ACTION_DISABLE ("EndGame");
 
             gtk_widget_set_sensitive (toolbar[3].widget, TRUE);
             gtk_widget_set_sensitive (toolbar[4].widget, FALSE);
@@ -244,21 +272,21 @@ void commands_checkstate ()
         }
     }
     else {
-        gtk_widget_set_sensitive (gamemenu[5].widget, FALSE);
-        gtk_widget_set_sensitive (gamemenu[6].widget, FALSE);
-        gtk_widget_set_sensitive (gamemenu[7].widget, FALSE);
+        ACTION_DISABLE ("StartGame");
+        ACTION_DISABLE ("PauseGame");
+        ACTION_DISABLE ("EndGame");
 
         gtk_widget_set_sensitive (toolbar[3].widget, FALSE);
         gtk_widget_set_sensitive (toolbar[4].widget, FALSE);
         gtk_widget_set_sensitive (toolbar[5].widget, FALSE);
     }
     if (ingame || spectating) {
-        gtk_widget_set_sensitive (gamemenu[3].widget, FALSE);
+        ACTION_DISABLE ("ChangeTeam");
 
         gtk_widget_set_sensitive (toolbar[7].widget, FALSE);
     }
     else {
-        gtk_widget_set_sensitive (gamemenu[3].widget, TRUE);
+        ACTION_ENABLE ("ChangeTeam");
 
         gtk_widget_set_sensitive (toolbar[7].widget, TRUE);
     }
