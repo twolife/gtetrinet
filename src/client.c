@@ -234,6 +234,8 @@ void client_process (void)
       gtk_main_iteration ();
   }
 
+  g_thread_join (thread);
+
   if (resolved == -1) {
     char errmsg[1024];
 
