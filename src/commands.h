@@ -1,4 +1,4 @@
-void make_menus (GnomeApp *app);
+void make_menus (GtkWindow *app);
 
 void connect_command (void);
 void disconnect_command (void);

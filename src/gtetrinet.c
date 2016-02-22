@@ -227,7 +227,8 @@ int main (int argc, char *argv[])
     /* first set up the display */
 
     /* create the main window */
-    app = gnome_app_new (APPID, APPNAME);
+    app = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title (GTK_WINDOW (app), APPNAME);
 
     g_signal_connect (G_OBJECT(app), "destroy",
                         GTK_SIGNAL_FUNC(destroymain), NULL);
@@ -252,10 +253,10 @@ int main (int argc, char *argv[])
     gtk_notebook_set_tab_pos (GTK_NOTEBOOK(notebook), GTK_POS_TOP);
 
     /* put it in the main window */
-    gnome_app_set_contents (GNOME_APP(app), notebook);
+    gtk_container_add (GTK_CONTAINER(app), notebook);
 
     /* make menus + toolbar */
-    make_menus (GNOME_APP(app));
+    make_menus (GTK_WINDOW(app));
 
     /* create the pages in the notebook */
     fieldswidget = fields_page_new ();

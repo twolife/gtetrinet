@@ -23,7 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <gnome.h>
+#include <glib/gi18n.h>
 #include <stdlib.h>
 #include <string.h>
 #include <gdk/gdkkeysyms.h>

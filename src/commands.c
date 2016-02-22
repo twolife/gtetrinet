@@ -22,9 +22,10 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <gnome.h>
+#include <glib/gi18n.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "gtetrinet.h"
 #include "client.h"
@@ -140,16 +141,18 @@ static void fixup_toolbar_buttons (GtkUIManager *uim G_GNUC_UNUSED, GtkAction *a
   }
 }
 
-void make_menus (GnomeApp *app)
+void make_menus (GtkWindow *app)
 {
   GtkIconFactory *icon_factory;
   GdkPixbuf *team24_pixbuf;
   GtkIconSet *team24_icon_set;
   GError *err = NULL;
   GtkUIManager *ui_manager;
+  GtkWidget *vbox;
   GtkAccelGroup *accel_group;
   GtkWidget *menubar;
   GtkWidget *toolbar;
+  GtkWidget *main_widget;
 
   icon_factory = gtk_icon_factory_new ();
   team24_pixbuf = gdk_pixbuf_new_from_xpm_data ((const char **)team24_xpm);
@@ -159,6 +162,8 @@ void make_menus (GnomeApp *app)
   gtk_icon_set_unref (team24_icon_set);
   gtk_icon_factory_add_default (icon_factory);
   g_object_unref (icon_factory);
+
+  vbox = gtk_vbox_new (FALSE, 0);
 
   action_group = gtk_action_group_new ("MenuActions");
   gtk_action_group_add_actions (action_group, entries, G_N_ELEMENTS (entries), app);
@@ -178,10 +183,23 @@ void make_menus (GnomeApp *app)
   }
 
   menubar = gtk_ui_manager_get_widget (ui_manager, "/MainMenu");
-  gnome_app_set_menus (app, GTK_MENU_BAR (menubar));
+  gtk_box_pack_start (GTK_BOX (vbox), menubar, FALSE, FALSE, 0);
+
   toolbar = gtk_ui_manager_get_widget (ui_manager, "/MainToolbar");
   gtk_toolbar_set_style (GTK_TOOLBAR (toolbar), GTK_TOOLBAR_BOTH_HORIZ);
-  gnome_app_set_toolbar (app, GTK_TOOLBAR (toolbar));
+  gtk_box_pack_start (GTK_BOX (vbox), toolbar, FALSE, FALSE, 0);
+
+  gtk_widget_show_all (GTK_WIDGET (vbox));
+
+  main_widget = gtk_bin_get_child (GTK_BIN (app));
+  if (main_widget != NULL)
+  {
+    g_object_ref (main_widget);
+    gtk_container_remove (GTK_CONTAINER (app), main_widget);
+    gtk_box_pack_start (GTK_BOX (vbox), main_widget, TRUE, TRUE, 0);
+    g_object_unref (main_widget);
+    gtk_container_add (GTK_CONTAINER (app), vbox);
+  }
 
   ACTION_HIDE ("EndGame");
   ACTION_HIDE ("Disconnect");
