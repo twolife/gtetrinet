@@ -89,7 +89,7 @@ void fields_init (void)
     }
     /* we dont want the bitmap mask */
     gdk_pixbuf_render_pixmap_and_mask(pb, &blockpix, &mask, 1);
-    gdk_pixbuf_unref(pb);
+    g_object_unref(pb);
 }
 
 void fields_cleanup (void)

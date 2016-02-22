@@ -245,7 +245,7 @@ int main (int argc, char *argv[])
     if (icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (app), icon_pixbuf);
-      gdk_pixbuf_unref (icon_pixbuf);
+      g_object_unref (icon_pixbuf);
     }
 
     /* create the notebook */

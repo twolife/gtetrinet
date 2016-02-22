@@ -45,11 +45,11 @@ GtkWidget *winlist_page_new (void)
     /* Load the icons and scale them */
     pixbuf = gdk_pixbuf_new_from_file (GTETPIXMAPSDIR "/team.png",  NULL);
     team_icon = gdk_pixbuf_scale_simple (pixbuf, 24, 24, GDK_INTERP_BILINEAR);
-    gdk_pixbuf_unref (pixbuf);
+    g_object_unref (pixbuf);
     
     pixbuf = gdk_pixbuf_new_from_file (GTETPIXMAPSDIR "/alone.png", NULL);
     alone_icon = gdk_pixbuf_scale_simple (pixbuf, 24, 24, GDK_INTERP_BILINEAR);
-    gdk_pixbuf_unref (pixbuf);
+    g_object_unref (pixbuf);
 
     winlist = gtk_tree_view_new_with_model (GTK_TREE_MODEL (winlist_store));
 
