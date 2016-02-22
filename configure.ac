@@ -49,12 +49,14 @@ if test -d $srcdir/.git; then
 fi
 
 # Check for required packages
+LIBGLIB_REQUIRED=2.32.0
 LIBGTK_REQUIRED=2.6.0
 LIBGNOME_REQUIRED=2.0.0
 LIBGNOMEUI_REQUIRED=2.0.0
 LIBESD_OPTIONAL=0.2.36
 
 PKG_CHECK_MODULES(GTETRINET,[
+                  glib-2.0 >= $LIBGLIB_REQUIRED
                   gtk+-2.0 >= $LIBGTK_REQUIRED
                   libgnome-2.0 >= $LIBGNOME_REQUIRED
                   libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED

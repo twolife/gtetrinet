@@ -223,7 +223,6 @@ int main (int argc, char *argv[])
 
     /* initialise some stuff */
     fields_init ();
-    if (!g_thread_supported()) g_thread_init (NULL);
 
     /* first set up the display */
 

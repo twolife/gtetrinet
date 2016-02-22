@@ -225,7 +225,7 @@ void client_process (void)
   errno = 0;
   resolved = 0;
   
-  thread = g_thread_create ((GThreadFunc) client_resolv_hostname, NULL, FALSE, NULL);
+  thread = g_thread_new ("resolve", (GThreadFunc) client_resolv_hostname, NULL);
   
   /* wait until the hostname is resolved */
   while (resolved == 0)
