@@ -36,6 +36,8 @@
 
 #include "images/team24.xpm"
 
+#define GTET_STOCK_TEAM24 "gtet-team24"
+
 GnomeUIInfo gamemenu[] = {
     GNOMEUIINFO_ITEM(N_("_Connect to server..."), NULL, connect_command, NULL),
     GNOMEUIINFO_ITEM(N_("_Disconnect from server"), NULL, disconnect_command, NULL),
@@ -81,7 +83,7 @@ GnomeUIInfo toolbar[] = {
     GNOMEUIINFO_ITEM_STOCK(N_("End game"), N_("End the current game"), end_command, GTK_STOCK_MEDIA_STOP),
     GNOMEUIINFO_ITEM_STOCK(N_("Pause game"), N_("Pause the game"), pause_command, GTK_STOCK_MEDIA_PAUSE),
     GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM_DATA(N_("Change team"), N_("Change your current team name"), team_command, NULL, team24_xpm),
+    GNOMEUIINFO_ITEM_STOCK(N_("Change team"), N_("Change your current team name"), team_command, GTET_STOCK_TEAM24),
 #ifdef ENABLE_DETACH
     GNOMEUIINFO_SEPARATOR,
     GNOMEUIINFO_ITEM_STOCK(N_("Detach page"), N_("Detach the current notebook page"), detach_command, GTK_STOCK_CUT),
@@ -91,6 +93,19 @@ GnomeUIInfo toolbar[] = {
 
 void make_menus (GnomeApp *app)
 {
+  GtkIconFactory *icon_factory;
+  GdkPixbuf *team24_pixbuf;
+  GtkIconSet *team24_icon_set;
+
+  icon_factory = gtk_icon_factory_new ();
+  team24_pixbuf = gdk_pixbuf_new_from_xpm_data ((const char **)team24_xpm);
+  team24_icon_set = gtk_icon_set_new_from_pixbuf (team24_pixbuf);
+  g_object_unref (team24_pixbuf);
+  gtk_icon_factory_add (icon_factory, GTET_STOCK_TEAM24, team24_icon_set);
+  gtk_icon_set_unref (team24_icon_set);
+  gtk_icon_factory_add_default (icon_factory);
+  g_object_unref (icon_factory);
+
   gnome_app_create_menus (app, menubar);
 
   gtk_accel_map_add_entry ("<GTetrinet-Main>/Game/Start", gdk_keyval_from_name ("n"), GDK_CONTROL_MASK);
