@@ -1051,7 +1051,7 @@ void prefdialog_new (void)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(soundcheck), soundenable);
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(midicheck), midienable);
 
-#ifdef HAVE_ESD
+#ifdef HAVE_CANBERRAGTK
     if (midienable) prefdialog_midion ();
     else prefdialog_midioff ();
     if (soundenable) prefdialog_soundon ();

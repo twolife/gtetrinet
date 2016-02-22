@@ -4,8 +4,8 @@ localedir = $(datadir)/locale
 
 AM_CFLAGS = $(GTETRINET_CFLAGS)
 
-if HAVE_ESOUND
-gtetrinet_LDADD = $(GTETRINET_LIBS) $(ESOUND_LIBS)
+if HAVE_CANBERRAGTK
+gtetrinet_LDADD = $(GTETRINET_LIBS) $(CANBERRAGTK_LIBS)
 else
 gtetrinet_LDADD = $(GTETRINET_LIBS)
 endif

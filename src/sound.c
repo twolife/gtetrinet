@@ -25,6 +25,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <signal.h>
+#include <stdlib.h>
 #include "sound.h"
 
 extern char **environ;
@@ -35,12 +36,11 @@ char soundfiles[S_NUM][1024];
 char midifile[1024];
 char midicmd[1024];
 
-#ifdef HAVE_ESD
+#ifdef HAVE_CANBERRAGTK
 
-#include <esd.h>
-#include <libgnome/gnome-sound.h>
+#include <canberra-gtk.h>
 
-static int soundsamples[S_NUM];
+static char *soundsamples[S_NUM] = {NULL};
 static int midipid = 0;
 
 void sound_cache (void)
@@ -48,20 +48,26 @@ void sound_cache (void)
     int i;
     if (!soundenable) return;
     for (i = 0; i < S_NUM; i ++) {
-        if (soundsamples[i])
-            esd_sample_free (gnome_sound_connection_get (), soundsamples[i]);
-        if (soundfiles[i][0])
-            soundsamples[i] = gnome_sound_sample_load (soundfiles[i], soundfiles[i]);
-        else
-            soundsamples[i] = 0;
+        if (soundsamples[i] != NULL)
+            g_free (soundsamples[i]);
+        if (soundfiles[i][0]) {
+            ca_context_cache (ca_gtk_context_get (), CA_PROP_MEDIA_FILENAME, soundfiles[i], NULL);
+            soundsamples[i] = g_strdup (soundfiles[i]);
+        } else {
+            soundsamples[i] = NULL;
+        }
     }
 }
 
 void sound_playsound (int id)
 {
     if (!soundenable) return;
-    if (soundsamples[id] > 0)
-      esd_sample_play (gnome_sound_connection_get (), soundsamples[id]);
+    if (soundsamples[id] != NULL)
+      ca_context_play (ca_gtk_context_get (), 0,
+                         CA_PROP_MEDIA_FILENAME, soundsamples[id],
+                         /* If GTK says sounds are disabled, override it. */
+                         CA_PROP_CANBERRA_ENABLE, "1",
+                         NULL);
 }
 
 void sound_playmidi (char *file)

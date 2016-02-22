@@ -53,7 +53,7 @@ LIBGLIB_REQUIRED=2.32.0
 LIBGTK_REQUIRED=2.6.0
 LIBGNOME_REQUIRED=2.0.0
 LIBGNOMEUI_REQUIRED=2.0.0
-LIBESD_OPTIONAL=0.2.36
+LIBCANBERRAGTK_OPTIONAL=0.2
 
 PKG_CHECK_MODULES(GTETRINET,[
                   glib-2.0 >= $LIBGLIB_REQUIRED
@@ -62,21 +62,21 @@ PKG_CHECK_MODULES(GTETRINET,[
                   libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED
 ])
 
-# Check for libesd
-if pkg-config --exists esound ; then
-	have_esound=yes
-else 
-	have_esound=no
+# Check for libcanberra-gtk
+if pkg-config --exists "libcanberra-gtk >= $LIBCANBERRAGTK_OPTIONAL"; then
+	have_canberragtk=yes
+else
+	have_canberragtk=no
 fi
 
-if test "x$have_esound" = "xyes"; then
-	AC_DEFINE([HAVE_ESD],[1],[Define this to enable EsounD support.])
-	PKG_CHECK_MODULES([ESOUND],[esound >= $LIBESD_OPTIONAL])
-	AC_SUBST(ESOUND_CFLAGS)
-	AC_SUBST(ESOUND_LIBS)
+if test "x$have_canberragtk" = "xyes"; then
+	AC_DEFINE([HAVE_CANBERRAGTK],[1],[Define this to enable sound support.])
+	PKG_CHECK_MODULES([CANBERRAGTK],[libcanberra-gtk >= $LIBCANBERRAGTK_OPTIONAL])
+	AC_SUBST(CANBERRAGTK_CFLAGS)
+	AC_SUBST(CANBERRAGTK_LIBS)
 fi
 
-AM_CONDITIONAL(HAVE_ESOUND, test "x$have_esound" = "xyes")
+AM_CONDITIONAL(HAVE_CANBERRAGTK, test "x$have_canberragtk" = "xyes")
 
 AC_CHECK_FUNC(putenv)
 AC_CHECK_FUNC(setenv)
@@ -158,5 +158,5 @@ echo "   GTranslator version: ${PACKAGE_VERSION}"
 echo "   Compilation flags:   ${CFLAGS}"
 echo "   CPPFLAGS:            ${CPPFLAGS}"
 echo "   IPv6 support:        $enable_ipv6"
-echo "   EsounD support:      $have_esound"
+echo "   Sound support:       $have_canberragtk"
 echo "   Page detaching:      $enable_detach"
