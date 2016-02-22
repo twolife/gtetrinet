@@ -34,12 +34,7 @@
 #include "commands.h"
 #include "dialogs.h"
 
-#include "images/play.xpm"
-#include "images/pause.xpm"
-#include "images/stop.xpm"
 #include "images/team24.xpm"
-#include "images/connect.xpm"
-#include "images/disconnect.xpm"
 
 GnomeUIInfo gamemenu[] = {
     GNOMEUIINFO_ITEM(N_("_Connect to server..."), NULL, connect_command, NULL),
@@ -79,17 +74,17 @@ GnomeUIInfo menubar[] = {
 };
 
 GnomeUIInfo toolbar[] = {
-    GNOMEUIINFO_ITEM_DATA(N_("Connect"), N_("Connect to a server"), connect_command, NULL, connect_xpm),
-    GNOMEUIINFO_ITEM_DATA(N_("Disconnect"), N_("Disconnect from the current server"), disconnect_command, NULL, disconnect_xpm),
+    GNOMEUIINFO_ITEM_STOCK(N_("Connect"), N_("Connect to a server"), connect_command, GTK_STOCK_CONNECT),
+    GNOMEUIINFO_ITEM_STOCK(N_("Disconnect"), N_("Disconnect from the current server"), disconnect_command, GTK_STOCK_DISCONNECT),
     GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM_DATA(N_("Start game"), N_("Start a new game"), start_command, NULL, play_xpm),
-    GNOMEUIINFO_ITEM_DATA(N_("End game"), N_("End the current game"), end_command, NULL, stop_xpm),
-    GNOMEUIINFO_ITEM_DATA(N_("Pause game"), N_("Pause the game"), pause_command, NULL, pause_xpm),
+    GNOMEUIINFO_ITEM_STOCK(N_("Start game"), N_("Start a new game"), start_command, GTK_STOCK_MEDIA_PLAY),
+    GNOMEUIINFO_ITEM_STOCK(N_("End game"), N_("End the current game"), end_command, GTK_STOCK_MEDIA_STOP),
+    GNOMEUIINFO_ITEM_STOCK(N_("Pause game"), N_("Pause the game"), pause_command, GTK_STOCK_MEDIA_PAUSE),
     GNOMEUIINFO_SEPARATOR,
     GNOMEUIINFO_ITEM_DATA(N_("Change team"), N_("Change your current team name"), team_command, NULL, team24_xpm),
 #ifdef ENABLE_DETACH
     GNOMEUIINFO_SEPARATOR,
-    GNOMEUIINFO_ITEM_STOCK(N_("Detach page"), N_("Detach the current notebook page"), detach_command, "gtk-cut"),
+    GNOMEUIINFO_ITEM_STOCK(N_("Detach page"), N_("Detach the current notebook page"), detach_command, GTK_STOCK_CUT),
 #endif
     GNOMEUIINFO_END
 };
