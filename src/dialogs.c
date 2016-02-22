@@ -37,6 +37,10 @@
 #include "string.h"
 #include "partyline.h"
 
+/* Adopted and renamed from libgnomeui */
+#define GTET_PAD 8
+#define GTET_PAD_SMALL 4
+
 extern GConfClient *gconf_client;
 extern GtkWidget *app;
 
@@ -161,7 +165,7 @@ void teamdialog_new (void)
     gtk_window_set_resizable (GTK_WINDOW (team_dialog), FALSE);
 
     /* entry and label */
-    hbox = gtk_hbox_new (FALSE, GNOME_PAD_SMALL);
+    hbox = gtk_hbox_new (FALSE, GTET_PAD_SMALL);
     widget = gtk_label_new (_("Team name:"));
     gtk_box_pack_start (GTK_BOX (hbox), widget ,TRUE, TRUE, 0);
     entry = gnome_entry_new ("Team");
@@ -170,7 +174,7 @@ void teamdialog_new (void)
     g_object_set (G_OBJECT (gnome_entry_gtk_entry (GNOME_ENTRY (entry))),
                   "activates_default", TRUE, NULL);
     gtk_box_pack_start (GTK_BOX (hbox), entry  ,TRUE, TRUE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (hbox), GNOME_PAD_SMALL);
+    gtk_container_set_border_width (GTK_CONTAINER (hbox), GTET_PAD_SMALL);
     gtk_box_pack_end (GTK_BOX (GTK_DIALOG (team_dialog)->vbox), hbox ,TRUE, TRUE, 0);
 
     /* pass the entry in the data pointer */
@@ -330,8 +334,8 @@ void connectdialog_new (void)
 
     /* main table */
     table1 = gtk_table_new (2, 2, FALSE);
-    gtk_table_set_row_spacings (GTK_TABLE(table1), GNOME_PAD_SMALL);
-    gtk_table_set_col_spacings (GTK_TABLE(table1), GNOME_PAD_SMALL);
+    gtk_table_set_row_spacings (GTK_TABLE(table1), GTET_PAD_SMALL);
+    gtk_table_set_col_spacings (GTK_TABLE(table1), GTET_PAD_SMALL);
 
     /* server address */
     table2 = gtk_table_new (2, 1, FALSE);
@@ -359,16 +363,16 @@ void connectdialog_new (void)
     }
     gtk_widget_show (originalradio);
     gtk_widget_show (tetrifastradio);
-    widget = gtk_hbox_new (FALSE, GNOME_PAD_SMALL);
+    widget = gtk_hbox_new (FALSE, GTET_PAD_SMALL);
     gtk_box_pack_start (GTK_BOX(widget), originalradio, 0, 0, 0);
     gtk_box_pack_start (GTK_BOX(widget), tetrifastradio, 0, 0, 0);
     gtk_widget_show (widget);
     gtk_table_attach (GTK_TABLE(table2), widget,
                       0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
 
-    gtk_table_set_row_spacings (GTK_TABLE(table2), GNOME_PAD_SMALL);
-    gtk_table_set_col_spacings (GTK_TABLE(table2), GNOME_PAD_SMALL);
-    gtk_container_set_border_width (GTK_CONTAINER(table2), GNOME_PAD);
+    gtk_table_set_row_spacings (GTK_TABLE(table2), GTET_PAD_SMALL);
+    gtk_table_set_col_spacings (GTK_TABLE(table2), GTET_PAD_SMALL);
+    gtk_container_set_border_width (GTK_CONTAINER(table2), GTET_PAD);
     gtk_widget_show (table2);
     frame = gtk_frame_new (_("Server address"));
     gtk_container_add (GTK_CONTAINER(frame), table2);
@@ -396,9 +400,9 @@ void connectdialog_new (void)
     gtk_table_attach (GTK_TABLE(table2), passwordentry, 1, 2, 1, 2,
                       GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND, 0, 0);
 
-    gtk_table_set_row_spacings (GTK_TABLE(table2), GNOME_PAD_SMALL);
-    gtk_table_set_col_spacings (GTK_TABLE(table2), GNOME_PAD_SMALL);
-    gtk_container_set_border_width (GTK_CONTAINER(table2), GNOME_PAD);
+    gtk_table_set_row_spacings (GTK_TABLE(table2), GTET_PAD_SMALL);
+    gtk_table_set_col_spacings (GTK_TABLE(table2), GTET_PAD_SMALL);
+    gtk_container_set_border_width (GTK_CONTAINER(table2), GTET_PAD);
     gtk_widget_show (table2);
     frame = gtk_frame_new (_("Spectate game"));
     gtk_container_add (GTK_CONTAINER(frame), table2);
@@ -438,9 +442,9 @@ void connectdialog_new (void)
     gtk_table_attach (GTK_TABLE(table2), teamnameentry, 1, 2, 1, 2,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
 
-    gtk_table_set_row_spacings (GTK_TABLE(table2), GNOME_PAD_SMALL);
-    gtk_table_set_col_spacings (GTK_TABLE(table2), GNOME_PAD_SMALL);
-    gtk_container_set_border_width (GTK_CONTAINER(table2), GNOME_PAD);
+    gtk_table_set_row_spacings (GTK_TABLE(table2), GTET_PAD_SMALL);
+    gtk_table_set_col_spacings (GTK_TABLE(table2), GTET_PAD_SMALL);
+    gtk_container_set_border_width (GTK_CONTAINER(table2), GTET_PAD);
     gtk_widget_show (table2);
     frame = gtk_frame_new (_("Player information"));
     gtk_container_add (GTK_CONTAINER(frame), table2);
@@ -450,7 +454,7 @@ void connectdialog_new (void)
 
     gtk_widget_show (table1);
 
-    gtk_container_set_border_width (GTK_CONTAINER (table1), GNOME_PAD_SMALL);
+    gtk_container_set_border_width (GTK_CONTAINER (table1), GTET_PAD_SMALL);
     gtk_box_pack_start (GTK_BOX (GTK_DIALOG(connectdialog)->vbox),
                         table1, TRUE, TRUE, 0);
 
@@ -490,7 +494,7 @@ gint key_dialog (char *msg)
     label = gtk_label_new (msg);
     gtk_widget_show (label);
     gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox),
-                        label, TRUE, TRUE, GNOME_PAD_SMALL);
+                        label, TRUE, TRUE, GTET_PAD_SMALL);
     g_signal_connect (G_OBJECT (dialog), "key-press-event",
                         GTK_SIGNAL_FUNC (key_dialog_callback), NULL);
     gtk_widget_set_events (dialog, GDK_KEY_PRESS_MASK);
@@ -847,9 +851,9 @@ void prefdialog_new (void)
                              "Install new themes in ~/.gtetrinet/themes/"));
 
     table1 = gtk_table_new (3, 2, FALSE);
-    gtk_container_set_border_width (GTK_CONTAINER(table1), GNOME_PAD_SMALL);
+    gtk_container_set_border_width (GTK_CONTAINER(table1), GTET_PAD_SMALL);
     gtk_table_set_row_spacings (GTK_TABLE(table1), 0);
-    gtk_table_set_col_spacings (GTK_TABLE(table1), GNOME_PAD_SMALL);
+    gtk_table_set_col_spacings (GTK_TABLE(table1), GTET_PAD_SMALL);
     widget = leftlabel_new (_("Name:"));
     gtk_table_attach (GTK_TABLE(table1), widget, 0, 1, 0, 1,
                       GTK_EXPAND | GTK_FILL, 0, 0, 0);
@@ -871,14 +875,14 @@ void prefdialog_new (void)
 
     frame = gtk_frame_new (_("Selected Theme"));
     gtk_frame_set_shadow_type (GTK_FRAME(frame), GTK_SHADOW_IN);
-    gtk_container_set_border_width (GTK_CONTAINER(frame), GNOME_PAD_SMALL);
+    gtk_container_set_border_width (GTK_CONTAINER(frame), GTET_PAD_SMALL);
     gtk_widget_set_size_request (frame, 240, 100);
     gtk_container_add (GTK_CONTAINER(frame), table1);
     
     table = gtk_table_new (3, 2, FALSE);
-    gtk_container_set_border_width (GTK_CONTAINER(table), GNOME_PAD);
-    gtk_table_set_row_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
-    gtk_table_set_col_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
+    gtk_container_set_border_width (GTK_CONTAINER(table), GTET_PAD);
+    gtk_table_set_row_spacings (GTK_TABLE(table), GTET_PAD_SMALL);
+    gtk_table_set_col_spacings (GTK_TABLE(table), GTET_PAD_SMALL);
     gtk_table_attach (GTK_TABLE(table), themelist_scroll, 0, 1, 0, 3,
                       GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
     gtk_table_attach (GTK_TABLE(table), label, 1, 2, 0, 1,
@@ -916,9 +920,9 @@ void prefdialog_new (void)
 		      G_CALLBACK (prefdialog_channeltoggle), NULL);
 
     table = gtk_table_new (3, 1, FALSE);
-    gtk_container_set_border_width (GTK_CONTAINER(table), GNOME_PAD);
-    gtk_table_set_row_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
-    gtk_table_set_col_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
+    gtk_container_set_border_width (GTK_CONTAINER(table), GTET_PAD);
+    gtk_table_set_row_spacings (GTK_TABLE(table), GTET_PAD_SMALL);
+    gtk_table_set_col_spacings (GTK_TABLE(table), GTET_PAD_SMALL);
     gtk_table_attach (GTK_TABLE(table), frame, 0, 1, 0, 1,
                       GTK_EXPAND | GTK_FILL, 0, 0, 0);
     gtk_widget_show (table);
@@ -960,14 +964,14 @@ void prefdialog_new (void)
     gtk_widget_show (button1);
 
     table = gtk_table_new (2, 2, FALSE);
-    gtk_container_set_border_width (GTK_CONTAINER(table), GNOME_PAD);
-    gtk_table_set_row_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
-    gtk_table_set_col_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
+    gtk_container_set_border_width (GTK_CONTAINER(table), GTET_PAD);
+    gtk_table_set_row_spacings (GTK_TABLE(table), GTET_PAD_SMALL);
+    gtk_table_set_col_spacings (GTK_TABLE(table), GTET_PAD_SMALL);
     gtk_table_attach (GTK_TABLE(table), key_scroll, 0, 1, 0, 2,
                       GTK_FILL, GTK_FILL, 0, 0);
     gtk_table_attach (GTK_TABLE(table), label, 1, 2, 0, 1,
                       GTK_FILL, 0, 0, 0);
-    frame = gtk_vbox_new (FALSE, GNOME_PAD_SMALL);
+    frame = gtk_vbox_new (FALSE, GTET_PAD_SMALL);
     gtk_box_pack_end (GTK_BOX(frame), button1, FALSE, FALSE, 0);
     gtk_box_pack_end (GTK_BOX(frame), button, FALSE, FALSE, 0);
     gtk_widget_show (frame);
@@ -1013,26 +1017,26 @@ void prefdialog_new (void)
     gtk_widget_show (button);
 
     miditable = gtk_table_new (4, 2, FALSE);
-    gtk_table_set_row_spacings (GTK_TABLE(miditable), GNOME_PAD_SMALL);
-    gtk_table_set_col_spacings (GTK_TABLE(miditable), GNOME_PAD_SMALL);
+    gtk_table_set_row_spacings (GTK_TABLE(miditable), GTET_PAD_SMALL);
+    gtk_table_set_col_spacings (GTK_TABLE(miditable), GTET_PAD_SMALL);
     gtk_table_attach (GTK_TABLE(miditable), widget, 0, 2, 0, 1,
                       GTK_EXPAND | GTK_FILL, GTK_FILL, 0, 0);
     gtk_table_attach (GTK_TABLE(miditable), midientry, 0, 2, 1, 2,
                       GTK_EXPAND | GTK_FILL, GTK_FILL, 0, 0);
     gtk_table_attach (GTK_TABLE(miditable), label, 0, 1, 2, 4,
-                      GTK_FILL, GTK_FILL, GNOME_PAD_SMALL, GNOME_PAD_SMALL);
+                      GTK_FILL, GTK_FILL, GTET_PAD_SMALL, GTET_PAD_SMALL);
     gtk_table_attach (GTK_TABLE(miditable), button, 1, 2, 2, 3,
                       GTK_EXPAND | GTK_FILL, 0, 0, 0);
     gtk_widget_show (miditable);
 
     table = gtk_table_new (3, 1, FALSE);
-    gtk_container_set_border_width (GTK_CONTAINER(table), GNOME_PAD);
-    gtk_table_set_row_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
-    gtk_table_set_col_spacings (GTK_TABLE(table), GNOME_PAD_SMALL);
+    gtk_container_set_border_width (GTK_CONTAINER(table), GTET_PAD);
+    gtk_table_set_row_spacings (GTK_TABLE(table), GTET_PAD_SMALL);
+    gtk_table_set_col_spacings (GTK_TABLE(table), GTET_PAD_SMALL);
     gtk_table_attach (GTK_TABLE(table), frame, 0, 1, 0, 1,
                       GTK_EXPAND | GTK_FILL, 0, 0, 0);
     gtk_table_attach (GTK_TABLE(table), divider, 0, 1, 1, 2,
-                      GTK_EXPAND | GTK_FILL, 0, 0, GNOME_PAD_SMALL);
+                      GTK_EXPAND | GTK_FILL, 0, 0, GTET_PAD_SMALL);
     gtk_table_attach (GTK_TABLE(table), miditable, 0, 1, 2, 3,
                       GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
     gtk_widget_show (table);
