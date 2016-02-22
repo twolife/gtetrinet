@@ -33,7 +33,7 @@
 #include <errno.h>
 #include <signal.h>
 #include <ctype.h>
-#include <gnome.h>
+#include <glib/gi18n.h>
 
 #include "client.h"
 #include "tetrinet.h"

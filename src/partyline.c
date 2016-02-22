@@ -22,7 +22,8 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <gnome.h>
+#include <gdk/gdkkeysyms.h>
+#include <glib/gi18n.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
@@ -31,7 +32,6 @@
 #include "tetrinet.h"
 #include "partyline.h"
 #include "misc.h"
-#include "commands.h"
 
 int timestampsenable;
 gboolean list_enabled;

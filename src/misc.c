@@ -18,7 +18,6 @@
  */
 
 #include <gtk/gtk.h>
-#include <gnome.h>
 #include <unistd.h>
 #include <stdlib.h>
 
