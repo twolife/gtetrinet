@@ -93,10 +93,11 @@ void connectingdialog_new (void)
     gtk_window_set_skip_taskbar_hint (GTK_WINDOW (connectingdialog), TRUE);
     progressbar = gtk_progress_bar_new ();
     gtk_widget_show (progressbar);
-    gtk_box_pack_start (GTK_BOX (GTK_DIALOG(connectingdialog)->vbox),
-                        progressbar, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_vbox(connectingdialog)),
+                        progressbar, TRUE, TRUE, 0); 
 
-    timeouttag = g_timeout_add (20, (GtkFunction)connectingdialog_timeout,
+
+    timeouttag = g_timeout_add (20, (GSourceFunc)connectingdialog_timeout,
                                 NULL);
     g_signal_connect (G_OBJECT(connectingdialog), "response",
                         GTK_SIGNAL_FUNC(connectingdialog_button), NULL);
@@ -154,7 +155,7 @@ void teamdialog_new (void)
 
     team_dialog = gtk_dialog_new_with_buttons (_("Change team"),
                                                GTK_WINDOW (app),
-                                               GTK_DIALOG_NO_SEPARATOR,
+                                               0,
                                                GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                                GTK_STOCK_OK, GTK_RESPONSE_OK,
                                                NULL);
@@ -174,7 +175,7 @@ void teamdialog_new (void)
                   "activates_default", TRUE, NULL);
     gtk_box_pack_start (GTK_BOX (hbox), entry  ,TRUE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox), GTET_PAD_SMALL);
-    gtk_box_pack_end (GTK_BOX (GTK_DIALOG (team_dialog)->vbox), hbox ,TRUE, TRUE, 0);
+    gtk_box_pack_end (GTK_BOX (gtk_dialog_get_vbox(team_dialog)), hbox ,TRUE, TRUE, 0);
 
     /* pass the entry in the data pointer */
     g_signal_connect (G_OBJECT(team_dialog), "response",
@@ -215,7 +216,9 @@ void connectdialog_button (GtkDialog *dialog, gint button)
           return;
         }
 
-        spectating = GTK_TOGGLE_BUTTON(spectatorcheck)->active ? TRUE : FALSE;
+	//spectating = GTK_TOGGLE_BUTTON(spectatorcheck)->active ? TRUE : FALSE;
+	spectating = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(spectatorcheck));
+
         if (spectating)
         {
           g_utf8_strncpy (specpassword, gtk_entry_get_text (GTK_ENTRY(passwordentry)),
@@ -270,7 +273,8 @@ void connectdialog_button (GtkDialog *dialog, gint button)
 
 void connectdialog_spectoggle (GtkWidget *widget)
 {
-    if (GTK_TOGGLE_BUTTON(widget)->active) {
+    //if (GTK_TOGGLE_BUTTON(widget)->active) {
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
         gtk_widget_set_sensitive (passwordentry, TRUE);
         gtk_widget_set_sensitive (passwordlabel, TRUE);
         gtk_widget_set_sensitive (teamnameentry, FALSE);
@@ -286,14 +290,16 @@ void connectdialog_spectoggle (GtkWidget *widget)
 
 void connectdialog_originaltoggle (GtkWidget *widget)
 {
-    if (GTK_TOGGLE_BUTTON(widget)-> active) {
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
+    //if (GTK_TOGGLE_BUTTON(widget)-> active) {
         gamemode = ORIGINAL;
     }
 }
 
 void connectdialog_tetrifasttoggle (GtkWidget *widget)
 {
-    if (GTK_TOGGLE_BUTTON(widget)-> active) {
+    //if (GTK_TOGGLE_BUTTON(widget)-> active) {
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
         gamemode = TETRIFAST;
     }
 }
@@ -322,7 +328,7 @@ void connectdialog_new (void)
     /* make dialog that asks for address/nickname */
     connectdialog = gtk_dialog_new_with_buttons (_("Connect to server"),
                                                  GTK_WINDOW (app),
-                                                 GTK_DIALOG_NO_SEPARATOR,
+                                                 0,
                                                  GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                                  GTK_STOCK_OK, GTK_RESPONSE_OK,
                                                  NULL);
@@ -454,7 +460,7 @@ void connectdialog_new (void)
     gtk_widget_show (table1);
 
     gtk_container_set_border_width (GTK_CONTAINER (table1), GTET_PAD_SMALL);
-    gtk_box_pack_start (GTK_BOX (GTK_DIALOG(connectdialog)->vbox),
+    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_vbox(connectdialog)),
                         table1, TRUE, TRUE, 0);
 
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(spectatorcheck), spectating);
@@ -487,12 +493,12 @@ gint key_dialog (char *msg)
     gint keydialog_key;
 
     dialog = gtk_dialog_new_with_buttons (_("Change Key"), GTK_WINDOW (prefdialog),
-                                          GTK_DIALOG_MODAL | GTK_DIALOG_NO_SEPARATOR,
+                                          GTK_DIALOG_MODAL | 0,
                                           GTK_STOCK_CANCEL, GTK_RESPONSE_CLOSE,
                                           NULL);
     label = gtk_label_new (msg);
     gtk_widget_show (label);
-    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox),
+    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_vbox(dialog)),
                         label, TRUE, TRUE, GTET_PAD_SMALL);
     g_signal_connect (G_OBJECT (dialog), "key-press-event",
                         GTK_SIGNAL_FUNC (key_dialog_callback), NULL);
@@ -633,7 +639,8 @@ void prefdialog_midioff ()
 void prefdialog_soundon ()
 {
     gtk_widget_set_sensitive (midicheck, TRUE);
-    if (GTK_TOGGLE_BUTTON(midicheck)->active) {
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(midicheck))) {
+    //if (GTK_TOGGLE_BUTTON(midicheck)->active) {
         prefdialog_midion ();
     }
 }
@@ -646,32 +653,33 @@ void prefdialog_soundoff ()
 
 void prefdialog_soundtoggle (GtkWidget *widget)
 {
-    if (GTK_TOGGLE_BUTTON(widget)->active) {
+    //if (GTK_TOGGLE_BUTTON(widget)->active) {
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
         prefdialog_soundon ();
     }
     else {
         prefdialog_soundoff ();
     }
     gconf_client_set_bool (gconf_client, "/apps/gtetrinet/sound/enable_sound",
-                           GTK_TOGGLE_BUTTON (widget)->active, NULL);
+                           gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)), NULL);
 }
 
 void prefdialog_channeltoggle (GtkWidget *widget)
 {
   gconf_client_set_bool (gconf_client, "/apps/gtetrinet/partyline/enable_channel_list",
-			 GTK_TOGGLE_BUTTON (widget)->active, NULL);
+                         gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)), NULL);
 }
 
 void prefdialog_miditoggle (GtkWidget *widget)
 {
-    if (GTK_TOGGLE_BUTTON(widget)->active) {
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
         prefdialog_midion ();
     }
     else {
         prefdialog_midioff ();
     }
     gconf_client_set_bool (gconf_client, "/apps/gtetrinet/sound/enable_midi",
-                           GTK_TOGGLE_BUTTON (widget)->active, NULL);
+                           gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)), NULL);
 }
 
 
@@ -694,7 +702,7 @@ void prefdialog_restoremidi (void)
 void prefdialog_timestampstoggle (GtkWidget *widget)
 {
     gconf_client_set_bool (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps",
-                           GTK_TOGGLE_BUTTON (widget)->active, NULL);
+                           gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)), NULL);
 }
 
 void prefdialog_themelistselect (int n)
@@ -826,7 +834,7 @@ void prefdialog_new (void)
 
     prefdialog = gtk_dialog_new_with_buttons (_("GTetrinet Preferences"),
                                               GTK_WINDOW (app),
-                                              GTK_DIALOG_NO_SEPARATOR | GTK_DIALOG_DESTROY_WITH_PARENT,
+                                              0 | GTK_DIALOG_DESTROY_WITH_PARENT,
                                               GTK_STOCK_HELP, GTK_RESPONSE_HELP,
                                               GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE,
                                               NULL);
@@ -1065,7 +1073,7 @@ void prefdialog_new (void)
 #endif
     
 //    gtk_box_set_spacing (GTK_BOX (GTK_DIALOG (prefdialog)->action_area), 6);
-    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (prefdialog)->vbox), notebook, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_vbox(perfdialog)), notebook, FALSE, FALSE, 0);
 
     g_signal_connect (G_OBJECT(soundcheck), "toggled",
                       GTK_SIGNAL_FUNC(prefdialog_soundtoggle), NULL);
