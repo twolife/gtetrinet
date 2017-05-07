@@ -50,16 +50,14 @@ fi
 
 # Check for required packages
 LIBGLIB_REQUIRED=2.32.0
-LIBGTK_REQUIRED=2.18.0
-LIBGNOME_REQUIRED=2.0.0
-LIBGNOMEUI_REQUIRED=2.0.0
+LIBGTK_REQUIRED=3.18.0
 LIBCANBERRAGTK_OPTIONAL=0.2
+LIBGCONF_REQUIRED=2.0.0
 
 PKG_CHECK_MODULES(GTETRINET,[
                   glib-2.0 >= $LIBGLIB_REQUIRED
-                  gtk+-2.0 >= $LIBGTK_REQUIRED
-                  libgnome-2.0 >= $LIBGNOME_REQUIRED
-                  libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED
+                  gtk+-3.0 >= $LIBGTK_REQUIRED
+                  gconf-2.0 >= $LIBGCONF_REQUIRED
 ])
 
 # Check for libcanberra-gtk
@@ -128,11 +126,7 @@ fi
 AC_ARG_ENABLE(strict, AS_HELP_STRING([--enable-strict],[Enable strict compilation options]), enable_strict=$enableval,
 					enable_strict=$default_strict)
 if test x$enable_strict != xno; then
-	CPPFLAGS="$CPPFLAGS -DG_DISABLE_SINGLE_INCLUDES -DGTK_DISABLE_SINGLE_INCLUDES"
-	CPPFLAGS="$CPPFLAGS -DG_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED"
-#	if test "$GCC" = "yes"; then
-#		CPPFLAGS="$CPPFLAGS -Werror"
-#	fi
+	CPPFLAGS="$CPPFLAGS"
 fi
 
 # Generate files

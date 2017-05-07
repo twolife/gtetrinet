@@ -22,7 +22,6 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <gnome.h>
 #include <sys/types.h>
 #include <dirent.h>
 
