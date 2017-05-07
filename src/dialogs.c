@@ -1073,7 +1073,7 @@ void prefdialog_new (void)
 #endif
     
 //    gtk_box_set_spacing (GTK_BOX (GTK_DIALOG (prefdialog)->action_area), 6);
-    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_vbox(perfdialog)), notebook, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_vbox(prefdialog)), notebook, FALSE, FALSE, 0);
 
     g_signal_connect (G_OBJECT(soundcheck), "toggled",
                       GTK_SIGNAL_FUNC(prefdialog_soundtoggle), NULL);
