@@ -53,10 +53,10 @@ static void fields_drawblock (int field, int x, int y, char block);
 
 static void gmsginput_activate (void);
 
-static GdkPixmap *blockpix;
+static cairo_surface_t *blockpix;
 
 static GdkColor black = {0, 0, 0, 0};
-static GdkBitmap *bitmap;
+static cairo_surface_t *bitmap;
 static GdkCursor *invisible_cursor, *arrow_cursor;
 
 static FIELD displayfields[6]; /* what is actually displayed */
@@ -67,7 +67,7 @@ void fields_init (void)
     GtkWidget *mb;
     GdkPixbuf *pb = NULL;
     GError *err = NULL;
-    GdkBitmap *mask = NULL;
+    cairo_surface_t *mask = NULL;
     
     if (!(pb = gdk_pixbuf_new_from_file(blocksfile, &err))) {
         mb = gtk_message_dialog_new (NULL,
@@ -111,7 +111,7 @@ GtkWidget *fields_page_new (void)
     gtk_container_add (GTK_CONTAINER(fieldspage), pagecontents);
 
     /* create the cursors */
-    bitmap = gdk_bitmap_create_from_data (GTK_WIDGET (fieldspage)->window, "\0", 1, 1);
+    bitmap = gdk_bitmap_create_from_data (gtk_widget_get_window(GTK_WIDGET (fieldspage)), "\0", 1, 1);
     invisible_cursor = gdk_cursor_new_from_pixmap (bitmap, bitmap, &black, &black, 0, 0);
     arrow_cursor = gdk_cursor_new (GDK_X_CURSOR);
 
@@ -280,7 +280,7 @@ GtkWidget *fields_page_contents (void)
     attdefwidget = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
     gtk_widget_set_size_request (attdefwidget, MAX(22*12, BLOCKSIZE*12), BLOCKSIZE*10);
     gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(attdefwidget), GTK_WRAP_WORD);
-    GTK_WIDGET_UNSET_FLAGS (attdefwidget, GTK_CAN_FOCUS);
+/* FIXME   GTK_WIDGET_UNSET_FLAGS (attdefwidget, GTK_CAN_FOCUS); */
     scroll = gtk_scrolled_window_new (NULL, NULL);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll),
                                     GTK_POLICY_AUTOMATIC,
@@ -297,7 +297,7 @@ GtkWidget *fields_page_contents (void)
     table2 = gtk_table_new (1, 2, FALSE);
     gmsgtext = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
     gtk_widget_set_size_request (gmsgtext, -1, 48);
-    GTK_WIDGET_UNSET_FLAGS (gmsgtext, GTK_CAN_FOCUS);
+/* FIXME    GTK_WIDGET_UNSET_FLAGS (gmsgtext, GTK_CAN_FOCUS); */
     scroll = gtk_scrolled_window_new (NULL, NULL);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll),
                                     GTK_POLICY_AUTOMATIC,
@@ -342,9 +342,9 @@ gint fields_expose_event (GtkWidget *widget, GdkEventExpose *event, gpointer fie
     fields_refreshfield (GPOINTER_TO_INT (field));
     /* hide the cursor */
     if (ingame)
-      gdk_window_set_cursor (widget->window, invisible_cursor);
+      gdk_window_set_cursor (gtk_widget_get_window(widget), invisible_cursor);
     else
-      gdk_window_set_cursor (widget->window, arrow_cursor);
+      gdk_window_set_cursor (gtk_widget_get_window(widget), arrow_cursor);
 
     return FALSE;
 }
@@ -397,10 +397,14 @@ void fields_drawblock (int field, int x, int y, char block)
     destx = blocksize * x;
     desty = blocksize * y;
 
-    gdk_draw_drawable (fieldwidgets[field]->window,
+/*    gdk_draw_drawable (fieldwidgets[field]->window,
                        fieldwidgets[field]->style->black_gc,
                        blockpix, srcx, srcy, destx, desty,
-                       blocksize, blocksize);
+                       blocksize, blocksize);*/
+    cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(fieldwidgets[field]));
+    gdk_cairo_set_source_pixbuf (cr, blockpix, destx, desty);
+    cairo_paint (cr);
+    cairo_destroy (cr);
 }
 
 void fields_setlabel (int field, char *name, char *team, int num)
@@ -456,9 +460,9 @@ gint fields_nextpiece_expose (GtkWidget *widget)
 {
     fields_drawnextblock (NULL);
     if (ingame)
-      gdk_window_set_cursor (widget->window, invisible_cursor);
+      gdk_window_set_cursor (gtk_widget_get_window(widget), invisible_cursor);
     else
-      gdk_window_set_cursor (widget->window, arrow_cursor);
+      gdk_window_set_cursor (gtk_widget_get_window(widget), arrow_cursor);
     return FALSE;
 }
 
@@ -466,9 +470,9 @@ gint fields_specials_expose (GtkWidget *widget)
 {
     fields_drawspecials ();
     if (ingame)
-      gdk_window_set_cursor (widget->window, invisible_cursor);
+      gdk_window_set_cursor (gtk_widget_get_window(widget), invisible_cursor);
     else
-      gdk_window_set_cursor (widget->window, arrow_cursor);
+      gdk_window_set_cursor (gtk_widget_get_window(widget), arrow_cursor);
     return FALSE;
 }
 
@@ -476,17 +480,22 @@ void fields_drawspecials (void)
 {
     int i;
     for (i = 0; i < 18; i ++) {
+        cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(specialwidget));
         if (i < specialblocknum) {
-            gdk_draw_drawable (specialwidget->window,
+/*            gdk_draw_drawable (specialwidget->window,
                                specialwidget->style->black_gc,
                                blockpix, (specialblocks[i]-1)*BLOCKSIZE,
-                               0, BLOCKSIZE*i, 0, BLOCKSIZE, BLOCKSIZE);
+                               0, BLOCKSIZE*i, 0, BLOCKSIZE, BLOCKSIZE);*/
+              gdk_cairo_set_source_pixbuf (cr, blockpix, BLOCKSIZE*i, 0);
         }
         else {
-            gdk_draw_rectangle (specialwidget->window, specialwidget->style->black_gc,
+/*            gdk_draw_rectangle (specialwidget->window, specialwidget->style->black_gc,
                                 TRUE, BLOCKSIZE*i, 0,
-                                BLOCKSIZE*(i+1), BLOCKSIZE);
+                                BLOCKSIZE*(i+1), BLOCKSIZE);*/
+              cairo_rectangle (cr, BLOCKSIZE*i, 0, BLOCKSIZE*(i+1), BLOCKSIZE);
         }
+        cairo_paint (cr);
+        cairo_destroy (cr);
     }
 }
 
@@ -494,8 +503,12 @@ void fields_drawnextblock (TETRISBLOCK block)
 {
     int x, y, xstart = 4, ystart = 4;
     if (block == NULL) block = displayblock;
-    gdk_draw_rectangle (nextpiecewidget->window, nextpiecewidget->style->black_gc,
-                        TRUE, 0, 0, BLOCKSIZE*9/2, BLOCKSIZE*9/2);
+    /*gdk_draw_rectangle (nextpiecewidget->window, nextpiecewidget->style->black_gc,
+                        TRUE, 0, 0, BLOCKSIZE*9/2, BLOCKSIZE*9/2);*/
+    cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(nextpiecewidget));
+    cairo_rectangle (cr, 0, 0, BLOCKSIZE*9/2, BLOCKSIZE*9/2);
+    cairo_paint (cr);
+    cairo_destroy (cr);
     for (y = 0; y < 4; y ++)
         for (x = 0; x < 4; x ++)
             if (block[y][x]) {
@@ -505,12 +518,16 @@ void fields_drawnextblock (TETRISBLOCK block)
     for (y = ystart; y < 4; y ++)
         for (x = xstart; x < 4; x ++) {
             if (block[y][x]) {
-                gdk_draw_drawable (nextpiecewidget->window,
-                                   nextpiecewidget->style->black_gc,
+/*                gdk_draw_drawable (gtk_widget_get_window(nextpiecewidget),
+                                   gtk_widget_get_style(nextpiecewidget)->black_gc,
                                    blockpix, (block[y][x]-1)*BLOCKSIZE, 0,
                                    BLOCKSIZE*(x-xstart)+BLOCKSIZE/4,
                                    BLOCKSIZE*(y-ystart)+BLOCKSIZE/4,
-                                   BLOCKSIZE, BLOCKSIZE);
+                                   BLOCKSIZE, BLOCKSIZE);*/
+                  cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(nextpiecewidget));
+                  gdk_cairo_set_source_pixbuf (cr, blockpix, BLOCKSIZE*(x-xstart)+BLOCKSIZE/4, BLOCKSIZE*(y-ystart)+BLOCKSIZE/4);
+                  cairo_paint (cr);
+                  cairo_destroy (cr);
             }
         }
     memcpy (displayblock, block, 16);
@@ -536,7 +553,7 @@ void fields_attdeffmt (const char *fmt, ...)
 
 void fields_attdefclear (void)
 {
-  gtk_text_buffer_set_text(GTK_TEXT_VIEW(attdefwidget)->buffer, "", 0);
+  gtk_text_buffer_set_text(gtk_text_view_get_buffer(GTK_TEXT_VIEW(attdefwidget)), "", 0);
 }
 
 void fields_setlines (int l)
@@ -578,7 +595,7 @@ void fields_gmsgadd (const char *str)
 
 void fields_gmsgclear (void)
 {
-  gtk_text_buffer_set_text(GTK_TEXT_VIEW(gmsgtext)->buffer, "", 0);
+  gtk_text_buffer_set_text(gtk_text_view_get_buffer(GTK_TEXT_VIEW(gmsgtext)), "", 0);
 }
 
 void fields_gmsginput (gboolean i)

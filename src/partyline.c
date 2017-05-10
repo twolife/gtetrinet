@@ -380,17 +380,17 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key)
     int keyval = key->keyval;
     gchar *text = NULL;
 
-    if (keyval == GDK_Up || keyval == GDK_Down) {
+    if (keyval == GDK_KEY_Up || keyval == GDK_KEY_Down) {
         if (plh_cur == plh_end) {
             GTET_O_STRCPY (plhistory[plh_end], gtk_entry_get_text(GTK_ENTRY(widget)));
         }
         switch (keyval) {
-        case GDK_Up:
+        case GDK_KEY_Up:
             if (plh_cur == plh_start) break;
             plh_cur --;
             if (plh_cur == -1) plh_cur = PLHSIZE - 1;
             break;
-        case GDK_Down:
+        case GDK_KEY_Down:
             if (plh_cur == plh_end) break;
             plh_cur ++;
             if (plh_cur == PLHSIZE) plh_cur = 0;
@@ -406,10 +406,10 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key)
         g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
         return TRUE;
     }
-    else if (keyval == GDK_Left || keyval == GDK_Right) {
+    else if (keyval == GDK_KEY_Left || keyval == GDK_KEY_Right) {
         return FALSE;
     }
-    else if (keyval == GDK_Tab)
+    else if (keyval == GDK_KEY_Tab)
     {
       playerlist_complete_nick ();
       return TRUE;

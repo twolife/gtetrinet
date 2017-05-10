@@ -93,7 +93,7 @@ void connectingdialog_new (void)
     gtk_window_set_skip_taskbar_hint (GTK_WINDOW (connectingdialog), TRUE);
     progressbar = gtk_progress_bar_new ();
     gtk_widget_show (progressbar);
-    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_vbox(connectingdialog)),
+    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area(connectingdialog)),
                         progressbar, TRUE, TRUE, 0); 
 
 
@@ -175,7 +175,7 @@ void teamdialog_new (void)
                   "activates_default", TRUE, NULL);
     gtk_box_pack_start (GTK_BOX (hbox), entry  ,TRUE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox), GTET_PAD_SMALL);
-    gtk_box_pack_end (GTK_BOX (gtk_dialog_get_vbox(team_dialog)), hbox ,TRUE, TRUE, 0);
+    gtk_box_pack_end (GTK_BOX (gtk_dialog_get_content_area(team_dialog)), hbox ,TRUE, TRUE, 0);
 
     /* pass the entry in the data pointer */
     g_signal_connect (G_OBJECT(team_dialog), "response",
@@ -460,7 +460,7 @@ void connectdialog_new (void)
     gtk_widget_show (table1);
 
     gtk_container_set_border_width (GTK_CONTAINER (table1), GTET_PAD_SMALL);
-    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_vbox(connectdialog)),
+    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area(connectdialog)),
                         table1, TRUE, TRUE, 0);
 
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(spectatorcheck), spectating);
@@ -498,7 +498,7 @@ gint key_dialog (char *msg)
                                           NULL);
     label = gtk_label_new (msg);
     gtk_widget_show (label);
-    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_vbox(dialog)),
+    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area(dialog)),
                         label, TRUE, TRUE, GTET_PAD_SMALL);
     g_signal_connect (G_OBJECT (dialog), "key-press-event",
                         GTK_SIGNAL_FUNC (key_dialog_callback), NULL);
@@ -1073,7 +1073,7 @@ void prefdialog_new (void)
 #endif
     
 //    gtk_box_set_spacing (GTK_BOX (GTK_DIALOG (prefdialog)->action_area), 6);
-    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_vbox(prefdialog)), notebook, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area(prefdialog)), notebook, FALSE, FALSE, 0);
 
     g_signal_connect (G_OBJECT(soundcheck), "toggled",
                       GTK_SIGNAL_FUNC(prefdialog_soundtoggle), NULL);

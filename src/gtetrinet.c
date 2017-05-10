@@ -23,7 +23,8 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <gnome.h>
+#include <libgnome/libgnome.h>
+#include <libgnomeui/gnome-ui-init.h>
 #include <stdlib.h>
 #include <time.h>
 #include <sys/poll.h>
@@ -53,7 +54,7 @@ static int gtetrinet_key (int keyval, int mod);
 gint keypress (GtkWidget *widget, GdkEventKey *key);
 gint keyrelease (GtkWidget *widget, GdkEventKey *key);
 void switch_focus (GtkNotebook *notebook,
-                   GtkNotebookPage *page,
+                   void *page,
                    guint page_num);
 
 static GtkWidget *pfields, *pparty, *pwinlist;
@@ -489,9 +490,9 @@ static int gtetrinet_key (int keyval, int mod)
     
   switch (keyval)
   {
-  case GDK_1: gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 0); break;
-  case GDK_2: gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 1); break;
-  case GDK_3: gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 2); break;
+  case GDK_KEY_1: gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 0); break;
+  case GDK_KEY_2: gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 1); break;
+  case GDK_KEY_3: gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), 2); break;
   default:
     return FALSE;
   }
@@ -602,7 +603,7 @@ void unblock_keyboard_signal (void)
 }
 
 void switch_focus (GtkNotebook *notebook,
-                   GtkNotebookPage *page,
+                   void *page,
                    guint page_num)
 {
 

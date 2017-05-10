@@ -1569,7 +1569,7 @@ void tetrinet_settimeout (int duration)
 {
     if (movedowntimeout)
         g_source_remove (movedowntimeout);
-    movedowntimeout = g_timeout_add (duration, (GtkFunction)tetrinet_timeout,
+    movedowntimeout = g_timeout_add (duration, (GSourceFunc)tetrinet_timeout,
                                      NULL);
 }
 
@@ -1616,7 +1616,7 @@ void tetrinet_nextblock (void)
     tetrinet_removetimeout ();
     nextblocktimeout =
         g_timeout_add ((btrixgame ? 0 : NEXTBLOCKDELAY),
-                       (GtkFunction)tetrinet_nextblocktimeout, NULL);
+                       (GSourceFunc)tetrinet_nextblocktimeout, NULL);
 }
 
 gint tetrinet_nextblocktimeout (void)
@@ -1690,7 +1690,7 @@ int tetrinet_removelines ()
         /* end of if */ ;
     }
     /* give it a little delay in drawing */
-    g_timeout_add (40, (GtkFunction)tetrinet_removelinestimeout,
+    g_timeout_add (40, (GSourceFunc)tetrinet_removelinestimeout,
                    NULL);
     return sound;
 }
@@ -1707,12 +1707,12 @@ int tetrinet_key (int keyval)
     if (spectating) {
         /* spectator keys */
         switch (keyval) {
-        case GDK_1: bigfieldnum = 1; break;
-        case GDK_2: bigfieldnum = 2; break;
-        case GDK_3: bigfieldnum = 3; break;
-        case GDK_4: bigfieldnum = 4; break;
-        case GDK_5: bigfieldnum = 5; break;
-        case GDK_6: bigfieldnum = 6; break;
+        case GDK_KEY_1: bigfieldnum = 1; break;
+        case GDK_KEY_2: bigfieldnum = 2; break;
+        case GDK_KEY_3: bigfieldnum = 3; break;
+        case GDK_KEY_4: bigfieldnum = 4; break;
+        case GDK_KEY_5: bigfieldnum = 5; break;
+        case GDK_KEY_6: bigfieldnum = 6; break;
         default:    goto notfieldkey;
         }
         tetrinet_updatelevels ();
@@ -1898,7 +1898,7 @@ void moderatorupdate (int now)
         if (mutimeout)
             g_source_remove (mutimeout);
         mutimeout = g_timeout_add (PARTYLINEDELAY2,
-                                   (GtkFunction)moderatorupdate_timeout, NULL);
+                                   (GSourceFunc)moderatorupdate_timeout, NULL);
     }
 }
 
@@ -1987,7 +1987,7 @@ void partylineupdate (int now)
     if (now)
         partylineupdate_timeout ();
     else
-        putimeout = g_timeout_add (PARTYLINEDELAY1, (GtkFunction)partylineupdate_timeout,
+        putimeout = g_timeout_add (PARTYLINEDELAY1, (GSourceFunc)partylineupdate_timeout,
                                    NULL);
 }
 
