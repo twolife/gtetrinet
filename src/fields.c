@@ -89,7 +89,10 @@ void fields_init (void)
         }
     }
     /* we dont want the bitmap mask */
-    gdk_pixbuf_render_pixmap_and_mask(pb, &blockpix, &mask, 1);
+    cairo_t *cr = cairo_create(blockpix);
+    gdk_cairo_set_source_pixbuf(cr,pb,0,0);
+    cairo_paint(cr);
+    cairo_destroy(cr);
     g_object_unref(pb);
 }
 
@@ -111,9 +114,9 @@ GtkWidget *fields_page_new (void)
     gtk_container_add (GTK_CONTAINER(fieldspage), pagecontents);
 
     /* create the cursors */
-    bitmap = gdk_bitmap_create_from_data (gtk_widget_get_window(GTK_WIDGET (fieldspage)), "\0", 1, 1);
-    invisible_cursor = gdk_cursor_new_from_pixmap (bitmap, bitmap, &black, &black, 0, 0);
-    arrow_cursor = gdk_cursor_new (GDK_X_CURSOR);
+    //bitmap = gdk_bitmap_create_from_data (gtk_widget_get_window(GTK_WIDGET (fieldspage)), "\0", 1, 1);
+    //invisible_cursor = gdk_cursor_new_from_pixmap (bitmap, bitmap, &black, &black, 0, 0);
+    //arrow_cursor = gdk_cursor_new (GDK_X_CURSOR);
 
     return fieldspage;
 }

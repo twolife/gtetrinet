@@ -44,7 +44,7 @@ PKG_PROG_PKG_CONFIG([0.22])
 
 # Add debug flags if building from git.
 if test -d $srcdir/.git; then
-	CFLAGS="-Wall -W -g3 -ggdb -O0 "
+	CFLAGS="-Wall -W -g3 -ggdb -O0 -w "
 	AC_SUBST(CFLAGS)
 fi
 
@@ -63,7 +63,7 @@ PKG_CHECK_MODULES(GTETRINET,[
 
 # Check for libcanberra-gtk
 if pkg-config --exists "libcanberra-gtk >= $LIBCANBERRAGTK_OPTIONAL"; then
-	have_canberragtk=yes
+	have_canberragtk=no
 else
 	have_canberragtk=no
 fi

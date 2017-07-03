@@ -108,7 +108,7 @@ void connectingdialog_new (void)
 
 void connectingdialog_destroy (void)
 {
-    if (timeouttag != 0) gtk_timeout_remove (timeouttag);
+    if (timeouttag != 0) g_source_remove (timeouttag);
     timeouttag = 0;
     if (connectingdialog == 0) return;
     gtk_widget_destroy (connectingdialog);
@@ -630,6 +630,7 @@ void prefdialog_midioff ()
 
 void prefdialog_soundon ()
 {
+    return; 
     gtk_widget_set_sensitive (midicheck, TRUE);
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(midicheck))) {
     //if (GTK_TOGGLE_BUTTON(midicheck)->active) {
@@ -639,12 +640,14 @@ void prefdialog_soundon ()
 
 void prefdialog_soundoff ()
 {
+    return; 
     gtk_widget_set_sensitive (midicheck, FALSE);
     prefdialog_midioff ();
 }
 
 void prefdialog_soundtoggle (GtkWidget *widget)
 {
+    return; 
     //if (GTK_TOGGLE_BUTTON(widget)->active) {
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
         prefdialog_soundon ();
