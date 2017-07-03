@@ -182,7 +182,7 @@ GtkWidget *fields_page_contents (void)
             
             /* attach the signals */
             g_signal_connect (G_OBJECT(fieldwidgets[i]), "expose_event",
-                                GTK_SIGNAL_FUNC(fields_expose_event), GINT_TO_POINTER(i));
+                                G_CALLBACK(fields_expose_event), GINT_TO_POINTER(i));
             gtk_widget_set_events (fieldwidgets[i], GDK_EXPOSURE_MASK);
             /* set the size */
             gtk_widget_set_size_request (fieldwidgets[i],
@@ -211,7 +211,7 @@ GtkWidget *fields_page_contents (void)
     gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
     nextpiecewidget = gtk_drawing_area_new ();
     g_signal_connect (G_OBJECT(nextpiecewidget), "expose_event",
-                        GTK_SIGNAL_FUNC(fields_nextpiece_expose), NULL);
+                        G_CALLBACK(fields_nextpiece_expose), NULL);
     gtk_widget_set_events (nextpiecewidget, GDK_EXPOSURE_MASK);
     gtk_widget_set_size_request (nextpiecewidget, BLOCKSIZE*9/2, BLOCKSIZE*9/2);
     gtk_container_add (GTK_CONTAINER(border), nextpiecewidget);
@@ -259,7 +259,7 @@ GtkWidget *fields_page_contents (void)
     gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
     specialwidget = gtk_drawing_area_new ();
     g_signal_connect (G_OBJECT(specialwidget), "expose_event",
-                        GTK_SIGNAL_FUNC(fields_specials_expose), NULL);
+                        G_CALLBACK(fields_specials_expose), NULL);
     gtk_widget_set_size_request (specialwidget, BLOCKSIZE*18, BLOCKSIZE);
     gtk_widget_show (specialwidget);
     gtk_container_add (GTK_CONTAINER(border), specialwidget);
@@ -310,7 +310,7 @@ GtkWidget *fields_page_contents (void)
     gtk_entry_set_max_length (GTK_ENTRY (gmsginput), 128);
     /* eat up key messages */
     g_signal_connect (G_OBJECT(gmsginput), "activate",
-                        GTK_SIGNAL_FUNC(gmsginput_activate), NULL);
+                        G_CALLBACK(gmsginput_activate), NULL);
     gtk_table_attach (GTK_TABLE(table2), gmsginput, 0, 1, 1, 2,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
     gtk_widget_set_size_request (table2, -1, 70);

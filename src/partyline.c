@@ -125,9 +125,9 @@ GtkWidget *partyline_page_new (void)
     entrybox = gtk_entry_new ();
     gtk_entry_set_max_length (GTK_ENTRY (entrybox), 200);
     g_signal_connect (G_OBJECT(entrybox), "activate",
-                      GTK_SIGNAL_FUNC(textentry), NULL);
+                      G_CALLBACK(textentry), NULL);
     g_signal_connect (G_OBJECT(entrybox), "key-press-event",
-                      GTK_SIGNAL_FUNC(entrykey), NULL);
+                      G_CALLBACK(entrykey), NULL);
     gtk_box_pack_start (GTK_BOX(leftbox), entrybox, FALSE, FALSE, 0);
     gtk_widget_show_all (leftbox);
 

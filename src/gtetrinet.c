@@ -23,14 +23,13 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <libgnome/libgnome.h>
-#include <libgnomeui/gnome-ui-init.h>
 #include <stdlib.h>
 #include <time.h>
 #include <sys/poll.h>
 #include <sys/types.h>
 #include <signal.h>
 #include <gconf/gconf-client.h>
+#include <popt.h>
 
 #include "gtetrinet.h"
 #include "gtet_config.h"
@@ -75,11 +74,11 @@ gulong keypress_signal;
 GConfClient *gconf_client;
 
 static const struct poptOption options[] = {
-    {"connect", 'c', POPT_ARG_STRING, &option_connect, 0, N_("Connect to server"), N_("SERVER")},
-    {"nickname", 'n', POPT_ARG_STRING, &option_nick, 0, N_("Set nickname to use"), N_("NICKNAME")},
-    {"team", 't', POPT_ARG_STRING, &option_team, 0, N_("Set team name"), N_("TEAM")},
-    {"spectate", 's', POPT_ARG_NONE, &option_spec, 0, N_("Connect as a spectator"), NULL},
-    {"password", 'p', POPT_ARG_STRING, &option_pass, 0, N_("Spectator password"), N_("PASSWORD")},
+    {"connect", 'c', POPT_ARG_STRING, &option_connect, 0, ("Connect to server"), ("SERVER")},
+    {"nickname", 'n', POPT_ARG_STRING, &option_nick, 0, ("Set nickname to use"), ("NICKNAME")},
+    {"team", 't', POPT_ARG_STRING, &option_team, 0, ("Set team name"), ("TEAM")},
+    {"spectate", 's', POPT_ARG_NONE, &option_spec, 0, ("Connect as a spectator"), NULL},
+    {"password", 'p', POPT_ARG_STRING, &option_pass, 0, ("Spectator password"), ("PASSWORD")},
     {NULL, 0, 0, NULL, 0, NULL, NULL}
 };
 
@@ -99,6 +98,7 @@ static int gtetrinet_poll_func(GPollFD *passed_fds,
 
 int main (int argc, char *argv[])
 {
+    printf("0");
     GtkWidget *label;
     GdkPixbuf *icon_pixbuf;
     GError *err = NULL;
@@ -109,16 +109,20 @@ int main (int argc, char *argv[])
 
     srand (time(NULL));
 
+    printf("1");
+	/*
     gnome_program_init (APPID, APPVERSION, LIBGNOMEUI_MODULE,
                         argc, argv, GNOME_PARAM_POPT_TABLE, options,
                         GNOME_PARAM_NONE);
-
+    */
+    GOptionEntry options[] = { {NULL}};
+    gtk_init_with_args(&argc,&argv,"gtetrinet",options,NULL,&err);
     textbox_setup (); /* needs to be done before text boxes are created */
     
     /* Initialize the GConf library */
     if (!gconf_init (argc, argv, &err))
     {
-      fprintf (stderr, _("Failed to init GConf: %s\n"), err->message);
+      fprintf (stderr, "Failed to init GConf: %s\n", err->message);
       g_error_free (err); 
       err = NULL;
     }
@@ -219,6 +223,7 @@ int main (int argc, char *argv[])
                              (GConfClientNotifyFunc) partyline_enable_channel_list_changed,
 			     NULL, NULL, NULL);
 
+    printf("2");
     /* load settings */
     config_loadconfig ();
 
@@ -232,15 +237,18 @@ int main (int argc, char *argv[])
     gtk_window_set_title (GTK_WINDOW (app), APPNAME);
 
     g_signal_connect (G_OBJECT(app), "destroy",
-                        GTK_SIGNAL_FUNC(destroymain), NULL);
+                        G_CALLBACK(destroymain), NULL);
     keypress_signal = g_signal_connect (G_OBJECT(app), "key-press-event",
-                                        GTK_SIGNAL_FUNC(keypress), NULL);
+                                        G_CALLBACK(keypress), NULL);
+
+    printf("3");
     g_signal_connect (G_OBJECT(app), "key-release-event",
-                        GTK_SIGNAL_FUNC(keyrelease), NULL);
+                        G_CALLBACK(keyrelease), NULL);
     gtk_widget_set_events (app, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
 
     gtk_window_set_resizable (GTK_WINDOW (app), TRUE);
     
+    printf("4");
     /* create and set the window icon */
     icon_pixbuf = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
     if (icon_pixbuf)
@@ -256,6 +264,7 @@ int main (int argc, char *argv[])
     /* put it in the main window */
     gtk_container_add (GTK_CONTAINER(app), notebook);
 
+    printf("5");
     /* make menus + toolbar */
     make_menus (GTK_WINDOW(app));
 
@@ -268,10 +277,11 @@ int main (int argc, char *argv[])
     gtk_container_add (GTK_CONTAINER(pfields), fieldswidget);
     gtk_widget_show (pfields);
     g_object_set_data (G_OBJECT(fieldswidget), "title", "Playing Fields"); // FIXME
-    label = pixmapdata_label (fields_xpm, _("Playing Fields"));
+    label = pixmapdata_label (fields_xpm, "Playing Fields");
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pfields, label);
 
+    printf("6");
     partywidget = partyline_page_new ();
     gtk_widget_show (partywidget);
     pparty = gtk_hbox_new (FALSE, 0);
@@ -279,10 +289,11 @@ int main (int argc, char *argv[])
     gtk_container_add (GTK_CONTAINER(pparty), partywidget);
     gtk_widget_show (pparty);
     g_object_set_data (G_OBJECT(partywidget), "title", "Partyline"); // FIXME
-    label = pixmapdata_label (partyline_xpm, _("Partyline"));
+    label = pixmapdata_label (partyline_xpm, "Partyline");
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pparty, label);
 
+    printf("7");
     winlistwidget = winlist_page_new ();
     gtk_widget_show (winlistwidget);
     pwinlist = gtk_hbox_new (FALSE, 0);
@@ -290,13 +301,14 @@ int main (int argc, char *argv[])
     gtk_container_add (GTK_CONTAINER(pwinlist), winlistwidget);
     gtk_widget_show (pwinlist);
     g_object_set_data (G_OBJECT(winlistwidget), "title", "Winlist"); // FIXME
-    label = pixmapdata_label (winlist_xpm, _("Winlist"));
+    label = pixmapdata_label (winlist_xpm, "Winlist");
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pwinlist, label);
 
+    printf("8");
     /* add signal to focus the text entry when switching to the partyline page*/
     g_signal_connect_after(G_OBJECT (notebook), "switch-page",
-		           GTK_SIGNAL_FUNC (switch_focus),
+		           G_CALLBACK (switch_focus),
 		           NULL);
 
     gtk_widget_show (notebook);
@@ -305,6 +317,7 @@ int main (int argc, char *argv[])
     partyline_show_channel_list (list_enabled);
     gtk_widget_show (app);
 
+    printf("9");
 //    gtk_widget_set_size_request (partywidget, 480, 360);
 //    gtk_widget_set_size_request (winlistwidget, 480, 360);
 
@@ -329,6 +342,7 @@ int main (int argc, char *argv[])
         client_init (option_connect, nick);
     }
 
+    printf("10");
     /* Don't schedule if data is ready, glib should do this itself,
      * but welcome to anything that works... */
     g_main_context_set_poll_func(NULL, gtetrinet_poll_func);
@@ -414,7 +428,7 @@ gint keypress (GtkWidget *widget, GdkEventKey *key)
         char *title = NULL;
 
         title = g_object_get_data(G_OBJECT(widget), "title");
-        game_area =  title && !strcmp( title, _("Playing Fields"));
+        game_area =  title && !strcmp( title, "Playing Fields");
     }
 
     if (game_area)
@@ -467,7 +481,7 @@ gint keyrelease (GtkWidget *widget, GdkEventKey *key)
         char *title = NULL;
 
         title = g_object_get_data(G_OBJECT(widget), "title");
-        game_area =  title && !strcmp( title, _("Playing Fields"));
+        game_area =  title && !strcmp( title, "Playing Fields");
     }
 
     if (game_area)
@@ -555,9 +569,9 @@ void move_current_page_to_window (void)
 
     /* Attach key events to window */
     g_signal_connect (G_OBJECT(newWindow), "key-press-event",
-                        GTK_SIGNAL_FUNC(keypress), NULL);
+                        G_CALLBACK(keypress), NULL);
     g_signal_connect (G_OBJECT(newWindow), "key-release-event",
-                        GTK_SIGNAL_FUNC(keyrelease), NULL);
+                        G_CALLBACK(keyrelease), NULL);
     gtk_widget_set_events (newWindow, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
     gtk_window_set_resizable (GTK_WINDOW(newWindow), TRUE);
 
@@ -572,7 +586,7 @@ void move_current_page_to_window (void)
 
     /* Pass ID of parent (to put widget back) to window's destroy */
     g_signal_connect (G_OBJECT(newWindow), "destroy",
-                        GTK_SIGNAL_FUNC(destroy_page_window),
+                        G_CALLBACK(destroy_page_window),
                         (gpointer)(pageData));
 
     gtk_widget_show_all( newWindow );

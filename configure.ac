@@ -44,7 +44,7 @@ PKG_PROG_PKG_CONFIG([0.22])
 
 # Add debug flags if building from git.
 if test -d $srcdir/.git; then
-	CFLAGS="-Wall -W -g3 -ggdb -O0"
+	CFLAGS="-Wall -W -g3 -ggdb -O0 "
 	AC_SUBST(CFLAGS)
 fi
 
@@ -52,8 +52,9 @@ fi
 LIBGLIB_REQUIRED=2.32.0
 LIBGTK_REQUIRED=3.18.0
 LIBCANBERRAGTK_OPTIONAL=0.2
-LIBGCONF_REQUIRED=2.0.0
+LIBGCONF_REQUIRED=3.0.0
 
+                  #libgnomeui-2.0 >= 2.0
 PKG_CHECK_MODULES(GTETRINET,[
                   glib-2.0 >= $LIBGLIB_REQUIRED
                   gtk+-3.0 >= $LIBGTK_REQUIRED
@@ -126,6 +127,8 @@ fi
 AC_ARG_ENABLE(strict, AS_HELP_STRING([--enable-strict],[Enable strict compilation options]), enable_strict=$enableval,
 					enable_strict=$default_strict)
 if test x$enable_strict != xno; then
+        #CPPFLAGS="$CPPFLAGS -DG_DISABLE_SINGLE_INCLUDES -DGTK_DISABLE_SINGLE_INCLUDES"
+        #CPPFLAGS="$CPPFLAGS -DG_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED"
 	CPPFLAGS="$CPPFLAGS"
 fi
 

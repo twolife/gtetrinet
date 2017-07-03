@@ -85,7 +85,7 @@ void connectingdialog_new (void)
       gtk_window_present (GTK_WINDOW (connectingdialog));
       return;
     }
-    connectingdialog = gtk_dialog_new_with_buttons (_("Connect to server"),
+    connectingdialog = gtk_dialog_new_with_buttons ("Connect to server",
                                                     GTK_WINDOW (connectdialog),
                                                     GTK_DIALOG_MODAL,
                                                     GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
@@ -100,9 +100,9 @@ void connectingdialog_new (void)
     timeouttag = g_timeout_add (20, (GSourceFunc)connectingdialog_timeout,
                                 NULL);
     g_signal_connect (G_OBJECT(connectingdialog), "response",
-                        GTK_SIGNAL_FUNC(connectingdialog_button), NULL);
+                        G_CALLBACK(connectingdialog_button), NULL);
     g_signal_connect (G_OBJECT(connectingdialog), "delete_event",
-                        GTK_SIGNAL_FUNC(connectingdialog_delete), NULL);
+                        G_CALLBACK(connectingdialog_delete), NULL);
     gtk_widget_show (connectingdialog);
 }
 
@@ -126,7 +126,7 @@ void teamdialog_destroy (void)
 
 void teamdialog_button (GtkWidget *button, gint response, gpointer data)
 {
-    GtkEntry *entry = GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (data)));
+    GtkEntry *entry = (GtkEntry*)data;//GTK_ENTRY (gnome_entry_gtk_entry ( (data)));
     button = button; /* so we get no unused parameter warning */
 
     switch (response)
@@ -153,7 +153,7 @@ void teamdialog_new (void)
       return;
     }
 
-    team_dialog = gtk_dialog_new_with_buttons (_("Change team"),
+    team_dialog = gtk_dialog_new_with_buttons ("Change team",
                                                GTK_WINDOW (app),
                                                0,
                                                GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
@@ -166,22 +166,20 @@ void teamdialog_new (void)
 
     /* entry and label */
     hbox = gtk_hbox_new (FALSE, GTET_PAD_SMALL);
-    widget = gtk_label_new (_("Team name:"));
+    widget = gtk_label_new ("Team name:");
     gtk_box_pack_start (GTK_BOX (hbox), widget ,TRUE, TRUE, 0);
-    entry = gnome_entry_new ("Team");
-    gtk_entry_set_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (entry))),
-                        team_utf8);
-    g_object_set (G_OBJECT (gnome_entry_gtk_entry (GNOME_ENTRY (entry))),
-                  "activates_default", TRUE, NULL);
+    entry = gtk_entry_new_with_buffer (gtk_entry_buffer_new("Team", 4));
+    gtk_entry_set_text ((GtkEntry*)entry, team_utf8);
+    g_object_set ((GObject*)entry, "activates_default", TRUE, NULL);
     gtk_box_pack_start (GTK_BOX (hbox), entry  ,TRUE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox), GTET_PAD_SMALL);
     gtk_box_pack_end (GTK_BOX (gtk_dialog_get_content_area(team_dialog)), hbox ,TRUE, TRUE, 0);
 
     /* pass the entry in the data pointer */
     g_signal_connect (G_OBJECT(team_dialog), "response",
-                        GTK_SIGNAL_FUNC(teamdialog_button), (gpointer)entry);
+                        G_CALLBACK(teamdialog_button), (gpointer)entry);
     g_signal_connect (G_OBJECT(team_dialog), "destroy",
-                        GTK_SIGNAL_FUNC(teamdialog_destroy), NULL);
+                        G_CALLBACK(teamdialog_destroy), NULL);
     gtk_widget_show_all (team_dialog);
 }
 
@@ -203,14 +201,14 @@ void connectdialog_button (GtkDialog *dialog, gint button)
     switch (button) {
     case GTK_RESPONSE_OK:
         /* connect now */
-        server1 = gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (serveraddressentry))));
+        server1 = gtk_entry_get_text ((GtkEntry*)serveraddressentry);
         if (g_utf8_strlen (server1, -1) <= 0)
         {
           dialog_error = gtk_message_dialog_new (GTK_WINDOW (dialog),
                                                  GTK_DIALOG_MODAL,
                                                  GTK_MESSAGE_ERROR,
                                                  GTK_BUTTONS_OK,
-                                                 _("You must specify a server name."));
+                                                 "You must specify a server name.");
           gtk_dialog_run (GTK_DIALOG (dialog_error));
           gtk_widget_destroy (dialog_error);
           return;
@@ -229,16 +227,16 @@ void connectdialog_button (GtkDialog *dialog, gint button)
                                                    GTK_DIALOG_MODAL,
                                                    GTK_MESSAGE_ERROR,
                                                    GTK_BUTTONS_OK,
-                                                   _("Please specify a password to connect as spectator."));
+                                                   "Please specify a password to connect as spectator.");
             gtk_dialog_run (GTK_DIALOG (dialog_error));
             gtk_widget_destroy (dialog_error);
             return;
           }
         }
         
-        GTET_O_STRCPY (team, gtk_entry_get_text(GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))));
+        GTET_O_STRCPY (team, gtk_entry_get_text((GtkEntry*)teamnameentry));
         
-        nick = g_strdup (gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (nicknameentry)))));
+        nick = g_strdup (gtk_entry_get_text ((GtkEntry*)nicknameentry));
         g_strstrip (nick); /* we remove leading and trailing whitespaces */
         if (g_utf8_strlen (nick, -1) > 0)
         {
@@ -250,7 +248,7 @@ void connectdialog_button (GtkDialog *dialog, gint button)
                                                    GTK_DIALOG_MODAL,
                                                    GTK_MESSAGE_ERROR,
                                                    GTK_BUTTONS_OK,
-                                                   _("Please specify a valid nickname."));
+                                                   "Please specify a valid nickname.");
             gtk_dialog_run (GTK_DIALOG (dialog_error));
             gtk_widget_destroy (dialog_error);
             return;
@@ -259,8 +257,7 @@ void connectdialog_button (GtkDialog *dialog, gint button)
         gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/server", server1, NULL);
         gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/nickname", nick, NULL);
         gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/team",
-                                 gtk_entry_get_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry)))),
-                                 NULL);
+                                 gtk_entry_get_text ((GtkEntry*)teamnameentry), NULL);
         gconf_client_set_bool (gconf_client, "/apps/gtetrinet/player/gamemode", gamemode, NULL);
 
         g_free (nick);
@@ -326,7 +323,7 @@ void connectdialog_new (void)
     connecting = TRUE;
 
     /* make dialog that asks for address/nickname */
-    connectdialog = gtk_dialog_new_with_buttons (_("Connect to server"),
+    connectdialog = gtk_dialog_new_with_buttons ("Connect to server",
                                                  GTK_WINDOW (app),
                                                  0,
                                                  GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
@@ -335,7 +332,7 @@ void connectdialog_new (void)
     gtk_dialog_set_default_response (GTK_DIALOG (connectdialog), GTK_RESPONSE_OK);
     gtk_window_set_resizable (GTK_WINDOW (connectdialog), FALSE);
     g_signal_connect (G_OBJECT(connectdialog), "response",
-                        GTK_SIGNAL_FUNC(connectdialog_button), NULL);
+                        G_CALLBACK(connectdialog_button), NULL);
 
     /* main table */
     table1 = gtk_table_new (2, 2, FALSE);
@@ -345,19 +342,18 @@ void connectdialog_new (void)
     /* server address */
     table2 = gtk_table_new (2, 1, FALSE);
 
-    serveraddressentry = gnome_entry_new ("Server");
-    g_object_set(G_OBJECT(gnome_entry_gtk_entry(GNOME_ENTRY(serveraddressentry))),
+    serveraddressentry = gtk_entry_new_with_buffer (gtk_entry_buffer_new("Server", 6));
+    g_object_set((GObject*)serveraddressentry,
                  "activates_default", TRUE, NULL);
-    gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(serveraddressentry))),
-                        server);
+    gtk_entry_set_text ((GtkEntry*)serveraddressentry, server);
     gtk_widget_show (serveraddressentry);
     gtk_table_attach (GTK_TABLE(table2), serveraddressentry,
                       0, 1, 0, 1, GTK_FILL | GTK_EXPAND,
                       GTK_FILL | GTK_EXPAND, 0, 0);
     /* game type radio buttons */
-    originalradio = gtk_radio_button_new_with_mnemonic (NULL, _("O_riginal"));
+    originalradio = gtk_radio_button_new_with_mnemonic (NULL, "O_riginal");
     gametypegroup = gtk_radio_button_get_group (GTK_RADIO_BUTTON(originalradio));
-    tetrifastradio = gtk_radio_button_new_with_mnemonic (gametypegroup, _("Tetri_Fast"));
+    tetrifastradio = gtk_radio_button_new_with_mnemonic (gametypegroup, "Tetri_Fast");
     switch (gamemode) {
     case ORIGINAL:
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(originalradio), TRUE);
@@ -379,7 +375,7 @@ void connectdialog_new (void)
     gtk_table_set_col_spacings (GTK_TABLE(table2), GTET_PAD_SMALL);
     gtk_container_set_border_width (GTK_CONTAINER(table2), GTET_PAD);
     gtk_widget_show (table2);
-    frame = gtk_frame_new (_("Server address"));
+    frame = gtk_frame_new ("Server address");
     gtk_container_add (GTK_CONTAINER(frame), table2);
     gtk_widget_show (frame);
     gtk_table_attach (GTK_TABLE(table1), frame, 0, 2, 0, 1,
@@ -388,11 +384,11 @@ void connectdialog_new (void)
     /* spectator checkbox + password */
     table2 = gtk_table_new (1, 1, FALSE);
 
-    spectatorcheck = gtk_check_button_new_with_mnemonic (_("Connect as a _spectator"));
+    spectatorcheck = gtk_check_button_new_with_mnemonic ("Connect as a _spectator");
     gtk_widget_show (spectatorcheck);
     gtk_table_attach (GTK_TABLE(table2), spectatorcheck, 0, 2, 0, 1,
                       GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND, 0, 0);
-    passwordlabel = gtk_label_new_with_mnemonic (_("_Password:"));
+    passwordlabel = gtk_label_new_with_mnemonic ("_Password:");
     gtk_widget_show (passwordlabel);
     gtk_table_attach (GTK_TABLE(table2), passwordlabel, 0, 1, 1, 2,
                       GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND, 0, 0);
@@ -409,7 +405,7 @@ void connectdialog_new (void)
     gtk_table_set_col_spacings (GTK_TABLE(table2), GTET_PAD_SMALL);
     gtk_container_set_border_width (GTK_CONTAINER(table2), GTET_PAD);
     gtk_widget_show (table2);
-    frame = gtk_frame_new (_("Spectate game"));
+    frame = gtk_frame_new ("Spectate game");
     gtk_container_add (GTK_CONTAINER(frame), table2);
     gtk_widget_show (frame);
     gtk_table_attach (GTK_TABLE(table1), frame, 0, 1, 1, 2,
@@ -418,30 +414,26 @@ void connectdialog_new (void)
     /* nickname and teamname entries */
     table2 = gtk_table_new (1, 1, FALSE);
 
-    widget = gtk_label_new_with_mnemonic (_("_Nick name:"));
+    widget = gtk_label_new_with_mnemonic ("_Nick name:");
     gtk_widget_show (widget);
     gtk_table_attach (GTK_TABLE(table2), widget, 0, 1, 0, 1,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
-    nicknameentry = gnome_entry_new ("Nickname");
+    nicknameentry = gtk_entry_new_with_buffer (gtk_entry_buffer_new("Nickname",8));
     gtk_label_set_mnemonic_widget (GTK_LABEL (widget), nicknameentry);
-    g_object_set(G_OBJECT(gnome_entry_gtk_entry(GNOME_ENTRY(nicknameentry))),
-                 "activates_default", TRUE, NULL);
-    gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(nicknameentry))),
-                        nick);
+    g_object_set((GObject*)nicknameentry, "activates_default", TRUE, NULL);
+    gtk_entry_set_text ((GtkEntry*)nicknameentry, nick);
     /* g_free (aux);*/
     gtk_widget_show (nicknameentry);
     gtk_table_attach (GTK_TABLE(table2), nicknameentry, 1, 2, 0, 1,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
-    teamnamelabel = gtk_label_new_with_mnemonic (_("_Team name:"));
+    teamnamelabel = gtk_label_new_with_mnemonic ("_Team name:");
     gtk_widget_show (teamnamelabel);
     gtk_table_attach (GTK_TABLE(table2), teamnamelabel, 0, 1, 1, 2,
                       GTK_FILL | GTK_EXPAND, 0, 0, 0);
-    teamnameentry = gnome_entry_new ("Teamname");
+    teamnameentry = gtk_entry_new_with_buffer (gtk_entry_buffer_new("Teamname", 8));
     gtk_label_set_mnemonic_widget (GTK_LABEL (teamnamelabel), teamnameentry);
-    g_object_set(G_OBJECT(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry))),
-                 "activates_default", TRUE, NULL);
-    gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(teamnameentry))),
-                        team);
+    g_object_set((GObject*)teamnameentry, "activates_default", TRUE, NULL);
+    gtk_entry_set_text ((GtkEntry*)teamnameentry, team);
     /*g_free (aux);*/
     gtk_widget_show (teamnameentry);
     gtk_table_attach (GTK_TABLE(table2), teamnameentry, 1, 2, 1, 2,
@@ -451,7 +443,7 @@ void connectdialog_new (void)
     gtk_table_set_col_spacings (GTK_TABLE(table2), GTET_PAD_SMALL);
     gtk_container_set_border_width (GTK_CONTAINER(table2), GTET_PAD);
     gtk_widget_show (table2);
-    frame = gtk_frame_new (_("Player information"));
+    frame = gtk_frame_new ("Player information");
     gtk_container_add (GTK_CONTAINER(frame), table2);
     gtk_widget_show (frame);
     gtk_table_attach (GTK_TABLE(table1), frame, 1, 2, 1, 2,
@@ -466,13 +458,13 @@ void connectdialog_new (void)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(spectatorcheck), spectating);
     connectdialog_spectoggle (spectatorcheck);
     g_signal_connect (G_OBJECT(connectdialog), "destroy",
-                        GTK_SIGNAL_FUNC(connectdialog_destroy), NULL);
+                        G_CALLBACK(connectdialog_destroy), NULL);
     g_signal_connect (G_OBJECT(spectatorcheck), "toggled",
-                        GTK_SIGNAL_FUNC(connectdialog_spectoggle), NULL);
+                        G_CALLBACK(connectdialog_spectoggle), NULL);
     g_signal_connect (G_OBJECT(originalradio), "toggled",
-                        GTK_SIGNAL_FUNC(connectdialog_originaltoggle), NULL);
+                        G_CALLBACK(connectdialog_originaltoggle), NULL);
     g_signal_connect (G_OBJECT(tetrifastradio), "toggled",
-                        GTK_SIGNAL_FUNC(connectdialog_tetrifasttoggle), NULL);
+                        G_CALLBACK(connectdialog_tetrifasttoggle), NULL);
     gtk_widget_show (connectdialog);
 }
 
@@ -492,7 +484,7 @@ gint key_dialog (char *msg)
     GtkWidget *dialog, *label;
     gint keydialog_key;
 
-    dialog = gtk_dialog_new_with_buttons (_("Change Key"), GTK_WINDOW (prefdialog),
+    dialog = gtk_dialog_new_with_buttons ("Change Key", GTK_WINDOW (prefdialog),
                                           GTK_DIALOG_MODAL | 0,
                                           GTK_STOCK_CANCEL, GTK_RESPONSE_CLOSE,
                                           NULL);
@@ -501,7 +493,7 @@ gint key_dialog (char *msg)
     gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area(dialog)),
                         label, TRUE, TRUE, GTET_PAD_SMALL);
     g_signal_connect (G_OBJECT (dialog), "key-press-event",
-                        GTK_SIGNAL_FUNC (key_dialog_callback), NULL);
+                        G_CALLBACK (key_dialog_callback), NULL);
     gtk_widget_set_events (dialog, GDK_KEY_PRESS_MASK);
     keydialog_key = gtk_dialog_run (GTK_DIALOG (dialog));
     gtk_widget_hide (dialog);
@@ -543,20 +535,20 @@ void prefdialog_drawkeys (void)
     GtkTreeIter iter;
     GtkListStore *keys_store = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (keyclist)));
 
-    actions[K_RIGHT]    = _("Move right");
-    actions[K_LEFT]     = _("Move left");
-    actions[K_DOWN]     = _("Move down");
-    actions[K_ROTRIGHT] = _("Rotate right");
-    actions[K_ROTLEFT]  = _("Rotate left");
-    actions[K_DROP]     = _("Drop piece");
-    actions[K_DISCARD]  = _("Discard special");
-    actions[K_GAMEMSG]  = _("Send message");
-    actions[K_SPECIAL1] = _("Special to field 1");
-    actions[K_SPECIAL2] = _("Special to field 2");
-    actions[K_SPECIAL3] = _("Special to field 3");
-    actions[K_SPECIAL4] = _("Special to field 4");
-    actions[K_SPECIAL5] = _("Special to field 5");
-    actions[K_SPECIAL6] = _("Special to field 6");
+    actions[K_RIGHT]    = ("Move right");
+    actions[K_LEFT]     = ("Move left");
+    actions[K_DOWN]     = ("Move down");
+    actions[K_ROTRIGHT] = ("Rotate right");
+    actions[K_ROTLEFT]  = ("Rotate left");
+    actions[K_DROP]     = ("Drop piece");
+    actions[K_DISCARD]  = ("Discard special");
+    actions[K_GAMEMSG]  = ("Send message");
+    actions[K_SPECIAL1] = ("Special to field 1");
+    actions[K_SPECIAL2] = ("Special to field 2");
+    actions[K_SPECIAL3] = ("Special to field 3");
+    actions[K_SPECIAL4] = ("Special to field 4");
+    actions[K_SPECIAL5] = ("Special to field 5");
+    actions[K_SPECIAL6] = ("Special to field 6");
   
     gconf_keys[K_RIGHT]    = g_strdup ("/apps/gtetrinet/keys/right");
     gconf_keys[K_LEFT]     = g_strdup ("/apps/gtetrinet/keys/left");
@@ -616,7 +608,7 @@ void prefdialog_changekey (void)
 
     gtk_tree_model_get (GTK_TREE_MODEL (keys_store), &selected_row,
                         0, &key, 3, &gconf_key, -1);
-    g_snprintf (buf, sizeof(buf), _("Press new key for \"%s\""), key);
+    g_snprintf (buf, sizeof(buf), ("Press new key for \"%s\""), key);
     k = key_dialog (buf);
     if (k) {
         gtk_list_store_set (keys_store, &selected_row, 1, gdk_keyval_name (k), -1);
@@ -686,16 +678,16 @@ void prefdialog_miditoggle (GtkWidget *widget)
 void prefdialog_midichanged (void)
 {
     gconf_client_set_string (gconf_client, "/apps/gtetrinet/sound/midi_player",
-                             gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (midientry)))),
+                             gtk_entry_get_text ((GtkEntry*)midientry),
                              NULL);
 }
 
 void prefdialog_restoremidi (void)
 {
-    gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(midientry))),
+    gtk_entry_set_text ((GtkEntry*)midientry,
                         DEFAULTMIDICMD);
     gconf_client_set_string (gconf_client, "/apps/gtetrinet/sound/midi_player",
-                             gtk_entry_get_text (GTK_ENTRY (gnome_entry_gtk_entry (GNOME_ENTRY (midientry)))),
+                             gtk_entry_get_text ((GtkEntry*)midientry),
                              NULL);
 }
 
@@ -832,7 +824,7 @@ void prefdialog_new (void)
       return;
     }
 
-    prefdialog = gtk_dialog_new_with_buttons (_("GTetrinet Preferences"),
+    prefdialog = gtk_dialog_new_with_buttons (("GTetrinet Preferences"),
                                               GTK_WINDOW (app),
                                               0 | GTK_DIALOG_DESTROY_WITH_PARENT,
                                               GTK_STOCK_HELP, GTK_RESPONSE_HELP,
@@ -854,20 +846,20 @@ void prefdialog_new (void)
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (themelist), -1, "theme", renderer,
                                                  "text", 0, NULL);
 
-    label = leftlabel_new (_("Select a theme from the list.\n"
+    label = leftlabel_new (("Select a theme from the list.\n"
                              "Install new themes in ~/.gtetrinet/themes/"));
 
     table1 = gtk_table_new (3, 2, FALSE);
     gtk_container_set_border_width (GTK_CONTAINER(table1), GTET_PAD_SMALL);
     gtk_table_set_row_spacings (GTK_TABLE(table1), 0);
     gtk_table_set_col_spacings (GTK_TABLE(table1), GTET_PAD_SMALL);
-    widget = leftlabel_new (_("Name:"));
+    widget = leftlabel_new (("Name:"));
     gtk_table_attach (GTK_TABLE(table1), widget, 0, 1, 0, 1,
                       GTK_EXPAND | GTK_FILL, 0, 0, 0);
-    widget = leftlabel_new (_("Author:"));
+    widget = leftlabel_new (("Author:"));
     gtk_table_attach (GTK_TABLE(table1), widget, 0, 1, 1, 2,
                       GTK_EXPAND | GTK_FILL, 0, 0, 0);
-    widget = leftlabel_new (_("Description:"));
+    widget = leftlabel_new (("Description:"));
     gtk_table_attach (GTK_TABLE(table1), widget, 0, 1, 2, 3,
                       GTK_EXPAND | GTK_FILL, 0, 0, 0);
     namelabel = leftlabel_new ("");
@@ -880,7 +872,7 @@ void prefdialog_new (void)
     gtk_table_attach (GTK_TABLE(table1), desclabel, 1, 2, 2, 3,
                       GTK_EXPAND | GTK_FILL, GTK_FILL, 0, 0);
 
-    frame = gtk_frame_new (_("Selected Theme"));
+    frame = gtk_frame_new (("Selected Theme"));
     gtk_frame_set_shadow_type (GTK_FRAME(frame), GTK_SHADOW_IN);
     gtk_container_set_border_width (GTK_CONTAINER(frame), GTET_PAD_SMALL);
     gtk_widget_set_size_request (frame, 240, 100);
@@ -896,19 +888,19 @@ void prefdialog_new (void)
                       GTK_EXPAND | GTK_FILL, GTK_FILL, 0, 0);
     gtk_table_attach (GTK_TABLE(table), frame, 1, 2, 1, 2,
                       GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
-    url = gtk_link_button_new_with_label ("http://gtetrinet.sourceforge.net/themes.html", _("Download new themes"));
+    url = gtk_link_button_new_with_label ("http://gtetrinet.sourceforge.net/themes.html", ("Download new themes"));
     gtk_table_attach (GTK_TABLE(table), url, 1, 2, 2, 3,
                       GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_SHRINK, 0, 0);
     gtk_widget_show_all (table);
     
-    label = gtk_label_new (_("Themes"));
+    label = gtk_label_new (("Themes"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);
 
     /* partyline */
-    timestampcheck = gtk_check_button_new_with_mnemonic (_("Enable _Timestamps"));
+    timestampcheck = gtk_check_button_new_with_mnemonic (("Enable _Timestamps"));
     gtk_widget_show(timestampcheck);
-    channel_list_check = gtk_check_button_new_with_mnemonic (_("Enable Channel _List"));
+    channel_list_check = gtk_check_button_new_with_mnemonic (("Enable Channel _List"));
     gtk_widget_show (channel_list_check);
 
     frame = gtk_vbox_new (FALSE, 0);
@@ -934,7 +926,7 @@ void prefdialog_new (void)
                       GTK_EXPAND | GTK_FILL, 0, 0, 0);
     gtk_widget_show (table);
 
-    label = gtk_label_new (_("Partyline"));
+    label = gtk_label_new (("Partyline"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);
 
@@ -945,29 +937,29 @@ void prefdialog_new (void)
                                    GTK_POLICY_AUTOMATIC,
                                    GTK_POLICY_AUTOMATIC);
     gtk_container_add (GTK_CONTAINER(key_scroll), keyclist);
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (keyclist), -1, _("Action"), renderer,
+    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (keyclist), -1, ("Action"), renderer,
                                                  "text", 0, NULL);
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (keyclist), -1, _("Key"), renderer,
+    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (keyclist), -1, ("Key"), renderer,
                                                  "text", 1, NULL);
 
     gtk_widget_set_size_request (key_scroll, 240, 200);
     gtk_widget_show (key_scroll);
 
-    label = gtk_label_new (_("Select an action from the list and press Change "
+    label = gtk_label_new (("Select an action from the list and press Change "
                              "Key to change the key associated with the action."));
     gtk_label_set_justify (GTK_LABEL(label), GTK_JUSTIFY_LEFT);
     gtk_label_set_line_wrap (GTK_LABEL(label), TRUE);
     gtk_widget_show (label);
     gtk_widget_set_size_request (label, 180, 100);
 
-    button = gtk_button_new_with_mnemonic (_("Change _key..."));
+    button = gtk_button_new_with_mnemonic (("Change _key..."));
     g_signal_connect (G_OBJECT(button), "clicked",
-                      GTK_SIGNAL_FUNC (prefdialog_changekey), NULL);
+                      G_CALLBACK (prefdialog_changekey), NULL);
     gtk_widget_show (button);
 
-    button1 = gtk_button_new_with_mnemonic (_("_Restore defaults"));
+    button1 = gtk_button_new_with_mnemonic (("_Restore defaults"));
     g_signal_connect (G_OBJECT(button1), "clicked",
-                      GTK_SIGNAL_FUNC (prefdialog_restorekeys), NULL);
+                      G_CALLBACK (prefdialog_restorekeys), NULL);
     gtk_widget_show (button1);
 
     table = gtk_table_new (2, 2, FALSE);
@@ -986,15 +978,15 @@ void prefdialog_new (void)
                       GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
     gtk_widget_show (table);
 
-    label = gtk_label_new (_("Keyboard"));
+    label = gtk_label_new (("Keyboard"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);
 
     /* sound */
-    soundcheck = gtk_check_button_new_with_mnemonic (_("Enable _Sound"));
+    soundcheck = gtk_check_button_new_with_mnemonic (("Enable _Sound"));
     gtk_widget_show (soundcheck);
 
-    midicheck = gtk_check_button_new_with_mnemonic (_("Enable _MIDI"));
+    midicheck = gtk_check_button_new_with_mnemonic (("Enable _MIDI"));
     gtk_widget_show (midicheck);
 
     frame = gtk_hbox_new (FALSE, 0);
@@ -1005,22 +997,22 @@ void prefdialog_new (void)
     divider = gtk_hseparator_new ();
     gtk_widget_show (divider);
 
-    midientry = gnome_entry_new ("MidiCmd");
+    midientry = gtk_entry_new_with_buffer (gtk_entry_buffer_new("MidiCmd", 7));
     gtk_widget_show (midientry);
 
-    widget = leftlabel_new (_("Enter command to play a midi file:"));
+    widget = leftlabel_new (("Enter command to play a midi file:"));
     gtk_widget_show (widget);
 
-    label = gtk_label_new (_("The above command is run when a midi file is "
+    label = gtk_label_new (("The above command is run when a midi file is "
                              "to be played.  The name of the midi file is "
                              "placed in the environment variable MIDIFILE."));
     gtk_label_set_justify (GTK_LABEL(label), GTK_JUSTIFY_LEFT);
     gtk_label_set_line_wrap (GTK_LABEL(label), TRUE);
     gtk_widget_show (label);
 
-    button = gtk_button_new_with_mnemonic (_("_Restore defaults"));
+    button = gtk_button_new_with_mnemonic (("_Restore defaults"));
     g_signal_connect (G_OBJECT(button), "clicked",
-                      GTK_SIGNAL_FUNC (prefdialog_restoremidi), NULL);
+                      G_CALLBACK (prefdialog_restoremidi), NULL);
     gtk_widget_show (button);
 
     miditable = gtk_table_new (4, 2, FALSE);
@@ -1048,14 +1040,14 @@ void prefdialog_new (void)
                       GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
     gtk_widget_show (table);
 
-    label = gtk_label_new (_("Sound"));
+    label = gtk_label_new (("Sound"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);
 
     /* init stuff */
     prefdialog_themelist ();
 
-    gtk_entry_set_text (GTK_ENTRY(gnome_entry_gtk_entry(GNOME_ENTRY(midientry))), midicmd);
+    gtk_entry_set_text ((GtkEntry*)midientry, midicmd);
 
     prefdialog_drawkeys ();
 
@@ -1076,16 +1068,15 @@ void prefdialog_new (void)
     gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area(prefdialog)), notebook, FALSE, FALSE, 0);
 
     g_signal_connect (G_OBJECT(soundcheck), "toggled",
-                      GTK_SIGNAL_FUNC(prefdialog_soundtoggle), NULL);
+                      G_CALLBACK(prefdialog_soundtoggle), NULL);
     g_signal_connect (G_OBJECT(midicheck), "toggled",
-                      GTK_SIGNAL_FUNC(prefdialog_miditoggle), NULL);
-    g_signal_connect (G_OBJECT(gnome_entry_gtk_entry(GNOME_ENTRY(midientry))),
-                      "changed", GTK_SIGNAL_FUNC(prefdialog_midichanged), NULL);
+                      G_CALLBACK(prefdialog_miditoggle), NULL);
+    g_signal_connect ((GObject*)midientry, "changed", G_CALLBACK(prefdialog_midichanged), NULL);
     g_signal_connect (G_OBJECT(theme_selection), "changed",
-                      GTK_SIGNAL_FUNC (prefdialog_themeselect), NULL);
+                      G_CALLBACK (prefdialog_themeselect), NULL);
     g_signal_connect (G_OBJECT(prefdialog), "destroy",
-                      GTK_SIGNAL_FUNC(prefdialog_destroy), NULL);
+                      G_CALLBACK(prefdialog_destroy), NULL);
     g_signal_connect (G_OBJECT(prefdialog), "response",
-                      GTK_SIGNAL_FUNC(prefdialog_response), NULL);
+                      G_CALLBACK(prefdialog_response), NULL);
     gtk_widget_show_all (prefdialog);
 }
