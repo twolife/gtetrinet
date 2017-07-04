@@ -89,6 +89,8 @@ void fields_init (void)
         }
     }
     /* we dont want the bitmap mask */
+    // blockpix = cairo_surface_t
+    // blockpix = cairo_image_surface_create_from_png(blocksfile);
     cairo_t *cr = cairo_create(blockpix);
     gdk_cairo_set_source_pixbuf(cr,pb,0,0);
     cairo_paint(cr);
@@ -283,7 +285,7 @@ GtkWidget *fields_page_contents (void)
     attdefwidget = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
     gtk_widget_set_size_request (attdefwidget, MAX(22*12, BLOCKSIZE*12), BLOCKSIZE*10);
     gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(attdefwidget), GTK_WRAP_WORD);
-/* FIXME   GTK_WIDGET_UNSET_FLAGS (attdefwidget, GTK_CAN_FOCUS); */
+    gtk_widget_set_can_focus (attdefwidget, FALSE);
     scroll = gtk_scrolled_window_new (NULL, NULL);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll),
                                     GTK_POLICY_AUTOMATIC,
@@ -300,7 +302,7 @@ GtkWidget *fields_page_contents (void)
     table2 = gtk_table_new (1, 2, FALSE);
     gmsgtext = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
     gtk_widget_set_size_request (gmsgtext, -1, 48);
-/* FIXME    GTK_WIDGET_UNSET_FLAGS (gmsgtext, GTK_CAN_FOCUS); */
+    gtk_widget_set_can_focus (gmsgtext, TRUE);
     scroll = gtk_scrolled_window_new (NULL, NULL);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll),
                                     GTK_POLICY_AUTOMATIC,
