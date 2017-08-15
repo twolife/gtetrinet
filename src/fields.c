@@ -186,7 +186,7 @@ GtkWidget *fields_page_contents (void)
             fieldwidgets[i] = gtk_drawing_area_new ();
             
             /* attach the signals */
-            g_signal_connect (G_OBJECT(fieldwidgets[i]), "expose_event",
+            g_signal_connect (G_OBJECT(fieldwidgets[i]), "draw",
                                 G_CALLBACK(fields_expose_event), GINT_TO_POINTER(i));
             gtk_widget_set_events (fieldwidgets[i], GDK_EXPOSURE_MASK);
             /* set the size */
@@ -215,7 +215,7 @@ GtkWidget *fields_page_contents (void)
     border = gtk_frame_new (NULL);
     gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
     nextpiecewidget = gtk_drawing_area_new ();
-    g_signal_connect (G_OBJECT(nextpiecewidget), "expose_event",
+    g_signal_connect (G_OBJECT(nextpiecewidget), "draw",
                         G_CALLBACK(fields_nextpiece_expose), NULL);
     gtk_widget_set_events (nextpiecewidget, GDK_EXPOSURE_MASK);
     gtk_widget_set_size_request (nextpiecewidget, BLOCKSIZE*9/2, BLOCKSIZE*9/2);
@@ -263,7 +263,7 @@ GtkWidget *fields_page_contents (void)
     border = gtk_frame_new (NULL);
     gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
     specialwidget = gtk_drawing_area_new ();
-    g_signal_connect (G_OBJECT(specialwidget), "expose_event",
+    g_signal_connect (G_OBJECT(specialwidget), "draw",
                         G_CALLBACK(fields_specials_expose), NULL);
     gtk_widget_set_size_request (specialwidget, BLOCKSIZE*18, BLOCKSIZE);
     gtk_widget_show (specialwidget);
