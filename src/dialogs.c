@@ -24,6 +24,7 @@
 #include <gtk/gtk.h>
 #include <sys/types.h>
 #include <dirent.h>
+#include <stdlib.h>
 
 #include "gtetrinet.h"
 #include "gtet_config.h"
@@ -895,7 +896,7 @@ void prefdialog_new (void)
     gtk_table_attach (GTK_TABLE(table), url, 1, 2, 2, 3,
                       GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_SHRINK, 0, 0);
     gtk_widget_show_all (table);
-    
+
     label = gtk_label_new (("Themes"));
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);
