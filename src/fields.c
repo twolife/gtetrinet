@@ -38,9 +38,10 @@
 #define BLOCKSIZE bsize
 #define SMALLBLOCKSIZE (BLOCKSIZE/2)
 
-static GtkWidget *fieldwidgets[6], *nextpiecewidget, *fieldlabels[6][6],
+static GtkWidget *nextpiecewidget;
     *specialwidget, *speciallabel, *attdefwidget, *lineswidget, *levelwidget,
     *activewidget, *activelabel, *gmsgtext, *gmsginput, *fieldspage, *pagecontents;
+static GtkBuilder *fieldbuilders[6];
 
 static GtkWidget *fields_page_contents (void);
 
@@ -53,7 +54,7 @@ static void fields_drawblock (int field, int x, int y, char block);
 
 static void gmsginput_activate (void);
 
-static cairo_surface_t *blockpix;
+static GdkPixbuf *blockpix;
 
 static GdkColor black = {0, 0, 0, 0};
 static cairo_surface_t *bitmap;
@@ -88,14 +89,8 @@ void fields_init (void)
             exit (0);
         }
     }
-    /* we dont want the bitmap mask */
-    // blockpix = cairo_surface_t
-    // blockpix = cairo_image_surface_create_from_png(blocksfile);
-    cairo_t *cr = cairo_create(blockpix);
-    gdk_cairo_set_source_pixbuf(cr,pb,0,0);
-    cairo_paint(cr);
-    cairo_destroy(cr);
-    g_object_unref(pb);
+
+    blockpix = pb;
 }
 
 void fields_cleanup (void)
@@ -133,210 +128,107 @@ void fields_page_destroy_contents (void)
 
 GtkWidget *fields_page_contents (void)
 {
-    GtkWidget *vbox, *table, *widget, *align, *border, *box, *table2, *hbox, *scroll;
-    table = gtk_table_new (4, 5, FALSE);
-    vbox = gtk_vbox_new (FALSE, 0);
+    GtkBuilder *fieldsbuilder, *fieldbuilder;
+    GtkWidget *some_widget;
 
-    gtk_table_set_row_spacings (GTK_TABLE(table), 2);
-    gtk_table_set_col_spacings (GTK_TABLE(table), 2);
+    fieldsbuilder = gtk_builder_new_from_resource("/org/gtetrinet/fields.ui");
 
     /* make fields */
     {
-        int p[6][4] = { /* table attach positions */
-            {0, 1, 0, 2},
-            {2, 3, 0, 1},
-            {3, 4, 0, 1},
-            {4, 5, 0, 1},
-            {3, 4, 1, 3},
-            {4, 5, 1, 3}
-        };
-        int i;
+        int playernb;
         int blocksize;
-        float valign;
-        for (i = 0; i < 6; i ++) {
-            if (i == 0) blocksize = BLOCKSIZE;
+        char* playernbstr[1]; // supports up to (9+1) players ;)
+        //float valign;
+        GtkBuilder *fieldbuilder;
+        GtkWidget *fieldparent, *fieldwidget;
+
+        for (playernb = 0; playernb < 6; playernb ++) {
+            if (playernb == 0) blocksize = BLOCKSIZE;
             else blocksize = SMALLBLOCKSIZE;
-            if (i < 4) valign = 0.0;
+            /*
+            if (playernb < 4) valign = 0.0;
             else valign = 1.0;
+            */
             /* make the widgets */
-            box = gtk_vbox_new (FALSE, 0);
-            /* the labels */
-            fieldlabels[i][0] = gtk_label_new ("");
-            fieldlabels[i][1] = gtk_vseparator_new ();
-            fieldlabels[i][2] = gtk_label_new ("");
-            fieldlabels[i][3] = gtk_label_new ("");
-            fieldlabels[i][4] = gtk_vseparator_new ();
-            fieldlabels[i][5] = gtk_label_new ("");
+            fieldbuilder = gtk_builder_new_from_resource("/org/gtetrinet/field.ui");
+            fieldbuilders[playernb] = fieldbuilder;
 
-            hbox = gtk_hbox_new (FALSE, 0);
-            gtk_box_pack_start (GTK_BOX(hbox), fieldlabels[i][0], FALSE, FALSE, 2);
-            gtk_box_pack_start (GTK_BOX(hbox), fieldlabels[i][1], FALSE, FALSE, 0);
-            gtk_box_pack_start (GTK_BOX(hbox), fieldlabels[i][2], FALSE, FALSE, 2);
-            gtk_box_pack_start (GTK_BOX(hbox), fieldlabels[i][3], TRUE, TRUE, 0);
-            gtk_box_pack_start (GTK_BOX(hbox), fieldlabels[i][4], FALSE, FALSE, 2);
-            gtk_box_pack_start (GTK_BOX(hbox), fieldlabels[i][5], FALSE, FALSE, 0);
+            fields_setlabel (playernb, NULL, NULL, 0);
 
-            fields_setlabel (i, NULL, NULL, 0);
-
-            widget = gtk_event_box_new ();
-            gtk_container_add (GTK_CONTAINER(widget), hbox);
-            gtk_widget_set_size_request (widget, blocksize * FIELDWIDTH, -1);
-            gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
-            /* the field */
-            fieldwidgets[i] = gtk_drawing_area_new ();
-            
+            fieldwidget = GTK_WIDGET(gtk_builder_get_object(fieldbuilder, "field"));
             /* attach the signals */
-            g_signal_connect (G_OBJECT(fieldwidgets[i]), "draw",
-                                G_CALLBACK(fields_expose_event), GINT_TO_POINTER(i));
-            gtk_widget_set_events (fieldwidgets[i], GDK_EXPOSURE_MASK);
+            g_signal_connect (G_OBJECT(fieldwidget), "draw",
+                                G_CALLBACK(fields_expose_event), GINT_TO_POINTER(playernb));
+            gtk_widget_set_events (fieldwidget, GDK_EXPOSURE_MASK);
             /* set the size */
-            gtk_widget_set_size_request (fieldwidgets[i],
+            gtk_widget_set_size_request (fieldwidget,
                                          blocksize * FIELDWIDTH,
                                          blocksize * FIELDHEIGHT);
-            gtk_box_pack_start (GTK_BOX(box), fieldwidgets[i], TRUE, TRUE, 0);
-            border = gtk_frame_new (NULL);
-            gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
-            gtk_container_add (GTK_CONTAINER(border), box);
+
             /* align it */
+            /*
             align = gtk_alignment_new (0.5, valign, 0.0, 0.0);
-            gtk_container_add (GTK_CONTAINER(align), border);
+            gtk_container_add (GTK_CONTAINER(align), gtk_builder_get_object(fieldbuilder, "fieldparent"));
             gtk_table_attach (GTK_TABLE(table), align,
                               p[i][0], p[i][1], p[i][2], p[i][3],
                               GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
                               0, 0);
+            */
+            fieldparent = GTK_WIDGET(gtk_builder_get_object(fieldbuilder, "fieldparent"));
+            if (playernb == 0) {
+                gtk_container_add(GTK_CONTAINER(gtk_builder_get_object(fieldsbuilder, "own_field")), fieldparent);
+            } else {
+                g_snprintf(playernbstr, sizeof(playernbstr), "%d", playernb);
+                gtk_container_add(GTK_CONTAINER(gtk_builder_get_object(fieldsbuilder, g_strconcat("field",playernbstr,NULL))), fieldparent);
+            }
+            /*
+             * else gtk_flow_box_insert(GTK_FLOW_BOX(gtk_builder_get_object(fieldsbuilder, "other_fields")), fieldparent, -1);
+             * We don't use a flow box here, because the layout for the first other field is the different to the others
+             */
         }
     }
-    /* next block thingy */
-    box = gtk_vbox_new (FALSE, 2);
 
-    widget = leftlabel_new (_("Next piece:"));
-    gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
-    /* box that displays the next block */
-    border = gtk_frame_new (NULL);
-    gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
-    nextpiecewidget = gtk_drawing_area_new ();
+    /* next block thingy */
+    nextpiecewidget = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "next_block"));
     g_signal_connect (G_OBJECT(nextpiecewidget), "draw",
                         G_CALLBACK(fields_nextpiece_expose), NULL);
-    gtk_widget_set_events (nextpiecewidget, GDK_EXPOSURE_MASK);
     gtk_widget_set_size_request (nextpiecewidget, BLOCKSIZE*9/2, BLOCKSIZE*9/2);
-    gtk_container_add (GTK_CONTAINER(border), nextpiecewidget);
-    align = gtk_alignment_new (0.5, 0.5, 0, 0);
-    gtk_container_add (GTK_CONTAINER(align), border);
-    gtk_box_pack_start (GTK_BOX(box), align, TRUE, TRUE, 0);
-    /* lines, levels and stuff */
-    table2 = gtk_table_new (4, 2, FALSE);
-    gtk_table_set_col_spacings (GTK_TABLE(table2), 5);
-    widget = leftlabel_new (_("Lines:"));
-    gtk_table_attach_defaults (GTK_TABLE(table2), widget, 0, 1, 0, 1);
-    widget = gtk_label_new ("");
-    gtk_table_attach_defaults (GTK_TABLE(table2), widget, 0, 1, 1, 2);
-    widget = leftlabel_new (_("Level:"));
-    gtk_table_attach_defaults (GTK_TABLE(table2), widget, 0, 1, 2, 3);
-    activelabel = leftlabel_new (_("Active level:"));
-    gtk_table_attach_defaults (GTK_TABLE(table2), activelabel, 0, 1, 3, 4);
-    lineswidget = leftlabel_new ("");
-    gtk_table_attach_defaults (GTK_TABLE(table2), lineswidget, 1, 2, 0, 1);
-    widget = gtk_label_new ("");
-    gtk_table_attach_defaults (GTK_TABLE(table2), widget, 1, 2, 1, 2);
-    levelwidget = leftlabel_new ("");
-    gtk_table_attach_defaults (GTK_TABLE(table2), levelwidget, 1, 2, 2, 3);
-    activewidget = leftlabel_new ("");
-    gtk_table_attach_defaults (GTK_TABLE(table2), activewidget, 1, 2, 3, 4);
-    gtk_box_pack_start (GTK_BOX(box), table2, TRUE, TRUE, 0);
 
-    /* align it */
-    align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
-    gtk_widget_set_size_request (align, BLOCKSIZE*6, BLOCKSIZE*11);
-    gtk_container_add (GTK_CONTAINER(align), box);
-    gtk_table_attach (GTK_TABLE(table), align, 1, 2, 0, 1,
-                      GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
-                      0, 0);
+    /* lines, levels and stuff */
+    activelabel = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "activelevel_label"));
+    lineswidget = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "lines"));
+    levelwidget = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "level"));
+    activewidget = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "activelevel"));
+    gtk_widget_set_size_request (GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "stuffalign")), BLOCKSIZE*6, BLOCKSIZE*11);
 
     /* the specials thingy */
-    box = gtk_hbox_new (FALSE, 0);
-    speciallabel = gtk_label_new ("");
-    gtk_widget_show (speciallabel);
+    speciallabel = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "specials_label"));
+    specialwidget = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "specials"));
     fields_setspeciallabel (NULL);
-    align = gtk_alignment_new (1.0, 0.0, 1.0, 1.0);
-    gtk_container_add (GTK_CONTAINER (align), speciallabel);
-    gtk_box_pack_start (GTK_BOX(box), align, TRUE, TRUE, 0);
-    border = gtk_frame_new (NULL);
-    gtk_frame_set_shadow_type (GTK_FRAME(border), GTK_SHADOW_IN);
-    specialwidget = gtk_drawing_area_new ();
     g_signal_connect (G_OBJECT(specialwidget), "draw",
                         G_CALLBACK(fields_specials_expose), NULL);
     gtk_widget_set_size_request (specialwidget, BLOCKSIZE*18, BLOCKSIZE);
-    gtk_widget_show (specialwidget);
-    gtk_container_add (GTK_CONTAINER(border), specialwidget);
-    gtk_box_pack_end (GTK_BOX(box), border, FALSE, FALSE, 0);
-    gtk_widget_set_size_request (box, BLOCKSIZE*24, -1);
-    /* align it */
-    align = gtk_alignment_new (0.5, 1.0, 0.7, 0.0);
-    gtk_container_add (GTK_CONTAINER(align), box);
-    gtk_table_attach (GTK_TABLE (table), align, 0, 3, 2, 3,
-                      GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
-                      0, 0);
+//    gtk_widget_set_size_request (speciallabel, BLOCKSIZE*6, -1);
 
     /* attacks and defenses */
-
-    box = gtk_vbox_new (FALSE, 0);
-    widget = gtk_label_new (_("Attacks and defenses:"));
-    gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
-    attdefwidget = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
+    attdefwidget = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "att_and_def"));
+    gtk_text_view_set_buffer(attdefwidget, gtk_text_buffer_new(tag_table));
     gtk_widget_set_size_request (attdefwidget, MAX(22*12, BLOCKSIZE*12), BLOCKSIZE*10);
-    gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(attdefwidget), GTK_WRAP_WORD);
-    gtk_widget_set_can_focus (attdefwidget, FALSE);
-    scroll = gtk_scrolled_window_new (NULL, NULL);
-    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll),
-                                    GTK_POLICY_AUTOMATIC,
-                                    GTK_POLICY_AUTOMATIC);
-    gtk_container_add (GTK_CONTAINER(scroll), attdefwidget);
-    gtk_box_pack_start (GTK_BOX(box), scroll, TRUE, TRUE, 0);
-    align = gtk_alignment_new (0.5, 0.5, 0.5, 0.0);
-    gtk_container_add (GTK_CONTAINER(align), box);
-    gtk_table_attach (GTK_TABLE(table), align, 1, 3, 1, 2,
-                      GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
-                      0, 0);
 
     /* game messages */
-    table2 = gtk_table_new (1, 2, FALSE);
-    gmsgtext = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
-    gtk_widget_set_size_request (gmsgtext, -1, 48);
-    gtk_widget_set_can_focus (gmsgtext, TRUE);
-    scroll = gtk_scrolled_window_new (NULL, NULL);
-    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll),
-                                    GTK_POLICY_AUTOMATIC,
-                                    GTK_POLICY_AUTOMATIC);
-    gtk_container_add (GTK_CONTAINER(scroll), gmsgtext);
-    gtk_table_attach (GTK_TABLE(table2), scroll, 0, 1, 0, 1,
-                      GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
-                      0, 0);
-    gmsginput = gtk_entry_new ();
-    gtk_entry_set_max_length (GTK_ENTRY (gmsginput), 128);
+    gmsgtext = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "game_messages"));
+    gtk_text_view_set_buffer(gmsgtext, gtk_text_buffer_new(tag_table));
+    gmsginput = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "game_message_input"));
     /* eat up key messages */
     g_signal_connect (G_OBJECT(gmsginput), "activate",
                         G_CALLBACK(gmsginput_activate), NULL);
-    gtk_table_attach (GTK_TABLE(table2), gmsginput, 0, 1, 1, 2,
-                      GTK_FILL | GTK_EXPAND, 0, 0, 0);
-    gtk_widget_set_size_request (table2, -1, 70);
-    
-    align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
-    gtk_container_add (GTK_CONTAINER (align), table);
-    gtk_box_pack_start (GTK_BOX (vbox), align, FALSE, FALSE, 0);
-    align = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
-    gtk_container_add (GTK_CONTAINER (align), table2);
-    gtk_box_pack_start (GTK_BOX (vbox), align, TRUE, TRUE, 0);
-/*    gtk_table_attach (GTK_TABLE(table), table2, 0, 5, 3, 4,
-                      GTK_FILL | GTK_EXPAND, 0, 0, 0);*/
-
-    gtk_widget_show_all (vbox);
 
     fields_setlines (-1);
     fields_setlevel (-1);
     fields_setactivelevel (-1);
     fields_gmsginput (FALSE);
 
-    return vbox;
+    return GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "fieldsparent"));
 }
 
 
@@ -373,6 +265,15 @@ void fields_drawfield (int field, FIELD newfield)
             }
 }
 
+void drawpix(GtkWidget *widget, int srcx, int srcy, int destx, int desty, int width, int height)
+{
+    cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(widget));
+    gdk_cairo_set_source_pixbuf (cr, blockpix, -srcx+destx, -srcy+desty); // move big image, so the block we need is in the right position on cr
+    cairo_rectangle (cr, destx, desty, width, height); // only draw the block we need
+    cairo_fill(cr);
+    cairo_destroy (cr);
+}
+
 void fields_drawblock (int field, int x, int y, char block)
 {
     int srcx, srcy, destx, desty, blocksize;
@@ -406,47 +307,45 @@ void fields_drawblock (int field, int x, int y, char block)
                        fieldwidgets[field]->style->black_gc,
                        blockpix, srcx, srcy, destx, desty,
                        blocksize, blocksize);*/
-    cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(fieldwidgets[field]));
-    gdk_cairo_set_source_pixbuf (cr, blockpix, destx, desty);
-    cairo_paint (cr);
-    cairo_destroy (cr);
+    drawpix(GTK_WIDGET(gtk_builder_get_object(fieldbuilders[field], "field")), srcx, srcy, destx, desty, blocksize, blocksize);
 }
 
 void fields_setlabel (int field, char *name, char *team, int num)
 {
     char buf[11];
+    GtkBuilder *fieldbuilder = fieldbuilders[field];
 
     g_snprintf (buf, sizeof(buf), "%d", num);
     
     if (name == NULL) {
-        gtk_widget_hide (fieldlabels[field][0]);
-        gtk_widget_hide (fieldlabels[field][1]);
-        gtk_widget_hide (fieldlabels[field][2]);
-        gtk_widget_show (fieldlabels[field][3]);
-        gtk_widget_hide (fieldlabels[field][4]);
-        gtk_widget_hide (fieldlabels[field][5]);
-        gtk_label_set_text (GTK_LABEL(fieldlabels[field][0]), "");
-        gtk_label_set_text (GTK_LABEL(fieldlabels[field][2]), "");
-        gtk_label_set_text (GTK_LABEL(fieldlabels[field][3]), _("Not playing"));
-        gtk_label_set_text (GTK_LABEL(fieldlabels[field][5]), "");
+        gtk_widget_hide (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"fieldnumber")));
+        gtk_widget_hide (GTK_SEPARATOR(gtk_builder_get_object(fieldbuilder,"fieldnumber_separator")));
+        gtk_widget_hide (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"playername")));
+        gtk_widget_show (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"single_description")));
+        gtk_widget_hide (GTK_SEPARATOR(gtk_builder_get_object(fieldbuilder,"teamname_separator")));
+        gtk_widget_hide (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"teamname")));
+        gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"fieldnumber")), "");
+        gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"playername")), "");
+        gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"single_description")), _("Not playing"));
+        gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"teamname")), "");
     }
     else {
-        gtk_widget_show (fieldlabels[field][0]);
-        gtk_widget_show (fieldlabels[field][1]);
-        gtk_widget_show (fieldlabels[field][2]);
-        gtk_widget_hide (fieldlabels[field][3]);
-        gtk_label_set_text (GTK_LABEL(fieldlabels[field][0]), buf);
-        gtk_label_set_text (GTK_LABEL(fieldlabels[field][2]), name);
-        gtk_label_set_text (GTK_LABEL(fieldlabels[field][3]), "");
+        gtk_widget_show (GTK_LABEL(gtk_builder_get_object(fieldbuilders[field],"fieldnumber")));
+        gtk_widget_show (GTK_SEPARATOR(gtk_builder_get_object(fieldbuilders[field],"fieldnumber_separator")));
+        gtk_widget_show (GTK_LABEL(gtk_builder_get_object(fieldbuilders[field],"playername")));
+        gtk_widget_hide (GTK_LABEL(gtk_builder_get_object(fieldbuilders[field],"single_description")));
+        gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"fieldnumber")), buf);
+        gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"playername")), name);
+        gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"single_description")), "");
         if (team == NULL || team[0] == 0) {
-            gtk_widget_hide (fieldlabels[field][4]);
-            gtk_widget_hide (fieldlabels[field][5]);
-            gtk_label_set_text (GTK_LABEL(fieldlabels[field][5]), "");
+            gtk_widget_hide (GTK_SEPARATOR(gtk_builder_get_object(fieldbuilder,"teamname_separator")));
+            gtk_widget_hide (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"teamname")));
+            gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"teamname")), "");
         }
         else {
-            gtk_widget_show (fieldlabels[field][4]);
-            gtk_widget_show (fieldlabels[field][5]);
-            gtk_label_set_text (GTK_LABEL(fieldlabels[field][5]), team);
+            gtk_widget_show (GTK_SEPARATOR(gtk_builder_get_object(fieldbuilder,"teamname_separator")));
+            gtk_widget_show (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"teamname")));
+            gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"teamname")), team);
         }
     }
 }
@@ -485,29 +384,31 @@ void fields_drawspecials (void)
 {
     int i;
     for (i = 0; i < 18; i ++) {
-        cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(specialwidget));
         if (i < specialblocknum) {
 /*            gdk_draw_drawable (specialwidget->window,
                                specialwidget->style->black_gc,
                                blockpix, (specialblocks[i]-1)*BLOCKSIZE,
                                0, BLOCKSIZE*i, 0, BLOCKSIZE, BLOCKSIZE);*/
-              gdk_cairo_set_source_pixbuf (cr, blockpix, BLOCKSIZE*i, 0);
+              drawpix (specialwidget, (specialblocks[i]-1)*BLOCKSIZE, 0, BLOCKSIZE*i, 0, BLOCKSIZE, BLOCKSIZE);
         }
         else {
 /*            gdk_draw_rectangle (specialwidget->window, specialwidget->style->black_gc,
                                 TRUE, BLOCKSIZE*i, 0,
                                 BLOCKSIZE*(i+1), BLOCKSIZE);*/
+              // black (otherwise it is white)
+              cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(specialwidget));
               cairo_rectangle (cr, BLOCKSIZE*i, 0, BLOCKSIZE*(i+1), BLOCKSIZE);
+              cairo_fill (cr);
+              cairo_destroy (cr);
         }
-        cairo_paint (cr);
-        cairo_destroy (cr);
     }
 }
 
 void fields_drawnextblock (TETRISBLOCK block)
 {
-    int x, y, xstart = 4, ystart = 4;
+    int x, y, xstart = 4, ystart = 4, xpos, ypos;
     if (block == NULL) block = displayblock;
+    // Draw the black background
     /*gdk_draw_rectangle (nextpiecewidget->window, nextpiecewidget->style->black_gc,
                         TRUE, 0, 0, BLOCKSIZE*9/2, BLOCKSIZE*9/2);*/
     cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(nextpiecewidget));
@@ -529,10 +430,7 @@ void fields_drawnextblock (TETRISBLOCK block)
                                    BLOCKSIZE*(x-xstart)+BLOCKSIZE/4,
                                    BLOCKSIZE*(y-ystart)+BLOCKSIZE/4,
                                    BLOCKSIZE, BLOCKSIZE);*/
-                  cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(nextpiecewidget));
-                  gdk_cairo_set_source_pixbuf (cr, blockpix, BLOCKSIZE*(x-xstart)+BLOCKSIZE/4, BLOCKSIZE*(y-ystart)+BLOCKSIZE/4);
-                  cairo_paint (cr);
-                  cairo_destroy (cr);
+                  drawpix (nextpiecewidget, (block[y][x]-1)*BLOCKSIZE, 0, BLOCKSIZE*(x-xstart)+BLOCKSIZE/4, BLOCKSIZE*(y-ystart)+BLOCKSIZE/4, BLOCKSIZE, BLOCKSIZE);
             }
         }
     memcpy (displayblock, block, 16);
@@ -566,7 +464,7 @@ void fields_setlines (int l)
     char buf[16] = "";
     if (l >= 0)
         g_snprintf (buf, sizeof(buf), "%d", l);
-    leftlabel_set (lineswidget, buf);
+    gtk_label_set_text (lineswidget, buf);
 }
 
 void fields_setlevel (int l)
@@ -574,7 +472,7 @@ void fields_setlevel (int l)
     char buf[16] = "";
     if (l > 0)
         g_snprintf (buf, sizeof(buf), "%d", l);
-    leftlabel_set (levelwidget, buf);
+    gtk_label_set_text (levelwidget, buf);
 }
 
 void fields_setactivelevel (int l)
@@ -586,7 +484,7 @@ void fields_setactivelevel (int l)
     }
     else {
         g_snprintf (buf, sizeof(buf), "%d", l);
-        leftlabel_set (activewidget, buf);
+        gtk_label_set_text (activewidget, buf);
         gtk_widget_show (activelabel);
         gtk_widget_show (activewidget);
     }

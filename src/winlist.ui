@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.2 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkListStore" id="winlist_model">
+    <columns>
+      <!-- column-name T -->
+      <column type="GdkPixbuf"/>
+      <!-- column-name name -->
+      <column type="gchararray"/>
+      <!-- column-name score -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkScrolledWindow" id="winlist_parent">
+    <property name="visible">True</property>
+    <property name="can_focus">True</property>
+    <property name="shadow_type">in</property>
+    <child>
+      <object class="GtkTreeView" id="winlist">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="model">winlist_model</property>
+        <child internal-child="selection">
+          <object class="GtkTreeSelection"/>
+        </child>
+        <child>
+          <object class="GtkTreeViewColumn" id="col1">
+            <property name="resizable">True</property>
+            <property name="title" translatable="yes">T</property>
+            <child>
+              <object class="GtkCellRendererPixbuf" id="teamrenderer"/>
+              <attributes>
+                <attribute name="pixbuf">0</attribute>
+              </attributes>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkTreeViewColumn" id="col2">
+            <property name="resizable">True</property>
+            <property name="title" translatable="yes">Name</property>
+            <child>
+              <object class="GtkCellRendererText" id="namerenderer"/>
+              <attributes>
+                <attribute name="text">1</attribute>
+              </attributes>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkTreeViewColumn" id="col3">
+            <property name="resizable">True</property>
+            <property name="title" translatable="yes">Score</property>
+            <child>
+              <object class="GtkCellRendererText" id="scorerenderer"/>
+              <attributes>
+                <attribute name="text">2</attribute>
+              </attributes>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

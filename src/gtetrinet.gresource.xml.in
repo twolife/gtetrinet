@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--https://stackoverflow.com/questions/28855850/gtk-c-and-gtkbuilder-to-make-a-single-executable-->
+<gresources>
+  <gresource prefix="/org/gtetrinet">
+    <file preprocess="xml-stripblanks">channel_list.ui</file>
+    <file preprocess="xml-stripblanks">fields.ui</file>
+    <file preprocess="xml-stripblanks">field.ui</file>
+    <file preprocess="xml-stripblanks">winlist.ui</file>
+    <!--<file>some-image.png</file>-->
+  </gresource>
+</gresources>

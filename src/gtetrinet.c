@@ -98,7 +98,6 @@ static int gtetrinet_poll_func(GPollFD *passed_fds,
 
 int main (int argc, char *argv[])
 {
-    printf("0");
     GtkWidget *label;
     GdkPixbuf *icon_pixbuf;
     GError *err = NULL;
@@ -109,14 +108,19 @@ int main (int argc, char *argv[])
 
     srand (time(NULL));
 
-    printf("1");
-	/*
+    /*
     gnome_program_init (APPID, APPVERSION, LIBGNOMEUI_MODULE,
                         argc, argv, GNOME_PARAM_POPT_TABLE, options,
                         GNOME_PARAM_NONE);
     */
     GOptionEntry options[] = { {NULL}};
-    gtk_init_with_args(&argc,&argv,"gtetrinet",options,NULL,&err);
+    if (!gtk_init_with_args(&argc,&argv,"gtetrinet",options,NULL,&err))
+    {
+        fprintf (stderr, "Failed to init GTK: %s\n", err->message);
+        g_error_free(err);
+        err = NULL;
+        return 1;
+    }
     textbox_setup (); /* needs to be done before text boxes are created */
     
     /* Initialize the GConf library */
@@ -223,7 +227,6 @@ int main (int argc, char *argv[])
                              (GConfClientNotifyFunc) partyline_enable_channel_list_changed,
 			     NULL, NULL, NULL);
 
-    printf("2");
     /* load settings */
     config_loadconfig ();
 
@@ -240,15 +243,12 @@ int main (int argc, char *argv[])
                         G_CALLBACK(destroymain), NULL);
     keypress_signal = g_signal_connect (G_OBJECT(app), "key-press-event",
                                         G_CALLBACK(keypress), NULL);
-
-    printf("3");
     g_signal_connect (G_OBJECT(app), "key-release-event",
                         G_CALLBACK(keyrelease), NULL);
     gtk_widget_set_events (app, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
 
     gtk_window_set_resizable (GTK_WINDOW (app), TRUE);
     
-    printf("4");
     /* create and set the window icon */
     icon_pixbuf = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
     if (icon_pixbuf)
@@ -264,7 +264,6 @@ int main (int argc, char *argv[])
     /* put it in the main window */
     gtk_container_add (GTK_CONTAINER(app), notebook);
 
-    printf("5");
     /* make menus + toolbar */
     make_menus (GTK_WINDOW(app));
 
@@ -281,7 +280,6 @@ int main (int argc, char *argv[])
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pfields, label);
 
-    printf("6");
     partywidget = partyline_page_new ();
     gtk_widget_show (partywidget);
     pparty = gtk_hbox_new (FALSE, 0);
@@ -293,7 +291,6 @@ int main (int argc, char *argv[])
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pparty, label);
 
-    printf("7");
     winlistwidget = winlist_page_new ();
     gtk_widget_show (winlistwidget);
     pwinlist = gtk_hbox_new (FALSE, 0);
@@ -305,7 +302,6 @@ int main (int argc, char *argv[])
     gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pwinlist, label);
 
-    printf("8");
     /* add signal to focus the text entry when switching to the partyline page*/
     g_signal_connect_after(G_OBJECT (notebook), "switch-page",
 		           G_CALLBACK (switch_focus),
@@ -317,7 +313,6 @@ int main (int argc, char *argv[])
     partyline_show_channel_list (list_enabled);
     gtk_widget_show (app);
 
-    printf("9");
 //    gtk_widget_set_size_request (partywidget, 480, 360);
 //    gtk_widget_set_size_request (winlistwidget, 480, 360);
 
@@ -342,7 +337,6 @@ int main (int argc, char *argv[])
         client_init (option_connect, nick);
     }
 
-    printf("10");
     /* Don't schedule if data is ready, glib should do this itself,
      * but welcome to anything that works... */
     g_main_context_set_poll_func(NULL, gtetrinet_poll_func);

@@ -64,8 +64,8 @@ GtkWidget *partyline_page_new (void)
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
     GList *focus_list = NULL;
     gchar* aux;
+    GtkBuilder *builder;
 
-    playerlist_channels = gtk_list_store_new (5, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
     work_model = gtk_list_store_new (5, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
   
     /* left box */
@@ -73,15 +73,11 @@ GtkWidget *partyline_page_new (void)
     /* chat thingy */
     /* channel list */
     channel_list = gtk_vbox_new (FALSE, 0);
-    channel_box = GTK_WIDGET (gtk_tree_view_new_with_model (GTK_TREE_MODEL (playerlist_channels)));
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (channel_box), -1, _("Name"), renderer,
-                                                 "text", 1, NULL);
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (channel_box), -1, _("Players"), renderer,
-                                                 "text", 2, NULL);
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (channel_box), -1, _("State"), renderer,
-                                                 "text", 3, NULL);
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (channel_box), -1, _("Description"), renderer,
-                                                 "text", 4, NULL);
+    builder = gtk_builder_new_from_resource("/org/gtetrinet/channel_list.ui");
+    // info about attributes: see gtk_tree_view_column_add_attribute
+    playerlist_channels = gtk_builder_get_object(builder, "playerlist_model");
+    channel_box = gtk_builder_get_object(builder, "channel_list");
+
     g_signal_connect (G_OBJECT (channel_box), "row-activated",
                       G_CALLBACK (channel_activated), NULL);
     playerlist_channel_scroll = gtk_scrolled_window_new (NULL, NULL);
@@ -431,13 +427,21 @@ void partyline_add_channel (gchar *line)
   g_scanner_input_text (scan, line, strlen (line));
   
   /* we'll use single line comments to parse the channel name */
-  scan->config->cpair_comment_single = "#[";
+  scan->config->cpair_comment_single = ""; // in jetrix, channels don't start with a '#' in list; use [ to start another token after channel name (tetrinet-server does not leave a space)
   scan->config->skip_comment_single = FALSE;
+  scan->config->cset_skip_characters = " \n\t[";
+  scan->config->scan_identifier_1char = TRUE;
   
+/*
+  while ((g_scanner_get_next_token (scan) != G_TOKEN_LEFT_PAREN) && !g_scanner_eof (scan));
+  g_scanner_get_next_token (scan); // dump the '('
+  num = g_ascii_strtoull(scan->value.v_string, NULL, 10); // the number is now a string entity, so we convert it ourself (v_int is badly converted)
+*/
   while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
   num = (scan->token==G_TOKEN_INT) ? scan->value.v_int : 0; 
 
   g_scanner_get_next_token (scan); /* dump the ')' */
+  scan->config->cset_identifier_first = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; // tokens can start with any character, but as identifiers take precedence, we can't detect numbers anymore
   
   if (g_scanner_peek_next_token (scan) == G_TOKEN_LEFT_BRACE)
   {
@@ -470,8 +474,8 @@ void partyline_add_channel (gchar *line)
   }
   else
   {
-    while ((g_scanner_get_next_token (scan) != G_TOKEN_COMMENT_SINGLE) && !g_scanner_eof (scan));
-    utf8 = ensure_utf8 ((scan->token==G_TOKEN_COMMENT_SINGLE) ? scan->value.v_comment : "");
+    while ((g_scanner_get_next_token (scan) != G_TOKEN_IDENTIFIER) && !g_scanner_eof (scan)); // in jetrix, channels don't start with a '#' in list, this supports channels starting with and without '#'
+    utf8 = ensure_utf8 ((scan->token==G_TOKEN_IDENTIFIER) ? scan->value.v_identifier : "");
     name = g_strconcat ("#", utf8, NULL);
 
     while ((g_scanner_get_next_token (scan) != G_TOKEN_IDENTIFIER) && !g_scanner_eof (scan));
@@ -481,6 +485,7 @@ void partyline_add_channel (gchar *line)
     {
       if (strncmp (players, "FULL", 4))
       {
+        scan->config->cset_identifier_first = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         while ((g_scanner_get_next_token (scan) != G_TOKEN_INT) && !g_scanner_eof (scan));
         actual = (scan->token==G_TOKEN_INT) ? scan->value.v_int : 0;
 
@@ -488,6 +493,7 @@ void partyline_add_channel (gchar *line)
         max = (scan->token==G_TOKEN_INT) ? scan->value.v_int : 0;
 
         g_snprintf (final, 1024, "%d/%d %s", actual, max, players);
+        scan->config->cset_identifier_first = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       }
       else
         g_snprintf (final, 1024, "%s", players);
@@ -495,9 +501,9 @@ void partyline_add_channel (gchar *line)
     else
       g_snprintf (final, 1024, "UNK");
 
-    g_scanner_get_next_token (scan); /* dump the ')' */
+    g_scanner_get_next_token (scan); /* dump the ']' */
 
-    if (g_scanner_get_next_token (scan) == G_TOKEN_LEFT_CURLY)
+    if (g_scanner_peek_next_token (scan) == G_TOKEN_LEFT_CURLY)
     {
       g_scanner_get_next_token (scan);
       state = g_strdup ((scan->token==G_TOKEN_IDENTIFIER) ? scan->value.v_identifier : "");
@@ -505,7 +511,7 @@ void partyline_add_channel (gchar *line)
     else
       state = g_strdup ("IDLE");
   
-    while ((g_scanner_get_next_token (scan) != G_TOKEN_RIGHT_PAREN) && !g_scanner_eof (scan));
+    // give us the rest of the line
     if (!g_scanner_eof(scan) && (scan->position < strlen(line)))
       desc = g_strstrip (ensure_utf8 (&line[scan->position]));
     else

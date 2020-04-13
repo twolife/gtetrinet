@@ -477,6 +477,14 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
                       stop_list ();
                     break;
                   }
+                  aux = g_strconcat ("{", playernames[playernum], "} --- MARK ---", NULL);
+                  if (!strcmp (aux, line))
+                  {
+                    list_issued--;
+                    if (list_issued <= 0)
+                      stop_list ();
+                    break;
+                  }
                     
                   if (tetrix) {
                     g_snprintf (buf, sizeof(buf), "*** %s", token);

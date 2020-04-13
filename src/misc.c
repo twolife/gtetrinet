@@ -158,10 +158,10 @@ void textbox_addtext (GtkTextView *textbox, const char *str)
     lastcolor = color = gtet_text_tags[0].t_c;
     /* gtk_text_freeze (textbox); */
 
-    gtk_text_buffer_get_end_iter(gtk_entry_get_buffer(textbox), &iter);
+    gtk_text_buffer_get_end_iter(gtk_text_view_get_buffer(textbox), &iter);
     
-    if (gtk_text_buffer_get_char_count (gtk_entry_get_buffer(textbox))) /* not first line */
-        gtk_text_buffer_insert (gtk_entry_get_buffer(textbox), &iter, "\n", 1);
+    if (gtk_text_buffer_get_char_count (gtk_text_view_get_buffer(textbox))) /* not first line */
+        gtk_text_buffer_insert (gtk_text_view_get_buffer(textbox), &iter, "\n", 1);
 
     /* For-loop with utf-8 support. - vidar*/
     /* XXX: Relies on g_utf8_next_char advancing by one byte on an invalid start byte,
@@ -209,19 +209,19 @@ void textbox_addtext (GtkTextView *textbox, const char *str)
             if (0)
             { /* do nothing */ ; }
             else if (attr_bold && attr_italic && attr_underline)
-              gtk_text_buffer_insert_with_tags (gtk_entry_get_buffer(textbox), &iter, out, -1,
+              gtk_text_buffer_insert_with_tags (gtk_text_view_get_buffer(textbox), &iter, out, -1,
                                                 t_bold, t_italic, t_underline,
                                                 color, NULL);
             else if (attr_bold && attr_italic)
-              gtk_text_buffer_insert_with_tags (gtk_entry_get_buffer(textbox), &iter, out, -1,
+              gtk_text_buffer_insert_with_tags (gtk_text_view_get_buffer(textbox), &iter, out, -1,
                                                 t_bold, t_italic,
                                                 color, NULL);
             else if (attr_bold && attr_underline)
-              gtk_text_buffer_insert_with_tags (gtk_entry_get_buffer(textbox), &iter, out, -1,
+              gtk_text_buffer_insert_with_tags (gtk_text_view_get_buffer(textbox), &iter, out, -1,
                                                 t_bold, t_underline,
                                                 color, NULL);
             else if (attr_italic && attr_underline)
-              gtk_text_buffer_insert_with_tags (gtk_entry_get_buffer(textbox), &iter, out, -1,
+              gtk_text_buffer_insert_with_tags (gtk_text_view_get_buffer(textbox), &iter, out, -1,
                                                 t_italic, t_underline,
                                                 color, NULL);
             else if (attr_bold || attr_italic || attr_underline)
@@ -232,14 +232,14 @@ void textbox_addtext (GtkTextView *textbox, const char *str)
               if (attr_italic)    t_a = t_italic;
               if (attr_underline) t_a = t_underline;
               
-              gtk_text_buffer_insert_with_tags (gtk_entry_get_buffer(textbox), &iter, out, -1,
+              gtk_text_buffer_insert_with_tags (gtk_text_view_get_buffer(textbox), &iter, out, -1,
                                                 t_a, color, NULL);
             }
             else if (color != lastcolor)
-              gtk_text_buffer_insert_with_tags (gtk_entry_get_buffer(textbox), &iter, out, -1,
+              gtk_text_buffer_insert_with_tags (gtk_text_view_get_buffer(textbox), &iter, out, -1,
                                                 color, NULL);
             else
-              gtk_text_buffer_insert (gtk_entry_get_buffer(textbox), &iter, out, -1);
+              gtk_text_buffer_insert (gtk_text_view_get_buffer(textbox), &iter, out, -1);
             
         }
         
@@ -270,7 +270,7 @@ static gboolean cb_adjust_bottom(gpointer data)
     GtkTextView *tv = scan->data;
     GtkTextIter iter;
 
-    gtk_text_buffer_get_end_iter(gtk_entry_get_buffer(tv), &iter);
+    gtk_text_buffer_get_end_iter(gtk_text_view_get_buffer(tv), &iter);
     /* Maybe want... scroll_to_iter(tv, &iter, 0.0, TRUE, 0.0, 1.0); ???? */
     gtk_text_view_scroll_to_iter(tv, &iter, 0.0, FALSE, 0.0, 0.0);
     

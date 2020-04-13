@@ -41,6 +41,7 @@ GtkWidget *winlist_page_new (void)
     GtkCellRenderer *pixbuf_renderer = gtk_cell_renderer_pixbuf_new ();
     GtkListStore *winlist_store = gtk_list_store_new (3, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING);
     GdkPixbuf *pixbuf;
+    GtkBuilder *builder;
 
     /* Load the icons and scale them */
     pixbuf = gdk_pixbuf_new_from_file (GTETPIXMAPSDIR "/team.png",  NULL);
@@ -51,27 +52,11 @@ GtkWidget *winlist_page_new (void)
     alone_icon = gdk_pixbuf_scale_simple (pixbuf, 24, 24, GDK_INTERP_BILINEAR);
     g_object_unref (pixbuf);
 
-    winlist = gtk_tree_view_new_with_model (GTK_TREE_MODEL (winlist_store));
+    builder = gtk_builder_new_from_resource("/org/gtetrinet/winlist.ui");
+    winlist = gtk_builder_get_object(builder, "winlist");
+    winlist_store = gtk_builder_get_object(builder, "winlist_model");
 
-    /* "T" stands for "Team" here */
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("T"), pixbuf_renderer,
-                                                 "pixbuf", 0, NULL);
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("Name"), renderer,
-                                                 "text", 1, NULL);
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (winlist), -1, _("Score"), renderer,
-                                                 "text", 2, NULL);
-
-    gtk_widget_set_size_request (winlist, 360, 0);
-    
-    scroll = gtk_scrolled_window_new (NULL, NULL);
-    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-    gtk_container_add (GTK_CONTAINER (scroll), winlist);
-    align = gtk_alignment_new (0.5, 0.5, 0.0, 0.8);
-    gtk_container_add (GTK_CONTAINER(align), scroll);
-    gtk_container_set_border_width (GTK_CONTAINER(align), 2);
-    gtk_widget_show_all (align);
-    
-    return align;
+    return gtk_builder_get_object(builder, "winlist_parent");
 }
 
 void winlist_clear (void)

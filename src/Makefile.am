@@ -43,6 +43,14 @@ gtetrinet_SOURCES = \
 	tetris.c \
 	tetris.h \
 	winlist.c \
-	winlist.h
+	winlist.h \
+	resources.c
+
+BUILT_SOURCES = resources.c
+
+GLIB_COMPILE_RESOURCES=glib-compile-resources
+resources.c: gtetrinet.gresource.xml.in channel_list.ui field.ui fields.ui winlist.ui
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $(srcdir)/gtetrinet.gresource.xml.in \
+		--target=$@ --sourcedir=$(srcdir) --generate-source
 
 -include $(top_srcdir)/git.mk
