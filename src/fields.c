@@ -54,7 +54,7 @@ static void fields_drawblock (int field, int x, int y, char block);
 
 static void gmsginput_activate (void);
 
-static GdkPixbuf *blockpix;
+static cairo_surface_t *blockpix;
 
 static GdkColor black = {0, 0, 0, 0};
 static cairo_surface_t *bitmap;
@@ -90,7 +90,11 @@ void fields_init (void)
         }
     }
 
-    blockpix = pb;
+    blockpix = cairo_image_surface_create (CAIRO_FORMAT_RGB24, gdk_pixbuf_get_width (pb), gdk_pixbuf_get_height (pb));
+    cairo_t *cr = cairo_create (blockpix);
+    gdk_cairo_set_source_pixbuf (cr, pb, 0, 0);
+    cairo_paint (cr);
+    cairo_destroy (cr);
 }
 
 void fields_cleanup (void)
@@ -268,7 +272,7 @@ void fields_drawfield (int field, FIELD newfield)
 void drawpix(GtkWidget *widget, int srcx, int srcy, int destx, int desty, int width, int height)
 {
     cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(widget));
-    gdk_cairo_set_source_pixbuf (cr, blockpix, -srcx+destx, -srcy+desty); // move big image, so the block we need is in the right position on cr
+    cairo_set_source_surface (cr, blockpix, -srcx+destx, -srcy+desty); // move big image, so the block we need is in the right position on cr
     cairo_rectangle (cr, destx, desty, width, height); // only draw the block we need
     cairo_fill(cr);
     cairo_destroy (cr);
