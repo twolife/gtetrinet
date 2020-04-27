@@ -75,7 +75,7 @@ GtkWidget *partyline_page_new (void)
     channel_list = gtk_vbox_new (FALSE, 0);
     builder = gtk_builder_new_from_resource("/org/gtetrinet/channel_list.ui");
     // info about attributes: see gtk_tree_view_column_add_attribute
-    playerlist_channels = gtk_builder_get_object(builder, "playerlist_model");
+    playerlist_channels = gtk_builder_get_object(builder, "channellist_model");
     channel_box = gtk_builder_get_object(builder, "channel_list");
 
     g_signal_connect (G_OBJECT (channel_box), "row-activated",
@@ -426,8 +426,7 @@ void partyline_add_channel (gchar *line)
   scan = g_scanner_new (NULL);
   g_scanner_input_text (scan, line, strlen (line));
   
-  /* we'll use single line comments to parse the channel name */
-  scan->config->cpair_comment_single = ""; // in jetrix, channels don't start with a '#' in list; use [ to start another token after channel name (tetrinet-server does not leave a space)
+  scan->config->cpair_comment_single = ""; // in jetrix, channels don't start with a '#' in list; use [ to start another token after channel name (tetrinet-server does not leave a space before [)
   scan->config->skip_comment_single = FALSE;
   scan->config->cset_skip_characters = " \n\t[";
   scan->config->scan_identifier_1char = TRUE;
@@ -441,7 +440,7 @@ void partyline_add_channel (gchar *line)
   num = (scan->token==G_TOKEN_INT) ? scan->value.v_int : 0; 
 
   g_scanner_get_next_token (scan); /* dump the ')' */
-  scan->config->cset_identifier_first = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; // tokens can start with any character, but as identifiers take precedence, we can't detect numbers anymore
+  scan->config->cset_identifier_first = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; // tokens can start with any character, but as identifiers take precedence, we can't detect INT anymore
   
   if (g_scanner_peek_next_token (scan) == G_TOKEN_LEFT_BRACE)
   {
@@ -472,7 +471,7 @@ void partyline_add_channel (gchar *line)
     desc = g_strdup ("");
     players = g_strdup ("");
   }
-  else
+  else // tetrinet-server & jetrix
   {
     while ((g_scanner_get_next_token (scan) != G_TOKEN_IDENTIFIER) && !g_scanner_eof (scan)); // in jetrix, channels don't start with a '#' in list, this supports channels starting with and without '#'
     utf8 = ensure_utf8 ((scan->token==G_TOKEN_IDENTIFIER) ? scan->value.v_identifier : "");
@@ -503,11 +502,10 @@ void partyline_add_channel (gchar *line)
 
     g_scanner_get_next_token (scan); /* dump the ']' */
 
-    if (g_scanner_peek_next_token (scan) == G_TOKEN_LEFT_CURLY)
-    {
-      g_scanner_get_next_token (scan);
-      state = g_strdup ((scan->token==G_TOKEN_IDENTIFIER) ? scan->value.v_identifier : "");
-    }
+    scan->config->cpair_comment_single = "{}";
+    while ((g_scanner_get_next_token (scan) != G_TOKEN_COMMENT_SINGLE) && !g_scanner_eof (scan));
+    if (!g_scanner_eof (scan))
+      state = g_strdup ((scan->token==G_TOKEN_COMMENT_SINGLE) ? scan->value.v_comment : ""); // INGAME
     else
       state = g_strdup ("IDLE");
   
