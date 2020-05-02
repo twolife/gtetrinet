@@ -103,18 +103,6 @@ else
 fi
 AC_MSG_RESULT($enable_detach)
 
-# Check for IPv6
-AC_ARG_ENABLE(ipv6,
-	AS_HELP_STRING([--enable-ipv6],[Enable IPv6 support (default=no)]),
-        enable_ipv6="yes")
-AC_MSG_CHECKING([if IPv6 support should be built])
-if test "x$enable_ipv6" = "xyes"; then
-	AC_DEFINE([ENABLE_IPV6],[1],[Define this to enable IPv6 support.])
-else
-	enable_ipv6="no"
-fi
-AC_MSG_RESULT($enable_ipv6)
-
 dnl ---------------------------------------------------------------------------
 dnl - Use strict options (default enabled for devs, disabled in releases)
 dnl ---------------------------------------------------------------------------
@@ -154,6 +142,5 @@ echo
 echo "   GTranslator version: ${PACKAGE_VERSION}"
 echo "   Compilation flags:   ${CFLAGS}"
 echo "   CPPFLAGS:            ${CPPFLAGS}"
-echo "   IPv6 support:        $enable_ipv6"
 echo "   Sound support:       $have_canberragtk"
 echo "   Page detaching:      $enable_detach"
