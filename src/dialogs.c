@@ -41,7 +41,6 @@
 #define GTET_PAD 8
 #define GTET_PAD_SMALL 4
 
-extern GConfClient *gconf_client;
 extern GtkWidget *app;
 
 /*****************************************************/
@@ -134,8 +133,8 @@ void teamdialog_button (GtkWidget *button, gint response, gpointer data)
     {
       case GTK_RESPONSE_OK :
       {
-        gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/team",
-                                 gtk_entry_get_text (entry), NULL);
+        g_settings_set_string (settings, "player-team",
+                                 gtk_entry_get_text (entry));
         tetrinet_changeteam (gtk_entry_get_text(entry));
       }; break;
     }
@@ -166,7 +165,7 @@ void teamdialog_new (void)
     gtk_window_set_resizable (GTK_WINDOW (team_dialog), FALSE);
 
     /* entry and label */
-    hbox = gtk_hbox_new (FALSE, GTET_PAD_SMALL);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, GTET_PAD_SMALL);
     widget = gtk_label_new ("Team name:");
     gtk_box_pack_start (GTK_BOX (hbox), widget ,TRUE, TRUE, 0);
     entry = gtk_entry_new_with_buffer (gtk_entry_buffer_new("Team", 4));
@@ -255,11 +254,11 @@ void connectdialog_button (GtkDialog *dialog, gint button)
             return;
         }
         
-        gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/server", server1, NULL);
-        gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/nickname", nick, NULL);
-        gconf_client_set_string (gconf_client, "/apps/gtetrinet/player/team",
-                                 gtk_entry_get_text ((GtkEntry*)teamnameentry), NULL);
-        gconf_client_set_bool (gconf_client, "/apps/gtetrinet/player/gamemode", gamemode, NULL);
+        g_settings_set_string (settings, "server", server1);
+        g_settings_set_string (settings, "player-nickname", nick);
+        g_settings_set_string (settings, "player-team",
+                                 gtk_entry_get_text ((GtkEntry*)teamnameentry));
+        g_settings_set_boolean (settings, "gamemode", gamemode);
 
         g_free (nick);
         break;
@@ -365,7 +364,7 @@ void connectdialog_new (void)
     }
     gtk_widget_show (originalradio);
     gtk_widget_show (tetrifastradio);
-    widget = gtk_hbox_new (FALSE, GTET_PAD_SMALL);
+    widget = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, GTET_PAD_SMALL);
     gtk_box_pack_start (GTK_BOX(widget), originalradio, 0, 0, 0);
     gtk_box_pack_start (GTK_BOX(widget), tetrifastradio, 0, 0, 0);
     gtk_widget_show (widget);
@@ -510,7 +509,7 @@ gint key_dialog (char *msg)
 /**************************/
 GtkWidget *themelist, *keyclist;
 GtkWidget *timestampcheck;
-GtkWidget *midientry, *miditable, *midicheck, *soundcheck;
+GtkWidget *soundcheck;
 GtkWidget *namelabel, *authlabel, *desclabel;
 
 gchar *actions[K_NUM];
@@ -551,20 +550,20 @@ void prefdialog_drawkeys (void)
     actions[K_SPECIAL5] = ("Special to field 5");
     actions[K_SPECIAL6] = ("Special to field 6");
   
-    gconf_keys[K_RIGHT]    = g_strdup ("/apps/gtetrinet/keys/right");
-    gconf_keys[K_LEFT]     = g_strdup ("/apps/gtetrinet/keys/left");
-    gconf_keys[K_DOWN]     = g_strdup ("/apps/gtetrinet/keys/down");
-    gconf_keys[K_ROTRIGHT] = g_strdup ("/apps/gtetrinet/keys/rotate_right");
-    gconf_keys[K_ROTLEFT]  = g_strdup ("/apps/gtetrinet/keys/rotate_left");
-    gconf_keys[K_DROP]     = g_strdup ("/apps/gtetrinet/keys/drop");
-    gconf_keys[K_DISCARD]  = g_strdup ("/apps/gtetrinet/keys/discard");
-    gconf_keys[K_GAMEMSG]  = g_strdup ("/apps/gtetrinet/keys/message");
-    gconf_keys[K_SPECIAL1] = g_strdup ("/apps/gtetrinet/keys/special1");
-    gconf_keys[K_SPECIAL2] = g_strdup ("/apps/gtetrinet/keys/special2");
-    gconf_keys[K_SPECIAL3] = g_strdup ("/apps/gtetrinet/keys/special3");
-    gconf_keys[K_SPECIAL4] = g_strdup ("/apps/gtetrinet/keys/special4");
-    gconf_keys[K_SPECIAL5] = g_strdup ("/apps/gtetrinet/keys/special5");
-    gconf_keys[K_SPECIAL6] = g_strdup ("/apps/gtetrinet/keys/special6");
+    gconf_keys[K_RIGHT]    = g_strdup ("right");
+    gconf_keys[K_LEFT]     = g_strdup ("left");
+    gconf_keys[K_DOWN]     = g_strdup ("down");
+    gconf_keys[K_ROTRIGHT] = g_strdup ("rotate-right");
+    gconf_keys[K_ROTLEFT]  = g_strdup ("rotate-left");
+    gconf_keys[K_DROP]     = g_strdup ("drop");
+    gconf_keys[K_DISCARD]  = g_strdup ("discard");
+    gconf_keys[K_GAMEMSG]  = g_strdup ("message");
+    gconf_keys[K_SPECIAL1] = g_strdup ("special1");
+    gconf_keys[K_SPECIAL2] = g_strdup ("special2");
+    gconf_keys[K_SPECIAL3] = g_strdup ("special3");
+    gconf_keys[K_SPECIAL4] = g_strdup ("special4");
+    gconf_keys[K_SPECIAL5] = g_strdup ("special5");
+    gconf_keys[K_SPECIAL6] = g_strdup ("special6");
 
     for (i = 0; i < K_NUM; i ++) {
         gtk_list_store_append (keys_store, &iter);
@@ -591,7 +590,7 @@ void prefdialog_restorekeys (void)
     {
         gtk_tree_model_get (GTK_TREE_MODEL (keys_store), &iter, 2, &i, 3, &gconf_key, -1);
         gtk_list_store_set (keys_store, &iter, 1, gdk_keyval_name (defaultkeys[i]), -1);
-        gconf_client_set_string (gconf_client, gconf_key, gdk_keyval_name (defaultkeys[i]), NULL);
+        g_settings_set_string (settings_keys, gconf_key, gdk_keyval_name (defaultkeys[i]));
         valid = gtk_tree_model_iter_next (GTK_TREE_MODEL (keys_store), &iter);
         g_free (gconf_key);
     }
@@ -613,92 +612,34 @@ void prefdialog_changekey (void)
     k = key_dialog (buf);
     if (k) {
         gtk_list_store_set (keys_store, &selected_row, 1, gdk_keyval_name (k), -1);
-        gconf_client_set_string (gconf_client, gconf_key, gdk_keyval_name (k), NULL);
+        g_settings_set_string (settings_keys, gconf_key, gdk_keyval_name (k));
     }
     
     g_free (gconf_key);
 }
 
-void prefdialog_midion ()
+void prefdialog_soundtoggle (GtkWidget *check)
 {
-    gtk_widget_set_sensitive (miditable, TRUE);
+    gboolean enabled;
+    enabled = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (check));
+
+    g_settings_set_boolean (settings, "sound-enable", enabled);
 }
 
-void prefdialog_midioff ()
+void prefdialog_channeltoggle (GtkWidget *check)
 {
-    gtk_widget_set_sensitive (miditable, FALSE);
+    gboolean enabled;
+    enabled = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (check));
+
+    g_settings_set_boolean (settings, "partyline-enable-channel-list", enabled);
 }
 
-void prefdialog_soundon ()
+void prefdialog_timestampstoggle (GtkWidget *check)
 {
-    return; 
-    gtk_widget_set_sensitive (midicheck, TRUE);
-    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(midicheck))) {
-    //if (GTK_TOGGLE_BUTTON(midicheck)->active) {
-        prefdialog_midion ();
-    }
-}
+    gboolean enabled;
+    enabled = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (check));
 
-void prefdialog_soundoff ()
-{
-    return; 
-    gtk_widget_set_sensitive (midicheck, FALSE);
-    prefdialog_midioff ();
-}
-
-void prefdialog_soundtoggle (GtkWidget *widget)
-{
-    return; 
-    //if (GTK_TOGGLE_BUTTON(widget)->active) {
-    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
-        prefdialog_soundon ();
-    }
-    else {
-        prefdialog_soundoff ();
-    }
-    gconf_client_set_bool (gconf_client, "/apps/gtetrinet/sound/enable_sound",
-                           gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)), NULL);
-}
-
-void prefdialog_channeltoggle (GtkWidget *widget)
-{
-  gconf_client_set_bool (gconf_client, "/apps/gtetrinet/partyline/enable_channel_list",
-                         gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)), NULL);
-}
-
-void prefdialog_miditoggle (GtkWidget *widget)
-{
-    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
-        prefdialog_midion ();
-    }
-    else {
-        prefdialog_midioff ();
-    }
-    gconf_client_set_bool (gconf_client, "/apps/gtetrinet/sound/enable_midi",
-                           gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)), NULL);
-}
-
-
-void prefdialog_midichanged (void)
-{
-    gconf_client_set_string (gconf_client, "/apps/gtetrinet/sound/midi_player",
-                             gtk_entry_get_text ((GtkEntry*)midientry),
-                             NULL);
-}
-
-void prefdialog_restoremidi (void)
-{
-    gtk_entry_set_text ((GtkEntry*)midientry,
-                        DEFAULTMIDICMD);
-    gconf_client_set_string (gconf_client, "/apps/gtetrinet/sound/midi_player",
-                             gtk_entry_get_text ((GtkEntry*)midientry),
-                             NULL);
-}
-
-void prefdialog_timestampstoggle (GtkWidget *widget)
-{
-    gconf_client_set_bool (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps",
-                           gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)), NULL);
+    g_settings_set_boolean (settings, "partyline-enable-timestamps", enabled);
 }
 
 void prefdialog_themelistselect (int n)
@@ -711,7 +652,7 @@ void prefdialog_themelistselect (int n)
     leftlabel_set (authlabel, author);
     leftlabel_set (desclabel, desc);
   
-    gconf_client_set_string (gconf_client, "/apps/gtetrinet/themes/theme_dir", themes[n].dir, NULL);
+    g_settings_set_string (settings, "theme-dir", themes[n].dir);
 }
 
 void prefdialog_themeselect (GtkTreeSelection *treeselection)
@@ -907,7 +848,7 @@ void prefdialog_new (void)
     channel_list_check = gtk_check_button_new_with_mnemonic (("Enable Channel _List"));
     gtk_widget_show (channel_list_check);
 
-    frame = gtk_vbox_new (FALSE, 0);
+    frame = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_box_pack_start (GTK_BOX(frame), timestampcheck, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX(frame), channel_list_check, FALSE, FALSE, 0);
     gtk_widget_show (frame);
@@ -974,7 +915,7 @@ void prefdialog_new (void)
                       GTK_FILL, GTK_FILL, 0, 0);
     gtk_table_attach (GTK_TABLE(table), label, 1, 2, 0, 1,
                       GTK_FILL, 0, 0, 0);
-    frame = gtk_vbox_new (FALSE, GTET_PAD_SMALL);
+    frame = gtk_box_new (GTK_ORIENTATION_VERTICAL, GTET_PAD_SMALL);
     gtk_box_pack_end (GTK_BOX(frame), button1, FALSE, FALSE, 0);
     gtk_box_pack_end (GTK_BOX(frame), button, FALSE, FALSE, 0);
     gtk_widget_show (frame);
@@ -990,47 +931,12 @@ void prefdialog_new (void)
     soundcheck = gtk_check_button_new_with_mnemonic (("Enable _Sound"));
     gtk_widget_show (soundcheck);
 
-    midicheck = gtk_check_button_new_with_mnemonic (("Enable _MIDI"));
-    gtk_widget_show (midicheck);
-
-    frame = gtk_hbox_new (FALSE, 0);
+    frame = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_box_pack_start (GTK_BOX(frame), soundcheck, FALSE, FALSE, 0);
-    gtk_box_pack_start (GTK_BOX(frame), midicheck, FALSE, FALSE, 0);
     gtk_widget_show (frame);
 
-    divider = gtk_hseparator_new ();
+    divider = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
     gtk_widget_show (divider);
-
-    midientry = gtk_entry_new_with_buffer (gtk_entry_buffer_new("MidiCmd", 7));
-    gtk_widget_show (midientry);
-
-    widget = leftlabel_new (("Enter command to play a midi file:"));
-    gtk_widget_show (widget);
-
-    label = gtk_label_new (("The above command is run when a midi file is "
-                             "to be played.  The name of the midi file is "
-                             "placed in the environment variable MIDIFILE."));
-    gtk_label_set_justify (GTK_LABEL(label), GTK_JUSTIFY_LEFT);
-    gtk_label_set_line_wrap (GTK_LABEL(label), TRUE);
-    gtk_widget_show (label);
-
-    button = gtk_button_new_with_mnemonic (("_Restore defaults"));
-    g_signal_connect (G_OBJECT(button), "clicked",
-                      G_CALLBACK (prefdialog_restoremidi), NULL);
-    gtk_widget_show (button);
-
-    miditable = gtk_table_new (4, 2, FALSE);
-    gtk_table_set_row_spacings (GTK_TABLE(miditable), GTET_PAD_SMALL);
-    gtk_table_set_col_spacings (GTK_TABLE(miditable), GTET_PAD_SMALL);
-    gtk_table_attach (GTK_TABLE(miditable), widget, 0, 2, 0, 1,
-                      GTK_EXPAND | GTK_FILL, GTK_FILL, 0, 0);
-    gtk_table_attach (GTK_TABLE(miditable), midientry, 0, 2, 1, 2,
-                      GTK_EXPAND | GTK_FILL, GTK_FILL, 0, 0);
-    gtk_table_attach (GTK_TABLE(miditable), label, 0, 1, 2, 4,
-                      GTK_FILL, GTK_FILL, GTET_PAD_SMALL, GTET_PAD_SMALL);
-    gtk_table_attach (GTK_TABLE(miditable), button, 1, 2, 2, 3,
-                      GTK_EXPAND | GTK_FILL, 0, 0, 0);
-    gtk_widget_show (miditable);
 
     table = gtk_table_new (3, 1, FALSE);
     gtk_container_set_border_width (GTK_CONTAINER(table), GTET_PAD);
@@ -1040,8 +946,6 @@ void prefdialog_new (void)
                       GTK_EXPAND | GTK_FILL, 0, 0, 0);
     gtk_table_attach (GTK_TABLE(table), divider, 0, 1, 1, 2,
                       GTK_EXPAND | GTK_FILL, 0, 0, GTET_PAD_SMALL);
-    gtk_table_attach (GTK_TABLE(table), miditable, 0, 1, 2, 3,
-                      GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
     gtk_widget_show (table);
 
     label = gtk_label_new (("Sound"));
@@ -1051,20 +955,11 @@ void prefdialog_new (void)
     /* init stuff */
     prefdialog_themelist ();
 
-    gtk_entry_set_text ((GtkEntry*)midientry, midicmd);
-
     prefdialog_drawkeys ();
 
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(soundcheck), soundenable);
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(midicheck), midienable);
 
-#ifdef HAVE_CANBERRAGTK
-    if (midienable) prefdialog_midion ();
-    else prefdialog_midioff ();
-    if (soundenable) prefdialog_soundon ();
-    else prefdialog_soundoff ();
-#else
-    prefdialog_soundoff ();
+#ifndef HAVE_CANBERRAGTK
     gtk_widget_set_sensitive (soundcheck, FALSE);
 #endif
     
@@ -1073,9 +968,6 @@ void prefdialog_new (void)
 
     g_signal_connect (G_OBJECT(soundcheck), "toggled",
                       G_CALLBACK(prefdialog_soundtoggle), NULL);
-    g_signal_connect (G_OBJECT(midicheck), "toggled",
-                      G_CALLBACK(prefdialog_miditoggle), NULL);
-    g_signal_connect ((GObject*)midientry, "changed", G_CALLBACK(prefdialog_midichanged), NULL);
     g_signal_connect (G_OBJECT(theme_selection), "changed",
                       G_CALLBACK (prefdialog_themeselect), NULL);
     g_signal_connect (G_OBJECT(prefdialog), "destroy",

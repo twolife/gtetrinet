@@ -1,0 +1,120 @@
+<schemalist>
+  <schema id="gtetrinet" path="/apps/gtetrinet/">
+    <child name="keys" schema="gtetrinet.keys"/>
+    <child name="themes" schema="gtetrinet.themes"/>
+    <key name="gamemode" type="b">
+      <default>false</default>
+      <summary>Tetrinet game mode</summary>
+      <description>If set to true, the game mode will be set to TetriFast. If false, GTetrinet will use the original mode.</description>
+    </key>
+    <key name="server" type="s">
+      <default>'tetrinet.org'</default>
+      <summary>Server where you want to play</summary>
+      <description>This is the server where GTetrinet will try to connect.</description>
+    </key>
+    <key name="sound-enable" type="b">
+      <default>false</default>
+      <summary>Enable/disable sound</summary>
+      <description>Enables/Disables sound. Keep in mind that the theme that you're using must provide sounds.</description>
+    </key>
+    <key name="player-nickname" type="s">
+      <default>''</default>
+      <summary>Your nickname</summary>
+      <description>This will be your nickname in the game.</description>
+    </key>
+    <key name="player-team" type="s">
+      <default>''</default>
+      <summary>Your team</summary>
+      <description>This will be the name of your team.</description>
+    </key>
+    <key name="partyline-enable-timestamps" type="b">
+      <default>false</default>
+      <summary>Enable/disable timestamps.</summary>
+      <description>Enables/disables timestamps in the partyline.</description>
+    </key>
+    <key name="partyline-enable-channel-list" type="b">
+      <default>false</default>
+      <summary>Enable/disable channel list.</summary>
+      <description>Enables/disables the channel list. Disable it if you experience problems when connecting or while playing in your favorite tetrinet server.</description>
+    </key>
+  </schema>
+  <schema id="gtetrinet.themes" path="/apps/gtetrinet/themes/">
+    <key name="directory" type="s">
+      <default>''</default>
+      <summary>Theme directory, should end with a '/'</summary>
+      <description>The current theme directory. It should contain a readable "blocks.png" and a "theme.cfg".</description>
+    </key>
+  </schema>
+  <schema id="gtetrinet.keys" path="/apps/gtetrinet/keys/">
+    <key name="right" type="s">
+      <default>'Right'</default>
+      <summary>Key to move right</summary>
+      <description>This key moves the block to the right. This is case insensitive.</description>
+    </key>
+    <key name="left" type="s">
+      <default>'Left'</default>
+      <summary>Key to move left</summary>
+      <description>This key moves the block to the left. This is case insensitive.</description>
+    </key>
+    <key name="rotate-right" type="s">
+      <default>'Up'</default>
+      <summary>Key to rotate clockwise</summary>
+      <description>This key rotates the block clockwise. This is case insensitive.</description>
+    </key>
+    <key name="rotate-left" type="s">
+      <default>'Control_R'</default>
+      <summary>Key to rotate counterclockwise</summary>
+      <description>This key rotates the block counterclockwise. This is case insensitive.</description>
+    </key>
+    <key name="down" type="s">
+      <default>'Down'</default>
+      <summary>Key to move down</summary>
+      <description>This key moves the block down. This is case insensitive.</description>
+    </key>
+    <key name="drop" type="s">
+      <default>'space'</default>
+      <summary>Key to drop piece</summary>
+      <description>This key drops the block to the ground. This is case insensitive.</description>
+    </key>
+    <key name="message" type="s">
+      <default>'t'</default>
+      <summary>Key to open the fields' message dialog</summary>
+      <description>This key displays the fields' message dialog. This is case insensitive.</description>
+    </key>
+    <key name="discard" type="s">
+      <default>'d'</default>
+      <summary>Key to discard special</summary>
+      <description>This key discards the current special. This is case insensitive.</description>
+    </key>
+    <key name="special1" type="s">
+      <default>'1'</default>
+      <summary>Key to use the current special on field 1</summary>
+      <description>This key uses the current special on Player 1's game field.</description>
+    </key>
+    <key name="special2" type="s">
+      <default>'2'</default>
+      <summary>Key to use the current special on field 2</summary>
+      <description>This key uses the current special on Player 2's game field.</description>
+    </key>
+    <key name="special3" type="s">
+      <default>'3'</default>
+      <summary>Key to use the current special on field 3</summary>
+      <description>This key uses the current special on Player 3's game field.</description>
+    </key>
+    <key name="special4" type="s">
+      <default>'4'</default>
+      <summary>Key to use the current special on field 4</summary>
+      <description>This key uses the current special on Player 4's game field.</description>
+    </key>
+    <key name="special5" type="s">
+      <default>'5'</default>
+      <summary>Key to use the current special on field 5</summary>
+      <description>This key uses the current special on Player 5's game field.</description>
+    </key>
+    <key name="special6" type="s">
+      <default>'6'</default>
+      <summary>Key to use the current special on field 6</summary>
+      <description>This key uses the current special on Player 6's game field.</description>
+    </key>
+  </schema>
+</schemalist>

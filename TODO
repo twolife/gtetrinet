@@ -1,7 +1,7 @@
 GTetrinet's TODO list
 ~~~~~~~~~~~~~~~~~~~~~
 
-- Get server list from http://www.tetrinet.org/ip/ (see #104323)
+- Reintroduce MIDI support through GStreamer.
 
 - Make gtetrinet resizeable (at least the fields messages bit)
 

@@ -1,6 +1,6 @@
 # Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.64])
-AC_INIT([gtetrinet],[0.7.11],[http://bugzilla.gnome.org/enter_bug.cgi?product=gtetrinet],[gtetrinet],[http://gtetrinet.sourceforge.net/])
+AC_INIT([gtetrinet],[0.8.0],[],[gtetrinet],[https://github.com/tatankat/gtetrinet])
 
 AC_CONFIG_SRCDIR([src/gtetrinet.c])
 AC_CONFIG_HEADERS([config.h])
@@ -26,69 +26,35 @@ AC_CHECK_HEADERS([ctype.h dirent.h errno.h locale.h signal.h \
 # Check for library functions
 AC_CHECK_FUNCS([memset setlocale])
 
-# Initialise i18n
-AM_GNU_GETTEXT_VERSION([0.17])
-AM_GNU_GETTEXT([external])
-
 GETTEXT_PACKAGE=gtetrinet
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Define to the gettext domain name.])
 IT_PROG_INTLTOOL([0.40.0])
 
-# Check for GConf
-AC_PATH_PROG(GCONFTOOL, gconftool-2)
-AM_GCONF_SOURCE_2
-
 # Check for pkg-config
 PKG_PROG_PKG_CONFIG([0.22])
-
-# Add debug flags if building from git.
-if test -d $srcdir/.git; then
-	CFLAGS="-Wall -W -g3 -ggdb -O0 -w "
-	AC_SUBST(CFLAGS)
-fi
 
 # Check for required packages
 LIBGLIB_REQUIRED=2.32.0
 LIBGTK_REQUIRED=3.18.0
-LIBCANBERRAGTK_OPTIONAL=0.2
-LIBGCONF_REQUIRED=3.0.0
+LIBCANBERRAGTK_OPTIONAL=0.26
 
-                  #libgnomeui-2.0 >= 2.0
 PKG_CHECK_MODULES(GTETRINET,[
                   glib-2.0 >= $LIBGLIB_REQUIRED
                   gtk+-3.0 >= $LIBGTK_REQUIRED
-                  gconf-2.0 >= $LIBGCONF_REQUIRED
 ])
 
-# Check for libcanberra-gtk
-if pkg-config --exists "libcanberra-gtk >= $LIBCANBERRAGTK_OPTIONAL"; then
-	have_canberragtk=no
-else
-	have_canberragtk=no
-fi
+AC_PATH_PROG(GLIB_COMPILE_SCHEMAS, glib-compile-schemas)
 
+GLIB_GSETTINGS
+
+PKG_CHECK_MODULES(CANBERRAGTK, [libcanberra-gtk3 >= $LIBCANBERRAGTK_OPTIONAL], have_canberragtk=yes, have_canberragtk=no)
 if test "x$have_canberragtk" = "xyes"; then
 	AC_DEFINE([HAVE_CANBERRAGTK],[1],[Define this to enable sound support.])
-	PKG_CHECK_MODULES([CANBERRAGTK],[libcanberra-gtk >= $LIBCANBERRAGTK_OPTIONAL])
 	AC_SUBST(CANBERRAGTK_CFLAGS)
 	AC_SUBST(CANBERRAGTK_LIBS)
 fi
-
 AM_CONDITIONAL(HAVE_CANBERRAGTK, test "x$have_canberragtk" = "xyes")
-
-AC_CHECK_FUNC(putenv)
-AC_CHECK_FUNC(setenv)
-if test $ac_cv_func_setenv = no; then
-  if test $ac_cv_func_putenv = no; then
-    echo "Error: Couldn't find either putenv() or setenv()"
-    exit;
-  else
-    AC_DEFINE(HAVE_PUTENV, 1, [Define this if putenv() is available.])
-  fi
- else
-  AC_DEFINE(HAVE_SETENV, 1, [Define this if setenv() is available.])
- fi
 
 # configure options
 # Check for page detaching support
@@ -131,6 +97,7 @@ themes/Makefile
 themes/default/Makefile
 themes/small/Makefile
 icons/Makefile
+gtetrinet.gschema.xml.in
 ])
 AC_OUTPUT
 

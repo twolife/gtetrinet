@@ -5,10 +5,11 @@ SUBDIRS= doc po src themes icons
 icon_DATA = gtetrinet.png
 icondir = $(datadir)/pixmaps
 
-schemadir = $(sysconfdir)/gconf/schemas
-schema_in_files = gtetrinet.schemas.in
-schema_DATA = $(schema_in_files:.schemas.in=.schemas)
-@INTLTOOL_SCHEMAS_RULE@
+gsettingsdir = $(datadir)/glib-2.0/schemas
+gsettings_in_files = gtetrinet.gschema.xml.in
+gsettings_DATA = $(gsettings_in_files:.xml.in=.xml)
+@INTLTOOL_XML_NOMERGE_RULE@
+@GSETTINGS_RULES@
 
 Applicationsdir = $(datadir)/applications
 Applications_in_files = gtetrinet.desktop.in
@@ -34,11 +35,11 @@ EXTRA_DIST = \
 	missing \
 	mkinstalldirs \
 	$(icon_DATA) \
-	$(schema_DATA) \
+	$(gsettings_in_files) \
 	$(Applications_DATA)
 
 install-data-local:
-	-GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
+	-$(GLIB_COMPILE_SCHEMAS) $(DESTDIR)/$(datadir)/glib-2.0/schemas
 
 # Generate a ChangeLog file from 'git log'
 dist-hook:

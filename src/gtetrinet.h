@@ -8,6 +8,9 @@
 extern int gamemode;
 
 extern GtkWidget *app;
+extern GSettings* settings;
+extern GSettings* settings_keys;
+extern GSettings* settings_themes;
 
 extern void destroymain (void);
 extern gint keypress (GtkWidget *widget, GdkEventKey *key);

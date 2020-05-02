@@ -22,13 +22,13 @@
 #include <config.h>
 #endif
 
+#include <libintl.h>
 #include <gtk/gtk.h>
 #include <stdlib.h>
 #include <time.h>
 #include <sys/poll.h>
 #include <sys/types.h>
 #include <signal.h>
-#include <gconf/gconf-client.h>
 #include <popt.h>
 
 #include "gtetrinet.h"
@@ -71,7 +71,9 @@ int fields_width, fields_height;
 
 gulong keypress_signal;
 
-GConfClient *gconf_client;
+GSettings* settings;
+GSettings* settings_keys;
+GSettings* settings_themes;
 
 static const struct poptOption options[] = {
     {"connect", 'c', POPT_ARG_STRING, &option_connect, 0, ("Connect to server"), ("SERVER")},
@@ -122,116 +124,18 @@ int main (int argc, char *argv[])
         return 1;
     }
     textbox_setup (); /* needs to be done before text boxes are created */
-    
-    /* Initialize the GConf library */
-    if (!gconf_init (argc, argv, &err))
-    {
-      fprintf (stderr, "Failed to init GConf: %s\n", err->message);
-      g_error_free (err); 
-      err = NULL;
-    }
-  
-    /* Start a GConf client */
-    gconf_client = gconf_client_get_default ();
-  
-    /* Add the GTetrinet directories to the list of directories that GConf client must watch */
-    gconf_client_add_dir (gconf_client, "/apps/gtetrinet/sound",
-                          GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
-    
-    gconf_client_add_dir (gconf_client, "/apps/gtetrinet/themes",
-                          GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
-  
-    gconf_client_add_dir (gconf_client, "/apps/gtetrinet/keys",
-                          GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
 
-    gconf_client_add_dir (gconf_client, "/apps/gtetrinet/partyline",
-                          GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
+    settings = g_settings_new (GSETTINGS_DOMAIN);
+    settings_keys = g_settings_new (GSETTINGS_DOMAIN_KEYS);
+    settings_themes = g_settings_new (GSETTINGS_DOMAIN_THEMES);
 
-    /* Request notification of change for these gconf keys */
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/sound/midi_player",
-                             (GConfClientNotifyFunc) sound_midi_player_changed,
-			     NULL, NULL, NULL);
-                             
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/sound/enable_sound",
-                             (GConfClientNotifyFunc) sound_enable_sound_changed,
-			     NULL, NULL, NULL);
-                             
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/sound/enable_midi",
-                             (GConfClientNotifyFunc) sound_enable_midi_changed,
-			     NULL, NULL, NULL);
-                             
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/themes/theme_dir",
-                             (GConfClientNotifyFunc) themes_theme_dir_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/down",
-                             (GConfClientNotifyFunc) keys_down_changed, NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/left",
-                             (GConfClientNotifyFunc) keys_left_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/right",
-                             (GConfClientNotifyFunc) keys_right_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/rotate_left",
-                             (GConfClientNotifyFunc) keys_rotate_left_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/rotate_right",
-                             (GConfClientNotifyFunc) keys_rotate_right_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/drop",
-                             (GConfClientNotifyFunc) keys_drop_changed, NULL,
-			     NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/message",
-			     (GConfClientNotifyFunc) keys_message_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/discard",
-			     (GConfClientNotifyFunc) keys_discard_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special1",
-                             (GConfClientNotifyFunc) keys_special1_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special2",
-                             (GConfClientNotifyFunc) keys_special2_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special3",
-                             (GConfClientNotifyFunc) keys_special3_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special4",
-                             (GConfClientNotifyFunc) keys_special4_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special5",
-                             (GConfClientNotifyFunc) keys_special5_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special6",
-                             (GConfClientNotifyFunc) keys_special6_changed,
-			     NULL, NULL, NULL);
-
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps",
-                             (GConfClientNotifyFunc) partyline_enable_timestamps_changed,
-			     NULL, NULL, NULL);
-    
-    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/partyline/enable_channel_list",
-                             (GConfClientNotifyFunc) partyline_enable_channel_list_changed,
-			     NULL, NULL, NULL);
+    g_signal_connect_swapped (settings, "changed", G_CALLBACK(config_loadconfig), NULL);
+    g_signal_connect_swapped (settings_keys, "changed", G_CALLBACK(config_loadconfig_keys), NULL);
+    g_signal_connect_swapped (settings_keys, "changed", G_CALLBACK(config_loadconfig_themes), NULL);
 
     /* load settings */
     config_loadconfig ();
-
-    /* initialise some stuff */
-    fields_init ();
+    config_loadconfig_keys ();
 
     /* first set up the display */
 
@@ -271,7 +175,7 @@ int main (int argc, char *argv[])
     fieldswidget = fields_page_new ();
     gtk_widget_set_sensitive (fieldswidget, TRUE);
     gtk_widget_show (fieldswidget);
-    pfields = gtk_hbox_new (FALSE, 0);
+    pfields = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_container_set_border_width (GTK_CONTAINER(pfields), 0);
     gtk_container_add (GTK_CONTAINER(pfields), fieldswidget);
     gtk_widget_show (pfields);
@@ -282,7 +186,7 @@ int main (int argc, char *argv[])
 
     partywidget = partyline_page_new ();
     gtk_widget_show (partywidget);
-    pparty = gtk_hbox_new (FALSE, 0);
+    pparty = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_container_set_border_width (GTK_CONTAINER(pparty), 0);
     gtk_container_add (GTK_CONTAINER(pparty), partywidget);
     gtk_widget_show (pparty);
@@ -293,7 +197,7 @@ int main (int argc, char *argv[])
 
     winlistwidget = winlist_page_new ();
     gtk_widget_show (winlistwidget);
-    pwinlist = gtk_hbox_new (FALSE, 0);
+    pwinlist = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_container_set_border_width (GTK_CONTAINER(pwinlist), 0);
     gtk_container_add (GTK_CONTAINER(pwinlist), winlistwidget);
     gtk_widget_show (pwinlist);
@@ -317,6 +221,7 @@ int main (int argc, char *argv[])
 //    gtk_widget_set_size_request (winlistwidget, 480, 360);
 
     /* initialise some stuff */
+    config_loadconfig_themes ();
     commands_checkstate ();
 
     /* check command line params */
@@ -344,10 +249,10 @@ int main (int argc, char *argv[])
     /* gtk_main() */
     gtk_main ();
 
+    g_object_unref (settings);
     client_disconnect ();
     /* cleanup */
     fields_cleanup ();
-    sound_stopmidi ();
 
     return 0;
 }
@@ -357,7 +262,7 @@ GtkWidget *pixmapdata_label (char **d, char *str)
     GdkPixbuf *pb;
     GtkWidget *box, *widget;
 
-    box = gtk_hbox_new (FALSE, 0);
+    box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 
     pb = gdk_pixbuf_new_from_xpm_data ((const char **)d);
     widget = gtk_image_new_from_pixbuf (pb);
@@ -522,7 +427,11 @@ void destroy_page_window (GtkWidget *window, gpointer data)
     window = window;
 
     /* Put widget back into a page */
-    gtk_widget_reparent (pageData->widget, pageData->parent);
+    //gtk_widget_reparent (pageData->widget, pageData->parent);
+    g_object_ref (pageData->parent);
+    gtk_container_remove(GTK_CONTAINER (gtk_widget_get_parent (pageData->widget)), pageData->widget);
+    gtk_container_add(GTK_CONTAINER (pageData->parent), pageData->widget);
+    g_object_unref (pageData->parent);
 
     /* Select it */
     gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), pageData->pageNo);
@@ -576,7 +485,12 @@ void move_current_page_to_window (void)
     pageData->pageNo = pageNo;
 
     /* Move main widget to window */
-    gtk_widget_reparent (child, newWindow);
+    //gtk_widget_reparent (child, newWindow);
+    g_object_ref (child);
+    gtk_container_remove(GTK_CONTAINER (gtk_widget_get_parent (child)), child);
+    gtk_container_add(GTK_CONTAINER (newWindow), child);
+    g_object_unref (child);
+
 
     /* Pass ID of parent (to put widget back) to window's destroy */
     g_signal_connect (G_OBJECT(newWindow), "destroy",

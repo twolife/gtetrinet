@@ -30,18 +30,15 @@
 
 extern char **environ;
 
-int soundenable, midienable;
+int soundenable;
 
 char soundfiles[S_NUM][1024];
-char midifile[1024];
-char midicmd[1024];
 
 #ifdef HAVE_CANBERRAGTK
 
 #include <canberra-gtk.h>
 
 static char *soundsamples[S_NUM] = {NULL};
-static int midipid = 0;
 
 void sound_cache (void)
 {
@@ -70,47 +67,10 @@ void sound_playsound (int id)
                          NULL);
 }
 
-void sound_playmidi (char *file)
-{
-#ifdef HAVE_PUTENV
-#endif
-	
-    sound_stopmidi();
-    if (!midienable) return;
-    if (file[0] == 0) return;
-    if ((midipid = fork()) == 0) {
-        setsid ();
-#ifdef HAVE_SETENV
-        setenv ("MIDIFILE", file, TRUE);
-#elif HAVE_PUTENV
-      {
-        char sz[1024];
-        g_snprintf(sz, sizeof(sz), "MIDIFILE=%s", file);
-        putenv(sz);
-      }
-#else
-#error Need either setenv() or putenv()
-#endif
-        execl ("/bin/sh", "sh", "-c", midicmd, NULL);
-        _exit(0);
-    }
-}
-
-void sound_stopmidi (void)
-{
-    if (midipid) {
-        kill (-midipid, SIGTERM);
-        waitpid (-midipid, NULL, 0);
-        midipid = 0;
-    }
-}
-
 #else
 
 /* stubs */
 void sound_cache (void) {}
 void sound_playsound (int id) {id = id;}
-void sound_playmidi (char *file) {file = file;}
-void sound_stopmidi (void) {}
 
 #endif
