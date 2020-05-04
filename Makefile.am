@@ -5,16 +5,18 @@ SUBDIRS= doc po src themes icons
 icon_DATA = gtetrinet.png
 icondir = $(datadir)/pixmaps
 
+# gsettings schema should not be translated https://developer.gnome.org/GSettings/
+#  enabling translation results into message about multiple keys in the schema while compiling with strict settings
 gsettingsdir = $(datadir)/glib-2.0/schemas
-gsettings_in_files = gtetrinet.gschema.xml.in
-gsettings_DATA = $(gsettings_in_files:.xml.in=.xml)
-@INTLTOOL_XML_NOMERGE_RULE@
+# gsettings_SCHEMAS makes the schema be compiled by GSETTINGS_RULES
+gsettings_SCHEMAS = gtetrinet.gschema.xml
 @GSETTINGS_RULES@
 
 Applicationsdir = $(datadir)/applications
 Applications_in_files = gtetrinet.desktop.in
 Applications_DATA = $(Applications_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
+$(Applications_DATA): $(Applications_in_files)
+	$(AM_V_GEN) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 EXTRA_DIST = \
 	ABOUT-NLS \
@@ -29,17 +31,16 @@ EXTRA_DIST = \
 	config.sub \
 	config.rpath \
 	install-sh \
-	intltool-extract.in \
-	intltool-merge.in \
-	intltool-update.in \
 	missing \
 	mkinstalldirs \
 	$(icon_DATA) \
-	$(gsettings_in_files) \
+	$(Applications_in_files)
+
+CLEANFILES = \
 	$(Applications_DATA)
 
-install-data-local:
-	-$(GLIB_COMPILE_SCHEMAS) $(DESTDIR)/$(datadir)/glib-2.0/schemas
+DISTCLEANFILES = \
+	po/Makevars.template
 
 # Generate a ChangeLog file from 'git log'
 dist-hook:

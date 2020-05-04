@@ -22,6 +22,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include <glib/gi18n.h>
 #include <sys/types.h>
 #include <dirent.h>
 #include <stdlib.h>
@@ -34,7 +35,6 @@
 #include "fields.h"
 #include "misc.h"
 #include "sound.h"
-#include "string.h"
 #include "partyline.h"
 
 /* Adopted and renamed from libgnomeui */
@@ -153,7 +153,7 @@ void teamdialog_new (void)
       return;
     }
 
-    team_dialog = gtk_dialog_new_with_buttons ("Change team",
+    team_dialog = gtk_dialog_new_with_buttons (_("Change team"),
                                                GTK_WINDOW (app),
                                                0,
                                                GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
@@ -843,7 +843,7 @@ void prefdialog_new (void)
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);
 
     /* partyline */
-    timestampcheck = gtk_check_button_new_with_mnemonic (("Enable _Timestamps"));
+    timestampcheck = gtk_check_button_new_with_mnemonic (_("Enable _Timestamps"));
     gtk_widget_show(timestampcheck);
     channel_list_check = gtk_check_button_new_with_mnemonic (("Enable Channel _List"));
     gtk_widget_show (channel_list_check);

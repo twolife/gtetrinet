@@ -22,7 +22,6 @@
 #include <config.h>
 #endif
 
-#include <libintl.h>
 #include <gtk/gtk.h>
 #include <stdlib.h>
 #include <time.h>
