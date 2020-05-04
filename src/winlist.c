@@ -52,7 +52,7 @@ GtkWidget *winlist_page_new (void)
     alone_icon = gdk_pixbuf_scale_simple (pixbuf, 24, 24, GDK_INTERP_BILINEAR);
     g_object_unref (pixbuf);
 
-    builder = gtk_builder_new_from_resource("/org/gtetrinet/winlist.ui");
+    builder = gtk_builder_new_from_resource("/apps/gtetrinet/winlist.ui");
     winlist = gtk_builder_get_object(builder, "winlist");
     winlist_store = gtk_builder_get_object(builder, "winlist_model");
 

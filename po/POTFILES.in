@@ -1,11 +1,15 @@
+gtetrinet.desktop.in
+src/channel_list.ui
 src/client.c
 src/commands.c
 src/config.c
 src/dialogs.c
 src/fields.c
+src/fields.ui
+src/field.ui
 src/gtetrinet.c
 src/partyline.c
 src/tetrinet.c
 src/winlist.c
-gtetrinet.desktop.in
-gtetrinet.schemas.in
+src/winlist.ui
+

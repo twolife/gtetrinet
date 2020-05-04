@@ -69,11 +69,11 @@ GtkWidget *partyline_page_new (void)
     work_model = gtk_list_store_new (5, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
   
     /* left box */
-    leftbox = gtk_vbox_new (FALSE, 4);
+    leftbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 4);
     /* chat thingy */
     /* channel list */
-    channel_list = gtk_vbox_new (FALSE, 0);
-    builder = gtk_builder_new_from_resource("/org/gtetrinet/channel_list.ui");
+    channel_list = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+    builder = gtk_builder_new_from_resource("/apps/gtetrinet/channel_list.ui");
     // info about attributes: see gtk_tree_view_column_add_attribute
     playerlist_channels = gtk_builder_get_object(builder, "channellist_model");
     channel_box = gtk_builder_get_object(builder, "channel_list");
@@ -95,7 +95,7 @@ GtkWidget *partyline_page_new (void)
     gtk_box_pack_start (GTK_BOX (channel_list), playerlist_channel_scroll, TRUE, TRUE, 0);
 
     /* textbox with scrollbars */
-    box2 = gtk_vbox_new (FALSE, 0);
+    box2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     textbox = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
     gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW(textbox), GTK_WRAP_WORD);
     gtk_text_view_set_editable (GTK_TEXT_VIEW (textbox), FALSE);
@@ -111,7 +111,7 @@ GtkWidget *partyline_page_new (void)
     gtk_box_pack_start (GTK_BOX (box2), textboxscroll, TRUE, TRUE, 0);
     
     /* vpaned widget */
-    playerlist_vpaned = gtk_vpaned_new ();
+    playerlist_vpaned = gtk_paned_new (GTK_ORIENTATION_VERTICAL);
     
     gtk_paned_add1 (GTK_PANED (playerlist_vpaned), channel_list);
     gtk_paned_add2 (GTK_PANED (playerlist_vpaned), box2);
@@ -144,14 +144,14 @@ GtkWidget *partyline_page_new (void)
     gtk_widget_show_all (playerlist_scroll);
     
     /* right box */
-    box = gtk_vbox_new (FALSE, 2);
+    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 2);
 
     widget = leftlabel_new (_("Your name:"));
     gtk_box_pack_start (GTK_BOX(box), widget, FALSE, FALSE, 0);
     namelabel = gtk_label_new ("");
     gtk_widget_show (namelabel);
     gtk_box_pack_start (GTK_BOX(box), namelabel, FALSE, FALSE, 0);
-    widget = gtk_vseparator_new (); /* invisible... just needed some space */
+    widget = gtk_separator_new (GTK_ORIENTATION_VERTICAL); /* invisible... just needed some space */
     gtk_box_pack_start (GTK_BOX(box), widget, FALSE, FALSE, 2);
     widget = leftlabel_new (_("Your team:"));
     gtk_box_pack_start (GTK_BOX(box), widget, FALSE, FALSE, 0);

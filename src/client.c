@@ -293,18 +293,11 @@ void client_process (void)
 
 gpointer client_resolv_hostname (void)
 {
-#ifdef ENABLE_IPV6
     char hbuf[NI_MAXHOST];
     struct addrinfo hints, *res, *res0;
     char service[10];
-#else
-    struct hostent *h;
-    struct sockaddr_in sa;
-#endif
 
     /* set up the connection */
-
-#ifdef ENABLE_IPV6
     snprintf(service, 9, "%d", spectating?SPECPORT:PORT);
     memset(&hints, 0, sizeof(hints));
     hints.ai_family = AF_UNSPEC;
@@ -341,29 +334,6 @@ gpointer client_resolv_hostname (void)
         break;
     }
     freeaddrinfo(res0);
-#else
-    h = gethostbyname (server);
-    if (h == 0) {
-        /* set errno = 0 so that we know it's a gethostbyname error */
-        errno = 0;
-        resolved = -1;
-        g_thread_exit (GINT_TO_POINTER (-1));
-    }
-    memset (&sa, 0, sizeof (sa));
-    memcpy (&sa.sin_addr, h->h_addr, h->h_length);
-    sa.sin_family = h->h_addrtype;
-    sa.sin_port = htons (spectating?SPECPORT:PORT);
-
-    sock = socket (sa.sin_family, SOCK_STREAM, 0);
-    if (sock < 0)
-        g_thread_exit (GINT_TO_POINTER (-1));
-
-    if (connect (sock, (struct sockaddr *)&sa, sizeof(sa)) < 0)
-    {
-        resolved = -1;
-        g_thread_exit (GINT_TO_POINTER (-1));
-    }
-#endif
 
     resolved = 1;
     return (GINT_TO_POINTER (1));
@@ -499,25 +469,17 @@ int client_readmsg (gchar **str)
 
 void server_ip (unsigned char buf[4])
 {
-#ifdef ENABLE_IPV6
     struct sockaddr_in6 sin;
     struct sockaddr_in *sin4;
-#else
-    struct sockaddr_in sin;
-#endif
     socklen_t len = sizeof(sin);
 
     getpeername (sock, (struct sockaddr *)&sin, &len);
-#ifdef ENABLE_IPV6
     if (sin.sin6_family == AF_INET6) {
 	memcpy (buf, ((char *) &sin.sin6_addr) + 12, 4);
     } else {
 	sin4 = (struct sockaddr_in *) &sin;
 	memcpy (buf, &sin4->sin_addr, 4);
    }
-#else
-    memcpy (buf, &sin.sin_addr, 4);
-#endif
 }
 
 enum inmsg_type inmsg_translate (char *str)

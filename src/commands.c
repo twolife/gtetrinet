@@ -163,7 +163,7 @@ void make_menus (GtkWindow *app)
   gtk_icon_factory_add_default (icon_factory);
   g_object_unref (icon_factory);
 
-  vbox = gtk_vbox_new (FALSE, 0);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
   action_group = gtk_action_group_new ("MenuActions");
   gtk_action_group_add_actions (action_group, entries, G_N_ELEMENTS (entries), app);

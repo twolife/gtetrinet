@@ -135,7 +135,7 @@ GtkWidget *fields_page_contents (void)
     GtkBuilder *fieldsbuilder, *fieldbuilder;
     GtkWidget *some_widget;
 
-    fieldsbuilder = gtk_builder_new_from_resource("/org/gtetrinet/fields.ui");
+    fieldsbuilder = gtk_builder_new_from_resource("/apps/gtetrinet/fields.ui");
 
     /* make fields */
     {
@@ -154,7 +154,7 @@ GtkWidget *fields_page_contents (void)
             else valign = 1.0;
             */
             /* make the widgets */
-            fieldbuilder = gtk_builder_new_from_resource("/org/gtetrinet/field.ui");
+            fieldbuilder = gtk_builder_new_from_resource("/apps/gtetrinet/field.ui");
             fieldbuilders[playernb] = fieldbuilder;
 
             fields_setlabel (playernb, NULL, NULL, 0);

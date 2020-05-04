@@ -24,7 +24,6 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <glib/gi18n.h>
-#include <gconf/gconf-client.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
@@ -43,8 +42,6 @@ char blocksfile[1024];
 int bsize;
 
 GString *currenttheme = NULL;
-
-extern GConfClient *gconf_client;
 
 static char *soundkeys[S_NUM] = {
     "Drop",
@@ -111,16 +108,6 @@ void config_loadtheme (const gchar *themedir)
       bsize = 16;
       g_error_free (err);
       err = NULL;
-    }
-
-    p = g_key_file_get_string (keyfile, "Sounds", "MidiFile", NULL);
-    if (!p)
-        midifile[0] = 0;
-    else
-    {
-        GTET_O_STRCPY(midifile, themedir);
-        GTET_O_STRCAT(midifile, p);
-        g_free (p);
     }
 
     for (i = 0; i < S_NUM; i ++) {
@@ -208,15 +195,58 @@ void config_loadconfig (void)
 {
     gchar *p;
 
+    /* get the other sound options */
+    soundenable = g_settings_get_boolean (settings, "sound-enable");
+    if (soundenable) {
+        sound_cache ();
+    }
+
+    /* get the player nickname */
+    p = g_settings_get_string (settings, "player-nickname");
+    if (p) {
+        GTET_O_STRCPY(nick, p);
+        g_free(p);
+    }
+
+    /* get the server name */
+    p = g_settings_get_string (settings, "server");
+    if (p) {
+        GTET_O_STRCPY(server, p);
+        g_free(p);
+    }
+
+    /* get the team name */
+    p = g_settings_get_string (settings, "player-team");
+    if (p) {
+        GTET_O_STRCPY(team, p);
+        g_free(p);
+    }
+	 
+    /* get the game mode */
+    gamemode = g_settings_get_boolean (settings, "gamemode");
+
+    /* Get the timestamp option. */
+    timestampsenable = g_settings_get_boolean (settings, "partyline-enable-timestamps");
+
+    /* Get the channel list option */
+    list_enabled = g_settings_get_boolean (settings, "partyline-enable-channel-list");
+
+    //partyline_show_channel_list(list_enabled);    
+}
+
+void config_loadconfig_themes (void)
+{
+    gchar *p;
+
     currenttheme = g_string_sized_new(100);
     
     /* get the current theme */
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/themes/theme_dir", NULL);
+    p = g_settings_get_string (settings_themes, "directory");
     /* if there is no theme configured, then we fallback to DEFAULTTHEME */
     if (!p || !p[0])
     {
       g_string_assign(currenttheme, DEFAULTTHEME);
-      gconf_client_set_string (gconf_client, "/apps/gtetrinet/themes/theme_dir", currenttheme->str, NULL);
+      g_settings_set_string (settings_themes, "directory", currenttheme->str);
     }
     else
       g_string_assign(currenttheme, p);
@@ -226,44 +256,15 @@ void config_loadconfig (void)
     if (currenttheme->str[currenttheme->len - 1] != '/')
       g_string_append_c(currenttheme, '/');
 
-    /* get the midi player */
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/sound/midi_player", NULL);
-    if (p)
-    {
-      GTET_O_STRCPY(midicmd, p);
-      g_free (p);
-    }
-    
-    /* get the other sound options */
-    soundenable = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/sound/enable_sound", NULL);
-    midienable  = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/sound/enable_midi",  NULL);
+    load_theme (currenttheme->str);
+}
 
-    /* get the player nickname */
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/player/nickname", NULL);
-    if (p) {
-        GTET_O_STRCPY(nick, p);
-        g_free(p);
-    }
-
-    /* get the server name */
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/player/server", NULL);
-    if (p) {
-        GTET_O_STRCPY(server, p);
-        g_free(p);
-    }
-
-    /* get the team name */
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/player/team", NULL);
-    if (p) {
-        GTET_O_STRCPY(team, p);
-        g_free(p);
-    }
-	 
-    /* get the game mode */
-    gamemode = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/player/gamemode", NULL);
+void config_loadconfig_keys (void)
+{
+    gchar *p;
 
     /* get the keys */
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/right", NULL);
+    p = g_settings_get_string (settings_keys, "right");
     if (p)
     {
       keys[K_RIGHT] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -272,7 +273,7 @@ void config_loadconfig (void)
     else
       keys[K_RIGHT] = defaultkeys[K_RIGHT];
     
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/left", NULL);
+    p = g_settings_get_string (settings_keys, "left");
     if (p)
     {
       keys[K_LEFT] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -281,7 +282,7 @@ void config_loadconfig (void)
     else
       keys[K_LEFT] = defaultkeys[K_LEFT];
 
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/rotate_right", NULL);
+    p = g_settings_get_string (settings_keys, "rotate-right");
     if (p)
     {
       keys[K_ROTRIGHT] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -290,7 +291,7 @@ void config_loadconfig (void)
     else
       keys[K_ROTRIGHT] = defaultkeys[K_ROTRIGHT];
 
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/rotate_left", NULL);
+    p = g_settings_get_string (settings_keys, "rotate-left");
     if (p)
     {
       keys[K_ROTLEFT] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -299,7 +300,7 @@ void config_loadconfig (void)
     else
       keys[K_ROTLEFT] = defaultkeys[K_ROTLEFT];
 
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/down", NULL);
+    p = g_settings_get_string (settings_keys, "down");
     if (p)
     {
       keys[K_DOWN] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -308,7 +309,7 @@ void config_loadconfig (void)
     else
       keys[K_DOWN] = defaultkeys[K_DOWN];
 
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/drop", NULL);
+    p = g_settings_get_string (settings_keys, "drop");
     if (p)
     {
       keys[K_DROP] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -317,7 +318,7 @@ void config_loadconfig (void)
     else
       keys[K_DROP] = defaultkeys[K_DROP];
 
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/discard", NULL);
+    p = g_settings_get_string (settings_keys, "discard");
     if (p)
     {
       keys[K_DISCARD] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -326,7 +327,7 @@ void config_loadconfig (void)
     else
       keys[K_DISCARD] = defaultkeys[K_DISCARD];
 
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/message", NULL);
+    p = g_settings_get_string (settings_keys, "message");
     if (p)
     {
       keys[K_GAMEMSG] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -335,7 +336,7 @@ void config_loadconfig (void)
     else
       keys[K_GAMEMSG] = defaultkeys[K_GAMEMSG];
 
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special1", NULL);
+    p = g_settings_get_string (settings_keys, "special1");
     if (p)
     {
       keys[K_SPECIAL1] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -344,7 +345,7 @@ void config_loadconfig (void)
     else
       keys[K_SPECIAL1] = defaultkeys[K_SPECIAL1];
 
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special2", NULL);
+    p = g_settings_get_string (settings_keys, "special2");
     if (p)
     {
       keys[K_SPECIAL2] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -353,7 +354,7 @@ void config_loadconfig (void)
     else
       keys[K_SPECIAL2] = defaultkeys[K_SPECIAL2];
 
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special3", NULL);
+    p = g_settings_get_string (settings_keys, "special3");
     if (p)
     {
       keys[K_SPECIAL3] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -362,7 +363,7 @@ void config_loadconfig (void)
     else
       keys[K_SPECIAL3] = defaultkeys[K_SPECIAL3];
 
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special4", NULL);
+    p = g_settings_get_string (settings_keys, "special4");
     if (p)
     {
       keys[K_SPECIAL4] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -371,7 +372,7 @@ void config_loadconfig (void)
     else
       keys[K_SPECIAL4] = defaultkeys[K_SPECIAL4];
 
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special5", NULL);
+    p = g_settings_get_string (settings_keys, "special5");
     if (p)
     {
       keys[K_SPECIAL5] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -380,7 +381,7 @@ void config_loadconfig (void)
     else
       keys[K_SPECIAL5] = defaultkeys[K_SPECIAL5];
 
-    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special6", NULL);
+    p = g_settings_get_string (settings_keys, "special6");
     if (p)
     {
       keys[K_SPECIAL6] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
@@ -388,15 +389,6 @@ void config_loadconfig (void)
     }
     else
       keys[K_SPECIAL6] = defaultkeys[K_SPECIAL6];
-
-
-    /* Get the timestamp option. */
-    timestampsenable = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps", NULL);
-
-    /* Get the channel list option */
-    list_enabled = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/partyline/enable_channel_list", NULL);
-    
-    config_loadtheme (currenttheme->str);
 }
 
 void load_theme (const gchar *theme_dir)
@@ -413,262 +405,7 @@ void load_theme (const gchar *theme_dir)
   fieldslabelupdate();
   if (ingame)
   {
-    sound_stopmidi ();
-    sound_playmidi (midifile);
     tetrinet_redrawfields ();
   }
-}
-
-void
-sound_midi_player_changed (GConfClient *client,
-                           guint cnxn_id,
-                           GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  GTET_O_STRCPY (midicmd, gconf_value_get_string (gconf_entry_get_value (entry)));
-  if (ingame)
-  {
-    sound_stopmidi ();
-    sound_playmidi (midifile);
-  }
-}
-
-void
-sound_enable_sound_changed (GConfClient *client,
-                            guint cnxn_id,
-                            GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  soundenable = gconf_value_get_bool (gconf_entry_get_value (entry));
-  if (!soundenable)
-    gconf_client_set_bool (gconf_client, "/apps/gtetrinet/sound/enable_midi", FALSE, NULL);
-  else
-    sound_cache ();
-}
-
-void
-sound_enable_midi_changed (GConfClient *client,
-                           guint cnxn_id,
-                           GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  midienable = gconf_value_get_bool (gconf_entry_get_value (entry));
-  if (!midienable)
-    sound_stopmidi ();
-}
-
-void
-themes_theme_dir_changed (GConfClient *client,
-                          guint cnxn_id,
-                          GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  load_theme (gconf_value_get_string (gconf_entry_get_value (entry)));
-}
-
-void
-keys_down_changed (GConfClient *client,
-                   guint cnxn_id,
-                   GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  keys[K_DOWN] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_left_changed (GConfClient *client,
-                   guint cnxn_id,
-                   GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  keys[K_LEFT] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_right_changed (GConfClient *client,
-                    guint cnxn_id,
-                    GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  keys[K_RIGHT] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_drop_changed (GConfClient *client,
-                   guint cnxn_id,
-                   GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  keys[K_DROP] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_rotate_left_changed (GConfClient *client,
-                          guint cnxn_id,
-                          GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  keys[K_ROTLEFT] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_rotate_right_changed (GConfClient *client,
-                           guint cnxn_id,
-                           GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  keys[K_ROTRIGHT] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_message_changed (GConfClient *client,
-                   guint cnxn_id,
-                   GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  keys[K_GAMEMSG] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_discard_changed (GConfClient *client,
-                   guint cnxn_id,
-                   GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  keys[K_DISCARD] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_special1_changed (GConfClient *client,
-                       guint cnxn_id,
-                       GConfEntry *entry)
-{
-
-  client = client;
-  cnxn_id = cnxn_id;
-
-  keys[K_SPECIAL1] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_special2_changed (GConfClient *client,
-                       guint cnxn_id,
-                       GConfEntry *entry)
-{
-
-  client = client;
-  cnxn_id = cnxn_id;
-
-  keys[K_SPECIAL2] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_special3_changed (GConfClient *client,
-                       guint cnxn_id,
-                       GConfEntry *entry)
-{
-
-  client = client;
-  cnxn_id = cnxn_id;
-
-  keys[K_SPECIAL3] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_special4_changed (GConfClient *client,
-                       guint cnxn_id,
-                       GConfEntry *entry)
-{
-
-  client = client;
-  cnxn_id = cnxn_id;
-
-  keys[K_SPECIAL4] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_special5_changed (GConfClient *client,
-                       guint cnxn_id,
-                       GConfEntry *entry)
-{
-
-  client = client;
-  cnxn_id = cnxn_id;
-
-  keys[K_SPECIAL5] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-keys_special6_changed (GConfClient *client,
-                       guint cnxn_id,
-                       GConfEntry *entry)
-{
-
-  client = client;
-  cnxn_id = cnxn_id;
-
-  keys[K_SPECIAL6] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
-}
-
-void
-partyline_enable_timestamps_changed (GConfClient *client,
-                                     guint cnxn_id,
-                                     GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  timestampsenable = gconf_value_get_bool (gconf_entry_get_value (entry));
-  if (!timestampsenable)
-    gconf_client_set_bool (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps", FALSE, NULL);
-}
-
-void
-partyline_enable_channel_list_changed (GConfClient *client,
-                                       guint cnxn_id,
-                                       GConfEntry *entry)
-{
-
-  client = client;	/* Suppress compile warnings */
-  cnxn_id = cnxn_id;	/* Suppress compile warnings */
-
-  partyline_show_channel_list (gconf_value_get_bool (gconf_entry_get_value (entry)));
 }
 
