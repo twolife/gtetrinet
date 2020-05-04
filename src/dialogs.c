@@ -652,7 +652,7 @@ void prefdialog_themelistselect (int n)
     leftlabel_set (authlabel, author);
     leftlabel_set (desclabel, desc);
   
-    g_settings_set_string (settings, "theme-dir", themes[n].dir);
+    g_settings_set_string (settings_themes, "directory", themes[n].dir);
 }
 
 void prefdialog_themeselect (GtkTreeSelection *treeselection)
