@@ -10,8 +10,7 @@ package, or refer to the tetrinet.txt file that is included with the original
 Tetrinet distribution.  A copy of this file can be found on the GTetrinet
 homepage.
 
-If you're looking for a popular public server to play on, take a look at
-tetrinet.org.
+If you're looking for a public server to play on, you're at the wrong place
 
 Tetrinet was originally conceived by St0rmCat.
 
@@ -19,20 +18,29 @@ Tetrinet was originally conceived by St0rmCat.
 Requirements
 ------------
 
-GTetrinet requires GNOME 2.0 or newer.
+This version of GTetrinet requires GTK 3.
 
-For sound support, ESD is required.  However, GTetrinet can be compiled
-without sound support.
+For sound support, canberra-gtk is required.  However, GTetrinet can be
+compiled without sound support.
 
-For MIDI music, GTetrinet also requires an external MIDI player, such as
-playmidi or TiMidity++.
+
+Running
+-------
+This version of GTetrinet does not use the configuration of the original (0.7.11).
+Previous settings are lost.
+
+If you installed the gtetrinet files in a non-standard location, then you
+should provide the directory where the getrinet gsettings schema is installed
+
+GSETTINGS_SCHEMA_DIR=share/glib-2.0/schemas/ ./games/gtetrinet
 
 
 Homepage
 --------
 
-The GTetrinet homepage is at
+The GTetrinet original homepage is at
 
 http://gtetrinet.sourceforge.net/
 
-E-Mail suggestions, bug reports, etc. to gtetrinet-list@gnome.org.
+Bug reports and suggestions on this version should go in an issue or pull request
+at https://github.com/tatankat/gtetrinet
