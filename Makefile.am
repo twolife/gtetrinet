@@ -42,6 +42,12 @@ CLEANFILES = \
 DISTCLEANFILES = \
 	po/Makevars.template
 
+MAINTAINERCLEANFILES = \
+	m4/host-cpu-c-abi.m4 \
+	$(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) \
+	$(GITIGNORE_MAINTAINERCLEANFILES_MAKEFILE_IN) \
+	$(GITIGNORE_MAINTAINERCLEANFILES_M4_GETTEXT)
+
 # Generate a ChangeLog file from 'git log'
 dist-hook:
 	@if test -d "$(srcdir)/.git"; \
