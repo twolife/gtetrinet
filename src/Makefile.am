@@ -49,7 +49,7 @@ gtetrinet_SOURCES = \
 BUILT_SOURCES = resources.c
 
 GLIB_COMPILE_RESOURCES=glib-compile-resources
-resources.c: gtetrinet.gresource.xml.in channel_list.ui field.ui fields.ui winlist.ui
+resources.c: gtetrinet.gresource.xml.in partyline.ui field.ui fields.ui winlist.ui
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $(srcdir)/gtetrinet.gresource.xml.in \
 		--target=$@ --sourcedir=$(srcdir) --generate-source
 

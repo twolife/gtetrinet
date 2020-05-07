@@ -24,6 +24,7 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <glib/gi18n.h>
+#include <gobject/gtype.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
@@ -38,14 +39,10 @@ gboolean list_enabled;
 
 /* widgets that we have to do stuff with */
 static GtkWidget *playerlist, *textbox, *entrybox,
-    *namelabel, *teamlabel, *infolabel, *textboxscroll, 
-    *playerlist_scroll, *playerlist_vpaned, *channel_box,
-    *playerlist_channel_scroll, *label, *channel_list;
+    *namelabel, *teamlabel, *infolabel, *channel_box,
+    *textboxlabel, *channel_list;
 
-/* some more widgets for layout */
-static GtkWidget *table, *leftbox, *rightbox;
-
-static GtkListStore *work_model, *playerlist_channels;
+static GtkListStore *work_model, *channellist_model;
 
 /* stuff for pline history */
 #define PLHSIZE 64
@@ -59,139 +56,35 @@ void channel_activated (GtkTreeView *treeview);
 
 GtkWidget *partyline_page_new (void)
 {
-    GtkWidget *widget, *box, *box2; /* generic temp variables */
-    GtkListStore *playerlist_model = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
-    GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
-    GList *focus_list = NULL;
-    gchar* aux;
     GtkBuilder *builder;
 
     work_model = gtk_list_store_new (5, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
-  
-    /* left box */
-    leftbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 4);
-    /* chat thingy */
-    /* channel list */
-    channel_list = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-    builder = gtk_builder_new_from_resource("/apps/gtetrinet/channel_list.ui");
-    // info about attributes: see gtk_tree_view_column_add_attribute
-    playerlist_channels = gtk_builder_get_object(builder, "channellist_model");
-    channel_box = gtk_builder_get_object(builder, "channel_list");
 
+    builder = gtk_builder_new_from_resource("/apps/gtetrinet/partyline.ui");
+    // info about attributes: see gtk_tree_view_column_add_attribute
+    channellist_model = GTK_LIST_STORE (gtk_builder_get_object(builder, "channellist_model")); // model to add entries in list
+    channel_box = GTK_WIDGET (gtk_builder_get_object(builder, "channellist_treeview")); // tree view to change model, see stop_list function
+    channel_list = GTK_WIDGET (gtk_builder_get_object(builder, "channellist"));
     g_signal_connect (G_OBJECT (channel_box), "row-activated",
                       G_CALLBACK (channel_activated), NULL);
-    playerlist_channel_scroll = gtk_scrolled_window_new (NULL, NULL);
-    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW (playerlist_channel_scroll),
-                                   GTK_POLICY_AUTOMATIC,
-                                   GTK_POLICY_AUTOMATIC);
-    gtk_container_add (GTK_CONTAINER(playerlist_channel_scroll), channel_box);
-    gtk_widget_set_size_request (playerlist_channel_scroll, -1, 100);
-    label = gtk_label_new (NULL);
-
-    aux = g_strconcat ("<b>", _("Channel List"), "</b>", NULL);
-    gtk_label_set_markup (GTK_LABEL (label), aux);
-    g_free (aux);
-    gtk_box_pack_start (GTK_BOX (channel_list), label, FALSE, FALSE, 0);
-    gtk_box_pack_start (GTK_BOX (channel_list), playerlist_channel_scroll, TRUE, TRUE, 0);
-
-    /* textbox with scrollbars */
-    box2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-    textbox = gtk_text_view_new_with_buffer(gtk_text_buffer_new(tag_table));
-    gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW(textbox), GTK_WRAP_WORD);
-    gtk_text_view_set_editable (GTK_TEXT_VIEW (textbox), FALSE);
-    gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (textbox), FALSE);
-    textboxscroll = gtk_scrolled_window_new (NULL, NULL);
-    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(textboxscroll),
-                                   GTK_POLICY_AUTOMATIC,
-                                   GTK_POLICY_ALWAYS);
-    gtk_container_add (GTK_CONTAINER(textboxscroll), textbox);
-    label = gtk_label_new (NULL);
-    partyline_joining_channel (NULL);
-    gtk_box_pack_start (GTK_BOX (box2), label, FALSE, FALSE, 0);
-    gtk_box_pack_start (GTK_BOX (box2), textboxscroll, TRUE, TRUE, 0);
-    
-    /* vpaned widget */
-    playerlist_vpaned = gtk_paned_new (GTK_ORIENTATION_VERTICAL);
-    
-    gtk_paned_add1 (GTK_PANED (playerlist_vpaned), channel_list);
-    gtk_paned_add2 (GTK_PANED (playerlist_vpaned), box2);
-    gtk_box_pack_start (GTK_BOX(leftbox), playerlist_vpaned, TRUE, TRUE, 0);
-    
-    /* entry box */
-    entrybox = gtk_entry_new ();
-    gtk_entry_set_max_length (GTK_ENTRY (entrybox), 200);
+    entrybox = GTK_WIDGET (gtk_builder_get_object(builder, "entrybox"));
     g_signal_connect (G_OBJECT(entrybox), "activate",
                       G_CALLBACK(textentry), NULL);
     g_signal_connect (G_OBJECT(entrybox), "key-press-event",
                       G_CALLBACK(entrykey), NULL);
-    gtk_box_pack_start (GTK_BOX(leftbox), entrybox, FALSE, FALSE, 0);
-    gtk_widget_show_all (leftbox);
-
-    /* player list with scrollbar */
-    playerlist = GTK_WIDGET (gtk_tree_view_new_with_model (GTK_TREE_MODEL (playerlist_model)));
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (playerlist), -1, "", renderer,
-                                                 "text", 0, NULL);
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (playerlist), -1, _("Name"), renderer,
-                                                 "text", 1, NULL);
-    gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (playerlist), -1, _("Team"), renderer,
-                                                 "text", 2, NULL);
-    playerlist_scroll = gtk_scrolled_window_new (NULL, NULL);
-    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW (playerlist_scroll),
-                                   GTK_POLICY_AUTOMATIC,
-                                   GTK_POLICY_NEVER);
-    gtk_container_add (GTK_CONTAINER(playerlist_scroll), playerlist);
-    gtk_widget_set_size_request (playerlist_scroll, 150, 200);
-    gtk_widget_show_all (playerlist_scroll);
-    
-    /* right box */
-    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 2);
-
-    widget = leftlabel_new (_("Your name:"));
-    gtk_box_pack_start (GTK_BOX(box), widget, FALSE, FALSE, 0);
-    namelabel = gtk_label_new ("");
-    gtk_widget_show (namelabel);
-    gtk_box_pack_start (GTK_BOX(box), namelabel, FALSE, FALSE, 0);
-    widget = gtk_separator_new (GTK_ORIENTATION_VERTICAL); /* invisible... just needed some space */
-    gtk_box_pack_start (GTK_BOX(box), widget, FALSE, FALSE, 2);
-    widget = leftlabel_new (_("Your team:"));
-    gtk_box_pack_start (GTK_BOX(box), widget, FALSE, FALSE, 0);
-    teamlabel = gtk_label_new ("");
-    gtk_box_pack_start (GTK_BOX(box), teamlabel, FALSE, FALSE, 0);
-    infolabel = gtk_label_new ("");
-    gtk_label_set_line_wrap (GTK_LABEL(teamlabel), TRUE);
-    gtk_box_pack_start (GTK_BOX(box), infolabel, TRUE, FALSE, 0);
-
-    gtk_container_set_border_width (GTK_CONTAINER(box), 4);
-    rightbox = gtk_frame_new (NULL);
-    gtk_frame_set_shadow_type (GTK_FRAME(rightbox), GTK_SHADOW_IN);
-    gtk_container_add (GTK_CONTAINER(rightbox), box);
-    gtk_widget_show_all (rightbox);
-
-    /* stuff all the boxes into the table */
-    table = gtk_table_new (2, 2, FALSE);
-    gtk_table_set_row_spacings (GTK_TABLE(table), 4);
-    gtk_table_set_col_spacings (GTK_TABLE(table), 4);
-    gtk_container_set_border_width (GTK_CONTAINER(table), 4);
-    gtk_table_attach (GTK_TABLE(table), leftbox, 0, 1, 0, 2,
-                      GTK_FILL | GTK_EXPAND, GTK_FILL | GTK_EXPAND,
-                      0, 0);
-    gtk_table_attach (GTK_TABLE(table), playerlist_scroll, 1, 2, 0, 1,
-                      GTK_FILL, GTK_FILL | GTK_EXPAND, 0, 0);
-    gtk_table_attach (GTK_TABLE(table), rightbox, 1, 2, 1, 2,
-                      GTK_FILL, GTK_FILL | GTK_EXPAND, 0, 0);
+    infolabel = GTK_WIDGET (gtk_builder_get_object(builder, "infolabel"));
+    textbox = GTK_WIDGET (gtk_builder_get_object(builder, "textbox"));
+    textboxlabel = GTK_WIDGET (gtk_builder_get_object(builder, "textboxlabel"));
+    gtk_text_view_set_buffer( GTK_TEXT_VIEW (textbox), gtk_text_buffer_new(tag_table));
+    playerlist = GTK_WIDGET (gtk_builder_get_object(builder, "playerlist"));
+    namelabel = GTK_WIDGET (gtk_builder_get_object(builder, "namelabel"));
+    teamlabel = GTK_WIDGET (gtk_builder_get_object(builder, "teamlabel"));
 
     /* set a few things */
     partyline_connectstatus (FALSE);
     plhistory[0][0] = 0;
-    
-    focus_list = g_list_append (focus_list, entrybox);
-    focus_list = g_list_append (focus_list, textbox);
-    focus_list = g_list_append (focus_list, playerlist);
-    
-    gtk_container_set_focus_chain (GTK_CONTAINER (table), focus_list);
 
-    /* show after we return */
-    return table;
+    return GTK_WIDGET (gtk_builder_get_object(builder, "partyline"));
 }
 
 void partyline_connectstatus (int status)
@@ -337,7 +230,6 @@ static gboolean is_nick (GtkTreeModel *model,
 
   gtk_tree_model_get (model, iter, 1, &nick, -1);
   down = g_utf8_strdown (nick, -1);
-  path = path;
 
   if (g_str_has_prefix (down, data))
   {
@@ -542,8 +434,6 @@ gboolean copy_item (GtkTreeModel *model,
   gchar *name, *players, *state, *desc;
   GtkTreeIter iter2;
 
-  path = path;
-  
   gtk_tree_model_get (model, iter,
                       0, &num,
                       1, &name,
@@ -551,8 +441,8 @@ gboolean copy_item (GtkTreeModel *model,
                       3, &state,
                       4, &desc, -1);
   
-  gtk_list_store_append (playerlist_channels, &iter2);
-  gtk_list_store_set (playerlist_channels, &iter2,
+  gtk_list_store_append (channellist_model, &iter2);
+  gtk_list_store_set (channellist_model, &iter2,
                       0, num,
                       1, name,
                       2, players,
@@ -574,9 +464,9 @@ void stop_list (void)
   
   /* update the channel list widget, with some sort of "double buffering" */
   gtk_tree_view_set_model (GTK_TREE_VIEW (channel_box), GTK_TREE_MODEL (work_model));
-  gtk_list_store_clear (playerlist_channels);
+  gtk_list_store_clear (channellist_model);
   gtk_tree_model_foreach (GTK_TREE_MODEL (work_model), (GtkTreeModelForeachFunc) copy_item, NULL);
-  gtk_tree_view_set_model (GTK_TREE_VIEW (channel_box), GTK_TREE_MODEL (playerlist_channels));
+  gtk_tree_view_set_model (GTK_TREE_VIEW (channel_box), GTK_TREE_MODEL (channellist_model));
 }
 
 gboolean partyline_update_channel_list (void)
@@ -610,7 +500,7 @@ void partyline_more_channel_lines (void)
 
 void partyline_clear_list_channel (void)
 {
-  gtk_list_store_clear (playerlist_channels);
+  gtk_list_store_clear (channellist_model);
   gtk_list_store_clear (work_model);
 }
 
@@ -621,7 +511,7 @@ void channel_activated (GtkTreeView *treeview)
   gchar *name, *cad;
   
   gtk_tree_selection_get_selected (selection, NULL, &iter);
-  gtk_tree_model_get (GTK_TREE_MODEL (playerlist_channels),
+  gtk_tree_model_get (GTK_TREE_MODEL (channellist_model),
                       &iter,
                       1, &name, -1);
   
@@ -641,7 +531,7 @@ void partyline_joining_channel (const gchar *channel)
   else
     final = g_strconcat ("<b>", _("Disconnected"), "</b>", NULL);
 
-  gtk_label_set_markup (GTK_LABEL (label), final);
+  gtk_label_set_markup (GTK_LABEL (textboxlabel), final);
   
   g_free (final);
 }

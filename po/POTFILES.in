@@ -1,5 +1,5 @@
 gtetrinet.desktop.in
-src/channel_list.ui
+src/partyline.ui
 src/client.c
 src/commands.c
 src/config.c

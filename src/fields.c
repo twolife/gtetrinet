@@ -25,6 +25,8 @@
 #include <glib/gi18n.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <cairo-gobject.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
 #include "gtet_config.h"
 #include "client.h"
@@ -38,7 +40,7 @@
 #define BLOCKSIZE bsize
 #define SMALLBLOCKSIZE (BLOCKSIZE/2)
 
-static GtkWidget *nextpiecewidget;
+static GtkWidget *nextpiecewidget,
     *specialwidget, *speciallabel, *attdefwidget, *lineswidget, *levelwidget,
     *activewidget, *activelabel, *gmsgtext, *gmsginput, *fieldspage, *pagecontents;
 static GtkBuilder *fieldbuilders[6];
@@ -56,8 +58,6 @@ static void gmsginput_activate (void);
 
 static cairo_surface_t *blockpix;
 
-static GdkColor black = {0, 0, 0, 0};
-static cairo_surface_t *bitmap;
 static GdkCursor *invisible_cursor, *arrow_cursor;
 
 static FIELD displayfields[6]; /* what is actually displayed */
@@ -99,7 +99,9 @@ void fields_init (void)
 
 void fields_cleanup (void)
 {
-  g_object_unref(blockpix);
+  if(G_IS_OBJECT (blockpix)) {
+    g_object_unref(blockpix);
+  }
 }
 
 /* a mess of functions here for creating the fields page */
@@ -141,7 +143,7 @@ GtkWidget *fields_page_contents (void)
     {
         int playernb;
         int blocksize;
-        char* playernbstr[1]; // supports up to (9+1) players ;)
+        gchar playernbstr[2]; // supports up to (9+1) players ;)
         //float valign;
         GtkBuilder *fieldbuilder;
         GtkWidget *fieldparent, *fieldwidget;
@@ -216,12 +218,12 @@ GtkWidget *fields_page_contents (void)
 
     /* attacks and defenses */
     attdefwidget = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "att_and_def"));
-    gtk_text_view_set_buffer(attdefwidget, gtk_text_buffer_new(tag_table));
+    gtk_text_view_set_buffer(GTK_TEXT_VIEW(attdefwidget), gtk_text_buffer_new(tag_table));
     gtk_widget_set_size_request (attdefwidget, MAX(22*12, BLOCKSIZE*12), BLOCKSIZE*10);
 
     /* game messages */
     gmsgtext = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "game_messages"));
-    gtk_text_view_set_buffer(gmsgtext, gtk_text_buffer_new(tag_table));
+    gtk_text_view_set_buffer(GTK_TEXT_VIEW(gmsgtext), gtk_text_buffer_new(tag_table));
     gmsginput = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "game_message_input"));
     /* eat up key messages */
     g_signal_connect (G_OBJECT(gmsginput), "activate",
@@ -322,33 +324,33 @@ void fields_setlabel (int field, char *name, char *team, int num)
     g_snprintf (buf, sizeof(buf), "%d", num);
     
     if (name == NULL) {
-        gtk_widget_hide (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"fieldnumber")));
-        gtk_widget_hide (GTK_SEPARATOR(gtk_builder_get_object(fieldbuilder,"fieldnumber_separator")));
-        gtk_widget_hide (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"playername")));
-        gtk_widget_show (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"single_description")));
-        gtk_widget_hide (GTK_SEPARATOR(gtk_builder_get_object(fieldbuilder,"teamname_separator")));
-        gtk_widget_hide (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"teamname")));
+        gtk_widget_hide (GTK_WIDGET(gtk_builder_get_object(fieldbuilder,"fieldnumber")));
+        gtk_widget_hide (GTK_WIDGET(gtk_builder_get_object(fieldbuilder,"fieldnumber_separator")));
+        gtk_widget_hide (GTK_WIDGET(gtk_builder_get_object(fieldbuilder,"playername")));
+        gtk_widget_show (GTK_WIDGET(gtk_builder_get_object(fieldbuilder,"single_description")));
+        gtk_widget_hide (GTK_WIDGET(gtk_builder_get_object(fieldbuilder,"teamname_separator")));
+        gtk_widget_hide (GTK_WIDGET(gtk_builder_get_object(fieldbuilder,"teamname")));
         gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"fieldnumber")), "");
         gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"playername")), "");
         gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"single_description")), _("Not playing"));
         gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"teamname")), "");
     }
     else {
-        gtk_widget_show (GTK_LABEL(gtk_builder_get_object(fieldbuilders[field],"fieldnumber")));
-        gtk_widget_show (GTK_SEPARATOR(gtk_builder_get_object(fieldbuilders[field],"fieldnumber_separator")));
-        gtk_widget_show (GTK_LABEL(gtk_builder_get_object(fieldbuilders[field],"playername")));
-        gtk_widget_hide (GTK_LABEL(gtk_builder_get_object(fieldbuilders[field],"single_description")));
+        gtk_widget_show (GTK_WIDGET(gtk_builder_get_object(fieldbuilders[field],"fieldnumber")));
+        gtk_widget_show (GTK_WIDGET(gtk_builder_get_object(fieldbuilders[field],"fieldnumber_separator")));
+        gtk_widget_show (GTK_WIDGET(gtk_builder_get_object(fieldbuilders[field],"playername")));
+        gtk_widget_hide (GTK_WIDGET(gtk_builder_get_object(fieldbuilders[field],"single_description")));
         gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"fieldnumber")), buf);
         gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"playername")), name);
         gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"single_description")), "");
         if (team == NULL || team[0] == 0) {
-            gtk_widget_hide (GTK_SEPARATOR(gtk_builder_get_object(fieldbuilder,"teamname_separator")));
-            gtk_widget_hide (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"teamname")));
+            gtk_widget_hide (GTK_WIDGET(gtk_builder_get_object(fieldbuilder,"teamname_separator")));
+            gtk_widget_hide (GTK_WIDGET(gtk_builder_get_object(fieldbuilder,"teamname")));
             gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"teamname")), "");
         }
         else {
-            gtk_widget_show (GTK_SEPARATOR(gtk_builder_get_object(fieldbuilder,"teamname_separator")));
-            gtk_widget_show (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"teamname")));
+            gtk_widget_show (GTK_WIDGET(gtk_builder_get_object(fieldbuilder,"teamname_separator")));
+            gtk_widget_show (GTK_WIDGET(gtk_builder_get_object(fieldbuilder,"teamname")));
             gtk_label_set_text (GTK_LABEL(gtk_builder_get_object(fieldbuilder,"teamname")), team);
         }
     }
@@ -468,7 +470,7 @@ void fields_setlines (int l)
     char buf[16] = "";
     if (l >= 0)
         g_snprintf (buf, sizeof(buf), "%d", l);
-    gtk_label_set_text (lineswidget, buf);
+    gtk_label_set_text (GTK_LABEL (lineswidget), buf);
 }
 
 void fields_setlevel (int l)
@@ -476,7 +478,7 @@ void fields_setlevel (int l)
     char buf[16] = "";
     if (l > 0)
         g_snprintf (buf, sizeof(buf), "%d", l);
-    gtk_label_set_text (levelwidget, buf);
+    gtk_label_set_text (GTK_LABEL (levelwidget), buf);
 }
 
 void fields_setactivelevel (int l)
@@ -488,7 +490,7 @@ void fields_setactivelevel (int l)
     }
     else {
         g_snprintf (buf, sizeof(buf), "%d", l);
-        gtk_label_set_text (activewidget, buf);
+        gtk_label_set_text (GTK_LABEL (activewidget), buf);
         gtk_widget_show (activelabel);
         gtk_widget_show (activewidget);
     }

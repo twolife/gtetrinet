@@ -53,10 +53,10 @@ GtkWidget *winlist_page_new (void)
     g_object_unref (pixbuf);
 
     builder = gtk_builder_new_from_resource("/apps/gtetrinet/winlist.ui");
-    winlist = gtk_builder_get_object(builder, "winlist");
-    winlist_store = gtk_builder_get_object(builder, "winlist_model");
+    winlist = GTK_WIDGET (gtk_builder_get_object(builder, "winlist"));
+    winlist_store = GTK_LIST_STORE (gtk_builder_get_object(builder, "winlist_model"));
 
-    return gtk_builder_get_object(builder, "winlist_parent");
+    return GTK_WIDGET (gtk_builder_get_object(builder, "winlist_parent"));
 }
 
 void winlist_clear (void)
