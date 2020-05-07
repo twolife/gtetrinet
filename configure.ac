@@ -27,7 +27,7 @@ AC_CHECK_HEADERS([ctype.h dirent.h errno.h locale.h signal.h \
 AC_CHECK_FUNCS([memset setlocale])
 
 # Initialise i18n
-AM_GNU_GETTEXT_VERSION([0.20])
+AM_GNU_GETTEXT_VERSION([0.19.8])
 AM_GNU_GETTEXT([external])
 
 GETTEXT_PACKAGE=gtetrinet
