@@ -130,7 +130,7 @@ int main (int argc, char *argv[])
 
     g_signal_connect_swapped (settings, "changed", G_CALLBACK(config_loadconfig), NULL);
     g_signal_connect_swapped (settings_keys, "changed", G_CALLBACK(config_loadconfig_keys), NULL);
-    g_signal_connect_swapped (settings_keys, "changed", G_CALLBACK(config_loadconfig_themes), NULL);
+    g_signal_connect_swapped (settings_themes, "changed", G_CALLBACK(config_loadconfig_themes), NULL);
 
     /* load settings */
     config_loadconfig ();
@@ -249,6 +249,9 @@ int main (int argc, char *argv[])
     gtk_main ();
 
     g_object_unref (settings);
+    g_object_unref (settings_keys);
+    g_object_unref (settings_themes);
+
     client_disconnect ();
     /* cleanup */
     fields_cleanup ();

@@ -1,7 +1,7 @@
 [Desktop Entry]
-_Name=GTetrinet
-_GenericName=Tetrinet client
-_Comment=Tetrinet client for GNOME
+Name=GTetrinet
+GenericName=Tetrinet client
+Comment=Tetrinet client for GNOME
 Exec=gtetrinet
 Icon=gtetrinet.png
 StartupNotify=true
