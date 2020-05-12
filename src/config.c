@@ -75,6 +75,24 @@ guint defaultkeys[K_NUM] = {
 
 guint keys[K_NUM];
 
+void load_theme (const gchar *theme_dir)
+{
+  /* load the theme */
+  g_string_assign(currenttheme, theme_dir);
+  config_loadtheme (theme_dir);
+
+  /* update the fields */
+  fields_page_destroy_contents ();
+  fields_cleanup ();
+  fields_init ();
+  fields_page_new ();
+  fieldslabelupdate();
+  if (ingame)
+  {
+    tetrinet_redrawfields ();
+  }
+}
+
 /* themedir is assumed to have a trailing slash */
 void config_loadtheme (const gchar *themedir)
 {
@@ -231,7 +249,7 @@ void config_loadconfig (void)
     /* Get the channel list option */
     list_enabled = g_settings_get_boolean (settings, "partyline-enable-channel-list");
 
-    //partyline_show_channel_list(list_enabled);    
+    partyline_show_channel_list(list_enabled);
 }
 
 void config_loadconfig_themes (void)
@@ -389,23 +407,5 @@ void config_loadconfig_keys (void)
     }
     else
       keys[K_SPECIAL6] = defaultkeys[K_SPECIAL6];
-}
-
-void load_theme (const gchar *theme_dir)
-{
-  /* load the theme */
-  g_string_assign(currenttheme, theme_dir);
-  config_loadtheme (theme_dir);
-
-  /* update the fields */
-  fields_page_destroy_contents ();
-  fields_cleanup ();
-  fields_init ();
-  fields_page_new ();
-  fieldslabelupdate();
-  if (ingame)
-  {
-    tetrinet_redrawfields ();
-  }
 }
 
