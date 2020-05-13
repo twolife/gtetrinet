@@ -541,13 +541,17 @@ void partyline_show_channel_list (gboolean show)
   /*
    * If this function is called with TRUE, it will show the channel list, otherwise
    * it'll hide it.
+   * If there is no channel_list yet, do nothing
    */
-  list_enabled = show;
-  if (list_enabled)
+  if(channel_list)
   {
-    gtk_widget_show (channel_list);
-    partyline_update_channel_list ();
+    list_enabled = show;
+    if (list_enabled)
+    {
+      gtk_widget_show (channel_list);
+      partyline_update_channel_list ();
+    }
+    else
+      gtk_widget_hide (channel_list);
   }
-  else
-    gtk_widget_hide (channel_list);
 }
