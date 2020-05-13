@@ -29,11 +29,6 @@ Running
 This version of GTetrinet does not use the configuration of the original (0.7.11).
 Previous settings are lost.
 
-If you installed the gtetrinet files in a non-standard location, then you
-should provide the directory where the getrinet gsettings schema is installed
-
-GSETTINGS_SCHEMA_DIR=share/glib-2.0/schemas/ ./games/gtetrinet
-
 
 Homepage
 --------

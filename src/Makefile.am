@@ -14,7 +14,8 @@ AM_CPPFLAGS = \
 	-DGTETRINET_DATA=\"$(pkgdatadir)\"                      \
 	-DGTETPIXMAPSDIR=\""$(datadir)/pixmaps/gtetrinet"\"     \
 	-DLOCALEDIR=\"$(localedir)\"                            \
-	-DPIXMAPSDIR=\""$(datadir)/pixmaps"\"
+	-DPIXMAPSDIR=\""$(datadir)/pixmaps"\"                   \
+	-DGSETTINGSSCHEMADIR=\"$(gsettingsschemadir)\"
 
 gamesdir = $(prefix)/games
 games_PROGRAMS = gtetrinet

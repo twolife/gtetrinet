@@ -22,11 +22,13 @@
 #include <config.h>
 #endif
 
+#include <libintl.h>
 #include <gtk/gtk.h>
 #include <stdlib.h>
 #include <time.h>
 #include <sys/poll.h>
 #include <sys/types.h>
+#include <gobject/gtype.h>
 #include <signal.h>
 #include <popt.h>
 
@@ -97,6 +99,23 @@ static int gtetrinet_poll_func(GPollFD *passed_fds,
   return (ret);
 }
 
+/*
+ * based on https://developer.gnome.org/gio/stable/gio-GSettingsSchema-GSettingsSchemaSource.html
+ * I have no idea why this is not the default behavior
+ */
+GSettings *get_schema_settings(const gchar *schema_id)
+{
+  GSettingsSchema *schema;
+  GSettingsSchemaSource *schema_source;
+  schema_source = g_settings_schema_source_new_from_directory(GSETTINGSSCHEMADIR, g_settings_schema_source_get_default(), FALSE, NULL); // @suppress("Symbol is not resolved")
+  schema = g_settings_schema_source_lookup(schema_source, schema_id, FALSE);
+  if (schema == NULL)
+  {
+    return g_settings_new(schema_id);
+  }
+  return g_settings_new_full(schema, NULL, NULL);
+}
+
 int main (int argc, char *argv[])
 {
     GtkWidget *label;
@@ -124,9 +143,10 @@ int main (int argc, char *argv[])
     }
     textbox_setup (); /* needs to be done before text boxes are created */
 
-    settings = g_settings_new (GSETTINGS_DOMAIN);
-    settings_keys = g_settings_new (GSETTINGS_DOMAIN_KEYS);
-    settings_themes = g_settings_new (GSETTINGS_DOMAIN_THEMES);
+    // First, try to get settings from compiled schema directory (as we can properly check these), then try generic system directories chosen by gsettings library
+    settings = get_schema_settings (GSETTINGS_DOMAIN);
+    settings_keys = get_schema_settings (GSETTINGS_DOMAIN_KEYS);
+    settings_themes = get_schema_settings (GSETTINGS_DOMAIN_THEMES);
 
     g_signal_connect_swapped (settings, "changed", G_CALLBACK(config_loadconfig), NULL);
     g_signal_connect_swapped (settings_keys, "changed", G_CALLBACK(config_loadconfig_keys), NULL);
@@ -305,7 +325,6 @@ gint keytimeoutid = 0;
 
 gint keytimeout (gpointer data)
 {
-    data = data; /* to get rid of the warning */
     tetrinet_upkey (k.keyval);
     keytimeoutid = 0;
     return FALSE;
@@ -426,7 +445,6 @@ typedef struct {
 void destroy_page_window (GtkWidget *window, gpointer data)
 {
     WidgetPageData *pageData = (WidgetPageData *)data;
-    window = window;
 
     /* Put widget back into a page */
     //gtk_widget_reparent (pageData->widget, pageData->parent);
@@ -530,10 +548,6 @@ void switch_focus (GtkNotebook *notebook,
                    void *page,
                    guint page_num)
 {
-
-    notebook = notebook;	/* Suppress compile warnings */
-    page = page;		/* Suppress compile warnings */
-
     if (connected)
       switch (page_num)
       {
