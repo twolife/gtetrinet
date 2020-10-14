@@ -8,7 +8,7 @@
       <description>If set to true, the game mode will be set to TetriFast. If false, GTetrinet will use the original mode.</description>
     </key>
     <key name="server" type="s">
-      <default>'tetrinet.org'</default>
+      <default>'tetrinet.fr'</default>
       <summary>Server where you want to play</summary>
       <description>This is the server where GTetrinet will try to connect.</description>
     </key>

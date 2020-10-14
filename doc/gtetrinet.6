@@ -5,7 +5,7 @@
 .\" This is free documentation, see the latest version of the GNU Free
 .\" Documentation License for copying conditions. There is NO warranty.
 .\"
-.TH GTETRINET 6 "August 30, 2005" "gtetrinet"
+.TH GTETRINET 6 "October 14, 2020" "gtetrinet"
 .\" Please adjust this date whenever revising the manpage.
 .\"
 
@@ -25,12 +25,8 @@ command.
 Tetrinet is a variant of the popular Tetris brick game, that can be played
 simultaneously by 6 players. GTetrinet's goal is to remain completely
 compatible with the Windows, original client. Tetrinet clients need to
-connect to a dedicated server in order to be useful. GTetrient only provides
-the client part, but there are plenty of available servers around.
-Look at http://www.tetrinet.org/ for a list of servers.
-.PP
-There is also an implementation of the server for UNIX, called tetrinetx. You
-can find more info about it in http://tetrinetx.sourceforge.net/.
+connect to a dedicated server in order to be useful (see USAGE). GTetrinet
+only provides the client part.
 .SH OPTIONS
 GTetrinet accepts the following options, besides the usual Gtk+/GNOME
 switches:
@@ -56,10 +52,13 @@ Use the given password to connect as a spectator (if needed).
 .SH USAGE
 To play Tetrinet, you first need to find a server where you can connect.
 You may try the servers at
-.I http://www.tetrinet.org/
-or create your own using \fBtetrinetx\fP (a UNIX server, not included in
-this package).
-.br
+.I https://servers.tetrinet.fr/
+or create your own using \fBtetrinetx\fP (a UNIX server, see
+.I http://tetrinetx.sourceforge.net/
+) or \fBJetrix\fP (a Java server, see
+.I https://github.com/ebourg/jetrix
+for the most recent version).
+.PP
 Once inside a server, you'll be able to communicate with other players
 using the \fBPartyLine\fP tab, see the server's highscores in the
 \fBWinlist\fP tab and the actual game in the \fBPlaying Fields\fP tab.
