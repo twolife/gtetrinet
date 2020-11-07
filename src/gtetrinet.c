@@ -107,7 +107,8 @@ GSettings *get_schema_settings(const gchar *schema_id)
 {
   GSettingsSchema *schema;
   GSettingsSchemaSource *schema_source;
-  schema_source = g_settings_schema_source_new_from_directory(GSETTINGSSCHEMADIR, g_settings_schema_source_get_default(), FALSE, NULL); // @suppress("Symbol is not resolved")
+  GError **error = NULL;
+  schema_source = g_settings_schema_source_new_from_directory(GSETTINGSSCHEMADIR, g_settings_schema_source_get_default(), FALSE, error);
   schema = g_settings_schema_source_lookup(schema_source, schema_id, FALSE);
   if (schema == NULL)
   {
