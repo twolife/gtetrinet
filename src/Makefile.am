@@ -2,20 +2,15 @@ SUBDIRS = images
 
 localedir = $(datadir)/locale
 
-AM_CFLAGS = $(GTETRINET_CFLAGS)
-
-if HAVE_CANBERRAGTK
-gtetrinet_LDADD = $(GTETRINET_LIBS) $(CANBERRAGTK_LIBS)
-else
-gtetrinet_LDADD = $(GTETRINET_LIBS)
-endif
+gtetrinet_LDADD = $(glib_LIBS) $(gtk_LIBS) $(libcanberra_LIBS)
 
 AM_CPPFLAGS = \
 	-DGTETRINET_DATA=\"$(pkgdatadir)\"                      \
 	-DGTETPIXMAPSDIR=\""$(datadir)/pixmaps/gtetrinet"\"     \
 	-DLOCALEDIR=\"$(localedir)\"                            \
 	-DPIXMAPSDIR=\""$(datadir)/pixmaps"\"                   \
-	-DGSETTINGSSCHEMADIR=\"$(gsettingsschemadir)\"
+	-DGSETTINGSSCHEMADIR=\"$(gsettingsschemadir)\"          \
+	$(glib_CFLAGS) $(gtk_CFLAGS) $(canberragtk_CFLAGS)
 
 gamesdir = $(prefix)/games
 games_PROGRAMS = gtetrinet

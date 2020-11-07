@@ -13,9 +13,17 @@ AM_MAINTAINER_MODE([enable])
 # Enable silent rules by default
 AM_SILENT_RULES([yes])
 
-# Check for programs
+# Checks for programs
 AC_PROG_CC
 AC_PROG_INSTALL
+AC_PROG_AWK
+AC_PROG_CPP
+AC_PROG_MKDIR_P
+
+# Checks for libraries
+
+# Checks for header files
+AC_CHECK_HEADERS([libintl.h netdb.h netinet/in.h stdlib.h string.h sys/socket.h sys/time.h unistd.h])
 
 # Check for header files
 AC_CHECK_HEADERS([ctype.h dirent.h errno.h locale.h signal.h \
@@ -23,8 +31,11 @@ AC_CHECK_HEADERS([ctype.h dirent.h errno.h locale.h signal.h \
                   netdb.h netinet/in.h \
                   sys/poll.h sys/socket.h sys/time.h sys/types.h sys/wait.h])
 
+# Checks for typedefs, structures, and compiler characteristics.
+AC_TYPE_SIZE_T
+
 # Check for library functions
-AC_CHECK_FUNCS([memset setlocale])
+AC_CHECK_FUNCS([atexit memset socket strcasecmp strerror strncasecmp])
 
 # Initialise i18n
 AM_GNU_GETTEXT_VERSION([0.19.8])
@@ -35,28 +46,25 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Define to the gettext domain name.])
 
 # Check for pkg-config
-PKG_PROG_PKG_CONFIG([0.22])
+PKG_PROG_PKG_CONFIG([0.24])
 
-# Check for required packages
+# minimal required versions
 LIBGLIB_REQUIRED=2.32.0
 LIBGTK_REQUIRED=3.18.0
 LIBCANBERRAGTK_OPTIONAL=0.26
 
-PKG_CHECK_MODULES(GTETRINET,[
-                  glib-2.0 >= $LIBGLIB_REQUIRED
-                  gtk+-3.0 >= $LIBGTK_REQUIRED
-])
+# Check for dependencies
+PKG_CHECK_MODULES([glib],[glib-2.0 >= $LIBGLIB_REQUIRED])
+PKG_CHECK_MODULES([gtk],[gtk+-3.0 >= $LIBGTK_REQUIRED])
 
 AC_PATH_PROG(GLIB_COMPILE_SCHEMAS, glib-compile-schemas)
 
 GLIB_GSETTINGS
 
-PKG_CHECK_MODULES(CANBERRAGTK, [libcanberra-gtk3 >= $LIBCANBERRAGTK_OPTIONAL], have_canberragtk=yes, have_canberragtk=no)
-if test "x$have_canberragtk" = "xyes"; then
+PKG_CHECK_MODULES([libcanberra], [libcanberra-gtk3 >= $LIBCANBERRAGTK_OPTIONAL], have_canberragtk=yes, have_canberragtk=no)
+AS_IF([test "x$have_canberragtk" = "xyes"],
 	AC_DEFINE([HAVE_CANBERRAGTK],[1],[Define this to enable sound support.])
-	AC_SUBST(CANBERRAGTK_CFLAGS)
-	AC_SUBST(CANBERRAGTK_LIBS)
-fi
+)
 AM_CONDITIONAL(HAVE_CANBERRAGTK, test "x$have_canberragtk" = "xyes")
 
 # configure options
@@ -65,29 +73,11 @@ AC_ARG_ENABLE(detach,
 	AS_HELP_STRING([--enable-detach],[Enable page detaching support (default=no)]),
 	enable_detach="yes")
 AC_MSG_CHECKING([if page detaching support should be built])
-if test "x$enable_detach" = "xyes"; then
-	AC_DEFINE([ENABLE_DETACH],[1],[Define this to enable page detaching.])
-else
-	enable_detach="no"
-fi
+AS_IF([test "x$enable_detach" = "xyes"],
+	AC_DEFINE([ENABLE_DETACH],[1],[Define this to enable page detaching.]),
+	enable_detach="no")
+
 AC_MSG_RESULT($enable_detach)
-
-dnl ---------------------------------------------------------------------------
-dnl - Use strict options (default enabled for devs, disabled in releases)
-dnl ---------------------------------------------------------------------------
-if test -d ".git"; then
-	default_strict=yes
-else
-	default_strict=no
-fi
-
-AC_ARG_ENABLE(strict, AS_HELP_STRING([--enable-strict],[Enable strict compilation options]), enable_strict=$enableval,
-					enable_strict=$default_strict)
-if test x$enable_strict != xno; then
-        #CPPFLAGS="$CPPFLAGS -DG_DISABLE_SINGLE_INCLUDES -DGTK_DISABLE_SINGLE_INCLUDES"
-        #CPPFLAGS="$CPPFLAGS -DG_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED"
-	CPPFLAGS="$CPPFLAGS"
-fi
 
 # Generate files
 AC_CONFIG_FILES([
