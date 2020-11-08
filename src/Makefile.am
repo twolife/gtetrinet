@@ -12,8 +12,7 @@ AM_CPPFLAGS = \
 	-DGSETTINGSSCHEMADIR=\"$(gsettingsschemadir)\"          \
 	$(glib_CFLAGS) $(gtk_CFLAGS) $(canberragtk_CFLAGS)
 
-gamesdir = $(prefix)/games
-games_PROGRAMS = gtetrinet
+bin_PROGRAMS = gtetrinet
 
 gtetrinet_SOURCES = \
 	client.c \
