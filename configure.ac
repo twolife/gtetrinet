@@ -45,6 +45,9 @@ GETTEXT_PACKAGE=gtetrinet
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Define to the gettext domain name.])
 
+# For distcheck, msgfmt from gettext(-runtime) is needed, which is not acted upon by above directives
+AC_CHECK_PROGS([found_msgfmt], [msgfmt], [no] )
+
 # Check for pkg-config
 PKG_PROG_PKG_CONFIG([0.24])
 
@@ -60,6 +63,10 @@ PKG_CHECK_MODULES([gtk],[gtk+-3.0 >= $LIBGTK_REQUIRED])
 AC_PATH_PROG(GLIB_COMPILE_SCHEMAS, glib-compile-schemas)
 
 GLIB_GSETTINGS
+
+AC_CHECK_LIB([popt], [poptGetContext], [],
+	[AC_MSG_FAILURE([No library 'libpopt' found])]
+)
 
 PKG_CHECK_MODULES([libcanberra], [libcanberra-gtk3 >= $LIBCANBERRAGTK_OPTIONAL], have_canberragtk=yes, have_canberragtk=no)
 AS_IF([test "x$have_canberragtk" = "xyes"],
@@ -98,8 +105,9 @@ echo
 echo "   Configuration result"
 echo "   ------------- ------"
 echo
-echo "   GTranslator version: ${PACKAGE_VERSION}"
-echo "   Compilation flags:   ${CFLAGS}"
-echo "   CPPFLAGS:            ${CPPFLAGS}"
-echo "   Sound support:       $have_canberragtk"
-echo "   Page detaching:      $enable_detach"
+echo "   GTranslator version:              ${PACKAGE_VERSION}"
+echo "   Compilation flags:                ${CFLAGS}"
+echo "   CPPFLAGS:                         ${CPPFLAGS}"
+echo "   msgfmt (required for make dist):  $found_msgfmt"
+echo "   Sound support:                    $have_canberragtk"
+echo "   Page detaching:                   $enable_detach"

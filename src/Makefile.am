@@ -20,11 +20,11 @@ gtetrinet_SOURCES = \
 	commands.c \
 	commands.h \
 	config.c \
-	config.h \
 	dialogs.c \
 	dialogs.h \
 	fields.c \
 	fields.h \
+	gtet_config.h \
 	gtetrinet.c \
 	gtetrinet.h \
 	misc.c \
@@ -40,6 +40,13 @@ gtetrinet_SOURCES = \
 	winlist.c \
 	winlist.h \
 	resources.c
+
+EXTRA_DIST = \
+	gtetrinet.gresource.xml.in \
+	partyline.ui \
+	field.ui \
+	fields.ui \
+	winlist.ui
 
 BUILT_SOURCES = resources.c
 

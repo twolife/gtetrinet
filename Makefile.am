@@ -23,18 +23,12 @@ EXTRA_DIST = \
 	AUTHORS \
 	COPYING \
 	ChangeLog \
-	INSTALL \
 	NEWS \
-	README \
+	README.md \
 	TODO \
-	config.guess \
-	config.sub \
-	config.rpath \
-	install-sh \
-	missing \
-	mkinstalldirs \
 	$(icon_DATA) \
-	$(Applications_in_files)
+	$(Applications_in_files) \
+	$(gsettings_SCHEMAS)
 
 CLEANFILES = \
 	$(Applications_DATA)
