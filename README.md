@@ -1,3 +1,5 @@
+![C/C++ CI](https://github.com/tatankat/gtetrinet/workflows/C/C++%20CI/badge.svg)
+
 GTetrinet
 ---------
 
