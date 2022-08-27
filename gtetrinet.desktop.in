@@ -2,6 +2,7 @@
 Name=GTetrinet
 GenericName=Tetrinet client
 Comment=Tetrinet client for GNOME
+Keywords=tetrinet;game;blocksgame;multiplayer
 Exec=env GDK_BACKEND=x11 gtetrinet
 Icon=gtetrinet
 StartupNotify=true
