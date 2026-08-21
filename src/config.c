@@ -148,15 +148,15 @@ void config_loadtheme (const gchar *themedir)
 
  bad_theme:
     {
-      GtkWidget *mb;
-      mb = gtk_message_dialog_new (NULL,
+      GtkAlertDialog *dialog;
+      dialog = gtk_alert_dialog_new (NULL,
                                    0,
                                    GTK_MESSAGE_WARNING,
                                    GTK_BUTTONS_OK,
                                    _("Warning: theme does not have a name, "
                                      "reverting to default."));
-      gtk_dialog_run (GTK_DIALOG (mb));
-      gtk_widget_destroy (mb);
+      gtk_alert_dialog_show (dialog, NULL);
+      g_object_unref (dialog);
       g_key_file_unref (keyfile);
       g_string_assign(currenttheme, DEFAULTTHEME);
       config_loadtheme (currenttheme->str);

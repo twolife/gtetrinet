@@ -13,7 +13,7 @@ gsettings_SCHEMAS = gtetrinet.gschema.xml
 @GSETTINGS_RULES@
 
 Applicationsdir = $(datadir)/applications
-Applications_in_files = gtetrinet.desktop.in
+Applications_in_files = net.sourceforge.gtetrinet.GTetrinet.desktop.in
 Applications_DATA = $(Applications_in_files:.desktop.in=.desktop)
 $(Applications_DATA): $(Applications_in_files)
 	$(AM_V_GEN) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@

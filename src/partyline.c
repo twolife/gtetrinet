@@ -42,7 +42,8 @@ static GtkWidget *playerlist, *textbox, *entrybox,
     *namelabel, *teamlabel, *infolabel, *channel_box,
     *textboxlabel, *channel_list;
 
-static GtkListStore *work_model, *channellist_model;
+static GListStore *work_model, *channellist_model, *playerlist_model;
+static GtkSingleSelection *channel_selection;
 
 /* stuff for pline history */
 #define PLHSIZE 64
@@ -51,40 +52,409 @@ int plh_start = 0, plh_end = 0, plh_cur = 0;
 
 /* function prototypes for callbacks */
 static void textentry (GtkWidget *widget);
-static gint entrykey (GtkWidget *widget, GdkEventKey *key);
-void channel_activated (GtkTreeView *treeview);
+static gboolean entrykey (GtkEventControllerKey *controller,
+                           guint keyval,
+                           guint keycode,
+                           GdkModifierType state,
+                           gpointer user_data);
+static void channel_activated (GtkColumnView *view, guint position, gpointer data);
+
+typedef struct _PartylinePlayer {
+    GObject parent_instance;
+    char *number;
+    char *name;
+    char *team;
+} PartylinePlayer;
+
+typedef struct _PartylinePlayerClass {
+    GObjectClass parent_class;
+} PartylinePlayerClass;
+
+typedef struct _PartylineChannel {
+    GObject parent_instance;
+    gint number;
+    char *name;
+    char *players;
+    char *state;
+    char *description;
+} PartylineChannel;
+
+typedef struct _PartylineChannelClass {
+    GObjectClass parent_class;
+} PartylineChannelClass;
+
+G_DEFINE_TYPE (PartylinePlayer, partyline_player, G_TYPE_OBJECT)
+G_DEFINE_TYPE (PartylineChannel, partyline_channel, G_TYPE_OBJECT)
+
+static void
+partyline_player_finalize (GObject *object)
+{
+    PartylinePlayer *item = (PartylinePlayer *) object;
+
+    g_free (item->number);
+    g_free (item->name);
+    g_free (item->team);
+    G_OBJECT_CLASS (partyline_player_parent_class)->finalize (object);
+}
+
+static void
+partyline_player_class_init (PartylinePlayerClass *klass)
+{
+    G_OBJECT_CLASS (klass)->finalize = partyline_player_finalize;
+}
+
+static void
+partyline_player_init (PartylinePlayer *item)
+{
+    item->number = NULL;
+    item->name = NULL;
+    item->team = NULL;
+}
+
+static PartylinePlayer *
+partyline_player_new (const char *number, const char *name, const char *team)
+{
+    PartylinePlayer *item;
+
+    item = g_object_new (partyline_player_get_type (), NULL);
+    item->number = g_strdup (number);
+    item->name = g_strdup (name);
+    item->team = g_strdup (team);
+
+    return item;
+}
+
+static void
+partyline_channel_finalize (GObject *object)
+{
+    PartylineChannel *item = (PartylineChannel *) object;
+
+    g_free (item->name);
+    g_free (item->players);
+    g_free (item->state);
+    g_free (item->description);
+    G_OBJECT_CLASS (partyline_channel_parent_class)->finalize (object);
+}
+
+static void
+partyline_channel_class_init (PartylineChannelClass *klass)
+{
+    G_OBJECT_CLASS (klass)->finalize = partyline_channel_finalize;
+}
+
+static void
+partyline_channel_init (PartylineChannel *item)
+{
+    item->number = 0;
+    item->name = NULL;
+    item->players = NULL;
+    item->state = NULL;
+    item->description = NULL;
+}
+
+static PartylineChannel *
+partyline_channel_new (gint number,
+                       const char *name,
+                       const char *players,
+                       const char *state,
+                       const char *description)
+{
+    PartylineChannel *item;
+
+    item = g_object_new (partyline_channel_get_type (), NULL);
+    item->number = number;
+    item->name = g_strdup (name);
+    item->players = g_strdup (players);
+    item->state = g_strdup (state);
+    item->description = g_strdup (description);
+
+    return item;
+}
+
+static void
+partyline_label_setup (GtkSignalListItemFactory *factory G_GNUC_UNUSED,
+                       GtkListItem *list_item,
+                       gpointer data G_GNUC_UNUSED)
+{
+    GtkWidget *label = gtk_label_new (NULL);
+
+    gtk_label_set_xalign (GTK_LABEL (label), 0.0f);
+    gtk_label_set_ellipsize (GTK_LABEL (label), PANGO_ELLIPSIZE_END);
+    gtk_list_item_set_child (list_item, label);
+}
+
+enum {
+    PLAYER_COLUMN_NUMBER,
+    PLAYER_COLUMN_NAME,
+    PLAYER_COLUMN_TEAM
+};
+
+static void
+partyline_player_bind (GtkSignalListItemFactory *factory G_GNUC_UNUSED,
+                       GtkListItem *list_item,
+                       gpointer data)
+{
+    PartylinePlayer *item = gtk_list_item_get_item (list_item);
+    GtkWidget *label = gtk_list_item_get_child (list_item);
+    const char *text = "";
+
+    switch (GPOINTER_TO_INT (data)) {
+    case PLAYER_COLUMN_NUMBER: text = item->number; break;
+    case PLAYER_COLUMN_NAME:   text = item->name;   break;
+    case PLAYER_COLUMN_TEAM:   text = item->team;   break;
+    }
+
+    gtk_label_set_text (GTK_LABEL (label), text != NULL ? text : "");
+}
+
+enum {
+    CHANNEL_COLUMN_NAME,
+    CHANNEL_COLUMN_PLAYERS,
+    CHANNEL_COLUMN_STATE,
+    CHANNEL_COLUMN_DESCRIPTION
+};
+
+static void
+partyline_channel_bind (GtkSignalListItemFactory *factory G_GNUC_UNUSED,
+                        GtkListItem *list_item,
+                        gpointer data)
+{
+    PartylineChannel *item = gtk_list_item_get_item (list_item);
+    GtkWidget *label = gtk_list_item_get_child (list_item);
+    const char *text = "";
+
+    switch (GPOINTER_TO_INT (data)) {
+    case CHANNEL_COLUMN_NAME:        text = item->name;        break;
+    case CHANNEL_COLUMN_PLAYERS:     text = item->players;     break;
+    case CHANNEL_COLUMN_STATE:       text = item->state;       break;
+    case CHANNEL_COLUMN_DESCRIPTION: text = item->description; break;
+    }
+
+    gtk_label_set_text (GTK_LABEL (label), text != NULL ? text : "");
+}
+
+static void
+partyline_append_column (GtkColumnView *view,
+                         const char *title,
+                         GCallback bind_callback,
+                         int column_id,
+                         gboolean expand)
+{
+    GtkListItemFactory *factory;
+    GtkColumnViewColumn *column;
+
+    factory = gtk_signal_list_item_factory_new ();
+    g_signal_connect (factory, "setup",
+                      G_CALLBACK (partyline_label_setup), NULL);
+    g_signal_connect (factory, "bind",
+                      bind_callback, GINT_TO_POINTER (column_id));
+
+    column = gtk_column_view_column_new (title, factory);
+    gtk_column_view_column_set_resizable (column, TRUE);
+    gtk_column_view_column_set_expand (column, expand);
+    gtk_column_view_append_column (view, column);
+
+    /* append_column() keeps its own reference. */
+    g_object_unref (column);
+}
 
 GtkWidget *partyline_page_new (void)
 {
-    GtkBuilder *builder;
+    GtkWidget *partyline;
+    GtkWidget *left_box;
+    GtkWidget *right_box;
+    GtkWidget *vertical_paned;
+    GtkWidget *chat_box;
+    GtkWidget *scroll;
+    GtkWidget *frame;
+    GtkWidget *info_box;
+    GtkWidget *label;
+    GtkEventController *key_controller;
+    GtkSelectionModel *player_selection;
 
-    work_model = gtk_list_store_new (5, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
+    work_model = g_list_store_new (partyline_channel_get_type ());
+    channellist_model = g_list_store_new (partyline_channel_get_type ());
+    playerlist_model = g_list_store_new (partyline_player_get_type ());
 
-    builder = gtk_builder_new_from_resource("/apps/gtetrinet/partyline.ui");
-    // info about attributes: see gtk_tree_view_column_add_attribute
-    channellist_model = GTK_LIST_STORE (gtk_builder_get_object(builder, "channellist_model")); // model to add entries in list
-    channel_box = GTK_WIDGET (gtk_builder_get_object(builder, "channellist_treeview")); // tree view to change model, see stop_list function
-    channel_list = GTK_WIDGET (gtk_builder_get_object(builder, "channellist"));
-    g_signal_connect (G_OBJECT (channel_box), "row-activated",
+    /* Outer horizontal split: chat on the left, player list on the right. */
+    partyline = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
+    gtk_widget_set_focusable (partyline, TRUE);
+    gtk_widget_set_margin_start (partyline, 2);
+    gtk_widget_set_margin_end (partyline, 2);
+    gtk_paned_set_shrink_start_child (GTK_PANED(partyline), FALSE);
+    gtk_paned_set_shrink_end_child (GTK_PANED(partyline), FALSE);
+    gtk_paned_set_resize_start_child (GTK_PANED(partyline), TRUE);
+    gtk_paned_set_resize_end_child (GTK_PANED(partyline), FALSE);
+
+    left_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 2);
+    gtk_widget_set_margin_start (left_box, 2);
+    gtk_widget_set_margin_end (left_box, 2);
+    gtk_widget_set_margin_top (left_box, 2);
+    gtk_widget_set_margin_bottom (left_box, 2);
+    gtk_widget_set_hexpand (left_box, TRUE);
+    gtk_paned_set_start_child (GTK_PANED(partyline), left_box);
+
+    /*
+     * Channel list above the actual partyline text.  This split is vertical
+     * and keeps the channel list at its natural/minimum size.
+     */
+    vertical_paned = gtk_paned_new (GTK_ORIENTATION_VERTICAL);
+    gtk_widget_set_focusable (vertical_paned, TRUE);
+    gtk_widget_set_hexpand (vertical_paned, TRUE);
+    gtk_widget_set_vexpand (vertical_paned, TRUE);
+    gtk_paned_set_resize_start_child (GTK_PANED(vertical_paned), FALSE);
+    gtk_paned_set_shrink_start_child (GTK_PANED(vertical_paned), FALSE);
+    gtk_paned_set_resize_end_child (GTK_PANED(vertical_paned), TRUE);
+    gtk_paned_set_shrink_end_child (GTK_PANED(vertical_paned), TRUE);
+    gtk_box_append (GTK_BOX(left_box), vertical_paned);
+
+    channel_list = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+
+    label = gtk_label_new (NULL);
+    gtk_label_set_markup (GTK_LABEL(label), _("<b>Channel List</b>"));
+    gtk_box_append (GTK_BOX(channel_list), label);
+
+    channel_selection = gtk_single_selection_new (
+        G_LIST_MODEL (g_object_ref (channellist_model)));
+    channel_box = gtk_column_view_new (GTK_SELECTION_MODEL (channel_selection));
+    gtk_widget_set_focusable (channel_box, TRUE);
+    gtk_column_view_set_single_click_activate (GTK_COLUMN_VIEW (channel_box), FALSE);
+
+    partyline_append_column (GTK_COLUMN_VIEW (channel_box), _("Name"),
+                             G_CALLBACK (partyline_channel_bind),
+                             CHANNEL_COLUMN_NAME, FALSE);
+    partyline_append_column (GTK_COLUMN_VIEW (channel_box), _("Players"),
+                             G_CALLBACK (partyline_channel_bind),
+                             CHANNEL_COLUMN_PLAYERS, FALSE);
+    partyline_append_column (GTK_COLUMN_VIEW (channel_box), _("State"),
+                             G_CALLBACK (partyline_channel_bind),
+                             CHANNEL_COLUMN_STATE, FALSE);
+    partyline_append_column (GTK_COLUMN_VIEW (channel_box), _("Description"),
+                             G_CALLBACK (partyline_channel_bind),
+                             CHANNEL_COLUMN_DESCRIPTION, TRUE);
+
+    g_signal_connect (channel_box, "activate",
                       G_CALLBACK (channel_activated), NULL);
-    entrybox = GTK_WIDGET (gtk_builder_get_object(builder, "entrybox"));
-    g_signal_connect (G_OBJECT(entrybox), "activate",
-                      G_CALLBACK(textentry), NULL);
-    g_signal_connect (G_OBJECT(entrybox), "key-press-event",
-                      G_CALLBACK(entrykey), NULL);
-    infolabel = GTK_WIDGET (gtk_builder_get_object(builder, "infolabel"));
-    textbox = GTK_WIDGET (gtk_builder_get_object(builder, "textbox"));
-    textboxlabel = GTK_WIDGET (gtk_builder_get_object(builder, "textboxlabel"));
-    gtk_text_view_set_buffer( GTK_TEXT_VIEW (textbox), gtk_text_buffer_new(tag_table));
-    playerlist = GTK_WIDGET (gtk_builder_get_object(builder, "playerlist"));
-    namelabel = GTK_WIDGET (gtk_builder_get_object(builder, "namelabel"));
-    teamlabel = GTK_WIDGET (gtk_builder_get_object(builder, "teamlabel"));
 
-    /* set a few things */
+    scroll = gtk_scrolled_window_new ();
+    gtk_widget_set_focusable (scroll, TRUE);
+    gtk_widget_set_vexpand (scroll, TRUE);
+    gtk_widget_set_size_request (scroll, -1, 100);
+    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll),
+                                    GTK_POLICY_AUTOMATIC,
+                                    GTK_POLICY_ALWAYS);
+    gtk_scrolled_window_set_child (GTK_SCROLLED_WINDOW(scroll), channel_box);
+    gtk_box_append (GTK_BOX(channel_list), scroll);
+
+    gtk_paned_set_start_child (GTK_PANED(vertical_paned), channel_list);
+
+    chat_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+    gtk_widget_set_vexpand (chat_box, TRUE);
+
+    textboxlabel = gtk_label_new ("");
+    gtk_box_append (GTK_BOX(chat_box), textboxlabel);
+
+    textbox = gtk_text_view_new ();
+    gtk_widget_set_focusable (textbox, TRUE);
+    gtk_text_view_set_editable (GTK_TEXT_VIEW(textbox), FALSE);
+    gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW(textbox), GTK_WRAP_WORD);
+    gtk_text_view_set_buffer (GTK_TEXT_VIEW(textbox),
+                              gtk_text_buffer_new(tag_table));
+
+    scroll = gtk_scrolled_window_new ();
+    gtk_widget_set_focusable (scroll, TRUE);
+    gtk_widget_set_vexpand (scroll, TRUE);
+    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scroll),
+                                    GTK_POLICY_AUTOMATIC,
+                                    GTK_POLICY_ALWAYS);
+    gtk_scrolled_window_set_child (GTK_SCROLLED_WINDOW(scroll), textbox);
+    gtk_box_append (GTK_BOX(chat_box), scroll);
+
+    gtk_paned_set_end_child (GTK_PANED(vertical_paned), chat_box);
+
+    entrybox = gtk_entry_new ();
+    gtk_widget_set_focusable (entrybox, TRUE);
+    gtk_entry_set_max_length (GTK_ENTRY(entrybox), 200);
+    g_signal_connect (entrybox, "activate",
+                      G_CALLBACK(textentry), NULL);
+
+    key_controller = gtk_event_controller_key_new ();
+    g_signal_connect (key_controller, "key-pressed",
+                      G_CALLBACK(entrykey), entrybox);
+    gtk_widget_add_controller (entrybox, key_controller);
+
+    gtk_box_append (GTK_BOX(left_box), entrybox);
+
+    /* Right side: players, followed by local player information. */
+    right_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 2);
+    gtk_widget_set_margin_start (right_box, 2);
+    gtk_widget_set_margin_end (right_box, 2);
+    gtk_widget_set_margin_top (right_box, 2);
+    gtk_widget_set_margin_bottom (right_box, 2);
+    gtk_paned_set_end_child (GTK_PANED(partyline), right_box);
+
+    player_selection = GTK_SELECTION_MODEL (
+        gtk_no_selection_new (G_LIST_MODEL (g_object_ref (playerlist_model))));
+    playerlist = gtk_column_view_new (player_selection);
+    gtk_widget_set_focusable (playerlist, TRUE);
+
+    partyline_append_column (GTK_COLUMN_VIEW (playerlist), "",
+                             G_CALLBACK (partyline_player_bind),
+                             PLAYER_COLUMN_NUMBER, FALSE);
+    partyline_append_column (GTK_COLUMN_VIEW (playerlist), _("Name"),
+                             G_CALLBACK (partyline_player_bind),
+                             PLAYER_COLUMN_NAME, TRUE);
+    partyline_append_column (GTK_COLUMN_VIEW (playerlist), _("Team"),
+                             G_CALLBACK (partyline_player_bind),
+                             PLAYER_COLUMN_TEAM, TRUE);
+
+    scroll = gtk_scrolled_window_new ();
+    gtk_widget_set_focusable (scroll, TRUE);
+    gtk_widget_set_vexpand (scroll, TRUE);
+    gtk_scrolled_window_set_child (GTK_SCROLLED_WINDOW(scroll), playerlist);
+    gtk_box_append (GTK_BOX(right_box), scroll);
+
+    frame = gtk_frame_new (NULL);
+    info_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+    gtk_frame_set_child (GTK_FRAME(frame), info_box);
+
+    label = gtk_label_new (_("Your name:"));
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+    gtk_box_append (GTK_BOX(info_box), label);
+
+    namelabel = gtk_label_new ("");
+    gtk_label_set_justify (GTK_LABEL(namelabel), GTK_JUSTIFY_CENTER);
+    gtk_label_set_wrap (GTK_LABEL(namelabel), TRUE);
+    gtk_label_set_wrap_mode (GTK_LABEL(namelabel), PANGO_WRAP_WORD_CHAR);
+    gtk_box_append (GTK_BOX(info_box), namelabel);
+
+    label = gtk_label_new (_("Your team:"));
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+    gtk_box_append (GTK_BOX(info_box), label);
+
+    teamlabel = gtk_label_new ("");
+    gtk_label_set_justify (GTK_LABEL(teamlabel), GTK_JUSTIFY_CENTER);
+    gtk_label_set_wrap (GTK_LABEL(teamlabel), TRUE);
+    gtk_label_set_wrap_mode (GTK_LABEL(teamlabel), PANGO_WRAP_WORD_CHAR);
+    gtk_box_append (GTK_BOX(info_box), teamlabel);
+
+    gtk_box_append (GTK_BOX(info_box),
+                    gtk_separator_new (GTK_ORIENTATION_HORIZONTAL));
+
+    infolabel = gtk_label_new ("");
+    gtk_widget_set_halign (infolabel, GTK_ALIGN_END);
+    gtk_label_set_justify (GTK_LABEL(infolabel), GTK_JUSTIFY_RIGHT);
+    gtk_label_set_wrap (GTK_LABEL(infolabel), TRUE);
+    gtk_box_append (GTK_BOX(info_box), infolabel);
+
+    gtk_box_append (GTK_BOX(right_box), frame);
+
+    /* Set a few things. */
     partyline_connectstatus (FALSE);
     plhistory[0][0] = 0;
+    gtk_paned_set_position (GTK_PANED(partyline), 550);
 
-    return GTK_WIDGET (gtk_builder_get_object(builder, "partyline"));
+    return partyline;
 }
 
 void partyline_connectstatus (int status)
@@ -153,34 +523,34 @@ void partyline_playerlist (int *numbers, char **names, char **teams, int n, char
 {
     int i;
     char buf0[16], buf1[128], buf2[128];
-    GtkListStore *playerlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (playerlist)));
-    GtkTreeIter iter;
 
-    /* update the playerlist so that it contains only the given names */
-    gtk_list_store_clear (playerlist_model);
+    g_list_store_remove_all (playerlist_model);
 
-    for (i = 0; i < n; i ++) {
+    for (i = 0; i < n; i++) {
+        PartylinePlayer *item;
+
         g_snprintf (buf0, sizeof(buf0), "%d", numbers[i]);
         GTET_O_STRCPY (buf1, nocolor(names[i]));
         GTET_O_STRCPY (buf2, nocolor(teams[i]));
-   
-        gtk_list_store_append (playerlist_model, &iter);
-        gtk_list_store_set (playerlist_model, &iter,
-                            0, buf0, 1, buf1, 2, buf2, -1);
+
+        item = partyline_player_new (buf0, buf1, buf2);
+        g_list_store_append (playerlist_model, item);
+        g_object_unref (item);
     }
 
-    buf0[0] = buf1[0] = buf2[0] = 0;
-    gtk_list_store_append (playerlist_model, &iter);
-    gtk_list_store_set (playerlist_model, &iter,
-                        0, buf0, 1, buf1, 2, buf2, -1);
+    {
+        PartylinePlayer *separator = partyline_player_new ("", "", "");
+        g_list_store_append (playerlist_model, separator);
+        g_object_unref (separator);
+    }
 
-    for (i = 0; i < sn; i ++) {
-        GTET_O_STRCPY (buf0, "S");
+    for (i = 0; i < sn; i++) {
+        PartylinePlayer *item;
+
         GTET_O_STRCPY (buf1, nocolor(specs[i]));
-        GTET_O_STRCPY (buf2, "");
-        gtk_list_store_append (playerlist_model, &iter);
-        gtk_list_store_set (playerlist_model, &iter,
-                            0, buf0, 1, buf1, 2, buf2, -1);
+        item = partyline_player_new ("S", buf1, "");
+        g_list_store_append (playerlist_model, item);
+        g_object_unref (item);
     }
 }
 
@@ -188,7 +558,7 @@ void partyline_entryfocus (void)
 {
     if (connected)
     {
-      gtk_entry_set_text (GTK_ENTRY (entrybox), "");
+      gtk_editable_set_text (GTK_EDITABLE (entrybox), "");
       gtk_editable_set_position (GTK_EDITABLE (entrybox), 0);
       gtk_widget_grab_focus (entrybox);
     }
@@ -197,7 +567,7 @@ void partyline_entryfocus (void)
 void textentry (GtkWidget *widget)
 {
     const char *text;
-    text = gtk_entry_get_text (GTK_ENTRY(widget));
+    text = gtk_editable_get_text (GTK_EDITABLE(widget));
 
     if (strlen(text) == 0) return;
 
@@ -211,7 +581,7 @@ void textentry (GtkWidget *widget)
     
     tetrinet_playerline (text);
     GTET_O_STRCPY (plhistory[plh_end], text);
-    gtk_entry_set_text (GTK_ENTRY(widget), "");
+    gtk_editable_set_text (GTK_EDITABLE(widget), "");
 
     plh_end ++;
     if (plh_end == PLHSIZE) plh_end = 0;
@@ -221,57 +591,64 @@ void textentry (GtkWidget *widget)
 
 }
 
-static gboolean is_nick (GtkTreeModel *model,
-                         GtkTreePath *path,
-                         GtkTreeIter *iter,
-                         gpointer data)
-{
-  gchar *nick, *aux, *down;
-
-  gtk_tree_model_get (model, iter, 1, &nick, -1);
-  down = g_utf8_strdown (nick, -1);
-
-  if (g_str_has_prefix (down, data))
-  {
-    aux = g_strconcat (nick, ": ", NULL);
-    gtk_entry_set_text (GTK_ENTRY (entrybox), aux);
-    gtk_editable_set_position (GTK_EDITABLE (entrybox), -1);
-
-    g_free (aux);
-    g_free (nick);
-    g_free (down);
-    return TRUE;
-  }
-  else
-  {
-    g_free (nick);
-    g_free (down);
-    return FALSE;
-  }
-}
-
 static void playerlist_complete_nick (void)
 {
-  GtkListStore *playerlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (playerlist)));
-  gchar *text;
+    gchar *text;
+    guint i, count;
 
-  text = g_utf8_strdown (gtk_entry_get_text (GTK_ENTRY (entrybox)), -1);
-  if (text == NULL) return;
+    text = g_utf8_strdown (gtk_editable_get_text (GTK_EDITABLE (entrybox)), -1);
+    if (text == NULL)
+        return;
 
-  gtk_tree_model_foreach (GTK_TREE_MODEL (playerlist_model), is_nick, text);
+    count = g_list_model_get_n_items (G_LIST_MODEL (playerlist_model));
 
-  g_free (text);
+    for (i = 0; i < count; i++) {
+        PartylinePlayer *item;
+        gchar *down;
+
+        item = g_list_model_get_item (G_LIST_MODEL (playerlist_model), i);
+        if (item == NULL)
+            continue;
+
+        down = g_utf8_strdown (item->name != NULL ? item->name : "", -1);
+        if (g_str_has_prefix (down, text)) {
+            gchar *aux = g_strconcat (item->name, ": ", NULL);
+
+            gtk_editable_set_text (GTK_EDITABLE (entrybox), aux);
+            gtk_editable_set_position (GTK_EDITABLE (entrybox), -1);
+
+            g_free (aux);
+            g_free (down);
+            g_object_unref (item);
+            break;
+        }
+
+        g_free (down);
+        g_object_unref (item);
+    }
+
+    g_free (text);
 }
 
-static gint entrykey (GtkWidget *widget, GdkEventKey *key)
+static gboolean entrykey (GtkEventControllerKey *controller,
+                           guint keyval,
+                           guint keycode,
+                           GdkModifierType state,
+                           gpointer user_data)
 {
-    int keyval = key->keyval;
+    GtkWidget *widget = GTK_WIDGET (user_data);
     gchar *text = NULL;
+
+    (void)controller;
+    (void)keycode;
+    (void)state;
 
     if (keyval == GDK_KEY_Up || keyval == GDK_KEY_Down) {
         if (plh_cur == plh_end) {
-            GTET_O_STRCPY (plhistory[plh_end], gtk_entry_get_text(GTK_ENTRY(widget)));
+            GTET_O_STRCPY (plhistory[plh_end],
+                           gtk_editable_get_text (GTK_EDITABLE(widget)));
         }
+
         switch (keyval) {
         case GDK_KEY_Up:
             if (plh_cur == plh_start) break;
@@ -284,23 +661,21 @@ static gint entrykey (GtkWidget *widget, GdkEventKey *key)
             if (plh_cur == PLHSIZE) plh_cur = 0;
             break;
         }
-        text = plhistory[plh_cur]; 
-        gtk_entry_set_text (GTK_ENTRY(widget), text);
+
+        text = plhistory[plh_cur];
+        gtk_editable_set_text (GTK_EDITABLE(widget), text);
         gtk_editable_set_position (GTK_EDITABLE (widget), -1);
 #ifdef DEBUG
-        printf ("history: %d %d %d %s\n", plh_start, plh_end, plh_cur,
-                plhistory[plh_cur]);
+        printf ("history: %d %d %d %s", plh_start, plh_end, plh_cur, text);
 #endif
-        g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
         return TRUE;
     }
     else if (keyval == GDK_KEY_Left || keyval == GDK_KEY_Right) {
         return FALSE;
     }
-    else if (keyval == GDK_KEY_Tab)
-    {
-      playerlist_complete_nick ();
-      return TRUE;
+    else if (keyval == GDK_KEY_Tab) {
+        playerlist_complete_nick ();
+        return TRUE;
     }
     else {
         plh_cur = plh_end;
@@ -313,8 +688,6 @@ void partyline_add_channel (gchar *line)
   GScanner *scan;
   gint num, actual, max;
   gchar *name, *players, *state, final[1024], *desc, *utf8;
-  GtkTreeIter iter;
-  
   scan = g_scanner_new (NULL);
   g_scanner_input_text (scan, line, strlen (line));
   
@@ -409,14 +782,13 @@ void partyline_add_channel (gchar *line)
   }
   
   
-  gtk_list_store_append (work_model, &iter);
-  gtk_list_store_set (work_model, &iter,
-                      0, num,
-                      1, name,
-                      2, final,
-                      3, state,
-                      4, desc,
-                      -1);
+  {
+    PartylineChannel *item;
+
+    item = partyline_channel_new (num, name, final, state, desc);
+    g_list_store_append (work_model, item);
+    g_object_unref (item);
+  }
 
   g_scanner_destroy (scan);
   g_free (name);
@@ -426,47 +798,29 @@ void partyline_add_channel (gchar *line)
   g_free (utf8);
 }
 
-gboolean copy_item (GtkTreeModel *model,
-                    GtkTreePath *path,
-                    GtkTreeIter *iter)
-{
-  gint num;
-  gchar *name, *players, *state, *desc;
-  GtkTreeIter iter2;
-
-  gtk_tree_model_get (model, iter,
-                      0, &num,
-                      1, &name,
-                      2, &players,
-                      3, &state,
-                      4, &desc, -1);
-  
-  gtk_list_store_append (channellist_model, &iter2);
-  gtk_list_store_set (channellist_model, &iter2,
-                      0, num,
-                      1, name,
-                      2, players,
-                      3, state,
-                      4, desc,
-                      -1);
-  
-  g_free (players);
-  g_free (name);
-  g_free (state);
-  g_free (desc);
-  
-  return FALSE;
-}
-
 void stop_list (void)
 {
-  list_issued = 0;
-  
-  /* update the channel list widget, with some sort of "double buffering" */
-  gtk_tree_view_set_model (GTK_TREE_VIEW (channel_box), GTK_TREE_MODEL (work_model));
-  gtk_list_store_clear (channellist_model);
-  gtk_tree_model_foreach (GTK_TREE_MODEL (work_model), (GtkTreeModelForeachFunc) copy_item, NULL);
-  gtk_tree_view_set_model (GTK_TREE_VIEW (channel_box), GTK_TREE_MODEL (channellist_model));
+    guint i, count;
+
+    list_issued = 0;
+
+    /*
+     * Keep the old double-buffering behaviour: /list replies accumulate in
+     * work_model and become visible only when the batch is complete.
+     */
+    g_list_store_remove_all (channellist_model);
+
+    count = g_list_model_get_n_items (G_LIST_MODEL (work_model));
+    for (i = 0; i < count; i++) {
+        PartylineChannel *item;
+
+        item = g_list_model_get_item (G_LIST_MODEL (work_model), i);
+        if (item == NULL)
+            continue;
+
+        g_list_store_append (channellist_model, item);
+        g_object_unref (item);
+    }
 }
 
 gboolean partyline_update_channel_list (void)
@@ -477,7 +831,7 @@ gboolean partyline_update_channel_list (void)
   if (connected && list_enabled && (list_issued == 0))
   {
     list_issued++;
-    gtk_list_store_clear (work_model);
+    g_list_store_remove_all (work_model);
     tetrinet_playerline ("/list");
   
     /* send the mark */
@@ -500,26 +854,26 @@ void partyline_more_channel_lines (void)
 
 void partyline_clear_list_channel (void)
 {
-  gtk_list_store_clear (channellist_model);
-  gtk_list_store_clear (work_model);
+  g_list_store_remove_all (channellist_model);
+  g_list_store_remove_all (work_model);
 }
 
-void channel_activated (GtkTreeView *treeview)
+static void channel_activated (GtkColumnView *view G_GNUC_UNUSED,
+                               guint position,
+                               gpointer data G_GNUC_UNUSED)
 {
-  GtkTreeSelection *selection = gtk_tree_view_get_selection (treeview);
-  GtkTreeIter iter;
-  gchar *name, *cad;
-  
-  gtk_tree_selection_get_selected (selection, NULL, &iter);
-  gtk_tree_model_get (GTK_TREE_MODEL (channellist_model),
-                      &iter,
-                      1, &name, -1);
-  
-  cad = g_strconcat ("/join ", name, NULL);
-  tetrinet_playerline (cad);
-  
-  g_free (name);
-  g_free (cad);
+    PartylineChannel *item;
+    gchar *cad;
+
+    item = g_list_model_get_item (G_LIST_MODEL (channellist_model), position);
+    if (item == NULL)
+        return;
+
+    cad = g_strconcat ("/join ", item->name, NULL);
+    tetrinet_playerline (cad);
+
+    g_free (cad);
+    g_object_unref (item);
 }
 
 void partyline_joining_channel (const gchar *channel)
@@ -548,10 +902,10 @@ void partyline_show_channel_list (gboolean show)
     list_enabled = show;
     if (list_enabled)
     {
-      gtk_widget_show (channel_list);
+      gtk_widget_set_visible (channel_list, TRUE);
       partyline_update_channel_list ();
     }
     else
-      gtk_widget_hide (channel_list);
+      gtk_widget_set_visible (channel_list, FALSE);
   }
 }

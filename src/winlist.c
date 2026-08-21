@@ -31,63 +31,220 @@
 #include "winlist.h"
 #include "misc.h"
 
+typedef struct _WinlistItem {
+    GObject parent_instance;
+
+    gboolean team;
+    char *name;
+    int score;
+} WinlistItem;
+
+typedef struct _WinlistItemClass {
+    GObjectClass parent_class;
+} WinlistItemClass;
+
+G_DEFINE_TYPE (WinlistItem, winlist_item, G_TYPE_OBJECT)
+
 static GtkWidget *winlist;
-static GdkPixbuf *team_icon, *alone_icon;
+static GListStore *winlist_store;
+static GdkTexture *team_icon, *alone_icon;
+
+static void
+winlist_item_finalize (GObject *object)
+{
+    WinlistItem *item = (WinlistItem *) object;
+
+    g_free (item->name);
+
+    G_OBJECT_CLASS (winlist_item_parent_class)->finalize (object);
+}
+
+static void
+winlist_item_class_init (WinlistItemClass *klass)
+{
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
+
+    object_class->finalize = winlist_item_finalize;
+}
+
+static void
+winlist_item_init (WinlistItem *item)
+{
+    item->team = FALSE;
+    item->name = NULL;
+    item->score = 0;
+}
+
+static WinlistItem *
+winlist_item_new (gboolean team, const char *name, int score)
+{
+    WinlistItem *item;
+
+    item = g_object_new (winlist_item_get_type (), NULL);
+    item->team = team;
+    item->name = g_strdup (name);
+    item->score = score;
+
+    return item;
+}
+
+static void
+icon_factory_setup (GtkSignalListItemFactory *factory G_GNUC_UNUSED,
+                    GtkListItem *list_item,
+                    gpointer data G_GNUC_UNUSED)
+{
+    GtkWidget *image = gtk_image_new ();
+
+    gtk_image_set_pixel_size (GTK_IMAGE (image), 24);
+    gtk_list_item_set_child (list_item, image);
+}
+
+static void
+icon_factory_bind (GtkSignalListItemFactory *factory G_GNUC_UNUSED,
+                   GtkListItem *list_item,
+                   gpointer data G_GNUC_UNUSED)
+{
+    WinlistItem *item = gtk_list_item_get_item (list_item);
+    GtkWidget *image = gtk_list_item_get_child (list_item);
+    GdkTexture *texture = item->team ? team_icon : alone_icon;
+
+    gtk_image_set_from_paintable (GTK_IMAGE (image),
+                                  texture != NULL ? GDK_PAINTABLE (texture) : NULL);
+}
+
+static void
+name_factory_setup (GtkSignalListItemFactory *factory G_GNUC_UNUSED,
+                    GtkListItem *list_item,
+                    gpointer data G_GNUC_UNUSED)
+{
+    GtkWidget *label = gtk_label_new (NULL);
+
+    gtk_label_set_xalign (GTK_LABEL (label), 0.0f);
+    gtk_list_item_set_child (list_item, label);
+}
+
+static void
+name_factory_bind (GtkSignalListItemFactory *factory G_GNUC_UNUSED,
+                   GtkListItem *list_item,
+                   gpointer data G_GNUC_UNUSED)
+{
+    WinlistItem *item = gtk_list_item_get_item (list_item);
+    GtkWidget *label = gtk_list_item_get_child (list_item);
+
+    gtk_label_set_text (GTK_LABEL (label), item->name);
+}
+
+static void
+score_factory_setup (GtkSignalListItemFactory *factory G_GNUC_UNUSED,
+                     GtkListItem *list_item,
+                     gpointer data G_GNUC_UNUSED)
+{
+    GtkWidget *label = gtk_label_new (NULL);
+
+    gtk_label_set_xalign (GTK_LABEL (label), 0.0f);
+    gtk_list_item_set_child (list_item, label);
+}
+
+static void
+score_factory_bind (GtkSignalListItemFactory *factory G_GNUC_UNUSED,
+                    GtkListItem *list_item,
+                    gpointer data G_GNUC_UNUSED)
+{
+    WinlistItem *item = gtk_list_item_get_item (list_item);
+    GtkWidget *label = gtk_list_item_get_child (list_item);
+    char buf[16];
+
+    g_snprintf (buf, sizeof (buf), "%d", item->score);
+    gtk_label_set_text (GTK_LABEL (label), buf);
+}
+
+static GtkColumnViewColumn *
+winlist_column_new (const char *title,
+                    GCallback setup_cb,
+                    GCallback bind_cb)
+{
+    GtkListItemFactory *factory;
+    GtkColumnViewColumn *column;
+
+    factory = gtk_signal_list_item_factory_new ();
+    g_signal_connect (factory, "setup", setup_cb, NULL);
+    g_signal_connect (factory, "bind", bind_cb, NULL);
+
+    column = gtk_column_view_column_new (title, factory);
+    gtk_column_view_column_set_resizable (column, TRUE);
+
+    return column;
+}
 
 GtkWidget *winlist_page_new (void)
 {
-    GtkWidget *align, *scroll;
-    GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
-    GtkCellRenderer *pixbuf_renderer = gtk_cell_renderer_pixbuf_new ();
-    GtkListStore *winlist_store = gtk_list_store_new (3, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING);
-    GdkPixbuf *pixbuf;
-    GtkBuilder *builder;
+    GtkWidget *scroll;
+    GtkSelectionModel *selection;
+    GtkColumnViewColumn *column;
+    GError *error = NULL;
 
-    /* Load the icons and scale them */
-    pixbuf = gdk_pixbuf_new_from_file (GTETPIXMAPSDIR "/team.png",  NULL);
-    team_icon = gdk_pixbuf_scale_simple (pixbuf, 24, 24, GDK_INTERP_BILINEAR);
-    g_object_unref (pixbuf);
-    
-    pixbuf = gdk_pixbuf_new_from_file (GTETPIXMAPSDIR "/alone.png", NULL);
-    alone_icon = gdk_pixbuf_scale_simple (pixbuf, 24, 24, GDK_INTERP_BILINEAR);
-    g_object_unref (pixbuf);
+    team_icon = gdk_texture_new_from_filename (GTETPIXMAPSDIR "/team.png",
+                                               &error);
+    if (team_icon == NULL) {
+        g_warning ("Unable to load team icon: %s", error->message);
+        g_clear_error (&error);
+    }
 
-    builder = gtk_builder_new_from_resource("/apps/gtetrinet/winlist.ui");
-    winlist = GTK_WIDGET (gtk_builder_get_object(builder, "winlist"));
-    winlist_store = GTK_LIST_STORE (gtk_builder_get_object(builder, "winlist_model"));
+    alone_icon = gdk_texture_new_from_filename (GTETPIXMAPSDIR "/alone.png",
+                                                &error);
+    if (alone_icon == NULL) {
+        g_warning ("Unable to load player icon: %s", error->message);
+        g_clear_error (&error);
+    }
 
-    return GTK_WIDGET (gtk_builder_get_object(builder, "winlist_parent"));
+    winlist_store = g_list_store_new (winlist_item_get_type ());
+    selection = GTK_SELECTION_MODEL (
+        gtk_no_selection_new (G_LIST_MODEL (g_object_ref (winlist_store))));
+
+    winlist = gtk_column_view_new (selection);
+    gtk_widget_set_focusable (winlist, TRUE);
+
+    column = winlist_column_new (_("T"),
+                                 G_CALLBACK (icon_factory_setup),
+                                 G_CALLBACK (icon_factory_bind));
+    gtk_column_view_append_column (GTK_COLUMN_VIEW (winlist), column);
+
+    column = winlist_column_new (_("Name"),
+                                 G_CALLBACK (name_factory_setup),
+                                 G_CALLBACK (name_factory_bind));
+    gtk_column_view_append_column (GTK_COLUMN_VIEW (winlist), column);
+
+    column = winlist_column_new (_("Score"),
+                                 G_CALLBACK (score_factory_setup),
+                                 G_CALLBACK (score_factory_bind));
+    gtk_column_view_append_column (GTK_COLUMN_VIEW (winlist), column);
+
+    scroll = gtk_scrolled_window_new ();
+    gtk_widget_set_hexpand (scroll, TRUE);
+    gtk_widget_set_vexpand (scroll, TRUE);
+    gtk_scrolled_window_set_child (GTK_SCROLLED_WINDOW (scroll), winlist);
+
+    return scroll;
 }
 
 void winlist_clear (void)
 {
-    GtkListStore *winlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (winlist)));
-  
-    gtk_list_store_clear (winlist_model);
+    g_list_store_remove_all (winlist_store);
 }
 
 void winlist_additem (int team, char *name, int score)
 {
-    GtkListStore *winlist_model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (winlist)));
-    GtkTreeIter iter;
-    char buf[16], *item[2];
-    GdkPixbuf *pixbuf;
+    WinlistItem *item;
+    char *clean_name;
 
-    if (team) pixbuf = team_icon;
-    else pixbuf = alone_icon;
-    item[0] = nocolor (name);
-    g_snprintf (buf, sizeof(buf), "%d", score);
-    item[1] = buf;
+    clean_name = nocolor (name);
+    item = winlist_item_new (team != 0, clean_name, score);
 
-    gtk_list_store_append (winlist_model, &iter);
-    gtk_list_store_set (winlist_model, &iter,
-                        0, pixbuf,
-                        1, item[0],
-                        2, item[1],
-                        -1);
+    g_list_store_append (winlist_store, item);
+    g_object_unref (item);
 }
 
 void winlist_focus (void)
 {
-  gtk_widget_grab_focus (winlist);
+    gtk_widget_grab_focus (winlist);
 }

@@ -29,19 +29,20 @@
 /* a left aligned label */
 GtkWidget *leftlabel_new (char *str)
 {
-    GtkWidget *label, *align;
+    GtkWidget *label;
+
     label = gtk_label_new (str);
     gtk_label_set_justify (GTK_LABEL(label), GTK_JUSTIFY_LEFT);
-    gtk_label_set_line_wrap (GTK_LABEL(label), TRUE);
-    gtk_widget_show (label);
-    align = gtk_alignment_new (0.0, 0.5, 0.0, 0.0);
-    gtk_container_add (GTK_CONTAINER(align), label);
-    return align;
+    gtk_label_set_wrap (GTK_LABEL(label), TRUE);
+    gtk_label_set_xalign (GTK_LABEL(label), 0.0f);
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+
+    return label;
 }
 
-void leftlabel_set (GtkWidget *align, char *str)
+void leftlabel_set (GtkWidget *label, char *str)
 {
-    gtk_label_set_text (GTK_LABEL(gtk_bin_get_child(GTK_BIN(align))), str);
+    gtk_label_set_text (GTK_LABEL(label), str);
 }
 
 /* returns a random number in the range 0 to n-1 --
@@ -66,37 +67,37 @@ void fdreadline (int fd, char *buf)
 #define COLORNUM 26
 
 static struct gtet_text_tags {
- GdkColor c;
+ GdkRGBA c;
  GtkTextTag *t_c;
 } gtet_text_tags[] =
 {
                                          /* Code + 0xE000 */
-    {{0, 0, 0, 0}, NULL},                /* ^A black */
-    {{0, 0, 0, 0}, NULL},                /* ^B black */
-    {{0, 0x0000, 0xFFFF, 0xFFFF}, NULL}, /* ^C cyan */
-    {{0, 0x0000, 0x0000, 0x0000}, NULL}, /* ^D black */
-    {{0, 0x0000, 0x0000, 0xFFFF}, NULL}, /* ^E bright blue */
-    {{0, 0x7FFF, 0x7FFF, 0x7FFF}, NULL}, /* ^F grey */
-    {{0, 0, 0, 0}, NULL},                /* ^G black */
-    {{0, 0xFFFF, 0x0000, 0xFFFF}, NULL}, /* ^H magenta */
-    {{0, 0, 0, 0}, NULL},                /* ^I black */
-    {{0, 0, 0, 0}, NULL},                /* ^J black */
-    {{0, 0x7FFF, 0x7FFF, 0x7FFF}, NULL}, /* ^K grey */
-    {{0, 0x0000, 0x7FFF, 0x0000}, NULL}, /* ^L dark green */
-    {{0, 0, 0, 0}, NULL},                /* ^M black */
-    {{0, 0x0000, 0xFFFF, 0x0000}, NULL}, /* ^N bright green */
-    {{0, 0xBFFF, 0xBFFF, 0xBFFF}, NULL}, /* ^O light grey */
-    {{0, 0x7FFF, 0x0000, 0x0000}, NULL}, /* ^P dark red */
-    {{0, 0x0000, 0x0000, 0x7FFF}, NULL}, /* ^Q dark blue */
-    {{0, 0x7FFF, 0x7FFF, 0x0000}, NULL}, /* ^R brown */
-    {{0, 0x7FFF, 0x0000, 0x7FFF}, NULL}, /* ^S purple */
-    {{0, 0xFFFF, 0x0000, 0x0000}, NULL}, /* ^T bright red */
-    {{0, 0xBFFF, 0xBFFF, 0xBFFF}, NULL}, /* ^U light grey */
-    {{0, 0, 0, 0}, NULL},                /* ^V black */
-    {{0, 0x0000, 0x7FFF, 0x7FFF}, NULL}, /* ^W dark cyan */
-    {{0, 0xFFFF, 0xFFFF, 0xFFFF}, NULL}, /* ^X white */
-    {{0, 0xFFFF, 0xFFFF, 0x0000}, NULL}, /* ^Y yellow */
-    {{0, 0, 0, 0}, NULL}                 /* ^Z black */
+    {{0.0,  0.0,  0.0, 1.0}, NULL},     /* ^A black */
+    {{0.0,  0.0,  0.0, 1.0}, NULL},     /* ^B black */
+    {{0.0,  1.0,  1.0, 1.0}, NULL},     /* ^C cyan */
+    {{0.0,  0.0,  0.0, 1.0}, NULL},     /* ^D black */
+    {{0.0,  0.0,  1.0, 1.0}, NULL},     /* ^E bright blue */
+    {{0.5,  0.5,  0.5, 1.0}, NULL},     /* ^F grey */
+    {{0.0,  0.0,  0.0, 1.0}, NULL},     /* ^G black */
+    {{1.0,  0.0,  1.0, 1.0}, NULL},     /* ^H magenta */
+    {{0.0,  0.0,  0.0, 1.0}, NULL},     /* ^I black */
+    {{0.0,  0.0,  0.0, 1.0}, NULL},     /* ^J black */
+    {{0.5,  0.5,  0.5, 1.0}, NULL},     /* ^K grey */
+    {{0.0,  0.5,  0.0, 1.0}, NULL},     /* ^L dark green */
+    {{0.0,  0.0,  0.0, 1.0}, NULL},     /* ^M black */
+    {{0.0,  1.0,  0.0, 1.0}, NULL},     /* ^N bright green */
+    {{0.75, 0.75, 0.75, 1.0}, NULL},     /* ^O light grey */
+    {{0.5,  0.0,  0.0, 1.0}, NULL},     /* ^P dark red */
+    {{0.0,  0.0,  0.5, 1.0}, NULL},     /* ^Q dark blue */
+    {{0.5,  0.5,  0.0, 1.0}, NULL},     /* ^R brown */
+    {{0.5,  0.0,  0.5, 1.0}, NULL},     /* ^S purple */
+    {{1.0,  0.0,  0.0, 1.0}, NULL},     /* ^T bright red */
+    {{0.75, 0.75, 0.75, 1.0}, NULL},     /* ^U light grey */
+    {{0.0,  0.0,  0.0, 1.0}, NULL},     /* ^V black */
+    {{0.0,  0.5,  0.5, 1.0}, NULL},     /* ^W dark cyan */
+    {{1.0,  1.0,  1.0, 1.0}, NULL},     /* ^X white */
+    {{1.0,  1.0,  0.0, 1.0}, NULL},     /* ^Y yellow */
+    {{0.0,  0.0,  0.0, 1.0}, NULL}      /* ^Z black */
 };
 
 static GtkTextTag *t_bold = NULL;
@@ -114,7 +115,7 @@ void textbox_setup (void)
     
     for (n = 0; n < COLORNUM; n ++)
         gtet_text_tags[n].t_c = gtk_text_buffer_create_tag (buffer, NULL,
-                                                            "foreground-gdk",
+                                                            "foreground-rgba",
                                                             &gtet_text_tags[n].c,
                                                             NULL);
 
@@ -334,5 +335,3 @@ gchar* ensure_utf8(const char* str) {
     g_assert(text!=NULL && g_utf8_validate(text,-1,NULL));
     return text;
 }
-
-

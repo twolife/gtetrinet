@@ -1,6 +1,6 @@
 # Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.64])
-AC_INIT([gtetrinet],[0.8.0],[],[gtetrinet],[https://github.com/tatankat/gtetrinet])
+AC_INIT([gtetrinet],[0.9.0],[],[gtetrinet],[https://github.com/twolife/gtetrinet])
 
 AC_CONFIG_SRCDIR([src/gtetrinet.c])
 AC_CONFIG_HEADERS([config.h])
@@ -51,28 +51,13 @@ AC_CHECK_PROGS([found_msgfmt], [msgfmt], [no] )
 # Check for pkg-config
 PKG_PROG_PKG_CONFIG([0.24])
 
-# minimal required versions
-LIBGLIB_REQUIRED=2.32.0
-LIBGTK_REQUIRED=3.18.0
-LIBCANBERRAGTK_OPTIONAL=0.26
-
 # Check for dependencies
-PKG_CHECK_MODULES([glib],[glib-2.0 >= $LIBGLIB_REQUIRED])
-PKG_CHECK_MODULES([gtk],[gtk+-3.0 >= $LIBGTK_REQUIRED])
+PKG_CHECK_MODULES([glib],[glib-2.0])
+PKG_CHECK_MODULES([gtk],[gtk4])
 
 AC_PATH_PROG(GLIB_COMPILE_SCHEMAS, glib-compile-schemas)
 
 GLIB_GSETTINGS
-
-AC_CHECK_LIB([popt], [poptGetContext], [],
-	[AC_MSG_FAILURE([No library 'libpopt' found])]
-)
-
-PKG_CHECK_MODULES([libcanberra], [libcanberra-gtk3 >= $LIBCANBERRAGTK_OPTIONAL], have_canberragtk=yes, have_canberragtk=no)
-AS_IF([test "x$have_canberragtk" = "xyes"],
-	AC_DEFINE([HAVE_CANBERRAGTK],[1],[Define this to enable sound support.])
-)
-AM_CONDITIONAL(HAVE_CANBERRAGTK, test "x$have_canberragtk" = "xyes")
 
 # configure options
 # Check for page detaching support
@@ -109,5 +94,4 @@ echo "   GTranslator version:              ${PACKAGE_VERSION}"
 echo "   Compilation flags:                ${CFLAGS}"
 echo "   CPPFLAGS:                         ${CPPFLAGS}"
 echo "   msgfmt (required for make dist):  $found_msgfmt"
-echo "   Sound support:                    $have_canberragtk"
 echo "   Page detaching:                   $enable_detach"

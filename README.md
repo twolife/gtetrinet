@@ -1,5 +1,3 @@
-![C/C++ CI](https://github.com/tatankat/gtetrinet/workflows/C/C++%20CI/badge.svg)
-
 GTetrinet
 ---------
 
@@ -12,7 +10,8 @@ package, or refer to the tetrinet.txt file that is included with the original
 Tetrinet distribution.  A copy of this file can be found on the GTetrinet
 homepage.
 
-If you're looking for a public server to play on, you're at the wrong place
+If you're looking for a public server to play on, you're at the wrong place.
+You may have a look at https://servers.tetrinet.fr
 
 Tetrinet was originally conceived by St0rmCat.
 
@@ -20,10 +19,7 @@ Tetrinet was originally conceived by St0rmCat.
 Requirements
 ------------
 
-This version of GTetrinet requires GTK 3.
-
-For sound support, canberra-gtk is required.  However, GTetrinet can be
-compiled without sound support.
+This version of GTetrinet requires GTK 4.
 
 
 Running
@@ -40,4 +36,4 @@ The GTetrinet original homepage is at
 http://gtetrinet.sourceforge.net/
 
 Bug reports and suggestions on this version should go in an issue or pull request
-at https://github.com/tatankat/gtetrinet
+at https://github.com/twolife/gtetrinet

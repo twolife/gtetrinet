@@ -22,7 +22,7 @@
 #include <config.h>
 #endif
 
-#include <libintl.h>
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <stdlib.h>
 #include <time.h>
@@ -30,7 +30,6 @@
 #include <sys/types.h>
 #include <gobject/gtype.h>
 #include <signal.h>
-#include <popt.h>
 
 #include "gtetrinet.h"
 #include "gtet_config.h"
@@ -51,8 +50,16 @@
 
 static GtkWidget *pixmapdata_label (char **d, char *str);
 static int gtetrinet_key (int keyval, int mod);
-gint keypress (GtkWidget *widget, GdkEventKey *key);
-gint keyrelease (GtkWidget *widget, GdkEventKey *key);
+gboolean keypress (GtkEventControllerKey *controller,
+                           guint keyval,
+                           guint keycode,
+                           GdkModifierType state,
+                           gpointer user_data);
+void keyrelease (GtkEventControllerKey *controller,
+                        guint keyval,
+                        guint keycode,
+                        GdkModifierType state,
+                        gpointer user_data);
 void switch_focus (GtkNotebook *notebook,
                    void *page,
                    guint page_num);
@@ -62,9 +69,35 @@ static GtkWidget *winlistwidget, *partywidget, *fieldswidget;
 static GtkWidget *notebook;
 
 GtkWidget *app;
+static GtkApplication *gtk_app;
+static GtkEventController *main_key_controller;
 
 char *option_connect = 0, *option_nick = 0, *option_team = 0, *option_pass = 0;
 int option_spec = 0;
+
+static const GOptionEntry options[] = {
+    {
+        "connect", 'c', 0, G_OPTION_ARG_STRING,
+        &option_connect, N_("Connect to server"), N_("SERVER")
+    },
+    {
+        "nickname", 'n', 0, G_OPTION_ARG_STRING,
+        &option_nick, N_("Set nickname to use"), N_("NICKNAME")
+    },
+    {
+        "team", 't', 0, G_OPTION_ARG_STRING,
+        &option_team, N_("Set team name"), N_("TEAM")
+    },
+    {
+        "spectate", 's', 0, G_OPTION_ARG_NONE,
+        &option_spec,  N_("Connect as a spectator"), NULL
+    },
+    {
+        "password", 'p', 0, G_OPTION_ARG_STRING,
+        &option_pass,  N_("Spectator password"), N_("PASSWORD")
+    },
+    { NULL }
+};
 
 int gamemode = ORIGINAL;
 
@@ -75,15 +108,6 @@ gulong keypress_signal;
 GSettings* settings;
 GSettings* settings_keys;
 GSettings* settings_themes;
-
-static const struct poptOption options[] = {
-    {"connect", 'c', POPT_ARG_STRING, &option_connect, 0, ("Connect to server"), ("SERVER")},
-    {"nickname", 'n', POPT_ARG_STRING, &option_nick, 0, ("Set nickname to use"), ("NICKNAME")},
-    {"team", 't', POPT_ARG_STRING, &option_team, 0, ("Set team name"), ("TEAM")},
-    {"spectate", 's', POPT_ARG_NONE, &option_spec, 0, ("Connect as a spectator"), NULL},
-    {"password", 'p', POPT_ARG_STRING, &option_pass, 0, ("Spectator password"), ("PASSWORD")},
-    {NULL, 0, 0, NULL, 0, NULL, NULL}
-};
 
 static int gtetrinet_poll_func(GPollFD *passed_fds,
                                guint nfds,
@@ -105,46 +129,63 @@ static int gtetrinet_poll_func(GPollFD *passed_fds,
  */
 GSettings *get_schema_settings(const gchar *schema_id)
 {
-  GSettingsSchema *schema;
-  GSettingsSchemaSource *schema_source;
-  GError **error = NULL;
-  schema_source = g_settings_schema_source_new_from_directory(GSETTINGSSCHEMADIR, g_settings_schema_source_get_default(), FALSE, error);
-  schema = g_settings_schema_source_lookup(schema_source, schema_id, FALSE);
-  if (schema == NULL)
-  {
-    return g_settings_new(schema_id);
-  }
-  return g_settings_new_full(schema, NULL, NULL);
+    GSettingsSchema *schema = NULL;
+    GSettingsSchemaSource *schema_source;
+
+    schema_source = g_settings_schema_source_new_from_directory (
+                        GSETTINGSSCHEMADIR,
+                        g_settings_schema_source_get_default (),
+                        FALSE,
+                        NULL
+                    );
+
+    if (schema_source != NULL) {
+        schema = g_settings_schema_source_lookup (
+                     schema_source,
+                     schema_id,
+                     FALSE
+                 );
+        g_settings_schema_source_unref (schema_source);
+    }
+    if (schema == NULL)
+        return g_settings_new (schema_id);
+
+    {
+        GSettings *result =
+            g_settings_new_full (schema, NULL, NULL);
+
+        g_settings_schema_unref (schema);
+        return result;
+    }
 }
 
-int main (int argc, char *argv[])
+void destroymain (void)
+{
+    client_disconnect();
+    if (gtk_app)
+        g_application_quit (G_APPLICATION(gtk_app));
+}
+
+static gboolean
+main_close_request (GtkWindow *window, gpointer data)
+{
+    (void)window;
+    (void)data;
+
+    destroymain();
+    return TRUE;
+}
+
+static void
+activate (GtkApplication *application, gpointer user_data)
 {
     GtkWidget *label;
-    GdkPixbuf *icon_pixbuf;
-    GError *err = NULL;
-    
-    bindtextdomain(PACKAGE, LOCALEDIR);
-    bind_textdomain_codeset(PACKAGE, "UTF-8");
-    textdomain(PACKAGE);
+    GtkEventController *key_controller;
 
-    srand (time(NULL));
+    (void)user_data;
 
-    /*
-    gnome_program_init (APPID, APPVERSION, LIBGNOMEUI_MODULE,
-                        argc, argv, GNOME_PARAM_POPT_TABLE, options,
-                        GNOME_PARAM_NONE);
-    */
-    GOptionEntry options[] = { {NULL}};
-    if (!gtk_init_with_args(&argc,&argv,"gtetrinet",options,NULL,&err))
-    {
-        fprintf (stderr, "Failed to init GTK: %s\n", err->message);
-        g_error_free(err);
-        err = NULL;
-        return 1;
-    }
-    textbox_setup (); /* needs to be done before text boxes are created */
+    textbox_setup ();
 
-    // First, try to get settings from compiled schema directory (as we can properly check these), then try generic system directories chosen by gsettings library
     settings = get_schema_settings (GSETTINGS_DOMAIN);
     settings_keys = get_schema_settings (GSETTINGS_DOMAIN_KEYS);
     settings_themes = get_schema_settings (GSETTINGS_DOMAIN_THEMES);
@@ -153,131 +194,92 @@ int main (int argc, char *argv[])
     g_signal_connect_swapped (settings_keys, "changed", G_CALLBACK(config_loadconfig_keys), NULL);
     g_signal_connect_swapped (settings_themes, "changed", G_CALLBACK(config_loadconfig_themes), NULL);
 
-    /* load settings */
     config_loadconfig ();
     config_loadconfig_keys ();
 
-    /* first set up the display */
-
-    /* create the main window */
-    app = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+    app = gtk_application_window_new (application);
     gtk_window_set_title (GTK_WINDOW (app), APPNAME);
-
-    g_signal_connect (G_OBJECT(app), "destroy",
-                        G_CALLBACK(destroymain), NULL);
-    keypress_signal = g_signal_connect (G_OBJECT(app), "key-press-event",
-                                        G_CALLBACK(keypress), NULL);
-    g_signal_connect (G_OBJECT(app), "key-release-event",
-                        G_CALLBACK(keyrelease), NULL);
-    gtk_widget_set_events (app, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
-
     gtk_window_set_resizable (GTK_WINDOW (app), TRUE);
-    
-    /* create and set the window icon */
-    icon_pixbuf = gdk_pixbuf_new_from_file (PIXMAPSDIR "/gtetrinet.png", NULL);
-    if (icon_pixbuf)
-    {
-      gtk_window_set_icon (GTK_WINDOW (app), icon_pixbuf);
-      g_object_unref (icon_pixbuf);
-    }
+    g_signal_connect (app, "close-request", G_CALLBACK (main_close_request), NULL);
 
-    /* create the notebook */
+    key_controller = gtk_event_controller_key_new ();
+    main_key_controller = key_controller;
+    keypress_signal = g_signal_connect (key_controller, "key-pressed",
+                                        G_CALLBACK(keypress), app);
+    g_signal_connect (key_controller, "key-released",
+                      G_CALLBACK(keyrelease), app);
+    gtk_widget_add_controller (app, key_controller);
+
     notebook = gtk_notebook_new ();
     gtk_notebook_set_tab_pos (GTK_NOTEBOOK(notebook), GTK_POS_TOP);
+    gtk_window_set_child (GTK_WINDOW(app), notebook);
 
-    /* put it in the main window */
-    gtk_container_add (GTK_CONTAINER(app), notebook);
-
-    /* make menus + toolbar */
     make_menus (GTK_WINDOW(app));
 
-    /* create the pages in the notebook */
     fieldswidget = fields_page_new ();
     gtk_widget_set_sensitive (fieldswidget, TRUE);
-    gtk_widget_show (fieldswidget);
     pfields = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-    gtk_container_set_border_width (GTK_CONTAINER(pfields), 0);
-    gtk_container_add (GTK_CONTAINER(pfields), fieldswidget);
-    gtk_widget_show (pfields);
-    g_object_set_data (G_OBJECT(fieldswidget), "title", "Playing Fields"); // FIXME
+    gtk_box_append (GTK_BOX(pfields), fieldswidget);
+    g_object_set_data (G_OBJECT(fieldswidget), "title", "Playing Fields");
     label = pixmapdata_label (fields_xpm, "Playing Fields");
-    gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pfields, label);
 
     partywidget = partyline_page_new ();
-    gtk_widget_show (partywidget);
     pparty = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-    gtk_container_set_border_width (GTK_CONTAINER(pparty), 0);
-    gtk_container_add (GTK_CONTAINER(pparty), partywidget);
-    gtk_widget_show (pparty);
-    g_object_set_data (G_OBJECT(partywidget), "title", "Partyline"); // FIXME
+    gtk_box_append (GTK_BOX(pparty), partywidget);
+    g_object_set_data (G_OBJECT(partywidget), "title", "Partyline");
     label = pixmapdata_label (partyline_xpm, "Partyline");
-    gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pparty, label);
 
     winlistwidget = winlist_page_new ();
-    gtk_widget_show (winlistwidget);
     pwinlist = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-    gtk_container_set_border_width (GTK_CONTAINER(pwinlist), 0);
-    gtk_container_add (GTK_CONTAINER(pwinlist), winlistwidget);
-    gtk_widget_show (pwinlist);
-    g_object_set_data (G_OBJECT(winlistwidget), "title", "Winlist"); // FIXME
+    gtk_box_append (GTK_BOX(pwinlist), winlistwidget);
+    g_object_set_data (G_OBJECT(winlistwidget), "title", "Winlist");
     label = pixmapdata_label (winlist_xpm, "Winlist");
-    gtk_widget_show (label);
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), pwinlist, label);
 
-    /* add signal to focus the text entry when switching to the partyline page*/
-    g_signal_connect_after(G_OBJECT (notebook), "switch-page",
-		           G_CALLBACK (switch_focus),
-		           NULL);
-
-    gtk_widget_show (notebook);
-    g_object_set (G_OBJECT (notebook), "can-focus", FALSE, NULL);
+    g_signal_connect_after (notebook, "switch-page",
+                            G_CALLBACK(switch_focus), NULL);
+    gtk_widget_set_focusable (notebook, FALSE);
 
     partyline_show_channel_list (list_enabled);
-    gtk_widget_show (app);
-
-//    gtk_widget_set_size_request (partywidget, 480, 360);
-//    gtk_widget_set_size_request (winlistwidget, 480, 360);
-
-    /* initialise some stuff */
     config_loadconfig_themes ();
     commands_checkstate ();
 
-    /* check command line params */
-#ifdef DEBUG
-    printf ("option_connect: %s\n"
-            "option_nick: %s\n"
-            "option_team: %s\n"
-            "option_pass: %s\n"
-            "option_spec: %i\n",
-            option_connect, option_nick, option_team,
-            option_pass, option_spec);
-#endif
     if (option_nick) GTET_O_STRCPY(nick, option_nick);
     if (option_team) GTET_O_STRCPY(team, option_team);
     if (option_pass) GTET_O_STRCPY(specpassword, option_pass);
     if (option_spec) spectating = TRUE;
-    if (option_connect) {
+    if (option_connect)
         client_init (option_connect, nick);
-    }
 
-    /* Don't schedule if data is ready, glib should do this itself,
-     * but welcome to anything that works... */
-    g_main_context_set_poll_func(NULL, gtetrinet_poll_func);
+    gtk_window_present (GTK_WINDOW(app));
+}
 
-    /* gtk_main() */
-    gtk_main ();
+int main (int argc, char *argv[])
+{
+    int status;
 
-    g_object_unref (settings);
-    g_object_unref (settings_keys);
-    g_object_unref (settings_themes);
+    bindtextdomain(PACKAGE, LOCALEDIR);
+    bind_textdomain_codeset(PACKAGE, "UTF-8");
+    textdomain(PACKAGE);
+    srand (time(NULL));
+
+    gtk_app = gtk_application_new ("net.sourceforge.gtetrinet.GTetrinet", G_APPLICATION_DEFAULT_FLAGS);
+    g_application_add_main_option_entries (G_APPLICATION (gtk_app), options);
+    g_signal_connect (gtk_app, "activate", G_CALLBACK(activate), NULL);
+
+    g_main_context_set_poll_func (NULL, gtetrinet_poll_func);
+    status = g_application_run (G_APPLICATION(gtk_app), argc, argv);
 
     client_disconnect ();
-    /* cleanup */
     fields_cleanup ();
+    g_clear_object (&settings);
+    g_clear_object (&settings_keys);
+    g_clear_object (&settings_themes);
+    g_clear_object (&gtk_app);
 
-    return 0;
+    return status;
 }
 
 GtkWidget *pixmapdata_label (char **d, char *str)
@@ -285,24 +287,18 @@ GtkWidget *pixmapdata_label (char **d, char *str)
     GdkPixbuf *pb;
     GtkWidget *box, *widget;
 
-    box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+    box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 4);
+    gtk_widget_set_hexpand (box, FALSE);
 
     pb = gdk_pixbuf_new_from_xpm_data ((const char **)d);
     widget = gtk_image_new_from_pixbuf (pb);
-    gtk_widget_show (widget);
-    gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
+    gtk_box_append (GTK_BOX(box), widget);
+    g_object_unref (pb);
   
     widget = gtk_label_new (str);
-    gtk_widget_show (widget);
-    gtk_box_pack_start (GTK_BOX(box), widget, TRUE, TRUE, 0);
+    gtk_box_append (GTK_BOX(box), widget);
 
     return box;
-}
-
-/* called when the main window is destroyed */
-void destroymain (void)
-{
-    gtk_main_quit ();
 }
 
 /*
@@ -321,106 +317,90 @@ void destroymain (void)
  be a big problem.
  */
 
-GdkEventKey k;
-gint keytimeoutid = 0;
+static guint pending_keyval;
+static gint keytimeoutid = 0;
 
-gint keytimeout (gpointer data)
+static gint keytimeout (gpointer data)
 {
-    tetrinet_upkey (k.keyval);
+    (void)data;
+    tetrinet_upkey (pending_keyval);
     keytimeoutid = 0;
-    return FALSE;
+    return G_SOURCE_REMOVE;
 }
 
-gint keypress (GtkWidget *widget, GdkEventKey *key)
+gboolean keypress (GtkEventControllerKey *controller,
+                   guint keyval, guint keycode,
+                   GdkModifierType state, gpointer user_data)
 {
+    GtkWidget *widget = GTK_WIDGET (user_data);
     int game_area;
+    (void)controller;
+    (void)keycode;
 
-    if (widget == app)
-    {
-      int cur_page = gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));
-      int pfields_page = gtk_notebook_page_num(GTK_NOTEBOOK(notebook),
-                                               pfields);
-      /* Main window - check the notebook */
-      game_area = (cur_page == pfields_page);
-    }
-    else
-    {
-        /* Sub-window - find out which */
-        char *title = NULL;
-
-        title = g_object_get_data(G_OBJECT(widget), "title");
-        game_area =  title && !strcmp( title, "Playing Fields");
+    if (widget == app) {
+        int cur_page = gtk_notebook_get_current_page (GTK_NOTEBOOK(notebook));
+        int pfields_page = gtk_notebook_page_num (GTK_NOTEBOOK(notebook), pfields);
+        game_area = (cur_page == pfields_page);
+    } else {
+        const char *title = g_object_get_data (G_OBJECT(widget), "title");
+        game_area = title && !strcmp (title, "Playing Fields");
     }
 
-    if (game_area)
-    { /* keys for the playing field - key releases needed - install timeout */
-      if (keytimeoutid && key->time == k.time)
+    if (game_area && keytimeoutid) {
         g_source_remove (keytimeoutid);
+        keytimeoutid = 0;
     }
 
-    /* Check if it's a GTetrinet key */
-    if (gtetrinet_key (key->keyval, key->state & (GDK_MOD1_MASK)))
-    {
-      g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
-      return TRUE;
-    }
+    if (gtetrinet_key (keyval, state & GDK_ALT_MASK))
+        return TRUE;
 
-/*    if ((key->state & (GDK_MOD1_MASK | GDK_CONTROL_MASK)) > 0)
-    return FALSE;*/
-    
-    if (game_area && ingame && (gdk_keyval_to_lower (key->keyval) == keys[K_GAMEMSG]))
-    {
-      g_signal_handler_block (app, keypress_signal);
-      fields_gmsginputactivate (TRUE);
-      g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
-    }
-
-    if (game_area && tetrinet_key (key->keyval))
-    {
-      g_signal_stop_emission_by_name (G_OBJECT(widget), "key-press-event");
-      return TRUE;
-    }
-    
-    return FALSE;
-}
-
-gint keyrelease (GtkWidget *widget, GdkEventKey *key)
-{
-    int game_area;
-
-    if (widget == app)
-    {
-      int cur_page = gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));
-      int pfields_page = gtk_notebook_page_num(GTK_NOTEBOOK(notebook),
-                                               pfields);
-      /* Main window - check the notebook */
-      game_area = (cur_page == pfields_page);
-    }
-    else
-    {
-        /* Sub-window - find out which */
-        char *title = NULL;
-
-        title = g_object_get_data(G_OBJECT(widget), "title");
-        game_area =  title && !strcmp( title, "Playing Fields");
-    }
-
-    if (game_area)
-    {
-        k = *key;
-        keytimeoutid = g_timeout_add (10, keytimeout, 0);
-        g_signal_stop_emission_by_name (G_OBJECT(widget), "key-release-event");
+    if (game_area && ingame &&
+        (gdk_keyval_to_lower (keyval) == keys[K_GAMEMSG])) {
+        if (main_key_controller)
+            g_signal_handler_block (main_key_controller, keypress_signal);
+        fields_gmsginputactivate (TRUE);
         return TRUE;
     }
+
+    if (game_area && tetrinet_key (keyval))
+        return TRUE;
+
     return FALSE;
+}
+
+void keyrelease (GtkEventControllerKey *controller,
+                 guint keyval, guint keycode,
+                 GdkModifierType state, gpointer user_data)
+{
+    GtkWidget *widget = GTK_WIDGET (user_data);
+    int game_area;
+    (void)controller;
+    (void)keycode;
+    (void)state;
+
+    if (widget == app) {
+        int cur_page = gtk_notebook_get_current_page (GTK_NOTEBOOK(notebook));
+        int pfields_page = gtk_notebook_page_num (GTK_NOTEBOOK(notebook), pfields);
+        game_area = (cur_page == pfields_page);
+    } else {
+        const char *title = g_object_get_data (G_OBJECT(widget), "title");
+        game_area = title && !strcmp (title, "Playing Fields");
+    }
+
+    if (game_area) {
+        if (keytimeoutid)
+            g_source_remove (keytimeoutid);
+        pending_keyval = keyval;
+        keytimeoutid = g_timeout_add (10, keytimeout, NULL);
+    }
 }
 
 /*
- TODO: make this switch between detached pages too
+ * TODO: make this switch between detached pages too
  */
 static int gtetrinet_key (int keyval, int mod)
 {
-  if (mod != GDK_MOD1_MASK)
+  if (mod != GDK_ALT_MASK)
     return FALSE;
     
   switch (keyval)
@@ -447,85 +427,62 @@ void destroy_page_window (GtkWidget *window, gpointer data)
 {
     WidgetPageData *pageData = (WidgetPageData *)data;
 
-    /* Put widget back into a page */
-    //gtk_widget_reparent (pageData->widget, pageData->parent);
-    g_object_ref (pageData->parent);
-    gtk_container_remove(GTK_CONTAINER (gtk_widget_get_parent (pageData->widget)), pageData->widget);
-    gtk_container_add(GTK_CONTAINER (pageData->parent), pageData->widget);
-    g_object_unref (pageData->parent);
+    g_object_ref (pageData->widget);
+    gtk_window_set_child (GTK_WINDOW(window), NULL);
+    gtk_box_append (GTK_BOX(pageData->parent), pageData->widget);
+    g_object_unref (pageData->widget);
 
-    /* Select it */
     gtk_notebook_set_current_page (GTK_NOTEBOOK(notebook), pageData->pageNo);
-
-    /* Free return data */
-    g_free (data);
+    g_free (pageData);
 }
 
 void move_current_page_to_window (void)
 {
     WidgetPageData *pageData;
     GtkWidget *page, *child, *newWindow;
-    GList *dlist;
+    GtkEventController *key_controller;
     gint pageNo;
-    char *title;
+    const char *title;
 
-    /* Extract current page's widget & it's parent from the notebook */
     pageNo = gtk_notebook_get_current_page (GTK_NOTEBOOK(notebook));
-    page   = gtk_notebook_get_nth_page (GTK_NOTEBOOK(notebook), pageNo );
-    dlist  = gtk_container_get_children (GTK_CONTAINER(page));
-    if (!dlist ||  !(dlist->data))
-    {
-        /* Must already be a window */
-        if (dlist)
-           g_list_free (dlist);
+    page = gtk_notebook_get_nth_page (GTK_NOTEBOOK(notebook), pageNo);
+    if (!page)
         return;
-    }
-    child = (GtkWidget *)dlist->data;
-    g_list_free (dlist);
 
-    /* Create new window for widget, plus container, etc. */
-    newWindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+    child = gtk_widget_get_first_child (page);
+    if (!child)
+        return;
+
+    newWindow = gtk_application_window_new (gtk_app);
     title = g_object_get_data (G_OBJECT(child), "title");
     if (!title)
         title = "GTetrinet";
-    gtk_window_set_title (GTK_WINDOW (newWindow), title);
-    gtk_container_set_border_width (GTK_CONTAINER (newWindow), 0);
-
-    /* Attach key events to window */
-    g_signal_connect (G_OBJECT(newWindow), "key-press-event",
-                        G_CALLBACK(keypress), NULL);
-    g_signal_connect (G_OBJECT(newWindow), "key-release-event",
-                        G_CALLBACK(keyrelease), NULL);
-    gtk_widget_set_events (newWindow, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
+    gtk_window_set_title (GTK_WINDOW(newWindow), title);
     gtk_window_set_resizable (GTK_WINDOW(newWindow), TRUE);
+    g_object_set_data_full (G_OBJECT(newWindow), "title", g_strdup(title), g_free);
 
-    /* Create store to point us back to page for later */
-    pageData = g_new( WidgetPageData, 1 );
+    key_controller = gtk_event_controller_key_new ();
+    g_signal_connect (key_controller, "key-pressed",
+                      G_CALLBACK(keypress), newWindow);
+    g_signal_connect (key_controller, "key-released",
+                      G_CALLBACK(keyrelease), newWindow);
+    gtk_widget_add_controller (newWindow, key_controller);
+
+    pageData = g_new (WidgetPageData, 1);
     pageData->parent = page;
     pageData->widget = child;
     pageData->pageNo = pageNo;
 
-    /* Move main widget to window */
-    //gtk_widget_reparent (child, newWindow);
     g_object_ref (child);
-    gtk_container_remove(GTK_CONTAINER (gtk_widget_get_parent (child)), child);
-    gtk_container_add(GTK_CONTAINER (newWindow), child);
+    gtk_widget_unparent (child);
+    gtk_window_set_child (GTK_WINDOW(newWindow), child);
     g_object_unref (child);
 
+    g_signal_connect (newWindow, "destroy",
+                      G_CALLBACK(destroy_page_window), pageData);
 
-    /* Pass ID of parent (to put widget back) to window's destroy */
-    g_signal_connect (G_OBJECT(newWindow), "destroy",
-                        G_CALLBACK(destroy_page_window),
-                        (gpointer)(pageData));
-
-    gtk_widget_show_all( newWindow );
-
-    /* cure annoying side effect */
-    if (gmsgstate)
-        fields_gmsginput(TRUE);
-    else
-        fields_gmsginput(FALSE);
-
+    gtk_window_present (GTK_WINDOW(newWindow));
+    fields_gmsginput (gmsgstate ? TRUE : FALSE);
 }
 
 /* show the fields notebook tab */
@@ -542,7 +499,8 @@ void show_partyline_page (void)
 
 void unblock_keyboard_signal (void)
 {
-    g_signal_handler_unblock (app, keypress_signal);
+    if (main_key_controller)
+      g_signal_handler_unblock (main_key_controller, keypress_signal);
 }
 
 void switch_focus (GtkNotebook *notebook,

@@ -34,43 +34,49 @@ int soundenable;
 
 char soundfiles[S_NUM][1024];
 
-#ifdef HAVE_CANBERRAGTK
-
-#include <canberra-gtk.h>
-
-static char *soundsamples[S_NUM] = {NULL};
+static GtkMediaStream *soundsamples[S_NUM] = {NULL};
 
 void sound_cache (void)
 {
     int i;
-    if (!soundenable) return;
+
     for (i = 0; i < S_NUM; i ++) {
-        if (soundsamples[i] != NULL)
-            g_free (soundsamples[i]);
-        if (soundfiles[i][0]) {
-            ca_context_cache (ca_gtk_context_get (), CA_PROP_MEDIA_FILENAME, soundfiles[i], NULL);
-            soundsamples[i] = g_strdup (soundfiles[i]);
-        } else {
-            soundsamples[i] = NULL;
+        g_clear_object (&soundsamples[i]);
+
+        if (soundfiles[i][0] != '\0') {
+            soundsamples[i] =
+                gtk_media_file_new_for_filename (soundfiles[i]);
+
+            /*
+             * Game sounds are short one-shot samples.  Do not loop them and
+             * keep them at the normal stream volume.
+             */
+            gtk_media_stream_set_loop (soundsamples[i], FALSE);
+            gtk_media_stream_set_volume (soundsamples[i], 1.0);
         }
     }
 }
 
 void sound_playsound (int id)
 {
-    if (!soundenable) return;
-    if (soundsamples[id] != NULL)
-      ca_context_play (ca_gtk_context_get (), 0,
-                         CA_PROP_MEDIA_FILENAME, soundsamples[id],
-                         /* If GTK says sounds are disabled, override it. */
-                         CA_PROP_CANBERRA_ENABLE, "1",
-                         NULL);
+    GtkMediaStream *stream;
+
+    if (!soundenable)
+        return;
+
+    if (id < 0 || id >= S_NUM)
+        return;
+
+    stream = soundsamples[id];
+    if (stream == NULL)
+        return;
+
+    /*
+     * Rewind before starting so the same effect can be triggered repeatedly.
+     * GtkMediaStream uses microseconds; timestamp 0 is the beginning.
+     */
+    if (gtk_media_stream_is_seekable (stream))
+        gtk_media_stream_seek (stream, 0);
+
+    gtk_media_stream_set_playing (stream, TRUE);
 }
-
-#else
-
-/* stubs */
-void sound_cache (void) {}
-void sound_playsound (int id) {id = id;}
-
-#endif

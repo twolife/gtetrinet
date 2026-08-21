@@ -1,15 +1,10 @@
-gtetrinet.desktop.in
-src/partyline.ui
+net.sourceforge.gtetrinet.GTetrinet.desktop.in
 src/client.c
 src/commands.c
 src/config.c
 src/dialogs.c
 src/fields.c
-src/fields.ui
-src/field.ui
 src/gtetrinet.c
 src/partyline.c
 src/tetrinet.c
 src/winlist.c
-src/winlist.ui
-

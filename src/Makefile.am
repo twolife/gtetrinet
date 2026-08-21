@@ -2,7 +2,7 @@ SUBDIRS = images
 
 localedir = $(datadir)/locale
 
-gtetrinet_LDADD = $(glib_LIBS) $(gtk_LIBS) $(libcanberra_LIBS)
+gtetrinet_LDADD = $(glib_LIBS) $(gtk_LIBS)
 
 AM_CPPFLAGS = \
 	-DGTETRINET_DATA=\"$(pkgdatadir)\"                      \
@@ -10,7 +10,7 @@ AM_CPPFLAGS = \
 	-DLOCALEDIR=\"$(localedir)\"                            \
 	-DPIXMAPSDIR=\""$(datadir)/pixmaps"\"                   \
 	-DGSETTINGSSCHEMADIR=\"$(gsettingsschemadir)\"          \
-	$(glib_CFLAGS) $(gtk_CFLAGS) $(canberragtk_CFLAGS)
+	$(glib_CFLAGS) $(gtk_CFLAGS)
 
 bin_PROGRAMS = gtetrinet
 
@@ -38,21 +38,6 @@ gtetrinet_SOURCES = \
 	tetris.c \
 	tetris.h \
 	winlist.c \
-	winlist.h \
-	resources.c
-
-EXTRA_DIST = \
-	gtetrinet.gresource.xml.in \
-	partyline.ui \
-	field.ui \
-	fields.ui \
-	winlist.ui
-
-BUILT_SOURCES = resources.c
-
-GLIB_COMPILE_RESOURCES=glib-compile-resources
-resources.c: gtetrinet.gresource.xml.in partyline.ui field.ui fields.ui winlist.ui
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $(srcdir)/gtetrinet.gresource.xml.in \
-		--target=$@ --sourcedir=$(srcdir) --generate-source
+	winlist.h
 
 -include $(top_srcdir)/git.mk

@@ -230,8 +230,8 @@ void client_process (void)
   /* wait until the hostname is resolved */
   while (resolved == 0)
   {
-    if (gtk_events_pending ())
-      gtk_main_iteration ();
+    if (g_main_context_pending (NULL))
+      g_main_context_iteration (NULL, FALSE);
   }
 
   g_thread_join (thread);
@@ -349,7 +349,7 @@ void client_disconnect (void)
 {
     if (connected)
     {
-      if (gtk_main_level())
+      //if (gtk_main_level())
         client_inmessage ("disconnect");
       g_source_destroy (g_main_context_find_source_by_id (NULL, source));
       g_io_channel_shutdown (io_channel, TRUE, NULL);

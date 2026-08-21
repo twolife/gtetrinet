@@ -223,18 +223,19 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
     case IN_CONNECTERROR:
     connecterror:
         {
-            GtkWidget *dialog;
+            GtkAlertDialog *dialog;
             gchar *data_utf8;
+
             connectingdialog_destroy ();
             GTET_O_STRCPY (buf, _("Error connecting: "));
             data_utf8 = g_locale_to_utf8 (data, -1, NULL, NULL, NULL);
-            GTET_O_STRCAT (buf, data_utf8);
-            dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL,
-                                             GTK_MESSAGE_ERROR,
-                                             GTK_BUTTONS_OK,
-                                             "%s", buf);
-            gtk_dialog_run (GTK_DIALOG(dialog));
-            gtk_widget_destroy (dialog);
+            if (data_utf8 != NULL)
+                GTET_O_STRCAT (buf, data_utf8);
+
+            dialog = gtk_alert_dialog_new ("%s", buf);
+            gtk_alert_dialog_show (dialog, NULL);
+            g_object_unref (dialog);
+
             g_free (data_utf8);
             show_connect_button ();
         }
