@@ -47,12 +47,15 @@ static GtkBuilder *fieldbuilders[6];
 
 static GtkWidget *fields_page_contents (void);
 
-static gint fields_expose_event (GtkWidget *widget, GdkEventExpose *event, gpointer field);
-static gint fields_nextpiece_expose (GtkWidget *widget);
-static gint fields_specials_expose (GtkWidget *widget);
+static gboolean fields_draw (GtkWidget *widget, cairo_t *cr, gpointer field);
+static gboolean fields_nextpiece_draw (GtkWidget *widget, cairo_t *cr, gpointer data);
+static gboolean fields_specials_draw (GtkWidget *widget, cairo_t *cr, gpointer data);
 
-static void fields_refreshfield (int field);
-static void fields_drawblock (int field, int x, int y, char block);
+static void fields_refreshfield (cairo_t *cr, int field);
+static void fields_drawblock (cairo_t *cr, int field, int x, int y, char block);
+static void fields_rendernextblock (cairo_t *cr, TETRISBLOCK block);
+static void fields_renderspecials (cairo_t *cr);
+static void drawpix (cairo_t *cr, int srcx, int srcy, int destx, int desty, int width, int height);
 
 static void gmsginput_activate (void);
 
@@ -99,9 +102,10 @@ void fields_init (void)
 
 void fields_cleanup (void)
 {
-  if(G_IS_OBJECT (blockpix)) {
-    g_object_unref(blockpix);
-  }
+    if (blockpix) {
+        cairo_surface_destroy (blockpix);
+        blockpix = NULL;
+    }
 }
 
 /* a mess of functions here for creating the fields page */
@@ -164,7 +168,7 @@ GtkWidget *fields_page_contents (void)
             fieldwidget = GTK_WIDGET(gtk_builder_get_object(fieldbuilder, "field"));
             /* attach the signals */
             g_signal_connect (G_OBJECT(fieldwidget), "draw",
-                                G_CALLBACK(fields_expose_event), GINT_TO_POINTER(playernb));
+                                G_CALLBACK(fields_draw), GINT_TO_POINTER(playernb));
             gtk_widget_set_events (fieldwidget, GDK_EXPOSURE_MASK);
             /* set the size */
             gtk_widget_set_size_request (fieldwidget,
@@ -197,7 +201,7 @@ GtkWidget *fields_page_contents (void)
     /* next block thingy */
     nextpiecewidget = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "next_block"));
     g_signal_connect (G_OBJECT(nextpiecewidget), "draw",
-                        G_CALLBACK(fields_nextpiece_expose), NULL);
+                        G_CALLBACK(fields_nextpiece_draw), NULL);
     gtk_widget_set_size_request (nextpiecewidget, BLOCKSIZE*9/2, BLOCKSIZE*9/2);
 
     /* lines, levels and stuff */
@@ -212,7 +216,7 @@ GtkWidget *fields_page_contents (void)
     specialwidget = GTK_WIDGET(gtk_builder_get_object(fieldsbuilder, "specials"));
     fields_setspeciallabel (NULL);
     g_signal_connect (G_OBJECT(specialwidget), "draw",
-                        G_CALLBACK(fields_specials_expose), NULL);
+                        G_CALLBACK(fields_specials_draw), NULL);
     gtk_widget_set_size_request (specialwidget, BLOCKSIZE*18, BLOCKSIZE);
 //    gtk_widget_set_size_request (speciallabel, BLOCKSIZE*6, -1);
 
@@ -238,11 +242,9 @@ GtkWidget *fields_page_contents (void)
 }
 
 
-gint fields_expose_event (GtkWidget *widget, GdkEventExpose *event, gpointer field)
+gboolean fields_draw (GtkWidget *widget, cairo_t *cr, gpointer field)
 {
-    widget = widget;
-    event = event;
-    fields_refreshfield (GPOINTER_TO_INT (field));
+    fields_refreshfield (cr, GPOINTER_TO_INT (field));
     /* hide the cursor */
     if (ingame)
       gdk_window_set_cursor (gtk_widget_get_window(widget), invisible_cursor);
@@ -252,35 +254,33 @@ gint fields_expose_event (GtkWidget *widget, GdkEventExpose *event, gpointer fie
     return FALSE;
 }
 
-void fields_refreshfield (int field)
+void fields_refreshfield (cairo_t *cr, int field)
 {
     int x, y;
     for (y = 0; y < FIELDHEIGHT; y ++)
         for (x = 0; x < FIELDWIDTH; x ++)
-            fields_drawblock (field, x, y, displayfields[field][y][x]);
+            fields_drawblock (cr, field, x, y, displayfields[field][y][x]);
 }
 
 void fields_drawfield (int field, FIELD newfield)
 {
-    int x, y;
-    for (y = 0; y < FIELDHEIGHT; y ++)
-        for (x = 0; x < FIELDWIDTH; x ++)
-            if (newfield[y][x] != displayfields[field][y][x]) {
-                fields_drawblock (field, x, y, newfield[y][x]);
-                displayfields[field][y][x] = newfield[y][x];
-            }
+    GtkWidget *widget;
+
+    memcpy (displayfields[field], newfield, sizeof (displayfields[field]));
+    widget = GTK_WIDGET(gtk_builder_get_object(fieldbuilders[field], "field"));
+    gtk_widget_queue_draw (widget);
 }
 
-void drawpix(GtkWidget *widget, int srcx, int srcy, int destx, int desty, int width, int height)
+void drawpix(cairo_t *cr, int srcx, int srcy, int destx, int desty, int width, int height)
 {
-    cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(widget));
+    cairo_save (cr);
     cairo_set_source_surface (cr, blockpix, -srcx+destx, -srcy+desty); // move big image, so the block we need is in the right position on cr
     cairo_rectangle (cr, destx, desty, width, height); // only draw the block we need
     cairo_fill(cr);
-    cairo_destroy (cr);
+    cairo_restore (cr);
 }
 
-void fields_drawblock (int field, int x, int y, char block)
+void fields_drawblock (cairo_t *cr, int field, int x, int y, char block)
 {
     int srcx, srcy, destx, desty, blocksize;
 
@@ -313,7 +313,7 @@ void fields_drawblock (int field, int x, int y, char block)
                        fieldwidgets[field]->style->black_gc,
                        blockpix, srcx, srcy, destx, desty,
                        blocksize, blocksize);*/
-    drawpix(GTK_WIDGET(gtk_builder_get_object(fieldbuilders[field], "field")), srcx, srcy, destx, desty, blocksize, blocksize);
+    drawpix(cr, srcx, srcy, destx, desty, blocksize, blocksize);
 }
 
 void fields_setlabel (int field, char *name, char *team, int num)
@@ -366,9 +366,10 @@ void fields_setspeciallabel (char *label)
     }
 }
 
-gint fields_nextpiece_expose (GtkWidget *widget)
+gboolean fields_nextpiece_draw (GtkWidget *widget, cairo_t *cr, gpointer data)
 {
-    fields_drawnextblock (NULL);
+    (void)data;
+    fields_rendernextblock (cr, displayblock);
     if (ingame)
       gdk_window_set_cursor (gtk_widget_get_window(widget), invisible_cursor);
     else
@@ -376,9 +377,10 @@ gint fields_nextpiece_expose (GtkWidget *widget)
     return FALSE;
 }
 
-gint fields_specials_expose (GtkWidget *widget)
+gboolean fields_specials_draw (GtkWidget *widget, cairo_t *cr, gpointer data)
 {
-    fields_drawspecials ();
+    (void)data;
+    fields_renderspecials (cr);
     if (ingame)
       gdk_window_set_cursor (gtk_widget_get_window(widget), invisible_cursor);
     else
@@ -388,39 +390,46 @@ gint fields_specials_expose (GtkWidget *widget)
 
 void fields_drawspecials (void)
 {
+    if (specialwidget)
+        gtk_widget_queue_draw (specialwidget);
+}
+void fields_renderspecials (cairo_t *cr)
+{
     int i;
+
+    cairo_save (cr);
+    cairo_set_source_rgb (cr, 0.0, 0.0, 0.0);
+    cairo_paint (cr);
+    cairo_restore (cr);
+
     for (i = 0; i < 18; i ++) {
         if (i < specialblocknum) {
 /*            gdk_draw_drawable (specialwidget->window,
                                specialwidget->style->black_gc,
                                blockpix, (specialblocks[i]-1)*BLOCKSIZE,
                                0, BLOCKSIZE*i, 0, BLOCKSIZE, BLOCKSIZE);*/
-              drawpix (specialwidget, (specialblocks[i]-1)*BLOCKSIZE, 0, BLOCKSIZE*i, 0, BLOCKSIZE, BLOCKSIZE);
-        }
-        else {
-/*            gdk_draw_rectangle (specialwidget->window, specialwidget->style->black_gc,
-                                TRUE, BLOCKSIZE*i, 0,
-                                BLOCKSIZE*(i+1), BLOCKSIZE);*/
-              // black (otherwise it is white)
-              cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(specialwidget));
-              cairo_rectangle (cr, BLOCKSIZE*i, 0, BLOCKSIZE*(i+1), BLOCKSIZE);
-              cairo_fill (cr);
-              cairo_destroy (cr);
+              drawpix (cr, (specialblocks[i]-1)*BLOCKSIZE, 0, BLOCKSIZE*i, 0, BLOCKSIZE, BLOCKSIZE);
         }
     }
 }
 
 void fields_drawnextblock (TETRISBLOCK block)
 {
+    if (block != NULL)
+        memcpy (displayblock, block, sizeof (displayblock));
+    if (nextpiecewidget)
+        gtk_widget_queue_draw (nextpiecewidget);
+}
+void fields_rendernextblock (cairo_t *cr, TETRISBLOCK block)
+{
     int x, y, xstart = 4, ystart = 4, xpos, ypos;
-    if (block == NULL) block = displayblock;
     // Draw the black background
     /*gdk_draw_rectangle (nextpiecewidget->window, nextpiecewidget->style->black_gc,
                         TRUE, 0, 0, BLOCKSIZE*9/2, BLOCKSIZE*9/2);*/
-    cairo_t *cr = gdk_cairo_create (gtk_widget_get_window(nextpiecewidget));
-    cairo_rectangle (cr, 0, 0, BLOCKSIZE*9/2, BLOCKSIZE*9/2);
+    cairo_save (cr);
+    cairo_set_source_rgb (cr, 0.0, 0.0, 0.0);
     cairo_paint (cr);
-    cairo_destroy (cr);
+    cairo_restore (cr);
     for (y = 0; y < 4; y ++)
         for (x = 0; x < 4; x ++)
             if (block[y][x]) {
@@ -436,10 +445,9 @@ void fields_drawnextblock (TETRISBLOCK block)
                                    BLOCKSIZE*(x-xstart)+BLOCKSIZE/4,
                                    BLOCKSIZE*(y-ystart)+BLOCKSIZE/4,
                                    BLOCKSIZE, BLOCKSIZE);*/
-                  drawpix (nextpiecewidget, (block[y][x]-1)*BLOCKSIZE, 0, BLOCKSIZE*(x-xstart)+BLOCKSIZE/4, BLOCKSIZE*(y-ystart)+BLOCKSIZE/4, BLOCKSIZE, BLOCKSIZE);
+                  drawpix (cr, (block[y][x]-1)*BLOCKSIZE, 0, BLOCKSIZE*(x-xstart)+BLOCKSIZE/4, BLOCKSIZE*(y-ystart)+BLOCKSIZE/4, BLOCKSIZE, BLOCKSIZE);
             }
         }
-    memcpy (displayblock, block, 16);
 }
 
 void fields_attdefmsg (char *text)
