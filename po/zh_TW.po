@@ -6,116 +6,137 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet 0.7.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-24 04:01+0000\n"
+"POT-Creation-Date: 2026-08-23 14:46+0200\n"
 "PO-Revision-Date: 2006-08-23 23:19+0800\n"
 "Last-Translator: Abel Cheung <abel@oaka.org>\n"
 "Language-Team: Chinese (Taiwan) <community@linuxhall.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/client.c:243
+#: src/client.c:245
 msgid "Couldn't resolve hostname."
 msgstr "無法解析主機名稱。"
 
-#: ../src/commands.c:45
+#: src/commands.c:197
 msgid "_Connect to server..."
 msgstr "連接至伺服器(_C)..."
 
-#: ../src/commands.c:46
+#: src/commands.c:199
 msgid "_Disconnect from server"
 msgstr "中斷伺服器連線(_D)"
 
-#: ../src/commands.c:48
+#: src/commands.c:204
 msgid "Change _team..."
 msgstr "換隊(_T)..."
 
-#: ../src/commands.c:50
+#: src/commands.c:210
 msgid "_Start game"
 msgstr "開始遊戲(_S)"
 
-#: ../src/commands.c:51
+#: src/commands.c:211
 msgid "_Pause game"
 msgstr "暫停遊戲(_P)"
 
-#: ../src/commands.c:52
+#: src/commands.c:213
 msgid "_End game"
 msgstr "結束遊戲(_E)"
 
-#: ../src/commands.c:57
+#: src/commands.c:219
 msgid "Detac_h page..."
 msgstr "脫離這一頁(_H)..."
 
-#: ../src/commands.c:82
-msgid "Connect"
-msgstr "連線"
+#: src/commands.c:225
+msgid "_Quit"
+msgstr ""
 
-#: ../src/commands.c:82
-msgid "Connect to a server"
-msgstr "連接至伺服器"
-
-#: ../src/commands.c:83
-msgid "Disconnect"
-msgstr "斷線"
-
-#: ../src/commands.c:83
-msgid "Disconnect from the current server"
-msgstr "中斷和目前伺服器的連線"
-
-#: ../src/commands.c:85
-msgid "Start game"
-msgstr "開始遊戲"
-
-#: ../src/commands.c:85
-msgid "Start a new game"
-msgstr "開始新的遊戲"
-
-#: ../src/commands.c:86
-msgid "End game"
-msgstr "結束遊戲"
-
-#: ../src/commands.c:86
-msgid "End the current game"
-msgstr "結束這局遊戲"
-
-#: ../src/commands.c:87
-msgid "Pause game"
-msgstr "暫停遊戲"
-
-#: ../src/commands.c:87
-msgid "Pause the game"
-msgstr "暫停這局遊戲"
-
-#: ../src/commands.c:89 ../src/dialogs.c:152
+#: src/commands.c:279 src/dialogs.c:276
 msgid "Change team"
 msgstr "換隊"
 
-#: ../src/commands.c:89
+#: src/commands.c:283
 msgid "Change your current team name"
 msgstr "變更您目前所屬的團隊的名稱"
 
-#: ../src/commands.c:92
+#: src/commands.c:299
+msgid "Connect"
+msgstr "連線"
+
+#: src/commands.c:301
+msgid "Connect to a server"
+msgstr "連接至伺服器"
+
+#: src/commands.c:305
+msgid "Disconnect"
+msgstr "斷線"
+
+#: src/commands.c:307
+msgid "Disconnect from the current server"
+msgstr "中斷和目前伺服器的連線"
+
+#: src/commands.c:314
+msgid "Start game"
+msgstr "開始遊戲"
+
+#: src/commands.c:316
+msgid "Start a new game"
+msgstr "開始新的遊戲"
+
+#: src/commands.c:320
+msgid "End game"
+msgstr "結束遊戲"
+
+#: src/commands.c:322
+msgid "End the current game"
+msgstr "結束這局遊戲"
+
+#: src/commands.c:326
+msgid "Pause game"
+msgstr "暫停遊戲"
+
+#: src/commands.c:328
+msgid "Pause the game"
+msgstr "暫停這局遊戲"
+
+#: src/commands.c:342
 msgid "Detach page"
 msgstr "脫離這一頁"
 
-#: ../src/commands.c:92
+#: src/commands.c:344
 msgid "Detach the current notebook page"
 msgstr "脫離這一頁成為新的視窗"
 
-#: ../src/commands.c:258
+#: src/commands.c:370
+#, fuzzy
+msgid "_Preferences"
+msgstr "GTetrinet 偏好設定"
+
+#: src/commands.c:371
+msgid "_About"
+msgstr ""
+
+#: src/commands.c:373
+msgid "_Game"
+msgstr ""
+
+#: src/commands.c:374
+msgid "_Settings"
+msgstr ""
+
+#: src/commands.c:672
 msgid "Game in progress"
 msgstr "遊戲進行中"
 
-#: ../src/commands.c:261
+#: src/commands.c:675
 msgid "Connected to\n"
 msgstr "連線至\n"
 
-#: ../src/commands.c:265
+#: src/commands.c:680
 msgid "Not connected"
 msgstr "未連線"
 
-#. Translators: translate as your names & emails
-#: ../src/commands.c:309
+#: src/commands.c:702
 msgid "translator-credits"
 msgstr ""
 "如對翻譯有任何意見，請送一封電子郵件給\n"
@@ -124,142 +145,152 @@ msgstr ""
 "\n"
 "Abel Cheung <abel@oaka.org>, 2003"
 
-#: ../src/commands.c:323
+#: src/commands.c:717
 msgid "A Tetrinet client for GNOME.\n"
 msgstr "適用於 GNOME 的俄羅斯方塊遊戲。\n"
 
-#: ../src/config.c:140
+#: src/config.c:155
 msgid "Warning: theme does not have a name, reverting to default."
 msgstr "警告：佈景主題沒有名稱，會改為使用預設佈景主題。"
 
-#. make dialog that asks for address/nickname
-#: ../src/dialogs.c:85 ../src/dialogs.c:324 ../src/gtetrinet.c:77
+#: src/dialogs.c:197 src/dialogs.c:448 src/gtetrinet.c:81
 msgid "Connect to server"
 msgstr "連接至伺服器"
 
-#: ../src/dialogs.c:165
+#: src/dialogs.c:209 src/dialogs.c:294 src/dialogs.c:452
+msgid "_Cancel"
+msgstr ""
+
+#: src/dialogs.c:282
 msgid "Team name:"
 msgstr "團隊名稱："
 
-#: ../src/dialogs.c:210
+#: src/dialogs.c:295 src/dialogs.c:453
+msgid "_OK"
+msgstr ""
+
+#: src/dialogs.c:329
 msgid "You must specify a server name."
 msgstr "您必須指定伺服器名稱。"
 
-#: ../src/dialogs.c:227
+#: src/dialogs.c:342
 msgid "Please specify a password to connect as spectator."
 msgstr "請指定成為旁觀者身分所需要的密碼。"
 
-#: ../src/dialogs.c:248
+#: src/dialogs.c:357
 msgid "Please specify a valid nickname."
 msgstr "請使用有效的稱呼。"
 
-#. game type radio buttons
-#: ../src/dialogs.c:353
+#: src/dialogs.c:481
 msgid "O_riginal"
 msgstr "原創方式(_R)"
 
-#: ../src/dialogs.c:355
+#: src/dialogs.c:482
 msgid "Tetri_Fast"
 msgstr "Tetri_Fast"
 
-#: ../src/dialogs.c:377
+#: src/dialogs.c:509
 msgid "Server address"
 msgstr "伺服器位址"
 
-#: ../src/dialogs.c:386
+#: src/dialogs.c:518
 msgid "Connect as a _spectator"
 msgstr "以旁觀者身分連線(_S)"
 
-#: ../src/dialogs.c:390
+#: src/dialogs.c:522
 msgid "_Password:"
 msgstr "密碼(_P)："
 
-#: ../src/dialogs.c:407
+#: src/dialogs.c:542
 msgid "Spectate game"
 msgstr "觀看遊戲"
 
-#: ../src/dialogs.c:416
+#: src/dialogs.c:551
 msgid "_Nick name:"
 msgstr "稱呼(_N)："
 
-#: ../src/dialogs.c:430
+#: src/dialogs.c:563
 msgid "_Team name:"
 msgstr "隊名(_T)："
 
-#: ../src/dialogs.c:449
+#: src/dialogs.c:583
 msgid "Player information"
 msgstr "玩者資訊"
 
-#: ../src/dialogs.c:490
+#: src/dialogs.c:648
 msgid "Change Key"
 msgstr "變更按鍵"
 
-#: ../src/dialogs.c:541
+#: src/dialogs.c:899
 msgid "Move right"
 msgstr "向右移"
 
-#: ../src/dialogs.c:542
+#: src/dialogs.c:900
 msgid "Move left"
 msgstr "向左移"
 
-#: ../src/dialogs.c:543
+#: src/dialogs.c:901
 msgid "Move down"
 msgstr "向下移"
 
-#: ../src/dialogs.c:544
+#: src/dialogs.c:902
 msgid "Rotate right"
 msgstr "向右轉"
 
-#: ../src/dialogs.c:545
+#: src/dialogs.c:903
 msgid "Rotate left"
 msgstr "向左轉"
 
-#: ../src/dialogs.c:546
+#: src/dialogs.c:904
 msgid "Drop piece"
 msgstr "令方塊跌下"
 
-#: ../src/dialogs.c:547
+#: src/dialogs.c:905
 msgid "Discard special"
 msgstr "丟棄特殊方塊"
 
-#: ../src/dialogs.c:548
+#: src/dialogs.c:906
 msgid "Send message"
 msgstr "送出訊息"
 
-#: ../src/dialogs.c:549
+#: src/dialogs.c:907
 msgid "Special to field 1"
 msgstr "將特殊方塊使用於第 1 個玩者"
 
-#: ../src/dialogs.c:550
+#: src/dialogs.c:908
 msgid "Special to field 2"
 msgstr "將特殊方塊使用於第 2 個玩者"
 
-#: ../src/dialogs.c:551
+#: src/dialogs.c:909
 msgid "Special to field 3"
 msgstr "將特殊方塊使用於第 3 個玩者"
 
-#: ../src/dialogs.c:552
+#: src/dialogs.c:910
 msgid "Special to field 4"
 msgstr "將特殊方塊使用於第 4 個玩者"
 
-#: ../src/dialogs.c:553
+#: src/dialogs.c:911
 msgid "Special to field 5"
 msgstr "將特殊方塊使用於第 5 個玩者"
 
-#: ../src/dialogs.c:554
+#: src/dialogs.c:912
 msgid "Special to field 6"
 msgstr "將特殊方塊使用於第 6 個玩者"
 
-#: ../src/dialogs.c:614
+#: src/dialogs.c:974
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr "請指定「%s」的新按鍵"
 
-#: ../src/dialogs.c:831
+#: src/dialogs.c:1150
 msgid "GTetrinet Preferences"
 msgstr "GTetrinet 偏好設定"
 
-#: ../src/dialogs.c:853
+#: src/dialogs.c:1154
+msgid "_Close"
+msgstr ""
+
+#: src/dialogs.c:1185
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
@@ -267,94 +298,79 @@ msgstr ""
 "請在清單中選取佈景主題。\n"
 "您可以將新的佈景主題安裝在 ~/.gtetrinet/themes/"
 
-#: ../src/dialogs.c:860
+#: src/dialogs.c:1195
 msgid "Name:"
 msgstr "名稱："
 
-#: ../src/dialogs.c:863
+#: src/dialogs.c:1198
 msgid "Author:"
 msgstr "作者："
 
-#: ../src/dialogs.c:866
+#: src/dialogs.c:1201
 msgid "Description:"
 msgstr "說明："
 
-#: ../src/dialogs.c:879
+#: src/dialogs.c:1214
 msgid "Selected Theme"
 msgstr "選定的佈景主題"
 
-#: ../src/dialogs.c:895
+#: src/dialogs.c:1235
 msgid "Download new themes"
 msgstr "下載新的佈景主題"
 
-#: ../src/dialogs.c:900
+#: src/dialogs.c:1240
 msgid "Themes"
 msgstr "佈景主題"
 
-#. partyline
-#: ../src/dialogs.c:905
+#: src/dialogs.c:1245
 msgid "Enable _Timestamps"
 msgstr "顯示時間(_T)"
 
-#: ../src/dialogs.c:907
+#: src/dialogs.c:1247
 msgid "Enable Channel _List"
 msgstr "啟用聊天室清單(_L)"
 
-#. FIXME
-#: ../src/dialogs.c:933 ../src/gtetrinet.c:281
+#: src/dialogs.c:1276
 msgid "Partyline"
 msgstr "交談區"
 
-#: ../src/dialogs.c:944
+#: src/dialogs.c:1288
 msgid "Action"
 msgstr "特殊操作"
 
-#: ../src/dialogs.c:946
+#: src/dialogs.c:1293
 msgid "Key"
 msgstr "按鍵"
 
-#: ../src/dialogs.c:952
+#: src/dialogs.c:1306
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
-msgstr "在清單中選取某項操作程序，然後按「變更按鍵」，就可以變更代表該項操作程序的按鍵。"
+msgstr ""
+"在清單中選取某項操作程序，然後按「變更按鍵」，就可以變更代表該項操作程序的按"
+"鍵。"
 
-#: ../src/dialogs.c:959
+#: src/dialogs.c:1313
 msgid "Change _key..."
 msgstr "變更按鍵(_K)..."
 
-#: ../src/dialogs.c:964 ../src/dialogs.c:1017
+#: src/dialogs.c:1318
 msgid "_Restore defaults"
 msgstr "回復為預設值(_R)"
 
-#: ../src/dialogs.c:985
+#: src/dialogs.c:1342
 msgid "Keyboard"
 msgstr "鍵盤"
 
-#. sound
-#: ../src/dialogs.c:990
+#: src/dialogs.c:1347
 msgid "Enable _Sound"
 msgstr "啟用音效(_S)"
 
-#: ../src/dialogs.c:993
-msgid "Enable _MIDI"
-msgstr "啟用 _MIDI"
-
-#: ../src/dialogs.c:1007
-msgid "Enter command to play a midi file:"
-msgstr "請輸入可播放 midi 檔案的指令："
-
-#: ../src/dialogs.c:1010
-msgid ""
-"The above command is run when a midi file is to be played.  The name of the "
-"midi file is placed in the environment variable MIDIFILE."
-msgstr "當播放 midi 音效檔時會使用以上的指令來播放。midi 檔的名稱可以在環境變數 MIDIFILE 中找到。"
-
-#: ../src/dialogs.c:1047
+#: src/dialogs.c:1370
 msgid "Sound"
 msgstr "音效"
 
-#: ../src/fields.c:76
+#: src/fields.c:86
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
@@ -362,8 +378,7 @@ msgstr ""
 "載入佈景主題時發生錯誤：無法載入圖片檔案\n"
 "改為使用預設佈景主題"
 
-#. shouldnt happen
-#: ../src/fields.c:85
+#: src/fields.c:95
 #, c-format
 msgid ""
 "Error loading default theme: Aborting...\n"
@@ -372,493 +387,458 @@ msgstr ""
 "載入佈景主題時發生錯誤，停止運作。\n"
 "請檢查是否安裝時出了問題\n"
 
-#: ../src/fields.c:206
-msgid "Next piece:"
-msgstr "下一塊："
-
-#: ../src/fields.c:223
-msgid "Lines:"
-msgstr "行數："
-
-#: ../src/fields.c:227
-msgid "Level:"
-msgstr "等級："
-
-#: ../src/fields.c:229
-msgid "Active level:"
-msgstr "平均等級："
-
-#: ../src/fields.c:277
-msgid "Attacks and defenses:"
-msgstr "攻擊及防守："
-
-#: ../src/fields.c:420
+#: src/fields.c:189 src/fields.c:496
 msgid "Not playing"
 msgstr "沒有人玩"
 
-#: ../src/fields.c:447
+#: src/fields.c:282
+msgid "Next piece:"
+msgstr "下一塊："
+
+#: src/fields.c:300
+msgid "Lines:"
+msgstr "行數："
+
+#: src/fields.c:312
+msgid "Level:"
+msgstr "等級："
+
+#: src/fields.c:320
+msgid "Active level:"
+msgstr "平均等級："
+
+#: src/fields.c:335
+msgid "Attacks and defenses:"
+msgstr "攻擊及防守："
+
+#: src/fields.c:525
 msgid "Specials:"
 msgstr "特殊方塊："
 
-#: ../src/gtetrinet.c:77
+#: src/gtetrinet.c:81
 msgid "SERVER"
 msgstr "伺服器"
 
-#: ../src/gtetrinet.c:78
+#: src/gtetrinet.c:85
 msgid "Set nickname to use"
 msgstr "指定準備使用的稱呼"
 
-#: ../src/gtetrinet.c:78
+#: src/gtetrinet.c:85
 msgid "NICKNAME"
 msgstr "稱呼"
 
-#: ../src/gtetrinet.c:79
+#: src/gtetrinet.c:89
 msgid "Set team name"
 msgstr "指定隊名"
 
-#: ../src/gtetrinet.c:79
+#: src/gtetrinet.c:89
 msgid "TEAM"
 msgstr "團隊"
 
-#: ../src/gtetrinet.c:80
+#: src/gtetrinet.c:93
 msgid "Connect as a spectator"
 msgstr "以旁觀者身分連線"
 
-#: ../src/gtetrinet.c:81
+#: src/gtetrinet.c:97
 msgid "Spectator password"
 msgstr "旁觀者密碼"
 
-#: ../src/gtetrinet.c:81
+#: src/gtetrinet.c:97
 msgid "PASSWORD"
 msgstr "密碼"
 
-#: ../src/gtetrinet.c:120
-#, c-format
-msgid "Failed to init GConf: %s\n"
-msgstr "無法初始化 GConf：%s\n"
+#: src/partyline.c:314
+#, fuzzy
+msgid "<b>Channel List</b>"
+msgstr "聊天室清單"
 
-#. FIXME
-#: ../src/gtetrinet.c:270 ../src/gtetrinet.c:416 ../src/gtetrinet.c:469
-msgid "Playing Fields"
-msgstr "遊戲區"
-
-#. FIXME
-#: ../src/gtetrinet.c:292
-msgid "Winlist"
-msgstr "優勝者"
-
-#: ../src/partyline.c:77 ../src/partyline.c:138 ../src/winlist.c:59
+#: src/partyline.c:323 src/partyline.c:404 src/winlist.c:212
 msgid "Name"
 msgstr "名稱"
 
-#: ../src/partyline.c:79
+#: src/partyline.c:326
 msgid "Players"
 msgstr "玩者"
 
-#: ../src/partyline.c:81
+#: src/partyline.c:329
 msgid "State"
 msgstr "狀態"
 
-#: ../src/partyline.c:83
+#: src/partyline.c:332
 msgid "Description"
 msgstr "描述"
 
-#: ../src/partyline.c:95
-msgid "Channel List"
-msgstr "聊天室清單"
-
-#: ../src/partyline.c:140
+#: src/partyline.c:407
 msgid "Team"
 msgstr "團隊"
 
-#: ../src/partyline.c:153
+#: src/partyline.c:421
 msgid "Your name:"
 msgstr "您的名稱："
 
-#: ../src/partyline.c:160
+#: src/partyline.c:431
 msgid "Your team:"
 msgstr "您所屬的團隊："
 
-#: ../src/partyline.c:638
+#: src/partyline.c:884
 msgid "Talking in channel"
 msgstr "在聊天室中交談"
 
-#: ../src/partyline.c:640
+#: src/partyline.c:886
 msgid "Disconnected"
 msgstr "未連線"
 
-#: ../src/tetrinet.c:197
+#: src/tetrinet.c:197
 msgid "Server disconnected"
 msgstr "已經和伺服器斷線"
 
-#: ../src/tetrinet.c:217
+#: src/tetrinet.c:217
 #, c-format
 msgid "%c%c*** Disconnected from server"
 msgstr "%c%c*** 和伺服器斷線"
 
-#: ../src/tetrinet.c:229
+#: src/tetrinet.c:230
 msgid "Error connecting: "
 msgstr "連線時發生錯誤："
 
-#: ../src/tetrinet.c:263
+#: src/tetrinet.c:264
 #, c-format
 msgid "%c%c*** Connected to server"
 msgstr "%c%c*** 已連接至伺服器"
 
-#: ../src/tetrinet.c:364
+#: src/tetrinet.c:365
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
 msgstr "%c%c*** 您被人趕走"
 
-#: ../src/tetrinet.c:368
+#: src/tetrinet.c:369
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
 msgstr "%c*** %c%s%c%c 被人趕走"
 
-#: ../src/tetrinet.c:543
+#: src/tetrinet.c:552
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
 msgstr "%c*** %c%s%c%c 團隊贏了"
 
-#: ../src/tetrinet.c:549
+#: src/tetrinet.c:558
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
 msgstr "%c*** %c%s%c%c 贏了"
 
-#: ../src/tetrinet.c:612
+#: src/tetrinet.c:621
 #, c-format
 msgid "%c*** The game has %cstarted"
 msgstr "%c*** 遊戲已經%c開始"
 
-#: ../src/tetrinet.c:638
+#: src/tetrinet.c:647
 #, c-format
 msgid "%c*** The game is %cin progress"
 msgstr "%c*** 遊戲%c進行中"
 
-#: ../src/tetrinet.c:650
+#: src/tetrinet.c:659
 #, c-format
 msgid "%c*** The game has %cpaused"
 msgstr "%c*** 遊戲已%c暫停"
 
-#: ../src/tetrinet.c:652
+#: src/tetrinet.c:661
 #, c-format
 msgid "The game has %c%cpaused"
 msgstr "遊戲已%c%c暫停"
 
-#: ../src/tetrinet.c:657
+#: src/tetrinet.c:666
 #, c-format
 msgid "%c*** The game has %cresumed"
 msgstr "%c*** 遊戲%c繼續進行"
 
-#: ../src/tetrinet.c:659
+#: src/tetrinet.c:668
 #, c-format
 msgid "The game has %c%cresumed"
 msgstr "遊戲%c%c繼續進行"
 
-#: ../src/tetrinet.c:668
+#: src/tetrinet.c:677
 #, c-format
 msgid "%c*** The game has %cended"
 msgstr "%c*** 遊戲已%c結束"
 
-#: ../src/tetrinet.c:786
+#: src/tetrinet.c:795
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
 msgstr "%c*** 您加入了 %c%s%c%c"
 
-#: ../src/tetrinet.c:803
+#: src/tetrinet.c:812
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c 加入成為旁觀者 %c%c(%c%s%c%c%c)"
 
-#: ../src/tetrinet.c:824
+#: src/tetrinet.c:833
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr "%c*** %c%s%c%c 離開旁觀者身分 %c%c(%c%s%c%c%c)"
 
-#: ../src/tetrinet.c:1062
+#: src/tetrinet.c:1071
 msgid "No special blocks"
 msgstr "沒有特殊方塊"
 
-#: ../src/tetrinet.c:1221 ../src/tetrinet.c:1228
+#: src/tetrinet.c:1230 src/tetrinet.c:1237
 #, c-format
 msgid " on %c%c%s%c%c"
 msgstr " 已加在 %c%c%s%c%c 身上"
 
-#: ../src/tetrinet.c:1238
+#: src/tetrinet.c:1247
 msgid " to All"
 msgstr " 已加在所有人身上"
 
-#: ../src/tetrinet.c:1244 ../src/tetrinet.c:1251
+#: src/tetrinet.c:1253 src/tetrinet.c:1260
 #, c-format
 msgid " by %c%c%s%c%c"
 msgstr "，由 %c%c%s%c%c 發出"
 
-#: ../src/tetrinet.c:1879
+#: src/tetrinet.c:1886
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
 msgstr "%c*** %c%s%c%c 是仲裁者"
 
-#. remove ", " from end of string
-#: ../src/tetrinet.c:1928
+#: src/tetrinet.c:1936
 msgid " has left the game"
 msgstr " 己經離開遊戲"
 
-#: ../src/tetrinet.c:1929
+#: src/tetrinet.c:1937
 msgid " have left the game"
 msgstr " 己經離開遊戲"
 
-#: ../src/tetrinet.c:1942
+#: src/tetrinet.c:1950
 msgid " has joined the game"
 msgstr " 剛加入遊戲"
 
-#: ../src/tetrinet.c:1943
+#: src/tetrinet.c:1951
 msgid " have joined the game"
 msgstr " 剛加入遊戲"
 
-#: ../src/tetrinet.c:1966
+#: src/tetrinet.c:1974
 #, c-format
 msgid "%s is on team %c%s"
 msgstr "%s 在 %c%s 隊"
 
-#: ../src/tetrinet.c:1969
+#: src/tetrinet.c:1977
 #, c-format
 msgid "%s is alone"
 msgstr "%s 沒有加入團隊"
 
-#: ../src/tetrinet.c:1971
+#: src/tetrinet.c:1979
 #, c-format
 msgid "%s are on team %c%s"
 msgstr "%s 在 %c%s 隊"
 
-#: ../src/tetrinet.c:1974
+#: src/tetrinet.c:1982
 #, c-format
 msgid "%s are alone"
 msgstr "%s 沒有加入團隊"
 
-#: ../src/tetrinet.c:2015
+#: src/tetrinet.c:2023
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
 msgstr "%c*** %c%s%c%c 在 %c%s 團隊"
 
-#: ../src/tetrinet.c:2022
+#: src/tetrinet.c:2030
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
 msgstr "%c*** %c%s%c%c 沒有加入團隊"
 
-#. "T" stands for "Team" here
-#: ../src/winlist.c:57
+#: src/winlist.c:207
 msgid "T"
 msgstr "T"
 
-#: ../src/winlist.c:61
+#: src/winlist.c:217
 msgid "Score"
 msgstr "分數"
 
-#: ../gtetrinet.desktop.in.h:1
-msgid "GTetrinet"
-msgstr "GTetrinet"
+#~ msgid "Enable _MIDI"
+#~ msgstr "啟用 _MIDI"
 
-#: ../gtetrinet.desktop.in.h:2
-msgid "Tetrinet client"
-msgstr "Tetrinet 客戶端程式"
+#~ msgid "Enter command to play a midi file:"
+#~ msgstr "請輸入可播放 midi 檔案的指令："
 
-#: ../gtetrinet.desktop.in.h:3
-msgid "Tetrinet client for GNOME"
-msgstr "Tetrinet 的 GNOME 客戶端程式"
+#~ msgid ""
+#~ "The above command is run when a midi file is to be played.  The name of "
+#~ "the midi file is placed in the environment variable MIDIFILE."
+#~ msgstr ""
+#~ "當播放 midi 音效檔時會使用以上的指令來播放。midi 檔的名稱可以在環境變數 "
+#~ "MIDIFILE 中找到。"
 
-#: ../gtetrinet.schemas.in.h:1
-msgid "Command to run to play midi files"
-msgstr "用來播放 midi 音效檔的指令"
+#, c-format
+#~ msgid "Failed to init GConf: %s\n"
+#~ msgstr "無法初始化 GConf：%s\n"
 
-#: ../gtetrinet.schemas.in.h:2
-msgid "Enable/disable channel list."
-msgstr "啟用/不啟用聊天室功能。"
+#~ msgid "Playing Fields"
+#~ msgstr "遊戲區"
 
-#: ../gtetrinet.schemas.in.h:3
-msgid "Enable/disable midi music"
-msgstr "啟用/不啟用 midi 音效"
+#~ msgid "Winlist"
+#~ msgstr "優勝者"
 
-#: ../gtetrinet.schemas.in.h:4
-msgid "Enable/disable sound"
-msgstr "啟用/不啟用音效"
+#~ msgid "GTetrinet"
+#~ msgstr "GTetrinet"
 
-#: ../gtetrinet.schemas.in.h:5
-msgid "Enable/disable timestamps."
-msgstr "顯示/隱藏時間"
+#~ msgid "Tetrinet client"
+#~ msgstr "Tetrinet 客戶端程式"
 
-#: ../gtetrinet.schemas.in.h:6
-msgid ""
-"Enables/Disables sound. Keep in mind that the theme that you're using must "
-"provide sounds."
-msgstr "啟用/不啟用音效。可是您使用的佈景主題必須提供音效才會有用。"
+#~ msgid "Tetrinet client for GNOME"
+#~ msgstr "Tetrinet 的 GNOME 客戶端程式"
 
-#: ../gtetrinet.schemas.in.h:7
-msgid ""
-"Enables/disables midi music. You'll need to enable sound if you want music "
-"to work."
-msgstr "啟用/不啟用 midi 音效。可是您使用的佈景主題必須提供音效才會有用。"
+#~ msgid "Command to run to play midi files"
+#~ msgstr "用來播放 midi 音效檔的指令"
 
-#: ../gtetrinet.schemas.in.h:8
-msgid ""
-"Enables/disables the channel list. Disable it if you experience problems "
-"when connecting or while playing in your favorite tetrinet server."
-msgstr "啟用/不啟用聊天室清單。如果您覺得在玩遊戲時或者連線時出現問題，可以關閉這個選項。"
+#~ msgid "Enable/disable channel list."
+#~ msgstr "啟用/不啟用聊天室功能。"
 
-#: ../gtetrinet.schemas.in.h:9
-msgid "Enables/disables timestamps in the partyline."
-msgstr "在交談區中顯示/隱藏時間。"
+#~ msgid "Enable/disable midi music"
+#~ msgstr "啟用/不啟用 midi 音效"
 
-#: ../gtetrinet.schemas.in.h:10
-msgid "Key to discard special"
-msgstr "用來丟棄特殊方塊的按鍵"
+#~ msgid "Enable/disable sound"
+#~ msgstr "啟用/不啟用音效"
 
-#: ../gtetrinet.schemas.in.h:11
-msgid "Key to drop piece"
-msgstr "令方塊跌下的按鍵"
+#~ msgid "Enable/disable timestamps."
+#~ msgstr "顯示/隱藏時間"
 
-#: ../gtetrinet.schemas.in.h:12
-msgid "Key to move down"
-msgstr "令方塊向下移的按鍵"
+#~ msgid ""
+#~ "Enables/Disables sound. Keep in mind that the theme that you're using "
+#~ "must provide sounds."
+#~ msgstr "啟用/不啟用音效。可是您使用的佈景主題必須提供音效才會有用。"
 
-#: ../gtetrinet.schemas.in.h:13
-msgid "Key to move left"
-msgstr "令方塊向左移的按鍵"
+#~ msgid ""
+#~ "Enables/disables midi music. You'll need to enable sound if you want "
+#~ "music to work."
+#~ msgstr "啟用/不啟用 midi 音效。可是您使用的佈景主題必須提供音效才會有用。"
 
-#: ../gtetrinet.schemas.in.h:14
-msgid "Key to move right"
-msgstr "令方塊向右移的按鍵"
+#~ msgid ""
+#~ "Enables/disables the channel list. Disable it if you experience problems "
+#~ "when connecting or while playing in your favorite tetrinet server."
+#~ msgstr ""
+#~ "啟用/不啟用聊天室清單。如果您覺得在玩遊戲時或者連線時出現問題，可以關閉這"
+#~ "個選項。"
 
-#: ../gtetrinet.schemas.in.h:15
-msgid "Key to open the fields' message dialog"
-msgstr "開啟所有訊息對話方塊的按鍵"
+#~ msgid "Enables/disables timestamps in the partyline."
+#~ msgstr "在交談區中顯示/隱藏時間。"
 
-#: ../gtetrinet.schemas.in.h:16
-msgid "Key to rotate clockwise"
-msgstr "令方塊順時針方向旋轉的按鍵"
+#~ msgid "Key to discard special"
+#~ msgstr "用來丟棄特殊方塊的按鍵"
 
-#: ../gtetrinet.schemas.in.h:17
-msgid "Key to rotate counterclockwise"
-msgstr "令方塊逆時針方向旋轉的按鍵"
+#~ msgid "Key to drop piece"
+#~ msgstr "令方塊跌下的按鍵"
 
-#: ../gtetrinet.schemas.in.h:18
-msgid "Key to use the current special on field 1"
-msgstr "將特殊方塊使用於第 1 個玩者的按鍵"
+#~ msgid "Key to move down"
+#~ msgstr "令方塊向下移的按鍵"
 
-#: ../gtetrinet.schemas.in.h:19
-msgid "Key to use the current special on field 2"
-msgstr "將特殊方塊使用於第 2 個玩者的按鍵"
+#~ msgid "Key to move left"
+#~ msgstr "令方塊向左移的按鍵"
 
-#: ../gtetrinet.schemas.in.h:20
-msgid "Key to use the current special on field 3"
-msgstr "將特殊方塊使用於第 3 個玩者的按鍵"
+#~ msgid "Key to move right"
+#~ msgstr "令方塊向右移的按鍵"
 
-#: ../gtetrinet.schemas.in.h:21
-msgid "Key to use the current special on field 4"
-msgstr "將特殊方塊使用於第 4 個玩者的按鍵"
+#~ msgid "Key to open the fields' message dialog"
+#~ msgstr "開啟所有訊息對話方塊的按鍵"
 
-#: ../gtetrinet.schemas.in.h:22
-msgid "Key to use the current special on field 5"
-msgstr "將特殊方塊使用於第 5 個玩者的按鍵"
+#~ msgid "Key to rotate clockwise"
+#~ msgstr "令方塊順時針方向旋轉的按鍵"
 
-#: ../gtetrinet.schemas.in.h:23
-msgid "Key to use the current special on field 6"
-msgstr "將特殊方塊使用於第 6 個玩者的按鍵"
+#~ msgid "Key to rotate counterclockwise"
+#~ msgstr "令方塊逆時針方向旋轉的按鍵"
 
-#: ../gtetrinet.schemas.in.h:24
-msgid "Server where you want to play"
-msgstr "您會連接至哪部伺服器玩遊戲"
+#~ msgid "Key to use the current special on field 1"
+#~ msgstr "將特殊方塊使用於第 1 個玩者的按鍵"
 
-#: ../gtetrinet.schemas.in.h:25
-msgid ""
-"The current theme directory. It should contain a readable \"blocks.png\" and "
-"a \"theme.cfg\"."
-msgstr "目前的佈景主題目錄。在該目錄中應該可以讀取“blocks.png”及“theme.cfg”。"
+#~ msgid "Key to use the current special on field 2"
+#~ msgstr "將特殊方塊使用於第 2 個玩者的按鍵"
 
-#: ../gtetrinet.schemas.in.h:26
-msgid "Theme directory, should end with a '/'"
-msgstr "佈景主題目錄，應該以‘/’結束"
+#~ msgid "Key to use the current special on field 3"
+#~ msgstr "將特殊方塊使用於第 3 個玩者的按鍵"
 
-#: ../gtetrinet.schemas.in.h:27
-msgid ""
-"This command is run when a midi file is to be played. The name of the midi "
-"file is placed in the environment variable MIDIFILE."
-msgstr "當播放 midi 音效檔時會使用這個指令來播放。midi 檔的名稱可以在環境變數 MIDIFILE 中找到。"
+#~ msgid "Key to use the current special on field 4"
+#~ msgstr "將特殊方塊使用於第 4 個玩者的按鍵"
 
-#: ../gtetrinet.schemas.in.h:28
-msgid "This is the server where GTetrinet will try to connect."
-msgstr "這個是 GTetrinet 會嘗試連線的伺服器。"
+#~ msgid "Key to use the current special on field 5"
+#~ msgstr "將特殊方塊使用於第 5 個玩者的按鍵"
 
-#: ../gtetrinet.schemas.in.h:29
-msgid "This key discards the current special. This is case insensitive."
-msgstr "本按鍵(不分大小寫)會將特殊方塊丟棄。"
+#~ msgid "Key to use the current special on field 6"
+#~ msgstr "將特殊方塊使用於第 6 個玩者的按鍵"
 
-#: ../gtetrinet.schemas.in.h:30
-msgid "This key displays the fields' message dialog. This is case insensitive."
-msgstr "本按鍵(不分大小寫)會開啟所有訊息對話方塊。"
+#~ msgid "Server where you want to play"
+#~ msgstr "您會連接至哪部伺服器玩遊戲"
 
-#: ../gtetrinet.schemas.in.h:31
-msgid "This key drops the block to the ground. This is case insensitive."
-msgstr "本按鍵(不分大小寫)會令方塊跌下至最底層。"
+#~ msgid ""
+#~ "The current theme directory. It should contain a readable \"blocks.png\" "
+#~ "and a \"theme.cfg\"."
+#~ msgstr ""
+#~ "目前的佈景主題目錄。在該目錄中應該可以讀取“blocks.png”及“theme.cfg”。"
 
-#: ../gtetrinet.schemas.in.h:32
-msgid "This key moves the block down. This is case insensitive."
-msgstr "本按鍵(不分大小寫)會令方塊向下移。"
+#~ msgid "Theme directory, should end with a '/'"
+#~ msgstr "佈景主題目錄，應該以‘/’結束"
 
-#: ../gtetrinet.schemas.in.h:33
-msgid "This key moves the block to the left. This is case insensitive."
-msgstr "本按鍵(不分大小寫)會令方塊向左移。"
+#~ msgid ""
+#~ "This command is run when a midi file is to be played. The name of the "
+#~ "midi file is placed in the environment variable MIDIFILE."
+#~ msgstr ""
+#~ "當播放 midi 音效檔時會使用這個指令來播放。midi 檔的名稱可以在環境變數 "
+#~ "MIDIFILE 中找到。"
 
-#: ../gtetrinet.schemas.in.h:34
-msgid "This key moves the block to the right. This is case insensitive."
-msgstr "本按鍵(不分大小寫)會令方塊向右移。"
+#~ msgid "This is the server where GTetrinet will try to connect."
+#~ msgstr "這個是 GTetrinet 會嘗試連線的伺服器。"
 
-#: ../gtetrinet.schemas.in.h:35
-msgid "This key rotates the block clockwise. This is case insensitive."
-msgstr "本按鍵(不分大小寫)會令方塊向順時針方向旋轉。"
+#~ msgid "This key discards the current special. This is case insensitive."
+#~ msgstr "本按鍵(不分大小寫)會將特殊方塊丟棄。"
 
-#: ../gtetrinet.schemas.in.h:36
-msgid "This key rotates the block counterclockwise. This is case insensitive."
-msgstr "本按鍵(不分大小寫)會令方塊向逆時針方向旋轉。"
+#~ msgid ""
+#~ "This key displays the fields' message dialog. This is case insensitive."
+#~ msgstr "本按鍵(不分大小寫)會開啟所有訊息對話方塊。"
 
-#: ../gtetrinet.schemas.in.h:37
-msgid "This key uses the current special on Player 1's game field."
-msgstr "本按鍵會將目前的特殊方塊使用於第 1 個玩者。"
+#~ msgid "This key drops the block to the ground. This is case insensitive."
+#~ msgstr "本按鍵(不分大小寫)會令方塊跌下至最底層。"
 
-#: ../gtetrinet.schemas.in.h:38
-msgid "This key uses the current special on Player 2's game field."
-msgstr "本按鍵會將目前的特殊方塊使用於第 2 個玩者。"
+#~ msgid "This key moves the block down. This is case insensitive."
+#~ msgstr "本按鍵(不分大小寫)會令方塊向下移。"
 
-#: ../gtetrinet.schemas.in.h:39
-msgid "This key uses the current special on Player 3's game field."
-msgstr "本按鍵會將目前的特殊方塊使用於第 3 個玩者。"
+#~ msgid "This key moves the block to the left. This is case insensitive."
+#~ msgstr "本按鍵(不分大小寫)會令方塊向左移。"
 
-#: ../gtetrinet.schemas.in.h:40
-msgid "This key uses the current special on Player 4's game field."
-msgstr "本按鍵會將目前的特殊方塊使用於第 4 個玩者。"
+#~ msgid "This key moves the block to the right. This is case insensitive."
+#~ msgstr "本按鍵(不分大小寫)會令方塊向右移。"
 
-#: ../gtetrinet.schemas.in.h:41
-msgid "This key uses the current special on Player 5's game field."
-msgstr "本按鍵會將目前的特殊方塊使用於第 5 個玩者。"
+#~ msgid "This key rotates the block clockwise. This is case insensitive."
+#~ msgstr "本按鍵(不分大小寫)會令方塊向順時針方向旋轉。"
 
-#: ../gtetrinet.schemas.in.h:42
-msgid "This key uses the current special on Player 6's game field."
-msgstr "本按鍵會將目前的特殊方塊使用於第 6 個玩者。"
+#~ msgid ""
+#~ "This key rotates the block counterclockwise. This is case insensitive."
+#~ msgstr "本按鍵(不分大小寫)會令方塊向逆時針方向旋轉。"
 
-#: ../gtetrinet.schemas.in.h:43
-msgid "This will be the name of your team."
-msgstr "您的團隊名稱"
+#~ msgid "This key uses the current special on Player 1's game field."
+#~ msgstr "本按鍵會將目前的特殊方塊使用於第 1 個玩者。"
 
-#: ../gtetrinet.schemas.in.h:44
-msgid "This will be your nickname in the game."
-msgstr "您在遊戲中會使用這個稱呼"
+#~ msgid "This key uses the current special on Player 2's game field."
+#~ msgstr "本按鍵會將目前的特殊方塊使用於第 2 個玩者。"
 
-#: ../gtetrinet.schemas.in.h:45
-msgid "Your nickname"
-msgstr "您的稱呼"
+#~ msgid "This key uses the current special on Player 3's game field."
+#~ msgstr "本按鍵會將目前的特殊方塊使用於第 3 個玩者。"
 
-#: ../gtetrinet.schemas.in.h:46
-msgid "Your team"
-msgstr "您的團隊"
+#~ msgid "This key uses the current special on Player 4's game field."
+#~ msgstr "本按鍵會將目前的特殊方塊使用於第 4 個玩者。"
+
+#~ msgid "This key uses the current special on Player 5's game field."
+#~ msgstr "本按鍵會將目前的特殊方塊使用於第 5 個玩者。"
+
+#~ msgid "This key uses the current special on Player 6's game field."
+#~ msgstr "本按鍵會將目前的特殊方塊使用於第 6 個玩者。"
+
+#~ msgid "This will be the name of your team."
+#~ msgstr "您的團隊名稱"
+
+#~ msgid "This will be your nickname in the game."
+#~ msgstr "您在遊戲中會使用這個稱呼"
+
+#~ msgid "Your nickname"
+#~ msgstr "您的稱呼"
+
+#~ msgid "Your team"
+#~ msgstr "您的團隊"
 
 #~ msgid "GTetrinet Home Page"
 #~ msgstr "GTetrinet 網頁"

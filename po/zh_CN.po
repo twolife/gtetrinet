@@ -7,477 +7,477 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtetrinet HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-29 03:46+0100\n"
+"POT-Creation-Date: 2026-08-23 14:46+0200\n"
 "PO-Revision-Date: 2004-11-29 19:28+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/client.c:243
+#: src/client.c:245
 msgid "Couldn't resolve hostname."
 msgstr "无法解析主机名。"
 
-#: src/commands.c:45
+#: src/commands.c:197
 msgid "_Connect to server..."
 msgstr "连接服务器(_C)..."
 
-#: src/commands.c:46
+#: src/commands.c:199
 msgid "_Disconnect from server"
 msgstr "从服务器断开连接(_D)"
 
-#: src/commands.c:48
+#: src/commands.c:204
 msgid "Change _team..."
 msgstr "更改团队(_T)..."
 
-#: src/commands.c:50
+#: src/commands.c:210
 msgid "_Start game"
 msgstr "开始游戏(_S)"
 
-#: src/commands.c:51
+#: src/commands.c:211
 msgid "_Pause game"
 msgstr "暂停游戏(_P)"
 
-#: src/commands.c:52
+#: src/commands.c:213
 msgid "_End game"
 msgstr "结束游戏(_E)"
 
-#: src/commands.c:57
+#: src/commands.c:219
 msgid "Detac_h page..."
 msgstr "漂移页面(_H)..."
 
-#: src/commands.c:82
-msgid "Connect"
-msgstr "连接"
+#: src/commands.c:225
+msgid "_Quit"
+msgstr ""
 
-#: src/commands.c:82
-msgid "Connect to a server"
-msgstr "连接到服务器"
-
-#: src/commands.c:83
-msgid "Disconnect"
-msgstr "断开连接"
-
-#: src/commands.c:83
-msgid "Disconnect from the current server"
-msgstr "从当前服务器断开"
-
-#: src/commands.c:85
-msgid "Start game"
-msgstr "开始游戏"
-
-#: src/commands.c:85
-msgid "Start a new game"
-msgstr "开始新游戏"
-
-#: src/commands.c:86
-msgid "End game"
-msgstr "结束游戏"
-
-#: src/commands.c:86
-msgid "End the current game"
-msgstr "结束当前游戏"
-
-#: src/commands.c:87
-msgid "Pause game"
-msgstr "暂停游戏"
-
-#: src/commands.c:87
-msgid "Pause the game"
-msgstr "暂停游戏"
-
-#: src/commands.c:89 src/dialogs.c:156
+#: src/commands.c:279 src/dialogs.c:276
 msgid "Change team"
 msgstr "更改团队"
 
-#: src/commands.c:89
+#: src/commands.c:283
 msgid "Change your current team name"
 msgstr "更改您当前的团队名称"
 
-#: src/commands.c:92
+#: src/commands.c:299
+msgid "Connect"
+msgstr "连接"
+
+#: src/commands.c:301
+msgid "Connect to a server"
+msgstr "连接到服务器"
+
+#: src/commands.c:305
+msgid "Disconnect"
+msgstr "断开连接"
+
+#: src/commands.c:307
+msgid "Disconnect from the current server"
+msgstr "从当前服务器断开"
+
+#: src/commands.c:314
+msgid "Start game"
+msgstr "开始游戏"
+
+#: src/commands.c:316
+msgid "Start a new game"
+msgstr "开始新游戏"
+
+#: src/commands.c:320
+msgid "End game"
+msgstr "结束游戏"
+
+#: src/commands.c:322
+msgid "End the current game"
+msgstr "结束当前游戏"
+
+#: src/commands.c:326
+msgid "Pause game"
+msgstr "暂停游戏"
+
+#: src/commands.c:328
+msgid "Pause the game"
+msgstr "暂停游戏"
+
+#: src/commands.c:342
 msgid "Detach page"
 msgstr "漂移页面"
 
-#: src/commands.c:92
+#: src/commands.c:344
 msgid "Detach the current notebook page"
 msgstr "漂移当前笔记本页面"
 
-#: src/commands.c:258
+#: src/commands.c:370
+#, fuzzy
+msgid "_Preferences"
+msgstr "GTetrinet 首选项"
+
+#: src/commands.c:371
+msgid "_About"
+msgstr ""
+
+#: src/commands.c:373
+msgid "_Game"
+msgstr ""
+
+#: src/commands.c:374
+msgid "_Settings"
+msgstr ""
+
+#: src/commands.c:672
 msgid "Game in progress"
 msgstr "游戏进行中"
 
-#: src/commands.c:261
+#: src/commands.c:675
 msgid "Connected to\n"
 msgstr "已连接到\n"
 
-#: src/commands.c:265
+#: src/commands.c:680
 msgid "Not connected"
 msgstr "未连接"
 
-#. Translators: translate as your names & emails
-#: src/commands.c:287
+#: src/commands.c:702
 msgid "translator-credits"
-msgstr "开源软件国际化之 GNOME 简体中文组\n\thttp://i18n.linux.net.cn"
+msgstr ""
+"开源软件国际化之 GNOME 简体中文组\n"
+"\thttp://i18n.linux.net.cn"
 
-#: src/commands.c:293
+#: src/commands.c:717
 msgid "A Tetrinet client for GNOME.\n"
 msgstr ""
 
-#: src/commands.c:305
-msgid "GTetrinet Home Page"
-msgstr "GTetrinet 主页"
-
-#: src/config.c:140
+#: src/config.c:155
 msgid "Warning: theme does not have a name, reverting to default."
 msgstr "警告：主题没有名称，恢复默认值。"
 
-#. make dialog that asks for address/nickname
-#: src/dialogs.c:85 src/dialogs.c:335 src/gtetrinet.c:77
+#: src/dialogs.c:197 src/dialogs.c:448 src/gtetrinet.c:81
 msgid "Connect to server"
 msgstr "连接到服务器"
 
-#: src/dialogs.c:169
+#: src/dialogs.c:209 src/dialogs.c:294 src/dialogs.c:452
+msgid "_Cancel"
+msgstr ""
+
+#: src/dialogs.c:282
 msgid "Team name:"
 msgstr "团队名称："
 
-#: src/dialogs.c:215
+#: src/dialogs.c:295 src/dialogs.c:453
+msgid "_OK"
+msgstr ""
+
+#: src/dialogs.c:329
 msgid "You must specify a server name."
 msgstr "您必须指定服务器名称。"
 
-#: src/dialogs.c:232
+#: src/dialogs.c:342
 msgid "Please specify a password to connect as spectator."
 msgstr ""
 
-#: src/dialogs.c:258
+#: src/dialogs.c:357
 msgid "Please specify a valid nickname."
 msgstr "请指定有效的昵称。"
 
-#. game type radio buttons
-#: src/dialogs.c:364
+#: src/dialogs.c:481
 msgid "O_riginal"
 msgstr ""
 
-#: src/dialogs.c:366
+#: src/dialogs.c:482
 msgid "Tetri_Fast"
 msgstr ""
 
-#: src/dialogs.c:388
+#: src/dialogs.c:509
 msgid "Server address"
 msgstr "服务器地址"
 
-#: src/dialogs.c:397
+#: src/dialogs.c:518
 msgid "Connect as a _spectator"
 msgstr ""
 
-#: src/dialogs.c:401
+#: src/dialogs.c:522
 msgid "_Password:"
 msgstr "密码(_P)："
 
-#: src/dialogs.c:418
+#: src/dialogs.c:542
 msgid "Spectate game"
 msgstr ""
 
-#: src/dialogs.c:427
+#: src/dialogs.c:551
 msgid "_Nick name:"
 msgstr "昵称(_N)："
 
-#: src/dialogs.c:442
+#: src/dialogs.c:563
 msgid "_Team name:"
 msgstr "团队名称(_T)："
 
-#: src/dialogs.c:462
+#: src/dialogs.c:583
 msgid "Player information"
 msgstr "玩家信息"
 
-#: src/dialogs.c:503
+#: src/dialogs.c:648
 msgid "Change Key"
 msgstr "更改按键"
 
-#: src/dialogs.c:554
+#: src/dialogs.c:899
 msgid "Move right"
 msgstr "右移"
 
-#: src/dialogs.c:555
+#: src/dialogs.c:900
 msgid "Move left"
 msgstr "左移"
 
-#: src/dialogs.c:556
+#: src/dialogs.c:901
 msgid "Move down"
 msgstr "下移"
 
-#: src/dialogs.c:557
+#: src/dialogs.c:902
 msgid "Rotate right"
 msgstr "右旋"
 
-#: src/dialogs.c:558
+#: src/dialogs.c:903
 msgid "Rotate left"
 msgstr "左旋"
 
-#: src/dialogs.c:559
+#: src/dialogs.c:904
 msgid "Drop piece"
 msgstr ""
 
-#: src/dialogs.c:560
+#: src/dialogs.c:905
 msgid "Discard special"
 msgstr ""
 
-#: src/dialogs.c:561
+#: src/dialogs.c:906
 msgid "Send message"
 msgstr "发送消息"
 
-#: src/dialogs.c:562
+#: src/dialogs.c:907
 msgid "Special to field 1"
 msgstr ""
 
-#: src/dialogs.c:563
+#: src/dialogs.c:908
 msgid "Special to field 2"
 msgstr ""
 
-#: src/dialogs.c:564
+#: src/dialogs.c:909
 msgid "Special to field 3"
 msgstr ""
 
-#: src/dialogs.c:565
+#: src/dialogs.c:910
 msgid "Special to field 4"
 msgstr ""
 
-#: src/dialogs.c:566
+#: src/dialogs.c:911
 msgid "Special to field 5"
 msgstr ""
 
-#: src/dialogs.c:567
+#: src/dialogs.c:912
 msgid "Special to field 6"
 msgstr ""
 
-#: src/dialogs.c:627
+#: src/dialogs.c:974
 #, c-format
 msgid "Press new key for \"%s\""
 msgstr ""
 
-#: src/dialogs.c:844
+#: src/dialogs.c:1150
 msgid "GTetrinet Preferences"
 msgstr "GTetrinet 首选项"
 
-#: src/dialogs.c:866
+#: src/dialogs.c:1154
+msgid "_Close"
+msgstr ""
+
+#: src/dialogs.c:1185
 msgid ""
 "Select a theme from the list.\n"
 "Install new themes in ~/.gtetrinet/themes/"
-msgstr "从列表中选择主题。\n安装 ~/.gtetrinet/themes/ 中的新主题"
+msgstr ""
+"从列表中选择主题。\n"
+"安装 ~/.gtetrinet/themes/ 中的新主题"
 
-#: src/dialogs.c:873
+#: src/dialogs.c:1195
 msgid "Name:"
 msgstr "名称："
 
-#: src/dialogs.c:876
+#: src/dialogs.c:1198
 msgid "Author:"
 msgstr "作者："
 
-#: src/dialogs.c:879
+#: src/dialogs.c:1201
 msgid "Description:"
 msgstr "描述："
 
-#: src/dialogs.c:892
+#: src/dialogs.c:1214
 msgid "Selected Theme"
 msgstr "选中的主题"
 
-#: src/dialogs.c:908
+#: src/dialogs.c:1235
 msgid "Download new themes"
 msgstr "下载新主题"
 
-#: src/dialogs.c:913
+#: src/dialogs.c:1240
 msgid "Themes"
 msgstr "主题"
 
-#. partyline
-#: src/dialogs.c:918
+#: src/dialogs.c:1245
 msgid "Enable _Timestamps"
 msgstr "启用时间戳(_T)"
 
-#: src/dialogs.c:920
+#: src/dialogs.c:1247
 msgid "Enable Channel _List"
 msgstr "启用频道列表(_L)"
 
-#. FIXME
-#: src/dialogs.c:946 src/gtetrinet.c:281
+#: src/dialogs.c:1276
 msgid "Partyline"
 msgstr ""
 
-#: src/dialogs.c:957
+#: src/dialogs.c:1288
 msgid "Action"
 msgstr "动作"
 
-#: src/dialogs.c:959
+#: src/dialogs.c:1293
 msgid "Key"
 msgstr "按键"
 
-#: src/dialogs.c:965
+#: src/dialogs.c:1306
 msgid ""
 "Select an action from the list and press Change Key to change the key "
 "associated with the action."
 msgstr ""
 
-#: src/dialogs.c:972
+#: src/dialogs.c:1313
 msgid "Change _key..."
 msgstr "更改按键(_K)..."
 
-#: src/dialogs.c:977 src/dialogs.c:1030
+#: src/dialogs.c:1318
 msgid "_Restore defaults"
 msgstr "恢复默认值(_R)"
 
-#: src/dialogs.c:998
+#: src/dialogs.c:1342
 msgid "Keyboard"
 msgstr "键盘"
 
-#. sound
-#: src/dialogs.c:1003
+#: src/dialogs.c:1347
 msgid "Enable _Sound"
 msgstr "启用声音(_S)"
 
-#: src/dialogs.c:1006
-msgid "Enable _MIDI"
-msgstr "启用 MIDI(_M)"
-
-#: src/dialogs.c:1020
-msgid "Enter command to play a midi file:"
-msgstr "输入播放 midi 文件的命令："
-
-#: src/dialogs.c:1023
-msgid ""
-"The above command is run when a midi file is to be played.  The name of the "
-"midi file is placed in the environment variable MIDIFILE."
-msgstr ""
-
-#: src/dialogs.c:1060
+#: src/dialogs.c:1370
 msgid "Sound"
 msgstr "声音"
 
-#: src/fields.c:76
+#: src/fields.c:86
 msgid ""
 "Error loading theme: cannot load graphics file\n"
 "Falling back to default"
 msgstr ""
 
-#. shouldnt happen
-#: src/fields.c:85
+#: src/fields.c:95
 #, c-format
 msgid ""
 "Error loading default theme: Aborting...\n"
 "Check for installation errors\n"
 msgstr ""
 
-#: src/fields.c:206
-msgid "Next piece:"
-msgstr ""
-
-#: src/fields.c:223
-msgid "Lines:"
-msgstr ""
-
-#: src/fields.c:227
-msgid "Level:"
-msgstr ""
-
-#: src/fields.c:229
-msgid "Active level:"
-msgstr ""
-
-#: src/fields.c:277
-msgid "Attacks and defenses:"
-msgstr ""
-
-#: src/fields.c:421
+#: src/fields.c:189 src/fields.c:496
 msgid "Not playing"
 msgstr "未进行"
 
-#: src/fields.c:452
+#: src/fields.c:282
+msgid "Next piece:"
+msgstr ""
+
+#: src/fields.c:300
+msgid "Lines:"
+msgstr ""
+
+#: src/fields.c:312
+msgid "Level:"
+msgstr ""
+
+#: src/fields.c:320
+msgid "Active level:"
+msgstr ""
+
+#: src/fields.c:335
+msgid "Attacks and defenses:"
+msgstr ""
+
+#: src/fields.c:525
 msgid "Specials:"
 msgstr ""
 
-#: src/gtetrinet.c:77
+#: src/gtetrinet.c:81
 msgid "SERVER"
 msgstr ""
 
-#: src/gtetrinet.c:78
+#: src/gtetrinet.c:85
 msgid "Set nickname to use"
 msgstr "选择要使用的昵称"
 
-#: src/gtetrinet.c:78
+#: src/gtetrinet.c:85
 msgid "NICKNAME"
 msgstr ""
 
-#: src/gtetrinet.c:79
+#: src/gtetrinet.c:89
 msgid "Set team name"
 msgstr "设定团队名称"
 
-#: src/gtetrinet.c:79
+#: src/gtetrinet.c:89
 msgid "TEAM"
 msgstr ""
 
-#: src/gtetrinet.c:80
+#: src/gtetrinet.c:93
+#, fuzzy
 msgid "Connect as a spectator"
-msgstr ""
+msgstr "连接到服务器"
 
-#: src/gtetrinet.c:81
+#: src/gtetrinet.c:97
 msgid "Spectator password"
 msgstr ""
 
-#: src/gtetrinet.c:81
+#: src/gtetrinet.c:97
 msgid "PASSWORD"
 msgstr ""
 
-#: src/gtetrinet.c:120
-#, c-format
-msgid "Failed to init GConf: %s\n"
-msgstr ""
+#: src/partyline.c:314
+#, fuzzy
+msgid "<b>Channel List</b>"
+msgstr "频道列表"
 
-#. FIXME
-#: src/gtetrinet.c:270 src/gtetrinet.c:416 src/gtetrinet.c:469
-msgid "Playing Fields"
-msgstr ""
-
-#. FIXME
-#: src/gtetrinet.c:292
-msgid "Winlist"
-msgstr ""
-
-#: src/partyline.c:77 src/partyline.c:138 src/winlist.c:59
+#: src/partyline.c:323 src/partyline.c:404 src/winlist.c:212
 msgid "Name"
 msgstr "名称"
 
-#: src/partyline.c:79
+#: src/partyline.c:326
 msgid "Players"
 msgstr "玩家"
 
-#: src/partyline.c:81
+#: src/partyline.c:329
 msgid "State"
 msgstr "状态"
 
-#: src/partyline.c:83
+#: src/partyline.c:332
 msgid "Description"
 msgstr "描述"
 
-#: src/partyline.c:95
-msgid "Channel List"
-msgstr "频道列表"
-
-#: src/partyline.c:140
+#: src/partyline.c:407
 msgid "Team"
 msgstr "团队"
 
-#: src/partyline.c:153
+#: src/partyline.c:421
 msgid "Your name:"
 msgstr "您的名称："
 
-#: src/partyline.c:160
+#: src/partyline.c:431
 msgid "Your team:"
 msgstr "您的团队："
 
-#: src/partyline.c:665
+#: src/partyline.c:884
 msgid "Talking in channel"
 msgstr "在频道中交谈"
 
-#: src/partyline.c:667
+#: src/partyline.c:886
 msgid "Disconnected"
 msgstr "已断开连接"
 
@@ -490,366 +490,176 @@ msgstr "服务器已断开连接"
 msgid "%c%c*** Disconnected from server"
 msgstr "%c%c*** 已从服务器断开连接"
 
-#: src/tetrinet.c:229
+#: src/tetrinet.c:230
 msgid "Error connecting: "
 msgstr "连接出错："
 
-#: src/tetrinet.c:263
+#: src/tetrinet.c:264
 #, c-format
 msgid "%c%c*** Connected to server"
 msgstr "%c%c*** 已连接到服务器"
 
-#: src/tetrinet.c:364
+#: src/tetrinet.c:365
 #, c-format
 msgid "%c%c*** You have been kicked from the game"
 msgstr "%c%c*** 您已经从游戏中被踢出"
 
-#: src/tetrinet.c:368
+#: src/tetrinet.c:369
 #, c-format
 msgid "%c*** %c%s%c%c has been kicked from the game"
 msgstr ""
 
-#: src/tetrinet.c:543
+#: src/tetrinet.c:552
 #, c-format
 msgid "%c*** Team %c%s%c%c has won the game"
 msgstr ""
 
-#: src/tetrinet.c:549
+#: src/tetrinet.c:558
 #, c-format
 msgid "%c*** %c%s%c%c has won the game"
 msgstr ""
 
-#: src/tetrinet.c:612
+#: src/tetrinet.c:621
 #, c-format
 msgid "%c*** The game has %cstarted"
 msgstr ""
 
-#: src/tetrinet.c:638
+#: src/tetrinet.c:647
 #, c-format
 msgid "%c*** The game is %cin progress"
 msgstr ""
 
-#: src/tetrinet.c:650
+#: src/tetrinet.c:659
 #, c-format
 msgid "%c*** The game has %cpaused"
 msgstr ""
 
-#: src/tetrinet.c:652
+#: src/tetrinet.c:661
 #, c-format
 msgid "The game has %c%cpaused"
 msgstr ""
 
-#: src/tetrinet.c:657
+#: src/tetrinet.c:666
 #, c-format
 msgid "%c*** The game has %cresumed"
 msgstr ""
 
-#: src/tetrinet.c:659
+#: src/tetrinet.c:668
 #, c-format
 msgid "The game has %c%cresumed"
 msgstr ""
 
-#: src/tetrinet.c:668
+#: src/tetrinet.c:677
 #, c-format
 msgid "%c*** The game has %cended"
 msgstr ""
 
-#: src/tetrinet.c:786
+#: src/tetrinet.c:795
 #, c-format
 msgid "%c*** You have joined %c%s%c%c"
 msgstr ""
 
-#: src/tetrinet.c:803
+#: src/tetrinet.c:812
 #, c-format
 msgid "%c*** %c%s%c%c has joined the spectators %c%c(%c%s%c%c%c)"
 msgstr ""
 
-#: src/tetrinet.c:824
+#: src/tetrinet.c:833
 #, c-format
 msgid "%c*** %c%s%c%c has left the spectators %c%c(%c%s%c%c%c)"
 msgstr ""
 
-#: src/tetrinet.c:1062
+#: src/tetrinet.c:1071
 msgid "No special blocks"
 msgstr ""
 
-#: src/tetrinet.c:1221 src/tetrinet.c:1228
+#: src/tetrinet.c:1230 src/tetrinet.c:1237
 #, c-format
 msgid " on %c%c%s%c%c"
 msgstr ""
 
-#: src/tetrinet.c:1238
+#: src/tetrinet.c:1247
 msgid " to All"
 msgstr ""
 
-#: src/tetrinet.c:1244 src/tetrinet.c:1251
+#: src/tetrinet.c:1253 src/tetrinet.c:1260
 #, c-format
 msgid " by %c%c%s%c%c"
 msgstr ""
 
-#: src/tetrinet.c:1879
+#: src/tetrinet.c:1886
 #, c-format
 msgid "%c*** %c%s%c%c is the moderator"
 msgstr ""
 
-#. remove ", " from end of string
-#: src/tetrinet.c:1928
+#: src/tetrinet.c:1936
 msgid " has left the game"
 msgstr ""
 
-#: src/tetrinet.c:1929
+#: src/tetrinet.c:1937
 msgid " have left the game"
 msgstr ""
 
-#: src/tetrinet.c:1942
+#: src/tetrinet.c:1950
 msgid " has joined the game"
 msgstr ""
 
-#: src/tetrinet.c:1943
+#: src/tetrinet.c:1951
 msgid " have joined the game"
-msgstr ""
-
-#: src/tetrinet.c:1966
-#, c-format
-msgid "%s is on team %c%s"
-msgstr ""
-
-#: src/tetrinet.c:1969
-#, c-format
-msgid "%s is alone"
-msgstr ""
-
-#: src/tetrinet.c:1971
-#, c-format
-msgid "%s are on team %c%s"
 msgstr ""
 
 #: src/tetrinet.c:1974
 #, c-format
+msgid "%s is on team %c%s"
+msgstr ""
+
+#: src/tetrinet.c:1977
+#, c-format
+msgid "%s is alone"
+msgstr ""
+
+#: src/tetrinet.c:1979
+#, c-format
+msgid "%s are on team %c%s"
+msgstr ""
+
+#: src/tetrinet.c:1982
+#, c-format
 msgid "%s are alone"
 msgstr ""
 
-#: src/tetrinet.c:2015
+#: src/tetrinet.c:2023
 #, c-format
 msgid "%c*** %c%s%c%c is now on team %c%s"
 msgstr ""
 
-#: src/tetrinet.c:2022
+#: src/tetrinet.c:2030
 #, c-format
 msgid "%c*** %c%s%c%c is now alone"
 msgstr ""
 
-#. "T" stands for "Team" here
-#: src/winlist.c:57
+#: src/winlist.c:207
 msgid "T"
 msgstr ""
 
-#: src/winlist.c:61
+#: src/winlist.c:217
 msgid "Score"
 msgstr "得分"
 
-#: gtetrinet.desktop.in.h:1
-msgid "GTetrinet"
-msgstr "GTetrinet"
+#~ msgid "GTetrinet Home Page"
+#~ msgstr "GTetrinet 主页"
 
-#: gtetrinet.desktop.in.h:2
-msgid "Tetrinet client"
-msgstr ""
+#~ msgid "Enable _MIDI"
+#~ msgstr "启用 MIDI(_M)"
 
-#: gtetrinet.desktop.in.h:3
-msgid "Tetrinet client for GNOME"
-msgstr ""
+#~ msgid "Enter command to play a midi file:"
+#~ msgstr "输入播放 midi 文件的命令："
 
-#: gtetrinet.schemas.in.h:1
-msgid "Command to run to play midi files"
-msgstr ""
+#~ msgid "GTetrinet"
+#~ msgstr "GTetrinet"
 
-#: gtetrinet.schemas.in.h:2
-msgid "Enable/disable channel list."
-msgstr ""
+#~ msgid "Your nickname"
+#~ msgstr "您的昵称"
 
-#: gtetrinet.schemas.in.h:3
-msgid "Enable/disable midi music"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:4
-msgid "Enable/disable sound"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:5
-msgid "Enable/disable timestamps."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:6
-msgid ""
-"Enables/Disables sound. Keep in mind that the theme that you're using must "
-"provide sounds."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:7
-msgid ""
-"Enables/disables midi music. You'll need to enable sound if you want music "
-"to work."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:8
-msgid ""
-"Enables/disables the channel list. Disable it if you experience problems "
-"when connecting or while playing in your favorite tetrinet server."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:9
-msgid "Enables/disables timestamps in the partyline."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:10
-msgid "Key to discard special"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:11
-msgid "Key to drop piece"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:12
-msgid "Key to move down"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:13
-msgid "Key to move left"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:14
-msgid "Key to move right"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:15
-msgid "Key to open the fields' message dialog"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:16
-msgid "Key to rotate clockwise"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:17
-msgid "Key to rotate counterclockwise"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:18
-msgid "Key to use the current special on field 1"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:19
-msgid "Key to use the current special on field 2"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:20
-msgid "Key to use the current special on field 3"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:21
-msgid "Key to use the current special on field 4"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:22
-msgid "Key to use the current special on field 5"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:23
-msgid "Key to use the current special on field 6"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:24
-msgid "Server where you want to play"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:25
-msgid ""
-"The current theme directory. It should contain a readable \"blocks.png\" and "
-"a \"theme.cfg\"."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:26
-msgid "Theme directory, should end with a '/'"
-msgstr ""
-
-#: gtetrinet.schemas.in.h:27
-msgid ""
-"This command is run when a midi file is to be played. The name of the midi "
-"file is placed in the environment variable MIDIFILE."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:28
-msgid "This is the server where GTetrinet will try to connect."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:29
-msgid "This key discards the current special. This is case insensitive."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:30
-msgid "This key displays the fields' message dialog. This is case insensitive."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:31
-msgid "This key drops the block to the ground. This is case insensitive."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:32
-msgid "This key moves the block down. This is case insensitive."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:33
-msgid "This key moves the block to the left. This is case insensitive."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:34
-msgid "This key moves the block to the right. This is case insensitive."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:35
-msgid "This key rotates the block clockwise. This is case insensitive."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:36
-msgid "This key rotates the block counterclockwise. This is case insensitive."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:37
-msgid "This key uses the current special on Player 1's game field."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:38
-msgid "This key uses the current special on Player 2's game field."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:39
-msgid "This key uses the current special on Player 3's game field."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:40
-msgid "This key uses the current special on Player 4's game field."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:41
-msgid "This key uses the current special on Player 5's game field."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:42
-msgid "This key uses the current special on Player 6's game field."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:43
-msgid "This will be the name of your team."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:44
-msgid "This will be your nickname in the game."
-msgstr ""
-
-#: gtetrinet.schemas.in.h:45
-msgid "Your nickname"
-msgstr "您的昵称"
-
-#: gtetrinet.schemas.in.h:46
-msgid "Your team"
-msgstr "您的团队"
+#~ msgid "Your team"
+#~ msgstr "您的团队"
