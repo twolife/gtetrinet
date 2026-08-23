@@ -567,15 +567,15 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
     case IN_NEWGAME:
         {
             int i, j;
-            char bfreq[101], sfreq[101];
-            sscanf (data, "%d %d %d %d %d %d %d %100s %100s %d %d",
+            char bfreq[129], sfreq[129];
+            sscanf (data, "%d %d %d %d %d %d %d %128s %128s %d %d",
                     &initialstackheight, &initiallevel,
                     &linesperlevel, &levelinc, &speciallines,
                     &specialcount, &specialcapacity,
                     bfreq, sfreq, &levelaverage, &classicmode);
 
-            bfreq[100] = 0;
-            sfreq[100] = 0;
+            bfreq[128] = 0;
+            sfreq[128] = 0;
             
             /* initialstackheight == seems ok */
             /* initiallevel == seems ok */
