@@ -12,6 +12,11 @@
       <summary>Server where you want to play</summary>
       <description>This is the server where GTetrinet will try to connect.</description>
     </key>
+    <key name="serverlistserver" type="s">
+      <default>'https://servers.tetrinet.fr/servers.xml'</default>
+      <summary>URL to get the server list</summary>
+      <description>This is the URL where GTetrinet will try to download a list of available servers.</description>
+    </key>
     <key name="sound-enable" type="b">
       <default>false</default>
       <summary>Enable/disable sound</summary>

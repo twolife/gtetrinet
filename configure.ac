@@ -71,6 +71,20 @@ AS_IF([test "x$enable_detach" = "xyes"],
 
 AC_MSG_RESULT($enable_detach)
 
+
+AC_ARG_WITH([libsoup],[
+    AS_HELP_STRING([--with-libsoup], [Use libsoup3 for downloading a server list (default: auto)])
+    AS_HELP_STRING([--without-libsoup], [Disable downloading the server list])
+])
+AS_IF([test "x$with_libsoup" != "xno"],
+    [PKG_CHECK_MODULES([libsoup], [libsoup-3.0], [have_libsoup=yes], [have_libsoup=no])],
+    [have_libsoup=no]
+)
+AS_IF([test "x$have_libsoup" = "xyes"],
+	[AC_DEFINE([ENABLE_SERVERLIST], [1], [Define this to enable server-list downloading.])],
+    [AS_IF([test "x$with_libsoup" = "xyes"], [AC_MSG_ERROR([libsoup3 requested but not found])])]
+)
+
 # Generate files
 AC_CONFIG_FILES([
 Makefile
@@ -95,3 +109,4 @@ echo "   Compilation flags:                ${CFLAGS}"
 echo "   CPPFLAGS:                         ${CPPFLAGS}"
 echo "   msgfmt (required for make dist):  $found_msgfmt"
 echo "   Page detaching:                   $enable_detach"
+echo "   Server-list support:              $have_libsoup"

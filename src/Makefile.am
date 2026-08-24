@@ -2,7 +2,7 @@ SUBDIRS = images
 
 localedir = $(datadir)/locale
 
-gtetrinet_LDADD = $(glib_LIBS) $(gtk_LIBS)
+gtetrinet_LDADD = $(glib_LIBS) $(gtk_LIBS) $(libsoup_LIBS)
 
 AM_CPPFLAGS = \
 	-DGTETRINET_DATA=\"$(pkgdatadir)\"                      \
@@ -10,7 +10,7 @@ AM_CPPFLAGS = \
 	-DLOCALEDIR=\"$(localedir)\"                            \
 	-DPIXMAPSDIR=\""$(datadir)/pixmaps"\"                   \
 	-DGSETTINGSSCHEMADIR=\"$(gsettingsschemadir)\"          \
-	$(glib_CFLAGS) $(gtk_CFLAGS)
+	$(glib_CFLAGS) $(gtk_CFLAGS) $(libsoup_CFLAGS)
 
 bin_PROGRAMS = gtetrinet
 

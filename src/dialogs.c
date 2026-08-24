@@ -27,6 +27,10 @@
 #include <dirent.h>
 #include <stdlib.h>
 
+#ifdef ENABLE_SERVERLIST
+#include <libsoup/soup.h>
+#endif
+
 #include "gtetrinet.h"
 #include "gtet_config.h"
 #include "client.h"
@@ -314,6 +318,15 @@ static GtkWidget *serveraddressentry, *nicknameentry, *teamnameentry, *spectator
 static GtkWidget *passwordlabel, *teamnamelabel;
 static GtkWidget *originalradio, *tetrifastradio;
 
+static void connectdialog_destroy (void);
+
+#ifdef ENABLE_SERVERLIST
+static GtkWidget *serverlist_button, *serverlist_popover;
+static GtkStringList *serverlist_model;
+static SoupSession *serverlist_session;
+static GCancellable *serverlist_cancellable;
+#endif
+
 
 void connectdialog_button (GtkWindow *dialog, gint button)
 {
@@ -367,7 +380,7 @@ void connectdialog_button (GtkWindow *dialog, gint button)
         g_free (nick);
         break;
     case GTK_RESPONSE_CANCEL:
-        gtk_window_destroy (GTK_WINDOW (connectdialog));
+        connectdialog_destroy ();
         break;
     }
 }
@@ -402,11 +415,391 @@ void connectdialog_tetrifasttoggle (GtkWidget *widget)
     }
 }
 
+#ifdef ENABLE_SERVERLIST
+
+static gboolean
+serverlist_contains (const char *name)
+{
+    guint i, n;
+
+    if (name == NULL || *name == '\0' || serverlist_model == NULL)
+        return FALSE;
+
+    n = g_list_model_get_n_items (G_LIST_MODEL (serverlist_model));
+    for (i = 0; i < n; i++) {
+        const char *item = gtk_string_list_get_string (serverlist_model, i);
+
+        if (g_strcmp0 (item, name) == 0)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static void
+serverlist_add_unique (const char *name)
+{
+    if (name != NULL && *name != '\0' && !serverlist_contains (name))
+        gtk_string_list_append (serverlist_model, name);
+}
+
+static void
+serverlist_reset (void)
+{
+    const char *current;
+    guint n;
+
+    if (serverlist_model == NULL)
+        return;
+
+    n = g_list_model_get_n_items (G_LIST_MODEL (serverlist_model));
+    if (n != 0)
+        gtk_string_list_splice (serverlist_model, 0, n, NULL);
+
+    current = gtk_editable_get_text (GTK_EDITABLE (serveraddressentry));
+    serverlist_add_unique (current);
+    serverlist_add_unique ("tetrinet.fr");
+    serverlist_add_unique ("localhost");
+}
+
+static void
+serverlist_factory_setup (GtkSignalListItemFactory *factory G_GNUC_UNUSED,
+                          GtkListItem *list_item,
+                          gpointer data G_GNUC_UNUSED)
+{
+    GtkWidget *label = gtk_label_new (NULL);
+
+    gtk_label_set_xalign (GTK_LABEL (label), 0.0f);
+    gtk_widget_set_margin_start (label, GTET_PAD_SMALL);
+    gtk_widget_set_margin_end (label, GTET_PAD_SMALL);
+    gtk_widget_set_margin_top (label, 2);
+    gtk_widget_set_margin_bottom (label, 2);
+    gtk_list_item_set_child (list_item, label);
+}
+
+static void
+serverlist_factory_bind (GtkSignalListItemFactory *factory G_GNUC_UNUSED,
+                         GtkListItem *list_item,
+                         gpointer data G_GNUC_UNUSED)
+{
+    GtkStringObject *item = GTK_STRING_OBJECT (gtk_list_item_get_item (list_item));
+    GtkWidget *label = gtk_list_item_get_child (list_item);
+
+    gtk_label_set_text (GTK_LABEL (label), gtk_string_object_get_string (item));
+}
+
+static void
+serverlist_activated (GtkListView *view G_GNUC_UNUSED,
+                      guint position,
+                      gpointer data G_GNUC_UNUSED)
+{
+    const char *server_name;
+
+    if (serverlist_model == NULL)
+        return;
+
+    server_name = gtk_string_list_get_string (serverlist_model, position);
+    if (server_name == NULL)
+        return;
+
+    gtk_editable_set_text (GTK_EDITABLE (serveraddressentry), server_name);
+    gtk_editable_set_position (GTK_EDITABLE (serveraddressentry), -1);
+
+    if (serverlist_popover != NULL)
+        gtk_popover_popdown (GTK_POPOVER (serverlist_popover));
+}
+
+static void
+serverlist_xmlparse_open_tag (GMarkupParseContext *context G_GNUC_UNUSED,
+                              const gchar *element_name,
+                              const gchar **attribute_names,
+                              const gchar **attribute_values,
+                              gpointer user_data G_GNUC_UNUSED,
+                              GError **error G_GNUC_UNUSED)
+{
+    guint i;
+
+    if (g_strcmp0 (element_name, "server") != 0)
+        return;
+
+    for (i = 0; attribute_names[i] != NULL; i++) {
+        if (g_strcmp0 (attribute_names[i], "name") == 0) {
+            serverlist_add_unique (attribute_values[i]);
+            break;
+        }
+    }
+}
+
+static void
+serverlist_xmlparse_error (GMarkupParseContext *context G_GNUC_UNUSED,
+                           GError *error,
+                           gpointer user_data G_GNUC_UNUSED)
+{
+    g_warning ("Error parsing server list XML: %s", error->message);
+}
+
+static const GMarkupParser serverlist_xmlparser = {
+    .start_element = serverlist_xmlparse_open_tag,
+    .error = serverlist_xmlparse_error
+};
+
+static void
+connectdialog_receivelist (GObject *source_object,
+                           GAsyncResult *result,
+                           gpointer user_data)
+{
+    SoupSession *session = SOUP_SESSION (source_object);
+    SoupMessage *message = SOUP_MESSAGE (user_data);
+    GBytes *body;
+    GError *error = NULL;
+    guint status;
+
+    body = soup_session_send_and_read_finish (session, result, &error);
+
+    if (serverlist_button != NULL)
+        gtk_widget_set_sensitive (serverlist_button, TRUE);
+
+    if (error != NULL) {
+        if (!g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
+            gchar *msg = g_strdup_printf (_("Could not download the server list:\n%s"),
+                                          error->message);
+            if (connectdialog != NULL)
+                gtet_show_error (GTK_WINDOW (connectdialog), msg);
+            g_free (msg);
+        }
+
+        g_clear_error (&error);
+        g_object_unref (message);
+        return;
+    }
+
+    status = soup_message_get_status (message);
+    if (!SOUP_STATUS_IS_SUCCESSFUL (status)) {
+        gchar *uri = g_uri_to_string (soup_message_get_uri (message));
+        gchar *msg = g_strdup_printf (_("Could not download the server list from %s "
+                                        "(HTTP %u: %s)."),
+                                      uri, status, soup_status_get_phrase (status));
+
+        if (connectdialog != NULL)
+            gtet_show_error (GTK_WINDOW (connectdialog), msg);
+
+        g_free (msg);
+        g_free (uri);
+        g_bytes_unref (body);
+        g_object_unref (message);
+        return;
+    }
+
+    if (connectdialog != NULL && serverlist_model != NULL) {
+        GMarkupParseContext *ctx;
+        gconstpointer data;
+        gsize length;
+
+        serverlist_reset ();
+
+        data = g_bytes_get_data (body, &length);
+        ctx = g_markup_parse_context_new (&serverlist_xmlparser, 0, NULL, NULL);
+
+        if (g_markup_parse_context_parse (ctx, data, length, &error))
+            g_markup_parse_context_end_parse (ctx, &error);
+
+        if (error != NULL) {
+            gchar *msg = g_strdup_printf (_("Could not parse the server list:\n%s"),
+                                          error->message);
+            gtet_show_error (GTK_WINDOW (connectdialog), msg);
+            g_free (msg);
+            g_clear_error (&error);
+        } else if (serverlist_popover != NULL) {
+            gtk_popover_popup (GTK_POPOVER (serverlist_popover));
+        }
+
+        g_markup_parse_context_free (ctx);
+    }
+
+    g_bytes_unref (body);
+    g_object_unref (message);
+}
+
+static void
+connectdialog_getlist (GtkButton *button G_GNUC_UNUSED,
+                       gpointer data G_GNUC_UNUSED)
+{
+    gchar *url;
+    GUri *uri;
+    GError *error = NULL;
+    SoupMessage *message;
+
+    url = g_settings_get_string (settings, "serverlistserver");
+    uri = g_uri_parse (url, G_URI_FLAGS_NONE, &error);
+
+    if (uri == NULL || g_uri_get_scheme (uri) == NULL || g_uri_get_host (uri) == NULL) {
+        gchar *msg = g_strdup_printf (_("Invalid server-list URL in settings:\n%s"), url);
+
+        gtet_show_error (GTK_WINDOW (connectdialog), msg);
+        g_free (msg);
+        g_clear_error (&error);
+        if (uri != NULL)
+            g_uri_unref (uri);
+        g_free (url);
+        return;
+    }
+
+    message = soup_message_new ("GET", url);
+    if (message == NULL) {
+        gchar *msg = g_strdup_printf (_("Could not create a request for:\n%s"), url);
+
+        gtet_show_error (GTK_WINDOW (connectdialog), msg);
+        g_free (msg);
+        g_uri_unref (uri);
+        g_free (url);
+        return;
+    }
+
+    if (serverlist_cancellable != NULL) {
+        g_cancellable_cancel (serverlist_cancellable);
+        g_clear_object (&serverlist_cancellable);
+    }
+
+    serverlist_cancellable = g_cancellable_new ();
+    gtk_widget_set_sensitive (serverlist_button, FALSE);
+
+    soup_session_send_and_read_async (serverlist_session,
+                                      message,
+                                      G_PRIORITY_DEFAULT,
+                                      serverlist_cancellable,
+                                      connectdialog_receivelist,
+                                      g_object_ref (message));
+
+    g_object_unref (message);
+    g_uri_unref (uri);
+    g_free (url);
+}
+
+static void
+serverlist_setup_widgets (GtkWidget *parent_box)
+{
+    GtkListItemFactory *factory;
+    GtkSelectionModel *selection;
+    GtkWidget *list, *scroll;
+    gchar *url;
+    GUri *uri = NULL;
+    GError *error = NULL;
+    const char *host = NULL;
+    gchar *label;
+
+    serverlist_model = gtk_string_list_new (NULL);
+    serverlist_reset ();
+
+    selection = GTK_SELECTION_MODEL (
+        gtk_single_selection_new (G_LIST_MODEL (g_object_ref (serverlist_model))));
+
+    factory = gtk_signal_list_item_factory_new ();
+    g_signal_connect (factory, "setup",
+                      G_CALLBACK (serverlist_factory_setup), NULL);
+    g_signal_connect (factory, "bind",
+                      G_CALLBACK (serverlist_factory_bind), NULL);
+
+    list = gtk_list_view_new (selection, factory);
+    g_signal_connect (list, "activate",
+                      G_CALLBACK (serverlist_activated), NULL);
+
+    scroll = gtk_scrolled_window_new ();
+    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll),
+                                    GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+    gtk_widget_set_size_request (scroll, 260, 220);
+    gtk_scrolled_window_set_child (GTK_SCROLLED_WINDOW (scroll), list);
+
+    serverlist_popover = gtk_popover_new ();
+    gtk_popover_set_child (GTK_POPOVER (serverlist_popover), scroll);
+
+    url = g_settings_get_string (settings, "serverlistserver");
+    uri = g_uri_parse (url, G_URI_FLAGS_NONE, &error);
+    if (uri != NULL)
+        host = g_uri_get_host (uri);
+
+    if (host != NULL)
+        label = g_strdup_printf (_("_Get server list from %s"), host);
+    else
+        label = g_strdup (_("_Get server list"));
+
+    serverlist_button = gtk_button_new_with_mnemonic (label);
+    gtk_box_append (GTK_BOX (parent_box), serverlist_button);
+    gtk_widget_set_parent (serverlist_popover, serverlist_button);
+    g_signal_connect (serverlist_button, "clicked",
+                      G_CALLBACK (connectdialog_getlist), NULL);
+
+    g_free (label);
+    g_clear_error (&error);
+    if (uri != NULL)
+        g_uri_unref (uri);
+    g_free (url);
+
+    serverlist_session = soup_session_new ();
+    g_object_set (serverlist_session,
+                  "timeout", 60u,
+                  "user-agent", PACKAGE_NAME "/" PACKAGE_VERSION,
+                  NULL);
+}
+
+static void
+serverlist_cleanup (void)
+{
+    if (serverlist_cancellable != NULL)
+        g_cancellable_cancel (serverlist_cancellable);
+
+    g_clear_object (&serverlist_cancellable);
+    g_clear_object (&serverlist_session);
+    g_clear_object (&serverlist_model);
+
+    serverlist_button = NULL;
+    serverlist_popover = NULL;
+}
+
+static void serverlist_detach_popover ()
+{
+    if (serverlist_popover != NULL &&
+        gtk_widget_get_parent (serverlist_popover) != NULL)
+    {
+        gtk_popover_popdown (GTK_POPOVER (serverlist_popover));
+        gtk_widget_unparent (serverlist_popover);
+    }
+
+    serverlist_popover = NULL;
+}
+#endif /* ENABLE_SERVERLIST */
+
+static void
+connectdialog_destroy (void)
+{
+    if (connectdialog == NULL)
+        return;
+
+#ifdef ENABLE_SERVERLIST
+    serverlist_detach_popover ();
+#endif
+
+    gtk_window_destroy (GTK_WINDOW (connectdialog));
+}
+
+static gboolean
+connectdialog_close_request (GtkWindow *window G_GNUC_UNUSED,
+                             gpointer data G_GNUC_UNUSED)
+{
+#ifdef ENABLE_SERVERLIST
+    /*
+     * The popover is manually parented to serverlist_button, so detach it
+     * while the widget hierarchy is still alive.  Returning FALSE lets GTK
+     * continue with the normal window close afterwards.
+     */
+    serverlist_detach_popover ();
+#endif
+
+    return FALSE;
+}
+
 void connectdialog_connected (void)
 {
-    if (connectdialog != NULL) {
-        gtk_window_destroy (GTK_WINDOW (connectdialog));
-    }
+    connectdialog_destroy ();
 }
 
 static void
@@ -414,6 +807,10 @@ connectdialog_destroyed (GtkWidget *widget, gpointer data)
 {
     (void)widget;
     (void)data;
+
+#ifdef ENABLE_SERVERLIST
+    serverlist_cleanup ();
+#endif
 
     connectdialog = NULL;
     connecting = FALSE;
@@ -459,6 +856,8 @@ void connectdialog_new (void)
                       G_CALLBACK (connectdialog_cancel_clicked), connectdialog);
     g_signal_connect (ok, "clicked",
                       G_CALLBACK (connectdialog_ok_clicked), connectdialog);
+    g_signal_connect (connectdialog, "close-request",
+                      G_CALLBACK (connectdialog_close_request), NULL);
     g_signal_connect (connectdialog, "destroy",
                       G_CALLBACK (connectdialog_destroyed), NULL);
     /* main table */
@@ -495,6 +894,9 @@ void connectdialog_new (void)
     widget = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, GTET_PAD_SMALL);
     gtk_box_append (GTK_BOX (widget), originalradio);
     gtk_box_append (GTK_BOX (widget), tetrifastradio);
+#ifdef ENABLE_SERVERLIST
+    serverlist_setup_widgets (widget);
+#endif
     gtk_widget_set_visible (widget, TRUE);
     gtk_table_attach (GTK_TABLE(table2), widget,
                       0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
