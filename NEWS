@@ -1,3 +1,7 @@
+GTetrinet 0.8.0 - 2026-08-26
+- The "almost 20 years later" release
+- GTK+ 3 port completed
+
 GTetrinet 0.7.11 - 2006-11-15
 - Fix a long-standing hang/crash when executing GTetrinet for
   the first time (Loïc Minier, #114425).
