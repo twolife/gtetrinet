@@ -1817,6 +1817,11 @@ notfieldkey:
         tetris_drawcurrentblock ();
         return TRUE;
     }
+    else if (gdk_keyval_to_lower (keyval) == keys[K_SPECIAL_SELF]) {
+        tetrinet_specialkey(playernum);
+        tetris_drawcurrentblock ();
+        return TRUE;
+    }
     tetris_drawcurrentblock ();
     return FALSE;
 }

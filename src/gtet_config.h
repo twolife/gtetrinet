@@ -33,6 +33,7 @@ typedef enum
   K_SPECIAL4,
   K_SPECIAL5,
   K_SPECIAL6,
+  K_SPECIAL_SELF,
 /* not a key but the number of configurable keys */
   K_NUM
 } GTetrinetKeys;

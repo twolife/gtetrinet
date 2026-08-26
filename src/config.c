@@ -70,7 +70,8 @@ guint defaultkeys[K_NUM] = {
     GDK_KEY_3,
     GDK_KEY_4,
     GDK_KEY_5,
-    GDK_KEY_6
+    GDK_KEY_6,
+    GDK_KEY_s
 };
 
 guint keys[K_NUM];
@@ -407,5 +408,14 @@ void config_loadconfig_keys (void)
     }
     else
       keys[K_SPECIAL6] = defaultkeys[K_SPECIAL6];
+
+    p = g_settings_get_string (settings_keys, "special-self");
+    if (p)
+    {
+      keys[K_SPECIAL_SELF] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_SPECIAL_SELF] = defaultkeys[K_SPECIAL_SELF];
 }
 

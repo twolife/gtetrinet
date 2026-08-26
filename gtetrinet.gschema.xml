@@ -116,5 +116,10 @@
       <summary>Key to use the current special on field 6</summary>
       <description>This key uses the current special on Player 6's game field.</description>
     </key>
+    <key name="special-self" type="s">
+      <default>'s'</default>
+      <summary>Key to use the current special to self</summary>
+      <description>This key uses the current special on self.</description>
+    </key>
   </schema>
 </schemalist>

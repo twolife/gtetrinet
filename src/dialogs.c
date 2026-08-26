@@ -549,6 +549,7 @@ void prefdialog_drawkeys (void)
     actions[K_SPECIAL4] = ("Special to field 4");
     actions[K_SPECIAL5] = ("Special to field 5");
     actions[K_SPECIAL6] = ("Special to field 6");
+    actions[K_SPECIAL_SELF] = ("Special to self");
   
     gconf_keys[K_RIGHT]    = g_strdup ("right");
     gconf_keys[K_LEFT]     = g_strdup ("left");
@@ -564,6 +565,7 @@ void prefdialog_drawkeys (void)
     gconf_keys[K_SPECIAL4] = g_strdup ("special4");
     gconf_keys[K_SPECIAL5] = g_strdup ("special5");
     gconf_keys[K_SPECIAL6] = g_strdup ("special6");
+    gconf_keys[K_SPECIAL_SELF] = g_strdup ("special-self");
 
     for (i = 0; i < K_NUM; i ++) {
         gtk_list_store_append (keys_store, &iter);
