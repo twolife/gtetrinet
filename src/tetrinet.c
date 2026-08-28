@@ -686,7 +686,7 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
     case IN_F:
         {
             int pnum;
-            char *p, *s;
+            char *p, *s, *end;
             s = strtok (data, " ");
             if (s == NULL) break;
             pnum = atoi (s);
@@ -697,7 +697,8 @@ void tetrinet_inmessage (enum inmsg_type msgtype, char *data)
             if (*s >= '0') {
                 /* setting entire field */
                 p = (char *)fields[pnum];
-                for (; *s; s ++, p ++)
+                end = p + sizeof(fields[pnum]);
+                for (; *s && p < end; s ++, p ++)
                     *p = translateblock (*s);
             }
             else {
